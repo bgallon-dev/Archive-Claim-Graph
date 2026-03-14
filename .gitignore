@@ -1,10 +1,11 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+build/
+dist/
 out/
 *.egg-info/
 .env
-.env.example
 input/
 out/
 csv_out

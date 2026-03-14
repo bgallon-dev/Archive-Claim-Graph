@@ -1,0 +1,41 @@
+version: "1"
+# Maps unit words (as they appear after a number) to (measurement_name, unit_string).
+# Used by range extraction (_classify_range_right) to route matched unit words.
+# Both singular and plural forms are listed for direct lookup without stemming.
+units:
+  acre:
+    name: acres
+    unit: acres
+  acres:
+    name: acres
+    unit: acres
+  inch:
+    name: rainfall
+    unit: inches
+  inches:
+    name: rainfall
+    unit: inches
+  day:
+    name: days_above_threshold
+    unit: days
+  days:
+    name: days_above_threshold
+    unit: days
+  ton:
+    name: hay_cut
+    unit: tons
+  tons:
+    name: hay_cut
+    unit: tons
+  cord:
+    name: wood_killed_cords
+    unit: cords
+  cords:
+    name: wood_killed_cords
+    unit: cords
+  covy:
+    name: coveys_count
+    unit: coveys
+  covies:
+    name: coveys_count
+    unit: coveys

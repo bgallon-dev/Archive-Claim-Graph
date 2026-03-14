@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "title": "Narrative Report -- Turnbull Refuge -- July 16 to Oct. 31, 1938",
+    "doc_type": "narrative_report",
+    "series": "Turnbull Refuge Narrative Reports",
+    "date_start": "1938-07-16",
+    "date_end": "1938-10-31",
+    "report_year": 1938,
+    "archive_ref": "TBL_1938a_NarrativeReport",
+    "language": "en"
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "ocr_confidence": 0.93,
+      "raw_text": "1. General\n31 days with temperatures of 90 degrees or above. Only .55 inches of rain fell.\nAll water places dried up during August except Highbridge Pothole and Pine Creek.\n\nA fire on July 16 burned 100 acres and killed about 100 cords of wood, with suppression cost of $52.50.\nAnother fire on Sept. 4 burned 80 acres with suppression cost of $7.00.",
+      "annotations": [
+        {
+          "kind": "stamp",
+          "text": "Turnbull Refuge Archive",
+          "bbox": [12.0, 22.5, 144.0, 36.0]
+        }
+      ]
+    },
+    {
+      "page_number": 2,
+      "ocr_confidence": 0.95,
+      "raw_text": "2. Wildlife\nApproximately 900 mallards were reared to maturity and 100 green-wing teal were reared.\n500 coot were reared and about 3000 mallards came into the refuge during hunting season.\n700 Canada geese came into Turnbull Refuge.\n\n3. Economic uses\nNo grazing allowed this year. Haying by 6 farmers under permits produced 173.5 tons on 175 acres and revenue of $347.00."
+    }
+  ]
+}

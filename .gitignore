@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+out/
+*.egg-info/
+.env
+.env.example
+input/
+out/
+csv_out
+plan/
+.claude/
+RUNBOOK.md

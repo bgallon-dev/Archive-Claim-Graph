@@ -1,0 +1,56 @@
+version: "1"
+# Scoring patterns for claim type detection.
+# Patterns are applied with re.IGNORECASE. Weight controls how strongly a match
+# pushes the score toward a given claim_type. Higher weight = stronger signal.
+patterns:
+  - claim_type: predator_control
+    regex: '\b(coyote|predator|trapp?ed|taken)\b'
+    weight: 1.5
+
+  - claim_type: fire_incident
+    regex: '\b(fire|burned|burnt|suppression)\b'
+    weight: 1.4
+
+  - claim_type: weather_observation
+    regex: '\b(temperature|rain|degrees|weather|dried up)\b'
+    weight: 1.3
+
+  - claim_type: economic_use
+    regex: '\b(hay|haying|grazing|revenue|permit|farmers?)\b'
+    weight: 1.2
+
+  - claim_type: development_activity
+    regex: '\b(wpa|development|construction|project started|planting)\b'
+    weight: 1.2
+
+  - claim_type: public_contact
+    regex: '\b(meeting|contacts?|club|council|association|public relations)\b'
+    weight: 1.2
+
+  - claim_type: breeding_activity
+    regex: '\b(nest(?:ing|ed)?|brood|reared|hatched|fledged)\b'
+    weight: 1.4
+
+  - claim_type: migration_timing
+    regex: '\b(migrat(?:e|ion|ing|ed)|came into|arrived|departed|flight)\b'
+    weight: 1.3
+
+  - claim_type: species_absence
+    regex: '\b(absent|disappeared|none observed|no\s+\w+\s+seen)\b'
+    weight: 1.5
+
+  - claim_type: habitat_condition
+    regex: '\b(habitat|marsh|wetland|water level|dried|flooded)\b'
+    weight: 1.1
+
+  - claim_type: species_presence
+    regex: '\b(observed|sighted|present|seen|spotted)\b'
+    weight: 1.0
+
+  - claim_type: population_estimate
+    regex: '\b(mallard|teal|coot|goose|pheasant|quail|partridge|grouse|deer|coyote|geese|duck)\b'
+    weight: 0.9
+
+  - claim_type: management_action
+    regex: '\b(allowed|restricted|started|managed|control|planted)\b'
+    weight: 0.8

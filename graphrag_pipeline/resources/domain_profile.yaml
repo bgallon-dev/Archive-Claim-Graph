@@ -1,0 +1,12 @@
+version: "1"
+domain: turnbull_refuge_archive
+description: >
+  Historical wildlife refuge annual reports, Turnbull National Wildlife
+  Refuge, eastern Washington, 1930s-1970s.
+resources:
+  seed_entities: seed_entities.csv
+  claim_type_patterns: claim_type_patterns.yaml
+  claim_role_policy: claim_role_policy.yaml
+  measurement_units: measurement_units.yaml
+  measurement_species: measurement_species.yaml
+  ocr_corrections: ocr_corrections.yaml

@@ -1,0 +1,152 @@
+version: "1"
+# Compatibility matrix: claim_type × relation_type → "strong" | "weak" | "forbidden"
+#
+# strong   — freely allowed; no penalty
+# weak     — allowed but penalised (confidence −0.10) and flagged with RELATION_COMPATIBILITY_WEAK
+# forbidden — blocked; generates RELATION_COMPATIBILITY_FORBIDDEN diagnostic; link is dropped
+#
+# Unlisted (claim_type, relation_type) pairs default to "weak".
+compatibility:
+  population_estimate:
+    SPECIES_FOCUS: strong
+    METHOD_FOCUS: strong
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: weak
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  species_presence:
+    SPECIES_FOCUS: strong
+    METHOD_FOCUS: strong
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: strong
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  species_absence:
+    SPECIES_FOCUS: strong
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: strong
+    METHOD_FOCUS: strong
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  breeding_activity:
+    SPECIES_FOCUS: strong
+    HABITAT_FOCUS: strong
+    LOCATION_FOCUS: strong
+    METHOD_FOCUS: strong
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  migration_timing:
+    SPECIES_FOCUS: strong
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: strong
+    METHOD_FOCUS: strong
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  habitat_condition:
+    HABITAT_FOCUS: strong
+    LOCATION_FOCUS: strong
+    SPECIES_FOCUS: weak
+    METHOD_FOCUS: forbidden
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  weather_observation:
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: strong
+    SPECIES_FOCUS: weak
+    METHOD_FOCUS: forbidden
+    MANAGEMENT_TARGET: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  management_action:
+    MANAGEMENT_TARGET: strong
+    SPECIES_FOCUS: strong
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: strong
+    METHOD_FOCUS: weak
+    SUBJECT_OF_CLAIM: strong
+    TOPIC_OF_CLAIM: weak
+
+  predator_control:
+    MANAGEMENT_TARGET: strong
+    SPECIES_FOCUS: strong
+    LOCATION_FOCUS: weak
+    HABITAT_FOCUS: weak
+    METHOD_FOCUS: weak
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  fire_incident:
+    LOCATION_FOCUS: strong
+    HABITAT_FOCUS: strong
+    MANAGEMENT_TARGET: strong
+    SPECIES_FOCUS: weak
+    METHOD_FOCUS: forbidden
+    SUBJECT_OF_CLAIM: forbidden
+    TOPIC_OF_CLAIM: forbidden
+
+  economic_use:
+    MANAGEMENT_TARGET: strong
+    LOCATION_FOCUS: weak
+    SPECIES_FOCUS: weak
+    SUBJECT_OF_CLAIM: weak
+    TOPIC_OF_CLAIM: weak
+    HABITAT_FOCUS: weak
+    METHOD_FOCUS: forbidden
+
+  development_activity:
+    MANAGEMENT_TARGET: strong
+    LOCATION_FOCUS: strong
+    SUBJECT_OF_CLAIM: strong
+    HABITAT_FOCUS: weak
+    SPECIES_FOCUS: weak
+    METHOD_FOCUS: forbidden
+    TOPIC_OF_CLAIM: weak
+
+  public_contact:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_FOCUS: weak
+    TOPIC_OF_CLAIM: weak
+    SPECIES_FOCUS: forbidden
+    METHOD_FOCUS: forbidden
+    HABITAT_FOCUS: forbidden
+    MANAGEMENT_TARGET: forbidden
+
+  unclassified_assertion:
+    SPECIES_FOCUS: weak
+    HABITAT_FOCUS: weak
+    METHOD_FOCUS: weak
+    MANAGEMENT_TARGET: weak
+    LOCATION_FOCUS: weak
+    SUBJECT_OF_CLAIM: weak
+    TOPIC_OF_CLAIM: weak
+
+# Preferred entity types per claim type — used to rank candidates when multiple span
+# matches exist.  Types earlier in the list are preferred.  Missing claim types → no preference.
+preferred_entity_types:
+  population_estimate:   [Species, SurveyMethod, Place, Refuge]
+  species_presence:      [Species, Habitat, Place, Refuge]
+  species_absence:       [Species, Habitat, Place, Refuge]
+  breeding_activity:     [Species, Habitat, Place, Refuge]
+  migration_timing:      [Species, Place, Refuge, Habitat]
+  habitat_condition:     [Habitat, Place, Refuge, Species]
+  weather_observation:   [Place, Refuge, Habitat]
+  management_action:     [Species, Activity, Place, Refuge, Organization]
+  predator_control:      [Species, Activity]
+  fire_incident:         [Place, Refuge, Habitat, Activity]
+  economic_use:          [Activity, Place, Refuge, Species]
+  development_activity:  [Activity, Place, Refuge, Organization]
+  public_contact:        [Person, Organization, Place, Refuge]
+  unclassified_assertion: []

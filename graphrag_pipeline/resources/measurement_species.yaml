@@ -1,0 +1,67 @@
+version: "1"
+# Species vocabulary for measurement extraction.
+#
+# type_hints: maps surface.lower().rstrip("s") -> semantic category.
+#   Used to populate target_entity_type_hint on MeasurementDraft.
+#   Keys must cover all forms produced by rstrip("s") on matched surfaces,
+#   including irregular plurals (goose/geese) and -es forms (fox/foxe).
+#
+# immediate_patterns: regex fragments joined with | to build _immediate_species_re.
+#   This regex matches species nouns immediately right of a number.
+#   Also used to build _individual_context (wide window species check).
+
+type_hints:
+  mallard: waterfowl
+  teal: waterfowl
+  coot: waterfowl
+  geese: waterfowl
+  goose: waterfowl
+  duck: waterfowl
+  bird: waterfowl
+  crane: waterfowl
+  pheasant: upland_game
+  quail: upland_game
+  partridge: upland_game
+  grouse: upland_game
+  deer: ungulate
+  elk: ungulate
+  coyote: predator
+  fox: predator
+  foxe: predator       # matches "foxes".rstrip("s")
+  skunk: predator
+  raccoon: predator
+  weasel: predator
+  mink: predator
+  badger: predator
+  rabbit: small_game
+  muskrat: furbearing
+  nest: breeding
+  pair: breeding
+  individual: generic_count
+
+immediate_patterns:
+  - "mallards?"
+  - "teal"
+  - "coots?"
+  - "geese?|goose"
+  - "pheasants?"
+  - "quail"
+  - "partridges?"
+  - "grouse"
+  - "deer"
+  - "coyotes?"
+  - "ducks?"
+  - "birds?"
+  - "elk"
+  - "cranes?"
+  - "nests?"
+  - "pairs?"
+  - "individuals?"
+  - "rabbits?"
+  - "muskrats?"
+  - "foxes?|fox"
+  - "raccoons?"
+  - "skunks?"
+  - "badgers?"
+  - "weasels?"
+  - "minks?"

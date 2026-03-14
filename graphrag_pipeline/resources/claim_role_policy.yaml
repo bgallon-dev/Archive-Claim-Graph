@@ -1,0 +1,176 @@
+version: "1"
+# Maps (claim_type, entity_type) pairs to a relation_type for claim entity links.
+# Missing entries fall back to the default relation for that entity_type in the extractor.
+policy:
+  # Species roles
+  - claim_type: predator_control
+    entity_type: Species
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: management_action
+    entity_type: Species
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: breeding_activity
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: migration_timing
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: species_presence
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: species_absence
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: population_estimate
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: habitat_condition
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: economic_use
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: fire_incident
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: weather_observation
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: development_activity
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  - claim_type: public_contact
+    entity_type: Species
+    relation_type: SPECIES_FOCUS
+
+  # Habitat roles
+  - claim_type: habitat_condition
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: species_presence
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: species_absence
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: breeding_activity
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: migration_timing
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: population_estimate
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: weather_observation
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: management_action
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: predator_control
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: fire_incident
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: economic_use
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: development_activity
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  - claim_type: public_contact
+    entity_type: Habitat
+    relation_type: HABITAT_FOCUS
+
+  # SurveyMethod roles
+  - claim_type: population_estimate
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  - claim_type: species_presence
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  - claim_type: species_absence
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  - claim_type: breeding_activity
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  - claim_type: migration_timing
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  - claim_type: predator_control
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  - claim_type: management_action
+    entity_type: SurveyMethod
+    relation_type: METHOD_FOCUS
+
+  # Activity roles
+  - claim_type: predator_control
+    entity_type: Activity
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: management_action
+    entity_type: Activity
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: economic_use
+    entity_type: Activity
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: development_activity
+    entity_type: Activity
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: public_contact
+    entity_type: Activity
+    relation_type: MANAGEMENT_TARGET
+
+  - claim_type: fire_incident
+    entity_type: Activity
+    relation_type: MANAGEMENT_TARGET
+
+  # Organization roles
+  - claim_type: public_contact
+    entity_type: Organization
+    relation_type: SUBJECT_OF_CLAIM
+
+  - claim_type: management_action
+    entity_type: Organization
+    relation_type: SUBJECT_OF_CLAIM
+
+  - claim_type: development_activity
+    entity_type: Organization
+    relation_type: SUBJECT_OF_CLAIM

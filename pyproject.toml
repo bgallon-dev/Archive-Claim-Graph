@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "graphrag-pipeline"
+version = "0.1.0"
+description = "Claim-centric narrative report extraction and Neo4j graph pipeline."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Codex" }
+]
+dependencies = ["pyyaml>=6.0"]
+
+[project.optional-dependencies]
+neo4j = ["neo4j>=5.20.0"]
+dev = ["pytest>=8.0.0"]
+tools = [
+    "pymupdf>=1.24",
+    "pytesseract>=0.3",
+    "anthropic>=0.25",
+]
+
+[project.scripts]
+graphrag = "graphrag_pipeline.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+addopts = "-q"
+
+[tool.setuptools]
+packages = ["graphrag_pipeline", "graphrag_pipeline.extractors", "graphrag_pipeline.graph", "graphrag_pipeline.queries"]
+
+[tool.setuptools.package-data]
+"graphrag_pipeline" = ["resources/*.yaml", "resources/*.csv"]

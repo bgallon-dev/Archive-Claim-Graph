@@ -1,0 +1,58 @@
+entity_type,name,prop_key,prop_value
+Refuge,Turnbull Refuge,refuge_id,turnbull_refuge
+Place,Pine Creek,place_type,creek
+Place,Ice Lake,place_type,lake
+Place,Highbridge Pothole,place_type,pond
+Place,Cheney,place_type,city
+Place,Spokane County,place_type,county
+Person,John D. Connors,role,refuge_manager
+Person,John Finley,role,official
+Person,Theo Sheffer,role,official
+Person,Hunter Engman,role,governor
+Organization,Spokane County Sportsmens Assn,org_type,association
+Organization,State Sport Council,org_type,council
+Organization,Spokane Bird Club,org_type,club
+Organization,WPA,org_type,government
+Species,mallard,taxon_group,bird
+Species,green-wing teal,taxon_group,bird
+Species,coot,taxon_group,bird
+Species,Canada goose,taxon_group,bird
+Species,Chinese pheasant,taxon_group,bird
+Species,Valley quail,taxon_group,bird
+Species,Hungarian partridge,taxon_group,bird
+Species,ruffed grouse,taxon_group,bird
+Species,white-tailed deer,taxon_group,mammal
+Species,coyote,taxon_group,mammal
+Activity,grazing restriction,activity_type,grazing_restriction
+Activity,haying,activity_type,haying
+Activity,wildfire suppression,activity_type,wildfire_suppression
+Activity,predator control,activity_type,predator_control
+Activity,wild celery planting,activity_type,planting
+Activity,public relations contact,activity_type,public_relations_contact
+Activity,grazing,activity_type,grazing
+Activity,suppression,activity_type,suppression
+Activity,public relations,activity_type,public_relations
+Activity,planting,activity_type,planting
+Habitat,pothole wetland,habitat_type,wetland
+Habitat,pine forest,habitat_type,forest
+Habitat,grassland,habitat_type,grassland
+Habitat,marsh,habitat_type,wetland
+Habitat,riparian,habitat_type,riparian
+Habitat,sagebrush steppe,habitat_type,steppe
+SurveyMethod,aerial survey,method_class,remote
+SurveyMethod,ground count,method_class,direct
+SurveyMethod,nest survey,method_class,direct
+SurveyMethod,trap survey,method_class,capture
+SurveyMethod,banding,method_class,capture
+SurveyMethod,aerial count,method_class,remote
+SurveyMethod,roadside count,method_class,direct
+SurveyMethod,call survey,method_class,direct
+SurveyMethod,spotlight survey,method_class,direct
+SurveyMethod,water count,method_class,direct
+SurveyMethod,brood survey,method_class,direct
+SurveyMethod,live trapping,method_class,capture
+SurveyMethod,breeding survey,method_class,direct
+SurveyMethod,population census,method_class,direct
+SurveyMethod,harvest count,method_class,harvest
+SurveyMethod,pellet survey,method_class,indirect
+SurveyMethod,track count,method_class,indirect

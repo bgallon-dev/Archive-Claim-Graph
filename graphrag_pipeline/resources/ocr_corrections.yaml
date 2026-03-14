@@ -1,0 +1,10 @@
+version: "1"
+# Known OCR error tokens for this corpus.
+# Normalized (lowercased) surface forms that are likely OCR misreads.
+# Used by RuleBasedMentionExtractor to flag suspect mentions and bypass
+# the sentence-initial guard when a fuzzy seed-term match exists.
+known_errors:
+  - tumbull       # Turnbull misread
+  - lightening    # lightning misread
+  - emgman        # Engman misread
+  - turnbuli      # Turnbull misread (terminal i for l)

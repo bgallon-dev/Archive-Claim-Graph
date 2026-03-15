@@ -8,6 +8,7 @@ Python implementation of a claim-centered ingestion and graph loading pipeline f
 - Semantic extraction into `Claim/Measurement/Mention`.
 - Entity resolution with `REFERS_TO` vs `POSSIBLY_REFERS_TO` policy.
 - Provenance via `ExtractionRun`.
+- Claim-linked spelling review queue with PDF/page provenance.
 - Neo4j AuraDB-compatible Cypher constraints, indexes, and upsert patterns.
 - CLI commands:
   - `ingest-structure`
@@ -15,12 +16,14 @@ Python implementation of a claim-centered ingestion and graph loading pipeline f
   - `load-graph`
   - `run-e2e`
   - `quality-report`
+  - `spelling-review-report`
 
 ## Quick Start
 
 ```bash
 python -m pip install -e .[dev]
 python -m graphrag_pipeline.cli run-e2e --inputs report1.json report2.json report3.json --out-dir out --backend memory
+python -m graphrag_pipeline.cli spelling-review-report --structure out/report3.structure.json --semantic out/report3.semantic.json --output out/report3.spelling_review.json
 python -m pytest -q
 ```
 

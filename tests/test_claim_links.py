@@ -238,4 +238,6 @@ def test_entity_type_hint_disambiguates_normalized_fallback() -> None:
     assert [(link.entity_id, link.relation_type) for link in semantic.claim_entity_links] == [
         ("refuge_turnbull", "LOCATION_FOCUS")
     ]
-    assert semantic.claim_link_diagnostics == []
+    assert [diagnostic.diagnostic_code for diagnostic in semantic.claim_link_diagnostics] == [
+        "RELATION_COMPATIBILITY_WEAK"
+    ]

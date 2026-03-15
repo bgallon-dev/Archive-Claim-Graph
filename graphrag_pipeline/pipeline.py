@@ -22,7 +22,7 @@ from .ids import (
     make_year_id,
     stable_hash,
 )
-from .io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_semantic_bundle, save_structure_bundle
+from .io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_json, save_semantic_bundle, save_structure_bundle
 from .models import (
     ClaimEntityLinkRecord,
     ClaimLinkDiagnosticRecord,
@@ -53,6 +53,7 @@ from .claim_contract import (
 from .event_builder import build_events
 from .observation_builder import build_observations
 from .resolver import DictionaryFuzzyResolver, EntityResolver
+from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
 
 PERIOD_TYPE_PUBLICATION = "publication_period"
@@ -750,6 +751,10 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
     return metrics
 
 
+def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBundle) -> list[dict[str, Any]]:
+    return _build_spelling_review_queue(structure, semantic)
+
+
 def run_e2e(
     inputs: list[str | Path],
     out_dir: str | Path,
@@ -761,39 +766,50 @@ def run_e2e(
     neo4j_database: str = "neo4j",
     neo4j_trust_mode: str | None = None,
     neo4j_ca_cert: str | None = None,
+    review_out_dir: str | Path | None = None,
+    review_db_path: str | Path | None = None,
 ) -> dict[str, Any]:
     output_dir = Path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    review_output_dir = Path(review_out_dir) if review_out_dir is not None else None
+    if review_output_dir is not None:
+        review_output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Lazy-init review store if review_db_path is given
+    review_store = None
+    if review_db_path is not None:
+        from .review.store import ReviewStore
+        review_store = ReviewStore(review_db_path)
 
     writer: GraphWriter | None = None
     per_doc: list[dict[str, Any]] = []
 
-    for input_item in inputs:
-        structure = parse_source(input_item)
-        semantic = extract_semantic(structure)
-        stem = Path(str(input_item)).stem
-        structure_path = output_dir / f"{stem}.structure.json"
-        semantic_path = output_dir / f"{stem}.semantic.json"
-        save_structure_bundle(structure_path, structure)
-        save_semantic_bundle(semantic_path, semantic)
+    try:
+        for input_item in inputs:
+            structure = parse_source(input_item)
+            semantic = extract_semantic(structure)
+            stem = Path(str(input_item)).stem
+            structure_path = output_dir / f"{stem}.structure.json"
+            semantic_path = output_dir / f"{stem}.semantic.json"
+            save_structure_bundle(structure_path, structure)
+            save_semantic_bundle(semantic_path, semantic)
 
-        neo4j_kwargs = dict(
-            neo4j_uri=neo4j_uri,
-            neo4j_user=neo4j_user,
-            neo4j_password=neo4j_password,
-            neo4j_database=neo4j_database,
-            neo4j_trust_mode=neo4j_trust_mode,
-            neo4j_ca_cert=neo4j_ca_cert,
-        )
-        if writer is None:
-            writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
-        else:
-            writer.load_structure(structure)
-            writer.load_semantic(structure, semantic)
+            neo4j_kwargs = dict(
+                neo4j_uri=neo4j_uri,
+                neo4j_user=neo4j_user,
+                neo4j_password=neo4j_password,
+                neo4j_database=neo4j_database,
+                neo4j_trust_mode=neo4j_trust_mode,
+                neo4j_ca_cert=neo4j_ca_cert,
+            )
+            if writer is None:
+                writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
+            else:
+                writer.load_structure(structure)
+                writer.load_semantic(structure, semantic)
 
-        metrics = quality_report(structure, semantic)
-        per_doc.append(
-            {
+            metrics = quality_report(structure, semantic)
+            doc_summary: dict[str, Any] = {
                 "input": str(input_item),
                 "doc_id": structure.document.doc_id,
                 "run_id": semantic.extraction_run.run_id,
@@ -801,7 +817,24 @@ def run_e2e(
                 "semantic_output": str(semantic_path),
                 "quality": metrics,
             }
-        )
+            if review_output_dir is not None:
+                review_rows = build_spelling_review_queue(structure, semantic)
+                review_path = review_output_dir / f"{stem}.spelling_review.json"
+                save_json(review_path, review_rows)
+                doc_summary["spelling_review_output"] = str(review_path)
+                doc_summary["spelling_review_issue_count"] = len(review_rows)
+            if review_store is not None:
+                from .review.detect import run_detection
+                review_result = run_detection(
+                    structure, semantic, review_store,
+                    structure_bundle_path=str(structure_path.resolve()),
+                    semantic_bundle_path=str(semantic_path.resolve()),
+                )
+                doc_summary["review_detect"] = review_result
+            per_doc.append(doc_summary)
+    finally:
+        if review_store is not None:
+            review_store.close()
 
     return {
         "documents_processed": len(per_doc),

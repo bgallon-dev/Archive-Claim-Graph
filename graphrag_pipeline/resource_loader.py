@@ -101,7 +101,75 @@ def load_ocr_corrections(
     path = _dir(resources_dir) / "ocr_corrections.yaml"
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh)
-    return frozenset(str(t) for t in data["known_errors"])
+    known_errors = data["known_errors"]
+    if isinstance(known_errors, dict):
+        return frozenset(str(token).lower() for token in known_errors)
+    return frozenset(str(token).lower() for token in known_errors)
+
+
+def load_ocr_correction_map(
+    resources_dir: Path | None = None,
+) -> dict[str, str]:
+    """Return ``{known_error: suggested_correction}`` mapping."""
+    path = _dir(resources_dir) / "ocr_corrections.yaml"
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh)
+    known_errors = data["known_errors"]
+    if isinstance(known_errors, dict):
+        return {
+            str(token).lower(): str(correction).lower()
+            for token, correction in known_errors.items()
+        }
+    return {str(token).lower(): "" for token in known_errors}
+
+
+_TERM_RE = re.compile(r"[A-Za-z][A-Za-z'-]*")
+
+
+def _split_reference_terms(text: str) -> set[str]:
+    normalized = text.replace("_", " ").strip().lower()
+    if not normalized:
+        return set()
+    terms = {normalized}
+    terms.update(token.lower() for token in _TERM_RE.findall(normalized))
+    return {term for term in terms if len(term) >= 2}
+
+
+def _extract_pattern_terms(pattern_source: str) -> set[str]:
+    simplified = (
+        pattern_source
+        .replace(r"\b", " ")
+        .replace(r"\s+", " ")
+        .replace(r"(?:", " ")
+        .replace("(", " ")
+        .replace(")", " ")
+        .replace("|", " ")
+        .replace("?", "")
+        .replace("+", " ")
+        .replace("*", " ")
+    )
+    return {token.lower() for token in re.findall(r"[A-Za-z]{3,}", simplified)}
+
+
+def load_spelling_reference_terms(
+    resources_dir: Path | None = None,
+) -> frozenset[str]:
+    """Return domain-aware reference terms for conservative spelling checks."""
+    terms: set[str] = set()
+
+    for row in load_seed_entity_rows(resources_dir):
+        terms.update(_split_reference_terms(str(row.get("name", ""))))
+
+    for unit_word, (measurement_name, unit) in load_measurement_units(resources_dir).items():
+        terms.update(_split_reference_terms(unit_word))
+        terms.update(_split_reference_terms(measurement_name))
+        terms.update(_split_reference_terms(unit))
+
+    for claim_type, compiled, _ in load_claim_type_patterns(resources_dir):
+        terms.update(_split_reference_terms(claim_type))
+        terms.update(_extract_pattern_terms(compiled.pattern))
+
+    return frozenset(sorted(terms))
 
 
 # ── Domain profile ────────────────────────────────────────────────────────────

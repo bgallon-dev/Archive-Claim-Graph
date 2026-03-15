@@ -4,7 +4,7 @@ version: "1"
 # Used by RuleBasedMentionExtractor to flag suspect mentions and bypass
 # the sentence-initial guard when a fuzzy seed-term match exists.
 known_errors:
-  - tumbull       # Turnbull misread
-  - lightening    # lightning misread
-  - emgman        # Engman misread
-  - turnbuli      # Turnbull misread (terminal i for l)
+  tumbull: turnbull       # Turnbull misread
+  lightening: lightning   # lightning misread
+  emgman: engman          # Engman misread
+  turnbuli: turnbull      # Turnbull misread (terminal i for l)

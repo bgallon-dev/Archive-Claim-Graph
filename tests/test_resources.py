@@ -11,8 +11,10 @@ from graphrag_pipeline.resource_loader import (
     load_domain_profile,
     load_measurement_species,
     load_measurement_units,
+    load_ocr_correction_map,
     load_ocr_corrections,
     load_seed_entity_rows,
+    load_spelling_reference_terms,
 )
 
 
@@ -187,3 +189,15 @@ def test_ocr_corrections_contain_known_errors() -> None:
     corrections = load_ocr_corrections()
     assert "tumbull" in corrections
     assert "emgman" in corrections
+
+
+def test_ocr_correction_map_contains_known_suggestions() -> None:
+    corrections = load_ocr_correction_map()
+    assert corrections["tumbull"] == "turnbull"
+    assert corrections["emgman"] == "engman"
+
+
+def test_spelling_reference_terms_cover_domain_vocabulary() -> None:
+    terms = load_spelling_reference_terms()
+    for expected in ("turnbull", "mallard", "acres", "suppression", "haying"):
+        assert expected in terms

@@ -12,3 +12,6 @@ csv_out
 plan/
 .claude/
 RUNBOOK.md
+review.db
+review.db-shm
+review.db-wal

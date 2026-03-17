@@ -176,25 +176,6 @@ def test_management_target_species_and_method_focus_feed_observation() -> None:
     assert obs.habitat_id == "h1"
 
 
-def test_legacy_about_links_remain_supported_for_observations() -> None:
-    claim = _make_claim("c1", "population_estimate")
-    species = _make_entity("sp1", "Species", "mallard")
-    entity_lookup = {species.entity_id: species}
-
-    observations, _, _, _ = build_observations(
-        claims=[claim],
-        measurements=[],
-        claim_entity_links=[ClaimEntityLinkRecord(claim_id="c1", entity_id="sp1")],
-        claim_location_links=[],
-        claim_period_links=[],
-        entity_lookup=entity_lookup,
-        run_id="run_1",
-        report_year=1956,
-    )
-
-    assert observations[0].species_id == "sp1"
-
-
 def test_year_derived_from_claim_date() -> None:
     claim = _make_claim("c1", "population_estimate")
     claim.claim_date = "1942-06-15"

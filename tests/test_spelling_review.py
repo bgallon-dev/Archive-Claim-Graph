@@ -18,7 +18,7 @@ def _build_queue(
     if source_file is not None:
         metadata["source_file"] = source_file
 
-    page: dict[str, object] = {"page_number": 1, "raw_text": text}
+    page: dict[str, object] = {"page_number": 1, "raw_ocr_text": text}
     if image_ref is not None:
         page["image_ref"] = image_ref
 

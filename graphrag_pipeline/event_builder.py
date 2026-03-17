@@ -2,7 +2,6 @@ from __future__ import annotations
 
 from collections import defaultdict
 
-from .claim_contract import LEGACY_ABOUT_RELATION
 from .claim_contract import (
     CLAIM_TYPE_TO_EVENT_TYPE,
     EVENT_ELIGIBLE_TYPES,
@@ -86,11 +85,11 @@ def build_events(
         survey_method_id: str | None = None
 
         for relation_type, entity in entity_links_by_claim.get(claim.claim_id, []):
-            if entity.entity_type == "Species" and species_id is None and relation_type in {"SPECIES_FOCUS", "MANAGEMENT_TARGET", LEGACY_ABOUT_RELATION}:
+            if entity.entity_type == "Species" and species_id is None and relation_type in {"SPECIES_FOCUS", "MANAGEMENT_TARGET"}:
                 species_id = entity.entity_id
-            elif entity.entity_type == "Habitat" and habitat_id is None and relation_type in {"HABITAT_FOCUS", LEGACY_ABOUT_RELATION}:
+            elif entity.entity_type == "Habitat" and habitat_id is None and relation_type in {"HABITAT_FOCUS"}:
                 habitat_id = entity.entity_id
-            elif entity.entity_type == "SurveyMethod" and survey_method_id is None and relation_type in {"METHOD_FOCUS", LEGACY_ABOUT_RELATION}:
+            elif entity.entity_type == "SurveyMethod" and survey_method_id is None and relation_type in {"METHOD_FOCUS"}:
                 survey_method_id = entity.entity_id
 
         for entity in locations_by_claim.get(claim.claim_id, []):

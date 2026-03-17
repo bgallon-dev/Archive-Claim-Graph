@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE, LEGACY_ABOUT_RELATION
+from ..claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
 
 ID_CONSTRAINTS: dict[str, str] = {
     "Document": "doc_id",
@@ -58,7 +58,7 @@ def build_constraint_statements() -> list[str]:
 
 SCHEMA_STATEMENTS: list[str] = build_constraint_statements() + INDEX_STATEMENTS
 CLAIM_ENTITY_RELATION_CYPHER = ", ".join(
-    f"'{relation}'" for relation in (LEGACY_ABOUT_RELATION, *CLAIM_ENTITY_RELATION_PRECEDENCE)
+    f"'{relation}'" for relation in CLAIM_ENTITY_RELATION_PRECEDENCE
 )
 
 

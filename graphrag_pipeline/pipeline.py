@@ -2,12 +2,15 @@ from __future__ import annotations
 
 import os
 import re
+import sys
 from collections import defaultdict
+from concurrent.futures import ProcessPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from .extractors import HybridClaimExtractor, RuleBasedMeasurementExtractor, RuleBasedMentionExtractor
+from .claim_validator import is_valid_claim_sentence
 from .extractors.claim_extractor import ClaimExtractor, ClaimLinkDraft
 from .extractors.measurement_extractor import MeasurementExtractor
 from .extractors.mention_extractor import MentionExtractor
@@ -44,7 +47,6 @@ from .models import (
 from .claim_contract import (
     CLAIM_ENTITY_RELATIONS,
     CLAIM_LOCATION_RELATION,
-    LEGACY_ABOUT_RELATION,
     entity_type_allowed_for_relation,
     get_preferred_entity_types,
     get_relation_compatibility,
@@ -373,6 +375,9 @@ def extract_semantic(
             mentions_by_paragraph[paragraph.paragraph_id].append(mention)
 
         for idx, draft in enumerate(claim_drafts, start=1):
+            valid, _reason = is_valid_claim_sentence(draft.source_sentence)
+            if not valid:
+                continue
             claim_counter += 1
             claim_id = make_claim_id(extraction_run.run_id, paragraph.paragraph_id, claim_counter + idx, draft.normalized_sentence)
             claim_date = draft.claim_date or _infer_claim_date(
@@ -683,9 +688,6 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
     unclassified_claim_count = sum(1 for c in semantic.claims if c.claim_type == "unclassified_assertion")
     claim_entity_link_count = len(semantic.claim_entity_links)
     typed_claim_links = [link for link in semantic.claim_entity_links if link.relation_type in CLAIM_ENTITY_RELATIONS]
-    legacy_about_claim_links = [
-        link for link in semantic.claim_entity_links if link.relation_type == LEGACY_ABOUT_RELATION
-    ]
     safe_claim_entity_link_count = max(1, claim_entity_link_count)
     claim_entity_relation_counts: dict[str, int] = defaultdict(int)
     for link in semantic.claim_entity_links:
@@ -723,9 +725,7 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
         "year_count": len(semantic.years),
         "claim_entity_link_count": claim_entity_link_count,
         "typed_claim_entity_link_count": len(typed_claim_links),
-        "legacy_about_claim_entity_link_count": len(legacy_about_claim_links),
         "typed_claim_entity_link_share": len(typed_claim_links) / safe_claim_entity_link_count if claim_entity_link_count else 0.0,
-        "legacy_about_claim_entity_link_share": len(legacy_about_claim_links) / safe_claim_entity_link_count if claim_entity_link_count else 0.0,
         "claim_entity_relation_counts": dict(sorted(claim_entity_relation_counts.items())),
         "claims_with_evidence_pct": claims_with_evidence / claim_count,
         "measurements_linked_pct": measurement_with_claim / measurement_count,
@@ -755,10 +755,50 @@ def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBu
     return _build_spelling_review_queue(structure, semantic)
 
 
+def _process_single_document(
+    input_item: str,
+    out_dir: str,
+    review_out_dir: str | None,
+) -> dict[str, Any]:
+    """Worker function for parallel document processing (parse + extract + save + quality).
+
+    Must be defined at module scope so ProcessPoolExecutor can pickle it on Windows.
+    """
+    structure = parse_source(input_item)
+    semantic = extract_semantic(structure)
+
+    stem = Path(input_item).stem
+    output_dir = Path(out_dir)
+    structure_path = output_dir / f"{stem}.structure.json"
+    semantic_path = output_dir / f"{stem}.semantic.json"
+    save_structure_bundle(structure_path, structure)
+    save_semantic_bundle(semantic_path, semantic)
+
+    metrics = quality_report(structure, semantic)
+    doc_summary: dict[str, Any] = {
+        "input": input_item,
+        "doc_id": structure.document.doc_id,
+        "run_id": semantic.extraction_run.run_id,
+        "structure_output": str(structure_path),
+        "semantic_output": str(semantic_path),
+        "quality": metrics,
+    }
+
+    if review_out_dir is not None:
+        review_rows = build_spelling_review_queue(structure, semantic)
+        review_path = Path(review_out_dir) / f"{stem}.spelling_review.json"
+        save_json(review_path, review_rows)
+        doc_summary["spelling_review_output"] = str(review_path)
+        doc_summary["spelling_review_issue_count"] = len(review_rows)
+
+    return doc_summary
+
+
 def run_e2e(
     inputs: list[str | Path],
     out_dir: str | Path,
     *,
+    workers: int = 1,
     backend: str = "memory",
     neo4j_uri: str | None = None,
     neo4j_user: str | None = None,
@@ -771,74 +811,83 @@ def run_e2e(
 ) -> dict[str, Any]:
     output_dir = Path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
-    review_output_dir = Path(review_out_dir) if review_out_dir is not None else None
-    if review_output_dir is not None:
-        review_output_dir.mkdir(parents=True, exist_ok=True)
+    review_output_dir_str = str(Path(review_out_dir)) if review_out_dir is not None else None
+    if review_output_dir_str is not None:
+        Path(review_output_dir_str).mkdir(parents=True, exist_ok=True)
 
-    # Lazy-init review store if review_db_path is given
+    # --- Phase 1: parallel extraction (parse + extract + save + quality) ---
+    str_inputs = [str(item) for item in inputs]
+    effective_workers = min(max(workers, 1), len(str_inputs)) if str_inputs else 1
+
+    doc_summaries: list[dict[str, Any]] = []
+
+    if effective_workers <= 1:
+        for input_item in str_inputs:
+            doc_summaries.append(
+                _process_single_document(input_item, str(output_dir), review_output_dir_str)
+            )
+    else:
+        with ProcessPoolExecutor(max_workers=effective_workers) as executor:
+            future_to_input = {
+                executor.submit(
+                    _process_single_document,
+                    input_item,
+                    str(output_dir),
+                    review_output_dir_str,
+                ): input_item
+                for input_item in str_inputs
+            }
+            for i, future in enumerate(as_completed(future_to_input), 1):
+                input_item = future_to_input[future]
+                summary = future.result()  # re-raises on worker exception
+                print(f"[{i}/{len(str_inputs)}] Processed: {Path(input_item).stem}", file=sys.stderr)
+                doc_summaries.append(summary)
+
+    # Restore deterministic output order (as_completed is unordered)
+    doc_summaries.sort(key=lambda d: d["input"])
+
+    # --- Phase 2: sequential graph loading and review detection ---
+    neo4j_kwargs = dict(
+        neo4j_uri=neo4j_uri,
+        neo4j_user=neo4j_user,
+        neo4j_password=neo4j_password,
+        neo4j_database=neo4j_database,
+        neo4j_trust_mode=neo4j_trust_mode,
+        neo4j_ca_cert=neo4j_ca_cert,
+    )
+
     review_store = None
     if review_db_path is not None:
         from .review.store import ReviewStore
         review_store = ReviewStore(review_db_path)
 
     writer: GraphWriter | None = None
-    per_doc: list[dict[str, Any]] = []
-
     try:
-        for input_item in inputs:
-            structure = parse_source(input_item)
-            semantic = extract_semantic(structure)
-            stem = Path(str(input_item)).stem
-            structure_path = output_dir / f"{stem}.structure.json"
-            semantic_path = output_dir / f"{stem}.semantic.json"
-            save_structure_bundle(structure_path, structure)
-            save_semantic_bundle(semantic_path, semantic)
+        for doc_summary in doc_summaries:
+            structure = load_structure_bundle(doc_summary["structure_output"])
+            semantic = load_semantic_bundle(doc_summary["semantic_output"])
 
-            neo4j_kwargs = dict(
-                neo4j_uri=neo4j_uri,
-                neo4j_user=neo4j_user,
-                neo4j_password=neo4j_password,
-                neo4j_database=neo4j_database,
-                neo4j_trust_mode=neo4j_trust_mode,
-                neo4j_ca_cert=neo4j_ca_cert,
-            )
             if writer is None:
                 writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
             else:
                 writer.load_structure(structure)
                 writer.load_semantic(structure, semantic)
 
-            metrics = quality_report(structure, semantic)
-            doc_summary: dict[str, Any] = {
-                "input": str(input_item),
-                "doc_id": structure.document.doc_id,
-                "run_id": semantic.extraction_run.run_id,
-                "structure_output": str(structure_path),
-                "semantic_output": str(semantic_path),
-                "quality": metrics,
-            }
-            if review_output_dir is not None:
-                review_rows = build_spelling_review_queue(structure, semantic)
-                review_path = review_output_dir / f"{stem}.spelling_review.json"
-                save_json(review_path, review_rows)
-                doc_summary["spelling_review_output"] = str(review_path)
-                doc_summary["spelling_review_issue_count"] = len(review_rows)
             if review_store is not None:
                 from .review.detect import run_detection
                 review_result = run_detection(
                     structure, semantic, review_store,
-                    structure_bundle_path=str(structure_path.resolve()),
-                    semantic_bundle_path=str(semantic_path.resolve()),
+                    structure_bundle_path=str(Path(doc_summary["structure_output"]).resolve()),
+                    semantic_bundle_path=str(Path(doc_summary["semantic_output"]).resolve()),
                 )
                 doc_summary["review_detect"] = review_result
-            per_doc.append(doc_summary)
     finally:
         if review_store is not None:
             review_store.close()
 
     return {
-        "documents_processed": len(per_doc),
-        "outputs": per_doc,
+        "documents_processed": len(doc_summaries),
+        "outputs": doc_summaries,
         "backend": backend,
     }
 
@@ -852,6 +901,152 @@ def _duplicate_counts(values: dict[str, list[str]]) -> dict[str, int]:
     for key, items in values.items():
         duplicates[key] = len(items) - len(set(items))
     return duplicates
+
+
+def resolve_mentions_targeted(
+    semantic: SemanticBundle,
+    *,
+    resolver: EntityResolver | None = None,
+) -> tuple[SemanticBundle, dict[str, int]]:
+    """Re-run entity resolution for unresolved mentions against the current seed_entities.csv.
+
+    Finds mentions with no EntityResolutionRecord, runs the resolver against them,
+    and merges results into the existing bundle. Mentions with existing
+    POSSIBLY_REFERS_TO records are NOT retried — they already have a resolution.
+
+    Claim-entity links are rebuilt for affected claims using a simplified heuristic
+    (mention-in-span + entity-type compatibility via CLAIM_ENTITY_RELATION_PRECEDENCE)
+    since ClaimLinkDraft objects are not stored in the bundle. OCCURRED_AT location
+    links are not created in this pass; run full extract-semantic for those.
+
+    Args:
+        semantic: The semantic bundle to update (mutated in place).
+        resolver: Optional resolver override. Defaults to DictionaryFuzzyResolver()
+                  which reads the current seed_entities.csv.
+
+    Returns:
+        Tuple of (updated_bundle, stats_dict) with keys:
+        unresolved_before, new_resolutions_count, new_entities_count,
+        new_claim_links_count, unresolved_after.
+    """
+    if resolver is None:
+        resolver = DictionaryFuzzyResolver()
+
+    # Step 1: find unresolved mentions
+    already_resolved: set[str] = {r.mention_id for r in semantic.entity_resolutions}
+    unresolved = [m for m in semantic.mentions if m.mention_id not in already_resolved]
+    unresolved_before = len(unresolved)
+
+    if not unresolved:
+        return semantic, {
+            "unresolved_before": 0,
+            "new_resolutions_count": 0,
+            "new_entities_count": 0,
+            "new_claim_links_count": 0,
+            "unresolved_after": 0,
+        }
+
+    # Step 2: run resolver on unresolved mentions only
+    new_entities_raw, new_resolutions = resolver.resolve(unresolved)
+
+    # Step 3: merge new EntityResolutionRecords (guarded against double-invocation)
+    for rec in new_resolutions:
+        if rec.mention_id not in already_resolved:
+            semantic.entity_resolutions.append(rec)
+            already_resolved.add(rec.mention_id)
+
+    # Step 4: merge new EntityRecords (dedup by entity_id)
+    existing_entity_ids: set[str] = {e.entity_id for e in semantic.entities}
+    new_entities_added: list[EntityRecord] = []
+    for entity in new_entities_raw:
+        if entity.entity_id not in existing_entity_ids:
+            semantic.entities.append(entity)
+            existing_entity_ids.add(entity.entity_id)
+            new_entities_added.append(entity)
+
+    if not new_resolutions:
+        return semantic, {
+            "unresolved_before": unresolved_before,
+            "new_resolutions_count": 0,
+            "new_entities_count": 0,
+            "new_claim_links_count": 0,
+            "unresolved_after": unresolved_before,
+        }
+
+    # Step 5: rebuild claim-entity links for claims in affected paragraphs
+    newly_resolved_ids: set[str] = {r.mention_id for r in new_resolutions}
+    affected_paragraphs: set[str] = {
+        m.paragraph_id for m in semantic.mentions if m.mention_id in newly_resolved_ids
+    }
+
+    resolutions_by_mention: dict[str, Any] = {r.mention_id: r for r in semantic.entity_resolutions}
+    entity_lookup: dict[str, EntityRecord] = {e.entity_id: e for e in semantic.entities}
+
+    mentions_by_paragraph: dict[str, list[MentionRecord]] = defaultdict(list)
+    for m in semantic.mentions:
+        if m.paragraph_id in affected_paragraphs:
+            mentions_by_paragraph[m.paragraph_id].append(m)
+
+    existing_entity_keys: set[tuple[str, str, str]] = {
+        (lnk.claim_id, lnk.entity_id, lnk.relation_type) for lnk in semantic.claim_entity_links
+    }
+    new_entity_links: list[ClaimEntityLinkRecord] = []
+
+    for claim in semantic.claims:
+        if claim.paragraph_id not in affected_paragraphs:
+            continue
+        # Use explicit evidence offsets; fall back to unbounded when unavailable
+        # (paragraph text is not stored in the bundle without the structure bundle).
+        span_start = claim.evidence_start if claim.evidence_start is not None else 0
+        span_end = claim.evidence_end if claim.evidence_end is not None else 2**31
+
+        for mention in mentions_by_paragraph.get(claim.paragraph_id, []):
+            if mention.mention_id not in newly_resolved_ids:
+                continue
+            if mention.start_offset < span_start or mention.end_offset > span_end:
+                continue
+            resolution = resolutions_by_mention.get(mention.mention_id)
+            if not resolution:
+                continue
+            entity = entity_lookup.get(resolution.entity_id)
+            if not entity:
+                continue
+
+            # Find the first compatible relation type in precedence order
+            best_relation: str | None = None
+            for relation in CLAIM_ENTITY_RELATION_PRECEDENCE:
+                if not entity_type_allowed_for_relation(relation, entity.entity_type):
+                    continue
+                if claim.claim_type and get_relation_compatibility(claim.claim_type, relation) == "forbidden":
+                    continue
+                best_relation = relation
+                break
+
+            if best_relation is None:
+                continue
+
+            ent_key = (claim.claim_id, entity.entity_id, best_relation)
+            if ent_key not in existing_entity_keys:
+                new_entity_links.append(
+                    ClaimEntityLinkRecord(
+                        claim_id=claim.claim_id,
+                        entity_id=entity.entity_id,
+                        relation_type=best_relation,
+                    )
+                )
+                existing_entity_keys.add(ent_key)
+
+    semantic.claim_entity_links.extend(new_entity_links)
+
+    unresolved_after = sum(1 for m in semantic.mentions if m.mention_id not in already_resolved)
+
+    return semantic, {
+        "unresolved_before": unresolved_before,
+        "new_resolutions_count": len(new_resolutions),
+        "new_entities_count": len(new_entities_added),
+        "new_claim_links_count": len(new_entity_links),
+        "unresolved_after": unresolved_after,
+    }
 
 
 def _infer_claim_date(sentence: str, fallback_year: int | None) -> str | None:

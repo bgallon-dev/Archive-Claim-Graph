@@ -49,6 +49,5 @@ def test_validate_claim_link_relation_accepts_new_roles_and_occurrence_location(
         assert validate_claim_link_relation(relation_type) == relation_type
 
 
-def test_validate_claim_link_relation_rejects_legacy_about_for_new_emission() -> None:
+def test_validate_claim_link_relation_rejects_about() -> None:
     assert validate_claim_link_relation("ABOUT") is None
-    assert validate_claim_link_relation("ABOUT", allow_legacy=True) == "ABOUT"

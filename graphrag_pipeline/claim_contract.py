@@ -8,7 +8,6 @@ if TYPE_CHECKING:
 
 CONTRACT_VERSION: str = "v2"
 UNCLASSIFIED_TYPE: str = "unclassified_assertion"
-LEGACY_ABOUT_RELATION: str = "ABOUT"
 CLAIM_LOCATION_RELATION: str = "OCCURRED_AT"
 
 CLAIM_ENTITY_RELATION_PRECEDENCE: tuple[str, ...] = (
@@ -23,7 +22,6 @@ CLAIM_ENTITY_RELATION_PRECEDENCE: tuple[str, ...] = (
 
 CLAIM_ENTITY_RELATIONS: frozenset[str] = frozenset(CLAIM_ENTITY_RELATION_PRECEDENCE)
 EXTRACTOR_CLAIM_LINK_RELATIONS: frozenset[str] = frozenset(CLAIM_ENTITY_RELATIONS | {CLAIM_LOCATION_RELATION})
-ALL_CLAIM_LINK_RELATIONS: frozenset[str] = frozenset(EXTRACTOR_CLAIM_LINK_RELATIONS | {LEGACY_ABOUT_RELATION})
 
 RELATION_TO_ENTITY_TYPE_HINTS: dict[str, frozenset[str]] = {
     "SPECIES_FOCUS": frozenset({"Species"}),
@@ -119,11 +117,9 @@ def validate_claim_type(claim_type: str) -> str:
     return UNCLASSIFIED_TYPE
 
 
-def validate_claim_link_relation(relation_type: str, *, allow_legacy: bool = False) -> str | None:
+def validate_claim_link_relation(relation_type: str) -> str | None:
     cleaned = relation_type.strip().upper()
     if cleaned in EXTRACTOR_CLAIM_LINK_RELATIONS:
-        return cleaned
-    if allow_legacy and cleaned == LEGACY_ABOUT_RELATION:
         return cleaned
     return None
 

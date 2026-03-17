@@ -4,6 +4,22 @@ from graphrag_pipeline.io_utils import load_semantic_bundle
 from graphrag_pipeline.pipeline import run_e2e
 
 
+def test_e2e_parallel(fixtures_dir: Path, tmp_path: Path) -> None:
+    inputs = [
+        fixtures_dir / "report1.json",
+        fixtures_dir / "report2.json",
+        fixtures_dir / "report3.json",
+    ]
+    summary = run_e2e([str(path) for path in inputs], tmp_path, backend="memory", workers=2)
+    assert summary["documents_processed"] == 3
+    for output in summary["outputs"]:
+        gates = output["quality"]["quality_gates"]
+        assert gates["claims_have_evidence"]
+        assert gates["measurements_linked"]
+        assert gates["no_duplicate_ids"]
+        assert gates["mention_offsets_valid"]
+
+
 def test_e2e_on_three_reports(fixtures_dir: Path, tmp_path: Path) -> None:
     inputs = [
         fixtures_dir / "report1.json",
@@ -83,5 +99,4 @@ def test_e2e_on_three_reports(fixtures_dir: Path, tmp_path: Path) -> None:
         assert "observation_count" in quality
         assert "observations_have_evidence" in quality["quality_gates"]
         assert "claim_link_diagnostic_counts" in quality
-        assert quality["legacy_about_claim_entity_link_count"] == 0
         assert quality["typed_claim_entity_link_share"] >= 0.0

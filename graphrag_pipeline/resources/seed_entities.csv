@@ -56,3 +56,62 @@ SurveyMethod,population census,method_class,direct
 SurveyMethod,harvest count,method_class,harvest
 SurveyMethod,pellet survey,method_class,indirect
 SurveyMethod,track count,method_class,indirect
+Species,pintail,taxon_group,bird
+Species,baldpate,taxon_group,bird
+Species,redhead,taxon_group,bird
+Species,canvasback,taxon_group,bird
+Species,lesser scaup,taxon_group,bird
+Species,greater scaup,taxon_group,bird
+Species,goldeneye,taxon_group,bird
+Species,bufflehead,taxon_group,bird
+Species,ruddy duck,taxon_group,bird
+Species,northern shoveler,taxon_group,bird
+Species,wood duck,taxon_group,bird
+Species,ring-necked duck,taxon_group,bird
+Species,snow goose,taxon_group,bird
+Species,whistling swan,taxon_group,bird
+Species,trumpeter swan,taxon_group,bird
+Species,muskrat,taxon_group,mammal
+Species,beaver,taxon_group,mammal
+Species,mink,taxon_group,mammal
+Species,otter,taxon_group,mammal
+Species,brant,taxon_group,bird
+Species,cackling goose,taxon_group,bird
+Species,white-fronted goose,taxon_group,bird
+Species,cinnamon teal,taxon_group,bird
+Species,gull,taxon_group,bird
+Place,Montana,place_type,state
+Place,Oregon,place_type,state
+Place,Idaho,place_type,state
+Place,Portland,place_type,city
+Place,San Francisco,place_type,city
+Place,Winslow Pool,place_type,impoundment
+Place,Winslow Pool,alias,winslow pond
+Place,Winslow Pool,alias,winslow display pool
+Place,Winslow Pool,alias,winslow memorial pool
+Place,Leaky Pond,place_type,impoundment
+Place,Heron Pond,place_type,impoundment
+Place,Stubblefield Unit,place_type,management_unit
+Place,Ponderosa,place_type,habitat_zone
+Place,Windmill Pond,place_type,pond
+Organization,Long Lake Lumber Co,org_type,private_company
+Organization,US Fish and Wildlife Service,org_type,federal_agency
+Organization,Bureau of Sport Fisheries and Wildlife,org_type,federal_agency
+Person,West Tritt,role,refuge_manager
+Person,West Tritt,tenure_start,1950
+Person,West Tritt,tenure_end,1970
+Person,Cliff Brassfield,role,refuge_manager
+Person,Cliff Brassfield,tenure_start,1951
+Person,Cliff Brassfield,tenure_end,1958
+Person,Paul Shoemaker,role,assistant_manager
+Person,Paul Shoemaker,tenure_start,1954
+Person,Paul Shoemaker,tenure_end,1958
+Person,Dan Booth,role,refuge_manager
+Person,Dan Booth,tenure_start,1980
+Person,Dan Booth,tenure_end,1993
+Person,Nancy Curry,role,refuge_manager
+Person,Nancy Curry,tenure_start,1994
+Person,Nancy Curry,tenure_end,2000
+Activity,field trial,activity_type,field_trial
+Activity,cooperative program,activity_type,cooperative
+Activity,environmental education,activity_type,education

@@ -3,11 +3,14 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from .env import load_dotenv
 from .io_utils import load_semantic_bundle, load_structure_bundle, save_json, save_rows_csv, save_semantic_bundle, save_structure_bundle
-from .pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, run_e2e
+
+from .pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, resolve_mentions_targeted, run_e2e
 
 
 def _write_review_output(path: str | Path, rows: list[dict]) -> None:
@@ -47,6 +50,8 @@ def build_parser() -> argparse.ArgumentParser:
     graph_parser.add_argument("--semantic", default=None, help="Path to semantic bundle JSON.")
     graph_parser.add_argument("--input-dir", default=None, help="Directory containing *.structure.json / *.semantic.json pairs.")
     graph_parser.add_argument("--backend", choices=["memory", "neo4j"], default="memory")
+    graph_parser.add_argument("--workers", type=int, default=1,
+                              help="Parallel threads for loading bundles from disk (default: 1). Use 0 to auto-detect. Only applies with --input-dir.")
     _add_neo4j_args(graph_parser)
 
     e2e_parser = subparsers.add_parser("run-e2e", help="Run parse + extract + load over multiple reports.")
@@ -55,6 +60,8 @@ def build_parser() -> argparse.ArgumentParser:
     e2e_parser.add_argument("--review-out-dir", default=None, help="Optional directory to write spelling review queue JSON files.")
     e2e_parser.add_argument("--review-db", default=None, help="Optional path to review SQLite database for anti-pattern detection.")
     e2e_parser.add_argument("--backend", choices=["memory", "neo4j"], default="memory")
+    e2e_parser.add_argument("--workers", type=int, default=1,
+                            help="Number of parallel worker processes for extraction (default: 1). Use 0 to auto-detect CPU count.")
     _add_neo4j_args(e2e_parser)
 
     report_parser = subparsers.add_parser("quality-report", help="Compute quality metrics for one structure/semantic pair.")
@@ -86,6 +93,18 @@ def build_parser() -> argparse.ArgumentParser:
     export_parser.add_argument("--status", default=None, help="Filter by proposal status.")
     export_parser.add_argument("--snapshot-id", default=None, help="Filter by snapshot ID.")
     export_parser.add_argument("--proposal-id", default=None, help="Proposal ID (required for revisions mode).")
+
+    resolve_parser = subparsers.add_parser(
+        "resolve-mentions",
+        help="Re-run entity resolution for unresolved mentions using the current seed_entities.csv.",
+    )
+    resolve_target = resolve_parser.add_mutually_exclusive_group(required=True)
+    resolve_target.add_argument("--semantic", metavar="PATH", help="Path to a single semantic bundle JSON file.")
+    resolve_target.add_argument("--semantic-dir", metavar="DIR", help="Directory; all *.semantic.json files are processed.")
+    resolve_parser.add_argument("--output", metavar="PATH", default=None,
+                                help="Output path for updated bundle. Only valid with --semantic; default: overwrite in place.")
+    resolve_parser.add_argument("--dry-run", action="store_true", default=False,
+                                help="Print stats without writing any files.")
 
     return parser
 
@@ -125,15 +144,37 @@ def main(argv: list[str] | None = None) -> int:
             if not pairs:
                 print(f"[warn] No *.structure.json files found in: {args.input_dir}")
                 return 1
-            results = []
-            writer = None
-            for structure_path in pairs:
+
+            workers = args.workers if args.workers != 0 else (os.cpu_count() or 1)
+            effective_workers = min(max(workers, 1), len(pairs))
+
+            def _load_pair(structure_path: Path) -> tuple[Path, object, object] | None:
                 semantic_path = structure_path.with_suffix("").with_suffix(".semantic.json")
                 if not semantic_path.exists():
-                    print(f"[warn] Missing semantic bundle for {structure_path.name}, skipping.")
+                    print(f"[warn] Missing semantic bundle for {structure_path.name}, skipping.", file=sys.stderr)
+                    return None
+                return structure_path, load_structure_bundle(structure_path), load_semantic_bundle(semantic_path)
+
+            if effective_workers <= 1:
+                loaded_pairs = [_load_pair(p) for p in pairs]
+            else:
+                loaded_map: dict[Path, tuple[Path, object, object]] = {}
+                with ThreadPoolExecutor(max_workers=effective_workers) as executor:
+                    future_to_path = {executor.submit(_load_pair, p): p for p in pairs}
+                    for i, future in enumerate(as_completed(future_to_path), 1):
+                        result = future.result()
+                        if result is not None:
+                            loaded_map[result[0]] = result
+                            print(f"[{i}/{len(pairs)}] Loaded: {result[0].stem}", file=sys.stderr)
+                loaded_pairs = [loaded_map.get(p) for p in pairs]
+
+            results = []
+            writer = None
+            for item in loaded_pairs:
+                if item is None:
                     continue
-                structure = load_structure_bundle(structure_path)
-                semantic = load_semantic_bundle(semantic_path)
+                structure_path, structure, semantic = item
+                semantic_path = structure_path.with_suffix("").with_suffix(".semantic.json")
                 if writer is None:
                     writer = load_graph(structure, semantic, backend=args.backend, **neo4j_kwargs)
                 else:
@@ -166,9 +207,11 @@ def main(argv: list[str] | None = None) -> int:
                 resolved_inputs.extend(str(f) for f in found)
             else:
                 resolved_inputs.append(item)
+        workers = args.workers if args.workers != 0 else (os.cpu_count() or 1)
         summary = run_e2e(
             resolved_inputs,
             args.out_dir,
+            workers=workers,
             backend=args.backend,
             neo4j_uri=args.neo4j_uri,
             neo4j_user=args.neo4j_user,
@@ -258,6 +301,31 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": "ok", "output": output_path, "count": count}, indent=2))
         finally:
             store.close()
+        return 0
+
+    if args.command == "resolve-mentions":
+        if args.output and args.semantic_dir:
+            print("[error] --output cannot be used with --semantic-dir.", file=sys.stderr)
+            return 2
+        paths = (
+            sorted(Path(args.semantic_dir).glob("*.semantic.json"))
+            if args.semantic_dir
+            else [Path(args.semantic)]
+        )
+        if not paths:
+            print(f"[warn] No *.semantic.json files found in: {args.semantic_dir}", file=sys.stderr)
+            return 1
+        results = []
+        for p in paths:
+            bundle = load_semantic_bundle(p)
+            updated, stats = resolve_mentions_targeted(bundle)
+            row: dict = {"file": str(p), **stats}
+            if not args.dry_run:
+                out = Path(args.output) if args.output else p
+                save_semantic_bundle(out, updated)
+                row["output"] = str(out)
+            results.append(row)
+        print(json.dumps(results, indent=2))
         return 0
 
     parser.error("Unknown command")

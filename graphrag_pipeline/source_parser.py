@@ -25,6 +25,9 @@ from .models import (
 _SECTION_NUMBER_RE = re.compile(r"^\s*(\d{1,2})[\.\)]\s+(.+?)\s*$")
 _SECTION_LETTER_RE = re.compile(r"^\s*([A-Z])[\.\)]\s+(.+?)\s*$")
 
+_MIN_PARA_CHARS: int = 150  # merge chunks smaller than this with their neighbor
+_MAX_PARA_CHARS: int = 600  # split chunks larger than this at sentence boundaries
+
 # Filename year inference: YYYYMM (e.g. 200601 → 2006) takes priority over bare years.
 _YYYYMM_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)\d{2}(?!\d)")
 _YEAR_ONLY_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)(?!\d)")
@@ -78,6 +81,46 @@ def split_paragraphs(raw_text: str) -> list[str]:
     return [chunk.strip() for chunk in chunks if chunk.strip()]
 
 
+def _split_at_sentences(text: str, max_chars: int) -> list[str]:
+    sentences = re.split(r"(?<=[.!?])\s+", text)
+    result, current = [], ""
+    for sent in sentences:
+        if not current:
+            current = sent
+        elif len(current) + 1 + len(sent) <= max_chars:
+            current += " " + sent
+        else:
+            result.append(current)
+            current = sent
+    if current:
+        result.append(current)
+    return result or [text]
+
+
+def _merge_small_chunks(chunks: list[str], min_chars: int) -> list[str]:
+    result = []
+    i = 0
+    while i < len(chunks):
+        current = chunks[i]
+        while len(current) < min_chars and i + 1 < len(chunks):
+            i += 1
+            current = current + " " + chunks[i]
+        result.append(current)
+        i += 1
+    return result
+
+
+def normalize_paragraph_sizes(
+    chunks: list[str],
+    min_chars: int = _MIN_PARA_CHARS,
+    max_chars: int = _MAX_PARA_CHARS,
+) -> list[str]:
+    split: list[str] = []
+    for chunk in chunks:
+        split.extend(_split_at_sentences(chunk, max_chars) if len(chunk) > max_chars else [chunk])
+    return _merge_small_chunks(split, min_chars)
+
+
 def parse_source_payload(payload: dict[str, Any], source_file: str | None = None) -> StructureBundle:
     metadata = payload.get("metadata", {})
     page_payloads = sorted(payload.get("pages", []), key=lambda row: int(row.get("page_number", 0)))
@@ -85,11 +128,6 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
     date_start = metadata.get("date_start")
     date_end = metadata.get("date_end")
     report_year = metadata.get("report_year")
-    if report_year is None and metadata.get("year") is not None:
-        legacy_year = metadata.get("year")
-        if isinstance(legacy_year, str) and legacy_year.strip().isdigit():
-            legacy_year = int(legacy_year.strip())
-        report_year = legacy_year
     if report_year is None and isinstance(date_start, str) and len(date_start) >= 4 and date_start[:4].isdigit():
         report_year = int(date_start[:4])
 
@@ -97,8 +135,6 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
     if report_year is None and resolved_source:
         report_year = _infer_year_from_filename(resolved_source)
     doc_id = metadata.get("doc_id") or make_doc_id(title, date_start, date_end, resolved_source)
-    # `raw_text` is a legacy input alias only; the runtime structure schema stores
-    # the verbatim OCR payload as `raw_ocr_text`.
     raw_ocr_text = "\n\n".join(str(row.get("raw_ocr_text") or row.get("raw_text", "")) for row in page_payloads)
     clean_text = normalize_text(raw_ocr_text)
     file_hash = hashlib.sha1(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
@@ -133,7 +169,6 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
 
     for page_item in page_payloads:
         page_number = int(page_item.get("page_number"))
-        # `raw_text` is a legacy input alias only; stored pages use `raw_ocr_text`.
         raw_page_ocr_text = str(page_item.get("raw_ocr_text") or page_item.get("raw_text", ""))
         clean_page_text = normalize_text(raw_page_ocr_text)
         page_id = make_page_id(doc_id, page_number)
@@ -173,9 +208,11 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
             elif sections:
                 sections[-1].page_end = page_number
 
-        for paragraph_text in split_paragraphs(raw_page_ocr_text):
-            if detect_heading(paragraph_text) and len(paragraph_text.splitlines()) == 1:
-                continue
+        raw_chunks = [
+            chunk for chunk in split_paragraphs(raw_page_ocr_text)
+            if not (detect_heading(chunk) and len(chunk.splitlines()) == 1)
+        ]
+        for paragraph_text in normalize_paragraph_sizes(raw_chunks):
             paragraph_index += 1
             clean_paragraph = normalize_text(paragraph_text)
             paragraph_id = make_paragraph_id(doc_id, paragraph_index, page_number)

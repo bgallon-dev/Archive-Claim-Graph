@@ -27,13 +27,6 @@ class DocumentRecord:
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "DocumentRecord":
         data = dict(payload)
-        if "report_year" not in data and "year" in data:
-            legacy_year = data.pop("year")
-            if isinstance(legacy_year, str) and legacy_year.strip().isdigit():
-                legacy_year = int(legacy_year.strip())
-            data["report_year"] = legacy_year
-        if "raw_ocr_text" not in data and "raw_text" in data:
-            data["raw_ocr_text"] = data.pop("raw_text")
         known = {f.name for f in cls.__dataclass_fields__.values()}
         return cls(**{k: v for k, v in data.items() if k in known})
 
@@ -82,8 +75,6 @@ class PageRecord:
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "PageRecord":
         data = dict(payload)
-        if "raw_ocr_text" not in data and "raw_text" in data:
-            data["raw_ocr_text"] = data.pop("raw_text")
         known = {f.name for f in cls.__dataclass_fields__.values()}
         return cls(**{k: v for k, v in data.items() if k in known})
 
@@ -143,8 +134,6 @@ class ParagraphRecord:
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "ParagraphRecord":
         data = dict(payload)
-        if "raw_ocr_text" not in data and "raw_text" in data:
-            data["raw_ocr_text"] = data.pop("raw_text")
         known = {f.name for f in cls.__dataclass_fields__.values()}
         return cls(**{k: v for k, v in data.items() if k in known})
 
@@ -230,8 +219,6 @@ class ClaimRecord:
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "ClaimRecord":
         data = dict(payload)
-        if "source_sentence" not in data and "raw_sentence" in data:
-            data["source_sentence"] = data.pop("raw_sentence")
         if "certainty" not in data and "epistemic_status" in data:
             data["certainty"] = data.pop("epistemic_status")
         known = {f.name for f in cls.__dataclass_fields__.values()}
@@ -563,10 +550,7 @@ class YearRecord:
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "YearRecord":
-        data = dict(payload)
-        if "year_label" not in data and "label" in data:
-            data["year_label"] = data.pop("label")
-        return cls(**data)
+        return cls(**payload)
 
 
 @dataclass(slots=True)

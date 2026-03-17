@@ -54,3 +54,23 @@ patterns:
   - claim_type: management_action
     regex: '\b(allowed|restricted|started|managed|control|planted)\b'
     weight: 0.8
+
+  - claim_type: fire_incident
+    regex: '\b(suppression cost|controlled at a cost|fire cost|cost of \$)\b'
+    weight: 2.0
+
+  - claim_type: fire_incident
+    regex: '\b(lightning|lightening)\s+(fire|fires|strike|strikes|started|caused)\b'
+    weight: 2.0
+
+  - claim_type: fire_incident
+    regex: '\b(fires?\s+were\s+started|fires?\s+broke\s+out|fires?\s+occurred)\b'
+    weight: 1.8
+
+  - claim_type: fire_incident
+    regex: '\b(acres?\s+burned|acres?\s+reap|burned\s+\d+)\b'
+    weight: 1.6
+
+  - claim_type: fire_incident
+    regex: '\b(fires?\s+in\s+grain|grain\s+fields?|supply\s+of\s+duck\s+food)\b'
+    weight: 1.4

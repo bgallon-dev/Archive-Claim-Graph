@@ -40,7 +40,7 @@ def test_filename_year_fallback_when_no_metadata_year() -> None:
         "metadata": {
             "title": "Test Report",
         },
-        "pages": [{"page_number": 1, "raw_text": "Some text."}],
+        "pages": [{"page_number": 1, "raw_ocr_text": "Some text."}],
     }
     bundle = parse_source_payload(payload, source_file="TBL_1952_report.json")
     assert bundle.document.report_year == 1952
@@ -52,31 +52,19 @@ def test_metadata_year_takes_priority_over_filename() -> None:
             "title": "Test Report",
             "report_year": 1999,
         },
-        "pages": [{"page_number": 1, "raw_text": "Some text."}],
+        "pages": [{"page_number": 1, "raw_ocr_text": "Some text."}],
     }
     bundle = parse_source_payload(payload, source_file="TBL_1938a_report.json")
     assert bundle.document.report_year == 1999
 
 
-def test_legacy_metadata_year_alias_maps_to_report_year() -> None:
-    payload = {
-        "metadata": {
-            "title": "Test Report",
-            "year": "1941",
-        },
-        "pages": [{"page_number": 1, "raw_text": "Some text."}],
-    }
-    bundle = parse_source_payload(payload, source_file="TBL_1938a_report.json")
-    assert bundle.document.report_year == 1941
-
-
-def test_structure_uses_raw_ocr_text_not_raw_text_in_runtime_schema() -> None:
+def test_structure_uses_raw_ocr_text_in_runtime_schema() -> None:
     payload = {
         "metadata": {
             "title": "Test Report",
             "report_year": 1999,
         },
-        "pages": [{"page_number": 1, "raw_text": "Some text."}],
+        "pages": [{"page_number": 1, "raw_ocr_text": "Some text."}],
     }
     bundle = parse_source_payload(payload, source_file="TBL_1999_report.json")
 

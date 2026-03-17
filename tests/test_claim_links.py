@@ -48,7 +48,7 @@ def _single_paragraph_structure(text: str):
     return parse_source(
         {
             "metadata": {"title": "Claim Link Test", "report_year": 1938},
-            "pages": [{"page_number": 1, "raw_text": text}],
+            "pages": [{"page_number": 1, "raw_ocr_text": text}],
         }
     )
 

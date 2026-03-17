@@ -68,16 +68,65 @@ def _normalize_link_form(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
 
 
+_ABBREVS = {
+    "mr", "mrs", "ms", "dr", "gov", "col", "lt", "sgt", "st", "jr", "sr",
+    "mgr", "dept", "approx", "oct", "nov", "dec", "jan", "feb", "mar",
+    "apr", "jun", "jul", "aug", "sept", "sep", "no", "vs", "etc", "al",
+    "ibid", "op", "cf", "ca", "vol", "pp", "fig",
+}
+_ABBREV_LINE_END_RE = re.compile(r"\b([A-Za-z]{1,6})\.$", re.IGNORECASE)
+_CONTINUATION_CHARS = frozenset(",;")
+
+
 def _split_sentences(text: str) -> list[tuple[str, int, int]]:
     text = text.strip()
     if not text:
         return []
+
+    # Step 1: join OCR line-break continuations
+    lines = text.split("\n")
+    buf = ""
+    merged: list[str] = []
+    for line in lines:
+        line = line.strip()
+        if not line:
+            if buf:
+                merged.append(buf)
+                buf = ""
+            continue
+        if buf:
+            m = _ABBREV_LINE_END_RE.search(buf)
+            is_abbrev = bool(m and m.group(1).lower() in _ABBREVS)
+            is_cont = buf[-1] in _CONTINUATION_CHARS or buf[-1].islower()
+            if is_abbrev or is_cont:
+                buf = buf + " " + line
+                continue
+            merged.append(buf)
+        buf = line
+    if buf:
+        merged.append(buf)
+
+    rejoined = " ".join(merged)
+
+    # Step 2: split at sentence boundaries, skipping abbreviation periods
     spans: list[tuple[str, int, int]] = []
-    for match in re.finditer(r"[^.!?]+[.!?]?", text):
-        sentence = match.group(0).strip()
+    boundary_re = re.compile(r"([.!?])\s+(?=[A-Z])")
+    prev = 0
+    for match in boundary_re.finditer(rejoined):
+        preceding = rejoined[prev:match.start()]
+        ab = _ABBREV_LINE_END_RE.search(preceding.rstrip())
+        if ab and ab.group(1).lower() in _ABBREVS:
+            continue
+        sentence = (preceding + match.group(1)).strip()
         if sentence:
-            spans.append((sentence, match.start(), match.end()))
-    return spans
+            spans.append((sentence, prev, match.start() + 1))
+        prev = match.end()
+
+    tail = rejoined[prev:].strip()
+    if tail:
+        spans.append((tail, prev, len(rejoined)))
+
+    return spans if spans else [(rejoined, 0, len(rejoined))]
 
 # Types the extractor can produce directly (excludes the coercion fallback).
 VALID_CLAIM_TYPES: frozenset[str] = ALLOWED_CLAIM_TYPES - {UNCLASSIFIED_TYPE}
@@ -145,8 +194,8 @@ def _dedupe_claim_links(claim_links: list[ClaimLinkDraft]) -> list[ClaimLinkDraf
 class RuleBasedClaimExtractor:
     _ROLE_POLICY: dict[tuple[str, str], str] = _LOADED_ROLE_POLICY
     _type_scored_patterns: list[tuple[str, re.Pattern[str], float]] = _LOADED_TYPE_PATTERNS
-    _TYPE_SCORE_THRESHOLD: float = 0.8
-    _TYPE_MARGIN: float = 0.3
+    _TYPE_SCORE_THRESHOLD: float = 0.85
+    _TYPE_MARGIN: float = 0.35
     _TYPE_CONFIDENCE_PENALTY: float = 0.08
     _uncertain_tokens = re.compile(r"\b(about|approx|approximately|around|estimated|reported|possibly|likely)\b", re.IGNORECASE)
 

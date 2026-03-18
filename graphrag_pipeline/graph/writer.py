@@ -158,6 +158,15 @@ class InMemoryGraphWriter:
             if end_label:
                 self._merge_rel("Claim", link.claim_id, "OCCURRED_AT", end_label, link.entity_id)
 
+        for link in semantic.claim_concept_links:
+            self._merge_node("Concept", "concept_id", link.concept_id, {"concept_id": link.concept_id})
+            self._merge_rel(
+                "Claim", link.claim_id,
+                "EXPRESSES",
+                "Concept", link.concept_id,
+                props={"confidence": link.confidence, "matched_rule": link.matched_rule},
+            )
+
         for link in semantic.claim_period_links:
             self._merge_rel("Claim", link.claim_id, "OCCURRED_DURING", "Period", link.period_id)
 
@@ -301,7 +310,7 @@ class Neo4jGraphWriter:
     def create_schema(self) -> None:
         with self._driver.session(database=self._database) as session:
             for statement in SCHEMA_STATEMENTS:
-                session.run(statement)
+                session.run(statement).consume()
 
     def load_structure(self, structure: StructureBundle) -> None:
         self._upsert_nodes(
@@ -537,6 +546,28 @@ class Neo4jGraphWriter:
         for label, rows in claim_location_by_label.items():
             self._upsert_relationships("Claim", "claim_id", "OCCURRED_AT", label, "entity_id", rows)
 
+        concept_ids_needed = {link.concept_id for link in semantic.claim_concept_links}
+        if concept_ids_needed:
+            self._upsert_nodes(
+                "Concept",
+                "concept_id",
+                [{"id": cid, "props": {"concept_id": cid}} for cid in concept_ids_needed],
+            )
+        self._upsert_relationships(
+            "Claim", "claim_id", "EXPRESSES", "Concept", "concept_id",
+            [
+                {
+                    "start_id": link.claim_id,
+                    "end_id": link.concept_id,
+                    "props": {
+                        "confidence": link.confidence,
+                        "matched_rule": link.matched_rule,
+                    },
+                }
+                for link in semantic.claim_concept_links
+            ],
+        )
+
         self._upsert_relationships(
             "Claim",
             "claim_id",
@@ -706,7 +737,7 @@ class Neo4jGraphWriter:
             "SET n += row.props"
         )
         with self._driver.session(database=self._database) as session:
-            session.run(query, rows=rows)
+            session.run(query, rows=rows).consume()
 
     def _upsert_relationships(
         self,
@@ -727,7 +758,7 @@ class Neo4jGraphWriter:
             "SET r += row.props"
         )
         with self._driver.session(database=self._database) as session:
-            session.run(query, rows=rows)
+            session.run(query, rows=rows).consume()
 
 
 def node_id_key_for_label(label: str) -> str:

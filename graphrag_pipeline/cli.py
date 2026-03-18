@@ -94,6 +94,16 @@ def build_parser() -> argparse.ArgumentParser:
     export_parser.add_argument("--snapshot-id", default=None, help="Filter by snapshot ID.")
     export_parser.add_argument("--proposal-id", default=None, help="Proposal ID (required for revisions mode).")
 
+    # -- Retrieval subsystem commands ---------------------------------------
+    query_serve_parser = subparsers.add_parser(
+        "query-serve",
+        help="Launch the natural-language query API server.",
+    )
+    query_serve_parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default 127.0.0.1).")
+    query_serve_parser.add_argument("--port", type=int, default=8788, help="Port to bind (default 8788).")
+    query_serve_parser.add_argument("--max-tokens", type=int, default=1000, help="Max tokens for synthesis model response (default 1000).")
+    _add_neo4j_args(query_serve_parser)
+
     resolve_parser = subparsers.add_parser(
         "resolve-mentions",
         help="Re-run entity resolution for unresolved mentions using the current seed_entities.csv.",
@@ -301,6 +311,26 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": "ok", "output": output_path, "count": count}, indent=2))
         finally:
             store.close()
+        return 0
+
+    if args.command == "query-serve":
+        from .retrieval.web.app import create_app
+        try:
+            import uvicorn
+        except ImportError:
+            print("[error] uvicorn is required for query-serve. Install with: pip install -e .[retrieval]")
+            return 1
+        app = create_app(
+            neo4j_uri=args.neo4j_uri,
+            neo4j_user=args.neo4j_user,
+            neo4j_password=args.neo4j_password,
+            neo4j_database=args.neo4j_database,
+            neo4j_trust=args.neo4j_trust,
+            neo4j_ca_cert=args.neo4j_ca_cert,
+            max_tokens=args.max_tokens,
+        )
+        print(f"Starting query server at http://{args.host}:{args.port}")
+        uvicorn.run(app, host=args.host, port=args.port)
         return 0
 
     if args.command == "resolve-mentions":

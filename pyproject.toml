@@ -21,6 +21,12 @@ tools = [
     "pytesseract>=0.3",
     "anthropic>=0.25",
 ]
+retrieval = [
+    "neo4j>=5.20.0",
+    "anthropic>=0.25",
+    "fastapi>=0.111",
+    "uvicorn>=0.29",
+]
 
 [project.scripts]
 graphrag = "graphrag_pipeline.cli:main"
@@ -30,7 +36,17 @@ pythonpath = ["."]
 addopts = "-q"
 
 [tool.setuptools]
-packages = ["graphrag_pipeline", "graphrag_pipeline.extractors", "graphrag_pipeline.graph", "graphrag_pipeline.queries"]
+packages = [
+    "graphrag_pipeline",
+    "graphrag_pipeline.extractors",
+    "graphrag_pipeline.graph",
+    "graphrag_pipeline.queries",
+    "graphrag_pipeline.review",
+    "graphrag_pipeline.review.detectors",
+    "graphrag_pipeline.review.web",
+    "graphrag_pipeline.retrieval",
+    "graphrag_pipeline.retrieval.web",
+]
 
 [tool.setuptools.package-data]
 "graphrag_pipeline" = ["resources/*.yaml", "resources/*.csv"]

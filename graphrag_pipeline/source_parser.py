@@ -208,6 +208,23 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
             elif sections:
                 sections[-1].page_end = page_number
 
+        if current_section_id is None:
+            section_index += 1
+            fallback_heading = f"Page {page_number}"
+            current_section_id = make_section_id(doc_id, section_index, fallback_heading)
+            sections.append(
+                SectionRecord(
+                    section_id=current_section_id,
+                    doc_id=doc_id,
+                    heading=fallback_heading,
+                    section_number=section_index,
+                    section_letter=None,
+                    normalized_heading=normalize_heading(fallback_heading),
+                    page_start=page_number,
+                    page_end=page_number,
+                )
+            )
+
         raw_chunks = [
             chunk for chunk in split_paragraphs(raw_page_ocr_text)
             if not (detect_heading(chunk) and len(chunk.splitlines()) == 1)

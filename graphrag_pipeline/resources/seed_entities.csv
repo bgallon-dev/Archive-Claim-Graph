@@ -115,3 +115,104 @@ Person,Nancy Curry,tenure_end,2000
 Activity,field trial,activity_type,field_trial
 Activity,cooperative program,activity_type,cooperative
 Activity,environmental education,activity_type,education
+Species,tundra swan,taxon_group,bird
+Species,black tern,taxon_group,bird
+Species,common tern,taxon_group,bird
+Species,Forster's tern,taxon_group,bird
+Species,mourning dove,taxon_group,bird
+Species,band-tailed pigeon,taxon_group,bird
+Species,red-tailed hawk,taxon_group,bird
+Species,sharp-shinned hawk,taxon_group,bird
+Species,Cooper's hawk,taxon_group,bird
+Species,sparrow hawk,taxon_group,bird
+Species,great horned owl,taxon_group,bird
+Species,barn owl,taxon_group,bird
+Species,short-eared owl,taxon_group,bird
+Species,great blue heron,taxon_group,bird
+Species,American bittern,taxon_group,bird
+Species,bald eagle,taxon_group,bird
+Species,lesser yellowlegs,taxon_group,bird
+Species,western sandpiper,taxon_group,bird
+Species,greater yellowlegs,taxon_group,bird
+Species,American coot,taxon_group,bird
+Species,pied-billed grebe,taxon_group,bird
+Species,western grebe,taxon_group,bird
+Species,eared grebe,taxon_group,bird
+Species,American avocet,taxon_group,bird
+Species,dowitcher,taxon_group,bird
+Species,snipe,taxon_group,bird
+Species,killdeer,taxon_group,bird
+Species,long-billed curlew,taxon_group,bird
+Species,ground squirrel,taxon_group,mammal
+Species,jackrabbit,taxon_group,mammal
+Species,cottontail,taxon_group,mammal
+Species,red fox,taxon_group,mammal
+Species,striped skunk,taxon_group,mammal
+Species,raccoon,taxon_group,mammal
+Species,river otter,taxon_group,mammal
+Species,porcupine,taxon_group,mammal
+Species,mule deer,taxon_group,mammal
+Species,elk,taxon_group,mammal
+Habitat,pothole,habitat_type,wetland
+Habitat,upland,habitat_type,upland
+Habitat,cropland,habitat_type,agricultural
+Habitat,wheat field,habitat_type,agricultural
+Habitat,scrub pine,habitat_type,forest
+Habitat,cheat grass,habitat_type,grassland
+Habitat,bunch grass,habitat_type,grassland
+Habitat,cattail,habitat_type,wetland
+Habitat,bulrush,habitat_type,wetland
+Habitat,wild rose,habitat_type,shrubland
+Habitat,sagebrush,habitat_type,steppe
+Habitat,ponderosa pine,habitat_type,forest
+Habitat,open water,habitat_type,wetland
+Place,Turnbull Lake,place_type,lake
+Place,30-Acre Lake,place_type,lake
+Place,Kepple Lake,place_type,lake
+Place,Headquarters Pond,place_type,pond
+Place,Swan Pond,place_type,pond
+Place,Unit A,place_type,management_unit
+Place,Unit B,place_type,management_unit
+Place,Ponderosa Unit,place_type,management_unit
+Place,Seattle,place_type,city
+Place,Spokane,place_type,city
+Place,Eastern Washington,place_type,region
+Organization,Washington Department of Game,org_type,government
+Organization,State Game Department,org_type,government
+Organization,Ducks Unlimited,org_type,nonprofit
+Organization,Eastern Washington University,org_type,university
+Organization,Eastern Washington State College,org_type,university
+Organization,Eastern Washington College,org_type,university
+Organization,Fish and Wildlife Service,org_type,federal_agency
+Organization,Spokane International Airport,org_type,facility
+Activity,wheat feeding,activity_type,feeding
+Activity,banding,activity_type,capture
+Activity,burning,activity_type,habitat_management
+Activity,mowing,activity_type,habitat_management
+Activity,water level management,activity_type,water_management
+Activity,trapping,activity_type,capture
+Activity,stocking,activity_type,species_management
+Activity,nesting structure installation,activity_type,habitat_management
+Species,tern,taxon_group,bird
+Species,magpie,taxon_group,bird
+Species,pigeon,taxon_group,bird
+Species,crow,taxon_group,bird
+Species,raven,taxon_group,bird
+Species,gadwall,taxon_group,bird
+Place,Holly Hill,place_type,area
+Place,Lower Turnbull,place_type,management_unit
+Place,Upper Turnbull,place_type,management_unit
+Place,Columbia,place_type,region
+Organization,Regional Office,org_type,government
+Person,Whitmore,role,official
+Person,Wilson,role,official
+Person,Charles,role,official
+Person,George,role,official
+Person,James,role,official
+Organization,American Ornithological Union,org_type,scientific
+Activity,timber removal,activity_type,habitat_management
+Activity,fur harvest,activity_type,harvest
+Activity,cultivated crops,activity_type,agricultural
+Activity,physical development,activity_type,infrastructure
+Activity,recreational use,activity_type,public_use
+Activity,ecological study,activity_type,research

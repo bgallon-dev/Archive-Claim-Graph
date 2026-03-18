@@ -27,6 +27,7 @@ from .ids import (
 )
 from .io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_json, save_semantic_bundle, save_structure_bundle
 from .models import (
+    ClaimConceptLinkRecord,
     ClaimEntityLinkRecord,
     ClaimLinkDiagnosticRecord,
     ClaimLocationLinkRecord,
@@ -44,6 +45,7 @@ from .models import (
     StructureBundle,
     YearRecord,
 )
+from .concept_assigner import assign_concepts
 from .claim_contract import (
     CLAIM_ENTITY_RELATIONS,
     CLAIM_LOCATION_RELATION,
@@ -269,6 +271,36 @@ def _resolve_claim_link(
     normalized_match, normalized_diagnostic = _narrow_link_candidates(normalized_candidates, claim_link, claim_type)
     if normalized_match:
         return _apply_compatibility_penalty(normalized_match[1], claim_type, claim_link.relation_type), None
+
+    # Fallback: if span matching found nothing, try matching
+    # any resolved mention in the paragraph whose normalized_form
+    # appears in the claim's normalized_sentence
+    if not exact_match and not normalized_match and not normalized_diagnostic and not exact_diagnostic:
+        sentence_normalized = claim.normalized_sentence or ""
+        sentence_candidates = [
+            row for row in resolved_in_span
+            if row[0].normalized_form in sentence_normalized
+        ]
+        # Widen the search to full paragraph if span search found nothing
+        if not sentence_candidates:
+            for mention in paragraph_mentions:
+                resolution = resolutions_by_mention.get(mention.mention_id)
+                if not resolution:
+                    continue
+                entity = entity_lookup.get(resolution.entity_id)
+                if not entity:
+                    continue
+                if mention.normalized_form in sentence_normalized:
+                    sentence_candidates.append((mention, entity))
+
+        if sentence_candidates:
+            sentence_match, sentence_diagnostic = _narrow_link_candidates(
+                sentence_candidates, claim_link, claim_type
+            )
+            if sentence_match:
+                return _apply_compatibility_penalty(
+                    sentence_match[1], claim_type, claim_link.relation_type
+                ), None
 
     diagnostic = normalized_diagnostic or exact_diagnostic
     if diagnostic:
@@ -585,6 +617,31 @@ def extract_semantic(
             if entity.entity_type == "Place":
                 place_refuge_links.append(PlaceRefugeLinkRecord(place_id=entity.entity_id, refuge_id=doc_refuge_id))
 
+    # Concept assignment
+    _concept_ids = {
+        "concept_nesting_success", "concept_breeding_success",
+        "concept_population_decline", "concept_drought_condition",
+        "concept_flood_condition", "concept_temperature_extremes",
+        "concept_precipitation_pattern", "concept_habitat_degradation",
+        "concept_water_level_change", "concept_habitat_condition",
+        "concept_ecological_restoration", "concept_infrastructure_rehabilitation",
+        "concept_habitat_restoration", "concept_population_count",
+        "concept_survey_result", "concept_breeding_activity",
+        "concept_seasonal_condition",
+    }
+    claim_concept_links: list[ClaimConceptLinkRecord] = []
+    for claim in claims:
+        for assignment in assign_concepts(claim):
+            if assignment.concept_id in _concept_ids:
+                claim_concept_links.append(
+                    ClaimConceptLinkRecord(
+                        claim_id=claim.claim_id,
+                        concept_id=assignment.concept_id,
+                        confidence=assignment.confidence,
+                        matched_rule=assignment.matched_rule,
+                    )
+                )
+
     return SemanticBundle(
         extraction_run=extraction_run,
         claims=claims,
@@ -608,6 +665,7 @@ def extract_semantic(
         events=events,
         event_observation_links=event_obs_links,
         event_measurement_links=event_meas_links,
+        claim_concept_links=claim_concept_links,
     )
 
 

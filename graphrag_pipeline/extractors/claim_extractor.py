@@ -196,26 +196,45 @@ class RuleBasedClaimExtractor:
     _type_scored_patterns: list[tuple[str, re.Pattern[str], float]] = _LOADED_TYPE_PATTERNS
     _TYPE_SCORE_THRESHOLD: float = 0.85
     _TYPE_MARGIN: float = 0.35
-    _TYPE_CONFIDENCE_PENALTY: float = 0.08
+    # Confidence calibration constants
+    _SCORE_CEILING: float = 2.5   # raw pattern scores at or above this map to score_norm=1.0
+    _CONF_LO: float = 0.60        # confidence at threshold score with zero margin
+    _CONF_HI: float = 0.92        # confidence at ceiling score with full margin
+    _SCORE_WEIGHT: float = 0.65   # fraction of range driven by score signal
+    _MARGIN_WEIGHT: float = 0.35  # fraction of range driven by margin signal
+    _EPISTEMIC_DISCOUNT: float = 0.08  # subtracted for uncertain epistemic status
     _uncertain_tokens = re.compile(r"\b(about|approx|approximately|around|estimated|reported|possibly|likely)\b", re.IGNORECASE)
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
         claims: list[ClaimDraft] = []
         for sentence, start, end in _split_sentences(paragraph_text):
-            claim_type, confidence_adj, secondary_label, matched_patterns, fallback_used = (
+            claim_type, best_score, margin, secondary_label, matched_patterns, fallback_used = (
                 self._detect_type_scored(sentence)
             )
             if not claim_type:
                 continue
             normalized = _normalize_sentence(sentence)
             epistemic_status = "uncertain" if self._uncertain_tokens.search(sentence) else "certain"
-            base_confidence = 0.78 if epistemic_status == "certain" else 0.68
-            extraction_confidence = round(base_confidence + confidence_adj, 4)
+            score_norm = min(
+                (best_score - self._TYPE_SCORE_THRESHOLD) / (self._SCORE_CEILING - self._TYPE_SCORE_THRESHOLD),
+                1.0,
+            )
+            margin_norm = min(margin / self._TYPE_MARGIN, 1.0)
+            combined = self._SCORE_WEIGHT * score_norm + self._MARGIN_WEIGHT * margin_norm
+            confidence_raw = self._CONF_LO + (self._CONF_HI - self._CONF_LO) * combined
+            if epistemic_status == "uncertain":
+                confidence_raw -= self._EPISTEMIC_DISCOUNT
+            extraction_confidence = round(max(0.0, min(1.0, confidence_raw)), 4)
             claim_links = self._extract_claim_links(sentence, claim_type, start)
 
-            trace: list[str] = [f"type_pattern:{claim_type}", f"type_score:{base_confidence + confidence_adj:.2f}"]
+            trace: list[str] = [
+                f"type_pattern:{claim_type}",
+                f"raw_score:{best_score:.3f}",
+                f"margin:{margin:.3f}",
+                f"conf:{extraction_confidence:.4f}",
+            ]
             if fallback_used and secondary_label:
-                trace.append(f"confidence_penalty:{secondary_label}")
+                trace.append(f"narrow_margin:{secondary_label}")
             trace.append(f"epistemic:{epistemic_status}")
             for link in claim_links:
                 trace.append(f"link:{link.entity_type_hint}={link.surface_form}->{link.relation_type}")
@@ -241,7 +260,12 @@ class RuleBasedClaimExtractor:
 
     def _detect_type_scored(
         self, sentence: str
-    ) -> tuple[str | None, float, str | None, list[str], bool]:
+    ) -> tuple[str | None, float, float, str | None, list[str], bool]:
+        """Return (claim_type, best_score, margin, secondary_label, matched_patterns, fallback_used).
+
+        best_score and margin are raw pattern accumulation values; confidence
+        calibration is performed by the caller.
+        """
         scores: dict[str, float] = {}
         matched_patterns: list[str] = []
         for claim_type, pattern, base_weight in self._type_scored_patterns:
@@ -253,7 +277,7 @@ class RuleBasedClaimExtractor:
                     matched_patterns.append(f"{claim_type}:{t.lower()}")
 
         if not scores:
-            return None, 0.0, None, [], False
+            return None, 0.0, 0.0, None, [], False
 
         ranked = sorted(scores.items(), key=lambda kv: kv[1], reverse=True)
         best_type, best_score = ranked[0]
@@ -261,17 +285,16 @@ class RuleBasedClaimExtractor:
         second_type = ranked[1][0] if len(ranked) > 1 else None
 
         if best_score < self._TYPE_SCORE_THRESHOLD:
-            return None, 0.0, None, [], False
+            return None, 0.0, 0.0, None, [], False
 
-        confidence_adjustment = 0.0
+        margin = best_score - second_score
         secondary_label: str | None = None
         fallback_used = False
-        if best_score - second_score < self._TYPE_MARGIN:
-            confidence_adjustment = -self._TYPE_CONFIDENCE_PENALTY
+        if margin < self._TYPE_MARGIN:
             secondary_label = f"secondary:{second_type}" if second_type else None
             fallback_used = True
 
-        return best_type, confidence_adjustment, secondary_label, matched_patterns, fallback_used
+        return best_type, best_score, margin, secondary_label, matched_patterns, fallback_used
 
     def _extract_claim_links(self, sentence: str, claim_type: str, sentence_start: int) -> list[ClaimLinkDraft]:
         claim_links: list[ClaimLinkDraft] = []

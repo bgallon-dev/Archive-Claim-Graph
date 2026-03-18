@@ -43,6 +43,8 @@ INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX event_type IF NOT EXISTS FOR (n:Event) ON (n.event_type)",
     # event_year dropped: year_id is no longer stored on Event nodes; use IN_YEAR edge instead.
     "CREATE INDEX event_year_int IF NOT EXISTS FOR (n:Event) ON (n.year)",
+    # Fulltext index for retrieval-layer keyword fallback search on claim text.
+    "CREATE FULLTEXT INDEX claim_normalized_sentence IF NOT EXISTS FOR (n:Claim) ON EACH [n.normalized_sentence]",
 ]
 
 
@@ -94,4 +96,98 @@ RETURN d.doc_id AS doc_id, r.run_id AS run_id, r.run_timestamp AS run_timestamp,
        c.claim_id AS claim_id, c.claim_type AS claim_type, c.extraction_confidence AS extraction_confidence,
        obs.observation_id AS observation_id, obs.observation_type AS observation_type
 ORDER BY d.doc_id, r.run_timestamp, c.claim_id
+"""
+
+# ---------------------------------------------------------------------------
+# Retrieval-layer query templates
+# All queries anchor to the latest ExtractionRun per Document to guarantee
+# freshness after re-extraction runs.
+# ---------------------------------------------------------------------------
+
+PROVENANCE_CHAIN_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (sec:Section)-[:HAS_PARAGRAPH]->(para:Paragraph)-[:HAS_CLAIM]->(c:Claim {run_id: lr.run_id})
+WHERE c.claim_id = $claim_id
+MATCH (pg:Page)-[:HAS_SECTION]->(sec)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(om:Measurement)
+OPTIONAL MATCH (c)-[:HAS_MEASUREMENT]->(dm:Measurement)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+RETURN d, pg, sec, para, c, obs, sp, y,
+       collect(DISTINCT om) + collect(DISTINCT dm) AS measurements
+"""
+
+ENTITY_ANCHORED_CLAIMS_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})-[]->(e:Entity {entity_id: $entity_id})
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+WHERE ($year_min IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y.year <= $year_max)
+RETURN d, pg, sec, para, c, obs, sp, y, measurements
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+"""
+
+FULLTEXT_CLAIMS_QUERY = """
+CALL db.index.fulltext.queryNodes('claim_normalized_sentence', $search_text)
+YIELD node AS c, score
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d:Document)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+RETURN d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements, score
+ORDER BY score DESC
+LIMIT $limit
+"""
+
+SPECIES_TREND_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:OF_SPECIES]->(sp:Species {entity_id: $species_id})
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WHERE ($year_min IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y.year <= $year_max)
+RETURN sp.name AS species, y.year AS year,
+       count(obs) AS observation_count,
+       avg(c.extraction_confidence) AS avg_confidence,
+       collect({name: m.name, value: m.numeric_value, unit: m.unit, approximate: m.approximate}) AS measurements
+ORDER BY y.year
+"""
+
+CORPUS_STATS_QUERY = """
+CALL { MATCH (p:Paragraph) RETURN count(p) AS n } WITH n AS total_paragraphs
+CALL { MATCH (d:Document)  RETURN count(d) AS n } WITH total_paragraphs, n AS total_documents
+RETURN total_paragraphs, total_documents
+"""
+
+HABITAT_CONDITION_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:IN_HABITAT]->(h:Habitat {entity_id: $habitat_id})
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WHERE ($year_min IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y.year <= $year_max)
+RETURN h.name AS habitat, y.year AS year, sp.name AS species,
+       count(obs) AS observation_count,
+       avg(c.extraction_confidence) AS avg_confidence,
+       collect({name: m.name, value: m.numeric_value, unit: m.unit}) AS measurements
+ORDER BY y.year, sp.name
 """

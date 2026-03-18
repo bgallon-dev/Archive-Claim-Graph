@@ -704,6 +704,22 @@ class StructureBundle:
 
 
 @dataclass(slots=True)
+class ClaimConceptLinkRecord:
+    claim_id: str
+    concept_id: str
+    confidence: float = 0.0
+    matched_rule: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "ClaimConceptLinkRecord":
+        known = {f.name for f in cls.__dataclass_fields__.values()}
+        return cls(**{k: v for k, v in payload.items() if k in known})
+
+
+@dataclass(slots=True)
 class SemanticBundle:
     extraction_run: ExtractionRunRecord
     claims: list[ClaimRecord]
@@ -728,6 +744,7 @@ class SemanticBundle:
     events: list[EventRecord] = field(default_factory=list)
     event_observation_links: list[EventObservationLinkRecord] = field(default_factory=list)
     event_measurement_links: list[EventMeasurementLinkRecord] = field(default_factory=list)
+    claim_concept_links: list[ClaimConceptLinkRecord] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -754,6 +771,7 @@ class SemanticBundle:
             "events": [item.to_dict() for item in self.events],
             "event_observation_links": [item.to_dict() for item in self.event_observation_links],
             "event_measurement_links": [item.to_dict() for item in self.event_measurement_links],
+            "claim_concept_links": [item.to_dict() for item in self.claim_concept_links],
         }
 
     @classmethod
@@ -782,4 +800,5 @@ class SemanticBundle:
             events=[EventRecord.from_dict(row) for row in payload.get("events", [])],
             event_observation_links=[EventObservationLinkRecord.from_dict(row) for row in payload.get("event_observation_links", [])],
             event_measurement_links=[EventMeasurementLinkRecord.from_dict(row) for row in payload.get("event_measurement_links", [])],
+            claim_concept_links=[ClaimConceptLinkRecord.from_dict(row) for row in payload.get("claim_concept_links", [])],
         )

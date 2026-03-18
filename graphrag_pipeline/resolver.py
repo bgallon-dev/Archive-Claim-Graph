@@ -36,7 +36,7 @@ RESOLUTION_CONTRACT: dict[str, str] = {
 @dataclass(slots=True)
 class ResolutionPolicy:
     refers_to_threshold: float = 0.85
-    maybe_threshold: float = 0.50
+    maybe_threshold: float = 0.65
     uniqueness_gap: float = 0.05
 
 

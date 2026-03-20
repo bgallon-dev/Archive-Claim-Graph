@@ -83,6 +83,8 @@ class ProvenanceBlock:
     year: int | None = None
     # Each entry: {"name": str, "value": float|None, "unit": str|None, "approximate": bool}
     measurements: list[dict[str, Any]] = field(default_factory=list)
+    # Relationship types traversed from anchor entity to this claim (entity-anchored path only).
+    traversal_rel_types: list[str] = field(default_factory=list)
 
 
 @dataclass

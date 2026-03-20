@@ -124,17 +124,17 @@ ENTITY_ANCHORED_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
-MATCH (c:Claim {run_id: lr.run_id})-[]->(e:Entity {entity_id: $entity_id})
+MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity {entity_id: $entity_id})
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
-WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
-WHERE ($year_min IS NULL OR y.year >= $year_min)
-  AND ($year_max IS NULL OR y.year <= $year_max)
-RETURN d, pg, sec, para, c, obs, sp, y, measurements
+WITH d, pg, sec, para, c, obs, sp, y, type(rel) AS traversal_rel_type, collect(DISTINCT m) AS measurements
+WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
+RETURN d, pg, sec, para, c, obs, sp, y, measurements, traversal_rel_type
 ORDER BY c.extraction_confidence DESC
 LIMIT $limit
 """

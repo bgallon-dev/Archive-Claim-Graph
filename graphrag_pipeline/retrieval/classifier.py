@@ -87,15 +87,27 @@ def classify_query(
             year_max = max(year_hits) if year_hits else None
 
     # --- entity surface form extraction ---
-    # Collect multi-word tokens from the query that survive normalize_name
-    # and are longer than 2 characters; caller can supply additional hints.
+    # Collect tokens from the query that survive normalize_name and are longer
+    # than 2 characters; caller can supply additional hints via entity_hints.
     entities: list[str] = list(entity_hints or [])
-    # Simple heuristic: capitalised words/phrases not at sentence start.
+    seen_normalized: set[str] = {normalize_name(e) for e in entities}
+
+    # First pass: capitalized phrases (high-precision for proper nouns mid-sentence).
     capitalised_re = re.compile(r"(?<![.!?]\s)(?<!\A)\b([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)\b")
     for m in capitalised_re.finditer(text):
         candidate = m.group(1)
-        if len(normalize_name(candidate)) > 2 and candidate not in entities:
+        norm = normalize_name(candidate)
+        if len(norm) > 2 and norm not in seen_normalized:
             entities.append(candidate)
+            seen_normalized.add(norm)
+
+    # Second pass: all word tokens >= 4 chars (catches lowercase names like "mallard").
+    # The resolver's REFERS_TO threshold (>=0.85 with uniqueness gap) acts as filter.
+    for m in re.finditer(r'\b([a-zA-Z]{4,})\b', text):
+        norm = normalize_name(m.group(1))
+        if len(norm) >= 4 and norm not in seen_normalized:
+            entities.append(m.group(1).lower())
+            seen_normalized.add(norm)
 
     return QueryIntent(
         bucket=bucket,

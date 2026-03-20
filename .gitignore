@@ -15,3 +15,6 @@ RUNBOOK.md
 review.db
 review.db-shm
 review.db-wal
+conversation_log.db
+conversation_log.db-shm
+conversation_log.db-wal

@@ -22,6 +22,8 @@ from __future__ import annotations
 import dataclasses
 import os
 from contextlib import asynccontextmanager
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Literal
 
 try:
@@ -35,6 +37,7 @@ except Exception:  # pragma: no cover - optional dependency
 
 from ..classifier import classify_query
 from ..context_assembler import ProvenanceContextAssembler, _serialise_block
+from ..conversation_log import ClaimInteraction, ConversationLogger, LogRecord, make_conversation_id
 from ...graph.cypher import CORPUS_STATS_QUERY
 from ..entity_gateway import EntityResolutionGateway
 from ..executor import Neo4jQueryExecutor
@@ -584,6 +587,8 @@ def create_app(
         state["assembler"] = ProvenanceContextAssembler(executor)
         state["gateway"] = EntityResolutionGateway()
         state["synthesis"] = SynthesisEngine(api_key=api_key, max_tokens=max_tokens)
+        conv_log_path = Path(os.environ.get("CONV_LOG_DB", "conversation_log.db"))
+        state["conv_logger"] = ConversationLogger(conv_log_path)
         yield
         executor.close()
 
@@ -609,6 +614,9 @@ def create_app(
         assembler: ProvenanceContextAssembler = state["assembler"]
         builder: CypherQueryBuilder = state["query_builder"]
         engine: SynthesisEngine = state["synthesis"]
+
+        created_at = datetime.now(timezone.utc).isoformat()
+        conversation_id = make_conversation_id(req.text, created_at)
 
         # Layer 0: classify intent.
         intent = classify_query(
@@ -683,6 +691,35 @@ def create_app(
             context_text=context_text,
             analytical_result=analytical_result,
         )
+
+        conv_logger: ConversationLogger | None = state.get("conv_logger")
+        if conv_logger is not None:
+            cited_ids = set(result.supporting_claim_ids)
+            conv_logger.enqueue(LogRecord(
+                conversation_id=conversation_id,
+                query_text=req.text,
+                bucket=intent.bucket,
+                classifier_confidence=intent.classifier_confidence,
+                year_min=intent.year_min,
+                year_max=intent.year_max,
+                retrieval_path="entity_anchored" if entity_ctx.resolved else "fulltext",
+                created_at=created_at,
+                entity_ids_resolved=[e.entity_id for e in entity_ctx.resolved],
+                entity_types_resolved=[e.entity_type for e in entity_ctx.resolved],
+                candidates_retrieved=retrieval_stats.candidates_retrieved,
+                ocr_dropped=retrieval_stats.ocr_dropped,
+                claims_in_context=retrieval_stats.claims_in_context,
+                claim_interactions=[
+                    ClaimInteraction(
+                        claim_id=b.claim_id,
+                        claim_type=b.claim_type,
+                        traversal_rel_types=b.traversal_rel_types,
+                        was_cited=b.claim_id in cited_ids,
+                        extraction_confidence=b.extraction_confidence,
+                    )
+                    for b in blocks
+                ],
+            ))
 
         return QueryResponse(
             answer=result.answer,

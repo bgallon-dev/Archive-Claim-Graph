@@ -182,6 +182,7 @@ class ProvenanceContextAssembler:
         budget = self._budget_hybrid if is_hybrid else self._budget_conversational
 
         rows: list[dict] = []
+        claim_rel_types: dict[str, list[str]] = {}
 
         if entity_context.resolved:
             # Entity-anchored path: one query per resolved entity.
@@ -199,6 +200,10 @@ class ProvenanceContextAssembler:
                 for r in entity_rows:
                     c = r.get("c") or {}
                     cid = c.get("claim_id")
+                    if cid:
+                        rel_type = r.get("traversal_rel_type")
+                        if rel_type and rel_type not in claim_rel_types.get(cid, []):
+                            claim_rel_types.setdefault(cid, []).append(rel_type)
                     if cid and cid not in seen_claim_ids:
                         seen_claim_ids.add(cid)
                         rows.append(r)
@@ -216,6 +221,7 @@ class ProvenanceContextAssembler:
         for row in rows:
             block = _row_to_block(row)
             if block is not None:
+                block.traversal_rel_types = claim_rel_types.get(block.claim_id, [])
                 blocks_raw.append(block)
 
         self._last_ocr_dropped = self._last_candidate_count - len(blocks_raw)

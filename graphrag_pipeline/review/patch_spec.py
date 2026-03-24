@@ -180,6 +180,41 @@ def _validate_exclude_claim_from_derivation(spec: dict[str, Any]) -> None:
     _require_enum(spec, "reason", EXCLUSION_REASONS, label)
 
 
+# ---------------------------------------------------------------------------
+# Sensitivity monitor validators
+# Quarantine patch specs record the target + reason for the audit trail.
+# They do not participate in the bundle-patching apply flow — quarantine is
+# applied directly to graph nodes via QUARANTINE_CLAIM_QUERY etc.
+# ---------------------------------------------------------------------------
+
+def _validate_quarantine_claim(spec: dict[str, Any]) -> None:
+    label = "quarantine_claim"
+    required = {"schema_version", "proposal_type", "claim_id", "reason"}
+    _require_keys(spec, required, label)
+    _reject_unknown_keys(spec, required, label)
+    _require_type(spec, "claim_id", str, label)
+    _require_type(spec, "reason", str, label)
+
+
+def _validate_quarantine_document(spec: dict[str, Any]) -> None:
+    label = "quarantine_document"
+    required = {"schema_version", "proposal_type", "doc_id", "reason"}
+    _require_keys(spec, required, label)
+    _reject_unknown_keys(spec, required, label)
+    _require_type(spec, "doc_id", str, label)
+    _require_type(spec, "reason", str, label)
+
+
+def _validate_restrict_permanently(spec: dict[str, Any]) -> None:
+    label = "restrict_permanently"
+    required = {"schema_version", "proposal_type", "target_id", "target_kind", "reason"}
+    _require_keys(spec, required, label)
+    _reject_unknown_keys(spec, required, label)
+    _require_type(spec, "target_id", str, label)
+    _require_type(spec, "target_kind", str, label)
+    _require_type(spec, "reason", str, label)
+
+
 _VALIDATORS: dict[str, Any] = {
     "merge_entities": _validate_merge_entities,
     "create_alias": _validate_create_alias,
@@ -188,6 +223,9 @@ _VALIDATORS: dict[str, Any] = {
     "add_claim_entity_link": _validate_add_claim_entity_link,
     "add_claim_location_link": _validate_add_claim_location_link,
     "exclude_claim_from_derivation": _validate_exclude_claim_from_derivation,
+    "quarantine_claim": _validate_quarantine_claim,
+    "quarantine_document": _validate_quarantine_document,
+    "restrict_permanently": _validate_restrict_permanently,
 }
 
 

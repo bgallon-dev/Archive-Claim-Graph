@@ -114,6 +114,10 @@ _DEFAULT_ANTI_PATTERNS: list[dict[str, str]] = [
     {"anti_pattern_id": "ap_missing_species", "name": "Missing Species Focus", "description": "Claim lacks SPECIES_FOCUS link despite evidence of species context", "queue_name": "builder_repair"},
     {"anti_pattern_id": "ap_missing_location", "name": "Missing Event Location", "description": "Claim lacks OCCURRED_AT link despite evidence of location context", "queue_name": "builder_repair"},
     {"anti_pattern_id": "ap_method_overtrigger", "name": "Method Overtrigger", "description": "METHOD_FOCUS link on a claim type where method focus is weak or forbidden", "queue_name": "builder_repair"},
+    # Sensitivity monitor anti-patterns
+    {"anti_pattern_id": "ap_pii_exposure", "name": "PII Exposure", "description": "Personally identifiable information detected in extracted claims", "queue_name": "sensitivity"},
+    {"anti_pattern_id": "ap_indigenous_sensitivity", "name": "Indigenous Cultural Sensitivity", "description": "Potential Indigenous cultural material requiring community review", "queue_name": "sensitivity"},
+    {"anti_pattern_id": "ap_living_person", "name": "Living Person Reference", "description": "Reference to potentially living individual with sensitive information", "queue_name": "sensitivity"},
 ]
 
 ISSUE_CLASS_TO_ANTI_PATTERN: dict[str, str] = {
@@ -126,6 +130,10 @@ ISSUE_CLASS_TO_ANTI_PATTERN: dict[str, str] = {
     "missing_species_focus": "ap_missing_species",
     "missing_event_location": "ap_missing_location",
     "method_overtrigger": "ap_method_overtrigger",
+    # Sensitivity monitor mappings
+    "pii_exposure": "ap_pii_exposure",
+    "indigenous_sensitivity": "ap_indigenous_sensitivity",
+    "living_person_reference": "ap_living_person",
 }
 
 

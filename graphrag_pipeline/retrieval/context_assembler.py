@@ -84,6 +84,8 @@ def _select_retrieval_strategy(
     year_min: int | None,
     year_max: int | None,
     budget: int,
+    permitted_levels: list[str] | None = None,
+    institution_id: str | None = None,
 ) -> tuple[str, dict]:
     """Select the Cypher template and parameters best matched to this query shape.
 
@@ -101,6 +103,10 @@ def _select_retrieval_strategy(
     has_entities = len(resolved_ids) > 0
     has_claim_types = bool(inferred_claim_types)
 
+    _permitted = permitted_levels if permitted_levels is not None else ["public"]
+    _institution = institution_id if institution_id is not None else "turnbull"
+    _access_params = {"permitted_levels": _permitted, "institution_id": _institution}
+
     if has_years and len(resolved_ids) <= 1:
         # When no entity resolved, anchor to the default refuge
         # so the temporal query doesn't scan the full corpus
@@ -113,36 +119,43 @@ def _select_retrieval_strategy(
                     "year_max": year_max,
                     "claim_types": inferred_claim_types,
                     "limit": budget * 3,
+                    **_access_params,
                 }
         return TEMPORAL_CLAIMS_QUERY, {
             "year_min": year_min,
             "year_max": year_max,
             "claim_types": inferred_claim_types,
             "limit": budget * 3,
+            **_access_params,
         }
     if len(resolved_ids) >= 2:
         return MULTI_ENTITY_CLAIMS_QUERY, {
             "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
             "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+            **_access_params,
         }
     if has_entities and has_claim_types:
         # Over-fetch; post-filter by claim_type in assemble()
         return ENTITY_ANCHORED_CLAIMS_QUERY, {
             "entity_id": resolved_ids[0], "year_min": year_min,
             "year_max": year_max, "limit": budget * 3,
+            **_access_params,
         }
     if has_claim_types and not has_entities:
         return CLAIM_TYPE_SCOPED_QUERY, {
             "claim_types": inferred_claim_types, "entity_ids": None,
             "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+            **_access_params,
         }
     if has_entities:
         return ENTITY_ANCHORED_CLAIMS_QUERY, {
             "entity_id": resolved_ids[0], "year_min": year_min,
             "year_max": year_max, "limit": budget * 2,
+            **_access_params,
         }
     return FULLTEXT_CLAIMS_QUERY, {
         "search_text": query_text, "limit": budget * 2,
+        **_access_params,
     }
 
 
@@ -218,6 +231,8 @@ def _row_to_block(row: dict) -> ProvenanceBlock | None:
         species_name=_safe_str(sp.get("name")) or None,
         year=y.get("year"),
         measurements=measurements,
+        access_level=_safe_str(d.get("access_level") or "public"),
+        donor_restricted=bool(d.get("donor_restricted", False)),
     )
 
 
@@ -316,6 +331,8 @@ class ProvenanceContextAssembler:
         year_min: int | None = None,
         year_max: int | None = None,
         is_hybrid: bool = False,
+        permitted_levels: list[str] | None = None,
+        institution_id: str | None = None,
     ) -> tuple[list[ProvenanceBlock], str]:
         """Retrieve and serialise provenance blocks for *query_text*.
 
@@ -330,7 +347,9 @@ class ProvenanceContextAssembler:
         inferred_claim_types = _infer_claim_types(query_text)
 
         template, params = _select_retrieval_strategy(
-            query_text, entity_context, year_min, year_max, budget
+            query_text, entity_context, year_min, year_max, budget,
+            permitted_levels=permitted_levels,
+            institution_id=institution_id,
         )
 
         rows: list[dict] = []
@@ -402,13 +421,22 @@ class ProvenanceContextAssembler:
         context_text = "\n\n".join(_serialise_block(b) for b in blocks)
         return blocks, context_text
 
-    def chain_for_claim(self, claim_id: str) -> list[ProvenanceBlock]:
+    def chain_for_claim(
+        self,
+        claim_id: str,
+        permitted_levels: list[str] | None = None,
+        institution_id: str | None = None,
+    ) -> list[ProvenanceBlock]:
         """Return the full provenance chain for a single known *claim_id*.
 
         Used by the ``POST /query/provenance`` endpoint.
         """
         from ..graph.cypher import PROVENANCE_CHAIN_QUERY
 
-        rows = self._executor.run(PROVENANCE_CHAIN_QUERY, {"claim_id": claim_id})
+        rows = self._executor.run(PROVENANCE_CHAIN_QUERY, {
+            "claim_id": claim_id,
+            "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
+            "institution_id": institution_id if institution_id is not None else "turnbull",
+        })
         blocks = [_row_to_block(r) for r in rows]
         return [b for b in blocks if b is not None]

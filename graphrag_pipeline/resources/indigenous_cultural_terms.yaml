@@ -1,0 +1,40 @@
+version: "1"
+# Indigenous Cultural Sensitivity Vocabulary
+#
+# This file is populated through tribal consultation before ingestion.
+# Categories reflect CARE Principles sensitivity levels (Collective Authority,
+# Responsibility, Ethics — see https://www.gida-global.org/care).
+#
+# Format for each category entry:
+#   - terms: [list of case-insensitive phrases to match in claim sentences]
+#     sensitivity: high | medium | low
+#     nations: [list of tribal nations whose vocabulary this reflects; empty = applies broadly]
+#
+# Ship empty: the detector returns no indigenous_sensitivity proposals when
+# all term lists are empty. Institutions populate this file during onboarding
+# in consultation with the relevant tribal nations.
+
+ceremonial:
+  - terms: []
+    sensitivity: high
+    nations: []
+
+sacred_sites:
+  - terms: []
+    sensitivity: high
+    nations: []
+
+traditional_knowledge:
+  - terms: []
+    sensitivity: medium
+    nations: []
+
+burial_funerary:
+  - terms: []
+    sensitivity: high
+    nations: []
+
+traditional_ecological_knowledge:
+  - terms: []
+    sensitivity: medium
+    nations: []

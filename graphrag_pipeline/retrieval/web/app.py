@@ -21,13 +21,15 @@ from __future__ import annotations
 
 import dataclasses
 import os
+import sqlite3 as _sqlite3
+import statistics as _statistics
 from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
 
 try:
-    from fastapi import FastAPI, HTTPException
+    from fastapi import Depends, FastAPI, HTTPException, Query
     from fastapi.responses import HTMLResponse
     from pydantic import BaseModel, Field, field_validator
 except Exception:  # pragma: no cover - optional dependency
@@ -35,10 +37,31 @@ except Exception:  # pragma: no cover - optional dependency
         "fastapi/pydantic not installed. Install with: pip install -e .[retrieval]"
     )
 
+from .auth import UserContext, require_user
+from graphrag_pipeline.auth.dependencies import NeedsLoginException, require_admin
+from graphrag_pipeline.auth.router import create_auth_router
 from ..classifier import classify_query
 from ..context_assembler import ProvenanceContextAssembler, _serialise_block
 from ..conversation_log import ClaimInteraction, ConversationLogger, LogRecord, make_conversation_id
-from ...graph.cypher import CORPUS_STATS_QUERY
+from ...graph.cypher import (
+    CORPUS_STATS_QUERY,
+    COUNT_QUARANTINED_CLAIMS_QUERY,
+    SOFT_DELETE_DOCUMENT_QUERY,
+    RESTORE_DOCUMENT_QUERY,
+    LIST_DOCUMENTS_QUERY,
+    STATS_DOC_OVERVIEW_QUERY,
+    STATS_DOC_TYPE_QUERY,
+    STATS_CLAIM_TYPE_QUERY,
+    STATS_ENTITY_TYPE_QUERY,
+    STATS_TEMPORAL_COVERAGE_QUERY,
+    STATS_CONFIDENCE_DISTRIBUTION_QUERY,
+    GAP_TEMPORAL_DENSITY_QUERY,
+    GAP_ENTITY_DEPTH_QUERY,
+    GAP_GEOGRAPHIC_COVERAGE_QUERY,
+    ENTITY_SEARCH_QUERY,
+    ENTITY_DETAIL_QUERY,
+    ENTITY_NEIGHBORHOOD_QUERY,
+)
 from ..entity_gateway import EntityResolutionGateway
 from ..executor import Neo4jQueryExecutor
 from ..models import RetrievalStats, SynthesisResult
@@ -97,6 +120,10 @@ class QueryResponse(BaseModel):
     analytical_result: dict[str, Any] | None = None
     ambiguous_entities: list[str] = Field(default_factory=list)
     retrieval_stats: dict[str, int] | None = None
+    synthesis_available: bool = True  # False when API call failed; provenance blocks still returned
+    quarantined_claims_count: int = 0  # claims excluded from this answer due to sensitivity review
+    supporting_claims_detail: list[dict[str, Any]] = Field(default_factory=list)
+    # Each entry: {claim_id, confidence, epistemic_status, claim_type}
 
 
 # ---------------------------------------------------------------------------
@@ -305,6 +332,11 @@ th { background: var(--table-header); padding: 4px 8px; text-align: left; border
 td { padding: 4px 8px; border: 1px solid var(--table-border); }
 .claim-ids { font-family: monospace; font-size: 12px; margin-top: 0.25rem; opacity: 0.85; }
 .coverage { font-size: 11px; color: var(--label); margin-top: 0.4rem; border-top: 1px solid var(--border); padding-top: 0.3rem; }
+.sources-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; }
+.sources-table th, .sources-table td { padding: 3px 8px; border: 1px solid var(--table-border); text-align: left; }
+.sources-table th { background: var(--table-header); font-weight: 600; }
+.src-id { font-family: monospace; font-size: 11px; }
+.src-label { font-size: 11px; background: var(--table-header); border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
 
 /* ---- Input bar ---- */
 #input-bar {
@@ -353,6 +385,9 @@ td { padding: 4px 8px; border: 1px solid var(--table-border); }
 <header>
   <h1>Turnbull GraphRAG</h1>
   <div style="display:flex;gap:0.5rem;align-items:center;">
+    <a href="/stats" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128202; Collection Stats</a>
+    <a href="/gaps" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128270; Gap Analysis</a>
+    <a href="/map" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128101; Relationship Map</a>
     <button id="new-conv-btn">&#10011; New Conversation</button>
     <button id="settings-toggle">&#9881; Settings</button>
   </div>
@@ -455,7 +490,18 @@ function formatResponse(data) {
     html += '<div class="caveats"><strong>Caveats:</strong><ul>' + items + '</ul></div>';
   }
 
-  if (data.supporting_claim_ids && data.supporting_claim_ids.length > 0) {
+  if (data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
+    var rows = data.supporting_claims_detail.map(function(c) {
+      var badge = (c.confidence != null) ? confidenceBadge(c.confidence) : '';
+      var epis = c.epistemic_status ? '<span class="src-label">' + esc(c.epistemic_status) + '</span>' : '';
+      var ct = c.claim_type ? '<span class="src-label">' + esc(c.claim_type) + '</span>' : '';
+      return '<tr><td class="src-id">' + esc(c.claim_id) + '</td><td>' + badge + '</td><td>' + epis + '</td><td>' + ct + '</td></tr>';
+    }).join('');
+    html += '<details><summary>Sources (' + data.supporting_claims_detail.length + ' claims)</summary>'
+      + '<table class="sources-table"><thead><tr>'
+      + '<th>Claim ID</th><th>Confidence</th><th>Epistemic Status</th><th>Type</th>'
+      + '</tr></thead><tbody>' + rows + '</tbody></table></details>';
+  } else if (data.supporting_claim_ids && data.supporting_claim_ids.length > 0) {
     html += '<details><summary>Sources (' + data.supporting_claim_ids.length + ' claims)</summary>'
       + '<p class="claim-ids">' + data.supporting_claim_ids.map(esc).join(', ') + '</p></details>';
   }
@@ -587,6 +633,745 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 # ---------------------------------------------------------------------------
+# Collection statistics HTML renderer
+# ---------------------------------------------------------------------------
+
+# Expected claim-type share for a wildlife refuge annual-report corpus.
+# Used by gap detection to identify underrepresented topical areas.
+_EXPECTED_CLAIM_SHARES: dict[str, float] = {
+    "population_estimate": 0.22,
+    "species_presence":    0.18,
+    "management_action":   0.14,
+    "habitat_condition":   0.10,
+    "breeding_activity":   0.07,
+    "migration_timing":    0.05,
+    "weather_observation": 0.04,
+}
+
+_STATS_CSS = """
+<style>
+.stat-cards{display:flex;gap:1rem;flex-wrap:wrap;margin:1rem 0}
+.stat-card{background:#fff;border:1px solid #dee2e6;border-radius:8px;padding:1rem 1.5rem;min-width:150px;flex:1}
+.stat-card .value{font-size:2rem;font-weight:700;color:#0d6efd}
+.stat-card .label{font-size:0.8rem;color:#6c757d;text-transform:uppercase;letter-spacing:.05em}
+.stats-section{margin:2rem 0}
+.stats-section h2{font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.3rem;margin-bottom:0.75rem}
+table.stats{width:100%;border-collapse:collapse;font-size:0.9rem}
+table.stats th{background:#f8f9fa;text-align:left;padding:6px 10px;border:1px solid #dee2e6}
+table.stats td{padding:5px 10px;border:1px solid #dee2e6}
+.tier-high{color:#198754;font-weight:600}
+.tier-medium{color:#fd7e14;font-weight:600}
+.tier-low{color:#dc3545;font-weight:600}
+.gap-row td{color:#adb5bd;font-style:italic}
+a.nav-back{display:inline-block;margin-bottom:1rem;color:#0d6efd;text-decoration:none;font-size:0.9rem}
+</style>"""
+
+
+def _conf_tier_class(avg: float | None) -> str:
+    if avg is None:
+        return ""
+    if avg >= 0.85:
+        return "tier-high"
+    if avg >= 0.70:
+        return "tier-medium"
+    return "tier-low"
+
+
+def _render_stats_html(
+    overview: dict,
+    doc_types: list[dict],
+    claim_types: list[dict],
+    entity_types: list[dict],
+    temporal: list[dict],
+    confidence: dict,
+) -> str:
+    import html as _html
+
+    def esc(v: object) -> str:
+        return _html.escape(str(v))
+
+    total_docs = overview.get("total_docs") or 0
+    earliest = overview.get("earliest_year") or "—"
+    latest = overview.get("latest_year") or "—"
+    total_pages = overview.get("total_pages") or 0
+    donor_restricted = overview.get("donor_restricted_count") or 0
+
+    total_claims = confidence.get("total_claims") or 0
+    avg_conf = confidence.get("avg_confidence")
+    high = confidence.get("high_count") or 0
+    medium = confidence.get("medium_count") or 0
+    low = confidence.get("low_count") or 0
+    uncertain_epistemic = confidence.get("uncertain_epistemic_count") or 0
+    total_entities = sum(r.get("count", 0) for r in entity_types)
+
+    date_span = f"{earliest} – {latest}" if earliest != "—" else "—"
+
+    # Summary cards
+    cards = (
+        f'<div class="stat-cards">'
+        f'<div class="stat-card"><div class="value">{esc(total_docs)}</div>'
+        f'<div class="label">Documents</div></div>'
+        f'<div class="stat-card"><div class="value">{esc(total_claims)}</div>'
+        f'<div class="label">Active Claims</div></div>'
+        f'<div class="stat-card"><div class="value">{esc(total_entities)}</div>'
+        f'<div class="label">Entities</div></div>'
+        f'<div class="stat-card"><div class="value">{esc(date_span)}</div>'
+        f'<div class="label">Date Span</div></div>'
+        f'<div class="stat-card"><div class="value">{esc(total_pages)}</div>'
+        f'<div class="label">Total Pages</div></div>'
+        f'</div>'
+    )
+
+    # Document type table
+    dt_rows = "".join(
+        f"<tr><td>{esc(r.get('doc_type','(unknown)'))}</td><td>{esc(r.get('count',0))}</td></tr>"
+        for r in doc_types
+    )
+    doc_type_section = (
+        '<div class="stats-section"><h2>Document Types</h2>'
+        '<table class="stats"><thead><tr><th>Type</th><th>Count</th></tr></thead>'
+        f"<tbody>{dt_rows}</tbody></table></div>"
+    )
+
+    # Claim type table with confidence
+    ct_rows = ""
+    for r in claim_types:
+        avg = r.get("avg_confidence")
+        avg_str = f"{avg:.2f}" if avg is not None else "—"
+        tier_cls = _conf_tier_class(avg)
+        ct_rows += (
+            f"<tr><td>{esc(r.get('claim_type','(unknown)'))}</td>"
+            f"<td>{esc(r.get('count',0))}</td>"
+            f'<td class="{tier_cls}">{esc(avg_str)}</td></tr>'
+        )
+    claim_type_section = (
+        '<div class="stats-section"><h2>Claim Type Distribution</h2>'
+        '<table class="stats"><thead><tr><th>Claim Type</th><th>Count</th>'
+        '<th>Avg Confidence</th></tr></thead>'
+        f"<tbody>{ct_rows}</tbody></table></div>"
+    )
+
+    # Temporal coverage — fill in gap years
+    temporal_section = ""
+    if temporal:
+        year_map = {int(r["year"]): int(r["doc_count"]) for r in temporal if r.get("year") is not None}
+        min_year = min(year_map)
+        max_year = max(year_map)
+        span = max_year - min_year
+        # Group into decades if span > 30 years
+        if span > 30:
+            decade_map: dict[int, int] = {}
+            for y, c in year_map.items():
+                d = (y // 10) * 10
+                decade_map[d] = decade_map.get(d, 0) + c
+            temp_rows = ""
+            for d in range((min_year // 10) * 10, max_year + 10, 10):
+                cnt = decade_map.get(d, 0)
+                gap_cls = ' class="gap-row"' if cnt == 0 else ""
+                temp_rows += f"<tr{gap_cls}><td>{d}s</td><td>{cnt if cnt else '(none)'}</td></tr>"
+        else:
+            temp_rows = ""
+            for y in range(min_year, max_year + 1):
+                cnt = year_map.get(y, 0)
+                gap_cls = ' class="gap-row"' if cnt == 0 else ""
+                temp_rows += f"<tr{gap_cls}><td>{y}</td><td>{cnt if cnt else '(none)'}</td></tr>"
+        temporal_section = (
+            '<div class="stats-section"><h2>Temporal Coverage</h2>'
+            '<table class="stats"><thead><tr><th>Year/Decade</th>'
+            '<th>Documents</th></tr></thead>'
+            f"<tbody>{temp_rows}</tbody></table>"
+            "<p style='font-size:0.8rem;color:#6c757d'>Greyed rows = coverage gaps.</p></div>"
+        )
+
+    # Entity type table
+    et_rows = "".join(
+        f"<tr><td>{esc(r.get('entity_type','(unknown)'))}</td><td>{esc(r.get('count',0))}</td></tr>"
+        for r in entity_types
+    )
+    entity_section = (
+        '<div class="stats-section"><h2>Entity Categories</h2>'
+        '<table class="stats"><thead><tr><th>Entity Type</th><th>Count</th></tr></thead>'
+        f"<tbody>{et_rows}</tbody></table></div>"
+    )
+
+    # Confidence profile
+    safe_total = max(total_claims, 1)
+    conf_avg_str = f"{avg_conf:.2f}" if avg_conf is not None else "—"
+    conf_rows = (
+        f'<tr><td class="tier-high">HIGH (&ge;0.85)</td>'
+        f"<td>{high}</td><td>{high*100//safe_total}%</td></tr>"
+        f'<tr><td class="tier-medium">MEDIUM (0.70–0.84)</td>'
+        f"<td>{medium}</td><td>{medium*100//safe_total}%</td></tr>"
+        f'<tr><td class="tier-low">LOW (&lt;0.70)</td>'
+        f"<td>{low}</td><td>{low*100//safe_total}%</td></tr>"
+    )
+    confidence_section = (
+        '<div class="stats-section"><h2>Confidence Profile</h2>'
+        f"<p><strong>Average extraction confidence:</strong> {esc(conf_avg_str)} "
+        f"&nbsp;|&nbsp; <strong>Epistemic 'uncertain' flags:</strong> {esc(uncertain_epistemic)}</p>"
+        '<table class="stats"><thead><tr><th>Tier</th><th>Claims</th>'
+        '<th>Share</th></tr></thead>'
+        f"<tbody>{conf_rows}</tbody></table></div>"
+    )
+
+    # Governance note
+    gov_note = ""
+    if donor_restricted:
+        gov_note = (
+            f'<p style="color:#6c757d;font-size:0.85rem">&#9432; {esc(donor_restricted)} document(s) '
+            "carry donor reproduction restrictions.</p>"
+        )
+
+    return (
+        "<!DOCTYPE html><html lang='en'><head>"
+        "<title>Collection Statistics</title>"
+        f"{_STATS_CSS}</head><body style='font-family:system-ui,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem'>"
+        "<a class='nav-back' href='/'>&#8592; Back to Query Interface</a>"
+        "<h1>Collection Statistics</h1>"
+        f"{cards}{gov_note}"
+        f"{doc_type_section}{claim_type_section}{temporal_section}{entity_section}{confidence_section}"
+        "<p style='margin-top:2rem;font-size:0.9rem'>"
+        "<a href='/gaps' style='color:#0d6efd'>&#8594; View Gap Analysis</a></p>"
+        "</body></html>"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Gap detection helpers and HTML renderer
+# ---------------------------------------------------------------------------
+
+def _compute_temporal_gaps(temporal_rows: list[dict]) -> list[dict]:
+    """Return consecutive sparse-year periods that fall between active coverage."""
+    if not temporal_rows:
+        return []
+    year_data = {row["year"]: row.get("doc_count", 0) for row in temporal_rows}
+    all_years = sorted(year_data)
+    if len(all_years) < 2:
+        return []
+    min_year, max_year = all_years[0], all_years[-1]
+    full = {y: year_data.get(y, 0) for y in range(min_year, max_year + 1)}
+    active = [v for v in full.values() if v > 0]
+    if not active:
+        return []
+    median_active = _statistics.median(active)
+    gap_threshold = max(1, median_active * 0.2)
+
+    gaps: list[dict] = []
+    current_gap: list[int] = []
+    for y in range(min_year, max_year + 1):
+        if full[y] <= gap_threshold:
+            current_gap.append(y)
+        else:
+            if current_gap:
+                before_docs = full.get(current_gap[0] - 1, 0)
+                after_docs = full[y]
+                if before_docs > gap_threshold or after_docs > gap_threshold:
+                    gaps.append({"start": current_gap[0], "end": current_gap[-1],
+                                 "years_count": len(current_gap),
+                                 "before_docs": before_docs, "after_docs": after_docs})
+            current_gap = []
+    if current_gap:
+        before_docs = full.get(current_gap[0] - 1, 0)
+        if before_docs > gap_threshold:
+            gaps.append({"start": current_gap[0], "end": current_gap[-1],
+                         "years_count": len(current_gap),
+                         "before_docs": before_docs, "after_docs": 0})
+    return gaps
+
+
+def _read_query_signal_gaps(conv_log_db: str, limit: int = 10) -> list[dict]:
+    """Return query buckets with high frequency but thin claim context from conversation log."""
+    try:
+        con = _sqlite3.connect(conv_log_db, check_same_thread=False)
+        try:
+            rows = con.execute(
+                """
+                SELECT c.bucket,
+                       COUNT(DISTINCT c.conversation_id) AS query_count,
+                       AVG(CAST(r.claims_in_context AS REAL)) AS avg_claims
+                FROM conversation c
+                JOIN retrieval_event r ON c.conversation_id = r.conversation_id
+                GROUP BY c.bucket
+                HAVING avg_claims < 5.0
+                ORDER BY query_count DESC
+                LIMIT ?
+                """,
+                (limit,),
+            ).fetchall()
+        finally:
+            con.close()
+        return [{"bucket": r[0], "query_count": r[1], "avg_claims": round(r[2], 1)} for r in rows]
+    except Exception:
+        return []
+
+
+def _render_gaps_html(
+    temporal: list[dict],
+    entity_depth: list[dict],
+    geo_coverage: list[dict],
+    claim_types: list[dict],
+    conv_gaps: list[dict],
+) -> str:
+    def esc(v: object) -> str:
+        return str(v).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+    # --- 1. Temporal coverage gaps ---
+    temporal_gaps = _compute_temporal_gaps(temporal)
+    if temporal_gaps:
+        gap_rows = ""
+        for g in temporal_gaps:
+            label = f"{g['start']}" if g["start"] == g["end"] else f"{g['start']}–{g['end']} ({g['years_count']} years)"
+            context = f"Adjacent coverage: {g['before_docs']} doc(s) before, {g['after_docs']} doc(s) after."
+            gap_rows += f"<li><strong>{esc(label)}</strong> — {esc(context)}</li>"
+        temporal_section = (
+            "<div class='stats-section'><h2>Temporal Coverage Gaps</h2>"
+            f"<ul style='line-height:1.9'>{gap_rows}</ul>"
+            "<p style='font-size:0.85rem'><a href='/stats'>&#8594; View full temporal coverage</a></p>"
+            "</div>"
+        )
+    else:
+        year_span = f"{temporal[0]['year']}–{temporal[-1]['year']}" if temporal else "unknown"
+        temporal_section = (
+            "<div class='stats-section'><h2>Temporal Coverage Gaps</h2>"
+            f"<p>No significant temporal gaps found across the covered range ({esc(year_span)}).</p>"
+            "<p style='font-size:0.85rem'><a href='/stats'>&#8594; View full temporal coverage</a></p>"
+            "</div>"
+        )
+
+    # --- 2. Entity depth gaps ---
+    def _depth_badge(count: int) -> str:
+        if count <= 1:
+            return "<span style='background:#f8d7da;color:#721c24;border-radius:3px;padding:1px 5px;font-size:11px'>1 claim</span>"
+        return "<span style='background:#fff3cd;color:#856404;border-radius:3px;padding:1px 5px;font-size:11px'>2–3 claims</span>"
+
+    if entity_depth:
+        # Group by entity_type
+        by_type: dict[str, list[dict]] = {}
+        for row in entity_depth:
+            by_type.setdefault(row["entity_type"], []).append(row)
+        type_blocks = ""
+        for etype, rows in sorted(by_type.items()):
+            tbody = "".join(
+                f"<tr><td>{esc(r['name'])}</td><td>{_depth_badge(r['primary_claim_count'])}</td></tr>"
+                for r in rows
+            )
+            type_blocks += (
+                f"<h3 style='font-size:0.95rem;margin:1rem 0 0.3rem'>{esc(etype)}</h3>"
+                "<table class='stats'><thead><tr><th>Entity</th><th>Primary Claims</th></tr></thead>"
+                f"<tbody>{tbody}</tbody></table>"
+            )
+        entity_section = (
+            "<div class='stats-section'><h2>Entity Depth Gaps</h2>"
+            "<p style='font-size:0.85rem;color:#6c757d'>Entities with &#8804;3 primary-subject claims — "
+            "known to the collection but without substantive documentation.</p>"
+            f"{type_blocks}</div>"
+        )
+    else:
+        entity_section = (
+            "<div class='stats-section'><h2>Entity Depth Gaps</h2>"
+            "<p>No thinly-covered entities found (all entities have &gt;3 primary claims).</p></div>"
+        )
+
+    # --- 3. Geographic coverage gaps ---
+    if geo_coverage:
+        tbody = "".join(
+            f"<tr><td>{esc(r['name'])}</td><td>{esc(r['entity_type'])}</td>"
+            f"<td>{_depth_badge(r['location_specific_claims'])}</td></tr>"
+            for r in geo_coverage
+        )
+        geo_section = (
+            "<div class='stats-section'><h2>Geographic Coverage Gaps</h2>"
+            "<p style='font-size:0.85rem;color:#6c757d'>Places referenced with few geographically-specific claims "
+            "(OCCURRED_AT or LOCATION_FOCUS relationships).</p>"
+            "<table class='stats'><thead><tr><th>Place</th><th>Type</th><th>Geo Claims</th></tr></thead>"
+            f"<tbody>{tbody}</tbody></table></div>"
+        )
+    else:
+        geo_section = (
+            "<div class='stats-section'><h2>Geographic Coverage Gaps</h2>"
+            "<p>No thinly-covered places found.</p></div>"
+        )
+
+    # --- 4. Topical balance ---
+    total_claims = sum(r.get("count", 0) for r in claim_types)
+    actual_shares: dict[str, float] = {}
+    unclassified_count = 0
+    if total_claims > 0:
+        for r in claim_types:
+            ct = r.get("claim_type") or ""
+            actual_shares[ct] = r.get("count", 0) / total_claims
+            if ct == "unclassified_assertion":
+                unclassified_count = r.get("count", 0)
+
+    unclassified_banner = ""
+    if total_claims > 0 and unclassified_count / total_claims > 0.10:
+        unclassified_banner = (
+            "<p style='background:#fff3cd;color:#856404;padding:0.5rem 0.75rem;border-radius:4px;font-size:0.85rem'>"
+            f"&#9888; {round(unclassified_count/total_claims*100)}% of claims are unclassified assertions — "
+            "this may indicate extraction difficulty in certain domain areas.</p>"
+        )
+
+    topic_rows = ""
+    for claim_type, expected in sorted(_EXPECTED_CLAIM_SHARES.items(), key=lambda x: -x[1]):
+        actual = actual_shares.get(claim_type, 0.0)
+        actual_pct = round(actual * 100, 1)
+        expected_pct = round(expected * 100, 1)
+        if actual < expected * 0.25:
+            status = "<span style='color:#dc3545;font-weight:600'>gap</span>"
+        elif actual < expected * 0.50:
+            status = "<span style='color:#fd7e14;font-weight:600'>thin</span>"
+        else:
+            status = "<span style='color:#198754'>ok</span>"
+        topic_rows += (
+            f"<tr><td>{esc(claim_type)}</td><td>{actual_pct}%</td>"
+            f"<td>{expected_pct}%</td><td>{status}</td></tr>"
+        )
+
+    topic_section = (
+        "<div class='stats-section'><h2>Topical Balance</h2>"
+        "<p style='font-size:0.85rem;color:#6c757d'>Actual claim-type share vs. expected profile "
+        "for a wildlife refuge annual-report corpus.</p>"
+        f"{unclassified_banner}"
+        "<table class='stats'><thead><tr><th>Claim Type</th><th>Actual</th>"
+        "<th>Expected</th><th>Status</th></tr></thead>"
+        f"<tbody>{topic_rows}</tbody></table></div>"
+    )
+
+    # --- 5. Query signal (conditional) ---
+    if conv_gaps:
+        tbody = "".join(
+            f"<tr><td>{esc(r['bucket'])}</td><td>{esc(r['query_count'])}</td>"
+            f"<td>{esc(r['avg_claims'])}</td></tr>"
+            for r in conv_gaps
+        )
+        conv_section = (
+            "<div class='stats-section'><h2>Query Signal Gaps</h2>"
+            "<p style='font-size:0.85rem;color:#6c757d'>Topic buckets queried frequently but consistently "
+            "returning fewer than 5 claims — suggesting low coverage rather than failed retrieval.</p>"
+            "<table class='stats'><thead><tr><th>Query Bucket</th><th>Query Count</th>"
+            "<th>Avg Claims Retrieved</th></tr></thead>"
+            f"<tbody>{tbody}</tbody></table></div>"
+        )
+    else:
+        conv_section = ""
+
+    return (
+        "<!DOCTYPE html><html lang='en'><head>"
+        "<title>Gap Analysis</title>"
+        f"{_STATS_CSS}</head>"
+        "<body style='font-family:system-ui,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem'>"
+        "<a class='nav-back' href='/'>&#8592; Back to Query Interface</a>"
+        "&nbsp;&nbsp;<a class='nav-back' href='/stats'>&#8592; Collection Stats</a>"
+        "<h1>Gap Analysis</h1>"
+        "<p style='color:#6c757d'>What the collection should document but doesn&#8217;t — "
+        "thin coverage, absent periods, and underrepresented topics.</p>"
+        f"{temporal_section}{entity_section}{geo_section}{topic_section}{conv_section}"
+        "</body></html>"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Relationship mapping page
+# ---------------------------------------------------------------------------
+
+_MAP_HTML = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relationship Map</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.29.2/cytoscape.min.js"
+        integrity="sha512-yi5TwB0WBpzqlJXNLURNMtpFXJt4yxJhkOG8yqkVQYWhfMkAoDF93rZ/KjfoN1gADGr5uKXvr5/Bw6CC03YWpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{--bg:#f8f9fa;--card:#fff;--border:#dee2e6;--header-bg:#2c5f2e;--header-fg:#fff;
+      --detail-bg:#fff;--muted:#6c757d;--link:#0d6efd}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#1a1a1a;--card:#242424;--border:#444;--header-bg:#1a3a1c;--header-fg:#e8e8e8;
+        --detail-bg:#242424;--muted:#adb5bd;--link:#6ea8fe}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:inherit;min-height:100vh}
+header{background:var(--header-bg);color:var(--header-fg);padding:0.6rem 1.2rem;
+       display:flex;align-items:center;justify-content:space-between;gap:0.5rem}
+header h1{font-size:1.05rem;font-weight:600}
+.nav-links{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--header-fg);font-size:13px;text-decoration:none;
+             border:1px solid rgba(255,255,255,0.25);border-radius:6px;
+             padding:4px 10px;white-space:nowrap}
+.main{max-width:1100px;margin:1.5rem auto;padding:0 1rem}
+.search-wrap{position:relative;max-width:480px;margin-bottom:1rem}
+#entity-input{width:100%;padding:0.55rem 0.8rem;border:1px solid var(--border);
+              border-radius:6px;font-size:0.95rem;background:var(--card);color:inherit}
+.autocomplete-list{position:absolute;top:100%;left:0;right:0;background:var(--card);
+                   border:1px solid var(--border);border-radius:0 0 6px 6px;
+                   list-style:none;max-height:260px;overflow-y:auto;z-index:100;display:none}
+.autocomplete-list li{padding:0.45rem 0.8rem;cursor:pointer;font-size:0.9rem;
+                      display:flex;justify-content:space-between;align-items:center}
+.autocomplete-list li:hover{background:var(--bg)}
+.et-badge{font-size:11px;background:#e9ecef;color:#495057;border-radius:3px;padding:1px 5px}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:1rem}
+@media(max-width:700px){.layout{grid-template-columns:1fr}}
+#cy{width:100%;height:560px;border:1px solid var(--border);border-radius:8px;
+    background:var(--card)}
+#cy.empty{display:flex;align-items:center;justify-content:center;color:var(--muted);
+          font-size:0.9rem}
+.detail-panel{background:var(--detail-bg);border:1px solid var(--border);border-radius:8px;
+              padding:1rem;overflow-y:auto;max-height:560px}
+.detail-panel h3{font-size:0.95rem;margin-bottom:0.75rem;word-break:break-word}
+.detail-panel .rel-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.75rem}
+.rel-tag{font-size:11px;background:#e9ecef;color:#495057;border-radius:3px;padding:2px 6px}
+.detail-panel blockquote{font-size:0.82rem;color:var(--muted);border-left:3px solid var(--border);
+                         padding-left:0.6rem;margin:0.4rem 0;line-height:1.5}
+.detail-panel .claim-ids{font-size:11px;color:var(--muted);margin-top:0.5rem;word-break:break-all}
+.detail-placeholder{color:var(--muted);font-size:0.85rem;line-height:1.6}
+.legend{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.5rem 0 1rem}
+.legend-item{display:flex;align-items:center;gap:0.3rem;font-size:12px}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+#status-bar{font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;min-height:1.2em}
+</style>
+</head>
+<body>
+<header>
+  <h1>Turnbull GraphRAG</h1>
+  <div class="nav-links">
+    <a href="/">&#8592; Query Interface</a>
+    <a href="/stats">&#128202; Collection Stats</a>
+    <a href="/gaps">&#128270; Gap Analysis</a>
+  </div>
+</header>
+<div class="main">
+  <h2 style="font-size:1.15rem;margin-bottom:0.75rem">Relationship Map</h2>
+  <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem">
+    Search for an entity to explore how it connects to others across the collection.
+    Click an edge to see supporting source sentences. Click a node to re-centre the graph.
+  </p>
+  <div class="search-wrap">
+    <input id="entity-input" type="text" placeholder="Search entities by name (e.g. Trumpeter Swan)…" autocomplete="off">
+    <ul id="autocomplete-list" class="autocomplete-list"></ul>
+  </div>
+  <div class="legend" id="legend"></div>
+  <div id="status-bar"></div>
+  <div class="layout">
+    <div id="cy" class="empty">Search for an entity above to begin.</div>
+    <div class="detail-panel" id="detail-panel">
+      <h3>Connection Details</h3>
+      <div class="detail-placeholder" id="detail-content">
+        Click an edge to see the source sentences supporting that connection,
+        or click a node to explore its neighborhood.
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+'use strict';
+
+var ENTITY_COLORS = {
+  'Species':      '#198754',
+  'Person':       '#0d6efd',
+  'Organization': '#6f42c1',
+  'Place':        '#795548',
+  'Refuge':       '#795548',
+  'Habitat':      '#0dcaf0',
+  'Activity':     '#fd7e14',
+  'SurveyMethod': '#20c997',
+  'Event':        '#e83e8c',
+};
+var DEFAULT_COLOR = '#6c757d';
+
+function entityColor(et) { return ENTITY_COLORS[et] || DEFAULT_COLOR; }
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                  .replace(/"/g,'&quot;');
+}
+
+// Build legend
+var legendEl = document.getElementById('legend');
+Object.keys(ENTITY_COLORS).forEach(function(et) {
+  if (et === 'Refuge') return; // same colour as Place, skip duplicate
+  legendEl.innerHTML += '<span class="legend-item">'
+    + '<span class="legend-dot" style="background:' + ENTITY_COLORS[et] + '"></span>'
+    + esc(et) + '</span>';
+});
+
+// ── Autocomplete ──────────────────────────────────────────────────────────
+var input = document.getElementById('entity-input');
+var listEl = document.getElementById('autocomplete-list');
+var debounceTimer;
+
+input.addEventListener('input', function() {
+  clearTimeout(debounceTimer);
+  var q = this.value.trim();
+  if (q.length < 2) { listEl.style.display = 'none'; return; }
+  debounceTimer = setTimeout(function() { fetchSuggestions(q); }, 300);
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.search-wrap')) listEl.style.display = 'none';
+});
+input.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') listEl.style.display = 'none';
+});
+
+async function fetchSuggestions(q) {
+  try {
+    var res = await fetch('/api/entities/search?q=' + encodeURIComponent(q) + '&limit=15');
+    var items = await res.json();
+    renderSuggestions(items);
+  } catch(err) { listEl.style.display = 'none'; }
+}
+
+function renderSuggestions(items) {
+  if (!items.length) { listEl.style.display = 'none'; return; }
+  listEl.innerHTML = items.map(function(it) {
+    return '<li data-id="' + esc(it.entity_id) + '" data-name="' + esc(it.name) + '">'
+      + esc(it.name)
+      + '<span class="et-badge" style="background:' + entityColor(it.entity_type)
+      + ';color:#fff">' + esc(it.entity_type) + '</span></li>';
+  }).join('');
+  listEl.style.display = 'block';
+  listEl.querySelectorAll('li').forEach(function(li) {
+    li.addEventListener('click', function() {
+      selectEntity(li.dataset.id, li.dataset.name);
+    });
+  });
+}
+
+function selectEntity(id, name) {
+  input.value = name;
+  listEl.style.display = 'none';
+  loadGraph(id);
+}
+
+// ── Graph loading & rendering ─────────────────────────────────────────────
+var cy = null;
+var statusBar = document.getElementById('status-bar');
+
+async function loadGraph(entityId) {
+  statusBar.textContent = 'Loading neighborhood…';
+  var cyEl = document.getElementById('cy');
+  cyEl.classList.remove('empty');
+  cyEl.textContent = '';
+  try {
+    var res = await fetch('/api/entity/' + encodeURIComponent(entityId) + '/neighborhood?limit=15');
+    if (!res.ok) { statusBar.textContent = 'Error: ' + res.status; return; }
+    var data = await res.json();
+    renderGraph(data);
+    statusBar.textContent = data.center.name + ' — ' + (data.nodes.length - 1)
+      + ' connected entities, ' + data.edges.length + ' edges';
+    showCenterDetail(data.center);
+  } catch(err) {
+    statusBar.textContent = 'Failed to load: ' + err.message;
+  }
+}
+
+function renderGraph(data) {
+  if (cy) cy.destroy();
+  var style = [
+    { selector: 'node', style: {
+        'label': 'data(label)',
+        'background-color': function(ele) { return entityColor(ele.data('entity_type')); },
+        'border-width': function(ele) { return ele.data('is_center') ? 3 : 1; },
+        'border-color': function(ele) { return ele.data('is_center') ? '#ffc107' : '#fff'; },
+        'width': function(ele) { return ele.data('is_center') ? 60 : 36; },
+        'height': function(ele) { return ele.data('is_center') ? 60 : 36; },
+        'font-size': 11,
+        'text-valign': 'bottom',
+        'text-margin-y': 4,
+        'text-max-width': 90,
+        'text-wrap': 'wrap',
+        'color': '#333',
+        'text-background-color': 'rgba(255,255,255,0.75)',
+        'text-background-opacity': 1,
+        'text-background-padding': 2,
+    }},
+    { selector: 'edge', style: {
+        'width': function(ele) { return Math.max(1, Math.min(8, ele.data('weight'))); },
+        'line-color': '#adb5bd',
+        'target-arrow-color': '#adb5bd',
+        'target-arrow-shape': 'triangle',
+        'curve-style': 'bezier',
+        'opacity': 0.8,
+    }},
+    { selector: 'edge:selected, edge.highlighted', style: {
+        'line-color': '#fd7e14', 'target-arrow-color': '#fd7e14', 'opacity': 1,
+    }},
+    { selector: 'node:selected, node.highlighted', style: {
+        'border-color': '#fd7e14', 'border-width': 3,
+    }},
+  ];
+  cy = cytoscape({
+    container: document.getElementById('cy'),
+    elements: data.nodes.concat(data.edges),
+    style: style,
+    layout: { name: 'cose', animate: false, padding: 40, nodeRepulsion: 8000,
+               idealEdgeLength: 120, gravity: 0.3 },
+    userZoomingEnabled: true,
+    userPanningEnabled: true,
+  });
+  cy.on('tap', 'edge', handleEdgeTap);
+  cy.on('tap', 'node', handleNodeTap);
+}
+
+// ── Detail panel ──────────────────────────────────────────────────────────
+var detailPanel = document.getElementById('detail-panel');
+var detailContent = document.getElementById('detail-content');
+var detailTitle = detailPanel.querySelector('h3');
+
+function showCenterDetail(center) {
+  detailTitle.textContent = center.name;
+  detailContent.innerHTML =
+    '<p style="font-size:0.85rem;margin-bottom:0.5rem">'
+    + '<strong>Type:</strong> ' + esc(center.entity_type || '—') + '<br>'
+    + '<strong>Claims:</strong> ' + esc(center.claim_count || 0) + '</p>'
+    + '<p class="detail-placeholder">Click an edge to see connection evidence, '
+    + 'or a neighbor node to explore its neighborhood.</p>';
+}
+
+function handleEdgeTap(evt) {
+  cy.elements().removeClass('highlighted');
+  evt.target.addClass('highlighted');
+  var d = evt.target.data();
+  detailTitle.textContent = esc(d.source_label) + ' \u2194 ' + esc(d.target_label);
+  var relTags = (d.relationship_types || []).map(function(r) {
+    return '<span class="rel-tag">' + esc(r) + '</span>';
+  }).join('');
+  var sentences = (d.sample_sentences || []).map(function(s) {
+    return '<blockquote>' + esc(s) + '</blockquote>';
+  }).join('');
+  var claimIds = (d.sample_claim_ids || []).length
+    ? '<div class="claim-ids">Claims: ' + d.sample_claim_ids.map(esc).join(', ') + '</div>'
+    : '';
+  detailContent.innerHTML =
+    '<p style="font-size:0.82rem;margin-bottom:0.5rem">'
+    + '<strong>Co-occurrences:</strong> ' + esc(d.weight) + ' claim(s)</p>'
+    + (relTags ? '<div class="rel-tags">' + relTags + '</div>' : '')
+    + (sentences || '<p class="detail-placeholder">No source sentences recorded.</p>')
+    + claimIds;
+}
+
+function handleNodeTap(evt) {
+  var nodeData = evt.target.data();
+  if (nodeData.is_center) {
+    // Just show info for center
+    detailTitle.textContent = esc(nodeData.label);
+    detailContent.innerHTML =
+      '<p style="font-size:0.85rem"><strong>Type:</strong> ' + esc(nodeData.entity_type || '—')
+      + '<br><strong>Claims:</strong> ' + esc(nodeData.claim_count || 0) + '</p>';
+    return;
+  }
+  // Drill down: reload graph centred on this node
+  input.value = nodeData.label;
+  loadGraph(nodeData.id);
+}
+
+})();
+</script>
+</body>
+</html>"""
+
+
+# ---------------------------------------------------------------------------
 # App factory
 # ---------------------------------------------------------------------------
 
@@ -642,6 +1427,9 @@ def create_app(
         state["synthesis"] = SynthesisEngine(api_key=api_key, max_tokens=max_tokens, synthesis_context=synthesis_ctx)
         conv_log_path = Path(os.environ.get("CONV_LOG_DB", "data/conversation_log.db"))
         state["conv_logger"] = ConversationLogger(conv_log_path)
+        write_audit_path = os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db")
+        from .write_audit_log import WriteAuditLogger
+        state["write_audit"] = WriteAuditLogger(write_audit_path)
         yield
         executor.close()
 
@@ -651,18 +1439,37 @@ def create_app(
         lifespan=lifespan,
     )
 
+    # Auth router (login/logout/me/user management at /auth/...)
+    from fastapi import Request
+    from fastapi.responses import RedirectResponse as _RedirectResponse
+    from graphrag_pipeline.auth.setup import is_setup_needed
+
+    users_db_path = os.environ.get("USERS_DB", "data/users.db")
+    app.include_router(create_auth_router(users_db_path), prefix="/auth")
+
+    @app.exception_handler(NeedsLoginException)
+    async def _needs_login_handler(request: Request, exc: NeedsLoginException):
+        return _RedirectResponse(url=exc.redirect_url, status_code=303)
+
+    @app.middleware("http")
+    async def _setup_guard(request: Request, call_next):
+        if not request.url.path.startswith("/auth/setup"):
+            if is_setup_needed(users_db_path):
+                return _RedirectResponse(url="/auth/setup", status_code=303)
+        return await call_next(request)
+
     # ------------------------------------------------------------------
     # GET / — Chat UI
     # ------------------------------------------------------------------
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)
-    def chat_ui() -> HTMLResponse:
+    def chat_ui(user: UserContext = Depends(require_user)) -> HTMLResponse:
         return HTMLResponse(_CHAT_HTML)
 
     # ------------------------------------------------------------------
     # POST /query
     # ------------------------------------------------------------------
     @app.post("/query", response_model=QueryResponse)
-    def query(req: QueryRequest) -> QueryResponse:
+    def query(req: QueryRequest, user: UserContext = Depends(require_user)) -> QueryResponse:
         gateway: EntityResolutionGateway = state["gateway"]
         assembler: ProvenanceContextAssembler = state["assembler"]
         builder: CypherQueryBuilder = state["query_builder"]
@@ -717,12 +1524,16 @@ def create_app(
                     species_id=species_entities[0].entity_id,
                     year_min=intent.year_min,
                     year_max=intent.year_max,
+                    permitted_levels=user.permitted_levels,
+                    institution_id=user.institution_id,
                 )
             elif habitat_entities:
                 analytical_result = builder.habitat_conditions(
                     habitat_id=habitat_entities[0].entity_id,
                     year_min=intent.year_min,
                     year_max=intent.year_max,
+                    permitted_levels=user.permitted_levels,
+                    institution_id=user.institution_id,
                 )
 
         # Layer 2B: conversational path.
@@ -732,6 +1543,8 @@ def create_app(
             year_min=intent.year_min,
             year_max=intent.year_max,
             is_hybrid=is_hybrid,
+            permitted_levels=user.permitted_levels,
+            institution_id=user.institution_id,
         )
 
         # Build coverage stats before synthesis.
@@ -747,13 +1560,29 @@ def create_app(
         )
 
         # Layer 3: synthesis.
-        result: SynthesisResult = engine.synthesise(
-            query=req.text,
-            provenance_blocks=blocks,
-            context_text=context_text,
-            analytical_result=analytical_result,
-            conversation_history=[t.model_dump() for t in req.conversation_history],
-        )
+        synthesis_available = True
+        try:
+            result: SynthesisResult = engine.synthesise(
+                query=req.text,
+                provenance_blocks=blocks,
+                context_text=context_text,
+                analytical_result=analytical_result,
+                conversation_history=[t.model_dump() for t in req.conversation_history],
+            )
+        except Exception:
+            # API unavailable, rate-limited, or response unparseable.
+            # Return retrieved provenance blocks with a fallback answer so the
+            # archivist can read source sentences directly without a 500 error.
+            synthesis_available = False
+            result = SynthesisResult(
+                answer=(
+                    "AI synthesis is currently unavailable. "
+                    "Retrieved source sentences are provided via supporting_claim_ids for direct review."
+                ),
+                confidence_assessment="",
+                supporting_claim_ids=[b.claim_id for b in blocks],
+                caveats=["AI synthesis was unavailable at query time. Source provenance blocks were retrieved successfully."],
+            )
 
         conv_logger: ConversationLogger | None = state.get("conv_logger")
         if conv_logger is not None:
@@ -786,11 +1615,45 @@ def create_app(
                 ],
             ))
 
+        # Count quarantined claims for this institution to include in response.
+        quarantined_claims_count = 0
+        try:
+            _executor: Neo4jQueryExecutor = state["executor"]
+            _qrows = _executor.run(
+                COUNT_QUARANTINED_CLAIMS_QUERY,
+                {
+                    "institution_id": user.institution_id,
+                    "permitted_levels": user.permitted_levels,
+                },
+            )
+            quarantined_claims_count = int((_qrows[0].get("quarantined_count") or 0) if _qrows else 0)
+        except Exception:
+            pass
+
+        final_caveats = list(result.caveats)
+        if quarantined_claims_count > 0:
+            final_caveats.append(
+                f"{quarantined_claims_count} potentially relevant claim(s) are currently under "
+                "sensitivity review and have been excluded from this answer."
+            )
+
+        # Build per-claim detail for uncertainty surfacing in the UI.
+        blocks_by_id = {b.claim_id: b for b in blocks}
+        claims_detail = [
+            {
+                "claim_id": cid,
+                "confidence": blocks_by_id[cid].extraction_confidence if cid in blocks_by_id else None,
+                "epistemic_status": blocks_by_id[cid].epistemic_status if cid in blocks_by_id else "unknown",
+                "claim_type": blocks_by_id[cid].claim_type if cid in blocks_by_id else "",
+            }
+            for cid in result.supporting_claim_ids
+        ]
+
         return QueryResponse(
             answer=result.answer,
             confidence_assessment=result.confidence_assessment,
             supporting_claim_ids=result.supporting_claim_ids,
-            caveats=result.caveats,
+            caveats=final_caveats,
             min_extraction_confidence=result.min_extraction_confidence,
             analytical_result=(
                 {
@@ -803,20 +1666,27 @@ def create_app(
             ),
             ambiguous_entities=entity_ctx.ambiguous,
             retrieval_stats=dataclasses.asdict(retrieval_stats),
+            synthesis_available=synthesis_available,
+            quarantined_claims_count=quarantined_claims_count,
+            supporting_claims_detail=claims_detail,
         )
 
     # ------------------------------------------------------------------
     # POST /query/provenance
     # ------------------------------------------------------------------
     @app.post("/query/provenance")
-    def query_provenance(req: ProvenanceRequest) -> dict[str, Any]:
+    def query_provenance(req: ProvenanceRequest, user: UserContext = Depends(require_user)) -> dict[str, Any]:
         """Return the full raw provenance chain for a known *claim_id*.
 
         Does not invoke the synthesis engine — useful for citation
         verification and the review web interface.
         """
         assembler: ProvenanceContextAssembler = state["assembler"]
-        blocks = assembler.chain_for_claim(req.claim_id)
+        blocks = assembler.chain_for_claim(
+            req.claim_id,
+            permitted_levels=user.permitted_levels,
+            institution_id=user.institution_id,
+        )
         if not blocks:
             raise HTTPException(status_code=404, detail=f"No provenance found for claim_id={req.claim_id!r}")
         return {
@@ -842,5 +1712,189 @@ def create_app(
             ],
             "serialised_context": "\n\n".join(_serialise_block(b) for b in blocks),
         }
+
+    # ------------------------------------------------------------------
+    # GET /stats  — collection statistics dashboard
+    # ------------------------------------------------------------------
+    @app.get("/stats", response_class=HTMLResponse, include_in_schema=False)
+    def collection_stats(user: UserContext = Depends(require_user)) -> str:
+        executor: Neo4jQueryExecutor = state["executor"]
+        params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
+        overview = (executor.run(STATS_DOC_OVERVIEW_QUERY, params) or [{}])[0]
+        doc_types = executor.run(STATS_DOC_TYPE_QUERY, params) or []
+        claim_types = executor.run(STATS_CLAIM_TYPE_QUERY, params) or []
+        entity_types = executor.run(STATS_ENTITY_TYPE_QUERY, {}) or []
+        temporal = executor.run(STATS_TEMPORAL_COVERAGE_QUERY, params) or []
+        confidence = (executor.run(STATS_CONFIDENCE_DISTRIBUTION_QUERY, params) or [{}])[0]
+        return _render_stats_html(overview, doc_types, claim_types, entity_types, temporal, confidence)
+
+    # ------------------------------------------------------------------
+    # GET /gaps  — collection gap analysis dashboard
+    # ------------------------------------------------------------------
+    @app.get("/gaps", response_class=HTMLResponse, include_in_schema=False)
+    def collection_gaps(user: UserContext = Depends(require_user)) -> str:
+        executor: Neo4jQueryExecutor = state["executor"]
+        params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
+        thin_params = {**params, "thin_threshold": 3, "limit": 50}
+
+        temporal = executor.run(GAP_TEMPORAL_DENSITY_QUERY, params) or []
+        entity_depth = executor.run(GAP_ENTITY_DEPTH_QUERY, thin_params) or []
+        geo_coverage = executor.run(GAP_GEOGRAPHIC_COVERAGE_QUERY, thin_params) or []
+        claim_types = executor.run(STATS_CLAIM_TYPE_QUERY, params) or []
+
+        conv_gaps: list[dict] = []
+        conv_log_db = os.environ.get("CONV_LOG_DB", "")
+        if conv_log_db and os.path.exists(conv_log_db):
+            conv_gaps = _read_query_signal_gaps(conv_log_db)
+
+        return _render_gaps_html(temporal, entity_depth, geo_coverage, claim_types, conv_gaps)
+
+    # ------------------------------------------------------------------
+    # GET /map  — relationship mapping explorer
+    # ------------------------------------------------------------------
+    @app.get("/map", response_class=HTMLResponse, include_in_schema=False)
+    def relationship_map(user: UserContext = Depends(require_user)) -> str:
+        return _MAP_HTML
+
+    # ------------------------------------------------------------------
+    # GET /api/entities/search  — entity autocomplete
+    # ------------------------------------------------------------------
+    @app.get("/api/entities/search")
+    def entity_search(
+        q: str = Query("", min_length=0),
+        limit: int = Query(15, le=50),
+        user: UserContext = Depends(require_user),
+    ) -> list[dict]:
+        if not q.strip():
+            return []
+        executor: Neo4jQueryExecutor = state["executor"]
+        return executor.run(ENTITY_SEARCH_QUERY, {"query": q.strip(), "limit": limit}) or []
+
+    # ------------------------------------------------------------------
+    # GET /api/entity/{entity_id}/neighborhood  — graph neighborhood data
+    # ------------------------------------------------------------------
+    @app.get("/api/entity/{entity_id}/neighborhood")
+    def entity_neighborhood(
+        entity_id: str,
+        limit: int = Query(15, le=30),
+        user: UserContext = Depends(require_user),
+    ) -> dict[str, Any]:
+        executor: Neo4jQueryExecutor = state["executor"]
+        params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
+
+        center_rows = executor.run(ENTITY_DETAIL_QUERY, {**params, "entity_id": entity_id}) or [{}]
+        center = center_rows[0] if center_rows else {}
+        if not center.get("entity_id"):
+            raise HTTPException(status_code=404, detail="Entity not found")
+
+        neighbors = executor.run(
+            ENTITY_NEIGHBORHOOD_QUERY, {**params, "entity_id": entity_id, "limit": limit}
+        ) or []
+
+        nodes: list[dict] = [{"data": {
+            "id": center["entity_id"], "label": center["name"],
+            "entity_type": center.get("entity_type", ""),
+            "claim_count": center.get("claim_count", 0),
+            "is_center": True,
+        }}]
+        edges: list[dict] = []
+        for n in neighbors:
+            nodes.append({"data": {
+                "id": n["entity_id"], "label": n["name"],
+                "entity_type": n.get("entity_type", ""),
+                "claim_count": 0,
+                "is_center": False,
+            }})
+            edges.append({"data": {
+                "id": f"{entity_id}__{n['entity_id']}",
+                "source": entity_id, "target": n["entity_id"],
+                "weight": n["co_occurrence_count"],
+                "relationship_types": n.get("relationship_types") or [],
+                "sample_sentences": n.get("sample_sentences") or [],
+                "sample_claim_ids": n.get("sample_claim_ids") or [],
+                "source_label": center["name"],
+                "target_label": n["name"],
+            }})
+
+        return {"nodes": nodes, "edges": edges, "center": center}
+
+    # ------------------------------------------------------------------
+    # GET /documents  — admin: list all documents including soft-deleted
+    # ------------------------------------------------------------------
+    @app.get("/documents")
+    def list_documents(user: UserContext = Depends(require_admin)) -> dict[str, Any]:
+        executor: Neo4jQueryExecutor = state["executor"]
+        rows = executor.run(LIST_DOCUMENTS_QUERY, {"institution_id": user.institution_id})
+        return {"institution_id": user.institution_id, "documents": rows}
+
+    # ------------------------------------------------------------------
+    # DELETE /document/{doc_id}  — admin: soft-delete a document
+    # ------------------------------------------------------------------
+    @app.delete("/document/{doc_id}")
+    def delete_document(
+        doc_id: str,
+        confirm: bool = Query(default=False),
+        user: UserContext = Depends(require_admin),
+    ) -> dict[str, Any]:
+        if not confirm:
+            raise HTTPException(
+                status_code=400,
+                detail="Set ?confirm=true to acknowledge this soft-deletion. The document can be restored.",
+            )
+        executor: Neo4jQueryExecutor = state["executor"]
+        deleted_at = datetime.now(timezone.utc).isoformat()
+        deleted_by = user.identity
+        rows = executor.run(SOFT_DELETE_DOCUMENT_QUERY, {
+            "doc_id": doc_id,
+            "institution_id": user.institution_id,
+            "deleted_at": deleted_at,
+            "deleted_by": deleted_by,
+        })
+        if not rows:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Document {doc_id!r} not found in institution {user.institution_id!r}",
+            )
+        write_audit: Any = state.get("write_audit")
+        if write_audit is not None:
+            write_audit.log(
+                event_type="soft_delete",
+                doc_id=doc_id,
+                doc_title=rows[0].get("title"),
+                institution_id=user.institution_id,
+                performed_by=deleted_by,
+            )
+        return {"status": "deleted", "doc_id": doc_id, "deleted_at": deleted_at, "deleted_by": deleted_by}
+
+    # ------------------------------------------------------------------
+    # POST /document/{doc_id}/restore  — admin: restore a soft-deleted document
+    # ------------------------------------------------------------------
+    @app.post("/document/{doc_id}/restore")
+    def restore_document(
+        doc_id: str,
+        user: UserContext = Depends(require_admin),
+    ) -> dict[str, Any]:
+        executor: Neo4jQueryExecutor = state["executor"]
+        rows = executor.run(RESTORE_DOCUMENT_QUERY, {
+            "doc_id": doc_id,
+            "institution_id": user.institution_id,
+        })
+        if not rows:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Document {doc_id!r} not found in institution {user.institution_id!r}",
+            )
+        restored_at = datetime.now(timezone.utc).isoformat()
+        performed_by = user.identity
+        write_audit: Any = state.get("write_audit")
+        if write_audit is not None:
+            write_audit.log(
+                event_type="restore",
+                doc_id=doc_id,
+                doc_title=rows[0].get("title"),
+                institution_id=user.institution_id,
+                performed_by=performed_by,
+            )
+        return {"status": "restored", "doc_id": doc_id, "restored_at": restored_at}
 
     return app

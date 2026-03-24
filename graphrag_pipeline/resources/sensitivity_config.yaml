@@ -1,0 +1,42 @@
+version: "1"
+# Sensitivity Monitor Configuration
+#
+# Controls which detection categories are enabled, their auto-quarantine
+# thresholds, and institutional governance requirements.
+#
+# auto_quarantine_threshold: proposals with confidence >= this value are
+# automatically quarantined at ingestion time (before graph write) without
+# waiting for archivist review. Lower values quarantine more aggressively.
+# Range: 0.0–1.0.
+
+pii_detection:
+  enabled: true
+  # High threshold: regex matches are high-precision; false positives are rare.
+  auto_quarantine_threshold: 0.85
+  patterns:
+    phone: true
+    ssn: true
+    email: true
+    address: true
+    date_of_birth: true
+
+living_person:
+  enabled: true
+  # Number of years back from today to consider a person potentially living.
+  # Persons mentioned in claims with dates within this window are flagged.
+  year_threshold: 100
+  # Lower threshold: living person detection produces more false positives
+  # (e.g., historical figures mentioned in recent documents). Flag for review
+  # rather than auto-quarantine by default.
+  auto_quarantine_threshold: 0.70
+
+indigenous_sensitivity:
+  enabled: true
+  # Vocabulary file relative to this resources directory.
+  vocabulary_file: indigenous_cultural_terms.yaml
+  # Highest threshold: vocabulary matches are high-precision; auto-quarantine
+  # any match above this threshold.
+  auto_quarantine_threshold: 0.90
+  # When true, the review UI displays a notice that clearing this quarantine
+  # requires documented tribal consultation, not just archivist judgment.
+  require_tribal_consultation_before_clear: true

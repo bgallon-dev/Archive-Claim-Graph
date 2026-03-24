@@ -17,6 +17,10 @@ PROPOSAL_TYPES: frozenset[str] = frozenset({
     "add_claim_entity_link",
     "add_claim_location_link",
     "exclude_claim_from_derivation",
+    # Sensitivity monitor proposal types
+    "quarantine_claim",
+    "quarantine_document",
+    "restrict_permanently",
 })
 
 ISSUE_CLASSES: frozenset[str] = frozenset({
@@ -29,6 +33,10 @@ ISSUE_CLASSES: frozenset[str] = frozenset({
     "missing_species_focus",
     "missing_event_location",
     "method_overtrigger",
+    # Sensitivity monitor issue classes
+    "pii_exposure",
+    "indigenous_sensitivity",
+    "living_person_reference",
 })
 
 PROPOSAL_STATUSES: frozenset[str] = frozenset({

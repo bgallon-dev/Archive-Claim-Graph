@@ -26,10 +26,14 @@ retrieval = [
     "anthropic>=0.25",
     "fastapi>=0.111",
     "uvicorn>=0.29",
+    "bcrypt>=4.0",
+    "python-jose[cryptography]>=3.3",
+    "python-multipart>=0.0.7",
 ]
 
 [project.scripts]
 graphrag = "graphrag_pipeline.cli:main"
+graphrag-create-admin = "graphrag_pipeline.auth.seed:main"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -41,6 +45,7 @@ markers = [
 [tool.setuptools]
 packages = [
     "graphrag_pipeline",
+    "graphrag_pipeline.auth",
     "graphrag_pipeline.extractors",
     "graphrag_pipeline.graph",
     "graphrag_pipeline.queries",

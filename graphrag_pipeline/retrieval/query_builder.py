@@ -37,11 +37,19 @@ class CypherQueryBuilder:
         species_id: str,
         year_min: int | None = None,
         year_max: int | None = None,
+        permitted_levels: list[str] | None = None,
+        institution_id: str | None = None,
     ) -> AnalyticalResult:
         """Return observation counts per year for *species_id*."""
         rows = self._executor.run(
             SPECIES_TREND_QUERY,
-            {"species_id": species_id, "year_min": year_min, "year_max": year_max},
+            {
+                "species_id": species_id,
+                "year_min": year_min,
+                "year_max": year_max,
+                "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
+                "institution_id": institution_id if institution_id is not None else "turnbull",
+            },
         )
         return AnalyticalResult(
             query_name="species_trend",
@@ -54,11 +62,19 @@ class CypherQueryBuilder:
         habitat_id: str,
         year_min: int | None = None,
         year_max: int | None = None,
+        permitted_levels: list[str] | None = None,
+        institution_id: str | None = None,
     ) -> AnalyticalResult:
         """Return observation counts per year/species for *habitat_id*."""
         rows = self._executor.run(
             HABITAT_CONDITION_QUERY,
-            {"habitat_id": habitat_id, "year_min": year_min, "year_max": year_max},
+            {
+                "habitat_id": habitat_id,
+                "year_min": year_min,
+                "year_max": year_max,
+                "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
+                "institution_id": institution_id if institution_id is not None else "turnbull",
+            },
         )
         return AnalyticalResult(
             query_name="habitat_conditions",

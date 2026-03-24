@@ -854,6 +854,31 @@ def _process_single_document(
         run_overrides={"run_id": run_id} if run_id else None,
     )
 
+    # Sensitivity gate: quarantine high-confidence claims before graph write.
+    # Runs after extraction but before saving bundles so quarantine_status
+    # is persisted on disk and written to the graph atomically.
+    try:
+        from .review.detectors import sensitivity_monitor as _sm
+        _sm_proposals = _sm.detect(structure, semantic, snapshot_id="")
+        _sm_cfg = _sm._load_config()
+        _auto_quarantine_threshold = (
+            _sm_cfg.get("pii_detection", {}).get("auto_quarantine_threshold", 0.85)
+        )
+        _now_ts = datetime.now(timezone.utc).isoformat()
+        _quarantined_ids: set[str] = set()
+        for _prop in _sm_proposals:
+            if _prop.confidence >= _auto_quarantine_threshold:
+                for _target in _prop.targets:
+                    if _target.target_kind == "claim" and _target.target_id not in _quarantined_ids:
+                        for _claim in semantic.claims:
+                            if _claim.claim_id == _target.target_id:
+                                _claim.quarantine_status = "quarantined"
+                                _claim.quarantine_reason = _prop.issue_class
+                                _claim.quarantine_timestamp = _now_ts
+                                _quarantined_ids.add(_claim.claim_id)
+    except Exception:
+        pass  # sensitivity gate failure must never block ingestion
+
     stem = Path(input_item).stem
     output_dir = Path(out_dir)
     structure_path = output_dir / f"{stem}.structure.json"

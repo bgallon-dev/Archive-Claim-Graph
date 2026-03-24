@@ -20,6 +20,11 @@ class DocumentRecord:
     language: str = "en"
     file_hash: str = ""
     page_count: int = 0
+    access_level: str = "public"        # "public" | "staff_only" | "restricted" | "indigenous_restricted"
+    institution_id: str = "turnbull"    # tenant identifier for multi-institution isolation
+    donor_restricted: bool = False      # reproduction restrictions from donor agreement
+    deleted_at: str | None = None       # ISO-8601 UTC timestamp when soft-deleted; None = active
+    deleted_by: str | None = None       # identity string of the user who performed deletion
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
@@ -190,6 +195,9 @@ class ClaimRecord:
     evidence_start: int | None = None
     evidence_end: int | None = None
     claim_date: str | None = None
+    quarantine_status: str = "active"       # "active" | "quarantined" | "reviewed_restricted" | "reviewed_cleared"
+    quarantine_reason: str | None = None    # issue_class that triggered quarantine
+    quarantine_timestamp: str | None = None # ISO-8601 UTC timestamp of quarantine event
 
     # Serialized bundles expose this as `epistemic_status`; `certainty` remains
     # the constructor field for backward-compatible Python callers.

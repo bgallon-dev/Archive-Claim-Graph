@@ -85,6 +85,9 @@ class ProvenanceBlock:
     measurements: list[dict[str, Any]] = field(default_factory=list)
     # Relationship types traversed from anchor entity to this claim (entity-anchored path only).
     traversal_rel_types: list[str] = field(default_factory=list)
+    # Access classification and donor restriction flags, populated from the Document node.
+    access_level: str = "public"
+    donor_restricted: bool = False
 
 
 @dataclass

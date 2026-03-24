@@ -473,6 +473,84 @@ def _render_evidence_summary(
             f"&mdash; compatibility: <strong>{esc(compat)}</strong></p>"
         )
 
+    elif issue_class == "pii_exposure":
+        matched = evidence.get("matched_pattern", "")
+        all_patterns = evidence.get("all_patterns", [])
+        claim_id = evidence.get("claim_id", "")
+        redacted = evidence.get("redacted_sentence", "")
+        parts.append(
+            f"<p><strong>Detection type:</strong> {esc(matched)}</p>"
+        )
+        if all_patterns:
+            parts.append(
+                f"<p><strong>All matched patterns:</strong> {esc(', '.join(all_patterns))}</p>"
+            )
+        if claim_id:
+            parts.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+        if redacted:
+            parts.append(
+                "<p><strong>Source sentence (PII redacted):</strong></p>"
+                '<blockquote style="border-left:4px solid #dc3545;margin:0;padding:0 1rem">'
+                f"<p>{esc(redacted)}</p></blockquote>"
+            )
+        parts.append(
+            '<p style="color:#dc3545"><strong>Action required:</strong> '
+            "Review whether this claim contains personal information that should remain quarantined "
+            "or be permanently restricted. Do not un-quarantine without data governance approval.</p>"
+        )
+
+    elif issue_class == "indigenous_sensitivity":
+        matched_term = evidence.get("matched_term", "")
+        category = evidence.get("category", "")
+        sensitivity = evidence.get("sensitivity", "")
+        nations = evidence.get("nations", [])
+        claim_id = evidence.get("claim_id", "")
+        require_consultation = evidence.get("require_tribal_consultation_before_clear", True)
+        parts.append(
+            f"<p><strong>Matched term:</strong> <em>{esc(matched_term)}</em></p>"
+        )
+        parts.append(
+            f"<p><strong>Vocabulary category:</strong> {esc(category)} "
+            f"&mdash; sensitivity level: <strong>{esc(sensitivity)}</strong></p>"
+        )
+        if nations:
+            parts.append(f"<p><strong>Associated nations:</strong> {esc(', '.join(nations))}</p>")
+        if claim_id:
+            parts.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+        if require_consultation:
+            parts.append(
+                '<p style="color:#dc3545;font-weight:bold">&#9888; Tribal consultation required: '
+                "Clearing this quarantine requires documented consultation with the relevant "
+                "Indigenous nation(s). Archivist judgment alone is not sufficient.</p>"
+            )
+
+    elif issue_class == "living_person_reference":
+        person_names = evidence.get("person_names", [])
+        most_recent_year = evidence.get("most_recent_year", "")
+        source_sentence = evidence.get("source_sentence", "")
+        year_threshold = evidence.get("year_threshold", "")
+        claim_id = evidence.get("claim_id", "")
+        parts.append(
+            f"<p><strong>Person entity/entities:</strong> {esc(', '.join(person_names) if person_names else '(unknown)')}</p>"
+        )
+        parts.append(
+            f"<p><strong>Most recent associated year:</strong> {esc(most_recent_year)} "
+            f"(within the last {esc(year_threshold)} years)</p>"
+        )
+        if claim_id:
+            parts.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+        if source_sentence:
+            parts.append(
+                "<p><strong>Source sentence:</strong></p>"
+                '<blockquote style="border-left:4px solid #fd7e14;margin:0;padding:0 1rem">'
+                f"<p>{esc(source_sentence)}</p></blockquote>"
+            )
+        parts.append(
+            '<p style="color:#856404"><strong>Note:</strong> '
+            "Review whether this individual is a living person and whether publication of this "
+            "claim would violate their privacy rights.</p>"
+        )
+
     else:
         return ""
 
@@ -480,33 +558,65 @@ def _render_evidence_summary(
     return "".join(parts)
 
 
-def create_app(db_path: str) -> Any:
+def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
     """Create and return a FastAPI app for the review UI.
 
     Requires `fastapi` and `uvicorn` to be installed.
     """
     try:
-        from fastapi import FastAPI, Form, Query, Request
-        from fastapi.responses import HTMLResponse, JSONResponse
+        from fastapi import Depends, FastAPI, Form, Query, Request
+        from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse as _RedirectResponse
     except ImportError as e:
         raise ImportError(
             "FastAPI is required for review-serve. Install with: pip install fastapi uvicorn"
         ) from e
 
+    from graphrag_pipeline.auth.dependencies import (
+        NeedsLoginException,
+        require_archivist_or_admin,
+        require_login,
+    )
+    from graphrag_pipeline.auth.models import UserContext
+    from graphrag_pipeline.auth.router import create_auth_router
+    from graphrag_pipeline.auth.setup import is_setup_needed
+
     app = FastAPI(title="GraphRAG Review UI")
+    app.include_router(create_auth_router(users_db_path), prefix="/auth")
+
+    @app.exception_handler(NeedsLoginException)
+    async def _needs_login_handler(request: Request, exc: NeedsLoginException):
+        return _RedirectResponse(url=exc.redirect_url, status_code=303)
+
+    @app.middleware("http")
+    async def _setup_guard(request: Request, call_next):
+        if not request.url.path.startswith("/auth/setup"):
+            if is_setup_needed(users_db_path):
+                return _RedirectResponse(url="/auth/setup", status_code=303)
+        return await call_next(request)
+
     store = ReviewStore(db_path)
 
     @app.get("/", response_class=HTMLResponse)
-    async def index() -> str:
+    async def index(_user: UserContext = Depends(require_login)) -> str:
         counts_by_status = store.proposal_counts_by_status()
         counts_by_queue = store.proposal_counts_by_queue()
         total = sum(counts_by_status.values())
 
+        sensitivity_count = counts_by_queue.get("sensitivity", 0)
+        other_queues = {q: c for q, c in counts_by_queue.items() if q != "sensitivity"}
+
         status_rows = "".join(
             f"<tr><td>{s}</td><td>{c}</td></tr>" for s, c in sorted(counts_by_status.items())
         )
-        queue_rows = "".join(
-            f"<tr><td>{q}</td><td>{c}</td></tr>" for q, c in sorted(counts_by_queue.items())
+        # Sensitivity queue first with red styling when non-zero
+        sensitivity_style = ' style="color:#dc3545;font-weight:bold"' if sensitivity_count > 0 else ""
+        queue_rows = (
+            f'<tr{sensitivity_style}>'
+            f'<td><a href="/proposals?queue_name=sensitivity">sensitivity</a></td>'
+            f"<td>{sensitivity_count}</td></tr>"
+        )
+        queue_rows += "".join(
+            f"<tr><td>{q}</td><td>{c}</td></tr>" for q, c in sorted(other_queues.items())
         )
 
         return _INDEX_HTML.format(
@@ -523,6 +633,7 @@ def create_app(db_path: str) -> Any:
         doc_id: str | None = Query(None),
         limit: int = Query(50),
         offset: int = Query(0),
+        _user: UserContext = Depends(require_archivist_or_admin),
     ) -> str:
         proposals = store.list_proposals(
             status=status,
@@ -571,7 +682,10 @@ def create_app(db_path: str) -> Any:
         )
 
     @app.get("/proposals/{proposal_id}", response_class=HTMLResponse)
-    async def proposal_detail(proposal_id: str) -> str:
+    async def proposal_detail(
+        proposal_id: str,
+        _user: UserContext = Depends(require_archivist_or_admin),
+    ) -> str:
         proposal = store.get_proposal(proposal_id)
         if not proposal:
             return "<h2>Proposal not found</h2>"
@@ -647,7 +761,7 @@ def create_app(db_path: str) -> Any:
             n = excluded_count
             accept_exceptions_btn = (
                 f'<button hx-post="/proposals/{proposal.proposal_id}/accept" '
-                f'hx-include="#reviewer-name,#reviewer-note" '
+                f'hx-include="#reviewer-note" '
                 f'class="btn-accept-exceptions" style="margin-left:0.5rem">'
                 f'Accept with {n} Exception{"s" if n != 1 else ""}'
                 f"</button>"
@@ -677,9 +791,10 @@ def create_app(db_path: str) -> Any:
     @app.post("/proposals/{proposal_id}/accept", response_class=HTMLResponse)
     async def do_accept(
         proposal_id: str,
-        reviewer: str = Form("reviewer"),
         reviewer_note: str = Form(""),
+        user: UserContext = Depends(require_archivist_or_admin),
     ) -> str:
+        reviewer = user.identity
         try:
             accept_proposal(store, proposal_id, reviewer, reviewer_note)
         except ReviewActionError as e:
@@ -697,9 +812,10 @@ def create_app(db_path: str) -> Any:
     @app.post("/proposals/{proposal_id}/reject", response_class=HTMLResponse)
     async def do_reject(
         proposal_id: str,
-        reviewer: str = Form("reviewer"),
         reviewer_note: str = Form(""),
+        user: UserContext = Depends(require_archivist_or_admin),
     ) -> str:
+        reviewer = user.identity
         try:
             reject_proposal(store, proposal_id, reviewer, reviewer_note)
         except ReviewActionError as e:
@@ -717,9 +833,10 @@ def create_app(db_path: str) -> Any:
     @app.post("/proposals/{proposal_id}/defer", response_class=HTMLResponse)
     async def do_defer(
         proposal_id: str,
-        reviewer: str = Form("reviewer"),
         reviewer_note: str = Form(""),
+        user: UserContext = Depends(require_archivist_or_admin),
     ) -> str:
+        reviewer = user.identity
         try:
             defer_proposal(store, proposal_id, reviewer, reviewer_note)
         except ReviewActionError as e:
@@ -738,15 +855,23 @@ def create_app(db_path: str) -> Any:
     async def api_proposals(
         status: str | None = Query(None),
         snapshot_id: str | None = Query(None),
+        _user: UserContext = Depends(require_archivist_or_admin),
     ) -> Any:
         return store.export_proposals_json(status=status, snapshot_id=snapshot_id)
 
     @app.get("/api/patches", response_class=JSONResponse)
-    async def api_patches(snapshot_id: str | None = Query(None)) -> Any:
+    async def api_patches(
+        snapshot_id: str | None = Query(None),
+        _user: UserContext = Depends(require_archivist_or_admin),
+    ) -> Any:
         return store.export_accepted_patches(snapshot_id=snapshot_id)
 
     @app.post("/proposals/{proposal_id}/targets/exclude", response_class=HTMLResponse)
-    async def exclude_target(proposal_id: str, target_id: str = Query(...)) -> str:
+    async def exclude_target(
+        proposal_id: str,
+        target_id: str = Query(...),
+        _user: UserContext = Depends(require_archivist_or_admin),
+    ) -> str:
         store.set_target_override(proposal_id, "mention", target_id, "excluded")
         # Look up the mention from the evidence snapshot to re-render its row
         revisions = store.get_revisions(proposal_id)
@@ -764,7 +889,11 @@ def create_app(db_path: str) -> Any:
         return _mention_row(mention, proposal_id, is_excluded=True)
 
     @app.post("/proposals/{proposal_id}/targets/include", response_class=HTMLResponse)
-    async def include_target(proposal_id: str, target_id: str = Query(...)) -> str:
+    async def include_target(
+        proposal_id: str,
+        target_id: str = Query(...),
+        _user: UserContext = Depends(require_archivist_or_admin),
+    ) -> str:
         store.set_target_override(proposal_id, "mention", target_id, None)
         revisions = store.get_revisions(proposal_id)
         latest = revisions[-1] if revisions else None
@@ -790,6 +919,7 @@ def create_app(db_path: str) -> Any:
         proposal_id: str,
         offset: int = Query(20),
         limit: int = Query(20),
+        _user: UserContext = Depends(require_archivist_or_admin),
     ) -> str:
         revisions = store.get_revisions(proposal_id)
         latest = revisions[-1] if revisions else None
@@ -877,6 +1007,7 @@ _LIST_HTML = f"""<!DOCTYPE html><html><head><title>Proposals</title>{_BASE_CSS}{
 {_NAV}
 <h1>Proposals</h1>
 <div class="filters">
+    <a href="/proposals?queue_name=sensitivity" style="color:#dc3545;font-weight:bold">&#9888; Sensitivity</a>
     <a href="/proposals?status=queued">Queued</a>
     <a href="/proposals?status=accepted_pending_apply">Accepted</a>
     <a href="/proposals?status=rejected">Rejected</a>
@@ -918,14 +1049,13 @@ _DETAIL_HTML = f"""<!DOCTYPE html><html><head><title>Proposal Detail</title>{_BA
 
 <h2>Actions</h2>
 <form style="margin:1rem 0">
-    <label>Reviewer Name: <input type="text" id="reviewer-name" value="reviewer"></label>
-    <label style="margin-left:1rem">Note: <input type="text" id="reviewer-note" value="" size="40"></label>
+    <label>Note: <input type="text" id="reviewer-note" value="" size="40"></label>
 </form>
 <div>
-    <button hx-post="/proposals/{{proposal_id}}/accept" hx-include="#reviewer-name,#reviewer-note" {{disabled}} class="btn-accept">Accept</button>
+    <button hx-post="/proposals/{{proposal_id}}/accept" hx-include="#reviewer-note" {{disabled}} class="btn-accept">Accept</button>
     {{accept_exceptions_btn}}
-    <button hx-post="/proposals/{{proposal_id}}/reject" hx-include="#reviewer-name,#reviewer-note" {{disabled}} class="btn-reject" style="margin-left:0.5rem">Reject</button>
-    <button hx-post="/proposals/{{proposal_id}}/defer" hx-include="#reviewer-name,#reviewer-note" {{disabled}} class="btn-defer" style="margin-left:0.5rem">Defer</button>
+    <button hx-post="/proposals/{{proposal_id}}/reject" hx-include="#reviewer-note" {{disabled}} class="btn-reject" style="margin-left:0.5rem">Reject</button>
+    <button hx-post="/proposals/{{proposal_id}}/defer" hx-include="#reviewer-note" {{disabled}} class="btn-defer" style="margin-left:0.5rem">Defer</button>
 </div>
 
 <h2>Targets</h2>

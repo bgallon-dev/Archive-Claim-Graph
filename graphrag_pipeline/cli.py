@@ -48,6 +48,29 @@ def build_parser() -> argparse.ArgumentParser:
     ingest_parser = subparsers.add_parser("ingest-structure", help="Parse source OCR report into structure bundle JSON.")
     ingest_parser.add_argument("--input", required=True, help="Path to source report JSON.")
     ingest_parser.add_argument("--output", required=True, help="Path to structure bundle JSON output.")
+    ingest_parser.add_argument(
+        "--access-level",
+        choices=["public", "staff_only", "restricted", "indigenous_restricted"],
+        default="public",
+        help="Sensitivity classification for this document (default: public).",
+    )
+    ingest_parser.add_argument(
+        "--institution-id",
+        default="turnbull",
+        help="Institution identifier for multi-tenant isolation (default: turnbull).",
+    )
+    ingest_parser.add_argument(
+        "--donor-restricted",
+        action="store_true",
+        default=False,
+        help="Flag document as carrying donor reproduction restrictions.",
+    )
+    ingest_parser.add_argument(
+        "--indigenous-consultation-confirmed",
+        action="store_true",
+        default=False,
+        help="Required for indigenous_restricted documents — confirms tribal consultation has occurred.",
+    )
 
     semantic_parser = subparsers.add_parser("extract-semantic", help="Extract claims/mentions/measurements from structure bundle.")
     semantic_parser.add_argument("--structure", required=True, help="Path to structure bundle JSON.")
@@ -130,6 +153,43 @@ def build_parser() -> argparse.ArgumentParser:
                                 help="Print stats without writing any files.")
     _add_domain_args(resolve_parser)
 
+    verify_parser = subparsers.add_parser(
+        "verify-integrity",
+        help="Verify file_hash for all ingested documents against their source files.",
+    )
+    verify_parser.add_argument(
+        "--institution-id",
+        default=None,
+        help="Limit check to one institution (default: all institutions).",
+    )
+    verify_parser.add_argument(
+        "--output",
+        default=None,
+        help="Write JSON report to this path. If omitted, prints summary to stdout.",
+    )
+    _add_neo4j_args(verify_parser)
+
+    scan_parser = subparsers.add_parser(
+        "sensitivity-scan",
+        help="Scan all active claims in the graph for PII, Indigenous cultural sensitivity, and living person references.",
+    )
+    scan_parser.add_argument(
+        "--institution-id",
+        default=None,
+        help="Limit scan to one institution (default: all institutions).",
+    )
+    scan_parser.add_argument(
+        "--review-db",
+        default=os.environ.get("REVIEW_DB", "data/review.db"),
+        help="Path to review SQLite database. Quarantine proposals are stored here.",
+    )
+    scan_parser.add_argument(
+        "--output",
+        default=None,
+        help="Write JSON scan report to this path. If omitted, prints summary to stdout.",
+    )
+    _add_neo4j_args(scan_parser)
+
     validate_parser = subparsers.add_parser(
         "validate-domain",
         help="Run sample documents through extraction and report domain quality metrics.",
@@ -149,8 +209,39 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.command == "ingest-structure":
+        access_level = args.access_level
+        if access_level == "indigenous_restricted" and not args.indigenous_consultation_confirmed:
+            print(
+                "ERROR: --access-level indigenous_restricted requires "
+                "--indigenous-consultation-confirmed.\n"
+                "You must confirm that the institution has completed documented tribal "
+                "consultation with the relevant Indigenous nation(s) before ingesting "
+                "materials in this category.",
+                file=sys.stderr,
+            )
+            return 1
         structure = parse_source(args.input)
+        structure.document.access_level = access_level
+        structure.document.institution_id = args.institution_id
+        structure.document.donor_restricted = args.donor_restricted
         save_structure_bundle(args.output, structure)
+        audit_db = os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db")
+        try:
+            from .retrieval.web.write_audit_log import WriteAuditLogger
+            WriteAuditLogger(audit_db).log(
+                event_type="ingestion",
+                doc_id=structure.document.doc_id,
+                doc_title=structure.document.title,
+                institution_id=structure.document.institution_id,
+                performed_by="cli",
+                details={
+                    "access_level": structure.document.access_level,
+                    "source_file": structure.document.source_file,
+                    "output": str(Path(args.output)),
+                },
+            )
+        except Exception:
+            pass  # audit log failure must never block ingestion
         print(json.dumps({"status": "ok", "output": str(Path(args.output))}, indent=2))
         return 0
 
@@ -415,6 +506,92 @@ def main(argv: list[str] | None = None) -> int:
             save_json(args.output, summary)
         print(json.dumps(summary, indent=2))
         return 0 if passes else 1
+
+    if args.command == "verify-integrity":
+        import hashlib
+        from .retrieval.executor import Neo4jQueryExecutor
+        from .graph.cypher import INTEGRITY_CHECK_QUERY
+        executor = Neo4jQueryExecutor(
+            uri=args.neo4j_uri,
+            user=args.neo4j_user,
+            password=args.neo4j_password,
+            database=args.neo4j_database,
+            trust_mode=args.neo4j_trust,
+            ca_cert_path=getattr(args, "neo4j_ca_cert", None),
+        )
+        rows = executor.run(INTEGRITY_CHECK_QUERY, {"institution_id": args.institution_id})
+        executor.close()
+        results = []
+        ok_count = mismatch_count = missing_count = 0
+        for row in rows:
+            source_path = Path(row["source_file"])
+            if not source_path.exists():
+                results.append({
+                    "doc_id": row["doc_id"], "title": row.get("title"),
+                    "institution_id": row.get("institution_id"),
+                    "status": "source_missing", "source_file": str(source_path),
+                })
+                missing_count += 1
+                continue
+            try:
+                payload = json.loads(source_path.read_text(encoding="utf-8"))
+                computed = hashlib.sha1(
+                    json.dumps(payload, sort_keys=True).encode("utf-8")
+                ).hexdigest()
+            except Exception as exc:
+                results.append({
+                    "doc_id": row["doc_id"], "title": row.get("title"),
+                    "status": "error", "error": str(exc),
+                })
+                continue
+            status = "ok" if computed == row["file_hash"] else "mismatch"
+            entry: dict = {
+                "doc_id": row["doc_id"], "title": row.get("title"),
+                "institution_id": row.get("institution_id"),
+                "status": status,
+            }
+            if status == "mismatch":
+                entry["stored_hash"] = row["file_hash"]
+                entry["computed_hash"] = computed
+                mismatch_count += 1
+            else:
+                ok_count += 1
+            results.append(entry)
+        summary = {
+            "total": len(results),
+            "ok": ok_count,
+            "mismatch": mismatch_count,
+            "source_missing": missing_count,
+            "documents": results,
+        }
+        if args.output:
+            save_json(args.output, summary)
+        print(json.dumps(summary, indent=2))
+        return 0 if mismatch_count == 0 and missing_count == 0 else 1
+
+    if args.command == "sensitivity-scan":
+        from .retrieval.executor import Neo4jQueryExecutor
+        from .review.store import ReviewStore
+        from .review.monitor import SensitivityMonitor
+        executor = Neo4jQueryExecutor(
+            uri=args.neo4j_uri,
+            user=args.neo4j_user,
+            password=args.neo4j_password,
+            database=args.neo4j_database,
+            trust_mode=args.neo4j_trust,
+            ca_cert_path=getattr(args, "neo4j_ca_cert", None),
+        )
+        store = ReviewStore(args.review_db)
+        try:
+            monitor = SensitivityMonitor(executor=executor, store=store)
+            results = monitor.run_full_scan(institution_id=args.institution_id)
+        finally:
+            store.close()
+            executor.close()
+        if args.output:
+            save_json(args.output, results)
+        print(json.dumps(results, indent=2))
+        return 0
 
     parser.error("Unknown command")
     return 2

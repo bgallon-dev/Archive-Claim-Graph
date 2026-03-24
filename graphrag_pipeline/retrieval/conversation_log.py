@@ -1,4 +1,4 @@
-"""Fire-and-forget conversation logger for the retrieval pipeline.
+"""Fire-and-forget conversation logger and query history store for the retrieval pipeline.
 
 Captures the full causal chain per query — conversation → retrieval event →
 claim interactions — without blocking the response path.  Records are assembled
@@ -9,6 +9,9 @@ Schema lives in a separate ``conversation_log.db`` file (path resolved from the
 ``CONV_LOG_DB`` env var, defaulting to ``data/conversation_log.db`` relative to
 the working directory) so the append-only query log stays isolated from
 ``data/review.db``.
+
+``QueryHistoryStore`` opens its own read/write connection to the same database
+for history browsing and saved-search management.
 """
 from __future__ import annotations
 
@@ -248,3 +251,165 @@ class ConversationLogger:
                 pass
             finally:
                 self._queue.task_done()
+
+
+# ---------------------------------------------------------------------------
+# Saved-search table (added to the same conversation_log.db)
+# ---------------------------------------------------------------------------
+
+_SAVED_SEARCH_SCHEMA_SQL = """
+CREATE TABLE IF NOT EXISTS saved_search (
+    saved_id        TEXT    NOT NULL PRIMARY KEY,
+    conversation_id TEXT,
+    query_text      TEXT    NOT NULL,
+    label           TEXT    NOT NULL DEFAULT '',
+    bucket          TEXT    NOT NULL DEFAULT '',
+    year_min        INTEGER,
+    year_max        INTEGER,
+    created_by      TEXT    NOT NULL DEFAULT '',
+    created_at      TEXT    NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_saved_search_user
+    ON saved_search (created_by, created_at DESC);
+"""
+
+
+class QueryHistoryStore:
+    """Read-optimised access to the conversation log plus saved-search management.
+
+    Opens its own SQLite connection to the same ``conversation_log.db`` used by
+    :class:`ConversationLogger`.  WAL mode allows concurrent reads alongside the
+    logger's background write thread without blocking.
+
+    Parameters
+    ----------
+    db_path:
+        Path to the SQLite database file.  Created on first use.
+    """
+
+    def __init__(self, db_path: "str | Path") -> None:
+        _p = Path(db_path)
+        _p.parent.mkdir(parents=True, exist_ok=True)
+        self._conn = sqlite3.connect(str(_p), check_same_thread=False)
+        self._conn.row_factory = sqlite3.Row
+        self._conn.execute("PRAGMA journal_mode=WAL")
+        self._conn.execute("PRAGMA foreign_keys=ON")
+        # Ensure base tables exist (harmless if ConversationLogger already created them).
+        self._conn.executescript(_SCHEMA_SQL)
+        self._conn.executescript(_SAVED_SEARCH_SCHEMA_SQL)
+        self._conn.commit()
+        self._lock = threading.Lock()
+
+    # ------------------------------------------------------------------
+    # History reads
+    # ------------------------------------------------------------------
+
+    def list_queries(
+        self,
+        limit: int = 50,
+        offset: int = 0,
+        q: str = "",
+        bucket: str = "",
+    ) -> "list[dict]":
+        """Return recent queries, newest first, with optional filtering."""
+        filters: list[str] = []
+        params: list = []
+        if q:
+            filters.append("query_text LIKE ?")
+            params.append(f"%{q}%")
+        if bucket:
+            filters.append("bucket = ?")
+            params.append(bucket)
+        where = ("WHERE " + " AND ".join(filters)) if filters else ""
+        params += [max(1, min(200, limit)), max(0, offset)]
+        rows = self._conn.execute(
+            f"SELECT conversation_id, query_text, bucket, classifier_confidence, "
+            f"year_min, year_max, retrieval_path, created_at "
+            f"FROM conversation {where} "
+            f"ORDER BY created_at DESC LIMIT ? OFFSET ?",
+            params,
+        ).fetchall()
+        return [dict(r) for r in rows]
+
+    def count_queries(self, q: str = "", bucket: str = "") -> int:
+        """Return the total number of rows matching the filters."""
+        filters: list[str] = []
+        params: list = []
+        if q:
+            filters.append("query_text LIKE ?")
+            params.append(f"%{q}%")
+        if bucket:
+            filters.append("bucket = ?")
+            params.append(bucket)
+        where = ("WHERE " + " AND ".join(filters)) if filters else ""
+        row = self._conn.execute(
+            f"SELECT COUNT(*) FROM conversation {where}", params
+        ).fetchone()
+        return int(row[0]) if row else 0
+
+    # ------------------------------------------------------------------
+    # Saved searches
+    # ------------------------------------------------------------------
+
+    def get_saved_searches(self, created_by: str = "") -> "list[dict]":
+        """Return saved searches for *created_by*, or all if empty."""
+        if created_by:
+            rows = self._conn.execute(
+                "SELECT * FROM saved_search WHERE created_by = ? ORDER BY created_at DESC",
+                (created_by,),
+            ).fetchall()
+        else:
+            rows = self._conn.execute(
+                "SELECT * FROM saved_search ORDER BY created_at DESC"
+            ).fetchall()
+        return [dict(r) for r in rows]
+
+    def save_search(
+        self,
+        query_text: str,
+        label: str,
+        bucket: str,
+        year_min: "int | None",
+        year_max: "int | None",
+        created_by: str,
+        conversation_id: "str | None" = None,
+    ) -> str:
+        """Persist a saved search and return its ``saved_id``."""
+        import uuid as _uuid
+        from datetime import datetime as _dt, timezone as _tz
+
+        saved_id = str(_uuid.uuid4())
+        created_at = _dt.now(_tz.utc).isoformat()
+        with self._lock:
+            self._conn.execute(
+                "INSERT INTO saved_search "
+                "(saved_id, conversation_id, query_text, label, bucket, "
+                "year_min, year_max, created_by, created_at) "
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (
+                    saved_id,
+                    conversation_id,
+                    query_text.strip(),
+                    label.strip()[:200],
+                    bucket,
+                    year_min,
+                    year_max,
+                    created_by,
+                    created_at,
+                ),
+            )
+            self._conn.commit()
+        return saved_id
+
+    def delete_saved_search(self, saved_id: str, created_by: str) -> bool:
+        """Delete a saved search owned by *created_by*.  Returns True if deleted."""
+        with self._lock:
+            cur = self._conn.execute(
+                "DELETE FROM saved_search WHERE saved_id = ? AND created_by = ?",
+                (saved_id, created_by),
+            )
+            self._conn.commit()
+            return cur.rowcount > 0
+
+    def close(self) -> None:
+        self._conn.close()

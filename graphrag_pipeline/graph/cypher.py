@@ -221,10 +221,14 @@ OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 RETURN d, pg, sec, para, c, obs, sp, y,
        collect(DISTINCT m) AS measurements,
-       'IN_YEAR' AS traversal_rel_type
+       'ABOUT_REFUGE' AS traversal_rel_type
 ORDER BY y.year, c.extraction_confidence DESC
 LIMIT $limit
 """
+# traversal_rel_type is 'ABOUT_REFUGE' (not 'IN_YEAR') because the
+# distinguishing path for this template is the document→refuge anchor.
+# The IN_YEAR traversal is implicit to all temporal queries; logging
+# ABOUT_REFUGE correctly identifies which retrieval strategy was used.
 
 MULTI_ENTITY_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
@@ -372,6 +376,28 @@ WHERE d.deleted_at IS NULL
 RETURN d.doc_id AS doc_id, d.title AS title, d.file_hash AS file_hash,
        d.source_file AS source_file, d.institution_id AS institution_id
 ORDER BY d.institution_id, d.title
+"""
+
+# Pre-ingest duplicate detection: check whether any of the given file_hashes
+# already exist in the graph (ignoring soft-deleted documents).
+DUPLICATE_HASH_CHECK_QUERY = """
+MATCH (d:Document)
+WHERE d.file_hash IN $file_hashes
+  AND d.deleted_at IS NULL
+RETURN d.file_hash AS file_hash, d.doc_id AS doc_id
+"""
+
+# Graph-backed entity resolution: fetch all active Entity nodes so the
+# DictionaryFuzzyResolver can use graph-resident entities as supplementary
+# candidates alongside seed_entities.csv.
+GRAPH_ENTITY_FETCH_QUERY = """
+MATCH (e:Entity)
+WHERE e.deleted_at IS NULL OR e.deleted_at = ''
+RETURN e.entity_id           AS entity_id,
+       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type,
+       e.name                AS name,
+       e.normalized_form     AS normalized_form
+ORDER BY entity_type, name
 """
 
 # ---------------------------------------------------------------------------

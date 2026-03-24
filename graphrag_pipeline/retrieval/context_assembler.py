@@ -284,10 +284,15 @@ def _row_to_block(row: dict) -> ProvenanceBlock | None:
         measurements=measurements,
         access_level=_safe_str(d.get("access_level") or "public"),
         donor_restricted=bool(d.get("donor_restricted", False)),
+        doc_id=_safe_str(d.get("doc_id")),
     )
 
 
-def _serialise_block(block: ProvenanceBlock, query_intent_signal: str = "") -> str:
+def _serialise_block(
+    block: ProvenanceBlock,
+    query_intent_signal: str = "",
+    archivist_note: "dict | None" = None,
+) -> str:
     """Render a ProvenanceBlock to the structured text format."""
     date_range = ""
     if block.doc_date_start or block.doc_date_end:
@@ -305,6 +310,14 @@ def _serialise_block(block: ProvenanceBlock, query_intent_signal: str = "") -> s
 
     lines: list[str] = [
         f"DOCUMENT: {block.doc_title}{date_range}{retrieval_note}",
+    ]
+    if archivist_note:
+        note_text = (archivist_note.get("note_text") or "").strip()
+        if note_text:
+            # Archivist notes come from role-gated write endpoints (archivist/admin only).
+            # They are trusted content; no prompt-injection guard is applied here.
+            lines.append(f"  ARCHIVIST NOTE: {note_text}")
+    lines += [
         f"  CONFIDENCE_TIER: {confidence_tier} ({block.extraction_confidence:.2f})",
         f"  PAGE: {block.page_number if block.page_number is not None else '?'}",
         f"    PARAGRAPH: {block.paragraph_id}",
@@ -353,10 +366,13 @@ class ProvenanceContextAssembler:
         executor: Neo4jQueryExecutor,
         budget_conversational: int = _BUDGET_CONVERSATIONAL,
         budget_hybrid: int = _BUDGET_HYBRID,
+        annotation_store: object | None = None,
     ) -> None:
         self._executor = executor
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
+        # Optional AnnotationStore; when set, archivist notes are injected into context.
+        self._annotation_store = annotation_store
         # Populated after each assemble() call; read by the web layer for coverage stats.
         self._last_candidate_count: int = 0
         self._last_ocr_dropped: int = 0
@@ -440,6 +456,7 @@ class ProvenanceContextAssembler:
         # Diagnostic: log claim_type distribution to stderr for depth/breadth analysis.
         _TEMPLATE_NAMES = {
             TEMPORAL_CLAIMS_QUERY: "TEMPORAL",
+            TEMPORAL_CLAIMS_QUERY_WITH_REFUGE: "TEMPORAL_REFUGE",
             MULTI_ENTITY_CLAIMS_QUERY: "MULTI_ENTITY",
             CLAIM_TYPE_SCOPED_QUERY: "CLAIM_TYPE_SCOPED",
             ENTITY_ANCHORED_CLAIMS_QUERY: "ENTITY_ANCHORED",
@@ -470,7 +487,17 @@ class ProvenanceContextAssembler:
         blocks = blocks_raw[:budget]
         self._last_context_count = len(blocks)
 
-        context_text = "\n\n".join(_serialise_block(b) for b in blocks)
+        # Batch-lookup archivist notes for documents present in context.
+        _notes: dict[str, dict] = {}
+        if self._annotation_store is not None:
+            _doc_ids = list(dict.fromkeys(b.doc_id for b in blocks if b.doc_id))
+            if _doc_ids:
+                _notes = self._annotation_store.get_notes_for_docs(_doc_ids)
+
+        context_text = "\n\n".join(
+            _serialise_block(b, archivist_note=_notes.get(b.doc_id) if b.doc_id else None)
+            for b in blocks
+        )
         return blocks, context_text
 
     def chain_for_claim(

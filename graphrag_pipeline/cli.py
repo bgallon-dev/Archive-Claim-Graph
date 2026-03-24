@@ -96,6 +96,13 @@ def build_parser() -> argparse.ArgumentParser:
     e2e_parser.add_argument("--backend", choices=["memory", "neo4j"], default="memory")
     e2e_parser.add_argument("--workers", type=int, default=1,
                             help="Number of parallel worker processes for extraction (default: 1). Use 0 to auto-detect CPU count.")
+    e2e_parser.add_argument(
+        "--graph-resolve",
+        action="store_true",
+        default=False,
+        help="Supplement entity resolution with entities already in the Neo4j graph "
+             "(requires --backend neo4j). Fetches all graph entities once before extraction.",
+    )
     _add_neo4j_args(e2e_parser)
     _add_domain_args(e2e_parser)
 
@@ -137,8 +144,42 @@ def build_parser() -> argparse.ArgumentParser:
     query_serve_parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default 127.0.0.1).")
     query_serve_parser.add_argument("--port", type=int, default=8788, help="Port to bind (default 8788).")
     query_serve_parser.add_argument("--max-tokens", type=int, default=4096, help="Max tokens for synthesis model response (default 4096).")
+    query_serve_parser.add_argument(
+        "--annotation-db",
+        default=os.environ.get("ANNOTATION_DB"),
+        help="Path to the archivist annotation SQLite database. "
+             "If omitted, document notes are disabled. Also read from ANNOTATION_DB env var.",
+    )
     _add_neo4j_args(query_serve_parser)
     _add_domain_args(query_serve_parser)
+
+    # -- Ingest UI command --------------------------------------------------
+    ingest_serve_parser = subparsers.add_parser(
+        "ingest-serve",
+        help="Launch the document ingestion web UI (drag-and-drop PDF/JSON upload).",
+    )
+    ingest_serve_parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default 127.0.0.1).")
+    ingest_serve_parser.add_argument("--port", type=int, default=8789, help="Port to bind (default 8789).")
+    ingest_serve_parser.add_argument(
+        "--out-dir",
+        default="out/",
+        help="Directory to write pipeline output bundles (default: out/).",
+    )
+    ingest_serve_parser.add_argument(
+        "--db",
+        default="data/ingest_jobs.db",
+        help="Path to ingest job SQLite database (default: data/ingest_jobs.db).",
+    )
+    ingest_serve_parser.add_argument(
+        "--review-out-dir",
+        default=None,
+        help="Optional directory for spelling review outputs.",
+    )
+    ingest_serve_parser.add_argument(
+        "--users-db",
+        default=os.environ.get("USERS_DB", "data/users.db"),
+        help="Path to users SQLite database (default: data/users.db).",
+    )
 
     resolve_parser = subparsers.add_parser(
         "resolve-mentions",
@@ -199,6 +240,39 @@ def build_parser() -> argparse.ArgumentParser:
     validate_parser.add_argument("--threshold-unclassified", type=float, default=0.20,
                                  help="Fail if unclassified claim rate exceeds this fraction (default 0.20).")
     _add_domain_args(validate_parser)
+
+    # -- Export command --------------------------------------------------------
+    corpus_export_parser = subparsers.add_parser(
+        "export-corpus",
+        help="Export corpus data as CSV, standalone HTML report, or EAD 2002 XML.",
+    )
+    corpus_export_parser.add_argument(
+        "--format",
+        choices=["csv", "html-report", "ead-xml"],
+        required=True,
+        help="Export format: csv (three spreadsheet files), html-report (Neo4j stats page), ead-xml (finding aid).",
+    )
+    corpus_export_parser.add_argument(
+        "--bundles-dir",
+        default=None,
+        help="Directory containing *.semantic.json bundle files (required for csv and ead-xml).",
+    )
+    corpus_export_parser.add_argument(
+        "--output",
+        default=None,
+        help="Output directory (csv) or file path (html-report, ead-xml). Default: ./export_out/",
+    )
+    corpus_export_parser.add_argument(
+        "--institution-id",
+        default="turnbull",
+        help="Institution identifier (default: turnbull). Used in HTML report title and EAD eadid.",
+    )
+    corpus_export_parser.add_argument(
+        "--collection-title",
+        default=None,
+        help="Collection title for EAD XML (default: '<institution-id> Collection').",
+    )
+    _add_neo4j_args(corpus_export_parser)
 
     return parser
 
@@ -351,6 +425,7 @@ def main(argv: list[str] | None = None) -> int:
             review_out_dir=args.review_out_dir,
             review_db_path=args.review_db,
             resources_dir=Path(args.domain_dir) if args.domain_dir else None,
+            graph_resolve=args.graph_resolve,
         )
         print(json.dumps(summary, indent=2))
         return 0
@@ -449,8 +524,26 @@ def main(argv: list[str] | None = None) -> int:
             neo4j_ca_cert=args.neo4j_ca_cert,
             max_tokens=args.max_tokens,
             domain_dir=args.domain_dir,
+            annotation_db_path=args.annotation_db,
         )
         print(f"Starting query server at http://{args.host}:{args.port}")
+        uvicorn.run(app, host=args.host, port=args.port)
+        return 0
+
+    if args.command == "ingest-serve":
+        from .ingest.web.app import create_app
+        try:
+            import uvicorn
+        except ImportError:
+            print("[error] uvicorn is required for ingest-serve. Install with: pip install -e .[ingest]")
+            return 1
+        app = create_app(
+            out_dir=args.out_dir,
+            db_path=args.db,
+            users_db_path=args.users_db,
+            review_out_dir=args.review_out_dir,
+        )
+        print(f"Starting ingest server at http://{args.host}:{args.port}")
         uvicorn.run(app, host=args.host, port=args.port)
         return 0
 
@@ -602,6 +695,49 @@ def main(argv: list[str] | None = None) -> int:
         if args.output:
             save_json(args.output, results)
         print(json.dumps(results, indent=2))
+        return 0
+
+    if args.command == "export-corpus":
+        from .export import export_semantic_csv, render_html_report, render_ead_xml
+
+        fmt = args.format
+        output_arg = args.output or "export_out"
+
+        if fmt == "csv":
+            if not args.bundles_dir:
+                print("[error] --bundles-dir is required for --format csv.", file=sys.stderr)
+                return 2
+            output_dir = Path(output_arg)
+            counts = export_semantic_csv(Path(args.bundles_dir), output_dir)
+            print(json.dumps({"status": "ok", "format": "csv", "output_dir": str(output_dir), **counts}, indent=2))
+
+        elif fmt == "html-report":
+            output_path = Path(output_arg if output_arg != "export_out" else "export_out/report.html")
+            render_html_report(
+                neo4j_uri=args.neo4j_uri,
+                neo4j_user=args.neo4j_user,
+                neo4j_password=args.neo4j_password,
+                neo4j_database=args.neo4j_database,
+                neo4j_trust_mode=args.neo4j_trust,
+                neo4j_ca_cert=args.neo4j_ca_cert,
+                institution_id=args.institution_id,
+                output_path=output_path,
+            )
+            print(json.dumps({"status": "ok", "format": "html-report", "output": str(output_path)}, indent=2))
+
+        elif fmt == "ead-xml":
+            if not args.bundles_dir:
+                print("[error] --bundles-dir is required for --format ead-xml.", file=sys.stderr)
+                return 2
+            output_path = Path(output_arg if output_arg != "export_out" else "export_out/finding_aid.xml")
+            count = render_ead_xml(
+                Path(args.bundles_dir),
+                output_path,
+                institution_id=args.institution_id,
+                collection_title=args.collection_title,
+            )
+            print(json.dumps({"status": "ok", "format": "ead-xml", "output": str(output_path), "components": count}, indent=2))
+
         return 0
 
     parser.error("Unknown command")

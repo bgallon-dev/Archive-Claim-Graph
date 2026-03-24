@@ -192,6 +192,50 @@ def edit_proposal(
     return revision, event
 
 
+def batch_accept_proposals(
+    store: ReviewStore,
+    proposal_ids: list[str],
+    reviewer: str,
+    reviewer_note: str,
+) -> dict[str, object]:
+    """Accept multiple proposals in one operation.
+
+    reviewer_note is required (callers must validate it is non-empty before
+    calling this function). Returns counts of accepted/skipped proposals.
+    """
+    accepted = 0
+    skipped: list[dict[str, str]] = []
+    for pid in proposal_ids:
+        try:
+            accept_proposal(store, pid, reviewer, reviewer_note)
+            accepted += 1
+        except ReviewActionError as e:
+            skipped.append({"proposal_id": pid, "reason": str(e)})
+    return {"accepted": accepted, "skipped": len(skipped), "skipped_details": skipped}
+
+
+def batch_reject_proposals(
+    store: ReviewStore,
+    proposal_ids: list[str],
+    reviewer: str,
+    reviewer_note: str,
+) -> dict[str, object]:
+    """Reject multiple proposals in one operation.
+
+    reviewer_note is required (callers must validate it is non-empty before
+    calling this function). Returns counts of rejected/skipped proposals.
+    """
+    rejected = 0
+    skipped: list[dict[str, str]] = []
+    for pid in proposal_ids:
+        try:
+            reject_proposal(store, pid, reviewer, reviewer_note)
+            rejected += 1
+        except ReviewActionError as e:
+            skipped.append({"proposal_id": pid, "reason": str(e)})
+    return {"rejected": rejected, "skipped": len(skipped), "skipped_details": skipped}
+
+
 def split_proposal(
     store: ReviewStore,
     proposal_id: str,

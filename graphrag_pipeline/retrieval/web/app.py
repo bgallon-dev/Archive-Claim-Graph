@@ -32,7 +32,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 try:
-    from fastapi import Depends, FastAPI, HTTPException, Query
+    from fastapi import Depends, FastAPI, Form, HTTPException, Query
     from fastapi.responses import HTMLResponse
     from pydantic import BaseModel, Field, field_validator
 except Exception:  # pragma: no cover - optional dependency
@@ -41,7 +41,7 @@ except Exception:  # pragma: no cover - optional dependency
     )
 
 from .auth import UserContext, require_user
-from graphrag_pipeline.auth.dependencies import NeedsLoginException, require_admin
+from graphrag_pipeline.auth.dependencies import NeedsLoginException, require_admin, require_archivist_or_admin
 from graphrag_pipeline.auth.router import create_auth_router
 from ..classifier import classify_query
 from ..context_assembler import ProvenanceContextAssembler, _serialise_block
@@ -133,7 +133,8 @@ class QueryResponse(BaseModel):
     synthesis_available: bool = True  # False when API call failed; provenance blocks still returned
     quarantined_claims_count: int = 0  # claims excluded from this answer due to sensitivity review
     supporting_claims_detail: list[dict[str, Any]] = Field(default_factory=list)
-    # Each entry: {claim_id, confidence, epistemic_status, claim_type}
+    # Each entry: {claim_id, confidence, epistemic_status, claim_type, doc_id, doc_title}
+    user_can_annotate: bool = False  # True when the requesting user has archivist/admin role
 
 
 # ---------------------------------------------------------------------------
@@ -388,7 +389,19 @@ td { padding: 4px 8px; border: 1px solid var(--table-border); }
 }
 #send-btn:disabled { opacity: 0.45; cursor: not-allowed; }
 #send-btn:not(:disabled):hover { opacity: 0.85; }
+.note-btn { font-size:11px; padding:2px 7px; border-radius:4px; background:transparent;
+            border:1px solid var(--border); color:var(--label); cursor:pointer; }
+.note-btn:hover { background:var(--table-header); }
+.notes-panel { margin-top:6px; padding:8px 10px; background:var(--warning-bg);
+               border-radius:6px; font-size:12px; }
+.notes-panel form { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+.notes-panel textarea { flex:1; min-width:160px; font-size:12px; font-family:inherit;
+  border:1px solid var(--border); border-radius:4px; padding:4px 6px;
+  background:var(--input-bg); color:var(--bubble-ai-fg); resize:vertical; min-height:48px; }
+.notes-panel button[type=submit] { align-self:flex-end; padding:4px 12px; font-size:12px;
+  border:none; border-radius:4px; background:var(--bubble-user-bg); color:#fff; cursor:pointer; }
 </style>
+<script src="https://unpkg.com/htmx.org@1.9.12" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -398,6 +411,7 @@ td { padding: 4px 8px; border: 1px solid var(--table-border); }
     <a href="/stats" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128202; Collection Stats</a>
     <a href="/gaps" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128270; Gap Analysis</a>
     <a href="/map" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128101; Relationship Map</a>
+    <a href="/history" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128203; History</a>
     <button id="new-conv-btn">&#10011; New Conversation</button>
     <button id="settings-toggle">&#9881; Settings</button>
   </div>
@@ -514,6 +528,30 @@ function formatResponse(data) {
   } else if (data.supporting_claim_ids && data.supporting_claim_ids.length > 0) {
     html += '<details><summary>Sources (' + data.supporting_claim_ids.length + ' claims)</summary>'
       + '<p class="claim-ids">' + data.supporting_claim_ids.map(esc).join(', ') + '</p></details>';
+  }
+
+  // Archivist note buttons — one per unique cited document (archivist/admin role only).
+  if (data.user_can_annotate && data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
+    var seenDocs = {};
+    data.supporting_claims_detail.forEach(function(c) {
+      if (c.doc_id && !seenDocs[c.doc_id]) seenDocs[c.doc_id] = c.doc_title || c.doc_id;
+    });
+    var docIds = Object.keys(seenDocs);
+    if (docIds.length > 0) {
+      html += '<div style="margin-top:8px">';
+      docIds.forEach(function(docId) {
+        var eid = esc(docId);
+        var etitle = esc(seenDocs[docId]);
+        html += '<div id="notes-panel-' + eid + '">'
+          + '<button class="note-btn"'
+          + ' hx-get="/document/' + eid + '/notes-panel"'
+          + ' hx-target="#notes-panel-' + eid + '"'
+          + ' hx-swap="outerHTML">'
+          + 'Add/view note \u2014 ' + etitle
+          + '</button></div>';
+      });
+      html += '</div>';
+    }
   }
 
   if (data.retrieval_stats) {
@@ -636,6 +674,15 @@ document.addEventListener('DOMContentLoaded', function() {
     + 'Use <strong>\u2699 Settings</strong> to adjust mode, year range, or entity hints. '
     + '<em>Shift+Enter</em> for a new line.</p>'
   );
+
+  // Auto-submit if ?q= URL param is present (e.g., "Re-run" from the history page).
+  var _urlQ = new URLSearchParams(window.location.search).get('q');
+  if (_urlQ) {
+    ta.value = _urlQ;
+    autoResize(ta);
+    history.replaceState(null, '', '/');
+    sendMessage();
+  }
 });
 </script>
 </body>
@@ -685,6 +732,310 @@ def _conf_tier_class(avg: float | None) -> str:
     if avg >= 0.70:
         return "tier-medium"
     return "tier-low"
+
+
+_DOC_ID_RE = re.compile(r'^[a-zA-Z0-9_\-]{1,80}$')
+# UUID v4 as produced by str(uuid.uuid4())
+_SAVED_ID_RE = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
+
+
+def _render_notes_panel(doc_id: str, current: "dict | None", history: "list[dict]") -> str:
+    """Render the HTMX notes panel partial for *doc_id*."""
+    import html as _html
+
+    eid = _html.escape(doc_id)
+    prefill = _html.escape(current["note_text"]) if current else ""
+
+    current_html = ""
+    if current:
+        current_html = (
+            f"<p style='margin:0 0 4px'><strong>Current note</strong> — "
+            f"<em>{_html.escape(current.get('created_by', ''))}, "
+            f"{_html.escape((current.get('created_at') or '')[:16])} UTC</em>:</p>"
+            f"<p style='margin:0 0 8px;white-space:pre-wrap'>{_html.escape(current['note_text'])}</p>"
+        )
+
+    older = [h for h in history if not h.get("is_current")]
+    history_html = ""
+    if older:
+        items = "".join(
+            f"<p style='margin:2px 0'>"
+            f"<em>{_html.escape(h.get('created_by', ''))}, "
+            f"{_html.escape((h.get('created_at') or '')[:16])}:</em> "
+            f"{_html.escape(h.get('note_text', ''))}</p>"
+            for h in older
+        )
+        history_html = (
+            f"<details style='margin-top:4px;font-size:11px;color:#6c757d'>"
+            f"<summary>History ({len(older)} previous)</summary>{items}</details>"
+        )
+
+    return (
+        f"<div id='notes-panel-{eid}' class='notes-panel'>"
+        + current_html
+        + history_html
+        + f"<form hx-post='/document/{eid}/notes'"
+        f"      hx-target='#notes-panel-{eid}' hx-swap='outerHTML'"
+        f"      hx-encoding='application/x-www-form-urlencoded'>"
+        f"  <textarea name='note_text' rows='3' maxlength='2000'"
+        f"    placeholder='Add an archivist note for this document...'>{prefill}</textarea>"
+        f"  <button type='submit'>Save note</button>"
+        f"</form></div>"
+    )
+
+
+def _render_notes_panel_unavailable(doc_id: str) -> str:
+    import html as _html
+    eid = _html.escape(doc_id)
+    return (
+        f"<div id='notes-panel-{eid}' class='notes-panel' style='color:#6c757d'>"
+        "Annotation store not configured. Start the server with <code>--annotation-db</code>."
+        "</div>"
+    )
+
+
+def _render_notes_panel_error(doc_id: str, msg: str) -> str:
+    import html as _html
+    eid = _html.escape(doc_id)
+    return (
+        f"<div id='notes-panel-{eid}' class='notes-panel' style='color:#dc3545'>"
+        f"{_html.escape(msg)}</div>"
+    )
+
+
+def _render_history_html(
+    rows: "list[dict]",
+    total: int,
+    saved: "list[dict]",
+    q: str,
+    bucket: str,
+    limit: int,
+    offset: int,
+) -> str:
+    """Render the query history & saved searches HTML page."""
+    import html as _html
+    import urllib.parse as _urlparse
+
+    def esc(v: object) -> str:
+        return _html.escape(str(v) if v is not None else "")
+
+    # -- Pagination maths --------------------------------------------------
+    prev_offset = max(0, offset - limit)
+    next_offset = offset + limit
+    has_prev = offset > 0
+    has_next = next_offset < total
+
+    base_qs = ""
+    if q:
+        base_qs += f"&q={_urlparse.quote(q)}"
+    if bucket:
+        base_qs += f"&bucket={_urlparse.quote(bucket)}"
+
+    # -- Query history rows ------------------------------------------------
+    rows_html = ""
+    for row in rows:
+        qtext = row.get("query_text") or ""
+        qtrun = qtext[:120] + ("\u2026" if len(qtext) > 120 else "")
+        bkt = row.get("bucket") or ""
+        yr_min = row.get("year_min")
+        yr_max = row.get("year_max")
+        if yr_min and yr_max:
+            yr_str = f"{yr_min}\u2013{yr_max}"
+        elif yr_min:
+            yr_str = str(yr_min)
+        elif yr_max:
+            yr_str = str(yr_max)
+        else:
+            yr_str = "\u2014"
+        ts = (row.get("created_at") or "")[:16]
+        conv_id = row.get("conversation_id") or ""
+        rerun_url = esc("/?q=" + _urlparse.quote(qtext))
+        yr_min_str = esc(yr_min) if yr_min is not None else ""
+        yr_max_str = esc(yr_max) if yr_max is not None else ""
+        save_form = (
+            "<details class=\"save-details\">"
+            "<summary>&#11088; Save</summary>"
+            "<form class=\"save-form\" method=\"POST\" action=\"/history/saved\">"
+            f"<input type=\"hidden\" name=\"query_text\" value=\"{esc(qtext)}\">"
+            f"<input type=\"hidden\" name=\"bucket\" value=\"{esc(bkt)}\">"
+            f"<input type=\"hidden\" name=\"year_min\" value=\"{yr_min_str}\">"
+            f"<input type=\"hidden\" name=\"year_max\" value=\"{yr_max_str}\">"
+            f"<input type=\"hidden\" name=\"conversation_id\" value=\"{esc(conv_id)}\">"
+            "<input type=\"text\" name=\"label\" placeholder=\"Label\u2026\" "
+            "maxlength=\"200\" style=\"width:140px\">"
+            "<button type=\"submit\">Save</button>"
+            "</form></details>"
+        )
+        rows_html += (
+            "<tr>"
+            f"<td style=\"white-space:nowrap;color:#6c757d;font-size:11px\">{esc(ts)}</td>"
+            f"<td title=\"{esc(qtext)}\">{esc(qtrun)}</td>"
+            f"<td><span class=\"src-label\">{esc(bkt)}</span></td>"
+            f"<td style=\"text-align:center\">{esc(yr_str)}</td>"
+            f"<td style=\"white-space:nowrap\">"
+            f"<a href=\"{rerun_url}\" class=\"action-link\">&#8617; Re-run</a>"
+            f"&nbsp;{save_form}"
+            "</td></tr>"
+        )
+    if not rows_html:
+        rows_html = (
+            "<tr><td colspan=\"5\" style=\"text-align:center;color:#6c757d;"
+            "padding:1rem\">No queries found.</td></tr>"
+        )
+
+    # -- Pagination controls -----------------------------------------------
+    pagination = ""
+    if has_prev or has_next:
+        pagination = "<div class=\"pagination\">"
+        if has_prev:
+            pagination += (
+                f"<a href=\"/history?offset={prev_offset}&limit={limit}{base_qs}\">"
+                "&laquo; Previous</a> "
+            )
+        shown_end = min(offset + limit, total)
+        pagination += f"<span>{offset + 1}\u2013{shown_end} of {total}</span>"
+        if has_next:
+            pagination += (
+                f" <a href=\"/history?offset={next_offset}&limit={limit}{base_qs}\">"
+                "Next &raquo;</a>"
+            )
+        pagination += "</div>"
+
+    # -- Saved search rows -------------------------------------------------
+    saved_rows_html = ""
+    for s in saved:
+        slabel = esc(s.get("label") or "") or "<em style=\"color:#adb5bd\">\u2014</em>"
+        sqtext = s.get("query_text") or ""
+        sqtrun = sqtext[:100] + ("\u2026" if len(sqtext) > 100 else "")
+        sbkt = s.get("bucket") or ""
+        syr_min = s.get("year_min")
+        syr_max = s.get("year_max")
+        if syr_min and syr_max:
+            syr_str = f"{syr_min}\u2013{syr_max}"
+        elif syr_min:
+            syr_str = str(syr_min)
+        elif syr_max:
+            syr_str = str(syr_max)
+        else:
+            syr_str = "\u2014"
+        screated_by = s.get("created_by") or ""
+        sts = (s.get("created_at") or "")[:16]
+        saved_id = s.get("saved_id") or ""
+        srerun_url = esc("/?q=" + _urlparse.quote(sqtext))
+        saved_rows_html += (
+            "<tr>"
+            f"<td>{slabel}</td>"
+            f"<td title=\"{esc(sqtext)}\">{esc(sqtrun)}</td>"
+            f"<td style=\"text-align:center\"><span class=\"src-label\">{esc(sbkt)}</span></td>"
+            f"<td style=\"text-align:center\">{esc(syr_str)}</td>"
+            f"<td style=\"white-space:nowrap;font-size:11px;color:#6c757d\">"
+            f"{esc(screated_by)}<br>{esc(sts)}</td>"
+            f"<td style=\"white-space:nowrap\">"
+            f"<a href=\"{srerun_url}\" class=\"action-link\">&#8617; Re-run</a> "
+            f"<form method=\"POST\" action=\"/history/saved/{esc(saved_id)}/delete\" "
+            f"style=\"display:inline\">"
+            f"<button type=\"submit\" class=\"del-btn\" "
+            f"onclick=\"return confirm('Delete this saved search?')\">&#128465; Delete</button>"
+            f"</form>"
+            "</td></tr>"
+        )
+    if not saved_rows_html:
+        saved_rows_html = (
+            "<tr><td colspan=\"6\" style=\"text-align:center;color:#6c757d;"
+            "padding:1rem\">No saved searches yet.</td></tr>"
+        )
+
+    # -- Bucket selector options -------------------------------------------
+    def _opt(val: str, label: str) -> str:
+        sel = ' selected' if bucket == val else ''
+        return f"<option value=\"{val}\"{sel}>{label}</option>"
+
+    bucket_opts = (
+        _opt("", "All types")
+        + _opt("conversational", "Conversational")
+        + _opt("analytical", "Analytical")
+        + _opt("hybrid", "Hybrid")
+    )
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Query History \u2014 Turnbull GraphRAG</title>
+{_STATS_CSS}
+<style>
+.action-link{{color:#0d6efd;text-decoration:none;font-size:12px}}
+.action-link:hover{{text-decoration:underline}}
+.del-btn{{font-size:12px;padding:2px 6px;border:1px solid #dc3545;border-radius:4px;
+         background:transparent;color:#dc3545;cursor:pointer}}
+.del-btn:hover{{background:#dc3545;color:#fff}}
+.save-details{{display:inline-block;font-size:12px;vertical-align:middle}}
+.save-details summary{{color:#fd7e14;cursor:pointer;font-size:12px;display:inline;list-style:none}}
+.save-details summary:hover{{text-decoration:underline}}
+.save-form{{display:flex;gap:4px;align-items:center;margin-top:4px;flex-wrap:wrap}}
+.save-form input[type=text]{{font-size:12px;padding:2px 6px;border:1px solid #ced4da;border-radius:4px}}
+.save-form button{{font-size:12px;padding:2px 8px;border:none;border-radius:4px;
+                   background:#fd7e14;color:#fff;cursor:pointer}}
+.pagination{{margin-top:.75rem;font-size:13px}}
+.pagination a{{color:#0d6efd;text-decoration:none;margin:0 4px}}
+.filter-bar{{display:flex;gap:.75rem;align-items:flex-end;flex-wrap:wrap;margin-bottom:1rem}}
+.filter-bar label{{font-size:12px;color:#6c757d;display:block;margin-bottom:2px}}
+.filter-bar input[type=text]{{font-size:13px;padding:4px 8px;border:1px solid #ced4da;border-radius:4px}}
+.filter-bar select{{font-size:13px;padding:4px 8px;border:1px solid #ced4da;border-radius:4px}}
+.filter-bar button{{font-size:13px;padding:4px 10px;border:none;border-radius:4px;
+                    background:#0d6efd;color:#fff;cursor:pointer}}
+</style>
+</head>
+<body style="background:#f8f9fa;padding:2rem">
+<div style="max-width:960px;margin:0 auto">
+<a class="nav-back" href="/">&#8592; Back to Chat</a>
+<h1 style="font-size:1.4rem;margin-bottom:1.5rem">Query History &amp; Saved Searches</h1>
+
+<div class="stats-section">
+  <h2>Saved Searches</h2>
+  <div class="table-wrap">
+  <table class="stats">
+    <thead><tr>
+      <th>Label</th><th>Query</th><th>Type</th><th>Years</th>
+      <th>Saved by / When</th><th>Actions</th>
+    </tr></thead>
+    <tbody>{saved_rows_html}</tbody>
+  </table>
+  </div>
+</div>
+
+<div class="stats-section">
+  <h2>Recent Queries</h2>
+  <form class="filter-bar" method="GET" action="/history">
+    <div>
+      <label>Search query text</label>
+      <input type="text" name="q" value="{esc(q)}"
+             placeholder="Filter by keyword\u2026" style="width:220px">
+    </div>
+    <div>
+      <label>Type</label>
+      <select name="bucket">{bucket_opts}</select>
+    </div>
+    <button type="submit">Filter</button>
+    <a href="/history"
+       style="font-size:13px;color:#6c757d;text-decoration:none;align-self:flex-end;padding:4px 0">
+      Clear
+    </a>
+  </form>
+  <div class="table-wrap">
+  <table class="stats">
+    <thead><tr>
+      <th>When</th><th>Query</th><th>Type</th><th>Years</th><th>Actions</th>
+    </tr></thead>
+    <tbody>{rows_html}</tbody>
+  </table>
+  </div>
+  {pagination}
+</div>
+</div>
+</body>
+</html>"""
 
 
 def _render_stats_html(
@@ -898,6 +1249,12 @@ def _safe_log_claim_id(claim_id: str, access_level: str) -> str:
     Preserves the ability to see access patterns (e.g. same claim retrieved
     N times) without exposing the actual claim_id of sensitive content in the
     conversation log.
+
+    Hash length: 12 hex chars = 48 bits of SHA-256.  This is a deliberate
+    tradeoff — 48 bits is sufficient to distinguish individual claims within
+    a single institution's corpus (<<2^24 claims expected) while keeping log
+    rows compact.  It is NOT collision-resistant at scale; do not use these
+    hashed IDs as primary keys or for cryptographic purposes.
     """
     if access_level in _RESTRICTED_ACCESS_LEVELS:
         return "redacted_" + _hashlib.sha256(claim_id.encode()).hexdigest()[:12]
@@ -1410,6 +1767,7 @@ def create_app(
     anthropic_api_key: str | None = None,
     max_tokens: int = 1000,
     domain_dir: str | None = None,
+    annotation_db_path: str | None = None,
 ) -> FastAPI:
     """Construct and return the FastAPI retrieval application.
 
@@ -1453,7 +1811,13 @@ def create_app(
         state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
         state["executor"] = executor
         state["query_builder"] = CypherQueryBuilder(executor)
-        state["assembler"] = ProvenanceContextAssembler(executor)
+        _ann_db = annotation_db_path or os.environ.get("ANNOTATION_DB")
+        _annotation_store = None
+        if _ann_db:
+            from graphrag_pipeline.annotation import AnnotationStore
+            _annotation_store = AnnotationStore(_ann_db)
+            state["annotation_store"] = _annotation_store
+        state["assembler"] = ProvenanceContextAssembler(executor, annotation_store=_annotation_store)
         state["gateway"] = EntityResolutionGateway()
         synthesis_ctx: str | None = None
         if domain_dir:
@@ -1467,11 +1831,17 @@ def create_app(
         )
         conv_log_path = Path(os.environ.get("CONV_LOG_DB", "data/conversation_log.db"))
         state["conv_logger"] = ConversationLogger(conv_log_path)
+        from graphrag_pipeline.retrieval.conversation_log import QueryHistoryStore as _QHSInit
+        state["history_store"] = _QHSInit(conv_log_path)
         write_audit_path = os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db")
         from .write_audit_log import WriteAuditLogger
         state["write_audit"] = WriteAuditLogger(write_audit_path)
         yield
         executor.close()
+        if state.get("annotation_store"):
+            state["annotation_store"].close()
+        if state.get("history_store"):
+            state["history_store"].close()
 
     app = FastAPI(
         title="Turnbull GraphRAG Retrieval API",
@@ -1581,7 +1951,14 @@ def create_app(
         engine: SynthesisEngine = state["synthesis"]
 
         created_at = datetime.now(timezone.utc).isoformat()
-        conversation_id = req.session_id or make_conversation_id(req.text, created_at)
+        # Always generate a unique per-turn conversation_id so every turn gets
+        # its own row in the conversation + retrieval_event tables.  Previously
+        # this was set to req.session_id, which collapsed all turns onto the
+        # same primary key — the INSERT OR IGNORE in _write_record then silently
+        # dropped entity resolution data for turns 2+ in a session.
+        # session_id is stored separately in LogRecord for grouping multi-turn
+        # sessions in the analytics queries.
+        conversation_id = make_conversation_id(req.text, created_at)
         # Assumes symmetric history (alternating user/assistant pairs), which holds
         # for the browser client (history only accumulates on success). Non-browser
         # clients sending asymmetric history will get an approximate turn_number.
@@ -1749,6 +2126,8 @@ def create_app(
                 "confidence": blocks_by_id[cid].extraction_confidence if cid in blocks_by_id else None,
                 "epistemic_status": blocks_by_id[cid].epistemic_status if cid in blocks_by_id else "unknown",
                 "claim_type": blocks_by_id[cid].claim_type if cid in blocks_by_id else "",
+                "doc_id": blocks_by_id[cid].doc_id if cid in blocks_by_id else "",
+                "doc_title": blocks_by_id[cid].doc_title if cid in blocks_by_id else "",
             }
             for cid in result.supporting_claim_ids
         ]
@@ -1773,6 +2152,7 @@ def create_app(
             synthesis_available=synthesis_available,
             quarantined_claims_count=quarantined_claims_count,
             supporting_claims_detail=claims_detail,
+            user_can_annotate=user.role in ("admin", "archivist"),
         )
 
     # ------------------------------------------------------------------
@@ -1934,6 +2314,147 @@ def create_app(
         return {"institution_id": user.institution_id, "documents": rows}
 
     # ------------------------------------------------------------------
+    # GET /document/{doc_id}/notes-panel  — HTMX partial: archivist notes
+    # POST /document/{doc_id}/notes       — save/update a document note
+    # ------------------------------------------------------------------
+    @app.get("/document/{doc_id}/notes-panel")
+    async def get_notes_panel(
+        doc_id: str,
+        user: UserContext = Depends(require_archivist_or_admin),
+    ) -> HTMLResponse:
+        if not _DOC_ID_RE.match(doc_id):
+            raise HTTPException(status_code=400, detail="Invalid doc_id format")
+        store = state.get("annotation_store")
+        if store is None:
+            return HTMLResponse(_render_notes_panel_unavailable(doc_id))
+        current = store.get_current_note(doc_id)
+        history = store.get_note_history(doc_id, limit=5)
+        return HTMLResponse(_render_notes_panel(doc_id, current, history))
+
+    @app.post("/document/{doc_id}/notes")
+    async def post_document_note(
+        doc_id: str,
+        note_text: str = Form(...),
+        user: UserContext = Depends(require_archivist_or_admin),
+    ) -> HTMLResponse:
+        if not _DOC_ID_RE.match(doc_id):
+            raise HTTPException(status_code=400, detail="Invalid doc_id format")
+        stripped = note_text.strip()
+        if not stripped:
+            return HTMLResponse(_render_notes_panel_error(doc_id, "Note cannot be empty."))
+        if len(stripped) > 2000:
+            return HTMLResponse(
+                _render_notes_panel_error(doc_id, "Note exceeds 2000 characters.")
+            )
+        store = state.get("annotation_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="Annotation store not configured.")
+        store.upsert_note(doc_id, stripped, created_by=user.identity)
+        current = store.get_current_note(doc_id)
+        history = store.get_note_history(doc_id, limit=5)
+        return HTMLResponse(_render_notes_panel(doc_id, current, history))
+
+    # ------------------------------------------------------------------
+    # GET /history             — query history & saved searches page
+    # POST /history/saved      — save a search
+    # POST /history/saved/{id}/delete  — delete a saved search
+    # GET /api/history         — JSON history list
+    # GET /api/history/saved   — JSON saved searches
+    # ------------------------------------------------------------------
+    from graphrag_pipeline.retrieval.conversation_log import QueryHistoryStore as _QHS
+
+    @app.get("/history", response_class=HTMLResponse, include_in_schema=False)
+    def query_history_page(
+        q: str = Query(""),
+        bucket: str = Query(""),
+        limit: int = Query(50, le=200),
+        offset: int = Query(0, ge=0),
+        user: UserContext = Depends(require_user),
+    ) -> HTMLResponse:
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            return HTMLResponse(
+                "<p style='font-family:sans-serif;padding:2rem'>"
+                "Query history not available. Set the <code>CONV_LOG_DB</code> "
+                "environment variable to enable it.</p>"
+            )
+        rows = store.list_queries(limit=limit, offset=offset, q=q, bucket=bucket)
+        total = store.count_queries(q=q, bucket=bucket)
+        saved = store.get_saved_searches(created_by=user.identity)
+        return HTMLResponse(_render_history_html(rows, total, saved, q, bucket, limit, offset))
+
+    @app.post("/history/saved", include_in_schema=False)
+    async def save_query(
+        query_text: str = Form(...),
+        label: str = Form(""),
+        bucket: str = Form(""),
+        year_min: str = Form(""),
+        year_max: str = Form(""),
+        conversation_id: str = Form(""),
+        user: UserContext = Depends(require_user),
+    ):
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        _yr_min: int | None = None
+        _yr_max: int | None = None
+        try:
+            _yr_min = int(year_min) if year_min.strip() else None
+        except ValueError:
+            pass
+        try:
+            _yr_max = int(year_max) if year_max.strip() else None
+        except ValueError:
+            pass
+        store.save_search(
+            query_text=query_text.strip()[:2000],
+            label=label.strip()[:200],
+            bucket=bucket,
+            year_min=_yr_min,
+            year_max=_yr_max,
+            created_by=user.identity,
+            conversation_id=conversation_id.strip() or None,
+        )
+        return _RedirectResponse(url="/history", status_code=303)
+
+    @app.post("/history/saved/{saved_id}/delete", include_in_schema=False)
+    async def delete_saved_query(
+        saved_id: str,
+        user: UserContext = Depends(require_user),
+    ):
+        if not _SAVED_ID_RE.match(saved_id):
+            raise HTTPException(status_code=400, detail="Invalid saved_id format")
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        store.delete_saved_search(saved_id, created_by=user.identity)
+        return _RedirectResponse(url="/history", status_code=303)
+
+    @app.get("/api/history")
+    def api_history(
+        q: str = Query(""),
+        bucket: str = Query(""),
+        limit: int = Query(50, le=200),
+        offset: int = Query(0, ge=0),
+        user: UserContext = Depends(require_user),
+    ) -> dict[str, Any]:
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        rows = store.list_queries(limit=limit, offset=offset, q=q, bucket=bucket)
+        total = store.count_queries(q=q, bucket=bucket)
+        return {"total": total, "offset": offset, "limit": limit, "queries": rows}
+
+    @app.get("/api/history/saved")
+    def api_history_saved(
+        user: UserContext = Depends(require_user),
+    ) -> list[dict[str, Any]]:
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        return store.get_saved_searches(created_by=user.identity)
+
+    # ------------------------------------------------------------------
     # DELETE /document/{doc_id}  — admin: soft-delete a document
     # ------------------------------------------------------------------
     @app.delete("/document/{doc_id}")
@@ -2018,6 +2539,10 @@ def create_app(
     v1.add_api_route("/documents", list_documents, methods=["GET"])
     v1.add_api_route("/document/{doc_id}", delete_document, methods=["DELETE"])
     v1.add_api_route("/document/{doc_id}/restore", restore_document, methods=["POST"])
+    v1.add_api_route("/document/{doc_id}/notes-panel", get_notes_panel, methods=["GET"])
+    v1.add_api_route("/document/{doc_id}/notes", post_document_note, methods=["POST"])
+    v1.add_api_route("/api/history", api_history, methods=["GET"])
+    v1.add_api_route("/api/history/saved", api_history_saved, methods=["GET"])
     app.include_router(v1)
 
     # Mark the original unversioned paths as deprecated in the schema.

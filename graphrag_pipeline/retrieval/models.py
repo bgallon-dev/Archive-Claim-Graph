@@ -88,6 +88,8 @@ class ProvenanceBlock:
     # Access classification and donor restriction flags, populated from the Document node.
     access_level: str = "public"
     donor_restricted: bool = False
+    # Document identifier; used for archivist annotation lookup in context assembly.
+    doc_id: str = ""
 
 
 @dataclass

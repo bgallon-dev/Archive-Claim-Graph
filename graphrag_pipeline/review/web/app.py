@@ -10,6 +10,8 @@ from typing import Any
 from ..actions import (
     ReviewActionError,
     accept_proposal,
+    batch_accept_proposals,
+    batch_reject_proposals,
     defer_proposal,
     edit_proposal,
     reject_proposal,
@@ -59,6 +61,30 @@ _SCOPE_LABELS: dict[str, str] = {
     "semantic_only": "Suppress from graph extraction only (body text preserved)",
     "full": "Full suppression from all graph outputs",
 }
+
+_ISSUE_CLASS_LABELS: dict[str, str] = {
+    "header_contamination": "Header contamination",
+    "boilerplate_contamination": "Boilerplate contamination",
+    "short_generic_token": "Short generic token",
+    "ocr_garbage_mention": "OCR garbage mention",
+    "ocr_spelling_variant": "OCR spelling variant",
+    "duplicate_entity_alias": "Duplicate entity alias",
+    "missing_species_focus": "Missing species link",
+    "missing_event_location": "Missing location link",
+    "method_overtrigger": "Method overtrigger",
+    "pii_exposure": "PII exposure",
+    "indigenous_sensitivity": "Indigenous cultural sensitivity",
+    "living_person_reference": "Living person reference",
+}
+
+# Issue classes where batch-accepting with minimal inspection is appropriate.
+# These map to suppress_mention proposals for low-consequence junk.
+_BATCH_ELIGIBLE_CLASSES: frozenset[str] = frozenset({
+    "header_contamination",
+    "boilerplate_contamination",
+    "short_generic_token",
+    "ocr_garbage_mention",
+})
 
 
 @functools.lru_cache(maxsize=8)
@@ -342,6 +368,19 @@ def _mention_row(
     )
 
 
+def _collapsible_technical(inner_html: str) -> str:
+    """Wrap technical detail HTML in a native collapsible <details> block."""
+    return (
+        '<details style="margin-top:1rem">'
+        '<summary style="cursor:pointer;color:#6c757d;font-size:0.9rem;'
+        'user-select:none">Technical details</summary>'
+        '<div style="margin-top:0.5rem;padding:0.75rem;background:#f8f9fa;'
+        'border-radius:4px;font-size:0.85rem">'
+        + inner_html
+        + "</div></details>"
+    )
+
+
 def _render_evidence_summary(
     issue_class: str,
     evidence: dict,  # type: ignore[type-arg]
@@ -352,7 +391,11 @@ def _render_evidence_summary(
     confidence: float = 0.0,
     impact_size: int = 0,
 ) -> str:
-    """Return a human-readable HTML block extracted from the evidence snapshot."""
+    """Return a human-readable HTML block extracted from the evidence snapshot.
+
+    Default view: plain-language summary + source context.
+    Technical fields (IDs, raw scores, claim types) are behind a collapsible.
+    """
     if not evidence:
         return ""
 
@@ -365,17 +408,43 @@ def _render_evidence_summary(
     ]
 
     if issue_class in _JUNK_ISSUE_CLASSES:
-        claim = _CLAIM_SENTENCES.get(issue_class, "")
-        if claim:
-            parts.append(f'<div class="claim-box">{_html.escape(claim)}</div>')
-
-        reason = evidence.get("suppression_reason", issue_class)
-        parts.append(f"<p><strong>Suppression reason:</strong> {esc(reason)}</p>")
         all_mentions = evidence.get("affected_mentions", [])
         total = len(all_mentions)
         excluded_ids = excluded_target_ids or set()
         excluded_count = len(excluded_ids)
         display = sampled_mentions if sampled_mentions else all_mentions[:20]
+
+        # Plain-language summary
+        surface_form = ""
+        if all_mentions:
+            surface_form = (
+                all_mentions[0].get("normalized_form", "")
+                or all_mentions[0].get("surface_form", "")
+            )
+        sf_display = f"\u201c{esc(surface_form)}\u201d" if surface_form else "This surface form"
+        _junk_plain: dict[str, str] = {
+            "header_contamination": (
+                "it appears primarily in page headers or footers rather than the body of the document"
+            ),
+            "boilerplate_contamination": (
+                "it appears in boilerplate text such as form fields or institutional letterhead, "
+                "not in substantive content"
+            ),
+            "short_generic_token": (
+                "it is a short or generic word that is unlikely to be a meaningful named entity"
+            ),
+            "ocr_garbage_mention": (
+                "the text appears to be OCR noise \u2014 a misread character sequence rather than "
+                "a real entity name"
+            ),
+        }
+        reason_desc = _junk_plain.get(issue_class, "it does not appear to be a real named entity")
+        parts.append(
+            f'<div class="claim-box">'
+            f"The word {sf_display} was detected as a named entity, but {reason_desc}. "
+            f"The system proposes to ignore it. "
+            f"Review the mentions below to confirm.</div>"
+        )
 
         if display:
             parts.append(
@@ -396,29 +465,63 @@ def _render_evidence_summary(
             parts.append(_load_more_row_html(proposal_id, 20, total_pages))
             parts.append("</tbody></table>")
 
+        raw_reason = evidence.get("suppression_reason", issue_class)
+        parts.append(_collapsible_technical(
+            f"<p><strong>Issue class:</strong> {esc(issue_class)}</p>"
+            f"<p><strong>Suppression reason (raw):</strong> {esc(raw_reason)}</p>"
+            f"<p><strong>Total affected mentions:</strong> {esc(total)}</p>"
+        ))
+
     elif issue_class == "ocr_spelling_variant":
         canon = evidence.get("canonical_entity", {})
         variants = evidence.get("merge_entities", [])
         avg_sim = evidence.get("average_similarity", "")
         canon_count = evidence.get("canonical_mention_count", "")
         merge_counts = evidence.get("merge_mention_counts", {})
-        parts.append(
-            f"<p><strong>Canonical entity:</strong> {esc(canon.get('name',''))} "
-            f"({esc(canon.get('entity_type',''))}) — {esc(canon_count)} mentions</p>"
-        )
-        parts.append(f"<p><strong>Average similarity:</strong> {esc(avg_sim)}</p>")
+
+        # Plain-language summary
+        canon_name = esc(canon.get("name", ""))
         if variants:
+            variant_name_list = " and ".join(
+                f"\u201c{esc(v.get('name', ''))}\u201d" for v in variants[:3]
+            )
+            suffix = f" (and {len(variants) - 3} more)" if len(variants) > 3 else ""
             parts.append(
-                "<table><thead><tr><th>Variant Name</th><th>Type</th><th>Mentions</th></tr></thead><tbody>"
+                f'<div class="claim-box">'
+                f"The system found name(s) that appear to refer to the same thing as "
+                f"<strong>{canon_name}</strong>: {variant_name_list}{esc(suffix)}. "
+                f"It is proposing to treat them as the same entity going forward. "
+                f"Does this look correct?</div>"
+            )
+        else:
+            parts.append(
+                f'<div class="claim-box">'
+                f"The system found a name that may be a spelling variant of "
+                f"<strong>{canon_name}</strong> and is proposing to merge them. "
+                f"Does this look correct?</div>"
+            )
+
+        # Technical details
+        tech: list[str] = [
+            f"<p><strong>Canonical entity:</strong> {esc(canon.get('name', ''))} "
+            f"({esc(canon.get('entity_type', ''))}) \u2014 {esc(canon_count)} mentions</p>",
+            f"<p><strong>Average similarity score:</strong> {esc(avg_sim)}</p>",
+        ]
+        if variants:
+            tech.append(
+                "<table><thead><tr>"
+                "<th>Variant Name</th><th>Type</th><th>Mentions</th>"
+                "</tr></thead><tbody>"
             )
             for v in variants:
                 count = merge_counts.get(v.get("entity_id", ""), "")
-                parts.append(
-                    f"<tr><td>{esc(v.get('name',''))}</td>"
-                    f"<td>{esc(v.get('entity_type',''))}</td>"
+                tech.append(
+                    f"<tr><td>{esc(v.get('name', ''))}</td>"
+                    f"<td>{esc(v.get('entity_type', ''))}</td>"
                     f"<td>{esc(count)}</td></tr>"
                 )
-            parts.append("</tbody></table>")
+            tech.append("</tbody></table>")
+        parts.append(_collapsible_technical("".join(tech)))
 
     elif issue_class == "duplicate_entity_alias":
         canon = evidence.get("canonical_entity", {})
@@ -426,81 +529,144 @@ def _render_evidence_summary(
         sim = evidence.get("similarity_score", "")
         canon_count = evidence.get("canonical_mention_count", "")
         alias_count = evidence.get("alias_mention_count", "")
+
+        # Plain-language summary
+        canon_name = esc(canon.get("name", ""))
+        alias_name = esc(alias.get("name", ""))
         parts.append(
-            "<table><thead><tr><th>Role</th><th>Name</th><th>Type</th><th>Mentions</th></tr></thead><tbody>"
+            f'<div class="claim-box">'
+            f"The system found two names that appear to refer to the same thing: "
+            f"<strong>{alias_name}</strong> and <strong>{canon_name}</strong>. "
+            f"It is proposing to link them as aliases of the same entity going forward. "
+            f"Does this look correct?</div>"
         )
-        parts.append(
-            f"<tr><td>Canonical</td><td>{esc(canon.get('name',''))}</td>"
-            f"<td>{esc(canon.get('entity_type',''))}</td><td>{esc(canon_count)}</td></tr>"
+
+        # Technical details
+        tech_html = (
+            "<table><thead><tr>"
+            "<th>Role</th><th>Name</th><th>Type</th><th>Mentions</th>"
+            "</tr></thead><tbody>"
+            f"<tr><td>Canonical</td><td>{esc(canon.get('name', ''))}</td>"
+            f"<td>{esc(canon.get('entity_type', ''))}</td><td>{esc(canon_count)}</td></tr>"
+            f"<tr><td>Alias</td><td>{esc(alias.get('name', ''))}</td>"
+            f"<td>{esc(alias.get('entity_type', ''))}</td><td>{esc(alias_count)}</td></tr>"
+            "</tbody></table>"
+            f"<p><strong>Similarity score:</strong> {esc(sim)}</p>"
         )
-        parts.append(
-            f"<tr><td>Alias</td><td>{esc(alias.get('name',''))}</td>"
-            f"<td>{esc(alias.get('entity_type',''))}</td><td>{esc(alias_count)}</td></tr>"
-        )
-        parts.append("</tbody></table>")
-        parts.append(f"<p><strong>Similarity score:</strong> {esc(sim)}</p>")
+        parts.append(_collapsible_technical(tech_html))
 
     elif issue_class in ("missing_species_focus", "missing_event_location"):
         sentence = evidence.get("source_sentence", "")
         claim_type = evidence.get("claim_type", "")
         key = "candidate_species" if issue_class == "missing_species_focus" else "candidate_location"
         candidate = evidence.get(key, {})
-        label = "Species" if issue_class == "missing_species_focus" else "Location"
-        parts.append(f"<p><strong>Claim type:</strong> {esc(claim_type)}</p>")
+        label = "species" if issue_class == "missing_species_focus" else "location"
+        candidate_name = candidate.get("name", "")
+
+        # Plain-language summary
+        if candidate_name:
+            parts.append(
+                f'<div class="claim-box">'
+                f"This sentence mentions a {label} but the system wasn\u2019t able to connect "
+                f"them automatically. The likely match is "
+                f"<strong>{esc(candidate_name)}</strong>. Is that correct?</div>"
+            )
+        else:
+            parts.append(
+                f'<div class="claim-box">'
+                f"This sentence appears to reference a {label}, but the system could not "
+                f"automatically identify a matching entity. Please review and link the "
+                f"appropriate {label} if one exists.</div>"
+            )
+
+        # Source sentence (primary context)
         if sentence:
             parts.append(
-                f"<p><strong>Source sentence:</strong></p>"
-                f'<blockquote style="border-left:4px solid #ccc;margin:0;padding:0 1rem">'
+                "<p><strong>Source sentence:</strong></p>"
+                '<blockquote style="border-left:4px solid #ccc;margin:0;padding:0 1rem">'
                 f"<p>{esc(sentence)}</p></blockquote>"
             )
+
+        # Technical details
+        tech: list[str] = [f"<p><strong>Claim type:</strong> {esc(claim_type)}</p>"]
         if candidate:
-            parts.append(
-                f"<p><strong>Candidate {label}:</strong> {esc(candidate.get('name',''))} "
-                f"({esc(candidate.get('entity_type',''))})</p>"
+            tech.append(
+                f"<p><strong>Candidate entity type:</strong> "
+                f"{esc(candidate.get('entity_type', ''))}</p>"
             )
+        parts.append(_collapsible_technical("".join(tech)))
 
     elif issue_class == "method_overtrigger":
         sentence = evidence.get("source_sentence", "")
         claim_type = evidence.get("claim_type", "")
         method = evidence.get("method_entity", {})
         compat = evidence.get("compatibility", "")
-        parts.append(f"<p><strong>Claim type:</strong> {esc(claim_type)}</p>")
+        method_name = method.get("name", "")
+
+        # Plain-language summary
+        method_display = f" (<strong>{esc(method_name)}</strong>)" if method_name else ""
+        parts.append(
+            f'<div class="claim-box">'
+            f"The system linked a survey method{method_display} to this claim, but it may not "
+            f"belong there. Approving this will remove that connection.</div>"
+        )
+
+        # Source sentence (primary context)
         if sentence:
             parts.append(
-                f"<p><strong>Source sentence:</strong></p>"
-                f'<blockquote style="border-left:4px solid #ccc;margin:0;padding:0 1rem">'
+                "<p><strong>Source sentence:</strong></p>"
+                '<blockquote style="border-left:4px solid #ccc;margin:0;padding:0 1rem">'
                 f"<p>{esc(sentence)}</p></blockquote>"
             )
-        parts.append(
-            f"<p><strong>Method entity:</strong> {esc(method.get('name',''))} "
-            f"&mdash; compatibility: <strong>{esc(compat)}</strong></p>"
+
+        # Technical details
+        tech_html = (
+            f"<p><strong>Claim type:</strong> {esc(claim_type)}</p>"
+            f"<p><strong>Method entity:</strong> {esc(method_name)} "
+            f"({esc(method.get('entity_type', ''))})</p>"
+            f"<p><strong>Compatibility score:</strong> {esc(compat)}</p>"
         )
+        parts.append(_collapsible_technical(tech_html))
 
     elif issue_class == "pii_exposure":
         matched = evidence.get("matched_pattern", "")
         all_patterns = evidence.get("all_patterns", [])
         claim_id = evidence.get("claim_id", "")
         redacted = evidence.get("redacted_sentence", "")
+
+        # Severity warning (stays visible — do not collapse)
         parts.append(
-            f"<p><strong>Detection type:</strong> {esc(matched)}</p>"
+            '<p style="color:#dc3545"><strong>Action required:</strong> '
+            "Review whether this claim contains personal information that should remain "
+            "quarantined or be permanently restricted. Do not un-quarantine without data "
+            "governance approval.</p>"
         )
-        if all_patterns:
-            parts.append(
-                f"<p><strong>All matched patterns:</strong> {esc(', '.join(all_patterns))}</p>"
-            )
-        if claim_id:
-            parts.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+
+        # Plain-language summary
+        pattern_label = esc(matched) if matched else "personal information"
+        parts.append(
+            f'<div class="claim-box">'
+            f"This claim appears to contain {pattern_label}. "
+            f"The sentence below has been shown with the sensitive content redacted.</div>"
+        )
+
         if redacted:
             parts.append(
                 "<p><strong>Source sentence (PII redacted):</strong></p>"
                 '<blockquote style="border-left:4px solid #dc3545;margin:0;padding:0 1rem">'
                 f"<p>{esc(redacted)}</p></blockquote>"
             )
-        parts.append(
-            '<p style="color:#dc3545"><strong>Action required:</strong> '
-            "Review whether this claim contains personal information that should remain quarantined "
-            "or be permanently restricted. Do not un-quarantine without data governance approval.</p>"
-        )
+
+        # Technical details
+        tech: list[str] = [f"<p><strong>Detection type:</strong> {esc(matched)}</p>"]
+        if all_patterns:
+            tech.append(
+                f"<p><strong>All matched patterns:</strong> "
+                f"{esc(', '.join(all_patterns))}</p>"
+            )
+        if claim_id:
+            tech.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+        parts.append(_collapsible_technical("".join(tech)))
 
     elif issue_class == "indigenous_sensitivity":
         matched_term = evidence.get("matched_term", "")
@@ -509,17 +675,8 @@ def _render_evidence_summary(
         nations = evidence.get("nations", [])
         claim_id = evidence.get("claim_id", "")
         require_consultation = evidence.get("require_tribal_consultation_before_clear", True)
-        parts.append(
-            f"<p><strong>Matched term:</strong> <em>{esc(matched_term)}</em></p>"
-        )
-        parts.append(
-            f"<p><strong>Vocabulary category:</strong> {esc(category)} "
-            f"&mdash; sensitivity level: <strong>{esc(sensitivity)}</strong></p>"
-        )
-        if nations:
-            parts.append(f"<p><strong>Associated nations:</strong> {esc(', '.join(nations))}</p>")
-        if claim_id:
-            parts.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+
+        # Consultation warning (stays visible — do not collapse)
         if require_consultation:
             parts.append(
                 '<p style="color:#dc3545;font-weight:bold">&#9888; Tribal consultation required: '
@@ -527,38 +684,243 @@ def _render_evidence_summary(
                 "Indigenous nation(s). Archivist judgment alone is not sufficient.</p>"
             )
 
+        # Plain-language summary
+        nations_text = (
+            f" associated with {esc(', '.join(nations))}" if nations else ""
+        )
+        parts.append(
+            f'<div class="claim-box">'
+            f"This claim contains the term <em>{esc(matched_term)}</em>{nations_text}, "
+            f"which is flagged as Indigenous cultural material. Community consultation may be "
+            f"required before this information is published.</div>"
+        )
+
+        # Technical details
+        tech: list[str] = [
+            f"<p><strong>Vocabulary category:</strong> {esc(category)}</p>",
+            f"<p><strong>Sensitivity level:</strong> {esc(sensitivity)}</p>",
+        ]
+        if nations:
+            tech.append(
+                f"<p><strong>Associated nations:</strong> {esc(', '.join(nations))}</p>"
+            )
+        if claim_id:
+            tech.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+        parts.append(_collapsible_technical("".join(tech)))
+
     elif issue_class == "living_person_reference":
         person_names = evidence.get("person_names", [])
         most_recent_year = evidence.get("most_recent_year", "")
         source_sentence = evidence.get("source_sentence", "")
         year_threshold = evidence.get("year_threshold", "")
         claim_id = evidence.get("claim_id", "")
-        parts.append(
-            f"<p><strong>Person entity/entities:</strong> {esc(', '.join(person_names) if person_names else '(unknown)')}</p>"
+
+        # Plain-language summary
+        names_display = esc(", ".join(person_names)) if person_names else "an individual"
+        year_text = (
+            f" (most recent associated year: {esc(most_recent_year)})"
+            if most_recent_year else ""
         )
         parts.append(
-            f"<p><strong>Most recent associated year:</strong> {esc(most_recent_year)} "
-            f"(within the last {esc(year_threshold)} years)</p>"
+            f'<div class="claim-box">'
+            f"This claim may refer to a living person: <strong>{names_display}</strong>"
+            f"{year_text}. Approving publication requires a privacy review.</div>"
         )
-        if claim_id:
-            parts.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+
         if source_sentence:
             parts.append(
                 "<p><strong>Source sentence:</strong></p>"
                 '<blockquote style="border-left:4px solid #fd7e14;margin:0;padding:0 1rem">'
                 f"<p>{esc(source_sentence)}</p></blockquote>"
             )
+
+        # Privacy note (stays visible)
         parts.append(
             '<p style="color:#856404"><strong>Note:</strong> '
             "Review whether this individual is a living person and whether publication of this "
             "claim would violate their privacy rights.</p>"
         )
 
+        # Technical details
+        tech: list[str] = []
+        if year_threshold:
+            tech.append(
+                f"<p><strong>Year threshold (within last N years):</strong> "
+                f"{esc(year_threshold)}</p>"
+            )
+        if claim_id:
+            tech.append(f"<p><strong>Claim ID:</strong> {esc(claim_id)}</p>")
+        if tech:
+            parts.append(_collapsible_technical("".join(tech)))
+
     else:
         return ""
 
     parts.append("</section>")
     return "".join(parts)
+
+
+def _key_info_html(issue_class: str, evidence: dict) -> str:  # type: ignore[type-arg]
+    """Return the single most informative HTML fragment for a proposal's evidence.
+
+    Used by both _batch_sample_card (batch summary page) and _priority_card
+    (landing page). No mention tables — just the key identification field.
+    """
+    def esc(v: object) -> str:
+        return _html.escape(str(v))
+
+    ic = issue_class
+
+    if ic in _JUNK_ISSUE_CLASSES:
+        mentions = evidence.get("affected_mentions", [])
+        sf = (
+            (mentions[0].get("normalized_form") or mentions[0].get("surface_form", ""))
+            if mentions else ""
+        )
+        return f'Surface form: <strong>{esc(sf)}</strong>' if sf else "(no surface form)"
+
+    if ic == "ocr_spelling_variant":
+        canon = evidence.get("canonical_entity", {})
+        variants = evidence.get("merge_entities", [])
+        names = " \u2022 ".join(esc(v.get("name", "")) for v in variants[:3])
+        suffix = f" (+{len(variants) - 3} more)" if len(variants) > 3 else ""
+        return (
+            f'<strong>{names}{esc(suffix)}</strong> \u2192 '
+            f'<strong>{esc(canon.get("name", ""))}</strong>'
+        )
+
+    if ic == "duplicate_entity_alias":
+        canon = evidence.get("canonical_entity", {})
+        alias = evidence.get("alias_entity", {})
+        return (
+            f'<strong>{esc(alias.get("name", ""))}</strong> \u2192 '
+            f'<strong>{esc(canon.get("name", ""))}</strong>'
+        )
+
+    if ic in ("missing_species_focus", "missing_event_location"):
+        sentence = evidence.get("source_sentence", "")
+        return (
+            f'<em>{esc(sentence[:150])}{"&hellip;" if len(sentence) > 150 else ""}</em>'
+            if sentence else "(no source sentence)"
+        )
+
+    if ic == "method_overtrigger":
+        method = evidence.get("method_entity", {})
+        sentence = evidence.get("source_sentence", "")
+        return (
+            f'Method: <strong>{esc(method.get("name", ""))}</strong>'
+            + (
+                f'<br><em style="font-size:0.9rem">'
+                f'{esc(sentence[:120])}{"&hellip;" if len(sentence) > 120 else ""}</em>'
+                if sentence else ""
+            )
+        )
+
+    if ic == "pii_exposure":
+        matched = evidence.get("matched_pattern", "")
+        redacted = evidence.get("redacted_sentence", "")
+        return (
+            f'Pattern: <strong>{esc(matched)}</strong>'
+            + (
+                f'<br><em style="font-size:0.9rem">{esc(redacted[:120])}&hellip;</em>'
+                if redacted else ""
+            )
+        )
+
+    if ic == "indigenous_sensitivity":
+        term = evidence.get("matched_term", "")
+        nations = evidence.get("nations", [])
+        nations_text = f" ({esc(', '.join(nations))})" if nations else ""
+        return f'Term: <strong>{esc(term)}</strong>{nations_text}'
+
+    if ic == "living_person_reference":
+        names = evidence.get("person_names", [])
+        year = evidence.get("most_recent_year", "")
+        year_text = f" \u2014 most recent year: {esc(year)}" if year else ""
+        return f'Person: <strong>{esc(", ".join(names))}</strong>{year_text}'
+
+    return f'<em style="color:#6c757d">({esc(ic)})</em>'
+
+
+def _batch_sample_card(proposal: Any, evidence: dict) -> str:  # type: ignore[type-arg]
+    """Compact evidence card for the batch review summary page (5-sample spot-check)."""
+    def esc(v: object) -> str:
+        return _html.escape(str(v))
+
+    return (
+        f'<div style="border:1px solid #dee2e6;border-radius:6px;'
+        f'padding:0.75rem;margin:0.5rem 0;background:#fff">'
+        f'<p style="margin:0 0 0.4rem;font-size:0.82rem;color:#6c757d">'
+        f'<code>{esc(proposal.proposal_id[:16])}&hellip;</code>'
+        f' &nbsp;&middot;&nbsp; confidence {proposal.confidence:.2f}'
+        f' &nbsp;&middot;&nbsp; '
+        f'<a href="/proposals/{esc(proposal.proposal_id)}">view detail &rarr;</a></p>'
+        f'<p style="margin:0">{_key_info_html(proposal.issue_class, evidence)}</p>'
+        f'</div>'
+    )
+
+
+def _priority_card(proposal: Any, evidence: dict) -> str:  # type: ignore[type-arg]
+    """Priority card for the landing page 'What needs your attention' section.
+
+    Shows the plain-language key info plus inline Accept and Defer HTMX buttons.
+    Buttons use hx-swap='delete' so accepted/deferred cards disappear without
+    a page reload.
+    """
+    def esc(v: object) -> str:
+        return _html.escape(str(v))
+
+    pid = proposal.proposal_id
+    pid_esc = esc(pid)
+    card_id = f"priority-card-{pid_esc.replace(':', '-')}"
+    ic_label = _html.escape(_ISSUE_CLASS_LABELS.get(proposal.issue_class, proposal.issue_class))
+
+    is_sensitivity = proposal.issue_class in (
+        "pii_exposure", "indigenous_sensitivity", "living_person_reference"
+    )
+    border_color = "#dc3545" if is_sensitivity else "#0d6efd"
+    badge_style = (
+        'background:#f8d7da;color:#842029'
+        if is_sensitivity else
+        'background:#cfe2ff;color:#084298'
+    )
+
+    actionable = proposal.status in ("queued", "deferred")
+    accept_btn = (
+        f'<button hx-post="/proposals/{pid_esc}/accept" '
+        f'hx-target="#{card_id}" hx-swap="delete" '
+        f'class="btn-accept" style="font-size:0.8rem;padding:0.2rem 0.5rem"'
+        f'{"" if actionable else " disabled"}>Accept</button>'
+    )
+    defer_btn = (
+        f'<button hx-post="/proposals/{pid_esc}/defer" '
+        f'hx-target="#{card_id}" hx-swap="delete" '
+        f'class="btn-defer" style="font-size:0.8rem;padding:0.2rem 0.5rem;margin-left:0.3rem"'
+        f'{"" if actionable and proposal.status == \"queued\" else \" disabled"}>Defer</button>'
+    )
+
+    return (
+        f'<div id="{card_id}" style="border:1px solid {border_color};border-radius:6px;'
+        f'padding:0.85rem;margin:0.5rem 0;background:#fff">'
+        f'<div style="display:flex;justify-content:space-between;align-items:flex-start;'
+        f'margin-bottom:0.4rem">'
+        f'<span style="font-size:0.8rem;padding:0.15rem 0.5rem;border-radius:3px;'
+        f'font-weight:600;{badge_style}">{ic_label}</span>'
+        f'<span style="font-size:0.8rem;color:#6c757d">'
+        f'priority {proposal.priority_score:.2f} &nbsp;&middot;&nbsp; '
+        f'confidence {proposal.confidence:.2f} &nbsp;&middot;&nbsp; '
+        f'{proposal.impact_size} target{"s" if proposal.impact_size != 1 else ""}'
+        f'</span>'
+        f'</div>'
+        f'<p style="margin:0.3rem 0 0.5rem">'
+        f'{_key_info_html(proposal.issue_class, evidence)}</p>'
+        f'<div style="font-size:0.82rem">'
+        f'{accept_btn}{defer_btn}'
+        f'&nbsp;&nbsp;<a href="/proposals/{pid_esc}" style="color:#6c757d">'
+        f'Full detail &rarr;</a>'
+        f'</div>'
+        f'</div>'
+    )
 
 
 def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
@@ -643,31 +1005,86 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
     @app.get("/", response_class=HTMLResponse)
     async def index(_user: UserContext = Depends(require_login)) -> str:
-        counts_by_status = store.proposal_counts_by_status()
-        counts_by_queue = store.proposal_counts_by_queue()
-        total = sum(counts_by_status.values())
+        from datetime import date as _date
 
-        sensitivity_count = counts_by_queue.get("sensitivity", 0)
-        other_queues = {q: c for q, c in counts_by_queue.items() if q != "sensitivity"}
+        # --- Section 1: top 5 highest-priority queued proposals ---
+        top5 = store.list_proposals(status="queued", limit=5)
+        priority_cards = ""
+        for p in top5:
+            rev = store.get_latest_revision(p.proposal_id)
+            ev: dict = {}  # type: ignore[type-arg]
+            if rev:
+                try:
+                    ev = json.loads(rev.evidence_snapshot_json)
+                except Exception:
+                    pass
+            priority_cards += _priority_card(p, ev)
+        if not priority_cards:
+            priority_cards = (
+                '<p style="color:#6c757d;font-style:italic">No queued proposals — queue is clear.</p>'
+            )
 
-        status_rows = "".join(
-            f"<tr><td>{s}</td><td>{c}</td></tr>" for s, c in sorted(counts_by_status.items())
+        # Sensitivity alert (shown above everything if non-zero)
+        sensitivity_queued = store.list_proposals(
+            queue_name="sensitivity", status="queued", limit=1
         )
-        # Sensitivity queue first with red styling when non-zero
-        sensitivity_style = ' style="color:#dc3545;font-weight:bold"' if sensitivity_count > 0 else ""
-        queue_rows = (
-            f'<tr{sensitivity_style}>'
-            f'<td><a href="/proposals?queue_name=sensitivity">sensitivity</a></td>'
-            f"<td>{sensitivity_count}</td></tr>"
-        )
-        queue_rows += "".join(
-            f"<tr><td>{q}</td><td>{c}</td></tr>" for q, c in sorted(other_queues.items())
-        )
+        if sensitivity_queued:
+            sc = store.proposal_counts_by_issue_class(status="queued")
+            sensitivity_total = sum(
+                v["count"] for k, v in sc.items()
+                if k in ("pii_exposure", "indigenous_sensitivity", "living_person_reference")
+            )
+            sensitivity_alert = (
+                f'<div style="background:#f8d7da;border:1px solid #f5c2c7;border-radius:6px;'
+                f'padding:0.75rem 1rem;margin-bottom:1rem">'
+                f'<strong style="color:#842029">&#9888; Sensitivity queue:</strong> '
+                f'{sensitivity_total} proposal{"s" if sensitivity_total != 1 else ""} '
+                f'require urgent review. '
+                f'<a href="/proposals?queue_name=sensitivity" style="color:#842029;font-weight:600">'
+                f'Review now &rarr;</a>'
+                f'</div>'
+            )
+        else:
+            sensitivity_alert = ""
+
+        # --- Section 2: batch-eligible categories ---
+        ic_counts = store.proposal_counts_by_issue_class(status="queued")
+        batch_rows = ""
+        for ic, stats in ic_counts.items():
+            if ic not in _BATCH_ELIGIBLE_CLASSES:
+                continue
+            label = _html.escape(_ISSUE_CLASS_LABELS.get(ic, ic))
+            count = stats["count"]
+            avg_conf = stats["avg_confidence"]
+            batch_href = f"/proposals/batch?issue_class={_html.escape(ic)}"
+            batch_rows += (
+                f"<tr>"
+                f"<td>{label}</td>"
+                f"<td>{count}</td>"
+                f"<td>{avg_conf:.2f}</td>"
+                f'<td><a href="{batch_href}" class="btn-batch-review">Review as batch</a></td>'
+                f"</tr>"
+            )
+        if not batch_rows:
+            batch_rows = (
+                '<tr><td colspan="4" style="color:#6c757d;font-style:italic">'
+                'No batch-eligible proposals queued.</td></tr>'
+            )
+
+        # --- Section 3: done today ---
+        today_iso = _date.today().isoformat()  # "YYYY-MM-DD" prefix match
+        event_counts = store.correction_event_counts(since_iso=today_iso)
+        accepted_today = event_counts.get("accept", 0)
+        rejected_today = event_counts.get("reject", 0)
+        deferred_today = event_counts.get("defer", 0)
 
         return _INDEX_HTML.format(
-            total=total,
-            status_rows=status_rows,
-            queue_rows=queue_rows,
+            sensitivity_alert=sensitivity_alert,
+            priority_cards=priority_cards,
+            batch_rows=batch_rows,
+            accepted_today=accepted_today,
+            rejected_today=rejected_today,
+            deferred_today=deferred_today,
         )
 
     @app.get("/proposals", response_class=HTMLResponse)
@@ -709,11 +1126,55 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             </tr>"""
 
         filter_params = "&".join(
-            f"{k}={v}" for k, v in [("status", status), ("issue_class", issue_class), ("queue_name", queue_name), ("doc_id", doc_id)]
+            f"{k}={v}" for k, v in [
+                ("status", status), ("issue_class", issue_class),
+                ("queue_name", queue_name), ("doc_id", doc_id),
+            ]
             if v
         )
         next_offset = offset + limit
         prev_offset = max(0, offset - limit)
+
+        # Issue-class summary table (shown when viewing the queued list unfiltered,
+        # or filtered by queue_name only — gives a quick count-per-class overview)
+        show_summary = not issue_class and not status or status == "queued"
+        if show_summary:
+            ic_counts = store.proposal_counts_by_issue_class(status="queued")
+            if ic_counts:
+                ic_rows = ""
+                for ic, stats in ic_counts.items():
+                    batch_href = f"/proposals/batch?issue_class={_html.escape(ic)}"
+                    ic_rows += (
+                        f"<tr>"
+                        f"<td>{_html.escape(ic)}</td>"
+                        f"<td>{stats['count']}</td>"
+                        f"<td>{stats['avg_confidence']:.2f}</td>"
+                        f'<td><a href="{batch_href}" class="btn-batch-review">Review as batch</a></td>'
+                        f"</tr>"
+                    )
+                queue_summary = (
+                    '<section style="margin:1rem 0;padding:1rem;background:#e7f1ff;'
+                    'border-radius:6px;border:1px solid #b6d4fe">'
+                    '<h2 style="margin-top:0;font-size:1rem">Queued proposals by issue class</h2>'
+                    '<table><thead><tr>'
+                    '<th>Issue Class</th><th>Count</th><th>Avg Confidence</th><th></th>'
+                    '</tr></thead><tbody>'
+                    + ic_rows
+                    + '</tbody></table></section>'
+                )
+            else:
+                queue_summary = ""
+        else:
+            # When filtered to a specific issue class, show the batch review link inline
+            if issue_class:
+                batch_href = f"/proposals/batch?issue_class={_html.escape(issue_class)}"
+                queue_summary = (
+                    f'<p style="margin:0.5rem 0">'
+                    f'<a href="{batch_href}" class="btn-batch-review">'
+                    f'Review all &ldquo;{_html.escape(issue_class)}&rdquo; as batch &rarr;</a></p>'
+                )
+            else:
+                queue_summary = ""
 
         return _LIST_HTML.format(
             rows=rows,
@@ -724,6 +1185,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             current_status=status or "",
             current_issue_class=issue_class or "",
             current_queue=queue_name or "",
+            queue_summary=queue_summary,
         )
 
     @app.get("/proposals/{proposal_id}", response_class=HTMLResponse)
@@ -896,6 +1358,162 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             <td>{proposal.priority_score:.2f}</td><td>{proposal.impact_size}</td>
             <td>Deferred</td></tr>"""
 
+    @app.get("/proposals/batch", response_class=HTMLResponse)
+    async def batch_review_summary(
+        issue_class: str | None = Query(None),
+        queue_name: str | None = Query(None),
+        _user: UserContext = Depends(require_archivist_or_admin),
+    ) -> str:
+        """Batch review page: stats + 5-sample evidence cards + accept/reject form."""
+        proposals = store.list_proposals(
+            issue_class=issue_class,
+            queue_name=queue_name,
+            status="queued",
+            limit=10000,
+        )
+        if not proposals:
+            filter_label = _html.escape(issue_class or queue_name or "selected filter")
+            return (
+                f'<!DOCTYPE html><html><head><title>Batch Review</title>'
+                f'{_BASE_CSS}</head><body>{_NAV}'
+                f'<h1>Batch Review</h1>'
+                f'<p>No queued proposals found for <strong>{filter_label}</strong>.</p>'
+                f'<p><a href="/proposals">Back to queue</a></p>'
+                f'</body></html>'
+            )
+
+        count = len(proposals)
+        confidences = [p.confidence for p in proposals]
+        conf_min = min(confidences)
+        conf_max = max(confidences)
+        conf_avg = sum(confidences) / count
+
+        # Build 5-card sample
+        sample_cards = ""
+        for p in proposals[:5]:
+            rev = store.get_latest_revision(p.proposal_id)
+            ev: dict = {}  # type: ignore[type-arg]
+            if rev:
+                try:
+                    ev = json.loads(rev.evidence_snapshot_json)
+                except Exception:
+                    pass
+            sample_cards += _batch_sample_card(p, ev)
+
+        filter_label = _html.escape(issue_class or queue_name or "all")
+        back_qs = "&".join(
+            f"{k}={_html.escape(v)}"
+            for k, v in [("issue_class", issue_class), ("queue_name", queue_name)]
+            if v
+        )
+        back_href = f"/proposals?{back_qs}" if back_qs else "/proposals"
+
+        return _BATCH_HTML.format(
+            filter_label=filter_label,
+            count=count,
+            conf_min=f"{conf_min:.2f}",
+            conf_max=f"{conf_max:.2f}",
+            conf_avg=f"{conf_avg:.2f}",
+            sample_cards=sample_cards,
+            issue_class=_html.escape(issue_class or ""),
+            queue_name=_html.escape(queue_name or ""),
+            back_href=back_href,
+        )
+
+    @app.post("/proposals/batch-accept", response_class=HTMLResponse)
+    async def do_batch_accept(
+        issue_class: str = Form(""),
+        queue_name: str = Form(""),
+        reviewer_note: str = Form(""),
+        user: UserContext = Depends(require_archivist_or_admin),
+    ) -> str:
+        if not reviewer_note.strip():
+            return (
+                f'<!DOCTYPE html><html><head><title>Batch Accept</title>'
+                f'{_BASE_CSS}</head><body>{_NAV}'
+                f'<p style="color:#dc3545;font-weight:bold">'
+                f'A reviewer note is required for batch actions. '
+                f'<a href="javascript:history.back()">Go back</a></p>'
+                f'</body></html>'
+            )
+        proposals = store.list_proposals(
+            issue_class=issue_class or None,
+            queue_name=queue_name or None,
+            status="queued",
+            limit=10000,
+        )
+        proposal_ids = [p.proposal_id for p in proposals]
+        result = batch_accept_proposals(store, proposal_ids, user.identity, reviewer_note)
+        accepted = result["accepted"]
+        skipped = result["skipped"]
+        label = _html.escape(issue_class or queue_name or "all")
+        back_qs = "&".join(
+            f"{k}={_html.escape(v)}"
+            for k, v in [("issue_class", issue_class), ("queue_name", queue_name)]
+            if v
+        )
+        back_href = f"/proposals?{back_qs}" if back_qs else "/proposals"
+        skip_note = f" ({skipped} already resolved)" if skipped else ""
+        return (
+            f'<!DOCTYPE html><html><head><title>Batch Accept</title>'
+            f'{_BASE_CSS}</head><body>{_NAV}'
+            f'<h1>Batch Accept Complete</h1>'
+            f'<div style="padding:1rem;background:#d1e7dd;border-radius:6px;margin:1rem 0">'
+            f'<strong>{accepted} proposals accepted</strong>{_html.escape(skip_note)} '
+            f'for <em>{label}</em>.'
+            f'</div>'
+            f'<p>Note: <em>{_html.escape(reviewer_note)}</em></p>'
+            f'<p><a href="{back_href}">Back to queue &rarr;</a></p>'
+            f'</body></html>'
+        )
+
+    @app.post("/proposals/batch-reject", response_class=HTMLResponse)
+    async def do_batch_reject(
+        issue_class: str = Form(""),
+        queue_name: str = Form(""),
+        reviewer_note: str = Form(""),
+        user: UserContext = Depends(require_archivist_or_admin),
+    ) -> str:
+        if not reviewer_note.strip():
+            return (
+                f'<!DOCTYPE html><html><head><title>Batch Reject</title>'
+                f'{_BASE_CSS}</head><body>{_NAV}'
+                f'<p style="color:#dc3545;font-weight:bold">'
+                f'A reviewer note is required for batch actions. '
+                f'<a href="javascript:history.back()">Go back</a></p>'
+                f'</body></html>'
+            )
+        proposals = store.list_proposals(
+            issue_class=issue_class or None,
+            queue_name=queue_name or None,
+            status="queued",
+            limit=10000,
+        )
+        proposal_ids = [p.proposal_id for p in proposals]
+        result = batch_reject_proposals(store, proposal_ids, user.identity, reviewer_note)
+        rejected = result["rejected"]
+        skipped = result["skipped"]
+        label = _html.escape(issue_class or queue_name or "all")
+        back_qs = "&".join(
+            f"{k}={_html.escape(v)}"
+            for k, v in [("issue_class", issue_class), ("queue_name", queue_name)]
+            if v
+        )
+        back_href = f"/proposals?{back_qs}" if back_qs else "/proposals"
+        skip_note = f" ({skipped} already resolved)" if skipped else ""
+        return (
+            f'<!DOCTYPE html><html><head><title>Batch Reject</title>'
+            f'{_BASE_CSS}</head><body>{_NAV}'
+            f'<h1>Batch Reject Complete</h1>'
+            f'<div style="padding:1rem;background:#f8d7da;border-radius:6px;margin:1rem 0">'
+            f'<strong>{rejected} proposals rejected</strong>{_html.escape(skip_note)} '
+            f'for <em>{label}</em>.'
+            f'</div>'
+            f'<p>Note: <em>{_html.escape(reviewer_note)}</em></p>'
+            f'<p><a href="{back_href}">Back to queue &rarr;</a></p>'
+            f'</body></html>'
+        )
+
     @app.get("/api/proposals", response_class=JSONResponse)
     async def api_proposals(
         status: str | None = Query(None),
@@ -1014,6 +1632,7 @@ _BASE_CSS = """
     .filters {{ margin: 1rem 0; }}
     .filters select, .filters input {{ padding: 0.25rem; margin-right: 0.5rem; }}
     .btn-accept-exceptions {{ background: #0d9488; color: white; border: none; padding: 0.25rem 0.75rem; cursor: pointer; border-radius: 4px; }}
+    .btn-batch-review {{ background: #0d6efd; color: white; padding: 0.25rem 0.75rem; border-radius: 4px; text-decoration: none; font-size: 0.875rem; display: inline-block; }}
     .risk-badge {{ display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.78rem; font-weight: 600; margin-left: 0.35rem; }}
     .risk-high {{ background: #f8d7da; color: #842029; }}
     .risk-medium {{ background: #fff3cd; color: #664d03; }}
@@ -1038,14 +1657,44 @@ _NAV = """<div class="nav">
     <a href="/proposals?status=deferred">Deferred</a>
 </div>"""
 
-_INDEX_HTML = f"""<!DOCTYPE html><html><head><title>Review Dashboard</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
+_INDEX_HTML = f"""<!DOCTYPE html><html><head><title>Review Queue</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
 {_NAV}
-<h1>Anti-Pattern Review Dashboard</h1>
-<h2>By Status</h2>
-<table><tr><th>Status</th><th>Count</th></tr>{{status_rows}}</table>
-<h2>By Queue</h2>
-<table><tr><th>Queue</th><th>Count</th></tr>{{queue_rows}}</table>
-<p>Total proposals: {{total}}</p>
+<h1>Review Queue</h1>
+{{sensitivity_alert}}
+<section style="margin:1.5rem 0">
+<h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
+  What needs your attention today?</h2>
+<p style="color:#6c757d;font-size:0.9rem;margin-top:0">
+  Top 5 proposals by priority score. Accept or defer directly, or open for full detail.
+</p>
+{{priority_cards}}
+<p style="margin-top:0.5rem;font-size:0.9rem">
+  <a href="/proposals?status=queued">See all queued proposals &rarr;</a>
+</p>
+</section>
+
+<section style="margin:1.5rem 0">
+<h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
+  What can be handled quickly?</h2>
+<p style="color:#6c757d;font-size:0.9rem;margin-top:0">
+  Low-consequence proposals suitable for batch review. Spot-check a sample, then accept or reject the group with one action.
+</p>
+<table>
+<thead><tr><th>Issue class</th><th>Queued</th><th>Avg confidence</th><th></th></tr></thead>
+<tbody>{{batch_rows}}</tbody>
+</table>
+</section>
+
+<section style="margin:1.5rem 0">
+<h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
+  What has been done today?</h2>
+<table style="width:auto">
+<tr><th>Accepted</th><td><strong>{{accepted_today}}</strong></td></tr>
+<tr><th>Rejected</th><td><strong>{{rejected_today}}</strong></td></tr>
+<tr><th>Deferred</th><td><strong>{{deferred_today}}</strong></td></tr>
+</table>
+<p style="font-size:0.85rem;color:#6c757d">Counts since midnight UTC today.</p>
+</section>
 </body></html>"""
 
 _LIST_HTML = f"""<!DOCTYPE html><html><head><title>Proposals</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
@@ -1062,6 +1711,7 @@ _LIST_HTML = f"""<!DOCTYPE html><html><head><title>Proposals</title>{_BASE_CSS}{
     <a href="/proposals?queue_name=builder_repair">Builder Repair</a>
     <a href="/proposals">All</a>
 </div>
+{{queue_summary}}
 <table>
 <thead><tr>
     <th>ID</th><th>Issue Class</th><th>Type</th><th>Status</th>
@@ -1127,4 +1777,50 @@ _DETAIL_HTML = f"""<!DOCTYPE html><html><head><title>Proposal Detail</title>{_BA
 <table><thead><tr><th>Action</th><th>Reviewer</th><th>Note</th><th>At</th></tr></thead>
 <tbody>{{event_rows}}</tbody></table>
 
+</body></html>"""
+
+_BATCH_HTML = f"""<!DOCTYPE html><html><head><title>Batch Review</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
+{_NAV}
+<h1>Batch Review &mdash; {{filter_label}}</h1>
+
+<section style="margin:1rem 0;padding:1rem;background:#e7f1ff;border-radius:6px;border:1px solid #b6d4fe">
+<h2 style="margin-top:0;font-size:1rem">Summary</h2>
+<table style="width:auto">
+<tr><th>Queued proposals</th><td><strong>{{count}}</strong></td></tr>
+<tr><th>Confidence range</th><td>{{conf_min}} &ndash; {{conf_max}}</td></tr>
+<tr><th>Average confidence</th><td>{{conf_avg}}</td></tr>
+</table>
+</section>
+
+<h2 style="font-size:1rem">Sample (up to 5 proposals)</h2>
+{{sample_cards}}
+
+<section style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px solid #dee2e6;border-radius:6px">
+<h2 style="margin-top:0;font-size:1rem">Apply batch decision</h2>
+<p style="color:#6c757d;font-size:0.9rem">
+  This will apply your decision to all <strong>{{count}}</strong> currently queued proposals
+  matching this filter. A note is required and will be recorded on every proposal.
+</p>
+<form method="post" style="margin:0">
+  <input type="hidden" name="issue_class" value="{{issue_class}}">
+  <input type="hidden" name="queue_name" value="{{queue_name}}">
+  <div style="margin:0.75rem 0">
+    <label for="batch-note" style="font-weight:600">Reviewer note (required):</label><br>
+    <textarea id="batch-note" name="reviewer_note" rows="3"
+      style="width:100%;max-width:40rem;margin-top:0.25rem;padding:0.4rem;border:1px solid #ced4da;border-radius:4px"
+      placeholder="Briefly describe why you are accepting or rejecting this batch&hellip;"
+      required></textarea>
+  </div>
+  <button type="submit" formaction="/proposals/batch-accept" class="btn-accept"
+    onclick="return confirm('Accept all {{count}} queued proposals in this batch?')">
+    Accept all {{count}}
+  </button>
+  <button type="submit" formaction="/proposals/batch-reject" class="btn-reject"
+    style="margin-left:0.5rem"
+    onclick="return confirm('Reject all {{count}} queued proposals in this batch?')">
+    Reject all {{count}}
+  </button>
+  <a href="{{back_href}}" style="margin-left:1rem;color:#6c757d">Cancel</a>
+</form>
+</section>
 </body></html>"""

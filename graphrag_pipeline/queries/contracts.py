@@ -3,11 +3,15 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from ..claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE, LEGACY_ABOUT_RELATION
+from ..claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
 from ..models import SemanticBundle, StructureBundle
 
+# Build a Cypher IN-list literal from the current v2 claim-entity relations.
+# LEGACY_ABOUT_RELATION was removed when the v2 contract was introduced; if
+# old graph data carrying an ABOUT edge ever needs to surface here, add a
+# migration to relabel those edges before re-introducing a legacy entry.
 CLAIM_ENTITY_RELATION_CYPHER = ", ".join(
-    f"'{relation}'" for relation in (LEGACY_ABOUT_RELATION, *CLAIM_ENTITY_RELATION_PRECEDENCE)
+    f"'{relation}'" for relation in CLAIM_ENTITY_RELATION_PRECEDENCE
 )
 
 LATEST_VIEW_CYPHER = """

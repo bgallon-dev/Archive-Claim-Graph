@@ -90,9 +90,19 @@ class DictionaryFuzzyResolver:
         self,
         seed_entities: Iterable[EntityRecord] | None = None,
         policy: ResolutionPolicy | None = None,
+        supplementary_candidates: list[EntityRecord] | None = None,
     ) -> None:
         self._policy = policy or ResolutionPolicy()
         self._seed_entities = list(seed_entities) if seed_entities is not None else default_seed_entities()
+        if supplementary_candidates:
+            # Seed vocabulary wins: skip graph candidates whose (type, form) already
+            # appear in the seed list so the seed entity_id is always preferred.
+            seed_keys = {(e.entity_type, e.normalized_form) for e in self._seed_entities}
+            extras = [
+                e for e in supplementary_candidates
+                if (e.entity_type, e.normalized_form) not in seed_keys
+            ]
+            self._seed_entities = self._seed_entities + extras
 
     def resolve(self, mentions: list[MentionRecord]) -> tuple[list[EntityRecord], list[EntityResolutionRecord]]:
         entity_map: dict[str, EntityRecord] = {}

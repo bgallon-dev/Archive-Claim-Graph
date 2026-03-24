@@ -47,6 +47,12 @@ PROPOSAL_STATUSES: frozenset[str] = frozenset({
     "superseded",
 })
 
+REVIEW_TIERS: frozenset[str] = frozenset({
+    "auto_accepted",
+    "auto_suppressed",
+    "needs_review",
+})
+
 REVISION_KINDS: frozenset[str] = frozenset({
     "generated",
     "edited",
@@ -159,6 +165,7 @@ class Proposal:
     current_revision_id: str = ""
     created_at: str = ""
     updated_at: str = ""
+    review_tier: str = "needs_review"
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

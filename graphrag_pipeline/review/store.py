@@ -10,6 +10,7 @@ from typing import Any
 from .models import (
     ISSUE_CLASSES,
     PROPOSAL_STATUSES,
+    REVIEW_TIERS,
     AntiPatternClass,
     CorrectionEvent,
     Proposal,
@@ -52,7 +53,8 @@ CREATE TABLE IF NOT EXISTS proposal (
     impact_size         INTEGER NOT NULL DEFAULT 0,
     current_revision_id TEXT NOT NULL DEFAULT '',
     created_at          TEXT NOT NULL,
-    updated_at          TEXT NOT NULL
+    updated_at          TEXT NOT NULL,
+    review_tier         TEXT NOT NULL DEFAULT 'needs_review'
 );
 
 CREATE TABLE IF NOT EXISTS proposal_target (
@@ -177,6 +179,12 @@ class ReviewStore:
                 "ALTER TABLE proposal_target ADD COLUMN reviewer_override TEXT DEFAULT NULL"
             )
             self._conn.commit()
+        proposal_cols = {r[1] for r in self._conn.execute("PRAGMA table_info(proposal)")}
+        if "review_tier" not in proposal_cols:
+            self._conn.execute(
+                "ALTER TABLE proposal ADD COLUMN review_tier TEXT NOT NULL DEFAULT 'needs_review'"
+            )
+            self._conn.commit()
 
     def close(self) -> None:
         self._conn.close()
@@ -219,13 +227,13 @@ class ReviewStore:
                 """UPDATE proposal SET
                    review_run_id=?, snapshot_id=?, anti_pattern_id=?, issue_class=?,
                    proposal_type=?, confidence=?, priority_score=?, impact_size=?,
-                   current_revision_id=?, updated_at=?
+                   current_revision_id=?, updated_at=?, review_tier=?
                    WHERE proposal_id=?""",
                 (
                     proposal.review_run_id, proposal.snapshot_id, proposal.anti_pattern_id,
                     proposal.issue_class, proposal.proposal_type, proposal.confidence,
                     proposal.priority_score, proposal.impact_size,
-                    proposal.current_revision_id, now, proposal.proposal_id,
+                    proposal.current_revision_id, now, proposal.review_tier, proposal.proposal_id,
                 ),
             )
         else:
@@ -233,14 +241,14 @@ class ReviewStore:
                 """INSERT INTO proposal
                    (proposal_id, review_run_id, snapshot_id, anti_pattern_id, issue_class,
                     proposal_type, status, confidence, priority_score, impact_size,
-                    current_revision_id, created_at, updated_at)
-                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                    current_revision_id, created_at, updated_at, review_tier)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                 (
                     proposal.proposal_id, proposal.review_run_id, proposal.snapshot_id,
                     proposal.anti_pattern_id, proposal.issue_class, proposal.proposal_type,
                     proposal.status, proposal.confidence, proposal.priority_score,
                     proposal.impact_size, proposal.current_revision_id,
-                    proposal.created_at or now, now,
+                    proposal.created_at or now, now, proposal.review_tier,
                 ),
             )
         # Replace targets
@@ -306,6 +314,7 @@ class ReviewStore:
         snapshot_id: str | None = None,
         doc_id: str | None = None,
         detector_name: str | None = None,
+        review_tier: str | None = None,
         limit: int = 200,
         offset: int = 0,
     ) -> list[Proposal]:
@@ -315,6 +324,8 @@ class ReviewStore:
             raise ValueError(f"Invalid issue_class: {issue_class!r}")
         if queue_name and queue_name not in QUEUE_NAMES:
             raise ValueError(f"Invalid queue_name: {queue_name!r}")
+        if review_tier and review_tier not in REVIEW_TIERS:
+            raise ValueError(f"Invalid review_tier: {review_tier!r}")
         clauses: list[str] = []
         params: list[Any] = []
         if status:
@@ -332,6 +343,9 @@ class ReviewStore:
         if doc_id:
             clauses.append("r.doc_id = ?")
             params.append(doc_id)
+        if review_tier:
+            clauses.append("p.review_tier = ?")
+            params.append(review_tier)
 
         where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
         query = f"""
@@ -427,6 +441,23 @@ class ReviewStore:
         )
         self._conn.commit()
 
+    def correction_event_counts(self, since_iso: str | None = None) -> dict[str, int]:
+        """Return {action: count} for correction events, optionally since a timestamp.
+
+        Pass an ISO timestamp (e.g. today midnight UTC) to get today-only totals.
+        """
+        if since_iso:
+            rows = self._conn.execute(
+                "SELECT action, COUNT(*) AS cnt FROM correction_event "
+                "WHERE created_at >= ? GROUP BY action",
+                (since_iso,),
+            ).fetchall()
+        else:
+            rows = self._conn.execute(
+                "SELECT action, COUNT(*) AS cnt FROM correction_event GROUP BY action"
+            ).fetchall()
+        return {r["action"]: r["cnt"] for r in rows}
+
     def get_correction_events(self, proposal_id: str) -> list[CorrectionEvent]:
         rows = self._conn.execute(
             "SELECT * FROM correction_event WHERE proposal_id = ? ORDER BY created_at",
@@ -453,6 +484,46 @@ class ReviewStore:
                 "SELECT status, COUNT(*) as cnt FROM proposal GROUP BY status"
             ).fetchall()
         return {r["status"]: r["cnt"] for r in rows}
+
+    def proposal_counts_by_issue_class(
+        self,
+        status: str | None = None,
+        snapshot_id: str | None = None,
+    ) -> dict[str, dict[str, object]]:
+        """Return {issue_class: {count, avg_confidence}} for queued proposals.
+
+        Used by the batch review summary table in the list view.
+        """
+        clauses: list[str] = []
+        params: list[object] = []
+        if status:
+            clauses.append("status = ?")
+            params.append(status)
+        if snapshot_id:
+            clauses.append("snapshot_id = ?")
+            params.append(snapshot_id)
+        where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+        rows = self._conn.execute(
+            f"SELECT issue_class, COUNT(*) AS cnt, AVG(confidence) AS avg_conf "
+            f"FROM proposal {where} GROUP BY issue_class ORDER BY cnt DESC",
+            params,
+        ).fetchall()
+        return {
+            r["issue_class"]: {"count": r["cnt"], "avg_confidence": round(r["avg_conf"], 3)}
+            for r in rows
+        }
+
+    def proposal_counts_by_tier(self, snapshot_id: str | None = None) -> dict[str, int]:
+        if snapshot_id:
+            rows = self._conn.execute(
+                "SELECT review_tier, COUNT(*) as cnt FROM proposal WHERE snapshot_id = ? GROUP BY review_tier",
+                (snapshot_id,),
+            ).fetchall()
+        else:
+            rows = self._conn.execute(
+                "SELECT review_tier, COUNT(*) as cnt FROM proposal GROUP BY review_tier"
+            ).fetchall()
+        return {r["review_tier"]: r["cnt"] for r in rows}
 
     def proposal_counts_by_queue(self, snapshot_id: str | None = None) -> dict[str, int]:
         params: list[Any] = []

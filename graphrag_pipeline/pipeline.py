@@ -837,12 +837,58 @@ def _make_doc_run_id(input_path: str, now: datetime) -> str:
     return f"run_{ts}_{stable_hash(input_path, ts, size=8)}"
 
 
+def _fetch_graph_entities(
+    neo4j_uri: str,
+    neo4j_user: str,
+    neo4j_password: str,
+    neo4j_database: str,
+    neo4j_trust_mode: str | None,
+    neo4j_ca_cert: str | None,
+) -> list[EntityRecord]:
+    """Fetch all active Entity nodes from Neo4j as EntityRecord objects.
+
+    Used by run_e2e(graph_resolve=True) to seed DictionaryFuzzyResolver with
+    entities already in the graph so new documents resolve to existing IDs.
+    Returns [] on any failure so the pipeline degrades to seed-only resolution.
+    """
+    from .retrieval.executor import Neo4jQueryExecutor
+    from .graph.cypher import GRAPH_ENTITY_FETCH_QUERY
+    executor = Neo4jQueryExecutor(
+        uri=neo4j_uri,
+        user=neo4j_user,
+        password=neo4j_password,
+        database=neo4j_database,
+        trust_mode=neo4j_trust_mode or "system",
+        ca_cert_path=neo4j_ca_cert,
+    )
+    try:
+        rows = executor.run(GRAPH_ENTITY_FETCH_QUERY, {})
+    except Exception as exc:
+        _log.warning("graph_resolve: failed to fetch graph entities: %s", exc)
+        return []
+    finally:
+        executor.close()
+    result: list[EntityRecord] = []
+    for row in rows:
+        if not row.get("entity_id") or not row.get("entity_type") or not row.get("normalized_form"):
+            continue
+        result.append(EntityRecord(
+            entity_id=row["entity_id"],
+            entity_type=row["entity_type"],
+            name=row.get("name") or row["normalized_form"],
+            normalized_form=row["normalized_form"],
+            properties={},
+        ))
+    return result
+
+
 def _process_single_document(
     input_item: str,
     out_dir: str,
     review_out_dir: str | None,
     domain_dir_str: str | None = None,
     run_id: str | None = None,
+    supplementary_entity_rows: list[EntityRecord] | None = None,
 ) -> dict[str, Any]:
     """Worker function for parallel document processing (parse + extract + save + quality).
 
@@ -851,8 +897,15 @@ def _process_single_document(
     """
     resources_dir = Path(domain_dir_str) if domain_dir_str else None
     structure = parse_source(input_item)
+    resolver: EntityResolver | None = None
+    if supplementary_entity_rows:
+        resolver = DictionaryFuzzyResolver(
+            seed_entities=default_seed_entities(resources_dir),
+            supplementary_candidates=supplementary_entity_rows,
+        )
     semantic = extract_semantic(
         structure,
+        resolver=resolver,
         resources_dir=resources_dir,
         run_overrides={"run_id": run_id} if run_id else None,
     )
@@ -936,6 +989,7 @@ def run_e2e(
     review_out_dir: str | Path | None = None,
     review_db_path: str | Path | None = None,
     resources_dir: Path | None = None,
+    graph_resolve: bool = False,
 ) -> dict[str, Any]:
     output_dir = Path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -944,8 +998,80 @@ def run_e2e(
         Path(review_output_dir_str).mkdir(parents=True, exist_ok=True)
     domain_dir_str = str(resources_dir) if resources_dir is not None else None
 
+    # --- Phase 0: pre-flight Neo4j checks (duplicate detection + graph entities) ---
+    # Both run only when backend=="neo4j" and a URI is available, so the memory-
+    # backend path is completely unaffected.
+    all_str_inputs = [str(item) for item in inputs]
+    doc_summaries: list[dict[str, Any]] = []
+    supplementary_entities: list[EntityRecord] = []
+
+    if backend == "neo4j" and neo4j_uri:
+        import hashlib as _hashlib
+        import json as _json
+
+        # 0a. Compute file_hash for each input (same algorithm as source_parser.py).
+        input_file_hashes: dict[str, str] = {}
+        for item in all_str_inputs:
+            try:
+                payload = _json.loads(Path(item).read_text(encoding="utf-8"))
+                h = _hashlib.sha1(
+                    _json.dumps(payload, sort_keys=True).encode("utf-8")
+                ).hexdigest()
+                input_file_hashes[item] = h
+            except Exception as _exc:
+                _log.debug("Could not hash %s for duplicate check: %s", item, _exc)
+
+        # 0b. Batch-check which hashes already exist in the graph.
+        if input_file_hashes:
+            from .retrieval.executor import Neo4jQueryExecutor
+            from .graph.cypher import DUPLICATE_HASH_CHECK_QUERY
+            _dup_executor = Neo4jQueryExecutor(
+                uri=neo4j_uri,
+                user=neo4j_user or "",
+                password=neo4j_password or "",
+                database=neo4j_database,
+                trust_mode=neo4j_trust_mode or "system",
+                ca_cert_path=neo4j_ca_cert,
+            )
+            try:
+                dup_rows = _dup_executor.run(
+                    DUPLICATE_HASH_CHECK_QUERY,
+                    {"file_hashes": list(input_file_hashes.values())},
+                )
+                ingested_hashes: set[str] = {row["file_hash"] for row in dup_rows}
+            except Exception as _exc:
+                _log.warning("Duplicate hash check failed: %s — skipping pre-flight", _exc)
+                ingested_hashes = set()
+            finally:
+                _dup_executor.close()
+
+            for item in all_str_inputs:
+                h = input_file_hashes.get(item)
+                if h and h in ingested_hashes:
+                    _log.info("Skipping already-ingested document: %s", Path(item).name)
+                    doc_summaries.append({
+                        "input": item,
+                        "status": "already_ingested",
+                        "skipped": True,
+                        "file_hash": h,
+                    })
+
+        # 0c. Fetch graph entities for supplementary resolution if requested.
+        if graph_resolve:
+            supplementary_entities = _fetch_graph_entities(
+                neo4j_uri,
+                neo4j_user or "",
+                neo4j_password or "",
+                neo4j_database,
+                neo4j_trust_mode,
+                neo4j_ca_cert,
+            )
+            _log.info("graph_resolve: loaded %d graph entities as supplementary candidates", len(supplementary_entities))
+
+    already_ingested_inputs = {d["input"] for d in doc_summaries if d.get("skipped")}
+    str_inputs = [i for i in all_str_inputs if i not in already_ingested_inputs]
+
     # --- Phase 1: parallel extraction (parse + extract + save + quality) ---
-    str_inputs = [str(item) for item in inputs]
     effective_workers = min(max(workers, 1), len(str_inputs)) if str_inputs else 1
 
     # Pre-generate a unique run_id per document in the parent process so that
@@ -953,12 +1079,12 @@ def run_e2e(
     _batch_now = datetime.now(timezone.utc)
     doc_run_ids = {item: _make_doc_run_id(item, _batch_now) for item in str_inputs}
 
-    doc_summaries: list[dict[str, Any]] = []
+    _supp = supplementary_entities or None  # None when empty → workers use seed-only resolution
 
     if effective_workers <= 1:
         for input_item in str_inputs:
             doc_summaries.append(
-                _process_single_document(input_item, str(output_dir), review_output_dir_str, domain_dir_str, doc_run_ids[input_item])
+                _process_single_document(input_item, str(output_dir), review_output_dir_str, domain_dir_str, doc_run_ids[input_item], _supp)
             )
     else:
         with ProcessPoolExecutor(max_workers=effective_workers) as executor:
@@ -970,6 +1096,7 @@ def run_e2e(
                     review_output_dir_str,
                     domain_dir_str,
                     doc_run_ids[input_item],
+                    _supp,
                 ): input_item
                 for input_item in str_inputs
             }
@@ -979,7 +1106,8 @@ def run_e2e(
                 _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
                 doc_summaries.append(summary)
 
-    # Restore deterministic output order (as_completed is unordered)
+    # Restore deterministic output order (as_completed is unordered).
+    # Skipped (already_ingested) entries are already in doc_summaries with an "input" key.
     doc_summaries.sort(key=lambda d: d["input"])
 
     # --- Phase 2: sequential graph loading and review detection ---
@@ -1005,6 +1133,8 @@ def run_e2e(
     writer: GraphWriter | None = None
     try:
         for doc_summary in doc_summaries:
+            if doc_summary.get("skipped"):
+                continue  # already_ingested — no graph work needed
             doc_id = doc_summary["doc_id"]
             if doc_id in completed_doc_ids:
                 _log.info("Skipping checkpointed doc: %s", doc_id)
@@ -1036,8 +1166,10 @@ def run_e2e(
         if review_store is not None:
             review_store.close()
 
+    already_ingested_count = sum(1 for d in doc_summaries if d.get("skipped"))
     return {
-        "documents_processed": len(doc_summaries),
+        "documents_processed": len(doc_summaries) - already_ingested_count,
+        "already_ingested": already_ingested_count,
         "outputs": doc_summaries,
         "backend": backend,
     }

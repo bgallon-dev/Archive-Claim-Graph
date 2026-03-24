@@ -393,6 +393,9 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
             token_version=user.token_version,
         )
         resp = RedirectResponse(url=_safe_next(next), status_code=303)
+        # Secure cookies are ON by default (the safe production choice).
+        # Set COOKIE_SECURE=false only in local dev/test over plain HTTP.
+        # The != "false" pattern reads: "secure unless explicitly disabled".
         cookie_secure = os.environ.get("COOKIE_SECURE", "true").lower() != "false"
         resp.set_cookie(
             key="access_token",

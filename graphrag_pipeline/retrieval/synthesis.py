@@ -87,6 +87,10 @@ Answering rules:
      that", or "it may be the case that" — rather than stating them as
      established facts. Only state findings as established fact when all
      supporting claims are CONFIDENCE_TIER: HIGH.
+  5a. ARCHIVIST NOTE lines attached to a DOCUMENT block are expert annotations
+      added directly by collection archivists. Treat them as authoritative
+      contextual knowledge — they take precedence over extraction-confidence
+      signals and should be incorporated into the answer when relevant.
   6. If evidence is genuinely absent from the context, say so directly.
   7. Cite the claim_ids that support each statement.
 

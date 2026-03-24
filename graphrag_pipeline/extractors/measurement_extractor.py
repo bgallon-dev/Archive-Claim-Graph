@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any
 from typing import Protocol
 
@@ -109,6 +110,19 @@ class RuleBasedMeasurementExtractor:
     _UNIT_NAME_MAP: dict[str, tuple[str, str]] = _LOADED_UNITS
 
     _SPECIES_TYPE_HINTS: dict[str, str] = _LOADED_SPECIES["type_hints"]  # type: ignore[assignment]
+
+    def __init__(self, resources_dir: Path | None = None) -> None:
+        if resources_dir is not None:
+            units = load_measurement_units(resources_dir)
+            species = load_measurement_species(resources_dir)
+            self._UNIT_NAME_MAP = units
+            self._SPECIES_TYPE_HINTS = species["type_hints"]
+            immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
+            ctx_verbs = _SPECIES_CONTEXT_VERBS
+            ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + ctx_verbs + r")\b"
+            self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
+            self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
+            self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
 
     def _infer_methodology_note(self, sentence: str, approximate: bool) -> str | None:
         if approximate or self._estimated_re.search(sentence):

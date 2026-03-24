@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Protocol
 
 from ..claim_contract import (
@@ -133,10 +134,11 @@ VALID_CLAIM_TYPES: frozenset[str] = ALLOWED_CLAIM_TYPES - {UNCLASSIFIED_TYPE}
 _SEED_ENTITIES = default_seed_entities()
 
 
-def _seed_terms(*entity_types: str) -> list[str]:
+def _seed_terms(*entity_types: str, seed: list | None = None) -> list[str]:
+    entities = seed if seed is not None else _SEED_ENTITIES
     labels = set(entity_types)
     return sorted(
-        {entity.name for entity in _SEED_ENTITIES if entity.entity_type in labels},
+        {entity.name for entity in entities if entity.entity_type in labels},
         key=len,
         reverse=True,
     )
@@ -192,8 +194,6 @@ def _dedupe_claim_links(claim_links: list[ClaimLinkDraft]) -> list[ClaimLinkDraf
 
 
 class RuleBasedClaimExtractor:
-    _ROLE_POLICY: dict[tuple[str, str], str] = _LOADED_ROLE_POLICY
-    _type_scored_patterns: list[tuple[str, re.Pattern[str], float]] = _LOADED_TYPE_PATTERNS
     _TYPE_SCORE_THRESHOLD: float = 0.85
     _TYPE_MARGIN: float = 0.35
     # Confidence calibration constants
@@ -204,6 +204,25 @@ class RuleBasedClaimExtractor:
     _MARGIN_WEIGHT: float = 0.35  # fraction of range driven by margin signal
     _EPISTEMIC_DISCOUNT: float = 0.08  # subtracted for uncertain epistemic status
     _uncertain_tokens = re.compile(r"\b(about|approx|approximately|around|estimated|reported|possibly|likely)\b", re.IGNORECASE)
+
+    def __init__(self, resources_dir: Path | None = None) -> None:
+        if resources_dir is not None:
+            self._ROLE_POLICY = load_claim_role_policy(resources_dir)
+            self._type_scored_patterns = load_claim_type_patterns(resources_dir)
+            _seed = default_seed_entities(resources_dir)
+            self._species_terms  = _seed_terms("Species",               seed=_seed)
+            self._habitat_terms  = _seed_terms("Habitat",               seed=_seed)
+            self._method_terms   = _seed_terms("SurveyMethod",          seed=_seed)
+            self._location_terms = _seed_terms("Place", "Refuge",       seed=_seed)
+            self._activity_terms = _seed_terms("Activity",              seed=_seed)
+        else:
+            self._ROLE_POLICY          = _LOADED_ROLE_POLICY
+            self._type_scored_patterns = _LOADED_TYPE_PATTERNS
+            self._species_terms        = SPECIES_TERMS
+            self._habitat_terms        = HABITAT_TERMS
+            self._method_terms         = METHOD_TERMS
+            self._location_terms       = LOCATION_TERMS
+            self._activity_terms       = ACTIVITY_TERMS
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
         claims: list[ClaimDraft] = []
@@ -299,20 +318,20 @@ class RuleBasedClaimExtractor:
     def _extract_claim_links(self, sentence: str, claim_type: str, sentence_start: int) -> list[ClaimLinkDraft]:
         claim_links: list[ClaimLinkDraft] = []
 
-        for surface, start, end in _find_term_matches(sentence, SPECIES_TERMS):
+        for surface, start, end in _find_term_matches(sentence, self._species_terms):
             relation_type = self._ROLE_POLICY.get((claim_type, "Species"), "SPECIES_FOCUS")
             claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "Species"))
 
-        for surface, start, end in _find_term_matches(sentence, HABITAT_TERMS):
+        for surface, start, end in _find_term_matches(sentence, self._habitat_terms):
             relation_type = self._ROLE_POLICY.get((claim_type, "Habitat"), "HABITAT_FOCUS")
             claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "Habitat"))
 
-        for surface, start, end in _find_term_matches(sentence, METHOD_TERMS):
+        for surface, start, end in _find_term_matches(sentence, self._method_terms):
             relation_type = self._ROLE_POLICY.get((claim_type, "SurveyMethod"), "METHOD_FOCUS")
             claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "SurveyMethod"))
 
         _activity_fallback_types = {"predator_control", "management_action", "economic_use", "development_activity", "public_contact"}
-        for surface, start, end in _find_term_matches(sentence, ACTIVITY_TERMS):
+        for surface, start, end in _find_term_matches(sentence, self._activity_terms):
             relation_type = self._ROLE_POLICY.get((claim_type, "Activity"))
             if relation_type is None:
                 if claim_type not in _activity_fallback_types:
@@ -320,7 +339,7 @@ class RuleBasedClaimExtractor:
                 relation_type = "MANAGEMENT_TARGET"
             claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "Activity"))
 
-        for surface, start, end in _find_term_matches(sentence, LOCATION_TERMS):
+        for surface, start, end in _find_term_matches(sentence, self._location_terms):
             relation_type = CLAIM_LOCATION_RELATION if self._is_occurrence_location(sentence, start) else "LOCATION_FOCUS"
             entity_type_hint = "Refuge" if "refuge" in surface.lower() else "Place"
             claim_links.append(
@@ -465,8 +484,9 @@ class HybridClaimExtractor:
         self,
         rules_extractor: ClaimExtractor | None = None,
         llm_extractor: ClaimExtractor | None = None,
+        resources_dir: Path | None = None,
     ) -> None:
-        self._rules = rules_extractor or RuleBasedClaimExtractor()
+        self._rules = rules_extractor or RuleBasedClaimExtractor(resources_dir=resources_dir)
         self._llm = llm_extractor or LLMClaimExtractor(NullLLMAdapter())
         self.last_telemetry: HybridTelemetry | None = None
 

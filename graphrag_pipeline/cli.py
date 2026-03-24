@@ -31,6 +31,16 @@ def _add_neo4j_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--neo4j-ca-cert", default=os.environ.get("NEO4J_CA_CERT") or None)
 
 
+def _add_domain_args(p: argparse.ArgumentParser) -> None:
+    """Add optional domain directory argument."""
+    p.add_argument(
+        "--domain-dir",
+        default=None,
+        help="Path to a domain resources directory containing domain_profile.yaml. "
+             "Defaults to the built-in resources/ directory.",
+    )
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="graphrag", description="Claim-centric narrative report graph pipeline.")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -44,6 +54,7 @@ def build_parser() -> argparse.ArgumentParser:
     semantic_parser.add_argument("--output", required=True, help="Path to semantic bundle JSON output.")
     semantic_parser.add_argument("--ocr-engine", default="unknown", help="OCR engine name for ExtractionRun metadata.")
     semantic_parser.add_argument("--ocr-version", default="unknown", help="OCR version for ExtractionRun metadata.")
+    _add_domain_args(semantic_parser)
 
     graph_parser = subparsers.add_parser("load-graph", help="Load structure and semantic bundles into graph backend.")
     graph_parser.add_argument("--structure", default=None, help="Path to structure bundle JSON.")
@@ -63,6 +74,7 @@ def build_parser() -> argparse.ArgumentParser:
     e2e_parser.add_argument("--workers", type=int, default=1,
                             help="Number of parallel worker processes for extraction (default: 1). Use 0 to auto-detect CPU count.")
     _add_neo4j_args(e2e_parser)
+    _add_domain_args(e2e_parser)
 
     report_parser = subparsers.add_parser("quality-report", help="Compute quality metrics for one structure/semantic pair.")
     report_parser.add_argument("--structure", required=True, help="Path to structure bundle JSON.")
@@ -103,6 +115,7 @@ def build_parser() -> argparse.ArgumentParser:
     query_serve_parser.add_argument("--port", type=int, default=8788, help="Port to bind (default 8788).")
     query_serve_parser.add_argument("--max-tokens", type=int, default=1000, help="Max tokens for synthesis model response (default 1000).")
     _add_neo4j_args(query_serve_parser)
+    _add_domain_args(query_serve_parser)
 
     resolve_parser = subparsers.add_parser(
         "resolve-mentions",
@@ -115,6 +128,17 @@ def build_parser() -> argparse.ArgumentParser:
                                 help="Output path for updated bundle. Only valid with --semantic; default: overwrite in place.")
     resolve_parser.add_argument("--dry-run", action="store_true", default=False,
                                 help="Print stats without writing any files.")
+    _add_domain_args(resolve_parser)
+
+    validate_parser = subparsers.add_parser(
+        "validate-domain",
+        help="Run sample documents through extraction and report domain quality metrics.",
+    )
+    validate_parser.add_argument("--samples", nargs="+", required=True, help="Paths to source report JSON files.")
+    validate_parser.add_argument("--output", default=None, help="Optional path to write the quality report JSON.")
+    validate_parser.add_argument("--threshold-unclassified", type=float, default=0.20,
+                                 help="Fail if unclassified claim rate exceeds this fraction (default 0.20).")
+    _add_domain_args(validate_parser)
 
     return parser
 
@@ -131,10 +155,12 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "extract-semantic":
+        resources_dir = Path(args.domain_dir) if args.domain_dir else None
         structure = load_structure_bundle(args.structure)
         semantic = extract_semantic(
             structure,
             run_overrides={"ocr_engine": args.ocr_engine, "ocr_version": args.ocr_version},
+            resources_dir=resources_dir,
         )
         save_semantic_bundle(args.output, semantic)
         print(json.dumps({"status": "ok", "output": str(Path(args.output))}, indent=2))
@@ -231,6 +257,7 @@ def main(argv: list[str] | None = None) -> int:
             neo4j_ca_cert=args.neo4j_ca_cert,
             review_out_dir=args.review_out_dir,
             review_db_path=args.review_db,
+            resources_dir=Path(args.domain_dir) if args.domain_dir else None,
         )
         print(json.dumps(summary, indent=2))
         return 0
@@ -328,6 +355,7 @@ def main(argv: list[str] | None = None) -> int:
             neo4j_trust=args.neo4j_trust,
             neo4j_ca_cert=args.neo4j_ca_cert,
             max_tokens=args.max_tokens,
+            domain_dir=args.domain_dir,
         )
         print(f"Starting query server at http://{args.host}:{args.port}")
         uvicorn.run(app, host=args.host, port=args.port)
@@ -346,9 +374,10 @@ def main(argv: list[str] | None = None) -> int:
             print(f"[warn] No *.semantic.json files found in: {args.semantic_dir}", file=sys.stderr)
             return 1
         results = []
+        resources_dir = Path(args.domain_dir) if args.domain_dir else None
         for p in paths:
             bundle = load_semantic_bundle(p)
-            updated, stats = resolve_mentions_targeted(bundle)
+            updated, stats = resolve_mentions_targeted(bundle, resources_dir=resources_dir)
             row: dict = {"file": str(p), **stats}
             if not args.dry_run:
                 out = Path(args.output) if args.output else p
@@ -357,6 +386,35 @@ def main(argv: list[str] | None = None) -> int:
             results.append(row)
         print(json.dumps(results, indent=2))
         return 0
+
+    if args.command == "validate-domain":
+        resources_dir = Path(args.domain_dir) if args.domain_dir else None
+        aggregate_claims = 0
+        aggregate_unclassified = 0
+        per_document = []
+        for sample_path in args.samples:
+            structure = parse_source(sample_path)
+            semantic = extract_semantic(structure, resources_dir=resources_dir)
+            metrics = quality_report(structure, semantic)
+            aggregate_claims += metrics.get("claim_count", 0)
+            aggregate_unclassified += metrics.get("unclassified_claim_count", 0)
+            per_document.append({"file": sample_path, "doc_id": structure.document.doc_id, **metrics})
+
+        safe_claims = max(1, aggregate_claims)
+        unclassified_rate = aggregate_unclassified / safe_claims
+        passes = unclassified_rate <= args.threshold_unclassified
+        summary = {
+            "pass": passes,
+            "documents": len(per_document),
+            "aggregate_claim_count": aggregate_claims,
+            "unclassified_rate": round(unclassified_rate, 4),
+            "threshold_unclassified": args.threshold_unclassified,
+            "per_document": per_document,
+        }
+        if args.output:
+            save_json(args.output, summary)
+        print(json.dumps(summary, indent=2))
+        return 0 if passes else 1
 
     parser.error("Unknown command")
     return 2

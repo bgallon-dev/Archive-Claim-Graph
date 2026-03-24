@@ -10,3 +10,17 @@ resources:
   measurement_units: measurement_units.yaml
   measurement_species: measurement_species.yaml
   ocr_corrections: ocr_corrections.yaml
+  claim_relation_compatibility: claim_relation_compatibility.yaml
+
+document_anchor:
+  title_keyword: turnbull
+  entity_type: Refuge
+  name: Turnbull Refuge
+  normalized_form: turnbull refuge
+  properties:
+    refuge_id: turnbull_refuge
+    name: Turnbull Refuge
+
+synthesis_context: >
+  historical wildlife refuge reports for the Turnbull National Wildlife
+  Refuge (Washington State, USA)

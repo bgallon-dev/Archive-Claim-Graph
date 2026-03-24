@@ -24,10 +24,14 @@ except Exception:  # pragma: no cover - optional dependency
 
 MODEL = "claude-sonnet-4-6"
 
-_SYSTEM_PROMPT = """\
-You are a specialist researcher working with historical wildlife refuge reports for the \
-Turnbull National Wildlife Refuge (Washington State, USA). The context blocks you receive \
-have been extracted from scanned archival documents by an automated pipeline.
+_DEFAULT_SYNTHESIS_CONTEXT = (
+    "historical wildlife refuge reports for the "
+    "Turnbull National Wildlife Refuge (Washington State, USA)"
+)
+
+_SYSTEM_PROMPT_TEMPLATE = """\
+You are a specialist researcher working with {synthesis_context}. \
+The context blocks you receive have been extracted from scanned archival documents by an automated pipeline.
 
 Each CLAIM block carries two epistemic annotations:
   • confidence=<float>  — the pipeline's extraction confidence (0.0–1.0).
@@ -56,6 +60,10 @@ Respond with valid JSON only — no markdown fences, no prose outside the JSON o
 """
 
 
+def _build_system_prompt(synthesis_context: str) -> str:
+    return _SYSTEM_PROMPT_TEMPLATE.replace("{synthesis_context}", synthesis_context)
+
+
 class SynthesisEngine:
     """Call Claude via the Anthropic Messages API and parse the typed response.
 
@@ -68,10 +76,14 @@ class SynthesisEngine:
         Upper bound on model response length.
     """
 
+    # Class-level default so __new__-based test mocks still find the attribute.
+    _system_prompt: str = _build_system_prompt(_DEFAULT_SYNTHESIS_CONTEXT)
+
     def __init__(
         self,
         api_key: str | None = None,
         max_tokens: int = 1000,
+        synthesis_context: str | None = None,
     ) -> None:
         if _anthropic_pkg is None:  # pragma: no cover - optional dependency
             raise RuntimeError(
@@ -80,6 +92,7 @@ class SynthesisEngine:
         resolved_key = api_key or os.environ.get("Anthropic_API_Key") or os.environ.get("ANTHROPIC_API_KEY")
         self._client = _anthropic_pkg.Anthropic(api_key=resolved_key)
         self._max_tokens = max_tokens
+        self._system_prompt = _build_system_prompt(synthesis_context or _DEFAULT_SYNTHESIS_CONTEXT)
 
     def synthesise(
         self,
@@ -87,6 +100,7 @@ class SynthesisEngine:
         provenance_blocks: list[ProvenanceBlock],
         context_text: str,
         analytical_result: AnalyticalResult | None = None,
+        conversation_history: list[dict[str, str]] | None = None,
     ) -> SynthesisResult:
         """Synthesise an answer from *context_text* for *query*.
 
@@ -103,7 +117,18 @@ class SynthesisEngine:
             Optional structured result from the analytical path; appended as a
             data table below the provenance context.
         """
-        user_message = f"QUERY: {query}\n\nCONTEXT:\n{context_text or '[no provenance context retrieved]'}"
+        history_prefix = ""
+        if conversation_history:
+            history_prefix = "Prior conversation context:\n"
+            for turn in conversation_history:
+                role_label = "User" if turn["role"] == "user" else "Assistant"
+                history_prefix += f"{role_label}: {turn['content']}\n"
+            history_prefix += "\nCurrent query:\n"
+
+        user_message = (
+            f"{history_prefix}QUERY: {query}\n\n"
+            f"CONTEXT:\n{context_text or '[no provenance context retrieved]'}"
+        )
 
         if analytical_result and analytical_result.rows:
             user_message += f"\n\nANALYTICAL DATA ({analytical_result.query_name}):\n{analytical_result.to_summary_text()}"
@@ -111,7 +136,7 @@ class SynthesisEngine:
         message = self._client.messages.create(
             model=MODEL,
             max_tokens=self._max_tokens,
-            system=_SYSTEM_PROMPT,
+            system=self._system_prompt,
             messages=[{"role": "user", "content": user_message}],
         )
 

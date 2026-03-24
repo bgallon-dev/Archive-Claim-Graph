@@ -3,6 +3,7 @@ from __future__ import annotations
 import difflib
 import re
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Protocol
 
 from ..resolver import default_seed_entities
@@ -111,6 +112,16 @@ class RuleBasedMentionExtractor:
         _lexicon_hints.setdefault(_entity.name.lower(), []).append(_entity.entity_type)
 
     _lexicon_terms: list[str] = sorted(_lexicon_hints, key=len, reverse=True)
+
+    def __init__(self, resources_dir: Path | None = None) -> None:
+        if resources_dir is not None:
+            self._known_ocr_errors = load_ocr_corrections(resources_dir)
+            seed = default_seed_entities(resources_dir)
+            hints: dict[str, list[str]] = {}
+            for entity in seed:
+                hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
+            self._lexicon_hints = hints
+            self._lexicon_terms = sorted(hints, key=len, reverse=True)
 
     def extract(self, paragraph_text: str) -> list[MentionDraft]:
         mentions: list[MentionDraft] = []

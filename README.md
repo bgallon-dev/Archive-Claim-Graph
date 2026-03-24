@@ -95,7 +95,7 @@ OCR JSON input
      |
      +-----> [ spelling-review-report ]   (OCR review queue)
      |
-     +-----> [ review-detect ]            (anti-pattern queue --> review.db)
+     +-----> [ review-detect ]            (anti-pattern queue --> data/review.db)
      |
      v
 [ load-graph ]        -->  Neo4j graph  (optional)
@@ -266,27 +266,27 @@ Run detection on a bundle pair:
 graphrag review-detect \
   --structure out/report1.structure.json \
   --semantic out/report1.semantic.json \
-  --review-db review.db
+  --review-db data/review.db
 ```
 
 Populate the review store as part of an end-to-end run:
 
 ```bash
-graphrag run-e2e --inputs input/1930s --out-dir out --backend memory --review-db review.db
+graphrag run-e2e --inputs input/1930s --out-dir out --backend memory --review-db data/review.db
 ```
 
 Launch the local review web application (requires `uvicorn`):
 
 ```bash
-graphrag review-serve --review-db review.db
+graphrag review-serve --review-db data/review.db
 ```
 
 Export proposals or accepted patch specs:
 
 ```bash
-graphrag review-export --review-db review.db --output proposals.json
-graphrag review-export --review-db review.db --output patches.json --mode patches
-graphrag review-export --review-db review.db --output proposals.csv --mode proposals --status accepted_pending_apply
+graphrag review-export --review-db data/review.db --output proposals.json
+graphrag review-export --review-db data/review.db --output patches.json --mode patches
+graphrag review-export --review-db data/review.db --output proposals.csv --mode proposals --status accepted_pending_apply
 ```
 
 ---

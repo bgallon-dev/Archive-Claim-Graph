@@ -56,7 +56,8 @@ from .claim_contract import (
 )
 from .event_builder import build_events
 from .observation_builder import build_observations
-from .resolver import DictionaryFuzzyResolver, EntityResolver
+from .resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_entities
+from .resource_loader import load_domain_profile
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
 
@@ -337,11 +338,12 @@ def extract_semantic(
     mention_extractor: MentionExtractor | None = None,
     resolver: EntityResolver | None = None,
     run_overrides: dict[str, str] | None = None,
+    resources_dir: Path | None = None,
 ) -> SemanticBundle:
-    claim_extractor = claim_extractor or HybridClaimExtractor()
-    measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor()
-    mention_extractor = mention_extractor or RuleBasedMentionExtractor()
-    resolver = resolver or DictionaryFuzzyResolver()
+    claim_extractor = claim_extractor or HybridClaimExtractor(resources_dir=resources_dir)
+    measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor(resources_dir=resources_dir)
+    mention_extractor = mention_extractor or RuleBasedMentionExtractor(resources_dir=resources_dir)
+    resolver = resolver or DictionaryFuzzyResolver(seed_entities=default_seed_entities(resources_dir))
 
     now = datetime.now(timezone.utc)
     overrides = run_overrides or {}
@@ -474,22 +476,28 @@ def extract_semantic(
     seen_claim_entity: set[tuple[str, str, str]] = set()
     seen_claim_location: set[tuple[str, str]] = set()
 
-    # Create document-level Refuge entity before link assembly so doc_refuge_id is in scope for doc-level links.
-    title_lc = structure.document.title.lower()
-    doc_refuge_id: str | None = None
-    if "turnbull" in title_lc:
-        doc_refuge_id = make_entity_id("Refuge", "turnbull refuge")
-        if doc_refuge_id not in entity_lookup:
-            refuge = EntityRecord(
-                entity_id=doc_refuge_id,
-                entity_type="Refuge",
-                name="Turnbull Refuge",
-                normalized_form="turnbull refuge",
-                properties={"refuge_id": "turnbull_refuge", "name": "Turnbull Refuge"},
-            )
-            entities.append(refuge)
-            entity_lookup[doc_refuge_id] = refuge
-        document_refuge_links.append(DocumentRefugeLinkRecord(doc_id=structure.document.doc_id, refuge_id=doc_refuge_id))
+    # Create document-level anchor entity before link assembly so doc_anchor_id is in scope for doc-level links.
+    doc_anchor_id: str | None = None
+    anchor_cfg = load_domain_profile(resources_dir).get("document_anchor")
+    if anchor_cfg:
+        kw = anchor_cfg.get("title_keyword", "").lower()
+        if kw and kw in structure.document.title.lower():
+            entity_type = anchor_cfg["entity_type"]
+            name = anchor_cfg["name"]
+            norm = anchor_cfg.get("normalized_form", name.lower())
+            props = anchor_cfg.get("properties", {})
+            doc_anchor_id = make_entity_id(entity_type, norm)
+            if doc_anchor_id not in entity_lookup:
+                anchor_entity = EntityRecord(
+                    entity_id=doc_anchor_id,
+                    entity_type=entity_type,
+                    name=name,
+                    normalized_form=norm,
+                    properties=props,
+                )
+                entities.append(anchor_entity)
+                entity_lookup[doc_anchor_id] = anchor_entity
+            document_refuge_links.append(DocumentRefugeLinkRecord(doc_id=structure.document.doc_id, refuge_id=doc_anchor_id))
 
     for paragraph_id, paragraph_claims in claims_by_paragraph.items():
         paragraph_mentions = mentions_by_paragraph.get(paragraph_id, [])
@@ -612,10 +620,10 @@ def extract_semantic(
 
     # Place PART_OF Refuge links
     place_refuge_links: list[PlaceRefugeLinkRecord] = []
-    if doc_refuge_id:
+    if doc_anchor_id:
         for entity in entities:
             if entity.entity_type == "Place":
-                place_refuge_links.append(PlaceRefugeLinkRecord(place_id=entity.entity_id, refuge_id=doc_refuge_id))
+                place_refuge_links.append(PlaceRefugeLinkRecord(place_id=entity.entity_id, refuge_id=doc_anchor_id))
 
     # Concept assignment
     _concept_ids = {
@@ -813,17 +821,36 @@ def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBu
     return _build_spelling_review_queue(structure, semantic)
 
 
+def _make_doc_run_id(input_path: str, now: datetime) -> str:
+    """Generate a run_id that is unique per document even under heavy parallelism.
+
+    Uses the input file path as entropy so two workers processing different files
+    at the same instant always get distinct run_ids, eliminating claim_id collisions.
+    """
+    from .ids import stable_hash
+    ts = now.strftime("%Y%m%dT%H%M%S%fZ")
+    return f"run_{ts}_{stable_hash(input_path, ts, size=8)}"
+
+
 def _process_single_document(
     input_item: str,
     out_dir: str,
     review_out_dir: str | None,
+    domain_dir_str: str | None = None,
+    run_id: str | None = None,
 ) -> dict[str, Any]:
     """Worker function for parallel document processing (parse + extract + save + quality).
 
     Must be defined at module scope so ProcessPoolExecutor can pickle it on Windows.
+    domain_dir_str is kept as str | None (not Path) so it is pickling-safe on Windows.
     """
+    resources_dir = Path(domain_dir_str) if domain_dir_str else None
     structure = parse_source(input_item)
-    semantic = extract_semantic(structure)
+    semantic = extract_semantic(
+        structure,
+        resources_dir=resources_dir,
+        run_overrides={"run_id": run_id} if run_id else None,
+    )
 
     stem = Path(input_item).stem
     output_dir = Path(out_dir)
@@ -866,23 +893,30 @@ def run_e2e(
     neo4j_ca_cert: str | None = None,
     review_out_dir: str | Path | None = None,
     review_db_path: str | Path | None = None,
+    resources_dir: Path | None = None,
 ) -> dict[str, Any]:
     output_dir = Path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     review_output_dir_str = str(Path(review_out_dir)) if review_out_dir is not None else None
     if review_output_dir_str is not None:
         Path(review_output_dir_str).mkdir(parents=True, exist_ok=True)
+    domain_dir_str = str(resources_dir) if resources_dir is not None else None
 
     # --- Phase 1: parallel extraction (parse + extract + save + quality) ---
     str_inputs = [str(item) for item in inputs]
     effective_workers = min(max(workers, 1), len(str_inputs)) if str_inputs else 1
+
+    # Pre-generate a unique run_id per document in the parent process so that
+    # parallel workers never collide even when they start within the same second.
+    _batch_now = datetime.now(timezone.utc)
+    doc_run_ids = {item: _make_doc_run_id(item, _batch_now) for item in str_inputs}
 
     doc_summaries: list[dict[str, Any]] = []
 
     if effective_workers <= 1:
         for input_item in str_inputs:
             doc_summaries.append(
-                _process_single_document(input_item, str(output_dir), review_output_dir_str)
+                _process_single_document(input_item, str(output_dir), review_output_dir_str, domain_dir_str, doc_run_ids[input_item])
             )
     else:
         with ProcessPoolExecutor(max_workers=effective_workers) as executor:
@@ -892,6 +926,8 @@ def run_e2e(
                     input_item,
                     str(output_dir),
                     review_output_dir_str,
+                    domain_dir_str,
+                    doc_run_ids[input_item],
                 ): input_item
                 for input_item in str_inputs
             }
@@ -965,6 +1001,7 @@ def resolve_mentions_targeted(
     semantic: SemanticBundle,
     *,
     resolver: EntityResolver | None = None,
+    resources_dir: Path | None = None,
 ) -> tuple[SemanticBundle, dict[str, int]]:
     """Re-run entity resolution for unresolved mentions against the current seed_entities.csv.
 
@@ -988,7 +1025,7 @@ def resolve_mentions_targeted(
         new_claim_links_count, unresolved_after.
     """
     if resolver is None:
-        resolver = DictionaryFuzzyResolver()
+        resolver = DictionaryFuzzyResolver(seed_entities=default_seed_entities(resources_dir))
 
     # Step 1: find unresolved mentions
     already_resolved: set[str] = {r.mention_id for r in semantic.entity_resolutions}

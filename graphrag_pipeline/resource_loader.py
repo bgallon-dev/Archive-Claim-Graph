@@ -20,6 +20,21 @@ def _dir(resources_dir: Path | None) -> Path:
     return resources_dir if resources_dir is not None else _DEFAULT_RESOURCES_DIR
 
 
+def _active_profile(resources_dir: Path | None) -> dict[str, Any]:
+    """Return domain_profile.yaml payload, or {} if absent (backward compat)."""
+    p = _dir(resources_dir) / "domain_profile.yaml"
+    if not p.exists():
+        return {}
+    with p.open(encoding="utf-8") as fh:
+        return yaml.safe_load(fh) or {}
+
+
+def _resource_path(key: str, resources_dir: Path | None) -> Path:
+    """Resolve a resource filename via domain_profile.yaml, falling back to the key."""
+    filename = _active_profile(resources_dir).get("resources", {}).get(key, key)
+    return _dir(resources_dir) / filename
+
+
 # ── Seed entities ─────────────────────────────────────────────────────────────
 
 def load_seed_entity_rows(resources_dir: Path | None = None) -> list[dict[str, str]]:
@@ -28,7 +43,7 @@ def load_seed_entity_rows(resources_dir: Path | None = None) -> list[dict[str, s
     Each row has keys: ``entity_type``, ``name``, ``prop_key``, ``prop_value``.
     The caller is responsible for grouping multi-property entities.
     """
-    path = _dir(resources_dir) / "seed_entities.csv"
+    path = _resource_path("seed_entities", resources_dir)
     with path.open(encoding="utf-8", newline="") as fh:
         return [dict(row) for row in csv.DictReader(fh)]
 
@@ -39,7 +54,7 @@ def load_claim_type_patterns(
     resources_dir: Path | None = None,
 ) -> list[tuple[str, re.Pattern[str], float]]:
     """Return ``[(claim_type, compiled_pattern, weight), ...]`` in file order."""
-    path = _dir(resources_dir) / "claim_type_patterns.yaml"
+    path = _resource_path("claim_type_patterns", resources_dir)
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh)
     result: list[tuple[str, re.Pattern[str], float]] = []
@@ -55,7 +70,7 @@ def load_claim_role_policy(
     resources_dir: Path | None = None,
 ) -> dict[tuple[str, str], str]:
     """Return ``{(claim_type, entity_type): relation_type}`` mapping."""
-    path = _dir(resources_dir) / "claim_role_policy.yaml"
+    path = _resource_path("claim_role_policy", resources_dir)
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh)
     return {
@@ -70,7 +85,7 @@ def load_measurement_units(
     resources_dir: Path | None = None,
 ) -> dict[str, tuple[str, str]]:
     """Return ``{unit_word: (measurement_name, unit_string)}`` mapping."""
-    path = _dir(resources_dir) / "measurement_units.yaml"
+    path = _resource_path("measurement_units", resources_dir)
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh)
     return {k: (str(v["name"]), str(v["unit"])) for k, v in data["units"].items()}
@@ -87,7 +102,7 @@ def load_measurement_species(
     - ``type_hints``: ``{singular_key: category}`` for ``target_entity_type_hint``
     - ``immediate_patterns``: list of regex fragments for ``_immediate_species_re``
     """
-    path = _dir(resources_dir) / "measurement_species.yaml"
+    path = _resource_path("measurement_species", resources_dir)
     with path.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh)
 
@@ -98,7 +113,7 @@ def load_ocr_corrections(
     resources_dir: Path | None = None,
 ) -> frozenset[str]:
     """Return the set of known OCR error tokens (lowercased)."""
-    path = _dir(resources_dir) / "ocr_corrections.yaml"
+    path = _resource_path("ocr_corrections", resources_dir)
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh)
     known_errors = data["known_errors"]
@@ -111,7 +126,7 @@ def load_ocr_correction_map(
     resources_dir: Path | None = None,
 ) -> dict[str, str]:
     """Return ``{known_error: suggested_correction}`` mapping."""
-    path = _dir(resources_dir) / "ocr_corrections.yaml"
+    path = _resource_path("ocr_corrections", resources_dir)
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh)
     known_errors = data["known_errors"]
@@ -194,6 +209,6 @@ def load_claim_relation_compatibility(
     - ``compatibility``: ``{claim_type: {relation_type: "strong"|"weak"|"forbidden"}}``
     - ``preferred_entity_types``: ``{claim_type: [entity_type, ...]}``
     """
-    path = _dir(resources_dir) / "claim_relation_compatibility.yaml"
+    path = _resource_path("claim_relation_compatibility", resources_dir)
     with path.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh)

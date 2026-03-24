@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 from datetime import datetime, timezone
 
 
@@ -36,8 +37,11 @@ def make_annotation_id(doc_id: str, page_number: int, index: int, kind: str, tex
 
 
 def make_run_id(ocr_engine: str = "unknown", now: datetime | None = None) -> str:
-    ts = (now or datetime.now(timezone.utc)).strftime("%Y%m%dT%H%M%SZ")
-    return f"run_{ts}_{stable_hash(ocr_engine, ts, size=8)}"
+    # %f gives microsecond precision; os.getpid() adds per-process entropy so
+    # parallel workers starting within the same microsecond still get distinct ids.
+    ts = (now or datetime.now(timezone.utc)).strftime("%Y%m%dT%H%M%S%fZ")
+    pid = str(os.getpid())
+    return f"run_{ts}_{stable_hash(ocr_engine, ts, pid, size=8)}"
 
 
 def make_claim_id(run_id: str, paragraph_id: str, claim_index: int, normalized_sentence: str) -> str:

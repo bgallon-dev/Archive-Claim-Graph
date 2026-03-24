@@ -29,7 +29,7 @@ from typing import Any, Literal
 try:
     from fastapi import FastAPI, HTTPException
     from fastapi.responses import HTMLResponse
-    from pydantic import BaseModel, Field
+    from pydantic import BaseModel, Field, field_validator
 except Exception:  # pragma: no cover - optional dependency
     raise RuntimeError(
         "fastapi/pydantic not installed. Install with: pip install -e .[retrieval]"
@@ -50,6 +50,11 @@ from ..synthesis import SynthesisEngine
 # Request / response models
 # ---------------------------------------------------------------------------
 
+class ConversationTurn(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str
+
+
 class QueryRequest(BaseModel):
     text: str = Field(..., description="Natural-language query")
     year_range: tuple[int, int] | None = Field(
@@ -62,6 +67,21 @@ class QueryRequest(BaseModel):
     mode: Literal["analytical", "conversational", "auto"] = Field(
         "auto", description="Force a specific retrieval mode or use auto-classification"
     )
+    conversation_history: list[ConversationTurn] = Field(
+        default_factory=list,
+        description="Prior Q&A turns (client-managed). Empty list = stateless behaviour.",
+    )
+    session_id: str | None = Field(
+        None,
+        description="Client-generated session ID grouping multi-turn exchanges.",
+    )
+
+    @field_validator("conversation_history")
+    @classmethod
+    def cap_history(cls, v: list[ConversationTurn]) -> list[ConversationTurn]:
+        if len(v) > 10:
+            raise ValueError("conversation_history may not exceed 10 turns")
+        return v
 
 
 class ProvenanceRequest(BaseModel):
@@ -159,7 +179,8 @@ header {
   flex-shrink: 0;
 }
 header h1 { font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; }
-#settings-toggle {
+#settings-toggle,
+#new-conv-btn {
   background: transparent;
   border: 1px solid rgba(255,255,255,0.25);
   color: var(--header-fg);
@@ -169,7 +190,8 @@ header h1 { font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; }
   font-size: 13px;
   transition: background 0.15s;
 }
-#settings-toggle:hover { background: rgba(255,255,255,0.1); }
+#settings-toggle:hover,
+#new-conv-btn:hover { background: rgba(255,255,255,0.1); }
 
 /* ---- Settings panel ---- */
 #settings-panel {
@@ -330,7 +352,10 @@ td { padding: 4px 8px; border: 1px solid var(--table-border); }
 
 <header>
   <h1>Turnbull GraphRAG</h1>
-  <button id="settings-toggle">&#9881; Settings</button>
+  <div style="display:flex;gap:0.5rem;align-items:center;">
+    <button id="new-conv-btn">&#10011; New Conversation</button>
+    <button id="settings-toggle">&#9881; Settings</button>
+  </div>
 </header>
 
 <div id="settings-panel">
@@ -368,6 +393,14 @@ td { padding: 4px 8px; border: 1px solid var(--table-border); }
 </div>
 
 <script>
+var conversationHistory = [];
+var HISTORY_LIMIT = 10;
+
+function generateSessionId() {
+  return 'sess_' + Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+var currentSessionId = generateSessionId();
+
 function esc(s) {
   return String(s === null || s === undefined ? '' : s)
     .replace(/&/g, '&amp;')
@@ -486,7 +519,7 @@ async function sendMessage() {
     var resp = await fetch('/query', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({text: text, mode: mode, year_range: year_range, entity_hints: entityHints}),
+      body: JSON.stringify({text: text, mode: mode, year_range: year_range, entity_hints: entityHints, conversation_history: conversationHistory, session_id: currentSessionId}),
     });
     var bubble = loadingWrap.querySelector('.bubble');
     if (!resp.ok) {
@@ -498,6 +531,11 @@ async function sendMessage() {
       var data = await resp.json();
       bubble.className = 'bubble assistant';
       bubble.innerHTML = formatResponse(data);
+      conversationHistory.push({role: 'user', content: text});
+      conversationHistory.push({role: 'assistant', content: data.answer});
+      if (conversationHistory.length > HISTORY_LIMIT) {
+        conversationHistory = conversationHistory.slice(conversationHistory.length - HISTORY_LIMIT);
+      }
     }
   } catch(err) {
     var bubble2 = loadingWrap.querySelector('.bubble');
@@ -523,6 +561,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('settings-toggle').addEventListener('click', function() {
     document.getElementById('settings-panel').classList.toggle('open');
+  });
+
+  document.getElementById('new-conv-btn').addEventListener('click', function() {
+    conversationHistory = [];
+    currentSessionId = generateSessionId();
+    console.log('[GraphRAG] New session:', currentSessionId);
+    document.getElementById('chat-area').innerHTML = '';
+    appendBubble('assistant',
+      '<p>New conversation started. Ask me anything about the Turnbull National Wildlife Refuge archive.</p>'
+    );
   });
 
   document.getElementById('send-btn').addEventListener('click', sendMessage);
@@ -551,6 +599,7 @@ def create_app(
     neo4j_ca_cert: str | None = None,
     anthropic_api_key: str | None = None,
     max_tokens: int = 1000,
+    domain_dir: str | None = None,
 ) -> FastAPI:
     """Construct and return the FastAPI retrieval application.
 
@@ -586,8 +635,12 @@ def create_app(
         state["query_builder"] = CypherQueryBuilder(executor)
         state["assembler"] = ProvenanceContextAssembler(executor)
         state["gateway"] = EntityResolutionGateway()
-        state["synthesis"] = SynthesisEngine(api_key=api_key, max_tokens=max_tokens)
-        conv_log_path = Path(os.environ.get("CONV_LOG_DB", "conversation_log.db"))
+        synthesis_ctx: str | None = None
+        if domain_dir:
+            from ...resource_loader import load_domain_profile
+            synthesis_ctx = load_domain_profile(Path(domain_dir)).get("synthesis_context")
+        state["synthesis"] = SynthesisEngine(api_key=api_key, max_tokens=max_tokens, synthesis_context=synthesis_ctx)
+        conv_log_path = Path(os.environ.get("CONV_LOG_DB", "data/conversation_log.db"))
         state["conv_logger"] = ConversationLogger(conv_log_path)
         yield
         executor.close()
@@ -616,7 +669,11 @@ def create_app(
         engine: SynthesisEngine = state["synthesis"]
 
         created_at = datetime.now(timezone.utc).isoformat()
-        conversation_id = make_conversation_id(req.text, created_at)
+        conversation_id = req.session_id or make_conversation_id(req.text, created_at)
+        # Assumes symmetric history (alternating user/assistant pairs), which holds
+        # for the browser client (history only accumulates on success). Non-browser
+        # clients sending asymmetric history will get an approximate turn_number.
+        turn_number = len(req.conversation_history) // 2 + 1
 
         # Layer 0: classify intent.
         intent = classify_query(
@@ -640,6 +697,11 @@ def create_app(
             surface_forms=intent.entities,
             entity_hints=req.entity_hints,
         )
+        # Temporary diagnostic — remove after investigation
+        import sys
+        print(f"DEBUG entities extracted: {intent.entities}", file=sys.stderr)
+        print(f"DEBUG resolved: {[(r.surface_form, r.entity_id, r.resolution_confidence) for r in entity_ctx.resolved]}", file=sys.stderr)
+        print(f"DEBUG unresolved: {entity_ctx.unresolved}", file=sys.stderr)
 
         is_hybrid = intent.bucket == "hybrid"
         analytical_result = None
@@ -690,6 +752,7 @@ def create_app(
             provenance_blocks=blocks,
             context_text=context_text,
             analytical_result=analytical_result,
+            conversation_history=[t.model_dump() for t in req.conversation_history],
         )
 
         conv_logger: ConversationLogger | None = state.get("conv_logger")
@@ -709,6 +772,8 @@ def create_app(
                 candidates_retrieved=retrieval_stats.candidates_retrieved,
                 ocr_dropped=retrieval_stats.ocr_dropped,
                 claims_in_context=retrieval_stats.claims_in_context,
+                session_id=req.session_id,
+                turn_number=turn_number,
                 claim_interactions=[
                     ClaimInteraction(
                         claim_id=b.claim_id,

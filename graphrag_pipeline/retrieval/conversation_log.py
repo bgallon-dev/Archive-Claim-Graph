@@ -6,8 +6,9 @@ from data already in flight and handed to a bounded background writer that
 drains to SQLite.
 
 Schema lives in a separate ``conversation_log.db`` file (path resolved from the
-``CONV_LOG_DB`` env var, defaulting to ``conversation_log.db`` in the working
-directory) so the append-only query log stays isolated from ``review.db``.
+``CONV_LOG_DB`` env var, defaulting to ``data/conversation_log.db`` relative to
+the working directory) so the append-only query log stays isolated from
+``data/review.db``.
 """
 from __future__ import annotations
 
@@ -65,6 +66,9 @@ class LogRecord:
     candidates_retrieved: int
     ocr_dropped: int
     claims_in_context: int
+    # session tracking
+    session_id: str | None = None    # client-generated; groups multi-turn exchanges
+    turn_number: int = 1             # 1-based position within the session
     # per-claim rows
     claim_interactions: list[ClaimInteraction] = field(default_factory=list)
 
@@ -82,7 +86,9 @@ CREATE TABLE IF NOT EXISTS conversation (
     year_min              INTEGER,
     year_max              INTEGER,
     retrieval_path        TEXT NOT NULL,
-    created_at            TEXT NOT NULL
+    created_at            TEXT NOT NULL,
+    session_id            TEXT,
+    turn_number           INTEGER NOT NULL DEFAULT 1
 );
 
 CREATE TABLE IF NOT EXISTS retrieval_event (
@@ -108,6 +114,15 @@ CREATE TABLE IF NOT EXISTS claim_interaction (
 
 def _init_db(conn: sqlite3.Connection) -> None:
     conn.executescript(_SCHEMA_SQL)
+    # Migrate existing databases that predate the session tracking columns.
+    for col, ddl in (
+        ("session_id", "ALTER TABLE conversation ADD COLUMN session_id TEXT"),
+        ("turn_number", "ALTER TABLE conversation ADD COLUMN turn_number INTEGER NOT NULL DEFAULT 1"),
+    ):
+        try:
+            conn.execute(ddl)
+        except sqlite3.OperationalError:
+            pass  # column already exists
     conn.commit()
 
 
@@ -120,8 +135,9 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
     conn.execute(
         """INSERT OR IGNORE INTO conversation
            (conversation_id, query_text, bucket, classifier_confidence,
-            year_min, year_max, retrieval_path, created_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+            year_min, year_max, retrieval_path, created_at,
+            session_id, turn_number)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             record.conversation_id,
             record.query_text,
@@ -131,6 +147,8 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
             record.year_max,
             record.retrieval_path,
             record.created_at,
+            record.session_id,
+            record.turn_number,
         ),
     )
     conn.execute(

@@ -13,8 +13,8 @@ the structured text format expected by the synthesis engine.
 from __future__ import annotations
 
 import collections
+import logging
 import re
-import sys
 
 from ..graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
@@ -26,6 +26,8 @@ from ..graph.cypher import (
 )
 from .executor import Neo4jQueryExecutor
 from .models import EntityContext, ProvenanceBlock
+
+_log = logging.getLogger(__name__)
 
 # Default context window budgets.
 _BUDGET_CONVERSATIONAL = 20
@@ -446,10 +448,11 @@ class ProvenanceContextAssembler:
         claim_types_in_result = collections.Counter(
             (r.get("c") or {}).get("claim_type", "unknown") for r in rows
         )
-        print(
-            f"DEBUG retrieval: template={_TEMPLATE_NAMES.get(template, 'unknown')}, "
-            f"n_rows={len(rows)}, claim_type_dist={dict(claim_types_in_result)}",
-            file=sys.stderr,
+        _log.debug(
+            "retrieval: template=%s n_rows=%d claim_type_dist=%s",
+            _TEMPLATE_NAMES.get(template, "unknown"),
+            len(rows),
+            dict(claim_types_in_result),
         )
 
         self._last_candidate_count = len(rows)

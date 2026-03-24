@@ -69,6 +69,8 @@ class LogRecord:
     # session tracking
     session_id: str | None = None    # client-generated; groups multi-turn exchanges
     turn_number: int = 1             # 1-based position within the session
+    # request tracing
+    request_id: str | None = None    # UUID generated per HTTP request by the middleware
     # per-claim rows
     claim_interactions: list[ClaimInteraction] = field(default_factory=list)
 
@@ -88,7 +90,8 @@ CREATE TABLE IF NOT EXISTS conversation (
     retrieval_path        TEXT NOT NULL,
     created_at            TEXT NOT NULL,
     session_id            TEXT,
-    turn_number           INTEGER NOT NULL DEFAULT 1
+    turn_number           INTEGER NOT NULL DEFAULT 1,
+    request_id            TEXT
 );
 
 CREATE TABLE IF NOT EXISTS retrieval_event (
@@ -114,10 +117,11 @@ CREATE TABLE IF NOT EXISTS claim_interaction (
 
 def _init_db(conn: sqlite3.Connection) -> None:
     conn.executescript(_SCHEMA_SQL)
-    # Migrate existing databases that predate the session tracking columns.
+    # Migrate existing databases that predate newer columns.
     for col, ddl in (
         ("session_id", "ALTER TABLE conversation ADD COLUMN session_id TEXT"),
         ("turn_number", "ALTER TABLE conversation ADD COLUMN turn_number INTEGER NOT NULL DEFAULT 1"),
+        ("request_id", "ALTER TABLE conversation ADD COLUMN request_id TEXT"),
     ):
         try:
             conn.execute(ddl)
@@ -136,8 +140,8 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
         """INSERT OR IGNORE INTO conversation
            (conversation_id, query_text, bucket, classifier_confidence,
             year_min, year_max, retrieval_path, created_at,
-            session_id, turn_number)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            session_id, turn_number, request_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             record.conversation_id,
             record.query_text,
@@ -149,6 +153,7 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
             record.created_at,
             record.session_id,
             record.turn_number,
+            record.request_id,
         ),
     )
     conn.execute(

@@ -566,6 +566,9 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
     Requires `fastapi` and `uvicorn` to be installed.
     """
+    from graphrag_pipeline.logging_config import setup_logging
+    setup_logging()
+
     try:
         from fastapi import Depends, FastAPI, Form, Query, Request
         from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse as _RedirectResponse
@@ -590,15 +593,18 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
     async def _needs_login_handler(request: Request, exc: NeedsLoginException):
         return _RedirectResponse(url=exc.redirect_url, status_code=303)
 
+    import logging as _logging
+    from datetime import datetime as _datetime, timezone as _timezone
     from fastapi import HTTPException as _HTTPException
     from fastapi.responses import JSONResponse as _JSONResponse
-    import logging as _logging
+
+    _log = _logging.getLogger(__name__)
 
     @app.exception_handler(Exception)
     async def _internal_error_handler(request: Request, exc: Exception) -> _JSONResponse:
         if isinstance(exc, _HTTPException):
             raise exc
-        _logging.getLogger(__name__).error(
+        _log.error(
             "Unhandled exception on %s %s: %s",
             request.method, request.url, exc, exc_info=True,
         )
@@ -609,12 +615,31 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
     @app.middleware("http")
     async def _setup_guard(request: Request, call_next):
-        if not request.url.path.startswith("/auth/setup"):
+        if not request.url.path.startswith("/auth/setup") and request.url.path != "/health":
             if is_setup_needed(users_db_path):
                 return _RedirectResponse(url="/auth/setup", status_code=303)
         return await call_next(request)
 
     store = ReviewStore(db_path)
+
+    # ------------------------------------------------------------------
+    # GET /health — liveness + ReviewStore connectivity check
+    # NOTE: This endpoint MUST remain unauthenticated. It is used by uptime
+    # monitors and load balancers that have no session credentials.
+    # ------------------------------------------------------------------
+    @app.get("/health", include_in_schema=True)
+    def health():
+        ts = _datetime.now(_timezone.utc).isoformat()
+        try:
+            store.proposal_counts_by_status()
+            db_status = "connected"
+        except Exception:
+            db_status = "unavailable"
+        db_ok = db_status == "connected"
+        return _JSONResponse(
+            status_code=200 if db_ok else 503,
+            content={"status": "ok" if db_ok else "degraded", "review_db": db_status, "timestamp": ts},
+        )
 
     @app.get("/", response_class=HTMLResponse)
     async def index(_user: UserContext = Depends(require_login)) -> str:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import os
 import re
 import sys
@@ -60,6 +61,8 @@ from .resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_enti
 from .resource_loader import load_domain_profile
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
+
+_log = logging.getLogger(__name__)
 
 PERIOD_TYPE_PUBLICATION = "publication_period"
 PERIOD_TYPE_EVENT = "event_period"
@@ -877,8 +880,7 @@ def _process_single_document(
                                 _claim.quarantine_timestamp = _now_ts
                                 _quarantined_ids.add(_claim.claim_id)
     except Exception as _gate_exc:
-        import logging as _logging
-        _logging.getLogger(__name__).error(
+        _log.error(
             "Sensitivity gate failed for %r: %s — quarantining all claims as precaution",
             input_item, _gate_exc, exc_info=True,
         )
@@ -974,7 +976,7 @@ def run_e2e(
             for i, future in enumerate(as_completed(future_to_input), 1):
                 input_item = future_to_input[future]
                 summary = future.result()  # re-raises on worker exception
-                print(f"[{i}/{len(str_inputs)}] Processed: {Path(input_item).stem}", file=sys.stderr)
+                _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
                 doc_summaries.append(summary)
 
     # Restore deterministic output order (as_completed is unordered)
@@ -990,6 +992,11 @@ def run_e2e(
         neo4j_ca_cert=neo4j_ca_cert,
     )
 
+    from .checkpoint import append_checkpoint, load_checkpoint
+    completed_doc_ids = load_checkpoint(output_dir)
+    if completed_doc_ids:
+        _log.info("Checkpoint: %d doc(s) already written — will skip them.", len(completed_doc_ids))
+
     review_store = None
     if review_db_path is not None:
         from .review.store import ReviewStore
@@ -998,6 +1005,11 @@ def run_e2e(
     writer: GraphWriter | None = None
     try:
         for doc_summary in doc_summaries:
+            doc_id = doc_summary["doc_id"]
+            if doc_id in completed_doc_ids:
+                _log.info("Skipping checkpointed doc: %s", doc_id)
+                continue
+
             structure = load_structure_bundle(doc_summary["structure_output"])
             semantic = load_semantic_bundle(doc_summary["semantic_output"])
 
@@ -1006,6 +1018,11 @@ def run_e2e(
             else:
                 writer.load_structure(structure)
                 writer.load_semantic(structure, semantic)
+
+            # Checkpoint after successful graph write — not before.
+            # If the write throws, the doc stays uncheckpointed and will retry on re-run.
+            append_checkpoint(output_dir, doc_id, doc_summary["input"])
+            _log.info("Checkpointed doc %s (%s)", doc_id, Path(doc_summary["input"]).name)
 
             if review_store is not None:
                 from .review.detect import run_detection

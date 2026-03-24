@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import dataclasses
 import hashlib as _hashlib
+import logging
 import os
 import re
 import sqlite3 as _sqlite3
@@ -1415,6 +1416,10 @@ def create_app(
     All parameters fall back to environment variables so the app can be
     started from the CLI without explicit arguments.
     """
+    from graphrag_pipeline.logging_config import setup_logging
+    setup_logging()
+    _log = logging.getLogger(__name__)
+
     # Resolve connection parameters from env if not provided explicitly.
     uri = neo4j_uri or os.environ.get("NEO4J_URI", "")
     user = neo4j_user or os.environ.get("NEO4J_USER", "")
@@ -1426,6 +1431,12 @@ def create_app(
 
     # Shared pipeline components (initialised at startup, closed at shutdown).
     state: dict[str, Any] = {}
+
+    from graphrag_pipeline.retrieval.web.rate_limit import TokenBucketLimiter
+    _query_limiter = TokenBucketLimiter(
+        max_calls=int(os.environ.get("QUERY_RATE_LIMIT_MAX", "20")),
+        period_seconds=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
+    )
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):  # type: ignore[misc]
@@ -1448,7 +1459,12 @@ def create_app(
         if domain_dir:
             from ...resource_loader import load_domain_profile
             synthesis_ctx = load_domain_profile(Path(domain_dir)).get("synthesis_context")
-        state["synthesis"] = SynthesisEngine(api_key=api_key, max_tokens=max_tokens, synthesis_context=synthesis_ctx)
+        state["synthesis"] = SynthesisEngine(
+            api_key=api_key,
+            max_tokens=max_tokens,
+            synthesis_context=synthesis_ctx,
+            timeout=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
+        )
         conv_log_path = Path(os.environ.get("CONV_LOG_DB", "data/conversation_log.db"))
         state["conv_logger"] = ConversationLogger(conv_log_path)
         write_audit_path = os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db")
@@ -1477,7 +1493,6 @@ def create_app(
 
     from fastapi import HTTPException as _HTTPException
     from fastapi.responses import JSONResponse as _JSONResponse
-    import logging as _logging
 
     @app.exception_handler(Exception)
     async def _internal_error_handler(request: Request, exc: Exception) -> _JSONResponse:
@@ -1485,7 +1500,7 @@ def create_app(
         # correct status code and detail — only swallow truly unhandled errors.
         if isinstance(exc, _HTTPException):
             raise exc
-        _logging.getLogger(__name__).error(
+        _log.error(
             "Unhandled exception on %s %s: %s",
             request.method, request.url, exc, exc_info=True,
         )
@@ -1494,12 +1509,48 @@ def create_app(
             content={"detail": "An internal error occurred."},
         )
 
+    import uuid as _uuid
+
+    @app.middleware("http")
+    async def _request_id_middleware(request: Request, call_next):
+        request_id = request.headers.get("X-Request-ID") or str(_uuid.uuid4())
+        request.state.request_id = request_id
+        response = await call_next(request)
+        response.headers["X-Request-ID"] = request_id
+        return response
+
     @app.middleware("http")
     async def _setup_guard(request: Request, call_next):
-        if not request.url.path.startswith("/auth/setup"):
+        if not request.url.path.startswith("/auth/setup") and request.url.path != "/health":
             if is_setup_needed(users_db_path):
                 return _RedirectResponse(url="/auth/setup", status_code=303)
         return await call_next(request)
+
+    # ------------------------------------------------------------------
+    # GET /health — liveness + Neo4j connectivity check
+    # NOTE: This endpoint MUST remain unauthenticated. It is used by uptime
+    # monitors and load balancers that have no session credentials. Do not
+    # add require_user or any auth dependency here.
+    # ------------------------------------------------------------------
+    @app.get("/health", include_in_schema=True)
+    def health():
+        ts = datetime.now(timezone.utc).isoformat()
+        executor = state.get("executor")
+        if executor is None:
+            return _JSONResponse(
+                status_code=503,
+                content={"status": "starting", "neo4j": "not_ready", "timestamp": ts},
+            )
+        try:
+            executor.run("RETURN 1 AS ok", {})
+            neo4j_status = "connected"
+        except Exception:
+            neo4j_status = "unavailable"
+        neo4j_ok = neo4j_status == "connected"
+        return _JSONResponse(
+            status_code=200 if neo4j_ok else 503,
+            content={"status": "ok" if neo4j_ok else "degraded", "neo4j": neo4j_status, "timestamp": ts},
+        )
 
     # ------------------------------------------------------------------
     # GET / — Chat UI
@@ -1512,7 +1563,18 @@ def create_app(
     # POST /query
     # ------------------------------------------------------------------
     @app.post("/query", response_model=QueryResponse)
-    def query(req: QueryRequest, user: UserContext = Depends(require_user)) -> QueryResponse:
+    def query(req: QueryRequest, request: Request, user: UserContext = Depends(require_user)) -> QueryResponse:
+        # Rate limiting: admins are exempt; all other users are limited to
+        # QUERY_RATE_LIMIT_MAX requests per QUERY_RATE_LIMIT_PERIOD seconds.
+        if user.role != "admin":
+            _rate_key = user.user_id or user.institution_id
+            if not _query_limiter.is_allowed(_rate_key):
+                raise HTTPException(
+                    status_code=429,
+                    detail="Rate limit exceeded. Maximum 20 requests per minute.",
+                    headers={"Retry-After": "60"},
+                )
+
         gateway: EntityResolutionGateway = state["gateway"]
         assembler: ProvenanceContextAssembler = state["assembler"]
         builder: CypherQueryBuilder = state["query_builder"]
@@ -1547,11 +1609,9 @@ def create_app(
             surface_forms=intent.entities,
             entity_hints=req.entity_hints,
         )
-        # Temporary diagnostic — remove after investigation
-        import sys
-        print(f"DEBUG entities extracted: {intent.entities}", file=sys.stderr)
-        print(f"DEBUG resolved: {[(r.surface_form, r.entity_id, r.resolution_confidence) for r in entity_ctx.resolved]}", file=sys.stderr)
-        print(f"DEBUG unresolved: {entity_ctx.unresolved}", file=sys.stderr)
+        _log.debug("entities extracted: %s", intent.entities)
+        _log.debug("resolved: %s", [(r.surface_form, r.entity_id, r.resolution_confidence) for r in entity_ctx.resolved])
+        _log.debug("unresolved: %s", entity_ctx.unresolved)
 
         is_hybrid = intent.bucket == "hybrid"
         analytical_result = None
@@ -1646,6 +1706,7 @@ def create_app(
                 claims_in_context=retrieval_stats.claims_in_context,
                 session_id=req.session_id,
                 turn_number=turn_number,
+                request_id=getattr(request.state, "request_id", None),
                 claim_interactions=[
                     ClaimInteraction(
                         claim_id=_safe_log_claim_id(b.claim_id, b.access_level),
@@ -1941,5 +2002,33 @@ def create_app(
                 performed_by=performed_by,
             )
         return {"status": "restored", "doc_id": doc_id, "restored_at": restored_at}
+
+    # ------------------------------------------------------------------
+    # /v1/ API versioning
+    # Register canonical versioned paths for all JSON API routes.  The
+    # unversioned paths above remain active (include_in_schema=False) so
+    # the browser UI and existing integrations continue to work unchanged.
+    # ------------------------------------------------------------------
+    from fastapi import APIRouter as _APIRouter
+    v1 = _APIRouter(prefix="/v1")
+    v1.add_api_route("/query", query, methods=["POST"], response_model=QueryResponse)
+    v1.add_api_route("/query/provenance", query_provenance, methods=["POST"])
+    v1.add_api_route("/api/entities/search", entity_search, methods=["GET"])
+    v1.add_api_route("/api/entity/{entity_id}/neighborhood", entity_neighborhood, methods=["GET"])
+    v1.add_api_route("/documents", list_documents, methods=["GET"])
+    v1.add_api_route("/document/{doc_id}", delete_document, methods=["DELETE"])
+    v1.add_api_route("/document/{doc_id}/restore", restore_document, methods=["POST"])
+    app.include_router(v1)
+
+    # Mark the original unversioned paths as deprecated in the schema.
+    for _route in app.routes:
+        if hasattr(_route, "path") and hasattr(_route, "include_in_schema"):
+            if getattr(_route, "path", None) in {
+                "/query", "/query/provenance", "/api/entities/search",
+                "/api/entity/{entity_id}/neighborhood", "/documents",
+                "/document/{doc_id}", "/document/{doc_id}/restore",
+            } and not getattr(_route, "deprecated", False):
+                _route.deprecated = True  # type: ignore[attr-defined]
+                _route.include_in_schema = False  # type: ignore[attr-defined]
 
     return app

@@ -12,6 +12,7 @@ the responsibility of the FastAPI layer above.
 """
 from __future__ import annotations
 
+import concurrent.futures as _futures
 import json
 import os
 import re as _re
@@ -123,6 +124,7 @@ class SynthesisEngine:
         api_key: str | None = None,
         max_tokens: int = 4096,
         synthesis_context: str | None = None,
+        timeout: float | None = None,
     ) -> None:
         if _anthropic_pkg is None:  # pragma: no cover - optional dependency
             raise RuntimeError(
@@ -132,6 +134,9 @@ class SynthesisEngine:
         self._client = _anthropic_pkg.Anthropic(api_key=resolved_key)
         self._max_tokens = max_tokens
         self._system_prompt = _build_system_prompt(synthesis_context or _DEFAULT_SYNTHESIS_CONTEXT)
+        self._timeout = timeout if timeout is not None else float(
+            os.environ.get("SYNTHESIS_TIMEOUT", "60")
+        )
 
     def synthesise(
         self,
@@ -186,12 +191,23 @@ class SynthesisEngine:
         if analytical_result and analytical_result.rows:
             user_message += f"\n\nANALYTICAL DATA ({analytical_result.query_name}):\n{analytical_result.to_summary_text()}"
 
-        message = self._client.messages.create(
-            model=MODEL,
-            max_tokens=self._max_tokens,
-            system=self._system_prompt,
-            messages=[{"role": "user", "content": user_message}],
-        )
+        def _do_api_call():
+            return self._client.messages.create(
+                model=MODEL,
+                max_tokens=self._max_tokens,
+                system=self._system_prompt,
+                messages=[{"role": "user", "content": user_message}],
+            )
+
+        with _futures.ThreadPoolExecutor(max_workers=1) as pool:
+            future = pool.submit(_do_api_call)
+            try:
+                message = future.result(timeout=self._timeout)
+            except _futures.TimeoutError:
+                raise TimeoutError(
+                    f"Synthesis API call exceeded timeout of {self._timeout}s. "
+                    "Check SYNTHESIS_TIMEOUT env var to adjust."
+                )
 
         if message.stop_reason == "max_tokens":
             raise ValueError(

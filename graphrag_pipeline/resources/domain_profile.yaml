@@ -13,7 +13,9 @@ resources:
   claim_relation_compatibility: claim_relation_compatibility.yaml
 
 document_anchor:
-  title_keyword: turnbull
+  title_keywords:
+    - tbl
+    - turnbull
   entity_type: Refuge
   name: Turnbull Refuge
   normalized_form: turnbull refuge

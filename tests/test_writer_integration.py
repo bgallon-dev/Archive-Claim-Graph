@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from graphrag_pipeline.graph.writer import InMemoryGraphWriter
+from graphrag_pipeline.graph.writer import DOMAIN_LABELS, InMemoryGraphWriter
 from graphrag_pipeline.pipeline import extract_semantic
 from graphrag_pipeline.source_parser import parse_source_file
 
@@ -271,6 +271,27 @@ def test_entity_resolution_edges_store_match_score_not_score(fixtures_dir: Path)
     for props in resolution_props:
         assert "match_score" in props
         assert "score" not in props
+
+
+def test_domain_entities_also_stored_under_entity_label(fixtures_dir: Path) -> None:
+    """Every entity with a domain label must also appear under the 'Entity'
+    key in node_store, so retrieval queries matching (e:Entity) will find them."""
+    structure = parse_source_file(fixtures_dir / "report1.json")
+    semantic = extract_semantic(
+        structure,
+        run_overrides={"run_id": "run_label_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
+    )
+
+    writer = InMemoryGraphWriter()
+    writer.create_schema()
+    writer.load_structure(structure)
+    writer.load_semantic(structure, semantic)
+
+    for entity in semantic.entities:
+        if entity.entity_type in DOMAIN_LABELS:
+            assert entity.entity_id in writer.node_store.get("Entity", {}), (
+                f"Entity {entity.entity_id} ({entity.entity_type}) not found under 'Entity' label"
+            )
 
 
 def test_located_in_refuge_edge_emitted(fixtures_dir: Path) -> None:

@@ -113,7 +113,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     query_serve_parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default 127.0.0.1).")
     query_serve_parser.add_argument("--port", type=int, default=8788, help="Port to bind (default 8788).")
-    query_serve_parser.add_argument("--max-tokens", type=int, default=1000, help="Max tokens for synthesis model response (default 1000).")
+    query_serve_parser.add_argument("--max-tokens", type=int, default=4096, help="Max tokens for synthesis model response (default 4096).")
     _add_neo4j_args(query_serve_parser)
     _add_domain_args(query_serve_parser)
 

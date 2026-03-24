@@ -119,4 +119,25 @@ class EntityResolutionGateway:
             if stub.mention_id not in resolved_mids
         ]
 
+        # Deduplicate resolved by entity_id, keeping highest confidence
+        seen: dict[str, ResolvedEntity] = {}
+        for re_obj in resolved:
+            existing = seen.get(re_obj.entity_id)
+            if existing is None or re_obj.resolution_confidence > existing.resolution_confidence:
+                seen[re_obj.entity_id] = re_obj
+        resolved = list(seen.values())
+
+        # Remove from ambiguous any surface form already covered by a resolved entity
+        resolved_surface_forms = {r.surface_form.lower() for r in resolved}
+        resolved_normalized = {
+            token
+            for r in resolved
+            for token in r.surface_form.lower().split()
+        }
+        ambiguous = [
+            f for f in ambiguous
+            if f.lower() not in resolved_surface_forms
+            and f.lower() not in resolved_normalized
+        ]
+
         return EntityContext(resolved=resolved, ambiguous=ambiguous, unresolved=unresolved)

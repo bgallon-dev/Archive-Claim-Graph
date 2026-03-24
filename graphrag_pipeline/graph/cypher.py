@@ -153,6 +153,94 @@ ORDER BY score DESC
 LIMIT $limit
 """
 
+TEMPORAL_CLAIMS_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
+WHERE ($year_min IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y.year <= $year_max)
+  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+RETURN d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements,
+       'IN_YEAR' AS traversal_rel_type
+ORDER BY y.year, c.extraction_confidence DESC
+LIMIT $limit
+"""
+
+TEMPORAL_CLAIMS_QUERY_WITH_REFUGE = """
+MATCH (d:Document)-[:ABOUT_REFUGE]->(ref:Refuge {entity_id: $refuge_id})
+MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})
+WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
+MATCH (c)-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
+WHERE ($year_min IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y.year <= $year_max)
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)
+           <-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+RETURN d, pg, sec, para, c, obs, sp, y,
+       collect(DISTINCT m) AS measurements,
+       'IN_YEAR' AS traversal_rel_type
+ORDER BY y.year, c.extraction_confidence DESC
+LIMIT $limit
+"""
+
+MULTI_ENTITY_CLAIMS_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity)
+WHERE e.entity_id IN $entity_ids
+  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
+WITH d, pg, sec, para, c, obs, sp, y, type(rel) AS traversal_rel_type,
+     collect(DISTINCT m) AS measurements,
+     collect(DISTINCT e.entity_id) AS matched_entity_ids
+RETURN d, pg, sec, para, c, obs, sp, y, measurements, traversal_rel_type,
+       matched_entity_ids
+ORDER BY size(matched_entity_ids) DESC, c.extraction_confidence DESC
+LIMIT $limit
+"""
+
+CLAIM_TYPE_SCOPED_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})
+WHERE c.claim_type IN $claim_types
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
+  AND ($entity_ids IS NULL OR EXISTS {
+    MATCH (c)-[]->(e:Entity) WHERE e.entity_id IN $entity_ids
+  })
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       c.claim_type AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+"""
+
 SPECIES_TREND_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
@@ -170,8 +258,8 @@ ORDER BY y.year
 """
 
 CORPUS_STATS_QUERY = """
-CALL { MATCH (p:Paragraph) RETURN count(p) AS n } WITH n AS total_paragraphs
-CALL { MATCH (d:Document)  RETURN count(d) AS n } WITH total_paragraphs, n AS total_documents
+CALL () { MATCH (p:Paragraph) RETURN count(p) AS n } WITH n AS total_paragraphs
+CALL () { MATCH (d:Document)  RETURN count(d) AS n } WITH total_paragraphs, n AS total_documents
 RETURN total_paragraphs, total_documents
 """
 

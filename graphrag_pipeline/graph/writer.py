@@ -489,9 +489,9 @@ class Neo4jGraphWriter:
         for label, rows in by_label.items():
             self._upsert_nodes(label=label, id_key="entity_id", rows=rows)
             if label in DOMAIN_LABELS:
-                self._upsert_nodes(label="Entity", id_key="entity_id", rows=rows)
+                self._add_labels(source_label=label, id_key="entity_id", new_label="Entity", rows=rows)
         if "Refuge" in by_label:
-            self._upsert_nodes(label="Place", id_key="entity_id", rows=by_label["Refuge"])
+            self._add_labels(source_label="Refuge", id_key="entity_id", new_label="Place", rows=by_label["Refuge"])
 
         for relation_type in ("REFERS_TO", "POSSIBLY_REFERS_TO"):
             rows: list[dict[str, Any]] = []
@@ -735,6 +735,18 @@ class Neo4jGraphWriter:
             f"UNWIND $rows AS row "
             f"MERGE (n:{label} {{{id_key}: row.id}}) "
             "SET n += row.props"
+        )
+        with self._driver.session(database=self._database) as session:
+            session.run(query, rows=rows).consume()
+
+    def _add_labels(self, source_label: str, id_key: str, new_label: str, rows: list[dict[str, Any]]) -> None:
+        """Add a secondary label to existing nodes matched by *source_label*."""
+        if not rows:
+            return
+        query = (
+            f"UNWIND $rows AS row "
+            f"MATCH (n:{source_label} {{{id_key}: row.id}}) "
+            f"SET n:{new_label}"
         )
         with self._driver.session(database=self._database) as session:
             session.run(query, rows=rows).consume()

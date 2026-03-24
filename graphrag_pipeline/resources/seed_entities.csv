@@ -1,5 +1,6 @@
 entity_type,name,prop_key,prop_value
 Refuge,Turnbull Refuge,refuge_id,turnbull_refuge
+Refuge,Turnbull,refuge_id,turnbull_refuge
 Place,Pine Creek,place_type,creek
 Place,Ice Lake,place_type,lake
 Place,Highbridge Pothole,place_type,pond

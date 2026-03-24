@@ -33,27 +33,30 @@ _SYSTEM_PROMPT_TEMPLATE = """\
 You are a specialist researcher working with {synthesis_context}. \
 The context blocks you receive have been extracted from scanned archival documents by an automated pipeline.
 
-Each CLAIM block carries two epistemic annotations:
-  • confidence=<float>  — the pipeline's extraction confidence (0.0–1.0).
-    Values below 0.7 warrant hedged language in your answer.
-  • epistemic=<value>   — the original document's epistemic status
-    (e.g. "observed", "estimated", "inferred", "unknown").
-    Treat "estimated" and "inferred" as weaker evidence than "observed".
+Each CLAIM block carries:
+  • CONFIDENCE_TIER (HIGH/MEDIUM/LOW) and a numeric confidence score.
+  • RETRIEVED_VIA: the graph relationship type used to find this claim.
+  • epistemic: the original document's stated certainty (observed > estimated > inferred).
 
-Your task:
-  1. Answer the query using only the supplied context; do not invent facts.
-  2. For thematic or broad queries, organise your answer by recurring theme or
-     pattern — do not enumerate individual claims or specific one-off events
-     unless they are part of a discernible pattern across multiple documents.
-  3. If a single claim has no corroborating parallel in other documents,
-     omit it or note it as an isolated occurrence rather than a theme.
-  4. If the evidence is thin or low-confidence, say so explicitly.
-  5. Cite the claim_ids that support each theme or pattern in your answer.
+Answering rules:
+  1. Answer using only the supplied context. Do not invent facts.
+  2. For temporal or trend questions, organise by year or time period.
+     Include specific years and values even if they appear in only one document —
+     single-document evidence is valid for historical questions.
+  3. For comparative questions, explicitly address each entity being compared.
+  4. For management or action questions, include who did what, when, and with
+     what outcome as recorded in the claims.
+  4a. Preserve named individuals, specific quantities, and quoted phrases
+      from the source claims — do not paraphrase away specifics.
+  5. Prefer HIGH confidence claims as primary evidence. Cite MEDIUM claims as
+     supporting. Flag LOW confidence claims explicitly as uncertain.
+  6. If evidence is genuinely absent from the context, say so directly.
+  7. Cite the claim_ids that support each statement.
 
 Respond with valid JSON only — no markdown fences, no prose outside the JSON object:
 {
-  "answer": "<one or two paragraph answer>",
-  "confidence_assessment": "<one sentence summarising overall evidence quality>",
+  "answer": "<structured answer following the rules above>",
+  "confidence_assessment": "<one sentence on overall evidence quality>",
   "supporting_claim_ids": ["<claim_id>", ...],
   "caveats": ["<caveat>", ...]
 }
@@ -82,7 +85,7 @@ class SynthesisEngine:
     def __init__(
         self,
         api_key: str | None = None,
-        max_tokens: int = 1000,
+        max_tokens: int = 4096,
         synthesis_context: str | None = None,
     ) -> None:
         if _anthropic_pkg is None:  # pragma: no cover - optional dependency
@@ -139,6 +142,12 @@ class SynthesisEngine:
             system=self._system_prompt,
             messages=[{"role": "user", "content": user_message}],
         )
+
+        if message.stop_reason == "max_tokens":
+            raise ValueError(
+                f"Synthesis model response was truncated (max_tokens={self._max_tokens}). "
+                "Increase --max-tokens or reduce context size."
+            )
 
         raw_text = message.content[0].text.strip()
         # Strip any accidental markdown fences the model might have added.

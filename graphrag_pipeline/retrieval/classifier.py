@@ -29,6 +29,21 @@ _CONVERSATIONAL_SIGNALS: frozenset[str] = frozenset({
     "evidence", "support", "report", "habitat", "condition",
 })
 
+# Words that must never be forwarded to the entity resolver.  Common English
+# words here score 0.65–0.90 against domain entity names via fuzzy matching,
+# producing spurious resolutions that corrupt the retrieval strategy selection.
+_EXTRACTION_STOPWORDS: frozenset[str] = frozenset({
+    "what", "when", "where", "which", "while", "were", "have", "been",
+    "that", "this", "these", "those", "their", "there", "then", "than",
+    "with", "from", "about", "over", "under", "into", "onto", "upon",
+    "describe", "explain", "tell", "show", "give", "find", "list",
+    "happening", "occurred", "recorded", "observed", "noted", "reported",
+    "patterns", "changes", "trends", "during", "across", "stand", "stood",
+    "decade", "period", "years", "year", "time", "times", "date", "dates",
+    "significant", "important", "notable", "common", "general", "specific",
+    "turnbull",  # always resolves to Refuge — handled separately by capitalized pass
+})
+
 # Patterns used to pull year values from query text.
 _YEAR_RE = re.compile(r"\b(1[89]\d{2}|20[012]\d)\b")
 _BETWEEN_RE = re.compile(r"\bbetween\s+(1[89]\d{2}|20[012]\d)\s+and\s+(1[89]\d{2}|20[012]\d)\b")
@@ -105,7 +120,9 @@ def classify_query(
     # The resolver's REFERS_TO threshold (>=0.85 with uniqueness gap) acts as filter.
     for m in re.finditer(r'\b([a-zA-Z]{4,})\b', text):
         norm = normalize_name(m.group(1))
-        if len(norm) >= 4 and norm not in seen_normalized:
+        if (len(norm) >= 4
+                and norm not in seen_normalized
+                and m.group(1).lower() not in _EXTRACTION_STOPWORDS):
             entities.append(m.group(1).lower())
             seen_normalized.add(norm)
 

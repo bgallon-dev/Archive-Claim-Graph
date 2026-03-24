@@ -14,7 +14,9 @@ import pytest
 
 from graphrag_pipeline.retrieval.context_assembler import (
     ProvenanceContextAssembler,
+    _infer_claim_types,
     _row_to_block,
+    _select_retrieval_strategy,
     _serialise_block,
 )
 from graphrag_pipeline.retrieval.models import EntityContext, ProvenanceBlock, ResolvedEntity
@@ -131,12 +133,35 @@ class TestSerialiseBlock:
         text = _serialise_block(block)
         assert "DOCUMENT:" in text
         assert "Annual Report 1942" in text
+        assert "CONFIDENCE_TIER: HIGH (0.85)" in text
         assert "PAGE: 3" in text
         assert "PARAGRAPH: para-001" in text
         assert "CLAIM [POPULATION_TREND" in text
-        assert "confidence=0.85" in text
         assert "epistemic=observed" in text
         assert "Mallard numbers increased." in text
+        # Confidence no longer appears inline in the CLAIM bracket
+        claim_bracket = text.split("CLAIM [")[1].split("]")[0]
+        assert "confidence=" not in claim_bracket
+
+    def test_retrieved_via_present_when_traversal_types_set(self):
+        block = _make_block(traversal_rel_types=["SUBJECT_OF"])
+        text = _serialise_block(block)
+        assert "RETRIEVED_VIA: SUBJECT_OF" in text
+
+    def test_retrieved_via_absent_when_no_traversal_types(self):
+        block = _make_block(traversal_rel_types=[])
+        text = _serialise_block(block)
+        assert "RETRIEVED_VIA" not in text
+
+    def test_confidence_tier_medium(self):
+        block = _make_block(extraction_confidence=0.75)
+        text = _serialise_block(block)
+        assert "CONFIDENCE_TIER: MEDIUM (0.75)" in text
+
+    def test_confidence_tier_low(self):
+        block = _make_block(extraction_confidence=0.50)
+        text = _serialise_block(block)
+        assert "CONFIDENCE_TIER: LOW (0.50)" in text
 
     def test_observation_section(self):
         block = _make_block()
@@ -248,3 +273,173 @@ class TestRetrievalCascade:
         assembler.assemble("query about unknownbird", entity_ctx)
         called_queries = [call[0][0] for call in mock_executor.run.call_args_list]
         assert any(FULLTEXT_CLAIMS_QUERY in q for q in called_queries)
+
+
+# ---------------------------------------------------------------------------
+# Routing strategy selection
+# ---------------------------------------------------------------------------
+
+class TestInferClaimTypes:
+    def test_habitat_keyword_maps_to_types(self):
+        result = _infer_claim_types("what are the habitat conditions?")
+        assert result is not None
+        assert "habitat_condition" in result
+        assert "weather_observation" in result
+
+    def test_population_keyword_maps_to_types(self):
+        result = _infer_claim_types("show population trends for mallard")
+        assert result is not None
+        assert "population_estimate" in result
+        assert "species_presence" in result
+
+    def test_no_signal_returns_none(self):
+        assert _infer_claim_types("tell me about the refuge") is None
+
+    def test_multiple_keywords_merged(self):
+        result = _infer_claim_types("habitat and population data")
+        assert result is not None
+        assert "habitat_condition" in result
+        assert "population_estimate" in result
+
+
+class TestSelectRetrievalStrategy:
+    def _make_entity_ctx(self, n: int = 0) -> EntityContext:
+        resolved = [
+            ResolvedEntity(f"entity-{i}", f"id-{i}", "Species", 0.9, "REFERS_TO")
+            for i in range(n)
+        ]
+        return EntityContext(resolved=resolved)
+
+    def test_temporal_route_when_year_and_no_entity(self):
+        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10
+        )
+        assert template == TEMPORAL_CLAIMS_QUERY
+        assert params["year_min"] == 1950
+        assert params["year_max"] == 1960
+
+    def test_multi_entity_route_when_two_entities(self):
+        from graphrag_pipeline.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "compare mallard and teal", self._make_entity_ctx(2),
+            year_min=None, year_max=None, budget=10
+        )
+        assert template == MULTI_ENTITY_CLAIMS_QUERY
+        assert len(params["entity_ids"]) == 2
+
+    def test_entity_plus_claim_type_route(self):
+        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "habitat conditions for mallard", self._make_entity_ctx(1),
+            year_min=None, year_max=None, budget=10
+        )
+        assert template == ENTITY_ANCHORED_CLAIMS_QUERY
+        # Over-fetch limit (budget * 3) distinguishes this from plain entity route
+        assert params["limit"] == 30
+
+    def test_claim_type_only_route_when_no_entity(self):
+        from graphrag_pipeline.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "describe all population estimates", self._make_entity_ctx(0),
+            year_min=None, year_max=None, budget=10
+        )
+        assert template == CLAIM_TYPE_SCOPED_QUERY
+        assert "population_estimate" in (params["claim_types"] or [])
+
+    def test_single_entity_fallback_no_claim_type(self):
+        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "tell me about the refuge", self._make_entity_ctx(1),
+            year_min=None, year_max=None, budget=10
+        )
+        assert template == ENTITY_ANCHORED_CLAIMS_QUERY
+        assert params["limit"] == 20  # budget * 2 (not the over-fetch * 3)
+
+    def test_fulltext_fallback_when_nothing_matches(self):
+        from graphrag_pipeline.graph.cypher import FULLTEXT_CLAIMS_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "tell me about the refuge", self._make_entity_ctx(0),
+            year_min=None, year_max=None, budget=10
+        )
+        assert template == FULLTEXT_CLAIMS_QUERY
+        assert params["search_text"] == "tell me about the refuge"
+
+
+class TestDuplicateEntityIdDedup:
+    def test_duplicate_ids_select_entity_anchored_not_multi_entity(self):
+        """Two surface forms resolving to the same entity_id should not
+        trigger the MULTI_ENTITY path."""
+        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+
+        resolved = [
+            ResolvedEntity("Turnbull Refuge", "refuge_abc", "Refuge", 1.0, "REFERS_TO"),
+            ResolvedEntity("refuge", "refuge_abc", "Refuge", 0.88, "REFERS_TO"),
+        ]
+        entity_ctx = EntityContext(resolved=resolved)
+        template, params = _select_retrieval_strategy(
+            "what wildlife observations at Turnbull Refuge",
+            entity_ctx, year_min=None, year_max=None, budget=20,
+        )
+        assert template == ENTITY_ANCHORED_CLAIMS_QUERY
+        assert params["entity_id"] == "refuge_abc"
+
+    def test_assembler_uses_entity_anchored_for_duplicate_ids(self):
+        """End-to-end: duplicate entity_ids must not route to MULTI_ENTITY."""
+        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+
+        mock_executor = MagicMock()
+        mock_executor.run.return_value = [_make_raw_row()]
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor)
+        entity_ctx = EntityContext(
+            resolved=[
+                ResolvedEntity("Turnbull Refuge", "refuge_abc", "Refuge", 1.0, "REFERS_TO"),
+                ResolvedEntity("refuge", "refuge_abc", "Refuge", 0.88, "REFERS_TO"),
+            ]
+        )
+        assembler.assemble("wildlife at Turnbull Refuge", entity_ctx)
+        called_query = mock_executor.run.call_args[0][0]
+        assert called_query == ENTITY_ANCHORED_CLAIMS_QUERY
+
+
+class TestClaimTypePostFilter:
+    def test_post_filter_applied_for_entity_plus_claim_type(self):
+        mock_executor = MagicMock()
+        rows = [
+            _make_raw_row(claim_id="c-001", claim_type="habitat_condition"),
+            _make_raw_row(claim_id="c-002", claim_type="population_estimate"),
+            _make_raw_row(claim_id="c-003", claim_type="habitat_condition"),
+        ]
+        mock_executor.run.return_value = rows
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor, budget_conversational=10)
+        entity_ctx = EntityContext(
+            resolved=[ResolvedEntity("mallard", "sp-mallard", "Species", 0.95, "REFERS_TO")]
+        )
+        blocks, _ = assembler.assemble("habitat conditions for mallard", entity_ctx)
+        returned_types = {b.claim_type for b in blocks}
+        assert returned_types == {"habitat_condition"}
+
+    def test_post_filter_falls_back_when_all_filtered(self):
+        mock_executor = MagicMock()
+        # All rows have a claim_type not matching "habitat" vocabulary
+        rows = [
+            _make_raw_row(claim_id="c-001", claim_type="management_action"),
+            _make_raw_row(claim_id="c-002", claim_type="management_action"),
+        ]
+        mock_executor.run.return_value = rows
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor, budget_conversational=10)
+        entity_ctx = EntityContext(
+            resolved=[ResolvedEntity("mallard", "sp-mallard", "Species", 0.95, "REFERS_TO")]
+        )
+        # "habitat" triggers claim_type filter but no rows match — should fall back to all rows
+        blocks, _ = assembler.assemble("habitat conditions for mallard", entity_ctx)
+        assert len(blocks) == 2

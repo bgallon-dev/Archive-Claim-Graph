@@ -480,8 +480,10 @@ def extract_semantic(
     doc_anchor_id: str | None = None
     anchor_cfg = load_domain_profile(resources_dir).get("document_anchor")
     if anchor_cfg:
-        kw = anchor_cfg.get("title_keyword", "").lower()
-        if kw and kw in structure.document.title.lower():
+        raw_kw = anchor_cfg.get("title_keywords") or anchor_cfg.get("title_keyword") or []
+        keywords = [raw_kw] if isinstance(raw_kw, str) else list(raw_kw)
+        title_lower = structure.document.title.lower()
+        if any(kw.lower() in title_lower for kw in keywords):
             entity_type = anchor_cfg["entity_type"]
             name = anchor_cfg["name"]
             norm = anchor_cfg.get("normalized_form", name.lower())

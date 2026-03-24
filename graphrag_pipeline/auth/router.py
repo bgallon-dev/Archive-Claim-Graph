@@ -19,7 +19,7 @@ from typing import Literal
 from .dependencies import NeedsLoginException, require_admin, require_login
 from .jwt_utils import create_access_token, _expire_hours
 from .models import UserContext
-from .setup import generate_and_write_secret, is_setup_needed, mark_setup_done
+from .setup import ensure_setup_token_printed, get_setup_token, is_setup_needed, mark_setup_done
 from .store import UserStore, verify_password
 
 # ---------------------------------------------------------------------------
@@ -209,13 +209,17 @@ _SETUP_HTML = """<!DOCTYPE html>
     <span class="badge">First-time setup</span>
     <h1>Create your admin account</h1>
     <p class="subtitle">
-      This runs once. A secret key will be generated automatically
-      and saved to your <code>.env</code> file.
+      This runs once. A setup token was printed to the server logs when
+      this page was first visited &mdash; paste it below to continue.
     </p>
     {error_block}
     <form method="post" action="/auth/setup">
+      <label for="setup_token">Setup token (from server logs)</label>
+      <input type="text" id="setup_token" name="setup_token" required
+             autocomplete="off" placeholder="Paste token from server stderr">
+      <p class="hint">Check the terminal where the server is running.</p>
       <label for="email">Admin email</label>
-      <input type="email" id="email" name="email" required autofocus
+      <input type="email" id="email" name="email" required
              autocomplete="username" value="{email_prefill}">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" required
@@ -306,6 +310,7 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
     def get_setup() -> HTMLResponse:
         if not is_setup_needed(db_path):
             return RedirectResponse(url="/auth/login", status_code=303)
+        ensure_setup_token_printed()
         return HTMLResponse(_setup_page())
 
     @router.post("/setup", include_in_schema=False)
@@ -313,9 +318,21 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
         email: str = Form(...),
         password: str = Form(...),
         confirm: str = Form(...),
+        setup_token: str = Form(...),
     ) -> Response:
+        # Always re-check the database — never rely on in-process cache here.
         if not is_setup_needed(db_path):
             return RedirectResponse(url="/auth/login", status_code=303)
+
+        import secrets as _sec
+        if not _sec.compare_digest(
+            setup_token.encode("utf-8"),
+            get_setup_token().encode("utf-8"),
+        ):
+            return HTMLResponse(
+                _setup_page(error="Invalid setup token. Check the server logs."),
+                status_code=403,
+            )
 
         email = email.strip().lower()
 
@@ -329,10 +346,6 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
                 _setup_page(error="Passwords do not match.", email_prefill=email),
                 status_code=400,
             )
-
-        # Generate and persist the JWT secret key before creating the user.
-        if not __import__("os").environ.get("JWT_SECRET_KEY"):
-            generate_and_write_secret()
 
         try:
             store.create_user(email, password, role="admin")
@@ -375,7 +388,10 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
                 _login_page(error="Invalid email or password.", next_url=_safe_next(next), email_prefill=email),
                 status_code=401,
             )
-        token = create_access_token(user.user_id, user.email, user.role, user.institution_id)
+        token = create_access_token(
+            user.user_id, user.email, user.role, user.institution_id,
+            token_version=user.token_version,
+        )
         resp = RedirectResponse(url=_safe_next(next), status_code=303)
         cookie_secure = os.environ.get("COOKIE_SECURE", "true").lower() != "false"
         resp.set_cookie(
@@ -383,7 +399,7 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
             value=token,
             httponly=True,
             secure=cookie_secure,
-            samesite="lax",
+            samesite="strict",
             max_age=_expire_hours() * 3600,
         )
         return resp
@@ -419,8 +435,13 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
     ) -> UserResponse:
         try:
             user = store.create_user(body.email, body.password, body.role, body.institution_id)
-        except ValueError as e:
-            raise HTTPException(status_code=400, detail=str(e))
+        except ValueError:
+            # Return a generic message to avoid confirming whether an email
+            # address is already registered (information disclosure).
+            raise HTTPException(
+                status_code=400,
+                detail="Could not create user. Verify that the email address is valid and the role is correct.",
+            )
         return UserResponse(
             user_id=user.user_id,
             email=user.email,

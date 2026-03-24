@@ -876,8 +876,21 @@ def _process_single_document(
                                 _claim.quarantine_reason = _prop.issue_class
                                 _claim.quarantine_timestamp = _now_ts
                                 _quarantined_ids.add(_claim.claim_id)
-    except Exception:
-        pass  # sensitivity gate failure must never block ingestion
+    except Exception as _gate_exc:
+        import logging as _logging
+        _logging.getLogger(__name__).error(
+            "Sensitivity gate failed for %r: %s — quarantining all claims as precaution",
+            input_item, _gate_exc, exc_info=True,
+        )
+        # Quarantine everything in the document rather than silently ingesting
+        # un-screened content.  A reviewer can clear individual claims once the
+        # detector issue is resolved.
+        _now_ts = datetime.now(timezone.utc).isoformat()
+        for _claim in semantic.claims:
+            if not _claim.quarantine_status:
+                _claim.quarantine_status = "quarantined"
+                _claim.quarantine_reason = "sensitivity_gate_error"
+                _claim.quarantine_timestamp = _now_ts
 
     stem = Path(input_item).stem
     output_dir = Path(out_dir)

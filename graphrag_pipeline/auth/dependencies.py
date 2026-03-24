@@ -19,15 +19,15 @@ be registered on the application:
     from graphrag_pipeline.auth.dependencies import NeedsLoginException
 
     @app.exception_handler(NeedsLoginException)
-    async def _needs_login(request: Request, exc: NeedsLoginException):
-        from fastapi.responses import RedirectResponse
+    async def _handler(request, exc):
         return RedirectResponse(url=exc.redirect_url, status_code=303)
 """
 from __future__ import annotations
 
 import json
+import logging
 import os
-from pathlib import Path
+import time
 
 from fastapi import Cookie, Depends, HTTPException, Request, status
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -37,7 +37,13 @@ from .jwt_utils import decode_access_token
 from .models import ROLE_PERMITTED_LEVELS, UserContext
 from .store import UserStore, verify_password
 
+_LOG = logging.getLogger(__name__)
+
 _bearer = HTTPBearer(auto_error=False)
+
+# Roles that may appear in a valid JWT.  Reject tokens claiming unknown roles
+# rather than silently degrading to "public".
+_VALID_ROLES: frozenset[str] = frozenset(ROLE_PERMITTED_LEVELS.keys())
 
 # Module-level store singleton — initialised lazily from USERS_DB env var.
 _store: UserStore | None = None
@@ -91,6 +97,13 @@ def _is_browser_request(request: Request) -> bool:
     return "text/html" in accept and not has_auth_header
 
 
+def _reject_session(request: Request, detail: str) -> None:
+    """Raise the appropriate error for a revoked/invalid session."""
+    if _is_browser_request(request):
+        raise NeedsLoginException("/auth/login")
+    raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail=detail)
+
+
 # ---------------------------------------------------------------------------
 # Core dependency
 # ---------------------------------------------------------------------------
@@ -103,35 +116,62 @@ def require_login(
     """Return the authenticated UserContext for this request.
 
     Resolution order:
-    1. JWT cookie  →  full UserContext with user_id and email
+    1. JWT cookie  →  full UserContext with user_id, email, and DB-verified claims
     2. Bearer token  →  legacy UserContext (is_api_client=True)
     3. Neither  →  redirect (browser) or 401 (API)
     """
     # 1. JWT cookie
     if access_token:
+        decoded: dict | None = None
         try:
-            payload = decode_access_token(access_token)
+            decoded = decode_access_token(access_token)
+        except (JWTError, Exception) as exc:
+            _LOG.warning("JWT cookie decode failed: %s", exc)
+            # Fall through to bearer token check.
+
+        if decoded is not None:
+            role = decoded.get("role", "")
+            if role not in _VALID_ROLES:
+                _LOG.warning("JWT token contains unknown role %r — rejecting", role)
+                decoded = None
+
+        if decoded is not None:
+            user_id = decoded.get("sub", "")
+            db_user = _get_store().get_by_id(user_id) if user_id else None
+
+            if db_user is None or not db_user.is_active:
+                _reject_session(request, "Session invalidated")
+
+            if db_user.token_version != decoded.get("tkv", -1):
+                _reject_session(request, "Session invalidated")
+
+            # Use DB values for role and institution — never trust JWT claims alone.
             return UserContext(
-                role=payload["role"],
-                institution_id=payload["inst"],
-                permitted_levels=ROLE_PERMITTED_LEVELS.get(payload["role"], ["public"]),
-                user_id=payload.get("sub"),
-                email=payload.get("email"),
+                role=db_user.role,
+                institution_id=db_user.institution_id,
+                permitted_levels=ROLE_PERMITTED_LEVELS.get(db_user.role, ["public"]),
+                user_id=db_user.user_id,
+                email=db_user.email,
                 is_api_client=False,
             )
-        except (JWTError, KeyError):
-            # Invalid or expired cookie — fall through; the response will clear it
-            pass
 
     # 2. Bearer token (legacy API clients)
     if credentials is not None:
         token_store = _load_token_store()
         entry = token_store.get(credentials.credentials)
         if entry is not None:
+            # Check expiry if the token store entry carries an expires_at timestamp.
+            expires_at = entry.get("expires_at")
+            if expires_at is not None and expires_at < time.time():
+                raise HTTPException(
+                    status_code=status.HTTP_403_FORBIDDEN,
+                    detail="API token has expired",
+                )
             role = entry.get("role", "public")
             institution_id = entry.get("institution_id", "turnbull")
-            return UserContext.from_token_entry(role, institution_id)
-        # Token present but not found in store
+            client_id = entry.get("client_id")
+            return UserContext.from_token_entry(role, institution_id, client_id=client_id)
+        # Token present but not found in store.
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Invalid or expired API token",

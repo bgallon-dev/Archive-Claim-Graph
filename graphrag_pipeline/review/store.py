@@ -8,6 +8,8 @@ from pathlib import Path
 from typing import Any
 
 from .models import (
+    ISSUE_CLASSES,
+    PROPOSAL_STATUSES,
     AntiPatternClass,
     CorrectionEvent,
     Proposal,
@@ -119,6 +121,10 @@ _DEFAULT_ANTI_PATTERNS: list[dict[str, str]] = [
     {"anti_pattern_id": "ap_indigenous_sensitivity", "name": "Indigenous Cultural Sensitivity", "description": "Potential Indigenous cultural material requiring community review", "queue_name": "sensitivity"},
     {"anti_pattern_id": "ap_living_person", "name": "Living Person Reference", "description": "Reference to potentially living individual with sensitive information", "queue_name": "sensitivity"},
 ]
+
+QUEUE_NAMES: frozenset[str] = frozenset(
+    d["queue_name"] for d in _DEFAULT_ANTI_PATTERNS if "queue_name" in d
+)
 
 ISSUE_CLASS_TO_ANTI_PATTERN: dict[str, str] = {
     "ocr_spelling_variant": "ap_ocr_spelling",
@@ -303,6 +309,12 @@ class ReviewStore:
         limit: int = 200,
         offset: int = 0,
     ) -> list[Proposal]:
+        if status and status not in PROPOSAL_STATUSES:
+            raise ValueError(f"Invalid status: {status!r}")
+        if issue_class and issue_class not in ISSUE_CLASSES:
+            raise ValueError(f"Invalid issue_class: {issue_class!r}")
+        if queue_name and queue_name not in QUEUE_NAMES:
+            raise ValueError(f"Invalid queue_name: {queue_name!r}")
         clauses: list[str] = []
         params: list[Any] = []
         if status:

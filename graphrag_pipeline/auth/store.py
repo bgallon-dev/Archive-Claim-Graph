@@ -22,11 +22,17 @@ CREATE TABLE IF NOT EXISTS user (
     role            TEXT NOT NULL CHECK(role IN ('admin','archivist','readonly')),
     institution_id  TEXT NOT NULL DEFAULT 'turnbull',
     created_at      TEXT NOT NULL,
-    is_active       INTEGER NOT NULL DEFAULT 1
+    is_active       INTEGER NOT NULL DEFAULT 1,
+    token_version   INTEGER NOT NULL DEFAULT 0
 );
 CREATE UNIQUE INDEX IF NOT EXISTS user_email_lower ON user (lower(email));
 CREATE INDEX IF NOT EXISTS user_role ON user (role);
 """
+
+# Migration for databases created before token_version was added.
+_MIGRATE_TOKEN_VERSION = (
+    "ALTER TABLE user ADD COLUMN token_version INTEGER NOT NULL DEFAULT 0"
+)
 
 _VALID_ROLES = {"admin", "archivist", "readonly"}
 
@@ -56,6 +62,11 @@ class UserStore:
         self._path.parent.mkdir(parents=True, exist_ok=True)
         with self._connect() as conn:
             conn.executescript(_SCHEMA)
+            # Migration: add token_version to databases created before this column existed.
+            try:
+                conn.execute(_MIGRATE_TOKEN_VERSION)
+            except sqlite3.OperationalError:
+                pass  # Column already exists
 
     def _connect(self) -> sqlite3.Connection:
         conn = sqlite3.connect(self._path, check_same_thread=False)
@@ -71,6 +82,7 @@ class UserStore:
             institution_id=row["institution_id"],
             created_at=row["created_at"],
             is_active=bool(row["is_active"]),
+            token_version=int(row["token_version"]),
         )
 
     # ------------------------------------------------------------------
@@ -112,9 +124,11 @@ class UserStore:
         return User(user_id, email, hashed, role, institution_id, created_at, True)
 
     def deactivate_user(self, user_id: str) -> bool:
+        # Bump token_version atomically so any existing JWTs are invalidated immediately.
         with self._connect() as conn:
             cur = conn.execute(
-                "UPDATE user SET is_active = 0 WHERE user_id = ?", (user_id,)
+                "UPDATE user SET is_active = 0, token_version = token_version + 1 WHERE user_id = ?",
+                (user_id,),
             )
             return cur.rowcount > 0
 
@@ -127,9 +141,10 @@ class UserStore:
 
     def change_password(self, user_id: str, new_password: str) -> None:
         hashed = hash_password(new_password)
+        # Bump token_version so all existing sessions are invalidated on password change.
         with self._connect() as conn:
             conn.execute(
-                "UPDATE user SET hashed_password = ? WHERE user_id = ?",
+                "UPDATE user SET hashed_password = ?, token_version = token_version + 1 WHERE user_id = ?",
                 (hashed, user_id),
             )
 

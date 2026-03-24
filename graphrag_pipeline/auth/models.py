@@ -36,6 +36,7 @@ class User:
     institution_id: str
     created_at: str
     is_active: bool
+    token_version: int = 0
 
 
 # ---------------------------------------------------------------------------
@@ -54,6 +55,8 @@ class UserContext:
     user_id: str | None = None
     email: str | None = None
     is_api_client: bool = False
+    # Per-client identifier for API token holders (improves audit trail granularity).
+    client_id: str | None = None
 
     @classmethod
     def from_user(cls, user: User) -> "UserContext":
@@ -67,7 +70,9 @@ class UserContext:
         )
 
     @classmethod
-    def from_token_entry(cls, role: str, institution_id: str) -> "UserContext":
+    def from_token_entry(
+        cls, role: str, institution_id: str, *, client_id: str | None = None
+    ) -> "UserContext":
         """Build a UserContext from a legacy bearer-token store entry."""
         return cls(
             role=role,
@@ -76,6 +81,7 @@ class UserContext:
             user_id=None,
             email=None,
             is_api_client=True,
+            client_id=client_id,
         )
 
     @property
@@ -84,5 +90,6 @@ class UserContext:
         if self.email:
             return self.email
         if self.is_api_client:
-            return f"{self.role}@api"
+            actor = self.client_id or self.role
+            return f"{actor}@api"
         return self.role

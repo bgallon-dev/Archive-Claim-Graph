@@ -20,9 +20,12 @@ def _get_secret() -> str:
     secret = os.environ.get("JWT_SECRET_KEY", "")
     if not secret:
         raise RuntimeError(
-            "JWT_SECRET_KEY environment variable is not set. "
-            "Generate one with: python -c \"import secrets; print(secrets.token_hex(32))\""
+            "JWT_SECRET_KEY is not set. Generate with:\n"
+            "  python -c \"import secrets; print(secrets.token_hex(32))\"\n"
+            "Then set it as an environment variable before starting the server."
         )
+    if len(secret) < 32:
+        raise RuntimeError("JWT_SECRET_KEY must be at least 32 characters.")
     return secret
 
 
@@ -38,6 +41,7 @@ def create_access_token(
     email: str,
     role: str,
     institution_id: str,
+    token_version: int = 0,
 ) -> str:
     """Return a signed JWT string."""
     now = datetime.now(timezone.utc)
@@ -46,6 +50,7 @@ def create_access_token(
         "email": email,
         "role":  role,
         "inst":  institution_id,
+        "tkv":   token_version,
         "iat":   now,
         "exp":   now + timedelta(hours=_expire_hours()),
     }
@@ -60,4 +65,14 @@ def decode_access_token(token: str) -> dict:
     jose.JWTError
         If the token is invalid, expired, or the signature does not match.
     """
-    return jwt.decode(token, _get_secret(), algorithms=[ALGORITHM])
+    return jwt.decode(
+        token,
+        _get_secret(),
+        algorithms=["HS256"],
+        options={
+            "verify_exp": True,
+            "verify_iat": True,
+            "verify_nbf": True,
+            "leeway": 0,
+        },
+    )

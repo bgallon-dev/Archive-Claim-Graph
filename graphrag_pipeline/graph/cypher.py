@@ -476,8 +476,11 @@ ORDER BY count DESC
 """
 
 STATS_ENTITY_TYPE_QUERY = """
-MATCH (e:Entity)
-RETURN [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type, count(e) AS count
+MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[]->(e:Entity)
+WHERE d.institution_id = $institution_id
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+RETURN [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type, count(DISTINCT e) AS count
 ORDER BY count DESC
 """
 

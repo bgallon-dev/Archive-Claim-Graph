@@ -20,7 +20,9 @@ Start via the CLI:
 from __future__ import annotations
 
 import dataclasses
+import hashlib as _hashlib
 import os
+import re
 import sqlite3 as _sqlite3
 import statistics as _statistics
 from contextlib import asynccontextmanager
@@ -69,6 +71,11 @@ from ..query_builder import CypherQueryBuilder
 from ..synthesis import SynthesisEngine
 
 
+# Allowlist for entity_id URL path parameters.
+# Format: lowercase letters/underscores (2-30 chars) + underscore + 8-32 hex chars
+# e.g. entity_id_a3f1b2c4d5e6f7a8
+_ENTITY_ID_RE = re.compile(r'^[a-z_]{2,30}_[0-9a-f]{8,32}$')
+
 # ---------------------------------------------------------------------------
 # Request / response models
 # ---------------------------------------------------------------------------
@@ -96,6 +103,8 @@ class QueryRequest(BaseModel):
     )
     session_id: str | None = Field(
         None,
+        max_length=128,
+        pattern=r'^[a-zA-Z0-9_\-]{1,128}$',
         description="Client-generated session ID grouping multi-turn exchanges.",
     )
 
@@ -879,6 +888,21 @@ def _compute_temporal_gaps(temporal_rows: list[dict]) -> list[dict]:
     return gaps
 
 
+_RESTRICTED_ACCESS_LEVELS = frozenset({"restricted", "indigenous_restricted", "staff_only"})
+
+
+def _safe_log_claim_id(claim_id: str, access_level: str) -> str:
+    """Return an opaque stable hash for claims from restricted documents.
+
+    Preserves the ability to see access patterns (e.g. same claim retrieved
+    N times) without exposing the actual claim_id of sensitive content in the
+    conversation log.
+    """
+    if access_level in _RESTRICTED_ACCESS_LEVELS:
+        return "redacted_" + _hashlib.sha256(claim_id.encode()).hexdigest()[:12]
+    return claim_id
+
+
 def _read_query_signal_gaps(conv_log_db: str, limit: int = 10) -> list[dict]:
     """Return query buckets with high frequency but thin claim context from conversation log."""
     try:
@@ -1451,6 +1475,25 @@ def create_app(
     async def _needs_login_handler(request: Request, exc: NeedsLoginException):
         return _RedirectResponse(url=exc.redirect_url, status_code=303)
 
+    from fastapi import HTTPException as _HTTPException
+    from fastapi.responses import JSONResponse as _JSONResponse
+    import logging as _logging
+
+    @app.exception_handler(Exception)
+    async def _internal_error_handler(request: Request, exc: Exception) -> _JSONResponse:
+        # Re-raise HTTPException so FastAPI's built-in handler produces the
+        # correct status code and detail — only swallow truly unhandled errors.
+        if isinstance(exc, _HTTPException):
+            raise exc
+        _logging.getLogger(__name__).error(
+            "Unhandled exception on %s %s: %s",
+            request.method, request.url, exc, exc_info=True,
+        )
+        return _JSONResponse(
+            status_code=500,
+            content={"detail": "An internal error occurred."},
+        )
+
     @app.middleware("http")
     async def _setup_guard(request: Request, call_next):
         if not request.url.path.startswith("/auth/setup"):
@@ -1605,7 +1648,7 @@ def create_app(
                 turn_number=turn_number,
                 claim_interactions=[
                     ClaimInteraction(
-                        claim_id=b.claim_id,
+                        claim_id=_safe_log_claim_id(b.claim_id, b.access_level),
                         claim_type=b.claim_type,
                         traversal_rel_types=b.traversal_rel_types,
                         was_cited=b.claim_id in cited_ids,
@@ -1723,7 +1766,7 @@ def create_app(
         overview = (executor.run(STATS_DOC_OVERVIEW_QUERY, params) or [{}])[0]
         doc_types = executor.run(STATS_DOC_TYPE_QUERY, params) or []
         claim_types = executor.run(STATS_CLAIM_TYPE_QUERY, params) or []
-        entity_types = executor.run(STATS_ENTITY_TYPE_QUERY, {}) or []
+        entity_types = executor.run(STATS_ENTITY_TYPE_QUERY, params) or []
         temporal = executor.run(STATS_TEMPORAL_COVERAGE_QUERY, params) or []
         confidence = (executor.run(STATS_CONFIDENCE_DISTRIBUTION_QUERY, params) or [{}])[0]
         return _render_stats_html(overview, doc_types, claim_types, entity_types, temporal, confidence)
@@ -1732,7 +1775,7 @@ def create_app(
     # GET /gaps  — collection gap analysis dashboard
     # ------------------------------------------------------------------
     @app.get("/gaps", response_class=HTMLResponse, include_in_schema=False)
-    def collection_gaps(user: UserContext = Depends(require_user)) -> str:
+    def collection_gaps(user: UserContext = Depends(require_admin)) -> str:
         executor: Neo4jQueryExecutor = state["executor"]
         params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
         thin_params = {**params, "thin_threshold": 3, "limit": 50}
@@ -1779,6 +1822,8 @@ def create_app(
         limit: int = Query(15, le=30),
         user: UserContext = Depends(require_user),
     ) -> dict[str, Any]:
+        if not _ENTITY_ID_RE.match(entity_id):
+            raise HTTPException(status_code=400, detail="Invalid entity_id format")
         executor: Neo4jQueryExecutor = state["executor"]
         params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
 

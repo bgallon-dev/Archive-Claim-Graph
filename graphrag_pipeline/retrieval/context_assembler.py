@@ -68,6 +68,21 @@ _QUERY_INTENT_TO_CLAIM_TYPES: dict[str, list[str]] = {
 }
 
 
+# Lucene special characters that must be escaped to prevent query injection
+# when user text is passed to db.index.fulltext.queryNodes().
+_LUCENE_SPECIAL = re.compile(r'([+\-&|!(){}\[\]^"~*?:\\/])')
+_FULLTEXT_MAX_LEN = 500
+
+
+def _sanitize_fulltext(text: str) -> str:
+    """Escape Lucene special characters and enforce a length cap.
+
+    Prevents field-qualified queries (e.g. normalized_sentence:*) and expensive
+    fuzzy/wildcard operators from reaching the Neo4j fulltext index.
+    """
+    return _LUCENE_SPECIAL.sub(r'\\\1', text.strip()[:_FULLTEXT_MAX_LEN])
+
+
 def _infer_claim_types(query_text: str) -> list[str] | None:
     """Map query vocabulary to claim_type filters. Returns None if no signal."""
     lowered = query_text.lower()
@@ -154,9 +169,43 @@ def _select_retrieval_strategy(
             **_access_params,
         }
     return FULLTEXT_CLAIMS_QUERY, {
-        "search_text": query_text, "limit": budget * 2,
+        "search_text": _sanitize_fulltext(query_text), "limit": budget * 2,
         **_access_params,
     }
+
+
+# ---------------------------------------------------------------------------
+# Prompt injection guard
+# Detects sequences in archival document text that resemble LLM instructions.
+# A sentence that matches is replaced with a placeholder rather than being
+# forwarded to the synthesis model verbatim.
+# ---------------------------------------------------------------------------
+
+_PROMPT_INJECTION_RE = re.compile(
+    r"(ignore\s+(previous|prior|above)\s+instructions?"
+    r"|you\s+are\s+now"
+    r"|new\s+instructions?"
+    r"|system\s*:"
+    r"|assistant\s*:"
+    r"|<\s*/?\s*(?:system|assistant|user)\s*>)",
+    re.IGNORECASE,
+)
+
+
+def _sanitize_claim_text(sentence: str) -> str:
+    """Return *sentence* or a redaction placeholder if injection patterns are found.
+
+    XML-escapes the content so it cannot break the <claim_text> delimiters.
+    """
+    if _PROMPT_INJECTION_RE.search(sentence):
+        return "[CLAIM CONTENT REDACTED: potential injection pattern detected]"
+    # Escape XML/HTML characters to prevent delimiter break-out.
+    return (
+        sentence
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
 
 
 # Regex that matches characters indicating OCR structural corruption.
@@ -261,7 +310,7 @@ def _serialise_block(block: ProvenanceBlock, query_intent_signal: str = "") -> s
             f"      CLAIM [{block.claim_type}, "
             f"epistemic={block.epistemic_status}]:"
         ),
-        f'        "{block.source_sentence}"',
+        f"        <claim_text>{_sanitize_claim_text(block.source_sentence)}</claim_text>",
     ]
 
     if block.observation_type:

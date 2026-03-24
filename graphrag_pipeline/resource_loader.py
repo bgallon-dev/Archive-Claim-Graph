@@ -16,6 +16,18 @@ import yaml
 _DEFAULT_RESOURCES_DIR: Path = Path(__file__).parent / "resources"
 
 
+def _safe_compile(pattern: str, flags: int = 0) -> re.Pattern:
+    """Compile a regex, raising ValueError on malformed patterns.
+
+    Prevents a tampered/malformed resource YAML from injecting a pattern that
+    would raise an uncaught exception or cause a ReDoS at extraction time.
+    """
+    try:
+        return re.compile(pattern, flags)
+    except re.error as e:
+        raise ValueError(f"Invalid regex in resource file: {pattern!r}") from e
+
+
 def _dir(resources_dir: Path | None) -> Path:
     return resources_dir if resources_dir is not None else _DEFAULT_RESOURCES_DIR
 
@@ -59,7 +71,7 @@ def load_claim_type_patterns(
         data: dict[str, Any] = yaml.safe_load(fh)
     result: list[tuple[str, re.Pattern[str], float]] = []
     for entry in data["patterns"]:
-        compiled = re.compile(entry["regex"], re.IGNORECASE)
+        compiled = _safe_compile(entry["regex"], re.IGNORECASE)
         result.append((str(entry["claim_type"]), compiled, float(entry["weight"])))
     return result
 

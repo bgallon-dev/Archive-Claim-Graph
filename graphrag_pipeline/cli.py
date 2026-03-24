@@ -524,7 +524,16 @@ def main(argv: list[str] | None = None) -> int:
         results = []
         ok_count = mismatch_count = missing_count = 0
         for row in rows:
-            source_path = Path(row["source_file"])
+            source_path = Path(row["source_file"]).resolve()
+            try:
+                source_path.relative_to(Path.cwd())
+            except ValueError:
+                results.append({
+                    "doc_id": row["doc_id"], "title": row.get("title"),
+                    "status": "error",
+                    "error": f"source_file path outside working directory: {source_path}",
+                })
+                continue
             if not source_path.exists():
                 results.append({
                     "doc_id": row["doc_id"], "title": row.get("title"),

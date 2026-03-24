@@ -18,6 +18,8 @@ from pathlib import Path
 from typing import Any
 
 
+_VALID_EVENT_TYPES = frozenset({"ingestion", "soft_delete", "restore"})
+
 _CREATE_TABLE = """
 CREATE TABLE IF NOT EXISTS write_event (
     event_id      TEXT PRIMARY KEY,
@@ -86,6 +88,8 @@ class WriteAuditLogger:
             Optional JSON-serialisable dict with extra context
             (e.g. access_level, source_file path).
         """
+        if event_type not in _VALID_EVENT_TYPES:
+            raise ValueError(f"Unknown event_type: {event_type!r}")
         with self._connect() as conn:
             conn.execute(
                 """

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -31,6 +32,22 @@ _MAX_PARA_CHARS: int = 600  # split chunks larger than this at sentence boundari
 # Filename year inference: YYYYMM (e.g. 200601 → 2006) takes priority over bare years.
 _YYYYMM_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)\d{2}(?!\d)")
 _YEAR_ONLY_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)(?!\d)")
+
+
+def _canonicalize_source_path(raw: str) -> str:
+    """Resolve *raw* to an absolute path and verify it is within the CWD.
+
+    Raises ValueError if the resolved path escapes the current working directory,
+    preventing path traversal via a crafted metadata.source_file value.
+    """
+    resolved = Path(raw).resolve()
+    try:
+        resolved.relative_to(Path.cwd())
+    except ValueError:
+        raise ValueError(
+            f"source_file path escapes working directory: {raw!r}"
+        )
+    return str(resolved)
 
 
 def _infer_year_from_filename(source_file: str) -> int | None:
@@ -131,7 +148,10 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
     if report_year is None and isinstance(date_start, str) and len(date_start) >= 4 and date_start[:4].isdigit():
         report_year = int(date_start[:4])
 
-    resolved_source = source_file or metadata.get("source_file")
+    _meta_source = metadata.get("source_file")
+    if _meta_source and not source_file:
+        _meta_source = _canonicalize_source_path(_meta_source)
+    resolved_source = source_file or _meta_source
     if report_year is None and resolved_source:
         report_year = _infer_year_from_filename(resolved_source)
     doc_id = metadata.get("doc_id") or make_doc_id(title, date_start, date_end, resolved_source)

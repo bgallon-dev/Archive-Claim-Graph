@@ -93,7 +93,10 @@ def _load_paragraph_context(
     if not source_file:
         return []
     doc_name = Path(source_file.replace("\\", "/")).parent.name
-    struct_path = Path(out_dir) / f"{doc_name}.structure.json"
+    base = Path(out_dir).resolve()
+    struct_path = (base / f"{doc_name}.structure.json").resolve()
+    if not struct_path.is_relative_to(base):
+        return []
     if not struct_path.exists():
         return []
 
@@ -586,6 +589,23 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
     @app.exception_handler(NeedsLoginException)
     async def _needs_login_handler(request: Request, exc: NeedsLoginException):
         return _RedirectResponse(url=exc.redirect_url, status_code=303)
+
+    from fastapi import HTTPException as _HTTPException
+    from fastapi.responses import JSONResponse as _JSONResponse
+    import logging as _logging
+
+    @app.exception_handler(Exception)
+    async def _internal_error_handler(request: Request, exc: Exception) -> _JSONResponse:
+        if isinstance(exc, _HTTPException):
+            raise exc
+        _logging.getLogger(__name__).error(
+            "Unhandled exception on %s %s: %s",
+            request.method, request.url, exc, exc_info=True,
+        )
+        return _JSONResponse(
+            status_code=500,
+            content={"detail": "An internal error occurred."},
+        )
 
     @app.middleware("http")
     async def _setup_guard(request: Request, call_next):

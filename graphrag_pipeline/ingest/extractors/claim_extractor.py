@@ -5,15 +5,15 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol
 
-from ..claim_contract import (
+from graphrag_pipeline.core.claim_contract import (
     ALLOWED_CLAIM_TYPES,
     CLAIM_LOCATION_RELATION,
     UNCLASSIFIED_TYPE,
     claim_relation_priority,
     validate_claim_link_relation,
 )
-from ..resolver import default_seed_entities
-from ..resource_loader import load_claim_type_patterns, load_claim_role_policy
+from graphrag_pipeline.core.resolver import default_seed_entities
+from graphrag_pipeline.shared.resource_loader import load_claim_type_patterns, load_claim_role_policy
 
 _LOADED_TYPE_PATTERNS = load_claim_type_patterns()
 _LOADED_ROLE_POLICY = load_claim_role_policy()

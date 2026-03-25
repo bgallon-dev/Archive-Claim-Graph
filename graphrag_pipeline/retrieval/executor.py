@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..graph.writer import _build_driver_kwargs, _format_connection_error  # type: ignore[attr-defined]
+from graphrag_pipeline.ingest.graph.writer import _build_driver_kwargs, _format_connection_error
 
 try:
     from neo4j import GraphDatabase
@@ -83,7 +83,7 @@ class Neo4jQueryExecutor:
         All statements in SCHEMA_STATEMENTS use IF NOT EXISTS so this is
         idempotent — safe to call on every server startup.
         """
-        from ..graph.cypher import SCHEMA_STATEMENTS
+        from ..core.graph.cypher import SCHEMA_STATEMENTS
 
         with self._driver.session(database=self._database) as session:
             for stmt in SCHEMA_STATEMENTS:

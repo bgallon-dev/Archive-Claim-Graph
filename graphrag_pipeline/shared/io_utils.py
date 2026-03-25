@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from .models import SemanticBundle, StructureBundle
+from graphrag_pipeline.core.models import SemanticBundle, StructureBundle
 
 
 def load_json(path: str | Path) -> Any:

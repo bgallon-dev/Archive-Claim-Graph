@@ -64,7 +64,7 @@ def render_ead_xml(
     Documents with *restricted* or *indigenous_restricted* access level are
     skipped (a warning is logged per skipped document).
     """
-    from graphrag_pipeline.io_utils import load_semantic_bundle, load_structure_bundle
+    from graphrag_pipeline.shared.io_utils import load_semantic_bundle, load_structure_bundle
 
     semantic_paths = sorted(bundles_dir.glob(glob_pattern))
     if not semantic_paths:

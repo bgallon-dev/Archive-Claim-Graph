@@ -16,7 +16,7 @@ import collections
 import logging
 import re
 
-from ..graph.cypher import (
+from graphrag_pipeline.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
@@ -43,7 +43,7 @@ def _get_default_refuge_id() -> str | None:
     if _TURNBULL_REFUGE_ID is not None:
         return _TURNBULL_REFUGE_ID
     try:
-        from ..resolver import default_seed_entities
+        from graphrag_pipeline.core.resolver import default_seed_entities
         seeds = default_seed_entities()
         refuge = next(
             (e for e in seeds
@@ -510,7 +510,7 @@ class ProvenanceContextAssembler:
 
         Used by the ``POST /query/provenance`` endpoint.
         """
-        from ..graph.cypher import PROVENANCE_CHAIN_QUERY
+        from ..core.graph.cypher import PROVENANCE_CHAIN_QUERY
 
         rows = self._executor.run(PROVENANCE_CHAIN_QUERY, {
             "claim_id": claim_id,

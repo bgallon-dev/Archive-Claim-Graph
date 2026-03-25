@@ -18,7 +18,7 @@ import argparse
 import os
 import sys
 
-from graphrag_pipeline.env import load_dotenv
+from graphrag_pipeline.shared.env import load_dotenv
 
 DOMAIN_LABELS = [
     "Refuge", "Place", "Person", "Organization",

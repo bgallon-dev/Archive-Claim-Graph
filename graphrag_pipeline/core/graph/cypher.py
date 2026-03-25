@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from ..claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
+from graphrag_pipeline.core.claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
 
 ID_CONSTRAINTS: dict[str, str] = {
     "Document": "doc_id",

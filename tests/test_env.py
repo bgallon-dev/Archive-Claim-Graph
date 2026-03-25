@@ -1,6 +1,6 @@
 import os
 
-from graphrag_pipeline.env import load_dotenv
+from graphrag_pipeline.shared.env import load_dotenv
 
 
 def test_load_dotenv_reads_values(tmp_path) -> None:

@@ -282,7 +282,7 @@ def validate_payload(payload: dict[str, Any], pdf_path: Path) -> bool:
         # Add project root to path so graphrag_pipeline is importable
         import os
         sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-        from graphrag_pipeline.source_parser import parse_source_payload  # type: ignore
+        from graphrag_pipeline.ingest.source_parser import parse_source_payload  # type: ignore
         parse_source_payload(payload, source_file=str(pdf_path))
         return True
     except Exception as exc:

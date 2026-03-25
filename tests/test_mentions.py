@@ -1,4 +1,4 @@
-from graphrag_pipeline.extractors.mention_extractor import RuleBasedMentionExtractor
+from graphrag_pipeline.ingest.extractors.mention_extractor import RuleBasedMentionExtractor
 
 
 def test_mention_offsets_and_ocr_flags() -> None:

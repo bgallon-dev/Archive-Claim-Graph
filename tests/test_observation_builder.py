@@ -1,4 +1,4 @@
-from graphrag_pipeline.models import (
+from graphrag_pipeline.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
     ClaimPeriodLinkRecord,
@@ -6,7 +6,7 @@ from graphrag_pipeline.models import (
     EntityRecord,
     MeasurementRecord,
 )
-from graphrag_pipeline.observation_builder import build_observations
+from graphrag_pipeline.ingest.observation_builder import build_observations
 
 
 def _make_claim(

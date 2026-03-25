@@ -55,19 +55,27 @@ markers = [
 [tool.setuptools]
 packages = [
     "graphrag_pipeline",
+    "graphrag_pipeline.core",
+    "graphrag_pipeline.core.graph",
+    "graphrag_pipeline.shared",
     "graphrag_pipeline.auth",
-    "graphrag_pipeline.extractors",
-    "graphrag_pipeline.graph",
-    "graphrag_pipeline.annotation",
-    "graphrag_pipeline.export",
     "graphrag_pipeline.ingest",
     "graphrag_pipeline.ingest.web",
-    "graphrag_pipeline.queries",
+    "graphrag_pipeline.ingest.extractors",
+    "graphrag_pipeline.ingest.graph",
+    "graphrag_pipeline.ingest.export",
+    "graphrag_pipeline.ingest.annotation",
     "graphrag_pipeline.review",
     "graphrag_pipeline.review.detectors",
     "graphrag_pipeline.review.web",
     "graphrag_pipeline.retrieval",
     "graphrag_pipeline.retrieval.web",
+    # Legacy shim packages — still importable via re-export stubs
+    "graphrag_pipeline.extractors",
+    "graphrag_pipeline.graph",
+    "graphrag_pipeline.annotation",
+    "graphrag_pipeline.export",
+    "graphrag_pipeline.queries",
 ]
 
 [tool.setuptools.package-data]

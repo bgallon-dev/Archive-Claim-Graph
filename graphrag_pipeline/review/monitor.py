@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from ..graph.cypher import (
+from graphrag_pipeline.core.graph.cypher import (
     QUARANTINE_CLAIM_QUERY,
     SENSITIVITY_SCAN_BATCH_QUERY,
 )

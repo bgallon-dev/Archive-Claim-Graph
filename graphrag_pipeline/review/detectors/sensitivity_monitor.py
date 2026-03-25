@@ -30,7 +30,7 @@ try:
 except ImportError:  # pragma: no cover
     _yaml = None  # type: ignore[assignment]
 
-from ...models import ClaimRecord, SemanticBundle, StructureBundle
+from ...core.models import ClaimRecord, SemanticBundle, StructureBundle
 from ..models import DetectorProposal, ProposalTarget
 from ..patch_spec import make_patch_spec
 

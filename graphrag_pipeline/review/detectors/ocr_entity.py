@@ -10,8 +10,8 @@ import difflib
 from collections import defaultdict
 from typing import Any
 
-from ...ids import stable_hash
-from ...models import EntityRecord, EntityResolutionRecord, MentionRecord, SemanticBundle, StructureBundle
+from ...core.ids import stable_hash
+from ...core.models import EntityRecord, EntityResolutionRecord, MentionRecord, SemanticBundle, StructureBundle
 from ..models import DetectorProposal, ProposalTarget
 from ..patch_spec import make_patch_spec
 

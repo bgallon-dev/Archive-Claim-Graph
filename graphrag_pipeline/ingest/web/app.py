@@ -369,7 +369,7 @@ def create_app(
 
     Requires ``fastapi``, ``uvicorn``, and ``python-multipart`` to be installed.
     """
-    from graphrag_pipeline.logging_config import setup_logging
+    from graphrag_pipeline.shared.logging_config import setup_logging
     setup_logging()
 
     try:
@@ -391,7 +391,7 @@ def create_app(
     from graphrag_pipeline.auth.setup import is_setup_needed
     from graphrag_pipeline.ingest.pdf_converter import ConversionError, convert_pdf_to_json
     from graphrag_pipeline.ingest.store import IngestStore
-    from graphrag_pipeline.pipeline import _process_single_document
+    from graphrag_pipeline.ingest.pipeline import _process_single_document
 
     out_dir_path = Path(out_dir)
     out_dir_path.mkdir(parents=True, exist_ok=True)

@@ -78,7 +78,7 @@ _MAX_CHARS = 24_000  # ~6 000 tokens of text to stay within context limits
 def _collect_text(sample_paths: list[Path], n: int) -> str:
     """Load up to n files via parse_source_file and return concatenated paragraph text."""
     # Import here so the module can be imported without the full pipeline installed.
-    from graphrag_pipeline.source_parser import parse_source_file
+    from graphrag_pipeline.ingest.source_parser import parse_source_file
 
     paragraphs: list[str] = []
     for path in sample_paths[:n]:

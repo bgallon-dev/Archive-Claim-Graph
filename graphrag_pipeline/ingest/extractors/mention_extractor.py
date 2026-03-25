@@ -6,8 +6,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Protocol
 
-from ..resolver import default_seed_entities
-from ..resource_loader import load_ocr_corrections
+from graphrag_pipeline.core.resolver import default_seed_entities
+from graphrag_pipeline.shared.resource_loader import load_ocr_corrections
 
 _LOADED_OCR_CORRECTIONS: frozenset[str] = load_ocr_corrections()
 
@@ -102,7 +102,7 @@ class RuleBasedMentionExtractor:
     )
 
     # Stage 3: titlecase spans (1+ words, min 3 chars).
-    _titlecase_span = re.compile(r"\b([A-Z][a-z]{2,}(?:\s+[A-Z][a-z]+)*)\b")
+    _titlecase_span = re.compile(r"\b([A-Z][a-z]{2,}(?:[ \t]+[A-Z][a-z]+)*)\b")
 
     _known_ocr_errors: frozenset[str] = _LOADED_OCR_CORRECTIONS
     _seed_entities = default_seed_entities()

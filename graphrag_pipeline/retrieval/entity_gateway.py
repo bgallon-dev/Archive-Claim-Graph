@@ -8,8 +8,8 @@ candidates rather than silently accepted.
 """
 from __future__ import annotations
 
-from ..models import MentionRecord
-from ..resolver import DictionaryFuzzyResolver, ResolutionPolicy, default_seed_entities, normalize_name
+from graphrag_pipeline.core.models import MentionRecord
+from graphrag_pipeline.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy, default_seed_entities, normalize_name
 from .models import EntityContext, ResolvedEntity
 
 # Sentinel values for stub MentionRecord fields that are not meaningful at

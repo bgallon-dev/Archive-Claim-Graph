@@ -1,7 +1,7 @@
 import re
 
-from graphrag_pipeline.extractors.claim_extractor import ClaimDraft
-from graphrag_pipeline.extractors.measurement_extractor import RuleBasedMeasurementExtractor
+from graphrag_pipeline.ingest.extractors.claim_extractor import ClaimDraft
+from graphrag_pipeline.ingest.extractors.measurement_extractor import RuleBasedMeasurementExtractor
 
 
 def test_measurement_normalization_for_fire_claim() -> None:

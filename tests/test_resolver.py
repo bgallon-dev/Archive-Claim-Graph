@@ -1,8 +1,8 @@
 import pytest
 
-from graphrag_pipeline.ids import make_entity_id
-from graphrag_pipeline.models import MentionRecord
-from graphrag_pipeline.resolver import (
+from graphrag_pipeline.core.ids import make_entity_id
+from graphrag_pipeline.core.models import MentionRecord
+from graphrag_pipeline.core.resolver import (
     DictionaryFuzzyResolver,
     default_seed_entities,
     normalize_name,

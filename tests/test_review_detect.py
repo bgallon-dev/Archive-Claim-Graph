@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from graphrag_pipeline.io_utils import save_semantic_bundle, save_structure_bundle
-from graphrag_pipeline.models import (
+from graphrag_pipeline.shared.io_utils import save_semantic_bundle, save_structure_bundle
+from graphrag_pipeline.core.models import (
     ClaimRecord,
     DocumentRecord,
     EntityRecord,

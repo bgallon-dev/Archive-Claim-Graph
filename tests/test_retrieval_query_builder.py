@@ -13,7 +13,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from graphrag_pipeline.graph.cypher import (
+from graphrag_pipeline.core.graph.cypher import (
     HABITAT_CONDITION_QUERY,
     PROVENANCE_CHAIN_QUERY,
     SPECIES_TREND_QUERY,
@@ -66,7 +66,8 @@ class TestSpeciesTrend:
         builder.species_trend("sp-mallard", year_min=1940, year_max=1950)
         mock_executor.run.assert_called_once_with(
             SPECIES_TREND_QUERY,
-            {"species_id": "sp-mallard", "year_min": 1940, "year_max": 1950},
+            {"species_id": "sp-mallard", "year_min": 1940, "year_max": 1950,
+             "permitted_levels": ["public"], "institution_id": "turnbull"},
         )
 
     def test_returns_analytical_result(self, builder):
@@ -89,7 +90,8 @@ class TestHabitatConditions:
         builder.habitat_conditions("h-pothole", year_min=1945, year_max=1960)
         mock_executor.run.assert_called_once_with(
             HABITAT_CONDITION_QUERY,
-            {"habitat_id": "h-pothole", "year_min": 1945, "year_max": 1960},
+            {"habitat_id": "h-pothole", "year_min": 1945, "year_max": 1960,
+             "permitted_levels": ["public"], "institution_id": "turnbull"},
         )
 
     def test_returns_analytical_result(self, builder):

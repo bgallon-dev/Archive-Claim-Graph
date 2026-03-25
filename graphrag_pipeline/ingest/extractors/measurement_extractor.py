@@ -7,7 +7,7 @@ from typing import Any
 from typing import Protocol
 
 from .claim_extractor import ClaimDraft
-from ..resource_loader import load_measurement_units, load_measurement_species
+from graphrag_pipeline.shared.resource_loader import load_measurement_units, load_measurement_species
 
 _LOADED_UNITS: dict[str, tuple[str, str]] = load_measurement_units()
 _LOADED_SPECIES: dict[str, Any] = load_measurement_species()

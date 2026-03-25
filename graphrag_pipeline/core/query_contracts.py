@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from ..claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
-from ..models import SemanticBundle, StructureBundle
+from graphrag_pipeline.core.claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
+from graphrag_pipeline.core.models import SemanticBundle, StructureBundle
 
 # Build a Cypher IN-list literal from the current v2 claim-entity relations.
 # LEGACY_ABOUT_RELATION was removed when the v2 contract was introduced; if

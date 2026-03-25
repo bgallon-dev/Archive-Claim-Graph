@@ -2,11 +2,11 @@ import json
 from pathlib import Path
 
 from graphrag_pipeline.cli import main
-from graphrag_pipeline.graph.writer import InMemoryGraphWriter
-from graphrag_pipeline.io_utils import save_semantic_bundle, save_structure_bundle
-from graphrag_pipeline.models import EntityRecord
-from graphrag_pipeline.pipeline import extract_semantic
-from graphrag_pipeline.source_parser import parse_source_file
+from graphrag_pipeline.ingest.graph.writer import InMemoryGraphWriter
+from graphrag_pipeline.shared.io_utils import save_semantic_bundle, save_structure_bundle
+from graphrag_pipeline.core.models import EntityRecord
+from graphrag_pipeline.ingest.pipeline import extract_semantic
+from graphrag_pipeline.ingest.source_parser import parse_source_file
 
 
 def test_entity_record_keeps_entity_type_in_bundle_but_not_node_props() -> None:

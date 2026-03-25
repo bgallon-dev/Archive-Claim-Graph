@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from ..models import SemanticBundle, StructureBundle
+from graphrag_pipeline.core.models import SemanticBundle, StructureBundle
 from .detectors import ocr_entity, junk_mention, builder_repair, sensitivity_monitor
 from .ids import (
     SNAPSHOT_SCHEMA_VERSION,

@@ -9,8 +9,8 @@ import re
 from collections import defaultdict
 from typing import Any
 
-from ...extractors.mention_extractor import get_ocr_flags
-from ...models import MentionRecord, ParagraphRecord, SemanticBundle, StructureBundle
+from ...ingest.extractors.mention_extractor import get_ocr_flags
+from ...core.models import MentionRecord, ParagraphRecord, SemanticBundle, StructureBundle
 from ..models import DetectorProposal, ProposalTarget
 from ..patch_spec import make_patch_spec
 

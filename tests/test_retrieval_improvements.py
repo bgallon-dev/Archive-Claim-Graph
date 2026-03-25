@@ -24,7 +24,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from graphrag_pipeline.graph.cypher import (
+from graphrag_pipeline.core.graph.cypher import (
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
 )
@@ -206,7 +206,7 @@ class TestSelectRetrievalStrategy:
     # --- Fulltext fallback ---
 
     def test_no_signal_uses_fulltext(self):
-        from graphrag_pipeline.graph.cypher import FULLTEXT_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
         template, params = self._select("tell me about the refuge")
         assert template == FULLTEXT_CLAIMS_QUERY
         assert "search_text" in params
@@ -214,38 +214,39 @@ class TestSelectRetrievalStrategy:
     # --- Temporal path ---
 
     def test_year_range_no_entity_uses_temporal_template(self):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what happened in the 1950s?",
             year_min=1950, year_max=1959,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY
+        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         assert params["year_min"] == 1950
         assert params["year_max"] == 1959
+        assert params["refuge_id"]
 
     def test_temporal_template_passes_claim_types_when_detected(self):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what predator control happened in the 1950s?",
             year_min=1950, year_max=1959,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY
+        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         assert params["claim_types"] is not None
         assert "predator_control" in params["claim_types"]
 
     def test_temporal_template_claim_types_none_when_no_signal(self):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what happened at the refuge in 1945?",
             year_min=1945, year_max=1945,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY
+        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         assert params["claim_types"] is None
 
     # --- Multi-entity comparative path ---
 
     def test_two_entities_uses_multi_entity_template(self):
-        from graphrag_pipeline.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         resolved = [
             _make_resolved("sp-mallard", "Species"),
             _make_resolved("sp-teal", "Species"),
@@ -259,7 +260,7 @@ class TestSelectRetrievalStrategy:
         assert "sp-teal" in params["entity_ids"]
 
     def test_multi_entity_includes_year_bounds(self):
-        from graphrag_pipeline.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         resolved = [_make_resolved("sp-mallard"), _make_resolved("h-marsh", "Habitat")]
         template, params = self._select(
             "compare mallard and marsh habitat",
@@ -299,7 +300,7 @@ class TestSelectRetrievalStrategy:
     # --- Claim type scoped, no entity ---
 
     def test_claim_type_no_entity_uses_claim_type_scoped(self):
-        from graphrag_pipeline.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+        from graphrag_pipeline.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
         template, params = self._select(
             "describe all predator control activities"
         )
@@ -329,7 +330,7 @@ class TestSelectRetrievalStrategy:
         assert params["limit"] >= budget
 
     def test_temporal_limit_is_at_least_budget(self):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
         budget = 20
         template, params = self._select(
             "what happened in 1945?",
@@ -453,6 +454,7 @@ class TestSynthesisPromptBehavior:
         client.messages.create.return_value = message
         engine._client = client
         engine._max_tokens = 1000
+        engine._timeout = 60
         from graphrag_pipeline.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
         engine._system_prompt = _build_system_prompt(_DEFAULT_SYNTHESIS_CONTEXT)
         return engine
@@ -667,13 +669,14 @@ class TestEndToEndRetrievalPath:
         client.messages.create.return_value = message
         engine._client = client
         engine._max_tokens = 1000
+        engine._timeout = 60
         from graphrag_pipeline.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
         engine._system_prompt = _build_system_prompt(_DEFAULT_SYNTHESIS_CONTEXT)
 
         return assembler, engine, mock_executor
 
     def test_temporal_query_calls_temporal_template(self):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         rows = [_make_raw_row(f"c-{i:03d}") for i in range(5)]
         assembler, engine, mock_executor = self._make_pipeline(rows)
 
@@ -685,12 +688,12 @@ class TestEndToEndRetrievalPath:
             year_max=1959,
         )
         called_templates = [call[0][0] for call in mock_executor.run.call_args_list]
-        assert any(TEMPORAL_CLAIMS_QUERY in t for t in called_templates), (
-            "Temporal query with year bounds should use TEMPORAL_CLAIMS_QUERY"
+        assert any(TEMPORAL_CLAIMS_QUERY_WITH_REFUGE in t for t in called_templates), (
+            "Temporal query with year bounds should use TEMPORAL_CLAIMS_QUERY_WITH_REFUGE"
         )
 
     def test_comparative_query_calls_multi_entity_template(self):
-        from graphrag_pipeline.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         rows = [_make_raw_row(f"c-{i:03d}") for i in range(5)]
         assembler, engine, mock_executor = self._make_pipeline(rows)
 
@@ -836,7 +839,7 @@ class TestIntegrationRetrieval:
         return ProvenanceContextAssembler(executor=executor, budget_conversational=10)
 
     def test_temporal_template_executes(self, executor):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
         rows = executor.run(TEMPORAL_CLAIMS_QUERY, {
             "year_min": 1940,
             "year_max": 1950,
@@ -849,8 +852,8 @@ class TestIntegrationRetrieval:
             assert "y" in row
 
     def test_multi_entity_template_executes(self, executor):
-        from graphrag_pipeline.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
-        from graphrag_pipeline.resolver import default_seed_entities
+        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from graphrag_pipeline.core.resolver import default_seed_entities
         seeds = default_seed_entities()
         species = [e for e in seeds if e.entity_type == "Species"][:2]
         if len(species) < 2:
@@ -865,7 +868,7 @@ class TestIntegrationRetrieval:
         assert isinstance(rows, list)
 
     def test_claim_type_scoped_template_executes(self, executor):
-        from graphrag_pipeline.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+        from graphrag_pipeline.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
         rows = executor.run(CLAIM_TYPE_SCOPED_QUERY, {
             "claim_types": ["predator_control", "management_action"],
             "entity_ids": None,
@@ -910,7 +913,7 @@ class TestIntegrationRetrieval:
             assert any(tier in context_text for tier in ("HIGH", "MEDIUM", "LOW"))
 
     def test_retrieved_via_present_for_entity_anchored_blocks(self, assembler):
-        from graphrag_pipeline.resolver import default_seed_entities
+        from graphrag_pipeline.core.resolver import default_seed_entities
         seeds = default_seed_entities()
         species = next((e for e in seeds if e.entity_type == "Species"), None)
         if not species:

@@ -26,7 +26,7 @@ def export_semantic_csv(
 
     Returns row counts: ``{"claims": N, "entities": N, "relationships": N}``.
     """
-    from graphrag_pipeline.io_utils import load_semantic_bundle, load_structure_bundle, save_rows_csv
+    from graphrag_pipeline.shared.io_utils import load_semantic_bundle, load_structure_bundle, save_rows_csv
 
     output_dir.mkdir(parents=True, exist_ok=True)
 

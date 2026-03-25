@@ -6,9 +6,9 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Protocol
 
-from .ids import make_entity_id
-from .models import EntityRecord, EntityResolutionRecord, MentionRecord
-from .resource_loader import load_seed_entity_rows
+from graphrag_pipeline.core.ids import make_entity_id
+from graphrag_pipeline.core.models import EntityRecord, EntityResolutionRecord, MentionRecord
+from graphrag_pipeline.shared.resource_loader import load_seed_entity_rows
 
 
 RESOLUTION_CONTRACT: dict[str, str] = {

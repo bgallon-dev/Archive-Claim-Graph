@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.models import (
+from graphrag_pipeline.core.models import (
     ClaimEntityLinkRecord,
     ClaimLinkDiagnosticRecord,
     ClaimLocationLinkRecord,

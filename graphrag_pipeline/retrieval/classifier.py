@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import re
 
-from ..resolver import normalize_name
+from graphrag_pipeline.core.resolver import normalize_name
 from .models import QueryIntent
 
 # ---------------------------------------------------------------------------

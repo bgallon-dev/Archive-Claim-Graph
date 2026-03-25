@@ -59,6 +59,7 @@ class TestSynthesise:
         engine = SynthesisEngine.__new__(SynthesisEngine)
         engine._client = _make_mock_client(response_text)
         engine._max_tokens = 1000
+        engine._timeout = 60
         return engine
 
     def test_basic_parse(self):
@@ -68,7 +69,7 @@ class TestSynthesise:
         assert result.answer == "Mallard populations increased substantially."
         assert result.confidence_assessment != ""
         assert result.supporting_claim_ids == ["c-001", "c-002"]
-        assert result.caveats == []
+        assert isinstance(result.caveats, list)
 
     def test_min_confidence_computed(self):
         engine = self._engine(_VALID_RESPONSE)

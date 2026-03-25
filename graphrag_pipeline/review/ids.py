@@ -5,7 +5,7 @@ import hashlib
 import json
 from typing import Any
 
-from ..ids import stable_hash
+from graphrag_pipeline.core.ids import stable_hash
 
 
 SNAPSHOT_SCHEMA_VERSION = "v1"

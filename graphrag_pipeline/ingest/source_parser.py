@@ -7,14 +7,14 @@ import re
 from pathlib import Path
 from typing import Any
 
-from .ids import (
+from graphrag_pipeline.core.ids import (
     make_annotation_id,
     make_doc_id,
     make_page_id,
     make_paragraph_id,
     make_section_id,
 )
-from .models import (
+from graphrag_pipeline.core.models import (
     AnnotationRecord,
     DocumentRecord,
     PageRecord,
@@ -149,8 +149,6 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
         report_year = int(date_start[:4])
 
     _meta_source = metadata.get("source_file")
-    if _meta_source and not source_file:
-        _meta_source = _canonicalize_source_path(_meta_source)
     resolved_source = source_file or _meta_source
     if report_year is None and resolved_source:
         report_year = _infer_year_from_filename(resolved_source)

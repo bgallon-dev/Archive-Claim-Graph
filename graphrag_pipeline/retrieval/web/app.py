@@ -46,7 +46,7 @@ from graphrag_pipeline.auth.router import create_auth_router
 from ..classifier import classify_query
 from ..context_assembler import ProvenanceContextAssembler, _serialise_block
 from ..conversation_log import ClaimInteraction, ConversationLogger, LogRecord, make_conversation_id
-from ...graph.cypher import (
+from graphrag_pipeline.core.graph.cypher import (
     CORPUS_STATS_QUERY,
     COUNT_QUARANTINED_CLAIMS_QUERY,
     SOFT_DELETE_DOCUMENT_QUERY,
@@ -1774,7 +1774,7 @@ def create_app(
     All parameters fall back to environment variables so the app can be
     started from the CLI without explicit arguments.
     """
-    from graphrag_pipeline.logging_config import setup_logging
+    from graphrag_pipeline.shared.logging_config import setup_logging
     setup_logging()
     _log = logging.getLogger(__name__)
 
@@ -1814,14 +1814,14 @@ def create_app(
         _ann_db = annotation_db_path or os.environ.get("ANNOTATION_DB")
         _annotation_store = None
         if _ann_db:
-            from graphrag_pipeline.annotation import AnnotationStore
+            from graphrag_pipeline.ingest.annotation import AnnotationStore
             _annotation_store = AnnotationStore(_ann_db)
             state["annotation_store"] = _annotation_store
         state["assembler"] = ProvenanceContextAssembler(executor, annotation_store=_annotation_store)
         state["gateway"] = EntityResolutionGateway()
         synthesis_ctx: str | None = None
         if domain_dir:
-            from ...resource_loader import load_domain_profile
+            from ...shared.resource_loader import load_domain_profile
             synthesis_ctx = load_domain_profile(Path(domain_dir)).get("synthesis_context")
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,

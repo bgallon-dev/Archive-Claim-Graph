@@ -11,13 +11,13 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from ...claim_contract import (
+from ...core.claim_contract import (
     CLAIM_ENTITY_RELATIONS,
     EVENT_ELIGIBLE_TYPES,
     OBSERVATION_ELIGIBLE_TYPES,
     get_relation_compatibility,
 )
-from ...models import (
+from ...core.models import (
     ClaimEntityLinkRecord,
     ClaimLinkDiagnosticRecord,
     ClaimLocationLinkRecord,

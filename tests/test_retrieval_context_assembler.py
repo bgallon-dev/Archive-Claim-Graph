@@ -249,7 +249,7 @@ class TestBudgetCap:
 
 class TestRetrievalCascade:
     def test_entity_anchored_path_used_when_resolved(self):
-        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
         mock_executor = MagicMock()
         mock_executor.run.return_value = []
@@ -263,7 +263,7 @@ class TestRetrievalCascade:
         assert any(ENTITY_ANCHORED_CLAIMS_QUERY in q for q in called_queries)
 
     def test_fulltext_path_used_when_unresolved(self):
-        from graphrag_pipeline.graph.cypher import FULLTEXT_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
 
         mock_executor = MagicMock()
         mock_executor.run.return_value = []
@@ -311,17 +311,18 @@ class TestSelectRetrievalStrategy:
         return EntityContext(resolved=resolved)
 
     def test_temporal_route_when_year_and_no_entity(self):
-        from graphrag_pipeline.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
 
         template, params = _select_retrieval_strategy(
             "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10
         )
-        assert template == TEMPORAL_CLAIMS_QUERY
+        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         assert params["year_min"] == 1950
         assert params["year_max"] == 1960
+        assert params["refuge_id"]
 
     def test_multi_entity_route_when_two_entities(self):
-        from graphrag_pipeline.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
 
         template, params = _select_retrieval_strategy(
             "compare mallard and teal", self._make_entity_ctx(2),
@@ -331,7 +332,7 @@ class TestSelectRetrievalStrategy:
         assert len(params["entity_ids"]) == 2
 
     def test_entity_plus_claim_type_route(self):
-        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
         template, params = _select_retrieval_strategy(
             "habitat conditions for mallard", self._make_entity_ctx(1),
@@ -342,7 +343,7 @@ class TestSelectRetrievalStrategy:
         assert params["limit"] == 30
 
     def test_claim_type_only_route_when_no_entity(self):
-        from graphrag_pipeline.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+        from graphrag_pipeline.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
 
         template, params = _select_retrieval_strategy(
             "describe all population estimates", self._make_entity_ctx(0),
@@ -352,7 +353,7 @@ class TestSelectRetrievalStrategy:
         assert "population_estimate" in (params["claim_types"] or [])
 
     def test_single_entity_fallback_no_claim_type(self):
-        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
         template, params = _select_retrieval_strategy(
             "tell me about the refuge", self._make_entity_ctx(1),
@@ -362,7 +363,7 @@ class TestSelectRetrievalStrategy:
         assert params["limit"] == 20  # budget * 2 (not the over-fetch * 3)
 
     def test_fulltext_fallback_when_nothing_matches(self):
-        from graphrag_pipeline.graph.cypher import FULLTEXT_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
 
         template, params = _select_retrieval_strategy(
             "tell me about the refuge", self._make_entity_ctx(0),
@@ -376,7 +377,7 @@ class TestDuplicateEntityIdDedup:
     def test_duplicate_ids_select_entity_anchored_not_multi_entity(self):
         """Two surface forms resolving to the same entity_id should not
         trigger the MULTI_ENTITY path."""
-        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
         resolved = [
             ResolvedEntity("Turnbull Refuge", "refuge_abc", "Refuge", 1.0, "REFERS_TO"),
@@ -392,7 +393,7 @@ class TestDuplicateEntityIdDedup:
 
     def test_assembler_uses_entity_anchored_for_duplicate_ids(self):
         """End-to-end: duplicate entity_ids must not route to MULTI_ENTITY."""
-        from graphrag_pipeline.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
+        from graphrag_pipeline.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
         mock_executor = MagicMock()
         mock_executor.run.return_value = [_make_raw_row()]

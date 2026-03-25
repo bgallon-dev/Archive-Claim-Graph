@@ -1,4 +1,4 @@
-from graphrag_pipeline.graph.cypher import SCHEMA_STATEMENTS
+from graphrag_pipeline.core.graph.cypher import SCHEMA_STATEMENTS
 
 
 def test_schema_contains_required_constraints_and_indexes() -> None:

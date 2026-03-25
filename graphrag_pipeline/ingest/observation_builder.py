@@ -1,44 +1,55 @@
 from __future__ import annotations
 
+import re
 from collections import defaultdict
 
-from .claim_contract import (
-    CLAIM_TYPE_TO_EVENT_TYPE,
-    EVENT_ELIGIBLE_TYPES,
+from graphrag_pipeline.core.claim_contract import (
+    CLAIM_TYPE_TO_OBSERVATION_TYPE,
     OBSERVATION_ELIGIBLE_TYPES,
 )
-from .ids import make_event_id, make_year_id
-from .models import (
+from graphrag_pipeline.core.ids import make_observation_id, make_year_id
+from graphrag_pipeline.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
     ClaimPeriodLinkRecord,
     ClaimRecord,
+    DocumentYearLinkRecord,
     EntityRecord,
-    EventMeasurementLinkRecord,
-    EventObservationLinkRecord,
-    EventRecord,
     MeasurementRecord,
+    ObservationMeasurementLinkRecord,
     ObservationRecord,
     YearRecord,
 )
-from .observation_builder import _extract_year
+
+_YEAR_RE = re.compile(r"\b(1[89]\d{2}|20[0-2]\d)\b")
 
 
-def build_events(
+def _extract_year(claim_date: str | None, report_year: int | None) -> tuple[int | None, str]:
+    """Return (year_int, year_source) where year_source is 'claim_date',
+    'document_primary_year', or 'unknown'."""
+    if claim_date:
+        match = _YEAR_RE.search(claim_date)
+        if match:
+            return int(match.group(1)), "claim_date"
+    if report_year is not None:
+        return report_year, "document_primary_year"
+    return None, "unknown"
+
+
+def build_observations(
     claims: list[ClaimRecord],
     measurements: list[MeasurementRecord],
     claim_entity_links: list[ClaimEntityLinkRecord],
     claim_location_links: list[ClaimLocationLinkRecord],
     claim_period_links: list[ClaimPeriodLinkRecord],
     entity_lookup: dict[str, EntityRecord],
-    observations: list[ObservationRecord],
     run_id: str,
     report_year: int | None,
 ) -> tuple[
-    list[EventRecord],
-    list[EventObservationLinkRecord],
-    list[EventMeasurementLinkRecord],
+    list[ObservationRecord],
     list[YearRecord],
+    list[ObservationMeasurementLinkRecord],
+    list[DocumentYearLinkRecord],
 ]:
     measurements_by_claim: dict[str, list[MeasurementRecord]] = defaultdict(list)
     for m in measurements:
@@ -60,24 +71,20 @@ def build_events(
     for link in claim_period_links:
         periods_by_claim[link.claim_id] = link.period_id
 
-    # Map claim_id → observation_id so we can emit EventObservationLinkRecord
-    obs_by_claim: dict[str, str] = {obs.claim_id: obs.observation_id for obs in observations}
-
-    events: list[EventRecord] = []
-    event_obs_links: list[EventObservationLinkRecord] = []
-    event_meas_links: list[EventMeasurementLinkRecord] = []
+    observations: list[ObservationRecord] = []
     year_map: dict[str, YearRecord] = {}
-    evt_counter = 0
+    obs_measurement_links: list[ObservationMeasurementLinkRecord] = []
+    obs_counter = 0
 
     for claim in claims:
-        if claim.claim_type not in EVENT_ELIGIBLE_TYPES:
+        if claim.claim_type not in OBSERVATION_ELIGIBLE_TYPES:
             continue
 
-        evt_counter += 1
-        event_type = CLAIM_TYPE_TO_EVENT_TYPE[claim.claim_type]
-        event_id = make_event_id(run_id, claim.claim_id, evt_counter, event_type)
+        obs_counter += 1
+        observation_type = CLAIM_TYPE_TO_OBSERVATION_TYPE.get(claim.claim_type, claim.claim_type)
+        observation_id = make_observation_id(run_id, claim.claim_id, obs_counter, observation_type)
 
-        # Resolve linked entities by label (same logic as observation_builder)
+        # Resolve linked entities by label
         species_id: str | None = None
         refuge_id: str | None = None
         place_id: str | None = None
@@ -100,6 +107,7 @@ def build_events(
 
         period_id = periods_by_claim.get(claim.claim_id)
 
+        # Derive year and record its provenance
         year_value, year_source = _extract_year(claim.claim_date, report_year)
         year_id: str | None = None
         if year_value is not None:
@@ -107,10 +115,10 @@ def build_events(
             if year_id not in year_map:
                 year_map[year_id] = YearRecord(year_id=year_id, year=year_value, year_label=str(year_value))
 
-        events.append(EventRecord(
-            event_id=event_id,
+        observation = ObservationRecord(
+            observation_id=observation_id,
             run_id=run_id,
-            event_type=event_type,
+            observation_type=observation_type,
             claim_id=claim.claim_id,
             paragraph_id=claim.paragraph_id,
             species_id=species_id,
@@ -120,25 +128,22 @@ def build_events(
             year_id=year_id,
             habitat_id=habitat_id,
             survey_method_id=survey_method_id,
+            confidence=claim.extraction_confidence,
+            is_estimate=claim.epistemic_status == "uncertain",
             source_claim_type=claim.claim_type,
             year=year_value,
             year_source=year_source,
-            confidence=claim.extraction_confidence,
-        ))
+        )
+        observations.append(observation)
 
-        # Bridge: Event → Observation (when both exist)
-        if claim.claim_id in obs_by_claim:
-            event_obs_links.append(EventObservationLinkRecord(
-                event_id=event_id,
-                observation_id=obs_by_claim[claim.claim_id],
-            ))
-
-        # Measurements belong to Observation when one exists; otherwise claim them here
-        if claim.claim_type not in OBSERVATION_ELIGIBLE_TYPES:
-            for m in measurements_by_claim.get(claim.claim_id, []):
-                event_meas_links.append(EventMeasurementLinkRecord(
-                    event_id=event_id,
+        # Link measurements from this claim to the observation
+        for m in measurements_by_claim.get(claim.claim_id, []):
+            obs_measurement_links.append(
+                ObservationMeasurementLinkRecord(
+                    observation_id=observation_id,
                     measurement_id=m.measurement_id,
-                ))
+                )
+            )
 
-    return events, event_obs_links, event_meas_links, list(year_map.values())
+    years = list(year_map.values())
+    return observations, years, obs_measurement_links, []

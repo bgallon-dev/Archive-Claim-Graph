@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
-from .models import ClaimRecord
+from graphrag_pipeline.core.models import ClaimRecord
 
 
 @dataclass(slots=True)

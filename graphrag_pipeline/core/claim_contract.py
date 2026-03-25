@@ -143,7 +143,7 @@ def entity_type_allowed_for_relation(relation_type: str, entity_type: str | None
 @lru_cache(maxsize=1)
 def _load_compatibility_data() -> tuple[dict[str, dict[str, str]], dict[str, list[str]]]:
     """Load and cache claim_relation_compatibility.yaml."""
-    from .resource_loader import load_claim_relation_compatibility
+    from graphrag_pipeline.shared.resource_loader import load_claim_relation_compatibility
     data = load_claim_relation_compatibility()
     compatibility: dict[str, dict[str, str]] = data.get("compatibility") or {}
     preferred: dict[str, list[str]] = data.get("preferred_entity_types") or {}

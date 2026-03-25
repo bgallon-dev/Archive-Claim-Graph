@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from graphrag_pipeline.resource_loader import (
+from graphrag_pipeline.shared.resource_loader import (
     load_claim_role_policy,
     load_claim_type_patterns,
     load_domain_profile,

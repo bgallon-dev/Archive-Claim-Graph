@@ -1,4 +1,4 @@
-from graphrag_pipeline.models import ClaimRecord
+from graphrag_pipeline.core.models import ClaimRecord
 
 
 def test_claim_record_serializes_source_sentence_not_raw_sentence() -> None:

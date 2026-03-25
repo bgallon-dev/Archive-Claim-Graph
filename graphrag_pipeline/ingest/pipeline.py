@@ -11,12 +11,12 @@ from pathlib import Path
 from typing import Any
 
 from .extractors import HybridClaimExtractor, RuleBasedMeasurementExtractor, RuleBasedMentionExtractor
-from .claim_validator import is_valid_claim_sentence
+from graphrag_pipeline.core.claim_validator import is_valid_claim_sentence
 from .extractors.claim_extractor import ClaimExtractor, ClaimLinkDraft
 from .extractors.measurement_extractor import MeasurementExtractor
 from .extractors.mention_extractor import MentionExtractor
 from .graph.writer import GraphWriter, InMemoryGraphWriter, Neo4jGraphWriter
-from .ids import (
+from graphrag_pipeline.core.ids import (
     make_claim_id,
     make_entity_id,
     make_measurement_id,
@@ -26,8 +26,8 @@ from .ids import (
     make_year_id,
     stable_hash,
 )
-from .io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_json, save_semantic_bundle, save_structure_bundle
-from .models import (
+from graphrag_pipeline.shared.io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_json, save_semantic_bundle, save_structure_bundle
+from graphrag_pipeline.core.models import (
     ClaimConceptLinkRecord,
     ClaimEntityLinkRecord,
     ClaimLinkDiagnosticRecord,
@@ -47,8 +47,9 @@ from .models import (
     YearRecord,
 )
 from .concept_assigner import assign_concepts
-from .claim_contract import (
+from graphrag_pipeline.core.claim_contract import (
     CLAIM_ENTITY_RELATIONS,
+    CLAIM_ENTITY_RELATION_PRECEDENCE,
     CLAIM_LOCATION_RELATION,
     entity_type_allowed_for_relation,
     get_preferred_entity_types,
@@ -57,8 +58,8 @@ from .claim_contract import (
 )
 from .event_builder import build_events
 from .observation_builder import build_observations
-from .resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_entities
-from .resource_loader import load_domain_profile
+from graphrag_pipeline.core.resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_entities
+from graphrag_pipeline.shared.resource_loader import load_domain_profile
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
 
@@ -832,7 +833,7 @@ def _make_doc_run_id(input_path: str, now: datetime) -> str:
     Uses the input file path as entropy so two workers processing different files
     at the same instant always get distinct run_ids, eliminating claim_id collisions.
     """
-    from .ids import stable_hash
+    from graphrag_pipeline.core.ids import stable_hash
     ts = now.strftime("%Y%m%dT%H%M%S%fZ")
     return f"run_{ts}_{stable_hash(input_path, ts, size=8)}"
 
@@ -851,8 +852,8 @@ def _fetch_graph_entities(
     entities already in the graph so new documents resolve to existing IDs.
     Returns [] on any failure so the pipeline degrades to seed-only resolution.
     """
-    from .retrieval.executor import Neo4jQueryExecutor
-    from .graph.cypher import GRAPH_ENTITY_FETCH_QUERY
+    from graphrag_pipeline.retrieval.executor import Neo4jQueryExecutor
+    from graphrag_pipeline.core.graph.cypher import GRAPH_ENTITY_FETCH_QUERY
     executor = Neo4jQueryExecutor(
         uri=neo4j_uri,
         user=neo4j_user,
@@ -914,7 +915,7 @@ def _process_single_document(
     # Runs after extraction but before saving bundles so quarantine_status
     # is persisted on disk and written to the graph atomically.
     try:
-        from .review.detectors import sensitivity_monitor as _sm
+        from graphrag_pipeline.review.detectors import sensitivity_monitor as _sm
         _sm_proposals = _sm.detect(structure, semantic, snapshot_id="")
         _sm_cfg = _sm._load_config()
         _auto_quarantine_threshold = (
@@ -1023,8 +1024,8 @@ def run_e2e(
 
         # 0b. Batch-check which hashes already exist in the graph.
         if input_file_hashes:
-            from .retrieval.executor import Neo4jQueryExecutor
-            from .graph.cypher import DUPLICATE_HASH_CHECK_QUERY
+            from graphrag_pipeline.retrieval.executor import Neo4jQueryExecutor
+            from graphrag_pipeline.core.graph.cypher import DUPLICATE_HASH_CHECK_QUERY
             _dup_executor = Neo4jQueryExecutor(
                 uri=neo4j_uri,
                 user=neo4j_user or "",
@@ -1127,7 +1128,7 @@ def run_e2e(
 
     review_store = None
     if review_db_path is not None:
-        from .review.store import ReviewStore
+        from graphrag_pipeline.review.store import ReviewStore
         review_store = ReviewStore(review_db_path)
 
     writer: GraphWriter | None = None
@@ -1155,7 +1156,7 @@ def run_e2e(
             _log.info("Checkpointed doc %s (%s)", doc_id, Path(doc_summary["input"]).name)
 
             if review_store is not None:
-                from .review.detect import run_detection
+                from graphrag_pipeline.review.detect import run_detection
                 review_result = run_detection(
                     structure, semantic, review_store,
                     structure_bundle_path=str(Path(doc_summary["structure_output"]).resolve()),

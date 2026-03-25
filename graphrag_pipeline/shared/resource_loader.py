@@ -13,7 +13,7 @@ from typing import Any
 
 import yaml
 
-_DEFAULT_RESOURCES_DIR: Path = Path(__file__).parent / "resources"
+_DEFAULT_RESOURCES_DIR: Path = Path(__file__).parent.parent / "resources"
 
 
 def _safe_compile(pattern: str, flags: int = 0) -> re.Pattern:

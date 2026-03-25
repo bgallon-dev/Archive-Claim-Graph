@@ -32,7 +32,7 @@ if TYPE_CHECKING:
 # ---------------------------------------------------------------------------
 
 def make_conversation_id(query_text: str, created_at: str) -> str:
-    from ..ids import stable_hash
+    from graphrag_pipeline.core.ids import stable_hash
     return f"conv_{stable_hash(query_text, created_at)}"
 
 

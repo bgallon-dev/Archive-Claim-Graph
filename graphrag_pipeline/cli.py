@@ -7,10 +7,11 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-from .env import load_dotenv
-from .io_utils import load_semantic_bundle, load_structure_bundle, save_json, save_rows_csv, save_semantic_bundle, save_structure_bundle
+from graphrag_pipeline.shared.env import load_dotenv
+from graphrag_pipeline.shared.io_utils import load_semantic_bundle, load_structure_bundle, save_json, save_rows_csv, save_semantic_bundle, save_structure_bundle
+from graphrag_pipeline.shared.settings import Settings
 
-from .pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, resolve_mentions_targeted, run_e2e
+from graphrag_pipeline.ingest.pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, resolve_mentions_targeted, run_e2e
 
 
 def _write_review_output(path: str | Path, rows: list[dict]) -> None:
@@ -278,9 +279,10 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: list[str] | None = None) -> int:
-    from graphrag_pipeline.logging_config import setup_logging
+    from graphrag_pipeline.shared.logging_config import setup_logging
     setup_logging()
     load_dotenv()
+    settings = Settings.from_env()  # noqa: F841 — available for programmatic callers
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -605,7 +607,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "verify-integrity":
         import hashlib
         from .retrieval.executor import Neo4jQueryExecutor
-        from .graph.cypher import INTEGRITY_CHECK_QUERY
+        from graphrag_pipeline.core.graph.cypher import INTEGRITY_CHECK_QUERY
         executor = Neo4jQueryExecutor(
             uri=args.neo4j_uri,
             user=args.neo4j_user,
@@ -698,7 +700,7 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "export-corpus":
-        from .export import export_semantic_csv, render_html_report, render_ead_xml
+        from graphrag_pipeline.ingest.export import export_semantic_csv, render_html_report, render_ead_xml
 
         fmt = args.format
         output_arg = args.output or "export_out"

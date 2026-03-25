@@ -3,8 +3,8 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any, Protocol
 
-from ..models import SemanticBundle, StructureBundle
-from .cypher import ID_CONSTRAINTS, SCHEMA_STATEMENTS
+from graphrag_pipeline.core.models import SemanticBundle, StructureBundle
+from graphrag_pipeline.core.graph.cypher import ID_CONSTRAINTS, SCHEMA_STATEMENTS
 
 try:
     import neo4j as neo4j_pkg

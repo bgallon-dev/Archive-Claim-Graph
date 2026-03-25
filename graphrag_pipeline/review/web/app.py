@@ -928,7 +928,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
     Requires `fastapi` and `uvicorn` to be installed.
     """
-    from graphrag_pipeline.logging_config import setup_logging
+    from graphrag_pipeline.shared.logging_config import setup_logging
     setup_logging()
 
     try:

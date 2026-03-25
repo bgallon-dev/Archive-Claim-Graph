@@ -77,7 +77,7 @@ def render_html_report(
     *permitted_levels* defaults to all levels (admin-grade export).
     """
     from graphrag_pipeline.retrieval.executor import Neo4jQueryExecutor
-    from graphrag_pipeline.graph.cypher import (
+    from graphrag_pipeline.core.graph.cypher import (
         STATS_DOC_OVERVIEW_QUERY,
         STATS_DOC_TYPE_QUERY,
         STATS_CLAIM_TYPE_QUERY,

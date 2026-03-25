@@ -6,7 +6,7 @@ graphrag_pipeline.graph.cypher to keep schema concerns co-located.
 """
 from __future__ import annotations
 
-from ..graph.cypher import (
+from ..core.graph.cypher import (
     HABITAT_CONDITION_QUERY,
     PROVENANCE_CHAIN_QUERY,
     SPECIES_TREND_QUERY,

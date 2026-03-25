@@ -1,7 +1,7 @@
 """Provenance field tests for ClaimDraft, MeasurementDraft, and MentionDraft."""
 from __future__ import annotations
 
-from graphrag_pipeline.extractors.claim_extractor import (
+from graphrag_pipeline.ingest.extractors.claim_extractor import (
     ClaimDraft,
     ClaimLinkDraft,
     HybridClaimExtractor,
@@ -9,11 +9,11 @@ from graphrag_pipeline.extractors.claim_extractor import (
     NullLLMAdapter,
     RuleBasedClaimExtractor,
 )
-from graphrag_pipeline.extractors.measurement_extractor import (
+from graphrag_pipeline.ingest.extractors.measurement_extractor import (
     MeasurementDraft,
     RuleBasedMeasurementExtractor,
 )
-from graphrag_pipeline.extractors.mention_extractor import RuleBasedMentionExtractor
+from graphrag_pipeline.ingest.extractors.mention_extractor import RuleBasedMentionExtractor
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────

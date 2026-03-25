@@ -6,9 +6,9 @@ from collections import defaultdict
 from typing import Any
 
 from .extractors.mention_extractor import get_ocr_flags
-from .ids import stable_hash
-from .models import MentionRecord, SemanticBundle, StructureBundle
-from .resource_loader import (
+from graphrag_pipeline.core.ids import stable_hash
+from graphrag_pipeline.core.models import MentionRecord, SemanticBundle, StructureBundle
+from graphrag_pipeline.shared.resource_loader import (
     load_ocr_correction_map,
     load_seed_entity_rows,
     load_spelling_reference_terms,

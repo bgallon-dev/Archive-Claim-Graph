@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from graphrag_pipeline.pipeline import extract_semantic, load_graph
-from graphrag_pipeline.source_parser import parse_source_file
+from graphrag_pipeline.ingest.pipeline import extract_semantic, load_graph
+from graphrag_pipeline.ingest.source_parser import parse_source_file
 
 
 class _DummyNeo4jWriter:
@@ -30,7 +30,7 @@ def test_load_graph_reads_neo4j_trust_env(monkeypatch, fixtures_dir: Path) -> No
     monkeypatch.setenv("NEO4J_TRUST", "custom")
     monkeypatch.setenv("NEO4J_CA_CERT", "C:/tmp/ca.crt")
 
-    monkeypatch.setattr("graphrag_pipeline.pipeline.Neo4jGraphWriter", _DummyNeo4jWriter)
+    monkeypatch.setattr("graphrag_pipeline.ingest.pipeline.Neo4jGraphWriter", _DummyNeo4jWriter)
 
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(structure, run_overrides={"run_id": "run_env", "run_timestamp": "2026-03-10T00:00:00+00:00"})

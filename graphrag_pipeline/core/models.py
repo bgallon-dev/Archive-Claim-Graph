@@ -1,11 +1,43 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, field
-from typing import Any
+from typing import Any, TypeVar
+
+_R = TypeVar("_R", bound="_BaseRecord")
+
+
+class _BaseRecord:
+    """Shared plumbing for all record dataclasses.
+
+    Provides default ``to_dict``, ``from_dict``, and ``node_props`` so
+    subclasses only override what genuinely differs.
+
+    ``_EDGE_FKS``
+        Class-level frozenset of field names that are FK references stored as
+        graph edges rather than node properties.  ``node_props()`` excludes
+        these keys.  Defaults to empty (all fields become node props).
+    """
+
+    __slots__ = ()
+    _EDGE_FKS: frozenset[str] = frozenset()
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)  # type: ignore[arg-type]
+
+    def node_props(self) -> dict[str, Any]:
+        """Return properties suitable for a Neo4j node, excluding FK edges."""
+        fks = type(self)._EDGE_FKS
+        return {k: v for k, v in asdict(self).items() if k not in fks}  # type: ignore[arg-type]
+
+    @classmethod
+    def from_dict(cls: type[_R], payload: dict[str, Any]) -> _R:
+        """Construct from a dict, silently dropping unknown keys."""
+        known = {f.name for f in cls.__dataclass_fields__.values()}  # type: ignore[attr-defined]
+        return cls(**{k: v for k, v in payload.items() if k in known})
 
 
 @dataclass(slots=True)
-class DocumentRecord:
+class DocumentRecord(_BaseRecord):
     doc_id: str
     title: str
     doc_type: str = "narrative_report"
@@ -26,18 +58,9 @@ class DocumentRecord:
     deleted_at: str | None = None       # ISO-8601 UTC timestamp when soft-deleted; None = active
     deleted_by: str | None = None       # identity string of the user who performed deletion
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "DocumentRecord":
-        data = dict(payload)
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in data.items() if k in known})
-
 
 @dataclass(slots=True)
-class ExtractionRunRecord:
+class ExtractionRunRecord(_BaseRecord):
     run_id: str
     ocr_engine: str = "unknown"
     ocr_version: str = "unknown"
@@ -48,17 +71,11 @@ class ExtractionRunRecord:
     config_fingerprint: str = ""
     claim_type_schema_version: str = "v2"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ExtractionRunRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
-
 
 @dataclass(slots=True)
-class PageRecord:
+class PageRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({"doc_id"})
+
     page_id: str
     doc_id: str
     page_number: int
@@ -67,25 +84,11 @@ class PageRecord:
     ocr_confidence: float | None = None
     image_ref: str | None = None
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node. Excludes doc_id, which is
-        authoritative as the Document-[:HAS_PAGE]-> edge, to prevent property/edge drift."""
-        d = asdict(self)
-        d.pop("doc_id", None)
-        return d
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "PageRecord":
-        data = dict(payload)
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in data.items() if k in known})
-
 
 @dataclass(slots=True)
-class SectionRecord:
+class SectionRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({"doc_id"})
+
     section_id: str
     doc_id: str
     heading: str
@@ -95,23 +98,11 @@ class SectionRecord:
     page_start: int
     page_end: int
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node. Excludes doc_id, which is
-        authoritative as the Document-[:HAS_SECTION]-> edge, to prevent property/edge drift."""
-        d = asdict(self)
-        d.pop("doc_id", None)
-        return d
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "SectionRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ParagraphRecord:
+class ParagraphRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({"doc_id", "page_id", "section_id"})
+
     paragraph_id: str
     doc_id: str
     page_id: str
@@ -122,29 +113,11 @@ class ParagraphRecord:
     clean_text: str
     char_count: int
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node.
-
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          doc_id     → Document-[:HAS_PAGE]->Page-[:HAS_SECTION]->Section-[:HAS_PARAGRAPH]->Paragraph
-          page_id    → structural chain above
-          section_id → Section-[:HAS_PARAGRAPH]->Paragraph
-        """
-        _edge_fks = {"doc_id", "page_id", "section_id"}
-        return {k: v for k, v in asdict(self).items() if k not in _edge_fks}
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ParagraphRecord":
-        data = dict(payload)
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in data.items() if k in known})
-
 
 @dataclass(slots=True)
-class AnnotationRecord:
+class AnnotationRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({"doc_id", "page_id"})
+
     annotation_id: str
     doc_id: str
     page_id: str
@@ -161,27 +134,9 @@ class AnnotationRecord:
     target_measurement_id: str | None = None
     corrects_measurement: bool = False
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node.
-
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          doc_id  → Document structural chain
-          page_id → Page-[:HAS_ANNOTATION]->Annotation
-        """
-        _edge_fks = {"doc_id", "page_id"}
-        return {k: v for k, v in asdict(self).items() if k not in _edge_fks}
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "AnnotationRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
-
 
 @dataclass(slots=True)
-class ClaimRecord:
+class ClaimRecord(_BaseRecord):
     claim_id: str
     run_id: str
     paragraph_id: str
@@ -209,8 +164,9 @@ class ClaimRecord:
     def node_props(self) -> dict[str, Any]:
         """Properties to persist on the Neo4j node.
 
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          paragraph_id → Paragraph-[:HAS_CLAIM]->Claim and Claim-[:EVIDENCED_BY]->Paragraph
+        Uses ``to_dict`` (not ``asdict``) so the ``certainty`` → ``epistemic_status``
+        rename is applied, then drops ``paragraph_id`` which is authoritative as
+        the Paragraph-[:HAS_CLAIM]->Claim edge.
         """
         data = self.to_dict()
         data.pop("paragraph_id", None)
@@ -234,7 +190,9 @@ class ClaimRecord:
 
 
 @dataclass(slots=True)
-class MeasurementRecord:
+class MeasurementRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({"claim_id"})
+
     measurement_id: str
     claim_id: str
     run_id: str
@@ -249,26 +207,11 @@ class MeasurementRecord:
     measurement_date: str | None = None
     methodology_note: str | None = None
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node.
-
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          claim_id → Claim-[:HAS_MEASUREMENT]->Measurement
-        """
-        _edge_fks = {"claim_id"}
-        return {k: v for k, v in asdict(self).items() if k not in _edge_fks}
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "MeasurementRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
-
 
 @dataclass(slots=True)
-class MentionRecord:
+class MentionRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({"paragraph_id"})
+
     mention_id: str
     run_id: str
     paragraph_id: str
@@ -278,18 +221,6 @@ class MentionRecord:
     end_offset: int
     detection_confidence: float  # [0.0–1.0] extractor's confidence in detecting this mention
     ocr_suspect: bool = False
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node.
-
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          paragraph_id → Paragraph-[:CONTAINS_MENTION]->Mention
-        """
-        _edge_fks = {"paragraph_id"}
-        return {k: v for k, v in asdict(self).items() if k not in _edge_fks}
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "MentionRecord":
@@ -301,22 +232,20 @@ class MentionRecord:
 
 
 @dataclass(slots=True)
-class EntityRecord:
+class EntityRecord(_BaseRecord):
     entity_id: str
     entity_type: str       # entity class/category, e.g. "Species", "Place", "Refuge"
     name: str              # canonical display name
     normalized_form: str   # lowercased, normalized form for matching (mirrors MentionRecord.normalized_form)
     properties: dict[str, Any] = field(default_factory=dict)
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
     def node_props(self) -> dict[str, Any]:
         """Properties to persist on the Neo4j node.
 
-        `entity_type` remains part of the serialized bundle contract so the
+        ``entity_type`` remains part of the serialized bundle contract so the
         pipeline can route entities to their domain labels, but the Neo4j label
-        itself is authoritative once written to the graph.
+        itself is authoritative once written to the graph.  ``properties`` is
+        flattened inline rather than stored as a nested map.
         """
         data = asdict(self)
         data.pop("entity_type", None)
@@ -344,7 +273,7 @@ class EntityRecord:
 
 
 @dataclass(slots=True)
-class EntityResolutionRecord:
+class EntityResolutionRecord(_BaseRecord):
     mention_id: str
     entity_id: str
     relation_type: str
@@ -352,47 +281,25 @@ class EntityResolutionRecord:
     confirmed_by: str | None = None
     confirmed_at: str | None = None
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "EntityResolutionRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
-
 
 @dataclass(slots=True)
-class EntityResolutionConfirmationRecord:
+class EntityResolutionConfirmationRecord(_BaseRecord):
     mention_id: str
     entity_id: str
     relation_type: str   # "CONFIRMED_AS" | "REFUTED_BY"
     confirmed_by: str
     confirmed_at: str
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "EntityResolutionConfirmationRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ClaimEntityLinkRecord:
+class ClaimEntityLinkRecord(_BaseRecord):
     claim_id: str
     entity_id: str
     relation_type: str = "ABOUT"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ClaimEntityLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ClaimLinkDiagnosticRecord:
+class ClaimLinkDiagnosticRecord(_BaseRecord):
     claim_id: str
     relation_type: str
     surface_form: str
@@ -402,100 +309,57 @@ class ClaimLinkDiagnosticRecord:
     candidate_count: int = 0
     detail: str = ""
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ClaimLinkDiagnosticRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ClaimLocationLinkRecord:
+class ClaimLocationLinkRecord(_BaseRecord):
     claim_id: str
     entity_id: str
     relation_type: str = "OCCURRED_AT"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ClaimLocationLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ClaimPeriodLinkRecord:
+class ClaimPeriodLinkRecord(_BaseRecord):
     claim_id: str
     period_id: str
     relation_type: str = "OCCURRED_DURING"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ClaimPeriodLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class DocumentRefugeLinkRecord:
+class DocumentRefugeLinkRecord(_BaseRecord):
     doc_id: str
     refuge_id: str
     relation_type: str = "ABOUT_REFUGE"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "DocumentRefugeLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class DocumentPeriodLinkRecord:
+class DocumentPeriodLinkRecord(_BaseRecord):
     doc_id: str
     period_id: str
     relation_type: str = "COVERS_PERIOD"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "DocumentPeriodLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class DocumentSignedByLinkRecord:
+class DocumentSignedByLinkRecord(_BaseRecord):
     doc_id: str
     person_id: str
     relation_type: str = "SIGNED_BY"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "DocumentSignedByLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class PersonAffiliationLinkRecord:
+class PersonAffiliationLinkRecord(_BaseRecord):
     person_id: str
     organization_id: str
     relation_type: str = "AFFILIATED_WITH"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "PersonAffiliationLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ObservationRecord:
+class ObservationRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({
+        "species_id", "refuge_id", "place_id", "period_id",
+        "year_id", "habitat_id", "survey_method_id",
+        "paragraph_id", "claim_id",
+    })
+
     observation_id: str
     run_id: str
     observation_type: str
@@ -517,65 +381,28 @@ class ObservationRecord:
     year: int | None = None
     year_source: str = "unknown"   # "claim_date" | "document_primary_year" | "unknown"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node.
-
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          species_id    → OF_SPECIES (Observation→Species)
-          refuge_id     → AT_REFUGE (Observation→Refuge)
-          place_id      → AT_PLACE (Observation→Place)
-          period_id     → DURING (Observation→Period)
-          year_id       → IN_YEAR (Observation→Year)
-          habitat_id    → IN_HABITAT (Observation→Habitat)
-          survey_method_id → USED_METHOD (Observation→SurveyMethod)
-          paragraph_id  → EVIDENCED_BY (Observation→Paragraph)
-          claim_id      → SUPPORTS (Claim→Observation)
-        """
-        _edge_fks = {
-            "species_id", "refuge_id", "place_id", "period_id",
-            "year_id", "habitat_id", "survey_method_id",
-            "paragraph_id", "claim_id",
-        }
-        return {k: v for k, v in asdict(self).items() if k not in _edge_fks}
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ObservationRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
-
 
 @dataclass(slots=True)
-class YearRecord:
+class YearRecord(_BaseRecord):
     year_id: str
     year: int
     year_label: str  # human-readable label, e.g. "1938" or "FY-1972"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "YearRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class ObservationMeasurementLinkRecord:
+class ObservationMeasurementLinkRecord(_BaseRecord):
     observation_id: str
     measurement_id: str
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ObservationMeasurementLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class EventRecord:
+class EventRecord(_BaseRecord):
+    _EDGE_FKS = frozenset({
+        "species_id", "refuge_id", "place_id", "period_id",
+        "year_id", "habitat_id", "survey_method_id",
+        "paragraph_id", "claim_id",
+    })
+
     event_id: str
     run_id: str
     event_type: str            # "SurveyEvent", "FireEvent", etc.
@@ -594,84 +421,31 @@ class EventRecord:
     confidence: float = 0.0  # pipeline confidence carried forward from the supporting claim extraction
     review_status: str = "unreviewed"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    def node_props(self) -> dict[str, Any]:
-        """Properties to persist on the Neo4j node.
-
-        Excludes FK fields whose relationships are authoritative as graph edges:
-          species_id    → INVOLVED_SPECIES (Event→Species)
-          refuge_id     → OCCURRED_AT (Event→Refuge)
-          place_id      → OCCURRED_AT (Event→Place)
-          period_id     → DURING (Event→Period)
-          year_id       → IN_YEAR (Event→Year)
-          habitat_id    → IN_HABITAT (Event→Habitat)
-          survey_method_id → USED_METHOD (Event→SurveyMethod)
-          paragraph_id  → SOURCED_FROM (Event→Paragraph)
-          claim_id      → TRIGGERED (Claim→Event)
-        """
-        _edge_fks = {
-            "species_id", "refuge_id", "place_id", "period_id",
-            "year_id", "habitat_id", "survey_method_id",
-            "paragraph_id", "claim_id",
-        }
-        return {k: v for k, v in asdict(self).items() if k not in _edge_fks}
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "EventRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
-
 
 @dataclass(slots=True)
-class EventObservationLinkRecord:
+class EventObservationLinkRecord(_BaseRecord):
     event_id: str
     observation_id: str
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "EventObservationLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class EventMeasurementLinkRecord:
+class EventMeasurementLinkRecord(_BaseRecord):
     event_id: str
     measurement_id: str
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "EventMeasurementLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class DocumentYearLinkRecord:
+class DocumentYearLinkRecord(_BaseRecord):
     doc_id: str
     year_id: str
     relation_type: str = "COVERS_YEAR"
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "DocumentYearLinkRecord":
-        return cls(**payload)
-
 
 @dataclass(slots=True)
-class PlaceRefugeLinkRecord:
+class PlaceRefugeLinkRecord(_BaseRecord):
     place_id: str
     refuge_id: str
     relation_type: str = "LOCATED_IN_REFUGE"
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
 
     @classmethod
     def from_dict(cls, payload: dict[str, Any]) -> "PlaceRefugeLinkRecord":
@@ -712,19 +486,11 @@ class StructureBundle:
 
 
 @dataclass(slots=True)
-class ClaimConceptLinkRecord:
+class ClaimConceptLinkRecord(_BaseRecord):
     claim_id: str
     concept_id: str
     confidence: float = 0.0
     matched_rule: str = ""
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
-
-    @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "ClaimConceptLinkRecord":
-        known = {f.name for f in cls.__dataclass_fields__.values()}
-        return cls(**{k: v for k, v in payload.items() if k in known})
 
 
 @dataclass(slots=True)

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Ingest Documents — GraphRAG{% endblock %}
+
+{% block navbar %}
+<span class="navbar-brand">GraphRAG</span>
+<a href="/">Ingest</a>
+{% endblock %}
+
+{% block content %}
+<h1>Ingest Documents</h1>
+<p class="subtitle">Drag PDF or JSON files onto the zone below, then click Upload.</p>
+<div class="card">
+  <form id="upload-form" method="post" action="/ingest" enctype="multipart/form-data">
+    <div id="drop-zone" onclick="document.getElementById('file-input').click()">
+      <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
+      </svg>
+      <p>Drop PDF or JSON files here, or click to browse</p>
+      <p class="hint">Accepted formats: .pdf, .json</p>
+    </div>
+    <input id="file-input" type="file" name="files" multiple accept=".pdf,.json">
+    <div id="file-list"></div>
+    <div style="margin-top:1.25rem;display:flex;gap:0.75rem;align-items:center">
+      <button type="submit" class="btn btn-primary" id="submit-btn" disabled>
+        Upload &amp; Process
+      </button>
+      <span id="file-count" style="font-size:0.85rem;color:#6c757d"></span>
+    </div>
+  </form>
+</div>
+<script>
+(function() {
+  const zone = document.getElementById('drop-zone');
+  const inp = document.getElementById('file-input');
+  const list = document.getElementById('file-list');
+  const btn = document.getElementById('submit-btn');
+  const counter = document.getElementById('file-count');
+  let selectedFiles = [];
+
+  function renderFiles() {
+    list.innerHTML = '';
+    selectedFiles.forEach(function(f, i) {
+      const chip = document.createElement('span');
+      chip.className = 'file-chip';
+      chip.innerHTML = f.name + ' <span class="remove" data-i="' + i + '">&times;</span>';
+      list.appendChild(chip);
+    });
+    list.querySelectorAll('.remove').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        selectedFiles.splice(parseInt(this.dataset.i), 1);
+        syncInput(); renderFiles();
+      });
+    });
+    btn.disabled = selectedFiles.length === 0;
+    counter.textContent = selectedFiles.length > 0 ? selectedFiles.length + ' file(s) selected' : '';
+  }
+
+  function syncInput() {
+    const dt = new DataTransfer();
+    selectedFiles.forEach(function(f) { dt.items.add(f); });
+    inp.files = dt.files;
+  }
+
+  inp.addEventListener('change', function() {
+    Array.from(this.files).forEach(function(f) {
+      if (!selectedFiles.find(function(x) { return x.name === f.name; })) {
+        selectedFiles.push(f);
+      }
+    });
+    syncInput(); renderFiles();
+  });
+
+  zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', function() { zone.classList.remove('drag-over'); });
+  zone.addEventListener('drop', function(e) {
+    e.preventDefault(); zone.classList.remove('drag-over');
+    Array.from(e.dataTransfer.files).forEach(function(f) {
+      if (!selectedFiles.find(function(x) { return x.name === f.name; })) {
+        selectedFiles.push(f);
+      }
+    });
+    syncInput(); renderFiles();
+  });
+})();
+</script>
+{% endblock %}

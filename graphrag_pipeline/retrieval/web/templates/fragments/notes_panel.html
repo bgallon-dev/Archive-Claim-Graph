@@ -1,0 +1,26 @@
+<div id="notes-panel-{{ doc_id }}" class="notes-panel">
+  {% if current %}
+  <p style="margin:0 0 4px"><strong>Current note</strong> &mdash;
+    <em>{{ current.created_by }}, {{ current.created_at[:16] if current.created_at else '' }} UTC</em>:
+  </p>
+  <p style="margin:0 0 8px;white-space:pre-wrap">{{ current.note_text }}</p>
+  {% endif %}
+  {% if older %}
+  <details style="margin-top:4px;font-size:11px;color:#6c757d">
+    <summary>History ({{ older | length }} previous)</summary>
+    {% for h in older %}
+    <p style="margin:2px 0">
+      <em>{{ h.created_by }}, {{ h.created_at[:16] if h.created_at else '' }}:</em>
+      {{ h.note_text }}
+    </p>
+    {% endfor %}
+  </details>
+  {% endif %}
+  <form hx-post="/document/{{ doc_id }}/notes"
+        hx-target="#notes-panel-{{ doc_id }}" hx-swap="outerHTML"
+        hx-encoding="application/x-www-form-urlencoded">
+    <textarea name="note_text" rows="3" maxlength="2000"
+      placeholder="Add an archivist note for this document...">{% if current %}{{ current.note_text }}{% endif %}</textarea>
+    <button type="submit">Save note</button>
+  </form>
+</div>

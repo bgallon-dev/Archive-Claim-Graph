@@ -1,0 +1,38 @@
+{% macro status_badge(s) %}
+  {% if s == 'queued' %}<span class="badge badge-queued">Queued</span>
+  {% elif s == 'converting' %}<span class="badge badge-converting">Converting</span>
+  {% elif s == 'extracting' %}<span class="badge badge-extracting">Extracting</span>
+  {% elif s == 'completed' %}<span class="badge badge-completed">Done</span>
+  {% elif s == 'failed' %}<span class="badge badge-failed">Failed</span>
+  {% else %}<span class="badge badge-queued">{{ s }}</span>
+  {% endif %}
+{% endmacro %}
+<div id="doc-status"
+  {% if is_running %}
+    hx-get="/ingest/{{ job_id }}/status"
+    hx-trigger="every 2s"
+    hx-swap="outerHTML"
+  {% endif %}>
+  <table>
+    <thead>
+      <tr>
+        <th>File</th><th>Status</th><th>Claims</th><th>Mentions</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in docs %}
+      <tr>
+        <td><code style="font-size:0.8rem">{{ d.filename }}</code></td>
+        <td>{{ status_badge(d.status or 'queued') }}</td>
+        <td>{{ d.claims_count if d.claims_count is not none else '—' }}</td>
+        <td>{{ d.mention_count if d.mention_count is not none else '—' }}</td>
+        <td>
+          {% if d.error_message %}
+            <div class="error-detail">{{ d.error_message[:200] }}</div>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

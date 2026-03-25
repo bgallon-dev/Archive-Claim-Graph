@@ -10,9 +10,11 @@ Login page will be available at ``/auth/login``.
 from __future__ import annotations
 
 import os
+from pathlib import Path
 
 from fastapi import APIRouter, Cookie, Depends, Form, HTTPException, Request, Response, status
 from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, EmailStr, Field
 from typing import Literal
 
@@ -22,99 +24,8 @@ from .models import UserContext
 from .setup import ensure_setup_token_printed, get_setup_token, is_setup_needed, mark_setup_done
 from .store import UserStore, verify_password
 
-# ---------------------------------------------------------------------------
-# Login page HTML (inline, following the pattern of the existing apps)
-# ---------------------------------------------------------------------------
-
-_LOGIN_HTML = """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign in</title>
-  <style>
-    *, *::before, *::after {{ box-sizing: border-box; }}
-    body {{
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f5f5f5;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-    }}
-    .card {{
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.1);
-      padding: 2rem 2.5rem;
-      width: 100%;
-      max-width: 380px;
-    }}
-    h1 {{ font-size: 1.25rem; margin: 0 0 1.5rem; color: #111; }}
-    label {{ display: block; font-size: .875rem; color: #444; margin-bottom: .25rem; }}
-    input[type=email], input[type=password] {{
-      width: 100%;
-      padding: .5rem .75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }}
-    input:focus {{ outline: 2px solid #3b82f6; border-color: transparent; }}
-    button {{
-      width: 100%;
-      padding: .6rem;
-      background: #1d4ed8;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      cursor: pointer;
-    }}
-    button:hover {{ background: #1e40af; }}
-    .error {{
-      background: #fee2e2;
-      color: #b91c1c;
-      border-radius: 4px;
-      padding: .5rem .75rem;
-      font-size: .875rem;
-      margin-bottom: 1rem;
-    }}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>GraphRAG &mdash; Sign in</h1>
-    {error_block}
-    <form method="post" action="/auth/login">
-      <input type="hidden" name="next" value="{next}">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required autofocus
-             autocomplete="username" value="{email_prefill}">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required
-             autocomplete="current-password">
-      <button type="submit">Sign in</button>
-    </form>
-  </div>
-</body>
-</html>"""
-
-_ERROR_BLOCK = '<div class="error">{message}</div>'
-
-
-def _login_page(
-    error: str = "",
-    next_url: str = "/",
-    email_prefill: str = "",
-) -> str:
-    error_block = _ERROR_BLOCK.format(message=error) if error else ""
-    return _LOGIN_HTML.format(
-        error_block=error_block,
-        next=next_url,
-        email_prefill=email_prefill,
-    )
+_TEMPLATES_DIR = Path(__file__).parent / "templates"
+_templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
 
 
 def _safe_next(next_url: str) -> str:
@@ -122,150 +33,6 @@ def _safe_next(next_url: str) -> str:
     if next_url and next_url.startswith("/") and "://" not in next_url:
         return next_url
     return "/"
-
-
-# ---------------------------------------------------------------------------
-# First-run setup page HTML
-# ---------------------------------------------------------------------------
-
-_SETUP_HTML = """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GraphRAG &mdash; First-time Setup</title>
-  <style>
-    *, *::before, *::after {{ box-sizing: border-box; }}
-    body {{
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f0f4ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-    }}
-    .card {{
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.12);
-      padding: 2.5rem 3rem;
-      width: 100%;
-      max-width: 440px;
-    }}
-    .badge {{
-      display: inline-block;
-      background: #dbeafe;
-      color: #1d4ed8;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: .2rem .6rem;
-      border-radius: 99px;
-      margin-bottom: 1rem;
-    }}
-    h1 {{ font-size: 1.4rem; margin: 0 0 .4rem; color: #111; }}
-    p.subtitle {{ color: #6b7280; font-size: .9rem; margin: 0 0 1.5rem; }}
-    label {{ display: block; font-size: .875rem; color: #374151; margin-bottom: .25rem; }}
-    input[type=email], input[type=password] {{
-      width: 100%;
-      padding: .5rem .75rem;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }}
-    input:focus {{ outline: 2px solid #3b82f6; border-color: transparent; }}
-    .hint {{ font-size: .78rem; color: #9ca3af; margin-top: -.75rem; margin-bottom: 1rem; }}
-    button {{
-      width: 100%;
-      padding: .65rem;
-      background: #1d4ed8;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: .25rem;
-    }}
-    button:hover {{ background: #1e40af; }}
-    .error {{
-      background: #fee2e2;
-      color: #b91c1c;
-      border-radius: 6px;
-      padding: .6rem .85rem;
-      font-size: .875rem;
-      margin-bottom: 1rem;
-    }}
-    .divider {{ border: none; border-top: 1px solid #f3f4f6; margin: 1.5rem 0 1rem; }}
-    .note {{ font-size: .8rem; color: #6b7280; }}
-    .note code {{ background: #f3f4f6; padding: .1rem .3rem; border-radius: 3px; font-size: .78rem; }}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <span class="badge">First-time setup</span>
-    <h1>Create your admin account</h1>
-    <p class="subtitle">
-      This runs once. A setup token was printed to the server logs when
-      this page was first visited &mdash; paste it below to continue.
-    </p>
-    {error_block}
-    <form method="post" action="/auth/setup">
-      <label for="setup_token">Setup token (from server logs)</label>
-      <input type="text" id="setup_token" name="setup_token" required
-             autocomplete="off" placeholder="Paste token from server stderr">
-      <p class="hint">Check the terminal where the server is running.</p>
-      <label for="email">Admin email</label>
-      <input type="email" id="email" name="email" required
-             autocomplete="username" value="{email_prefill}">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required
-             autocomplete="new-password" minlength="12">
-      <p class="hint">Minimum 12 characters</p>
-      <label for="confirm">Confirm password</label>
-      <input type="password" id="confirm" name="confirm" required
-             autocomplete="new-password" minlength="12">
-      <button type="submit">Create admin account &amp; continue</button>
-    </form>
-    <hr class="divider">
-    <p class="note">
-      You can create additional users (Archivists, Read-only) from
-      <code>Admin &rarr; Users</code> after signing in.
-    </p>
-  </div>
-</body>
-</html>"""
-
-_SETUP_DONE_HTML = """<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="3;url=/auth/login">
-  <title>Setup complete</title>
-  <style>
-    body {{ font-family: system-ui, sans-serif; display: flex; align-items: center;
-           justify-content: center; min-height: 100vh; margin: 0; background: #f0fdf4; }}
-    .card {{ background: #fff; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.1);
-             padding: 2.5rem 3rem; max-width: 400px; text-align: center; }}
-    h1 {{ color: #15803d; font-size: 1.4rem; }}
-    p {{ color: #6b7280; }}
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>Setup complete!</h1>
-    <p>Your admin account has been created.<br>Redirecting to sign in&hellip;</p>
-  </div>
-</body>
-</html>"""
-
-
-def _setup_page(error: str = "", email_prefill: str = "") -> str:
-    error_block = _ERROR_BLOCK.format(message=error) if error else ""
-    return _SETUP_HTML.format(error_block=error_block, email_prefill=email_prefill)
 
 
 # ---------------------------------------------------------------------------
@@ -307,14 +74,15 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
     # ------------------------------------------------------------------
 
     @router.get("/setup", response_class=HTMLResponse, include_in_schema=False)
-    def get_setup() -> HTMLResponse:
+    def get_setup(request: Request) -> Response:
         if not is_setup_needed(db_path):
             return RedirectResponse(url="/auth/login", status_code=303)
         ensure_setup_token_printed()
-        return HTMLResponse(_setup_page())
+        return _templates.TemplateResponse("setup.html", {"request": request, "error": "", "email_prefill": ""})
 
     @router.post("/setup", include_in_schema=False)
     async def post_setup(
+        request: Request,
         email: str = Form(...),
         password: str = Form(...),
         confirm: str = Form(...),
@@ -329,31 +97,38 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
             setup_token.encode("utf-8"),
             get_setup_token().encode("utf-8"),
         ):
-            return HTMLResponse(
-                _setup_page(error="Invalid setup token. Check the server logs."),
+            return _templates.TemplateResponse(
+                "setup.html",
+                {"request": request, "error": "Invalid setup token. Check the server logs.", "email_prefill": ""},
                 status_code=403,
             )
 
         email = email.strip().lower()
 
         if len(password) < 12:
-            return HTMLResponse(
-                _setup_page(error="Password must be at least 12 characters.", email_prefill=email),
+            return _templates.TemplateResponse(
+                "setup.html",
+                {"request": request, "error": "Password must be at least 12 characters.", "email_prefill": email},
                 status_code=400,
             )
         if password != confirm:
-            return HTMLResponse(
-                _setup_page(error="Passwords do not match.", email_prefill=email),
+            return _templates.TemplateResponse(
+                "setup.html",
+                {"request": request, "error": "Passwords do not match.", "email_prefill": email},
                 status_code=400,
             )
 
         try:
             store.create_user(email, password, role="admin")
         except ValueError as e:
-            return HTMLResponse(_setup_page(error=str(e), email_prefill=email), status_code=400)
+            return _templates.TemplateResponse(
+                "setup.html",
+                {"request": request, "error": str(e), "email_prefill": email},
+                status_code=400,
+            )
 
         mark_setup_done()
-        return HTMLResponse(_SETUP_DONE_HTML)
+        return _templates.TemplateResponse("setup_done.html", {"request": request})
 
     # ------------------------------------------------------------------
     # Login / logout
@@ -364,7 +139,7 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
         request: Request,
         next: str = "/",
         access_token: str | None = Cookie(default=None),
-    ) -> HTMLResponse:
+    ) -> Response:
         # Already logged in → redirect immediately
         if access_token:
             from .jwt_utils import decode_access_token
@@ -374,18 +149,23 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
                 return RedirectResponse(url=_safe_next(next), status_code=303)
             except JWTError:
                 pass
-        return HTMLResponse(_login_page(next_url=_safe_next(next)))
+        return _templates.TemplateResponse(
+            "login.html",
+            {"request": request, "error": "", "next": _safe_next(next), "email_prefill": ""},
+        )
 
     @router.post("/login", include_in_schema=False)
     async def post_login(
+        request: Request,
         email: str = Form(...),
         password: str = Form(...),
         next: str = Form(default="/"),
     ) -> Response:
         user = store.get_by_email(email)
         if user is None or not user.is_active or not verify_password(password, user.hashed_password):
-            return HTMLResponse(
-                _login_page(error="Invalid email or password.", next_url=_safe_next(next), email_prefill=email),
+            return _templates.TemplateResponse(
+                "login.html",
+                {"request": request, "error": "Invalid email or password.", "next": _safe_next(next), "email_prefill": email},
                 status_code=401,
             )
         token = create_access_token(

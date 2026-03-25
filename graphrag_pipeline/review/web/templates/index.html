@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Review Queue{% endblock %}
+{% block content %}
+<h1>Review Queue</h1>
+{{ sensitivity_alert | safe }}
+<section style="margin:1.5rem 0">
+  <h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
+    What needs your attention today?</h2>
+  <p style="color:#6c757d;font-size:0.9rem;margin-top:0">
+    Top 5 proposals by priority score. Accept or defer directly, or open for full detail.
+  </p>
+  {{ priority_cards | safe }}
+  <p style="margin-top:0.5rem;font-size:0.9rem">
+    <a href="/proposals?status=queued">See all queued proposals &rarr;</a>
+  </p>
+</section>
+
+<section style="margin:1.5rem 0">
+  <h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
+    What can be handled quickly?</h2>
+  <p style="color:#6c757d;font-size:0.9rem;margin-top:0">
+    Low-consequence proposals suitable for batch review. Spot-check a sample, then accept or reject the group with one action.
+  </p>
+  <table>
+    <thead><tr><th>Issue class</th><th>Queued</th><th>Avg confidence</th><th></th></tr></thead>
+    <tbody>{{ batch_rows | safe }}</tbody>
+  </table>
+</section>
+
+<section style="margin:1.5rem 0">
+  <h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
+    What has been done today?</h2>
+  <table style="width:auto">
+    <tr><th>Accepted</th><td><strong>{{ accepted_today }}</strong></td></tr>
+    <tr><th>Rejected</th><td><strong>{{ rejected_today }}</strong></td></tr>
+    <tr><th>Deferred</th><td><strong>{{ deferred_today }}</strong></td></tr>
+  </table>
+  <p style="font-size:0.85rem;color:#6c757d">Counts since midnight UTC today.</p>
+</section>
+{% endblock %}

@@ -21,12 +21,6 @@ from ..store import ReviewStore
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
 
 
-def _render(template_name: str, **ctx: Any) -> str:
-    """Minimal template rendering – just string format with context."""
-    path = _TEMPLATES_DIR / template_name
-    return path.read_text(encoding="utf-8").format(**ctx)
-
-
 _JUNK_ISSUE_CLASSES = frozenset(
     {"header_contamination", "boilerplate_contamination", "short_generic_token", "ocr_garbage_mention"}
 )
@@ -934,10 +928,13 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
     try:
         from fastapi import Depends, FastAPI, Form, Query, Request
         from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse as _RedirectResponse
+        from fastapi.templating import Jinja2Templates
     except ImportError as e:
         raise ImportError(
             "FastAPI is required for review-serve. Install with: pip install fastapi uvicorn"
         ) from e
+
+    _templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
 
     from graphrag_pipeline.auth.dependencies import (
         NeedsLoginException,
@@ -1004,7 +1001,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         )
 
     @app.get("/", response_class=HTMLResponse)
-    async def index(_user: UserContext = Depends(require_login)) -> str:
+    async def index(request: Request, _user: UserContext = Depends(require_login)):
         from datetime import date as _date
 
         # --- Section 1: top 5 highest-priority queued proposals ---
@@ -1078,17 +1075,19 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         rejected_today = event_counts.get("reject", 0)
         deferred_today = event_counts.get("defer", 0)
 
-        return _INDEX_HTML.format(
-            sensitivity_alert=sensitivity_alert,
-            priority_cards=priority_cards,
-            batch_rows=batch_rows,
-            accepted_today=accepted_today,
-            rejected_today=rejected_today,
-            deferred_today=deferred_today,
-        )
+        return _templates.TemplateResponse("index.html", {
+            "request": request,
+            "sensitivity_alert": sensitivity_alert,
+            "priority_cards": priority_cards,
+            "batch_rows": batch_rows,
+            "accepted_today": accepted_today,
+            "rejected_today": rejected_today,
+            "deferred_today": deferred_today,
+        })
 
     @app.get("/proposals", response_class=HTMLResponse)
     async def list_proposals(
+        request: Request,
         status: str | None = Query(None),
         issue_class: str | None = Query(None),
         queue_name: str | None = Query(None),
@@ -1096,7 +1095,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         limit: int = Query(50),
         offset: int = Query(0),
         _user: UserContext = Depends(require_archivist_or_admin),
-    ) -> str:
+    ):
         proposals = store.list_proposals(
             status=status,
             issue_class=issue_class,
@@ -1176,23 +1175,22 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             else:
                 queue_summary = ""
 
-        return _LIST_HTML.format(
-            rows=rows,
-            filter_params=filter_params,
-            next_offset=next_offset,
-            prev_offset=prev_offset,
-            limit=limit,
-            current_status=status or "",
-            current_issue_class=issue_class or "",
-            current_queue=queue_name or "",
-            queue_summary=queue_summary,
-        )
+        return _templates.TemplateResponse("list.html", {
+            "request": request,
+            "rows": rows,
+            "filter_params": filter_params,
+            "next_offset": next_offset,
+            "prev_offset": prev_offset,
+            "limit": limit,
+            "queue_summary": queue_summary,
+        })
 
     @app.get("/proposals/{proposal_id}", response_class=HTMLResponse)
     async def proposal_detail(
         proposal_id: str,
+        request: Request,
         _user: UserContext = Depends(require_archivist_or_admin),
-    ) -> str:
+    ):
         proposal = store.get_proposal(proposal_id)
         if not proposal:
             return "<h2>Proposal not found</h2>"
@@ -1274,26 +1272,27 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
                 f"</button>"
             )
 
-        return _DETAIL_HTML.format(
-            proposal_id=proposal.proposal_id,
-            issue_class=proposal.issue_class,
-            proposal_type=proposal.proposal_type,
-            status=proposal.status,
-            confidence=f"{proposal.confidence:.2f}",
-            priority_score=f"{proposal.priority_score:.2f}",
-            impact_size=proposal.impact_size,
-            anti_pattern_id=proposal.anti_pattern_id,
-            proposed_action_panel=proposed_action_panel,
-            evidence_summary=evidence_summary,
-            provenance_html=provenance_html,
-            target_rows=target_rows,
-            revision_rows=revision_rows,
-            event_rows=event_rows,
-            patch_json=patch_formatted,
-            evidence_json=evidence_formatted,
-            disabled="" if proposal.status in ("queued", "deferred") else "disabled",
-            accept_exceptions_btn=accept_exceptions_btn,
-        )
+        return _templates.TemplateResponse("detail.html", {
+            "request": request,
+            "proposal_id": proposal.proposal_id,
+            "issue_class": proposal.issue_class,
+            "proposal_type": proposal.proposal_type,
+            "status": proposal.status,
+            "confidence": f"{proposal.confidence:.2f}",
+            "priority_score": f"{proposal.priority_score:.2f}",
+            "impact_size": proposal.impact_size,
+            "anti_pattern_id": proposal.anti_pattern_id,
+            "proposed_action_panel": proposed_action_panel,
+            "evidence_summary": evidence_summary,
+            "provenance_html": provenance_html,
+            "target_rows": target_rows,
+            "revision_rows": revision_rows,
+            "event_rows": event_rows,
+            "patch_json": patch_formatted,
+            "evidence_json": evidence_formatted,
+            "is_active": proposal.status in ("queued", "deferred"),
+            "accept_exceptions_btn": accept_exceptions_btn,
+        })
 
     @app.post("/proposals/{proposal_id}/accept", response_class=HTMLResponse)
     async def do_accept(
@@ -1360,10 +1359,11 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
     @app.get("/proposals/batch", response_class=HTMLResponse)
     async def batch_review_summary(
+        request: Request,
         issue_class: str | None = Query(None),
         queue_name: str | None = Query(None),
         _user: UserContext = Depends(require_archivist_or_admin),
-    ) -> str:
+    ):
         """Batch review page: stats + 5-sample evidence cards + accept/reject form."""
         proposals = store.list_proposals(
             issue_class=issue_class,
@@ -1371,16 +1371,13 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             status="queued",
             limit=10000,
         )
+        filter_label = _html.escape(issue_class or queue_name or "selected filter")
         if not proposals:
-            filter_label = _html.escape(issue_class or queue_name or "selected filter")
-            return (
-                f'<!DOCTYPE html><html><head><title>Batch Review</title>'
-                f'{_BASE_CSS}</head><body>{_NAV}'
-                f'<h1>Batch Review</h1>'
-                f'<p>No queued proposals found for <strong>{filter_label}</strong>.</p>'
-                f'<p><a href="/proposals">Back to queue</a></p>'
-                f'</body></html>'
-            )
+            return _templates.TemplateResponse("batch.html", {
+                "request": request,
+                "is_empty": True,
+                "filter_label": filter_label,
+            })
 
         count = len(proposals)
         confidences = [p.confidence for p in proposals]
@@ -1408,34 +1405,37 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         )
         back_href = f"/proposals?{back_qs}" if back_qs else "/proposals"
 
-        return _BATCH_HTML.format(
-            filter_label=filter_label,
-            count=count,
-            conf_min=f"{conf_min:.2f}",
-            conf_max=f"{conf_max:.2f}",
-            conf_avg=f"{conf_avg:.2f}",
-            sample_cards=sample_cards,
-            issue_class=_html.escape(issue_class or ""),
-            queue_name=_html.escape(queue_name or ""),
-            back_href=back_href,
-        )
+        return _templates.TemplateResponse("batch.html", {
+            "request": request,
+            "is_empty": False,
+            "filter_label": filter_label,
+            "count": count,
+            "conf_min": f"{conf_min:.2f}",
+            "conf_max": f"{conf_max:.2f}",
+            "conf_avg": f"{conf_avg:.2f}",
+            "sample_cards": sample_cards,
+            "issue_class": _html.escape(issue_class or ""),
+            "queue_name": _html.escape(queue_name or ""),
+            "back_href": back_href,
+        })
 
     @app.post("/proposals/batch-accept", response_class=HTMLResponse)
     async def do_batch_accept(
+        request: Request,
         issue_class: str = Form(""),
         queue_name: str = Form(""),
         reviewer_note: str = Form(""),
         user: UserContext = Depends(require_archivist_or_admin),
-    ) -> str:
+    ):
         if not reviewer_note.strip():
-            return (
-                f'<!DOCTYPE html><html><head><title>Batch Accept</title>'
-                f'{_BASE_CSS}</head><body>{_NAV}'
-                f'<p style="color:#dc3545;font-weight:bold">'
-                f'A reviewer note is required for batch actions. '
-                f'<a href="javascript:history.back()">Go back</a></p>'
-                f'</body></html>'
-            )
+            return _templates.TemplateResponse("batch_result.html", {
+                "request": request,
+                "action_label": "Accept",
+                "action_past": "",
+                "error": "A reviewer note is required for batch actions.",
+                "count": 0, "label": "", "skip_note": "", "reviewer_note": "", "back_href": "/proposals",
+                "result_bg": "#f8d7da",
+            })
         proposals = store.list_proposals(
             issue_class=issue_class or None,
             queue_name=queue_name or None,
@@ -1454,35 +1454,36 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         )
         back_href = f"/proposals?{back_qs}" if back_qs else "/proposals"
         skip_note = f" ({skipped} already resolved)" if skipped else ""
-        return (
-            f'<!DOCTYPE html><html><head><title>Batch Accept</title>'
-            f'{_BASE_CSS}</head><body>{_NAV}'
-            f'<h1>Batch Accept Complete</h1>'
-            f'<div style="padding:1rem;background:#d1e7dd;border-radius:6px;margin:1rem 0">'
-            f'<strong>{accepted} proposals accepted</strong>{_html.escape(skip_note)} '
-            f'for <em>{label}</em>.'
-            f'</div>'
-            f'<p>Note: <em>{_html.escape(reviewer_note)}</em></p>'
-            f'<p><a href="{back_href}">Back to queue &rarr;</a></p>'
-            f'</body></html>'
-        )
+        return _templates.TemplateResponse("batch_result.html", {
+            "request": request,
+            "action_label": "Accept",
+            "action_past": "accepted",
+            "error": "",
+            "count": accepted,
+            "label": label,
+            "skip_note": _html.escape(skip_note),
+            "reviewer_note": _html.escape(reviewer_note),
+            "back_href": back_href,
+            "result_bg": "#d1e7dd",
+        })
 
     @app.post("/proposals/batch-reject", response_class=HTMLResponse)
     async def do_batch_reject(
+        request: Request,
         issue_class: str = Form(""),
         queue_name: str = Form(""),
         reviewer_note: str = Form(""),
         user: UserContext = Depends(require_archivist_or_admin),
-    ) -> str:
+    ):
         if not reviewer_note.strip():
-            return (
-                f'<!DOCTYPE html><html><head><title>Batch Reject</title>'
-                f'{_BASE_CSS}</head><body>{_NAV}'
-                f'<p style="color:#dc3545;font-weight:bold">'
-                f'A reviewer note is required for batch actions. '
-                f'<a href="javascript:history.back()">Go back</a></p>'
-                f'</body></html>'
-            )
+            return _templates.TemplateResponse("batch_result.html", {
+                "request": request,
+                "action_label": "Reject",
+                "action_past": "",
+                "error": "A reviewer note is required for batch actions.",
+                "count": 0, "label": "", "skip_note": "", "reviewer_note": "", "back_href": "/proposals",
+                "result_bg": "#f8d7da",
+            })
         proposals = store.list_proposals(
             issue_class=issue_class or None,
             queue_name=queue_name or None,
@@ -1501,18 +1502,18 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         )
         back_href = f"/proposals?{back_qs}" if back_qs else "/proposals"
         skip_note = f" ({skipped} already resolved)" if skipped else ""
-        return (
-            f'<!DOCTYPE html><html><head><title>Batch Reject</title>'
-            f'{_BASE_CSS}</head><body>{_NAV}'
-            f'<h1>Batch Reject Complete</h1>'
-            f'<div style="padding:1rem;background:#f8d7da;border-radius:6px;margin:1rem 0">'
-            f'<strong>{rejected} proposals rejected</strong>{_html.escape(skip_note)} '
-            f'for <em>{label}</em>.'
-            f'</div>'
-            f'<p>Note: <em>{_html.escape(reviewer_note)}</em></p>'
-            f'<p><a href="{back_href}">Back to queue &rarr;</a></p>'
-            f'</body></html>'
-        )
+        return _templates.TemplateResponse("batch_result.html", {
+            "request": request,
+            "action_label": "Reject",
+            "action_past": "rejected",
+            "error": "",
+            "count": rejected,
+            "label": label,
+            "skip_note": _html.escape(skip_note),
+            "reviewer_note": _html.escape(reviewer_note),
+            "back_href": back_href,
+            "result_bg": "#f8d7da",
+        })
 
     @app.get("/api/proposals", response_class=JSONResponse)
     async def api_proposals(
@@ -1607,220 +1608,3 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
         return rows + _load_more_row_html(proposal_id, next_offset, total_pages)
 
     return app
-
-
-# ---------------------------------------------------------------------------
-# Inline HTML templates (avoids external file dependency for single-file deploy)
-# ---------------------------------------------------------------------------
-
-_BASE_CSS = """
-<style>
-    body {{ font-family: -apple-system, system-ui, sans-serif; margin: 2rem; background: #f8f9fa; color: #212529; }}
-    h1, h2, h3 {{ color: #343a40; }}
-    table {{ border-collapse: collapse; width: 100%; margin: 1rem 0; }}
-    th, td {{ border: 1px solid #dee2e6; padding: 0.5rem 0.75rem; text-align: left; }}
-    th {{ background: #e9ecef; font-weight: 600; }}
-    tr:hover {{ background: #f1f3f5; }}
-    a {{ color: #0d6efd; }}
-    .btn-accept {{ background: #198754; color: white; border: none; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 4px; }}
-    .btn-reject {{ background: #dc3545; color: white; border: none; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 4px; }}
-    .btn-defer {{ background: #ffc107; color: #212529; border: none; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 4px; }}
-    button:disabled {{ opacity: 0.5; cursor: not-allowed; }}
-    pre {{ background: #e9ecef; padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }}
-    .nav {{ margin-bottom: 1rem; }}
-    .nav a {{ margin-right: 1rem; }}
-    .filters {{ margin: 1rem 0; }}
-    .filters select, .filters input {{ padding: 0.25rem; margin-right: 0.5rem; }}
-    .btn-accept-exceptions {{ background: #0d9488; color: white; border: none; padding: 0.25rem 0.75rem; cursor: pointer; border-radius: 4px; }}
-    .btn-batch-review {{ background: #0d6efd; color: white; padding: 0.25rem 0.75rem; border-radius: 4px; text-decoration: none; font-size: 0.875rem; display: inline-block; }}
-    .risk-badge {{ display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.78rem; font-weight: 600; margin-left: 0.35rem; }}
-    .risk-high {{ background: #f8d7da; color: #842029; }}
-    .risk-medium {{ background: #fff3cd; color: #664d03; }}
-    .risk-low {{ background: #d1e7dd; color: #0f5132; }}
-    .claim-box {{ background: #cfe2ff; border-left: 4px solid #0d6efd; padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.95rem; }}
-    .action-summary {{ border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin-bottom: 1rem; background: #fff; }}
-    .action-summary table {{ margin: 0.5rem 0; }}
-    .action-summary th {{ background: #f8f9fa; width: 12rem; }}
-    .provenance-section th {{ background: #f8f9fa; color: #6c757d; width: 12rem; }}
-    details summary {{ cursor: pointer; font-weight: 600; margin: 1rem 0; color: #495057; }}
-</style>
-"""
-
-_HTMX_SCRIPT = '<script src="https://unpkg.com/htmx.org@1.9.10"></script>'
-
-_NAV = """<div class="nav">
-    <a href="/">Dashboard</a>
-    <a href="/proposals">All Proposals</a>
-    <a href="/proposals?status=queued">Queued</a>
-    <a href="/proposals?status=accepted_pending_apply">Accepted</a>
-    <a href="/proposals?status=rejected">Rejected</a>
-    <a href="/proposals?status=deferred">Deferred</a>
-</div>"""
-
-_INDEX_HTML = f"""<!DOCTYPE html><html><head><title>Review Queue</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
-{_NAV}
-<h1>Review Queue</h1>
-{{sensitivity_alert}}
-<section style="margin:1.5rem 0">
-<h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
-  What needs your attention today?</h2>
-<p style="color:#6c757d;font-size:0.9rem;margin-top:0">
-  Top 5 proposals by priority score. Accept or defer directly, or open for full detail.
-</p>
-{{priority_cards}}
-<p style="margin-top:0.5rem;font-size:0.9rem">
-  <a href="/proposals?status=queued">See all queued proposals &rarr;</a>
-</p>
-</section>
-
-<section style="margin:1.5rem 0">
-<h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
-  What can be handled quickly?</h2>
-<p style="color:#6c757d;font-size:0.9rem;margin-top:0">
-  Low-consequence proposals suitable for batch review. Spot-check a sample, then accept or reject the group with one action.
-</p>
-<table>
-<thead><tr><th>Issue class</th><th>Queued</th><th>Avg confidence</th><th></th></tr></thead>
-<tbody>{{batch_rows}}</tbody>
-</table>
-</section>
-
-<section style="margin:1.5rem 0">
-<h2 style="font-size:1.1rem;border-bottom:2px solid #dee2e6;padding-bottom:0.4rem">
-  What has been done today?</h2>
-<table style="width:auto">
-<tr><th>Accepted</th><td><strong>{{accepted_today}}</strong></td></tr>
-<tr><th>Rejected</th><td><strong>{{rejected_today}}</strong></td></tr>
-<tr><th>Deferred</th><td><strong>{{deferred_today}}</strong></td></tr>
-</table>
-<p style="font-size:0.85rem;color:#6c757d">Counts since midnight UTC today.</p>
-</section>
-</body></html>"""
-
-_LIST_HTML = f"""<!DOCTYPE html><html><head><title>Proposals</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
-{_NAV}
-<h1>Proposals</h1>
-<div class="filters">
-    <a href="/proposals?queue_name=sensitivity" style="color:#dc3545;font-weight:bold">&#9888; Sensitivity</a>
-    <a href="/proposals?status=queued">Queued</a>
-    <a href="/proposals?status=accepted_pending_apply">Accepted</a>
-    <a href="/proposals?status=rejected">Rejected</a>
-    <a href="/proposals?status=deferred">Deferred</a>
-    <a href="/proposals?queue_name=ocr_entity">OCR/Entity</a>
-    <a href="/proposals?queue_name=junk_mention">Junk Mention</a>
-    <a href="/proposals?queue_name=builder_repair">Builder Repair</a>
-    <a href="/proposals">All</a>
-</div>
-{{queue_summary}}
-<table>
-<thead><tr>
-    <th>ID</th><th>Issue Class</th><th>Type</th><th>Status</th>
-    <th>Confidence</th><th>Priority</th><th>Impact</th><th>Actions</th>
-</tr></thead>
-<tbody>{{rows}}</tbody>
-</table>
-<div>
-    <a href="/proposals?{{filter_params}}&offset={{prev_offset}}&limit={{limit}}">Previous</a>
-    <a href="/proposals?{{filter_params}}&offset={{next_offset}}&limit={{limit}}">Next</a>
-</div>
-</body></html>"""
-
-_DETAIL_HTML = f"""<!DOCTYPE html><html><head><title>Proposal Detail</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
-{_NAV}
-<h1>Proposal {{proposal_id}}</h1>
-<table>
-<tr><th>Issue Class</th><td>{{issue_class}}</td></tr>
-<tr><th>Proposal Type</th><td>{{proposal_type}}</td></tr>
-<tr><th>Status</th><td>{{status}}</td></tr>
-<tr><th>Confidence</th><td>{{confidence}}</td></tr>
-<tr><th>Priority Score</th><td>{{priority_score}}</td></tr>
-<tr><th>Impact Size</th><td>{{impact_size}}</td></tr>
-<tr><th>Anti-Pattern</th><td>{{anti_pattern_id}}</td></tr>
-</table>
-
-{{proposed_action_panel}}
-
-{{evidence_summary}}
-
-<h2>Actions</h2>
-<form style="margin:1rem 0">
-    <label>Note: <input type="text" id="reviewer-note" value="" size="40"></label>
-</form>
-<div>
-    <button hx-post="/proposals/{{proposal_id}}/accept" hx-include="#reviewer-note" {{disabled}} class="btn-accept">Accept</button>
-    {{accept_exceptions_btn}}
-    <button hx-post="/proposals/{{proposal_id}}/reject" hx-include="#reviewer-note" {{disabled}} class="btn-reject" style="margin-left:0.5rem">Reject</button>
-    <button hx-post="/proposals/{{proposal_id}}/defer" hx-include="#reviewer-note" {{disabled}} class="btn-defer" style="margin-left:0.5rem">Defer</button>
-</div>
-
-<h2>Targets</h2>
-<table><thead><tr><th>Kind</th><th>ID</th><th>Role</th><th>In Snapshot</th></tr></thead>
-<tbody>{{target_rows}}</tbody></table>
-
-{{provenance_html}}
-
-<details>
-<summary>Patch Spec (raw JSON)</summary>
-<pre>{{patch_json}}</pre>
-</details>
-
-<details>
-<summary>Evidence Snapshot (raw JSON)</summary>
-<pre>{{evidence_json}}</pre>
-</details>
-
-<h2>Revision History</h2>
-<table><thead><tr><th>#</th><th>Kind</th><th>Detector</th><th>Validation</th><th>By</th><th>At</th></tr></thead>
-<tbody>{{revision_rows}}</tbody></table>
-
-<h2>Correction Events</h2>
-<table><thead><tr><th>Action</th><th>Reviewer</th><th>Note</th><th>At</th></tr></thead>
-<tbody>{{event_rows}}</tbody></table>
-
-</body></html>"""
-
-_BATCH_HTML = f"""<!DOCTYPE html><html><head><title>Batch Review</title>{_BASE_CSS}{_HTMX_SCRIPT}</head><body>
-{_NAV}
-<h1>Batch Review &mdash; {{filter_label}}</h1>
-
-<section style="margin:1rem 0;padding:1rem;background:#e7f1ff;border-radius:6px;border:1px solid #b6d4fe">
-<h2 style="margin-top:0;font-size:1rem">Summary</h2>
-<table style="width:auto">
-<tr><th>Queued proposals</th><td><strong>{{count}}</strong></td></tr>
-<tr><th>Confidence range</th><td>{{conf_min}} &ndash; {{conf_max}}</td></tr>
-<tr><th>Average confidence</th><td>{{conf_avg}}</td></tr>
-</table>
-</section>
-
-<h2 style="font-size:1rem">Sample (up to 5 proposals)</h2>
-{{sample_cards}}
-
-<section style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px solid #dee2e6;border-radius:6px">
-<h2 style="margin-top:0;font-size:1rem">Apply batch decision</h2>
-<p style="color:#6c757d;font-size:0.9rem">
-  This will apply your decision to all <strong>{{count}}</strong> currently queued proposals
-  matching this filter. A note is required and will be recorded on every proposal.
-</p>
-<form method="post" style="margin:0">
-  <input type="hidden" name="issue_class" value="{{issue_class}}">
-  <input type="hidden" name="queue_name" value="{{queue_name}}">
-  <div style="margin:0.75rem 0">
-    <label for="batch-note" style="font-weight:600">Reviewer note (required):</label><br>
-    <textarea id="batch-note" name="reviewer_note" rows="3"
-      style="width:100%;max-width:40rem;margin-top:0.25rem;padding:0.4rem;border:1px solid #ced4da;border-radius:4px"
-      placeholder="Briefly describe why you are accepting or rejecting this batch&hellip;"
-      required></textarea>
-  </div>
-  <button type="submit" formaction="/proposals/batch-accept" class="btn-accept"
-    onclick="return confirm('Accept all {{count}} queued proposals in this batch?')">
-    Accept all {{count}}
-  </button>
-  <button type="submit" formaction="/proposals/batch-reject" class="btn-reject"
-    style="margin-left:0.5rem"
-    onclick="return confirm('Reject all {{count}} queued proposals in this batch?')">
-    Reject all {{count}}
-  </button>
-  <a href="{{back_href}}" style="margin-left:1rem;color:#6c757d">Cancel</a>
-</form>
-</section>
-</body></html>"""

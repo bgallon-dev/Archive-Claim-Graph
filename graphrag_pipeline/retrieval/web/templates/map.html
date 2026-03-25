@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relationship Map</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.29.2/cytoscape.min.js"
+        integrity="sha512-yi5TwB0WBpzqlJXNLURNMtpFXJt4yxJhkOG8yqkVQYWhfMkAoDF93rZ/KjfoN1gADGr5uKXvr5/Bw6CC03YWpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{--bg:#f8f9fa;--card:#fff;--border:#dee2e6;--header-bg:#2c5f2e;--header-fg:#fff;
+      --detail-bg:#fff;--muted:#6c757d;--link:#0d6efd}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#1a1a1a;--card:#242424;--border:#444;--header-bg:#1a3a1c;--header-fg:#e8e8e8;
+        --detail-bg:#242424;--muted:#adb5bd;--link:#6ea8fe}
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:inherit;min-height:100vh}
+header{background:var(--header-bg);color:var(--header-fg);padding:0.6rem 1.2rem;
+       display:flex;align-items:center;justify-content:space-between;gap:0.5rem}
+header h1{font-size:1.05rem;font-weight:600}
+.nav-links{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap}
+.nav-links a{color:var(--header-fg);font-size:13px;text-decoration:none;
+             border:1px solid rgba(255,255,255,0.25);border-radius:6px;
+             padding:4px 10px;white-space:nowrap}
+.main{max-width:1100px;margin:1.5rem auto;padding:0 1rem}
+.search-wrap{position:relative;max-width:480px;margin-bottom:1rem}
+#entity-input{width:100%;padding:0.55rem 0.8rem;border:1px solid var(--border);
+              border-radius:6px;font-size:0.95rem;background:var(--card);color:inherit}
+.autocomplete-list{position:absolute;top:100%;left:0;right:0;background:var(--card);
+                   border:1px solid var(--border);border-radius:0 0 6px 6px;
+                   list-style:none;max-height:260px;overflow-y:auto;z-index:100;display:none}
+.autocomplete-list li{padding:0.45rem 0.8rem;cursor:pointer;font-size:0.9rem;
+                      display:flex;justify-content:space-between;align-items:center}
+.autocomplete-list li:hover{background:var(--bg)}
+.et-badge{font-size:11px;background:#e9ecef;color:#495057;border-radius:3px;padding:1px 5px}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:1rem}
+@media(max-width:700px){.layout{grid-template-columns:1fr}}
+#cy{width:100%;height:560px;border:1px solid var(--border);border-radius:8px;
+    background:var(--card)}
+#cy.empty{display:flex;align-items:center;justify-content:center;color:var(--muted);
+          font-size:0.9rem}
+.detail-panel{background:var(--detail-bg);border:1px solid var(--border);border-radius:8px;
+              padding:1rem;overflow-y:auto;max-height:560px}
+.detail-panel h3{font-size:0.95rem;margin-bottom:0.75rem;word-break:break-word}
+.detail-panel .rel-tags{display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.75rem}
+.rel-tag{font-size:11px;background:#e9ecef;color:#495057;border-radius:3px;padding:2px 6px}
+.detail-panel blockquote{font-size:0.82rem;color:var(--muted);border-left:3px solid var(--border);
+                         padding-left:0.6rem;margin:0.4rem 0;line-height:1.5}
+.detail-panel .claim-ids{font-size:11px;color:var(--muted);margin-top:0.5rem;word-break:break-all}
+.detail-placeholder{color:var(--muted);font-size:0.85rem;line-height:1.6}
+.legend{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.5rem 0 1rem}
+.legend-item{display:flex;align-items:center;gap:0.3rem;font-size:12px}
+.legend-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+#status-bar{font-size:0.82rem;color:var(--muted);margin-bottom:0.5rem;min-height:1.2em}
+</style>
+</head>
+<body>
+<header>
+  <h1>Turnbull GraphRAG</h1>
+  <div class="nav-links">
+    <a href="/">&#8592; Query Interface</a>
+    <a href="/stats">&#128202; Collection Stats</a>
+    <a href="/gaps">&#128270; Gap Analysis</a>
+  </div>
+</header>
+<div class="main">
+  <h2 style="font-size:1.15rem;margin-bottom:0.75rem">Relationship Map</h2>
+  <p style="font-size:0.88rem;color:var(--muted);margin-bottom:1rem">
+    Search for an entity to explore how it connects to others across the collection.
+    Click an edge to see supporting source sentences. Click a node to re-centre the graph.
+  </p>
+  <div class="search-wrap">
+    <input id="entity-input" type="text" placeholder="Search entities by name (e.g. Trumpeter Swan)&#8230;" autocomplete="off">
+    <ul id="autocomplete-list" class="autocomplete-list"></ul>
+  </div>
+  <div class="legend" id="legend"></div>
+  <div id="status-bar"></div>
+  <div class="layout">
+    <div id="cy" class="empty">Search for an entity above to begin.</div>
+    <div class="detail-panel" id="detail-panel">
+      <h3>Connection Details</h3>
+      <div class="detail-placeholder" id="detail-content">
+        Click an edge to see the source sentences supporting that connection,
+        or click a node to explore its neighborhood.
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+'use strict';
+
+var ENTITY_COLORS = {
+  'Species':      '#198754',
+  'Person':       '#0d6efd',
+  'Organization': '#6f42c1',
+  'Place':        '#795548',
+  'Refuge':       '#795548',
+  'Habitat':      '#0dcaf0',
+  'Activity':     '#fd7e14',
+  'SurveyMethod': '#20c997',
+  'Event':        '#e83e8c',
+};
+var DEFAULT_COLOR = '#6c757d';
+
+function entityColor(et) { return ENTITY_COLORS[et] || DEFAULT_COLOR; }
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+                  .replace(/"/g,'&quot;');
+}
+
+// Build legend
+var legendEl = document.getElementById('legend');
+Object.keys(ENTITY_COLORS).forEach(function(et) {
+  if (et === 'Refuge') return; // same colour as Place, skip duplicate
+  legendEl.innerHTML += '<span class="legend-item">'
+    + '<span class="legend-dot" style="background:' + ENTITY_COLORS[et] + '"></span>'
+    + esc(et) + '</span>';
+});
+
+// ── Autocomplete ──────────────────────────────────────────────────────────
+var input = document.getElementById('entity-input');
+var listEl = document.getElementById('autocomplete-list');
+var debounceTimer;
+
+input.addEventListener('input', function() {
+  clearTimeout(debounceTimer);
+  var q = this.value.trim();
+  if (q.length < 2) { listEl.style.display = 'none'; return; }
+  debounceTimer = setTimeout(function() { fetchSuggestions(q); }, 300);
+});
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.search-wrap')) listEl.style.display = 'none';
+});
+input.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') listEl.style.display = 'none';
+});
+
+async function fetchSuggestions(q) {
+  try {
+    var res = await fetch('/api/entities/search?q=' + encodeURIComponent(q) + '&limit=15');
+    var items = await res.json();
+    renderSuggestions(items);
+  } catch(err) { listEl.style.display = 'none'; }
+}
+
+function renderSuggestions(items) {
+  if (!items.length) { listEl.style.display = 'none'; return; }
+  listEl.innerHTML = items.map(function(it) {
+    return '<li data-id="' + esc(it.entity_id) + '" data-name="' + esc(it.name) + '">'
+      + esc(it.name)
+      + '<span class="et-badge" style="background:' + entityColor(it.entity_type)
+      + ';color:#fff">' + esc(it.entity_type) + '</span></li>';
+  }).join('');
+  listEl.style.display = 'block';
+  listEl.querySelectorAll('li').forEach(function(li) {
+    li.addEventListener('click', function() {
+      selectEntity(li.dataset.id, li.dataset.name);
+    });
+  });
+}
+
+function selectEntity(id, name) {
+  input.value = name;
+  listEl.style.display = 'none';
+  loadGraph(id);
+}
+
+// ── Graph loading & rendering ─────────────────────────────────────────────
+var cy = null;
+var statusBar = document.getElementById('status-bar');
+
+async function loadGraph(entityId) {
+  statusBar.textContent = 'Loading neighborhood\u2026';
+  var cyEl = document.getElementById('cy');
+  cyEl.classList.remove('empty');
+  cyEl.textContent = '';
+  try {
+    var res = await fetch('/api/entity/' + encodeURIComponent(entityId) + '/neighborhood?limit=15');
+    if (!res.ok) { statusBar.textContent = 'Error: ' + res.status; return; }
+    var data = await res.json();
+    renderGraph(data);
+    statusBar.textContent = data.center.name + ' \u2014 ' + (data.nodes.length - 1)
+      + ' connected entities, ' + data.edges.length + ' edges';
+    showCenterDetail(data.center);
+  } catch(err) {
+    statusBar.textContent = 'Failed to load: ' + err.message;
+  }
+}
+
+function renderGraph(data) {
+  if (cy) cy.destroy();
+  var style = [
+    { selector: 'node', style: {
+        'label': 'data(label)',
+        'background-color': function(ele) { return entityColor(ele.data('entity_type')); },
+        'border-width': function(ele) { return ele.data('is_center') ? 3 : 1; },
+        'border-color': function(ele) { return ele.data('is_center') ? '#ffc107' : '#fff'; },
+        'width': function(ele) { return ele.data('is_center') ? 60 : 36; },
+        'height': function(ele) { return ele.data('is_center') ? 60 : 36; },
+        'font-size': 11,
+        'text-valign': 'bottom',
+        'text-margin-y': 4,
+        'text-max-width': 90,
+        'text-wrap': 'wrap',
+        'color': '#333',
+        'text-background-color': 'rgba(255,255,255,0.75)',
+        'text-background-opacity': 1,
+        'text-background-padding': 2,
+    }},
+    { selector: 'edge', style: {
+        'width': function(ele) { return Math.max(1, Math.min(8, ele.data('weight'))); },
+        'line-color': '#adb5bd',
+        'target-arrow-color': '#adb5bd',
+        'target-arrow-shape': 'triangle',
+        'curve-style': 'bezier',
+        'opacity': 0.8,
+    }},
+    { selector: 'edge:selected, edge.highlighted', style: {
+        'line-color': '#fd7e14', 'target-arrow-color': '#fd7e14', 'opacity': 1,
+    }},
+    { selector: 'node:selected, node.highlighted', style: {
+        'border-color': '#fd7e14', 'border-width': 3,
+    }},
+  ];
+  cy = cytoscape({
+    container: document.getElementById('cy'),
+    elements: data.nodes.concat(data.edges),
+    style: style,
+    layout: { name: 'cose', animate: false, padding: 40, nodeRepulsion: 8000,
+               idealEdgeLength: 120, gravity: 0.3 },
+    userZoomingEnabled: true,
+    userPanningEnabled: true,
+  });
+  cy.on('tap', 'edge', handleEdgeTap);
+  cy.on('tap', 'node', handleNodeTap);
+}
+
+// ── Detail panel ──────────────────────────────────────────────────────────
+var detailPanel = document.getElementById('detail-panel');
+var detailContent = document.getElementById('detail-content');
+var detailTitle = detailPanel.querySelector('h3');
+
+function showCenterDetail(center) {
+  detailTitle.textContent = center.name;
+  detailContent.innerHTML =
+    '<p style="font-size:0.85rem;margin-bottom:0.5rem">'
+    + '<strong>Type:</strong> ' + esc(center.entity_type || '\u2014') + '<br>'
+    + '<strong>Claims:</strong> ' + esc(center.claim_count || 0) + '</p>'
+    + '<p class="detail-placeholder">Click an edge to see connection evidence, '
+    + 'or a neighbor node to explore its neighborhood.</p>';
+}
+
+function handleEdgeTap(evt) {
+  cy.elements().removeClass('highlighted');
+  evt.target.addClass('highlighted');
+  var d = evt.target.data();
+  detailTitle.textContent = esc(d.source_label) + ' \u2194 ' + esc(d.target_label);
+  var relTags = (d.relationship_types || []).map(function(r) {
+    return '<span class="rel-tag">' + esc(r) + '</span>';
+  }).join('');
+  var sentences = (d.sample_sentences || []).map(function(s) {
+    return '<blockquote>' + esc(s) + '</blockquote>';
+  }).join('');
+  var claimIds = (d.sample_claim_ids || []).length
+    ? '<div class="claim-ids">Claims: ' + d.sample_claim_ids.map(esc).join(', ') + '</div>'
+    : '';
+  detailContent.innerHTML =
+    '<p style="font-size:0.82rem;margin-bottom:0.5rem">'
+    + '<strong>Co-occurrences:</strong> ' + esc(d.weight) + ' claim(s)</p>'
+    + (relTags ? '<div class="rel-tags">' + relTags + '</div>' : '')
+    + (sentences || '<p class="detail-placeholder">No source sentences recorded.</p>')
+    + claimIds;
+}
+
+function handleNodeTap(evt) {
+  var nodeData = evt.target.data();
+  if (nodeData.is_center) {
+    // Just show info for center
+    detailTitle.textContent = esc(nodeData.label);
+    detailContent.innerHTML =
+      '<p style="font-size:0.85rem"><strong>Type:</strong> ' + esc(nodeData.entity_type || '\u2014')
+      + '<br><strong>Claims:</strong> ' + esc(nodeData.claim_count || 0) + '</p>';
+    return;
+  }
+  // Drill down: reload graph centred on this node
+  input.value = nodeData.label;
+  loadGraph(nodeData.id);
+}
+
+})();
+</script>
+</body>
+</html>

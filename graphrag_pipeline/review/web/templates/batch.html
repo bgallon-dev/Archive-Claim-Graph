@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Batch Review{% endblock %}
+{% block content %}
+{% if is_empty %}
+<h1>Batch Review</h1>
+<p>No queued proposals found for <strong>{{ filter_label }}</strong>.</p>
+<p><a href="/proposals">Back to queue</a></p>
+{% else %}
+<h1>Batch Review &mdash; {{ filter_label }}</h1>
+
+<section style="margin:1rem 0;padding:1rem;background:#e7f1ff;border-radius:6px;border:1px solid #b6d4fe">
+  <h2 style="margin-top:0;font-size:1rem">Summary</h2>
+  <table style="width:auto">
+    <tr><th>Queued proposals</th><td><strong>{{ count }}</strong></td></tr>
+    <tr><th>Confidence range</th><td>{{ conf_min }} &ndash; {{ conf_max }}</td></tr>
+    <tr><th>Average confidence</th><td>{{ conf_avg }}</td></tr>
+  </table>
+</section>
+
+<h2 style="font-size:1rem">Sample (up to 5 proposals)</h2>
+{{ sample_cards | safe }}
+
+<section style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px solid #dee2e6;border-radius:6px">
+  <h2 style="margin-top:0;font-size:1rem">Apply batch decision</h2>
+  <p style="color:#6c757d;font-size:0.9rem">
+    This will apply your decision to all <strong>{{ count }}</strong> currently queued proposals
+    matching this filter. A note is required and will be recorded on every proposal.
+  </p>
+  <form method="post" style="margin:0">
+    <input type="hidden" name="issue_class" value="{{ issue_class }}">
+    <input type="hidden" name="queue_name" value="{{ queue_name }}">
+    <div style="margin:0.75rem 0">
+      <label for="batch-note" style="font-weight:600">Reviewer note (required):</label><br>
+      <textarea id="batch-note" name="reviewer_note" rows="3"
+        style="width:100%;max-width:40rem;margin-top:0.25rem;padding:0.4rem;border:1px solid #ced4da;border-radius:4px"
+        placeholder="Briefly describe why you are accepting or rejecting this batch&hellip;"
+        required></textarea>
+    </div>
+    <button type="submit" formaction="/proposals/batch-accept" class="btn-accept"
+      onclick="return confirm('Accept all {{ count }} queued proposals in this batch?')">
+      Accept all {{ count }}
+    </button>
+    <button type="submit" formaction="/proposals/batch-reject" class="btn-reject"
+      style="margin-left:0.5rem"
+      onclick="return confirm('Reject all {{ count }} queued proposals in this batch?')">
+      Reject all {{ count }}
+    </button>
+    <a href="{{ back_href }}" style="margin-left:1rem;color:#6c757d">Cancel</a>
+  </form>
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\vector.py
+# hypothesis_version: 6.151.9
+
+[-9223372036854775808, -2147483648, -32768, -128, 127, 32767, 2147483647, 9223372036854775807, '<', '<i2', '<i4', '<i8', '=', '>f', '>f4', '>f8', '>i1', '>i2', '>i4', '>i8', 'FLOAT NOT NULL', 'FLOAT32 NOT NULL', 'INTEGER NOT NULL', 'INTEGER16 NOT NULL', 'INTEGER32 NOT NULL', 'INTEGER8 NOT NULL', 'Infinity', 'NaN', 'Vector', 'VectorDType', 'VectorEndian', '__weakref__', '_data', '_data_le', '_inner', 'big', 'dtype', 'f32', 'f64', 'float32', 'float64', 'h', 'i', 'i16', 'i32', 'i64', 'i8', 'inf', 'int16', 'int32', 'int64', 'int8', 'little', 'nan', 'only_null', 'q', 'size']

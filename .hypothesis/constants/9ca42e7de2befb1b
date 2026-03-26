@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_api.py
+# hypothesis_version: 6.151.9
+
+['DEPRECATION', 'DRIVER_BOLT', 'DRIVER_NEO4J', 'GENERIC', 'HINT', 'INFORMATION', 'NotificationCategory', 'NotificationSeverity', 'OFF', 'PERFORMANCE', 'RoutingControl', 'SCHEMA', 'SECURITY', 'SECURITY_TYPE_SECURE', 'TOPOLOGY', 'T_RoutingControl', 'TelemetryAPI', 'UNKNOWN', 'UNRECOGNIZED', 'UNSUPPORTED', 'WARNING', 'check_access_mode', 'parse_neo4j_uri', 'r', 'w']

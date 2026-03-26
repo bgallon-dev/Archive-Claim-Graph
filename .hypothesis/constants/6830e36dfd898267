@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\review\actions.py
+# hypothesis_version: 6.151.9
+
+[0.3, 0.7, 1.0, 10.0, 'accept', 'accepted', 'defer', 'deferred', 'edit', 'edited', 'human_edit', 'proposal_id', 'proposal_type', 'queued', 'reason', 'reject', 'rejected', 'skipped', 'skipped_details', 'split', 'split_child', 'superseded', 'v1', 'valid', '{}']

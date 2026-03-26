@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\core\claim_validator.py
+# hypothesis_version: 6.151.9
+
+[0.5, '\\b\\w+\\b', 'list_artifact', 'no_finite_verb', 'section_heading']

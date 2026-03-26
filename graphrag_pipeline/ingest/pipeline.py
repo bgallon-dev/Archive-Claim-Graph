@@ -943,7 +943,7 @@ def _process_single_document(
         # detector issue is resolved.
         _now_ts = datetime.now(timezone.utc).isoformat()
         for _claim in semantic.claims:
-            if not _claim.quarantine_status:
+            if _claim.quarantine_status == "active":
                 _claim.quarantine_status = "quarantined"
                 _claim.quarantine_reason = "sensitivity_gate_error"
                 _claim.quarantine_timestamp = _now_ts
@@ -1168,12 +1168,15 @@ def run_e2e(
             review_store.close()
 
     already_ingested_count = sum(1 for d in doc_summaries if d.get("skipped"))
-    return {
+    result: dict[str, Any] = {
         "documents_processed": len(doc_summaries) - already_ingested_count,
         "already_ingested": already_ingested_count,
         "outputs": doc_summaries,
         "backend": backend,
     }
+    if backend == "memory" and writer is not None:
+        result["writer"] = writer
+    return result
 
 
 def load_saved_pair(structure_path: str | Path, semantic_path: str | Path) -> tuple[StructureBundle, SemanticBundle]:

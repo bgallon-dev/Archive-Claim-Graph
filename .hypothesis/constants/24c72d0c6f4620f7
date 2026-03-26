@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\ingest\observation_builder.py
+# hypothesis_version: 6.151.9
+
+['HABITAT_FOCUS', 'Habitat', 'MANAGEMENT_TARGET', 'METHOD_FOCUS', 'Place', 'Refuge', 'SPECIES_FOCUS', 'Species', 'SurveyMethod', 'claim_date', 'uncertain', 'unknown']

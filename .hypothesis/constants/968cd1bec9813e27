@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\review\patch_spec.py
+# hypothesis_version: 6.151.9
+
+['HABITAT_FOCUS', 'LOCATION_FOCUS', 'MANAGEMENT_TARGET', 'METHOD_FOCUS', 'OCCURRED_AT', 'SPECIES_FOCUS', 'SUBJECT_OF_CLAIM', 'TOPIC_OF_CLAIM', 'alias_entity_id', 'alias_mode', 'alias_name', 'boilerplate_claim', 'canonical_entity_id', 'canonical_name', 'claim_id', 'create_alias', 'derivation_kind', 'doc_id', 'entity_id', 'evidence_basis', 'header_artifact', 'mention_ids', 'merge_entities', 'merge_entity_ids', 'method_overtrigger', 'new_relation_type', 'none', 'old_relation_type', 'preserve_aliases', 'proposal_type', 'quarantine_claim', 'quarantine_document', 'reason', 'relabel_claim_link', 'relation_type', 'restrict_permanently', 'schema_version', 'scope', 'suppress_mention', 'suppression_reason', 'target_id', 'target_kind', 'v1']

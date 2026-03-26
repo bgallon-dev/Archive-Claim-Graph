@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_sync\io\_bolt.py
+# hypothesis_version: 6.151.9
+
+[b'\x00\x00\x01\xff\x00\x08\x08\x05\x00\x02\x04\x04\x00\x00\x00\x03', b'``\xb0\x17', 1000, '-inf', '<unknown id>', '[#%04X]  C: <CLOSE>', '[#%04X]  C: <KILL>', 'connection_id', 'is_direct_pool', 'neo4j.io']

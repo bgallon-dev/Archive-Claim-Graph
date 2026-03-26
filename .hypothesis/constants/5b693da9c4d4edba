@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_async\io\_bolt3.py
+# hypothesis_version: 6.151.9
+
+[b'\x01', b'\x02', b'\x0f', b'\x10', b'\x11', b'\x12', b'\x13', b'/', b'?', b'p', b'q', b'~', b'\x7f', '*******', 'CONNECTED', 'FAILED', 'READY', 'STREAMING', '[#%04X]  C: BEGIN %r', '[#%04X]  C: COMMIT', '[#%04X]  C: GOODBYE', '[#%04X]  C: HELLO %r', '[#%04X]  C: PULL_ALL', '[#%04X]  C: RESET', '[#%04X]  C: ROLLBACK', '[#%04X]  C: RUN %s', '[#%04X]  S: IGNORED', 'begin', 'bookmarks', 'commit', 'context', 'credentials', 'discard', 'fields', 'has_more', 'hello', 'mode', 'neo4j.io', 'pull', 'r', 'reset', 'rollback', 'run', 'tx_metadata', 'tx_timeout', 'user_agent']

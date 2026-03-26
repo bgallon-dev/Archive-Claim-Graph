@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_sync\io\_bolt_socket.py
+# hypothesis_version: 6.151.9
+
+[b'\x00', b'HTTP', 127, 128, 255, ': ', '>16B', '[#%04X]  S: <CLOSE>', '[#%04X]  S: @*#!', 'big', 'handshake opening', 'neo4j.io']

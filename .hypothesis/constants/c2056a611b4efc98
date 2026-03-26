@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_codec\hydration\v1\temporal.py
+# hypothesis_version: 6.151.9
+
+[b'D', b'E', b'F', b'T', b'd', b'f', b't', 1000, 1970, 9999, 1000000000, 60000000000, 3600000000000, 'D', 'M', 'W', 'Y', 'as', 'datetime64[Y]', 'datetime64[ns]', 'datetime64[s]', 'days', 'fs', 'h', 'hours', 'key', 'm', 'microseconds', 'milliseconds', 'minutes', 'months', 'ms', 'nanoseconds', 'ns', 'ps', 's', 'seconds', 'timedelta64[ns]', 'us', 'weeks', 'years', 'zone']

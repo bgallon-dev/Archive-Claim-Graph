@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\api.py
+# hypothesis_version: 6.151.9
+
+[', ', 'AsyncBookmarkManager', 'Auth', 'AuthToken', 'BookmarkManager', 'Bookmarks', 'DEFAULT_DATABASE', 'READ', 'READ_ACCESS', 'SYSTEM_DATABASE', 'ServerInfo', 'URI_SCHEME_BOLT', 'URI_SCHEME_NEO4J', 'WRITE', 'WRITE_ACCESS', 'ascii', 'basic', 'basic_auth', 'bearer', 'bearer_auth', 'bolt', 'bolt+routing', 'bolt+s', 'bolt+ssc', 'custom_auth', 'kerberos', 'kerberos_auth', 'neo4j', 'neo4j+s', 'neo4j+ssc', 'server', 'system']

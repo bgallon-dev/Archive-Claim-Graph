@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\time\__init__.py
+# hypothesis_version: 6.151.9
+
+[-86400, 100, 365, 366, 400, 1000, 1970, 3600, 9999, 86400, 172800, 1000000, 2629746, 3652059, 999999999, 1000000000, 60000000000, 3600000000000, 86400000000000, '(?<!%)%f', '+', '-', '0', '0000-00-00', '000000000', 'ClockTime', 'Date', 'DateTime', 'Duration', 'MAX_INT64', 'MAX_YEAR', 'MIN_INT64', 'MIN_YEAR', 'Midday', 'Midnight', 'Never', 'P', 'PT0S', 'T', 'Ticks must be int', 'Time', 'UnixEpoch', 'ZeroDate', 'astimezone', 'day', 'hour', 'isocalendar', 'isoformat', 'isoweekday', 'minute', 'month', 'nanosecond', 'neo4j.time.ZeroDate', 'second', 'strftime', 'timetuple', 'toordinal', 'tzinfo', 'utcoffset', 'utctimetuple', 'year']

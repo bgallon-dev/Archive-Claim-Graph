@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_sync\driver.py
+# hypothesis_version: 6.151.9
+
+[7687, ':', ': :17601 :17687', 'Driver closed', '_', '_T', 'auth', 'bookmark_manager', 'client_certificate', 'database', 'default', 'encrypted', 'impersonated_user', 'localhost', 'ssl_context', 'system', 'trusted_certificates', 'value']

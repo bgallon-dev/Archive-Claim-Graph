@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\neo4j\_codec\packstream\v1\__init__.py
+# hypothesis_version: 6.151.9
+
+[b'\xc0', b'\xc1', b'\xc2', b'\xc3', b'\xc8', b'\xc9', b'\xca', b'\xcb', b'\xcc', b'\xcd', b'\xce', b'\xd0', b'\xd1', b'\xd2', b'\xd4', b'\xd5', b'\xd6', b'\xd8', b'\xd9', b'\xda', -2147483648, -32768, -128, 127, 128, 144, 159, 160, 175, 176, 191, 192, 193, 194, 195, 200, 201, 202, 203, 204, 205, 206, 208, 209, 210, 212, 213, 214, 216, 217, 218, 240, 255, 256, 8192, 32768, 65536, 2147483648, 4294967296, '>B', '>H', '>I', '>b', '>d', '>h', '>i', '>q', 'Nothing to unpack', 'utf-8']

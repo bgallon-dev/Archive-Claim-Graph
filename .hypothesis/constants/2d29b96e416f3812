@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\ingest\source_parser.py
+# hypothesis_version: 6.151.9
+
+[150, 600, '(?<=[.!?])\\s+', 'General', '[ \\t]+', '\\n\\s*\\n+', '\\s+', 'annotations', 'archive_ref', 'bbox', 'date_end', 'date_start', 'doc_id', 'doc_title', 'doc_type', 'en', 'image_ref', 'kind', 'language', 'metadata', 'narrative_report', 'note', 'ocr_confidence', 'page_number', 'pages', 'raw_ocr_text', 'raw_text', 'report_year', 'series', 'source_file', 'text', 'title', 'utf-8']

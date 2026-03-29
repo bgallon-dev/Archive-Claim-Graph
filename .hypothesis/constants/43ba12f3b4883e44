@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\shared\resource_loader.py
+# hypothesis_version: 6.151.9
+
+['(', '(?:', ')', '*', '+', '?', "[A-Za-z][A-Za-z'-]*", '[A-Za-z]{3,}', '\\b', '\\s+', '_', 'claim_role_policy', 'claim_type', 'claim_type_patterns', 'derivation_registry', 'domain_profile.yaml', 'entity_type', 'entries', 'known_errors', 'measurement_species', 'measurement_units', 'name', 'negative_entities', 'ocr_corrections', 'patterns', 'policy', 'regex', 'relation_type', 'resources', 'seed_entities', 'unit', 'units', 'utf-8', 'weight', '|']

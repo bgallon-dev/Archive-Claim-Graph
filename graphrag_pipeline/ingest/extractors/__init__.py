@@ -8,7 +8,16 @@ from .claim_extractor import (
     RuleBasedClaimExtractor,
 )
 from .measurement_extractor import MeasurementDraft, MeasurementExtractor, RuleBasedMeasurementExtractor
-from .mention_extractor import MentionDraft, MentionExtractor, RuleBasedMentionExtractor
+from .mention_extractor import (
+    CandidateSpan,
+    GLiNERMentionAdapter,
+    HybridMentionExtractor,
+    HybridMentionTelemetry,
+    MentionDraft,
+    MentionExtractor,
+    ResolutionContext,
+    RuleBasedMentionExtractor,
+)
 
 __all__ = [
     "ClaimDraft",
@@ -21,7 +30,12 @@ __all__ = [
     "MeasurementDraft",
     "MeasurementExtractor",
     "RuleBasedMeasurementExtractor",
+    "CandidateSpan",
+    "GLiNERMentionAdapter",
+    "HybridMentionExtractor",
+    "HybridMentionTelemetry",
     "MentionDraft",
     "MentionExtractor",
+    "ResolutionContext",
     "RuleBasedMentionExtractor",
 ]

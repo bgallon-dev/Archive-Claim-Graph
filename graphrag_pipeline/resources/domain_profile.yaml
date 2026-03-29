@@ -11,6 +11,12 @@ resources:
   measurement_species: measurement_species.yaml
   ocr_corrections: ocr_corrections.yaml
   claim_relation_compatibility: claim_relation_compatibility.yaml
+  negative_entities: negative_entities.yaml
+  derivation_registry: derivation_registry.yaml
+
+year_validation:
+  tolerance: 5
+  action: flag
 
 document_anchor:
   title_keywords:

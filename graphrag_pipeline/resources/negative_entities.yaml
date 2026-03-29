@@ -1,0 +1,6 @@
+version: "1"
+description: >
+  Surface forms that should never be emitted as mention candidates.
+  Populated from accepted suppress_mention proposals (review cycle feedback).
+  New domains start with an empty list.
+entries: []

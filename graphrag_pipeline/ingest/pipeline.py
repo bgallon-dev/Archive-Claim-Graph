@@ -4,7 +4,7 @@ import logging
 import os
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -14,7 +14,7 @@ from .extractors import HybridClaimExtractor, RuleBasedMeasurementExtractor, Rul
 from graphrag_pipeline.core.claim_validator import is_valid_claim_sentence
 from .extractors.claim_extractor import ClaimExtractor, ClaimLinkDraft
 from .extractors.measurement_extractor import MeasurementExtractor
-from .extractors.mention_extractor import MentionExtractor
+from .extractors.mention_extractor import MentionExtractor, ResolutionContext
 from .graph.writer import GraphWriter, InMemoryGraphWriter, Neo4jGraphWriter
 from graphrag_pipeline.core.ids import (
     make_claim_id,
@@ -56,10 +56,12 @@ from graphrag_pipeline.core.claim_contract import (
     get_relation_compatibility,
     validate_claim_type,
 )
+from .derivation_context import build_derivation_contexts
 from .event_builder import build_events
 from .observation_builder import build_observations
 from graphrag_pipeline.core.resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_entities
-from graphrag_pipeline.shared.resource_loader import load_domain_profile
+from graphrag_pipeline.shared.resource_loader import load_derivation_registry, load_domain_profile
+from graphrag_pipeline.core.domain_config import load_domain_config
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
 
@@ -344,10 +346,14 @@ def extract_semantic(
     run_overrides: dict[str, str] | None = None,
     resources_dir: Path | None = None,
 ) -> SemanticBundle:
-    claim_extractor = claim_extractor or HybridClaimExtractor(resources_dir=resources_dir)
-    measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor(resources_dir=resources_dir)
-    mention_extractor = mention_extractor or RuleBasedMentionExtractor(resources_dir=resources_dir)
-    resolver = resolver or DictionaryFuzzyResolver(seed_entities=default_seed_entities(resources_dir))
+    _config = load_domain_config(resources_dir)
+    claim_extractor = claim_extractor or HybridClaimExtractor(resources_dir=resources_dir, config=_config)
+    measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor(resources_dir=resources_dir, config=_config)
+    mention_extractor = mention_extractor or RuleBasedMentionExtractor(resources_dir=resources_dir, config=_config)
+    resolver = resolver or DictionaryFuzzyResolver(
+        resources_dir=resources_dir,
+        config=_config,
+    )
 
     now = datetime.now(timezone.utc)
     overrides = run_overrides or {}
@@ -466,7 +472,17 @@ def extract_semantic(
                 )
                 measurements.append(measurement)
 
-    entities, entity_resolutions = resolver.resolve(mentions)
+    # Build per-paragraph ResolutionContext from extracted claims so the resolver
+    # can apply type-conditioned score adjustments.
+    resolution_contexts: dict[str, ResolutionContext] = {
+        paragraph.paragraph_id: ResolutionContext(
+            paragraph_id=paragraph.paragraph_id,
+            claim_types=sorted({c.claim_type for c in claims_by_paragraph.get(paragraph.paragraph_id, [])}),
+        )
+        for paragraph in structure.paragraphs
+    }
+
+    entities, entity_resolutions = resolver.resolve(mentions, contexts=resolution_contexts)
     entity_lookup = {entity.entity_id: entity for entity in entities}
     resolutions_by_mention = {resolution.mention_id: resolution for resolution in entity_resolutions}
 
@@ -482,7 +498,7 @@ def extract_semantic(
 
     # Create document-level anchor entity before link assembly so doc_anchor_id is in scope for doc-level links.
     doc_anchor_id: str | None = None
-    anchor_cfg = load_domain_profile(resources_dir).get("document_anchor")
+    anchor_cfg = _config.domain_anchor
     if anchor_cfg:
         raw_kw = anchor_cfg.get("title_keywords") or anchor_cfg.get("title_keyword") or []
         keywords = [raw_kw] if isinstance(raw_kw, str) else list(raw_kw)
@@ -585,6 +601,22 @@ def extract_semantic(
         for claim in claims:
             claim_period_links.append(ClaimPeriodLinkRecord(claim_id=claim.claim_id, period_id=period_entity_id))
 
+    # Build shared per-claim derivation contexts (entity bindings, year, routing)
+    derivation_contexts = build_derivation_contexts(
+        claims=claims,
+        measurements=measurements,
+        claim_entity_links=claim_entity_links,
+        claim_location_links=claim_location_links,
+        claim_period_links=claim_period_links,
+        entity_lookup=entity_lookup,
+        run_id=extraction_run.run_id,
+        report_year=structure.document.report_year,
+        doc_date_start=structure.document.date_start,
+        doc_date_end=structure.document.date_end,
+        registry=_config.derivation_registry or None,
+        year_validation_cfg=_config.year_validation,
+    )
+
     # Build Observations from eligible claims
     observations, years, obs_measurement_links, _ = build_observations(
         claims=claims,
@@ -595,6 +627,7 @@ def extract_semantic(
         entity_lookup=entity_lookup,
         run_id=extraction_run.run_id,
         report_year=structure.document.report_year,
+        _contexts=derivation_contexts,
     )
 
     # Build Events from event-eligible claims
@@ -608,6 +641,7 @@ def extract_semantic(
         observations=observations,
         run_id=extraction_run.run_id,
         report_year=structure.document.report_year,
+        _contexts=derivation_contexts,
     )
     # Merge event-derived year nodes without duplicates
     existing_year_ids = {y.year_id for y in years}
@@ -903,6 +937,7 @@ def _process_single_document(
         resolver = DictionaryFuzzyResolver(
             seed_entities=default_seed_entities(resources_dir),
             supplementary_candidates=supplementary_entity_rows,
+            resources_dir=resources_dir,
         )
     semantic = extract_semantic(
         structure,
@@ -1131,6 +1166,10 @@ def run_e2e(
         from graphrag_pipeline.review.store import ReviewStore
         review_store = ReviewStore(review_db_path)
 
+    # Rolling counter of entity_id → cumulative REFERS_TO resolution count across
+    # all documents processed so far in this run (document-level frequency prior).
+    document_entity_counts: Counter[str] = Counter()
+
     writer: GraphWriter | None = None
     try:
         for doc_summary in doc_summaries:
@@ -1143,6 +1182,28 @@ def run_e2e(
 
             structure = load_structure_bundle(doc_summary["structure_output"])
             semantic = load_semantic_bundle(doc_summary["semantic_output"])
+
+            # A3: Re-resolve with frequency prior if we have data from prior docs.
+            if document_entity_counts:
+                domain_dir = Path(resources_dir) if resources_dir is not None else None
+                _supp_for_prior = supplementary_entities if supplementary_entities else None
+                freq_resolver = DictionaryFuzzyResolver(
+                    seed_entities=default_seed_entities(domain_dir),
+                    supplementary_candidates=_supp_for_prior,
+                    resources_dir=domain_dir,
+                )
+                _, new_resolutions = freq_resolver.resolve(
+                    semantic.mentions,
+                    contexts=_rebuild_resolution_contexts(semantic),
+                    document_entity_counts=document_entity_counts,
+                )
+                semantic.entity_resolutions = new_resolutions
+                save_semantic_bundle(doc_summary["semantic_output"], semantic)
+
+            # Update the rolling counter with this document's REFERS_TO resolutions.
+            for resolution in semantic.entity_resolutions:
+                if resolution.relation_type == "REFERS_TO":
+                    document_entity_counts[resolution.entity_id] += 1
 
             if writer is None:
                 writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
@@ -1177,6 +1238,22 @@ def run_e2e(
     if backend == "memory" and writer is not None:
         result["writer"] = writer
     return result
+
+
+def _rebuild_resolution_contexts(semantic: SemanticBundle) -> dict[str, ResolutionContext]:
+    """Reconstruct per-paragraph ResolutionContext objects from a loaded SemanticBundle.
+
+    Used in the Phase 2 frequency-prior re-resolution loop of run_e2e() to avoid
+    storing or re-extracting claim data when re-resolving with document_entity_counts.
+    """
+    from collections import defaultdict
+    claim_types_by_para: dict[str, set[str]] = defaultdict(set)
+    for claim in semantic.claims:
+        claim_types_by_para[claim.paragraph_id].add(claim.claim_type)
+    return {
+        pid: ResolutionContext(paragraph_id=pid, claim_types=sorted(types))
+        for pid, types in claim_types_by_para.items()
+    }
 
 
 def load_saved_pair(structure_path: str | Path, semantic_path: str | Path) -> tuple[StructureBundle, SemanticBundle]:
@@ -1218,7 +1295,10 @@ def resolve_mentions_targeted(
         new_claim_links_count, unresolved_after.
     """
     if resolver is None:
-        resolver = DictionaryFuzzyResolver(seed_entities=default_seed_entities(resources_dir))
+        resolver = DictionaryFuzzyResolver(
+            seed_entities=default_seed_entities(resources_dir),
+            resources_dir=resources_dir,
+        )
 
     # Step 1: find unresolved mentions
     already_resolved: set[str] = {r.mention_id for r in semantic.entity_resolutions}

@@ -8,6 +8,10 @@ from typing import Protocol
 
 from .claim_extractor import ClaimDraft
 from graphrag_pipeline.shared.resource_loader import load_measurement_units, load_measurement_species
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from graphrag_pipeline.core.domain_config import DomainConfig
 
 _LOADED_UNITS: dict[str, tuple[str, str]] = load_measurement_units()
 _LOADED_SPECIES: dict[str, Any] = load_measurement_species()
@@ -111,8 +115,22 @@ class RuleBasedMeasurementExtractor:
 
     _SPECIES_TYPE_HINTS: dict[str, str] = _LOADED_SPECIES["type_hints"]  # type: ignore[assignment]
 
-    def __init__(self, resources_dir: Path | None = None) -> None:
-        if resources_dir is not None:
+    def __init__(
+        self,
+        resources_dir: Path | None = None,
+        config: "DomainConfig | None" = None,
+    ) -> None:
+        if config is not None:
+            species = config.measurement_species
+            self._UNIT_NAME_MAP = config.measurement_units
+            self._SPECIES_TYPE_HINTS = species["type_hints"]
+            immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
+            ctx_verbs = _SPECIES_CONTEXT_VERBS
+            ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + ctx_verbs + r")\b"
+            self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
+            self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
+            self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
+        elif resources_dir is not None:
             units = load_measurement_units(resources_dir)
             species = load_measurement_species(resources_dir)
             self._UNIT_NAME_MAP = units

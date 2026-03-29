@@ -28,7 +28,7 @@ class MappingResolver:
     def __init__(self, mapping: dict[tuple[int, int], tuple[EntityRecord, str]]) -> None:
         self._mapping = mapping
 
-    def resolve(self, mentions: list) -> tuple[list[EntityRecord], list[EntityResolutionRecord]]:
+    def resolve(self, mentions: list, contexts=None, document_entity_counts=None) -> tuple[list[EntityRecord], list[EntityResolutionRecord]]:
         entities: dict[str, EntityRecord] = {}
         resolutions: list[EntityResolutionRecord] = []
         for mention in mentions:

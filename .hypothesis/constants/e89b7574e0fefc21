@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\ingest\extractors\__init__.py
+# hypothesis_version: 6.151.9
+
+['CandidateSpan', 'ClaimDraft', 'ClaimExtractor', 'ClaimLinkDraft', 'GLiNERMentionAdapter', 'HybridClaimExtractor', 'LLMClaimExtractor', 'MeasurementDraft', 'MeasurementExtractor', 'MentionDraft', 'MentionExtractor', 'NullLLMAdapter', 'ResolutionContext']

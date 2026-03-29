@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\ingest\derivation_context.py
+# hypothesis_version: 6.151.9
+
+['HABITAT_FOCUS', 'Habitat', 'MANAGEMENT_TARGET', 'METHOD_FOCUS', 'Place', 'Refuge', 'SPECIES_FOCUS', 'Species', 'SurveyMethod', 'action', 'claim_date', 'event', 'event_type', 'exclude', 'flag', 'none', 'observation', 'observation_type', 'required_entities', 'suspect', 'tolerance', 'unknown']

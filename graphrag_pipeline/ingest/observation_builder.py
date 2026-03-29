@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from collections import defaultdict
+from typing import TYPE_CHECKING
 
 from graphrag_pipeline.core.claim_contract import (
     CLAIM_TYPE_TO_OBSERVATION_TYPE,
@@ -20,6 +21,9 @@ from graphrag_pipeline.core.models import (
     ObservationRecord,
     YearRecord,
 )
+
+if TYPE_CHECKING:
+    from graphrag_pipeline.ingest.derivation_context import DerivationContext
 
 _YEAR_RE = re.compile(r"\b(1[89]\d{2}|20[0-2]\d)\b")
 
@@ -45,12 +49,18 @@ def build_observations(
     entity_lookup: dict[str, EntityRecord],
     run_id: str,
     report_year: int | None,
+    *,
+    _contexts: list[DerivationContext] | None = None,
 ) -> tuple[
     list[ObservationRecord],
     list[YearRecord],
     list[ObservationMeasurementLinkRecord],
     list[DocumentYearLinkRecord],
 ]:
+    if _contexts is not None:
+        return _build_observations_from_contexts(_contexts, run_id)
+
+    # ── Backward-compatible single-pass path ─────────────────────────────────
     measurements_by_claim: dict[str, list[MeasurementRecord]] = defaultdict(list)
     for m in measurements:
         measurements_by_claim[m.claim_id].append(m)
@@ -147,3 +157,67 @@ def build_observations(
 
     years = list(year_map.values())
     return observations, years, obs_measurement_links, []
+
+
+def _build_observations_from_contexts(
+    contexts: list[DerivationContext],
+    run_id: str,
+) -> tuple[
+    list[ObservationRecord],
+    list[YearRecord],
+    list[ObservationMeasurementLinkRecord],
+    list[DocumentYearLinkRecord],
+]:
+    """Fast path: build observations directly from pre-computed DerivationContext objects."""
+    observations: list[ObservationRecord] = []
+    year_map: dict[str, YearRecord] = {}
+    obs_measurement_links: list[ObservationMeasurementLinkRecord] = []
+    obs_counter = 0
+
+    for ctx in contexts:
+        if ctx.observation_type is None:
+            continue
+
+        obs_counter += 1
+        observation_id = make_observation_id(run_id, ctx.claim.claim_id, obs_counter, ctx.observation_type)
+        ctx.observation_id = observation_id  # populate for event_builder bridge
+
+        year_id = ctx.year_id
+        if year_id is not None and year_id not in year_map:
+            year_map[year_id] = YearRecord(
+                year_id=year_id,
+                year=ctx.year,
+                year_label=str(ctx.year),
+            )
+
+        observation = ObservationRecord(
+            observation_id=observation_id,
+            run_id=run_id,
+            observation_type=ctx.observation_type,
+            claim_id=ctx.claim.claim_id,
+            paragraph_id=ctx.claim.paragraph_id,
+            species_id=ctx.species_id,
+            refuge_id=ctx.refuge_id,
+            place_id=ctx.place_id,
+            period_id=ctx.period_id,
+            year_id=year_id,
+            habitat_id=ctx.habitat_id,
+            survey_method_id=ctx.survey_method_id,
+            confidence=ctx.claim.extraction_confidence,
+            is_estimate=ctx.claim.epistemic_status == "uncertain",
+            source_claim_type=ctx.claim.claim_type,
+            year=ctx.year,
+            year_source=ctx.year_source,
+        )
+        observations.append(observation)
+
+        for measurement_id in ctx.measurement_ids:
+            if ctx.measurement_owner == "observation":
+                obs_measurement_links.append(
+                    ObservationMeasurementLinkRecord(
+                        observation_id=observation_id,
+                        measurement_id=measurement_id,
+                    )
+                )
+
+    return observations, list(year_map.values()), obs_measurement_links, []

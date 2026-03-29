@@ -14,6 +14,10 @@ from graphrag_pipeline.core.claim_contract import (
 )
 from graphrag_pipeline.core.resolver import default_seed_entities
 from graphrag_pipeline.shared.resource_loader import load_claim_type_patterns, load_claim_role_policy
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from graphrag_pipeline.core.domain_config import DomainConfig
 
 _LOADED_TYPE_PATTERNS = load_claim_type_patterns()
 _LOADED_ROLE_POLICY = load_claim_role_policy()
@@ -205,8 +209,20 @@ class RuleBasedClaimExtractor:
     _EPISTEMIC_DISCOUNT: float = 0.08  # subtracted for uncertain epistemic status
     _uncertain_tokens = re.compile(r"\b(about|approx|approximately|around|estimated|reported|possibly|likely)\b", re.IGNORECASE)
 
-    def __init__(self, resources_dir: Path | None = None) -> None:
-        if resources_dir is not None:
+    def __init__(
+        self,
+        resources_dir: Path | None = None,
+        config: "DomainConfig | None" = None,
+    ) -> None:
+        if config is not None:
+            self._ROLE_POLICY = config.claim_role_policy
+            self._type_scored_patterns = config.claim_type_patterns
+            self._species_terms  = _seed_terms("Species",         seed=config.seed_entities)
+            self._habitat_terms  = _seed_terms("Habitat",         seed=config.seed_entities)
+            self._method_terms   = _seed_terms("SurveyMethod",    seed=config.seed_entities)
+            self._location_terms = _seed_terms("Place", "Refuge", seed=config.seed_entities)
+            self._activity_terms = _seed_terms("Activity",        seed=config.seed_entities)
+        elif resources_dir is not None:
             self._ROLE_POLICY = load_claim_role_policy(resources_dir)
             self._type_scored_patterns = load_claim_type_patterns(resources_dir)
             _seed = default_seed_entities(resources_dir)
@@ -485,8 +501,11 @@ class HybridClaimExtractor:
         rules_extractor: ClaimExtractor | None = None,
         llm_extractor: ClaimExtractor | None = None,
         resources_dir: Path | None = None,
+        config: "DomainConfig | None" = None,
     ) -> None:
-        self._rules = rules_extractor or RuleBasedClaimExtractor(resources_dir=resources_dir)
+        self._rules = rules_extractor or RuleBasedClaimExtractor(
+            resources_dir=resources_dir, config=config
+        )
         self._llm = llm_extractor or LLMClaimExtractor(NullLLMAdapter())
         self.last_telemetry: HybridTelemetry | None = None
 

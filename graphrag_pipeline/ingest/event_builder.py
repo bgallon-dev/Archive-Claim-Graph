@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
+from typing import TYPE_CHECKING
 
 from graphrag_pipeline.core.claim_contract import (
     CLAIM_TYPE_TO_EVENT_TYPE,
@@ -21,7 +22,10 @@ from graphrag_pipeline.core.models import (
     ObservationRecord,
     YearRecord,
 )
-from .observation_builder import _extract_year
+from graphrag_pipeline.ingest.derivation_context import _extract_year
+
+if TYPE_CHECKING:
+    from graphrag_pipeline.ingest.derivation_context import DerivationContext
 
 
 def build_events(
@@ -34,12 +38,18 @@ def build_events(
     observations: list[ObservationRecord],
     run_id: str,
     report_year: int | None,
+    *,
+    _contexts: list[DerivationContext] | None = None,
 ) -> tuple[
     list[EventRecord],
     list[EventObservationLinkRecord],
     list[EventMeasurementLinkRecord],
     list[YearRecord],
 ]:
+    if _contexts is not None:
+        return _build_events_from_contexts(_contexts, run_id)
+
+    # ── Backward-compatible single-pass path ─────────────────────────────────
     measurements_by_claim: dict[str, list[MeasurementRecord]] = defaultdict(list)
     for m in measurements:
         measurements_by_claim[m.claim_id].append(m)
@@ -139,6 +149,74 @@ def build_events(
                 event_meas_links.append(EventMeasurementLinkRecord(
                     event_id=event_id,
                     measurement_id=m.measurement_id,
+                ))
+
+    return events, event_obs_links, event_meas_links, list(year_map.values())
+
+
+def _build_events_from_contexts(
+    contexts: list[DerivationContext],
+    run_id: str,
+) -> tuple[
+    list[EventRecord],
+    list[EventObservationLinkRecord],
+    list[EventMeasurementLinkRecord],
+    list[YearRecord],
+]:
+    """Fast path: build events directly from pre-computed DerivationContext objects."""
+    events: list[EventRecord] = []
+    event_obs_links: list[EventObservationLinkRecord] = []
+    event_meas_links: list[EventMeasurementLinkRecord] = []
+    year_map: dict[str, YearRecord] = {}
+    evt_counter = 0
+
+    for ctx in contexts:
+        if ctx.event_type is None:
+            continue
+
+        evt_counter += 1
+        event_id = make_event_id(run_id, ctx.claim.claim_id, evt_counter, ctx.event_type)
+
+        year_id = ctx.year_id
+        if year_id is not None and year_id not in year_map:
+            year_map[year_id] = YearRecord(
+                year_id=year_id,
+                year=ctx.year,
+                year_label=str(ctx.year),
+            )
+
+        events.append(EventRecord(
+            event_id=event_id,
+            run_id=run_id,
+            event_type=ctx.event_type,
+            claim_id=ctx.claim.claim_id,
+            paragraph_id=ctx.claim.paragraph_id,
+            species_id=ctx.species_id,
+            refuge_id=ctx.refuge_id,
+            place_id=ctx.place_id,
+            period_id=ctx.period_id,
+            year_id=year_id,
+            habitat_id=ctx.habitat_id,
+            survey_method_id=ctx.survey_method_id,
+            source_claim_type=ctx.claim.claim_type,
+            year=ctx.year,
+            year_source=ctx.year_source,
+            confidence=ctx.claim.extraction_confidence,
+        ))
+
+        # Bridge: Event → Observation (when both exist)
+        if ctx.observation_id is not None:
+            event_obs_links.append(EventObservationLinkRecord(
+                event_id=event_id,
+                observation_id=ctx.observation_id,
+            ))
+
+        # Measurements owned by event (no co-observation for this claim type)
+        if ctx.measurement_owner == "event":
+            for measurement_id in ctx.measurement_ids:
+                event_meas_links.append(EventMeasurementLinkRecord(
+                    event_id=event_id,
+                    measurement_id=measurement_id,
                 ))
 
     return events, event_obs_links, event_meas_links, list(year_map.values())

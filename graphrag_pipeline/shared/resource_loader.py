@@ -134,6 +134,16 @@ def load_ocr_corrections(
     return frozenset(str(token).lower() for token in known_errors)
 
 
+def load_negative_entities(resources_dir: Path | None = None) -> frozenset[str]:
+    """Return the set of normalized surface forms that must never be emitted as candidates."""
+    path = _resource_path("negative_entities", resources_dir)
+    if not path.exists():
+        return frozenset()
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    return frozenset(str(e).strip().lower() for e in (data.get("entries") or []) if e)
+
+
 def load_ocr_correction_map(
     resources_dir: Path | None = None,
 ) -> dict[str, str]:
@@ -208,6 +218,22 @@ def load_domain_profile(
     path = _dir(resources_dir) / "domain_profile.yaml"
     with path.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh)
+
+
+# ── Derivation registry ───────────────────────────────────────────────────────
+
+def load_derivation_registry(resources_dir: Path | None = None) -> dict[str, dict]:
+    """Return the derivation registry keyed by claim_type, or {} if file absent.
+
+    Each value is a dict with keys: observation_type, event_type,
+    required_entities, optional_entities.
+    """
+    path = _resource_path("derivation_registry", resources_dir)
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    return data.get("entries") or {}
 
 
 # ── Claim relation compatibility ──────────────────────────────────────────────

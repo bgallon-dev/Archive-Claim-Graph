@@ -1,0 +1,82 @@
+version: "1"
+description: >
+  Maps each claim type to its observation_type, event_type, and required/optional
+  entity types.  Governs node creation in observation_builder and event_builder
+  via DerivationContext.  Falls back to the Python constants in claim_contract
+  when this file is absent.
+entries:
+  population_estimate:
+    observation_type: population_count
+    event_type: SurveyEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge, SurveyMethod, Habitat]
+  wildlife_count:
+    observation_type: population_count
+    event_type: SurveyEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge, SurveyMethod]
+  species_presence:
+    observation_type: presence_record
+    event_type: SurveyEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge, SurveyMethod]
+  species_absence:
+    observation_type: presence_record
+    event_type: SurveyEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge]
+  breeding_activity:
+    observation_type: nesting_record
+    event_type: BreedingEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge, Habitat]
+  habitat_condition:
+    observation_type: habitat_record
+    event_type: HabitatEvent
+    required_entities: []
+    optional_entities: [Place, Refuge, Habitat]
+  migration_timing:
+    observation_type: migration_record
+    event_type: MigrationEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge]
+  weather_observation:
+    observation_type: weather_record
+    event_type: WeatherEvent
+    required_entities: []
+    optional_entities: [Place, Refuge]
+  predator_control:
+    observation_type: predator_record
+    event_type: ManagementEvent
+    required_entities: [Species]
+    optional_entities: [Place, Refuge]
+  fire_incident:
+    observation_type: null
+    event_type: FireEvent
+    required_entities: [Place]
+    optional_entities: [Refuge]
+  management_action:
+    observation_type: null
+    event_type: ManagementEvent
+    required_entities: []
+    optional_entities: [Place, Refuge, Species]
+  economic_use:
+    observation_type: null
+    event_type: ManagementEvent
+    required_entities: []
+    optional_entities: [Place, Refuge]
+  development_activity:
+    observation_type: null
+    event_type: ManagementEvent
+    required_entities: []
+    optional_entities: [Place, Refuge]
+  public_contact:
+    observation_type: null
+    event_type: ManagementEvent
+    required_entities: []
+    optional_entities: [Place, Refuge]
+  unclassified_assertion:
+    observation_type: null
+    event_type: null
+    required_entities: []
+    optional_entities: []

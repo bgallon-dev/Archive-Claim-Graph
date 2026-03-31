@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\anthropic\lib\tools\_beta_functions.py
+# hypothesis_version: 6.151.9
+
+['AsyncFunctionT', 'FunctionT', 'Tool error', 'allowed_callers', 'cache_control', 'defer_loading', 'description', 'direct', 'input_examples', 'input_schema', 'mcp_server_name', 'name', 'object', 'properties', 'strict', 'text', 'type']

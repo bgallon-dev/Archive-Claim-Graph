@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\httpcore\_async\connection_pool.py
+# hypothesis_version: 6.151.9
+
+[b'http', b'socks5', b'socks5h', 'aclose', 'http', 'https', 'pool', 'timeout', 'ws', 'wss']

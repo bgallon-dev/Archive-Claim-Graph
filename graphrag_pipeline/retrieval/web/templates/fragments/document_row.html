@@ -1,0 +1,28 @@
+<tr id="doc-{{ doc.doc_id }}"{% if doc.deleted_at %} style="opacity:0.5"{% endif %}>
+  <td>{{ doc.title or doc.doc_id }}</td>
+  <td>
+    {% if doc.access_level == 'public' %}<span class="badge badge-outline">public</span>
+    {% elif doc.access_level == 'restricted' %}<span class="badge badge-amber">restricted</span>
+    {% elif doc.access_level == 'staff_only' %}<span class="badge badge-blue">staff only</span>
+    {% elif doc.access_level == 'indigenous_restricted' %}<span class="badge badge-red">indigenous</span>
+    {% else %}<span class="badge badge-outline">{{ doc.access_level or 'unknown' }}</span>
+    {% endif %}
+  </td>
+  <td>
+    {% if doc.deleted_at %}Deleted
+    {% else %}Active
+    {% endif %}
+  </td>
+  <td>
+    {% if doc.deleted_at %}
+      <a hx-post="/document/{{ doc.doc_id }}/restore"
+         hx-target="#doc-{{ doc.doc_id }}" hx-swap="outerHTML"
+         class="action-link action-link-blue" style="cursor:pointer">Restore</a>
+    {% else %}
+      <a hx-delete="/document/{{ doc.doc_id }}?confirm=true"
+         hx-target="#doc-{{ doc.doc_id }}" hx-swap="outerHTML"
+         hx-confirm="Soft-delete this document? It can be restored later."
+         class="action-link action-link-danger" style="cursor:pointer">Delete</a>
+    {% endif %}
+  </td>
+</tr>

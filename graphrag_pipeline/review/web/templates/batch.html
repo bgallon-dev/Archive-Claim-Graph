@@ -1,52 +1,47 @@
 {% extends "base.html" %}
-{% block title %}Batch Review{% endblock %}
+{% block title %}Batch Review - Gemynd{% endblock %}
 {% block content %}
 {% if is_empty %}
-<h1>Batch Review</h1>
-<p>No queued proposals found for <strong>{{ filter_label }}</strong>.</p>
-<p><a href="/proposals">Back to queue</a></p>
+<p class="page-title">Batch review</p>
+<p class="page-sub">No queued proposals found for <strong>{{ filter_label }}</strong>.</p>
+<p><a href="/proposals" class="action-link" style="font-size:13px">Back to queue &rarr;</a></p>
 {% else %}
-<h1>Batch Review &mdash; {{ filter_label }}</h1>
+<p class="page-title">Batch review &mdash; {{ filter_label }}</p>
+<p class="page-sub">Review and decide on a group of similar proposals at once</p>
 
-<section style="margin:1rem 0;padding:1rem;background:#e7f1ff;border-radius:6px;border:1px solid #b6d4fe">
-  <h2 style="margin-top:0;font-size:1rem">Summary</h2>
-  <table style="width:auto">
-    <tr><th>Queued proposals</th><td><strong>{{ count }}</strong></td></tr>
-    <tr><th>Confidence range</th><td>{{ conf_min }} &ndash; {{ conf_max }}</td></tr>
-    <tr><th>Average confidence</th><td>{{ conf_avg }}</td></tr>
+<div class="batch-summary">
+  <p style="font-weight:500;margin-bottom:0.5rem">Summary</p>
+  <table class="mini-table" style="max-width:300px">
+    <tr><td style="color:var(--text-secondary)">Queued proposals</td><td><strong>{{ count }}</strong></td></tr>
+    <tr><td style="color:var(--text-secondary)">Confidence range</td><td>{{ conf_min }} &ndash; {{ conf_max }}</td></tr>
+    <tr><td style="color:var(--text-secondary)">Average confidence</td><td>{{ conf_avg }}</td></tr>
   </table>
-</section>
+</div>
 
-<h2 style="font-size:1rem">Sample (up to 5 proposals)</h2>
+<p class="section-heading">Sample (up to 5 proposals)</p>
 {{ sample_cards | safe }}
 
-<section style="margin:1.5rem 0;padding:1rem;background:#fff;border:1px solid #dee2e6;border-radius:6px">
-  <h2 style="margin-top:0;font-size:1rem">Apply batch decision</h2>
-  <p style="color:#6c757d;font-size:0.9rem">
-    This will apply your decision to all <strong>{{ count }}</strong> currently queued proposals
-    matching this filter. A note is required and will be recorded on every proposal.
+<div style="margin:1.5rem 0;padding:1rem;background:var(--bark-50);border:1px solid var(--border-medium);border-radius:var(--radius-md)">
+  <p style="font-weight:500;margin-bottom:0.5rem">Apply batch decision</p>
+  <p style="color:var(--text-secondary);font-size:13px;margin-bottom:0.75rem">
+    This will apply your decision to all <strong>{{ count }}</strong> currently queued proposals matching this filter.
   </p>
-  <form method="post" style="margin:0">
+  <form method="post">
     <input type="hidden" name="issue_class" value="{{ issue_class }}">
     <input type="hidden" name="queue_name" value="{{ queue_name }}">
-    <div style="margin:0.75rem 0">
-      <label for="batch-note" style="font-weight:600">Reviewer note (required):</label><br>
-      <textarea id="batch-note" name="reviewer_note" rows="3"
-        style="width:100%;max-width:40rem;margin-top:0.25rem;padding:0.4rem;border:1px solid #ced4da;border-radius:4px"
-        placeholder="Briefly describe why you are accepting or rejecting this batch&hellip;"
-        required></textarea>
+    <div style="margin-bottom:0.75rem">
+      <label style="font-size:12px;color:var(--text-secondary)">Reviewer note (required):</label>
+      <textarea id="batch-note" name="reviewer_note" rows="3" class="g-input" style="max-width:500px;margin-top:4px;min-height:60px"
+        placeholder="Briefly describe why you are accepting or rejecting this batch..." required></textarea>
     </div>
-    <button type="submit" formaction="/proposals/batch-accept" class="btn-accept"
-      onclick="return confirm('Accept all {{ count }} queued proposals in this batch?')">
-      Accept all {{ count }}
-    </button>
-    <button type="submit" formaction="/proposals/batch-reject" class="btn-reject"
-      style="margin-left:0.5rem"
-      onclick="return confirm('Reject all {{ count }} queued proposals in this batch?')">
-      Reject all {{ count }}
-    </button>
-    <a href="{{ back_href }}" style="margin-left:1rem;color:#6c757d">Cancel</a>
+    <div style="display:flex;gap:6px;align-items:center">
+      <button type="submit" formaction="/proposals/batch-accept" class="btn-sm btn-accept"
+        onclick="return confirm('Accept all {{ count }} queued proposals in this batch?')">Accept all {{ count }}</button>
+      <button type="submit" formaction="/proposals/batch-reject" class="btn-sm btn-reject"
+        onclick="return confirm('Reject all {{ count }} queued proposals in this batch?')">Reject all {{ count }}</button>
+      <a href="{{ back_href }}" class="action-link" style="margin-left:8px">Cancel</a>
+    </div>
   </form>
-</section>
+</div>
 {% endif %}
 {% endblock %}

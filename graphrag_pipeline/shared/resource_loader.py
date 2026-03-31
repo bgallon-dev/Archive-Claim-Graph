@@ -250,3 +250,58 @@ def load_claim_relation_compatibility(
     path = _resource_path("claim_relation_compatibility", resources_dir)
     with path.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh)
+
+
+# ── Domain schema ────────────────────────────────────────────────────────────
+
+def load_domain_schema(
+    resources_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Return the full domain_schema.yaml payload.
+
+    Keys: ``claim_entity_relations``, ``claim_location_relation``,
+    ``claim_location_entity_types``, ``entity_labels``, ``legacy_renames``.
+    """
+    path = _resource_path("domain_schema", resources_dir)
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8") as fh:
+        return yaml.safe_load(fh) or {}
+
+
+# ── Concept rules ────────────────────────────────────────────────────────────
+
+def load_concept_rules(
+    resources_dir: Path | None = None,
+) -> list[tuple[str, frozenset[str], re.Pattern[str], float]]:
+    """Return ``[(concept_id, allowed_claim_types, compiled_regex, confidence), ...]``."""
+    path = _resource_path("concept_rules", resources_dir)
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    result: list[tuple[str, frozenset[str], re.Pattern[str], float]] = []
+    for entry in data.get("rules") or []:
+        compiled = _safe_compile(entry["regex"], re.IGNORECASE)
+        result.append((
+            str(entry["concept_id"]),
+            frozenset(entry["claim_types"]),
+            compiled,
+            float(entry["confidence"]),
+        ))
+    return result
+
+
+# ── Query intent ─────────────────────────────────────────────────────────────
+
+def load_query_intent(
+    resources_dir: Path | None = None,
+) -> dict[str, list[str]]:
+    """Return ``{keyword: [claim_type, ...]}`` for retrieval strategy selection."""
+    path = _resource_path("query_intent", resources_dir)
+    if not path.exists():
+        return {}
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    raw = data.get("intent_to_claim_types") or {}
+    return {str(k): [str(v) for v in vs] for k, vs in raw.items()}

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\anthropic\_types.py
+# hypothesis_version: 6.151.9
+
+['APIResponse[Any]', 'BaseModel', 'IncEx', 'ModelT', 'NOT_GIVEN', 'ResponseT', '_T', '_T_co', 'str | URL']

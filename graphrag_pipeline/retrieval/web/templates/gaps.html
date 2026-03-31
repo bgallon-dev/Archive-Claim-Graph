@@ -1,128 +1,107 @@
 {% extends "retrieval_stats_base.html" %}
-{% block title %}Gap Analysis{% endblock %}
-{% block nav %}
-<a class="nav-back" href="/">&#8592; Back to Query Interface</a>
-&nbsp;&nbsp;<a class="nav-back" href="/stats">&#8592; Collection Stats</a>
-{% endblock %}
+{% block title %}Gap Analysis - Gemynd{% endblock %}
 {% block content %}
-<h1>Gap Analysis</h1>
-<p style="color:#6c757d">What the collection should document but doesn&#8217;t &mdash; thin coverage, absent periods, and underrepresented topics.</p>
+<p class="page-title">Gap analysis</p>
+<p class="page-sub">Thin coverage, absent periods, and underrepresented topics</p>
 
-<div class="stats-section">
-  <h2>Temporal Coverage Gaps</h2>
-  {% if temporal_gaps %}
-  <ul style="line-height:1.9">
-    {% for g in temporal_gaps %}
-    <li>
-      <strong>
-        {% if g.start == g.end %}{{ g.start }}{% else %}{{ g.start }}&ndash;{{ g.end }} ({{ g.years_count }} years){% endif %}
-      </strong>
-      &mdash; Adjacent coverage: {{ g.before_docs }} doc(s) before, {{ g.after_docs }} doc(s) after.
-    </li>
+<p class="section-heading">Temporal coverage gaps</p>
+{% if temporal_gaps %}
+{% for g in temporal_gaps %}
+<div class="gap-card">
+  <p><span style="font-weight:500">{% if g.start == g.end %}{{ g.start }}{% else %}{{ g.start }}&ndash;{{ g.end }} ({{ g.years_count }} years){% endif %}</span> &mdash; {{ g.before_docs }} doc(s) before, {{ g.after_docs }} doc(s) after</p>
+</div>
+{% endfor %}
+{% else %}
+<p style="color:var(--text-secondary);font-size:13px">No significant temporal gaps found across the covered range ({{ year_span }}).</p>
+{% endif %}
+
+<p class="section-heading">Entity depth gaps</p>
+{% if entity_depth_by_type %}
+<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Entities with &le;3 primary-subject claims</p>
+{% for etype, rows in entity_depth_by_type %}
+<p style="font-size:13px;font-weight:500;margin:0.75rem 0 0.4rem">{{ etype }}</p>
+<table class="mini-table">
+  <thead><tr><th>Entity</th><th>Primary claims</th></tr></thead>
+  <tbody>
+    {% for r in rows %}
+    <tr>
+      <td>{{ r.name }}</td>
+      <td>
+        {% if r.primary_claim_count <= 1 %}
+        <span class="thin-1">1 claim</span>
+        {% else %}
+        <span class="thin-23">2&ndash;3 claims</span>
+        {% endif %}
+      </td>
+    </tr>
     {% endfor %}
-  </ul>
-  {% else %}
-  <p>No significant temporal gaps found across the covered range ({{ year_span }}).</p>
-  {% endif %}
-  <p style="font-size:0.85rem"><a href="/stats">&#8594; View full temporal coverage</a></p>
-</div>
+  </tbody>
+</table>
+{% endfor %}
+{% else %}
+<p style="color:var(--text-secondary);font-size:13px">No thinly-covered entities found (all entities have &gt;3 primary claims).</p>
+{% endif %}
 
-<div class="stats-section">
-  <h2>Entity Depth Gaps</h2>
-  {% if entity_depth_by_type %}
-  <p style="font-size:0.85rem;color:#6c757d">Entities with &#8804;3 primary-subject claims &mdash; known to the collection but without substantive documentation.</p>
-  {% for etype, rows in entity_depth_by_type %}
-  <h3 style="font-size:0.95rem;margin:1rem 0 0.3rem">{{ etype }}</h3>
-  <table class="stats">
-    <thead><tr><th>Entity</th><th>Primary Claims</th></tr></thead>
-    <tbody>
-      {% for r in rows %}
-      <tr>
-        <td>{{ r.name }}</td>
-        <td>
-          {% if r.primary_claim_count <= 1 %}
-          <span style="background:#f8d7da;color:#721c24;border-radius:3px;padding:1px 5px;font-size:11px">1 claim</span>
-          {% else %}
-          <span style="background:#fff3cd;color:#856404;border-radius:3px;padding:1px 5px;font-size:11px">2&ndash;3 claims</span>
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% endfor %}
-  {% else %}
-  <p>No thinly-covered entities found (all entities have &gt;3 primary claims).</p>
-  {% endif %}
-</div>
+{% if geo_coverage %}
+<p class="section-heading">Geographic coverage gaps</p>
+<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Places with few geographically-specific claims</p>
+<table class="mini-table">
+  <thead><tr><th>Place</th><th>Type</th><th>Geo claims</th></tr></thead>
+  <tbody>
+    {% for r in geo_coverage %}
+    <tr>
+      <td>{{ r.name }}</td>
+      <td>{{ r.entity_type }}</td>
+      <td>
+        {% if r.location_specific_claims <= 1 %}
+        <span class="thin-1">1 claim</span>
+        {% else %}
+        <span class="thin-23">2&ndash;3 claims</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
 
-<div class="stats-section">
-  <h2>Geographic Coverage Gaps</h2>
-  {% if geo_coverage %}
-  <p style="font-size:0.85rem;color:#6c757d">Places referenced with few geographically-specific claims (OCCURRED_AT or LOCATION_FOCUS relationships).</p>
-  <table class="stats">
-    <thead><tr><th>Place</th><th>Type</th><th>Geo Claims</th></tr></thead>
-    <tbody>
-      {% for r in geo_coverage %}
-      <tr>
-        <td>{{ r.name }}</td>
-        <td>{{ r.entity_type }}</td>
-        <td>
-          {% if r.location_specific_claims <= 1 %}
-          <span style="background:#f8d7da;color:#721c24;border-radius:3px;padding:1px 5px;font-size:11px">1 claim</span>
-          {% else %}
-          <span style="background:#fff3cd;color:#856404;border-radius:3px;padding:1px 5px;font-size:11px">2&ndash;3 claims</span>
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% else %}
-  <p>No thinly-covered places found.</p>
-  {% endif %}
+<p class="section-heading">Topical balance</p>
+<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Actual claim-type share vs. expected profile</p>
+{% if show_unclassified_banner %}
+<div class="alert-bar" style="background:var(--accent-amber-bg);border-color:var(--accent-amber-border);color:var(--accent-amber-text)">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  <span>{{ unclassified_pct }}% of claims are unclassified assertions &mdash; this may indicate extraction difficulty.</span>
 </div>
-
-<div class="stats-section">
-  <h2>Topical Balance</h2>
-  <p style="font-size:0.85rem;color:#6c757d">Actual claim-type share vs. expected profile for a wildlife refuge annual-report corpus.</p>
-  {% if show_unclassified_banner %}
-  <p style="background:#fff3cd;color:#856404;padding:0.5rem 0.75rem;border-radius:4px;font-size:0.85rem">
-    &#9888; {{ unclassified_pct }}% of claims are unclassified assertions &mdash; this may indicate extraction difficulty in certain domain areas.
-  </p>
-  {% endif %}
-  <table class="stats">
-    <thead><tr><th>Claim Type</th><th>Actual</th><th>Expected</th><th>Status</th></tr></thead>
-    <tbody>
-      {% for row in topic_rows %}
-      <tr>
-        <td>{{ row.claim_type }}</td>
-        <td>{{ row.actual_pct }}%</td>
-        <td>{{ row.expected_pct }}%</td>
-        <td>
-          {% if row.status == 'gap' %}<span style="color:#dc3545;font-weight:600">gap</span>
-          {% elif row.status == 'thin' %}<span style="color:#fd7e14;font-weight:600">thin</span>
-          {% else %}<span style="color:#198754">ok</span>
-          {% endif %}
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+{% endif %}
+<table class="mini-table">
+  <thead><tr><th>Claim type</th><th>Actual</th><th>Expected</th><th>Status</th></tr></thead>
+  <tbody>
+    {% for row in topic_rows %}
+    <tr>
+      <td>{{ row.claim_type }}</td>
+      <td>{{ row.actual_pct }}%</td>
+      <td>{{ row.expected_pct }}%</td>
+      <td>
+        {% if row.status == 'gap' %}<span class="badge badge-red">gap</span>
+        {% elif row.status == 'thin' %}<span class="badge badge-amber">thin</span>
+        {% else %}<span class="badge badge-green">ok</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% if conv_gaps %}
-<div class="stats-section">
-  <h2>Query Signal Gaps</h2>
-  <p style="font-size:0.85rem;color:#6c757d">Topic buckets queried frequently but consistently returning fewer than 5 claims &mdash; suggesting low coverage rather than failed retrieval.</p>
-  <table class="stats">
-    <thead><tr><th>Query Bucket</th><th>Query Count</th><th>Avg Claims Retrieved</th></tr></thead>
-    <tbody>
-      {% for r in conv_gaps %}
-      <tr><td>{{ r.bucket }}</td><td>{{ r.query_count }}</td><td>{{ r.avg_claims }}</td></tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+<p class="section-heading">Query signal gaps</p>
+<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Topics queried frequently but returning fewer than 5 claims</p>
+<table class="mini-table">
+  <thead><tr><th>Query bucket</th><th>Query count</th><th>Avg claims</th></tr></thead>
+  <tbody>
+    {% for r in conv_gaps %}
+    <tr><td>{{ r.bucket }}</td><td>{{ r.query_count }}</td><td>{{ r.avg_claims }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endif %}
 {% endblock %}

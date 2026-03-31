@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import functools
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -19,8 +20,15 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from graphrag_pipeline.core.domain_config import DomainConfig
 
-_LOADED_TYPE_PATTERNS = load_claim_type_patterns()
-_LOADED_ROLE_POLICY = load_claim_role_policy()
+
+@functools.cache
+def _default_type_patterns():
+    return load_claim_type_patterns()
+
+
+@functools.cache
+def _default_role_policy():
+    return load_claim_role_policy()
 
 
 @dataclass(slots=True)
@@ -133,13 +141,9 @@ def _split_sentences(text: str) -> list[tuple[str, int, int]]:
 
     return spans if spans else [(rejoined, 0, len(rejoined))]
 
-# Types the extractor can produce directly (excludes the coercion fallback).
-VALID_CLAIM_TYPES: frozenset[str] = ALLOWED_CLAIM_TYPES - {UNCLASSIFIED_TYPE}
-_SEED_ENTITIES = default_seed_entities()
-
 
 def _seed_terms(*entity_types: str, seed: list | None = None) -> list[str]:
-    entities = seed if seed is not None else _SEED_ENTITIES
+    entities = seed if seed is not None else default_seed_entities()
     labels = set(entity_types)
     return sorted(
         {entity.name for entity in entities if entity.entity_type in labels},
@@ -148,11 +152,29 @@ def _seed_terms(*entity_types: str, seed: list | None = None) -> list[str]:
     )
 
 
-SPECIES_TERMS = _seed_terms("Species")
-HABITAT_TERMS = _seed_terms("Habitat")
-METHOD_TERMS = _seed_terms("SurveyMethod")
-LOCATION_TERMS = _seed_terms("Place", "Refuge")
-ACTIVITY_TERMS = _seed_terms("Activity")
+@functools.cache
+def _default_species_terms():
+    return _seed_terms("Species")
+
+
+@functools.cache
+def _default_habitat_terms():
+    return _seed_terms("Habitat")
+
+
+@functools.cache
+def _default_method_terms():
+    return _seed_terms("SurveyMethod")
+
+
+@functools.cache
+def _default_location_terms():
+    return _seed_terms("Place", "Refuge")
+
+
+@functools.cache
+def _default_activity_terms():
+    return _seed_terms("Activity")
 SUBJECT_TRIGGER_VERBS = re.compile(
     r"\b(recommended|reported|noted|managed|authorized|requested|directed|approved|announced|said|wrote)\b",
     re.IGNORECASE,
@@ -232,13 +254,13 @@ class RuleBasedClaimExtractor:
             self._location_terms = _seed_terms("Place", "Refuge",       seed=_seed)
             self._activity_terms = _seed_terms("Activity",              seed=_seed)
         else:
-            self._ROLE_POLICY          = _LOADED_ROLE_POLICY
-            self._type_scored_patterns = _LOADED_TYPE_PATTERNS
-            self._species_terms        = SPECIES_TERMS
-            self._habitat_terms        = HABITAT_TERMS
-            self._method_terms         = METHOD_TERMS
-            self._location_terms       = LOCATION_TERMS
-            self._activity_terms       = ACTIVITY_TERMS
+            self._ROLE_POLICY          = _default_role_policy()
+            self._type_scored_patterns = _default_type_patterns()
+            self._species_terms        = _default_species_terms()
+            self._habitat_terms        = _default_habitat_terms()
+            self._method_terms         = _default_method_terms()
+            self._location_terms       = _default_location_terms()
+            self._activity_terms       = _default_activity_terms()
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
         claims: list[ClaimDraft] = []
@@ -506,7 +528,11 @@ class HybridClaimExtractor:
         self._rules = rules_extractor or RuleBasedClaimExtractor(
             resources_dir=resources_dir, config=config
         )
-        self._llm = llm_extractor or LLMClaimExtractor(NullLLMAdapter())
+        if llm_extractor is not None:
+            self._llm = llm_extractor
+        else:
+            from graphrag_pipeline.ingest.extractors.anthropic_claim_adapter import try_create_anthropic_adapter
+            self._llm = LLMClaimExtractor(try_create_anthropic_adapter(config=config))
         self.last_telemetry: HybridTelemetry | None = None
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:

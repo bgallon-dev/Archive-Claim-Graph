@@ -104,6 +104,12 @@ def build_parser() -> argparse.ArgumentParser:
         help="Supplement entity resolution with entities already in the Neo4j graph "
              "(requires --backend neo4j). Fetches all graph entities once before extraction.",
     )
+    e2e_parser.add_argument(
+        "--no-llm",
+        action="store_true",
+        default=False,
+        help="Disable LLM-based claim extraction; use only rule-based extraction (zero API calls).",
+    )
     _add_neo4j_args(e2e_parser)
     _add_domain_args(e2e_parser)
 
@@ -428,6 +434,7 @@ def main(argv: list[str] | None = None) -> int:
             review_db_path=args.review_db,
             resources_dir=Path(args.domain_dir) if args.domain_dir else None,
             graph_resolve=args.graph_resolve,
+            no_llm=args.no_llm,
         )
         print(json.dumps(summary, indent=2))
         return 0

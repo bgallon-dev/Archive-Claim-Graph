@@ -55,6 +55,30 @@ def load_checkpoint(out_dir: Path) -> set[str]:
     return completed
 
 
+def load_checkpoint_inputs(out_dir: Path) -> set[str]:
+    """Return the set of input paths already successfully written to the graph.
+
+    Mirrors :func:`load_checkpoint` but keys on ``input`` rather than ``doc_id``
+    so callers can skip documents before parsing (when ``doc_id`` is not yet known).
+    """
+    cp = checkpoint_path(out_dir)
+    if not cp.exists():
+        return set()
+    completed: set[str] = set()
+    for line in cp.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            entry = json.loads(line)
+            inp = entry.get("input")
+            if inp:
+                completed.add(inp)
+        except json.JSONDecodeError:
+            pass  # corrupt line — skip, never crash
+    return completed
+
+
 def append_checkpoint(out_dir: Path, doc_id: str, input_path: str) -> None:
     """Append one successfully-written document to the checkpoint file."""
     entry = {

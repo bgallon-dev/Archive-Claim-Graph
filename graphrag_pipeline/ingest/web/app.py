@@ -46,7 +46,11 @@ def create_app(
             "Install with: pip install -e .[ingest]"
         ) from exc
 
+    _shared_dir = str(Path(__file__).parent.parent.parent / "shared_templates")
     _templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
+    _templates.env.loader = __import__("jinja2").FileSystemLoader(
+        [str(_TEMPLATES_DIR), _shared_dir]
+    )
 
     from graphrag_pipeline.auth.dependencies import (
         NeedsLoginException,
@@ -177,7 +181,7 @@ def create_app(
 
     @app.get("/", response_class=HTMLResponse)
     async def index(request: Request, _user: UserContext = Depends(require_login)):
-        return _templates.TemplateResponse("upload.html", {"request": request})
+        return _templates.TemplateResponse("upload.html", {"request": request, "active_page": "upload"})
 
     # ------------------------------------------------------------------
     # POST /ingest — receive uploads, create job, kick off background task
@@ -244,6 +248,7 @@ def create_app(
         total_mentions = sum((d.get("mention_count") or 0) for d in docs)
         return _templates.TemplateResponse("status_page.html", {
             "request": request,
+            "active_page": "upload",
             "job_id": job_id,
             "job": job,
             "docs": docs,

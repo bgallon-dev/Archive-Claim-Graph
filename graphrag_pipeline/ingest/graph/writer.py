@@ -25,7 +25,13 @@ class GraphWriter(Protocol):
         ...
 
 
-DOMAIN_LABELS = {"Refuge", "Place", "Person", "Organization", "Species", "Activity", "Period", "Habitat", "SurveyMethod"}
+_DEFAULT_DOMAIN_LABELS: frozenset[str] = frozenset({
+    "Refuge", "Place", "Person", "Organization", "Species",
+    "Activity", "Period", "Habitat", "SurveyMethod",
+})
+
+# Backward-compatible alias.
+DOMAIN_LABELS = _DEFAULT_DOMAIN_LABELS
 
 
 class InMemoryGraphWriter:
@@ -37,7 +43,8 @@ class InMemoryGraphWriter:
     ``rel_store`` is keyed ``(start_label, start_id, rel_type, end_label, end_id, run_marker)``.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, *, entity_labels: frozenset[str] | None = None) -> None:
+        self._entity_labels = entity_labels or _DEFAULT_DOMAIN_LABELS
         self.node_store: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
         self.rel_store: dict[tuple[str, str, str, str, str, str | None], dict[str, Any]] = {}
         self.schema_statements_executed: list[str] = []
@@ -118,7 +125,7 @@ class InMemoryGraphWriter:
         for entity in semantic.entities:
             props = entity.node_props()
             self._merge_node(entity.entity_type, "entity_id", entity.entity_id, props)
-            if entity.entity_type in DOMAIN_LABELS:
+            if entity.entity_type in self._entity_labels:
                 self._merge_node("Entity", "entity_id", entity.entity_id, props)
             if entity.entity_type == "Refuge":
                 self._merge_node("Place", "entity_id", entity.entity_id, props)
@@ -275,7 +282,7 @@ class InMemoryGraphWriter:
             self.rel_store[key].update(props or {})
 
     def _find_entity_label(self, entity_id: str) -> str | None:
-        for label in DOMAIN_LABELS:
+        for label in self._entity_labels:
             if entity_id in self.node_store.get(label, {}):
                 return label
         return None
@@ -290,6 +297,8 @@ class Neo4jGraphWriter:
         database: str = "neo4j",
         trust_mode: str = "system",
         ca_cert_path: str | None = None,
+        *,
+        entity_labels: frozenset[str] | None = None,
     ) -> None:
         if GraphDatabase is None:  # pragma: no cover - optional dependency
             raise RuntimeError("neo4j package is not installed. Install with: pip install -e .[neo4j]")
@@ -297,6 +306,7 @@ class Neo4jGraphWriter:
         self._driver = GraphDatabase.driver(uri, auth=(user, password), **driver_kwargs)
         self._database = database
         self._uri = uri
+        self._entity_labels = entity_labels or _DEFAULT_DOMAIN_LABELS
 
         try:
             self._driver.verify_connectivity()
@@ -488,7 +498,7 @@ class Neo4jGraphWriter:
             by_label[entity.entity_type].append({"id": entity.entity_id, "props": entity.node_props()})
         for label, rows in by_label.items():
             self._upsert_nodes(label=label, id_key="entity_id", rows=rows)
-            if label in DOMAIN_LABELS:
+            if label in self._entity_labels:
                 self._add_labels(source_label=label, id_key="entity_id", new_label="Entity", rows=rows)
         if "Refuge" in by_label:
             self._add_labels(source_label="Refuge", id_key="entity_id", new_label="Place", rows=by_label["Refuge"])

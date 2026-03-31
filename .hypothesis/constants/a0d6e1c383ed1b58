@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\core\claim_contract.py
+# hypothesis_version: 6.151.9
+
+['Activity', 'BreedingEvent', 'FireEvent', 'HABITAT_FOCUS', 'Habitat', 'HabitatEvent', 'LOCATION_FOCUS', 'MANAGEMENT_TARGET', 'METHOD_FOCUS', 'ManagementEvent', 'MigrationEvent', 'OCCURRED_AT', 'Organization', 'Person', 'Place', 'Refuge', 'SPECIES_FOCUS', 'SUBJECT_OF_CLAIM', 'Species', 'SurveyEvent', 'SurveyMethod', 'TOPIC_OF_CLAIM', 'WeatherEvent', 'breeding_activity', 'compatibility', 'development_activity', 'economic_use', 'fire_incident', 'habitat_condition', 'habitat_record', 'management_action', 'migration_record', 'migration_timing', 'nesting_record', 'population_count', 'population_estimate', 'predator_control', 'predator_record', 'presence_record', 'public_contact', 'species_absence', 'species_presence', 'v2', 'weak', 'weather_condition', 'weather_observation', 'weather_record', 'wildlife_count']

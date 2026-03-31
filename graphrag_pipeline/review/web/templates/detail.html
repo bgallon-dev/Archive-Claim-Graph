@@ -1,58 +1,62 @@
 {% extends "base.html" %}
-{% block title %}Proposal Detail{% endblock %}
+{% block title %}Proposal Detail - Gemynd{% endblock %}
 {% block content %}
-<h1>Proposal {{ proposal_id }}</h1>
-<table>
-  <tr><th>Issue Class</th><td>{{ issue_class }}</td></tr>
-  <tr><th>Proposal Type</th><td>{{ proposal_type }}</td></tr>
-  <tr><th>Status</th><td>{{ status }}</td></tr>
-  <tr><th>Confidence</th><td>{{ confidence }}</td></tr>
-  <tr><th>Priority Score</th><td>{{ priority_score }}</td></tr>
-  <tr><th>Impact Size</th><td>{{ impact_size }}</td></tr>
-  <tr><th>Anti-Pattern</th><td>{{ anti_pattern_id }}</td></tr>
-</table>
+<p class="page-title">Proposal {{ proposal_id }}</p>
+<p class="page-sub">{{ issue_class }} &middot; {{ proposal_type }}</p>
+
+<div class="stat-grid" style="max-width:600px">
+  <div class="stat-card"><p class="stat-card-label">Status</p><p class="stat-card-value-sm">{{ status }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Confidence</p><p class="stat-card-value-sm">{{ confidence }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Priority</p><p class="stat-card-value-sm">{{ priority_score }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Impact</p><p class="stat-card-value-sm">{{ impact_size }}</p></div>
+</div>
+
+{% if anti_pattern_id %}
+<p style="font-size:12px;color:var(--text-secondary);margin-bottom:1rem">Anti-pattern: {{ anti_pattern_id }}</p>
+{% endif %}
 
 {{ proposed_action_panel | safe }}
 
 {{ evidence_summary | safe }}
 
-<h2>Actions</h2>
-<form style="margin:1rem 0">
-  <label>Note: <input type="text" id="reviewer-note" value="" size="40"></label>
-</form>
-<div>
-  <button hx-post="/proposals/{{ proposal_id }}/accept" hx-include="#reviewer-note" {% if not is_active %}disabled{% endif %} class="btn-accept">Accept</button>
+<p class="section-heading">Actions</p>
+<div style="margin-bottom:1rem">
+  <label style="font-size:12px;color:var(--text-secondary)">Reviewer note:</label>
+  <input type="text" id="reviewer-note" class="g-input" value="" style="max-width:400px;margin-top:4px">
+</div>
+<div style="display:flex;gap:6px;margin-bottom:1.5rem">
+  <button hx-post="/proposals/{{ proposal_id }}/accept" hx-include="#reviewer-note" {% if not is_active %}disabled{% endif %} class="btn-sm btn-accept">Accept</button>
   {{ accept_exceptions_btn | safe }}
-  <button hx-post="/proposals/{{ proposal_id }}/reject" hx-include="#reviewer-note" {% if not is_active %}disabled{% endif %} class="btn-reject" style="margin-left:0.5rem">Reject</button>
-  <button hx-post="/proposals/{{ proposal_id }}/defer" hx-include="#reviewer-note" {% if not is_active %}disabled{% endif %} class="btn-defer" style="margin-left:0.5rem">Defer</button>
+  <button hx-post="/proposals/{{ proposal_id }}/reject" hx-include="#reviewer-note" {% if not is_active %}disabled{% endif %} class="btn-sm btn-reject">Reject</button>
+  <button hx-post="/proposals/{{ proposal_id }}/defer" hx-include="#reviewer-note" {% if not is_active %}disabled{% endif %} class="btn-sm btn-defer">Defer</button>
 </div>
 
-<h2>Targets</h2>
-<table>
-  <thead><tr><th>Kind</th><th>ID</th><th>Role</th><th>In Snapshot</th></tr></thead>
+<p class="section-heading">Targets</p>
+<table class="mini-table">
+  <thead><tr><th>Kind</th><th>ID</th><th>Role</th><th>In snapshot</th></tr></thead>
   <tbody>{{ target_rows | safe }}</tbody>
 </table>
 
 {{ provenance_html | safe }}
 
-<details>
-  <summary>Patch Spec (raw JSON)</summary>
+<details style="margin-top:1rem">
+  <summary>Patch spec (raw JSON)</summary>
   <pre>{{ patch_json }}</pre>
 </details>
 
 <details>
-  <summary>Evidence Snapshot (raw JSON)</summary>
+  <summary>Evidence snapshot (raw JSON)</summary>
   <pre>{{ evidence_json }}</pre>
 </details>
 
-<h2>Revision History</h2>
-<table>
+<p class="section-heading">Revision history</p>
+<table class="mini-table">
   <thead><tr><th>#</th><th>Kind</th><th>Detector</th><th>Validation</th><th>By</th><th>At</th></tr></thead>
   <tbody>{{ revision_rows | safe }}</tbody>
 </table>
 
-<h2>Correction Events</h2>
-<table>
+<p class="section-heading">Correction events</p>
+<table class="mini-table">
   <thead><tr><th>Action</th><th>Reviewer</th><th>Note</th><th>At</th></tr></thead>
   <tbody>{{ event_rows | safe }}</tbody>
 </table>

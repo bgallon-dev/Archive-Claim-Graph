@@ -1,0 +1,22 @@
+{% extends "retrieval_stats_base.html" %}
+{% block title %}Documents - Gemynd{% endblock %}
+{% block content %}
+<p class="page-title">Documents</p>
+<p class="page-sub">{{ documents|length }} documents in {{ institution_id }} collection</p>
+
+<table class="mini-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Access level</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for doc in documents %}
+    {% include "fragments/document_row.html" %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\httpcore\_backends\sync.py
+# hypothesis_version: 6.151.9
+
+[16384, 'client_addr', 'is_readable', 'server_addr', 'socket', 'ssl_object', 'win32']

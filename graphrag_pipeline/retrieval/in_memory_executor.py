@@ -25,21 +25,14 @@ from graphrag_pipeline.core.graph.cypher import (
 if TYPE_CHECKING:
     from graphrag_pipeline.ingest.graph.writer import InMemoryGraphWriter
 
-# Domain entity labels — mirrors DOMAIN_LABELS in writer.py without importing it
-# (to avoid a retrieval→ingest dependency in production code paths).
-_ENTITY_LABELS: frozenset[str] = frozenset(
-    {
-        "Refuge",
-        "Place",
-        "Person",
-        "Organization",
-        "Species",
-        "Activity",
-        "Period",
-        "Habitat",
-        "SurveyMethod",
-    }
-)
+# Default domain entity labels (backward compat).
+_DEFAULT_ENTITY_LABELS: frozenset[str] = frozenset({
+    "Refuge", "Place", "Person", "Organization", "Species",
+    "Activity", "Period", "Habitat", "SurveyMethod",
+})
+
+# Backward-compatible alias.
+_ENTITY_LABELS = _DEFAULT_ENTITY_LABELS
 
 
 class InMemoryQueryExecutor:
@@ -50,8 +43,14 @@ class InMemoryQueryExecutor:
     logic against real pipeline-ingested data without a running database.
     """
 
-    def __init__(self, writer: "InMemoryGraphWriter") -> None:
+    def __init__(
+        self,
+        writer: "InMemoryGraphWriter",
+        *,
+        entity_labels: frozenset[str] | None = None,
+    ) -> None:
         self._w = writer
+        self._entity_labels = entity_labels or _DEFAULT_ENTITY_LABELS
 
     # ── public interface ────────────────────────────────────────────────────
 
@@ -214,7 +213,7 @@ class InMemoryQueryExecutor:
                         sl == "Claim"
                         and si == claim_id
                         and ei in entity_id_set
-                        and el in _ENTITY_LABELS
+                        and el in self._entity_labels
                     ):
                         matched.append(ei)
                         if first_rel is None:
@@ -260,7 +259,7 @@ class InMemoryQueryExecutor:
                         sl == "Claim"
                         and si == claim_id
                         and ei in entity_id_set
-                        and el in _ENTITY_LABELS
+                        and el in self._entity_labels
                         for sl, si, rt, el, ei, _ in self._w.rel_store
                     ):
                         continue
@@ -433,7 +432,7 @@ class InMemoryQueryExecutor:
                 sl == "Claim"
                 and si == claim_id
                 and ei == entity_id
-                and el in _ENTITY_LABELS
+                and el in self._entity_labels
             ):
                 return rt
         return None

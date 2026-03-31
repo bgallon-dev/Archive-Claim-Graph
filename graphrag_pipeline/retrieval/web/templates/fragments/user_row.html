@@ -1,0 +1,27 @@
+<tr id="user-{{ user.user_id }}"{% if not user.is_active %} style="opacity:0.5"{% endif %}>
+  <td>{{ user.email }}</td>
+  <td>
+    {% if user.role == 'admin' %}<span class="badge badge-warm">admin</span>
+    {% elif user.role == 'archivist' %}<span class="badge badge-blue">archivist</span>
+    {% elif user.role == 'readonly' %}<span class="badge badge-outline">readonly</span>
+    {% else %}<span class="badge badge-outline">{{ user.role }}</span>
+    {% endif %}
+  </td>
+  <td>
+    {% if user.is_active %}Active
+    {% else %}Inactive
+    {% endif %}
+  </td>
+  <td>
+    {% if user.is_active %}
+      <a hx-post="/users/{{ user.user_id }}/deactivate"
+         hx-target="#user-{{ user.user_id }}" hx-swap="outerHTML"
+         hx-confirm="Deactivate this user?"
+         class="action-link action-link-danger" style="cursor:pointer">Deactivate</a>
+    {% else %}
+      <a hx-post="/users/{{ user.user_id }}/activate"
+         hx-target="#user-{{ user.user_id }}" hx-swap="outerHTML"
+         class="action-link action-link-blue" style="cursor:pointer">Activate</a>
+    {% endif %}
+  </td>
+</tr>

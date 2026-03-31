@@ -1,48 +1,36 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}Review Queue{% endblock %}</title>
-  <style>
-    body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem; background: #f8f9fa; color: #212529; }
-    h1, h2, h3 { color: #343a40; }
-    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
-    th, td { border: 1px solid #dee2e6; padding: 0.5rem 0.75rem; text-align: left; }
-    th { background: #e9ecef; font-weight: 600; }
-    tr:hover { background: #f1f3f5; }
-    a { color: #0d6efd; }
-    .btn-accept { background: #198754; color: white; border: none; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 4px; }
-    .btn-reject { background: #dc3545; color: white; border: none; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 4px; }
-    .btn-defer { background: #ffc107; color: #212529; border: none; padding: 0.25rem 0.5rem; cursor: pointer; border-radius: 4px; }
-    button:disabled { opacity: 0.5; cursor: not-allowed; }
-    pre { background: #e9ecef; padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }
-    .nav { margin-bottom: 1rem; }
-    .nav a { margin-right: 1rem; }
-    .filters { margin: 1rem 0; }
-    .filters select, .filters input { padding: 0.25rem; margin-right: 0.5rem; }
-    .btn-accept-exceptions { background: #0d9488; color: white; border: none; padding: 0.25rem 0.75rem; cursor: pointer; border-radius: 4px; }
-    .btn-batch-review { background: #0d6efd; color: white; padding: 0.25rem 0.75rem; border-radius: 4px; text-decoration: none; font-size: 0.875rem; display: inline-block; }
-    .risk-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.78rem; font-weight: 600; margin-left: 0.35rem; }
-    .risk-high { background: #f8d7da; color: #842029; }
-    .risk-medium { background: #fff3cd; color: #664d03; }
-    .risk-low { background: #d1e7dd; color: #0f5132; }
-    .claim-box { background: #cfe2ff; border-left: 4px solid #0d6efd; padding: 0.75rem 1rem; border-radius: 4px; margin-bottom: 1rem; font-size: 0.95rem; }
-    .action-summary { border: 1px solid #dee2e6; border-radius: 6px; padding: 1rem; margin-bottom: 1rem; background: #fff; }
-    .action-summary table { margin: 0.5rem 0; }
-    .action-summary th { background: #f8f9fa; width: 12rem; }
-    .provenance-section th { background: #f8f9fa; color: #6c757d; width: 12rem; }
-    details summary { cursor: pointer; font-weight: 600; margin: 1rem 0; color: #495057; }
-  </style>
-  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-</head>
-<body>
-  <div class="nav">
-    <a href="/">Dashboard</a>
-    <a href="/proposals">All Proposals</a>
-    <a href="/proposals?status=queued">Queued</a>
-    <a href="/proposals?status=accepted_pending_apply">Accepted</a>
-    <a href="/proposals?status=rejected">Rejected</a>
-    <a href="/proposals?status=deferred">Deferred</a>
-  </div>
-  {% block content %}{% endblock %}
-</body>
-</html>
+{% extends "gemynd_base.html" %}
+
+{% block head %}
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
+{% endblock %}
+
+{% block sidebar_nav %}
+<a class="nav-item{% if active_page == 'dashboard' %} active{% endif %}" href="/">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"/></svg>
+  <span class="nav-label">Dashboard</span>
+</a>
+<a class="nav-item{% if active_page == 'proposals' %} active{% endif %}" href="/proposals?status=queued">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+  <span class="nav-label">Review queue</span>
+</a>
+
+<div class="sidebar-sep">
+  <p class="sidebar-section-label">Filter by status</p>
+</div>
+<a class="nav-item" href="/proposals?status=queued" style="font-size:12px">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3"/></svg>
+  <span class="nav-label">Queued</span>
+</a>
+<a class="nav-item" href="/proposals?status=accepted_pending_apply" style="font-size:12px">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+  <span class="nav-label">Accepted</span>
+</a>
+<a class="nav-item" href="/proposals?status=rejected" style="font-size:12px">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+  <span class="nav-label">Rejected</span>
+</a>
+<a class="nav-item" href="/proposals?status=deferred" style="font-size:12px">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  <span class="nav-label">Deferred</span>
+</a>
+{% endblock %}

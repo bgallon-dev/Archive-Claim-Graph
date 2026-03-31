@@ -1,110 +1,116 @@
 {% extends "base.html" %}
 
-{% block title %}Job {{ job_id[:8] }}… — GraphRAG Ingest{% endblock %}
+{% block title %}Job {{ job_id[:8] }}… — Gemynd Ingest{% endblock %}
 
 {% block head %}
 <script src="https://unpkg.com/htmx.org@1.9.12"
   integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2uodhFl9m+DEk9HNyNnBj5ld7DLUmKpZ3Q"
   crossorigin="anonymous"></script>
-{% endblock %}
-
-{% block navbar %}
-<span class="navbar-brand">GraphRAG</span>
-<a href="/">&#8592; New batch</a>
+<style>
+.job-header { margin-bottom: 1.5rem; }
+.job-id { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); background: var(--bark-50); padding: 2px 8px; border-radius: var(--radius-sm); }
+.progress-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 13px; color: var(--text-secondary); }
+.doc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.doc-table th { text-align: left; padding: 8px 10px; font-size: 11px; font-weight: 500; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid var(--border-medium); }
+.doc-table td { padding: 8px 10px; border-bottom: 1px solid var(--border-light); }
+.doc-table tr:last-child td { border-bottom: none; }
+.doc-filename { font-family: var(--font-body); font-size: 12px; color: var(--text-primary); word-break: break-all; }
+.error-detail { font-size: 12px; color: var(--accent-red-text); background: var(--accent-red-bg); padding: 4px 8px; border-radius: var(--radius-sm); margin-top: 2px; max-width: 300px; }
+.summary-note { margin: 1rem 0 0; font-size: 13px; color: var(--text-secondary); }
+</style>
 {% endblock %}
 
 {% block content %}
-<h1>Ingest job <code style="font-size:1rem">{{ job_id[:12] }}…</code></h1>
-<p class="subtitle">
-  Started {{ created }} &nbsp;·&nbsp; {{ total }} document(s) &nbsp;·&nbsp;
-  {% if is_running %}
-    <span class="badge badge-extracting">Running</span>
-  {% elif job.failed_docs == 0 %}
-    <span class="badge badge-completed">Complete</span>
-  {% else %}
-    <span class="badge badge-failed">Completed with errors</span>
-  {% endif %}
-</p>
-
-<div class="card">
-  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
-    <span style="font-size:0.85rem;color:#6c757d">{{ done }} of {{ total }} processed</span>
-    <span style="font-size:0.85rem;color:#6c757d">{{ pct }}%</span>
+<div class="job-header">
+  <p class="page-title" style="margin-bottom:4px">Ingest job</p>
+  <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+    <span class="job-id">{{ job_id[:12] }}…</span>
+    <span style="font-size:13px;color:var(--text-secondary)">Started {{ created }} · {{ total }} document(s)</span>
+    {% if is_running %}
+      <span class="badge ds-extracting">Running</span>
+    {% elif job.failed_docs == 0 %}
+      <span class="badge badge-green">Complete</span>
+    {% else %}
+      <span class="badge badge-red">Completed with errors</span>
+    {% endif %}
   </div>
-  <div class="progress"><div class="progress-bar" style="width:{{ pct }}%"></div></div>
 </div>
 
-<div class="card">
-  <h2 style="font-size:1.1rem;margin:0 0 1rem">Documents</h2>
-  <div id="doc-status"
-    {% if is_running %}
-      hx-get="/ingest/{{ job_id }}/status"
-      hx-trigger="every 2s"
-      hx-swap="outerHTML"
-    {% endif %}>
-    <table>
-      <thead>
-        <tr>
-          <th>File</th><th>Status</th><th>Claims</th><th>Mentions</th><th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for d in docs %}
-        <tr>
-          <td><code style="font-size:0.8rem">{{ d.filename }}</code></td>
-          <td>
-            {% set s = d.status or 'queued' %}
-            {% if s == 'queued' %}<span class="badge badge-queued">Queued</span>
-            {% elif s == 'converting' %}<span class="badge badge-converting">Converting</span>
-            {% elif s == 'extracting' %}<span class="badge badge-extracting">Extracting</span>
-            {% elif s == 'completed' %}<span class="badge badge-completed">Done</span>
-            {% elif s == 'failed' %}<span class="badge badge-failed">Failed</span>
-            {% else %}<span class="badge badge-queued">{{ s }}</span>
-            {% endif %}
-          </td>
-          <td>{{ d.claims_count if d.claims_count is not none else '—' }}</td>
-          <td>{{ d.mention_count if d.mention_count is not none else '—' }}</td>
-          <td>
-            {% if d.error_message %}
-              <div class="error-detail">{{ d.error_message[:200] }}</div>
-            {% endif %}
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+<div style="margin-bottom:1.5rem">
+  <div class="progress-row">
+    <span>{{ done }} of {{ total }} processed</span>
+    <span>{{ pct }}%</span>
   </div>
+  <div class="progress-track"><div class="progress-fill" style="width:{{ pct }}%"></div></div>
+</div>
+
+<p class="section-heading">Documents</p>
+<div id="doc-status"
+  {% if is_running %}
+    hx-get="/ingest/{{ job_id }}/status"
+    hx-trigger="every 2s"
+    hx-swap="outerHTML"
+  {% endif %}>
+  <table class="doc-table">
+    <thead>
+      <tr>
+        <th>File</th><th>Status</th><th>Claims</th><th>Mentions</th><th>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in docs %}
+      <tr>
+        <td><span class="doc-filename">{{ d.filename }}</span></td>
+        <td>
+          {% set s = d.status or 'queued' %}
+          {% if s == 'queued' %}<span class="badge ds-queued">Queued</span>
+          {% elif s == 'converting' %}<span class="badge ds-converting">Converting</span>
+          {% elif s == 'extracting' %}<span class="badge ds-extracting">Extracting</span>
+          {% elif s == 'completed' %}<span class="badge ds-done">Done</span>
+          {% elif s == 'failed' %}<span class="badge ds-failed">Failed</span>
+          {% else %}<span class="badge ds-queued">{{ s }}</span>
+          {% endif %}
+        </td>
+        <td>{{ d.claims_count if d.claims_count is not none else '—' }}</td>
+        <td>{{ d.mention_count if d.mention_count is not none else '—' }}</td>
+        <td>
+          {% if d.error_message %}
+            <div class="error-detail">{{ d.error_message[:200] }}</div>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
 
 {% if not is_running %}
-<div class="card" style="margin-top:0">
-  <h2 style="font-size:1.1rem;margin:0 0 1rem">Extraction summary</h2>
-  <div class="summary-grid">
-    <div class="summary-stat">
-      <div class="number">{{ job.completed_docs }}</div>
-      <div class="label">Documents ingested</div>
-    </div>
-    <div class="summary-stat">
-      <div class="number">{{ total_claims }}</div>
-      <div class="label">Claims extracted</div>
-    </div>
-    <div class="summary-stat">
-      <div class="number">{{ total_mentions }}</div>
-      <div class="label">Mentions resolved</div>
-    </div>
-    {% if job.failed_docs %}
-    <div class="summary-stat">
-      <div class="number" style="color:#dc3545">{{ job.failed_docs }}</div>
-      <div class="label">Failed (flag for follow-up)</div>
-    </div>
-    {% endif %}
+<p class="section-heading" style="margin-top:2rem">Extraction summary</p>
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-card-value">{{ job.completed_docs }}</div>
+    <div class="stat-card-label">Documents ingested</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-value">{{ total_claims }}</div>
+    <div class="stat-card-label">Claims extracted</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-value">{{ total_mentions }}</div>
+    <div class="stat-card-label">Mentions resolved</div>
   </div>
   {% if job.failed_docs %}
-  <p style="margin:1rem 0 0;font-size:0.85rem;color:#6c757d">
-    Failed documents are listed above with error details.
-    Re-upload them individually once the issue is resolved.
-  </p>
+  <div class="stat-card" style="border-color:var(--accent-red-border)">
+    <div class="stat-card-value" style="color:var(--accent-red-text)">{{ job.failed_docs }}</div>
+    <div class="stat-card-label">Failed</div>
+  </div>
   {% endif %}
 </div>
+{% if job.failed_docs %}
+<p class="summary-note">
+  Failed documents are listed above with error details.
+  Re-upload them individually once the issue is resolved.
+</p>
+{% endif %}
 {% endif %}
 {% endblock %}

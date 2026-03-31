@@ -1,30 +1,35 @@
 {% extends "base.html" %}
-{% block title %}Proposals{% endblock %}
+{% block title %}Proposals - Gemynd{% endblock %}
 {% block content %}
-<h1>Proposals</h1>
-<div class="filters">
-  <a href="/proposals?queue_name=sensitivity" style="color:#dc3545;font-weight:bold">&#9888; Sensitivity</a>
-  <a href="/proposals?status=queued">Queued</a>
-  <a href="/proposals?status=accepted_pending_apply">Accepted</a>
-  <a href="/proposals?status=rejected">Rejected</a>
-  <a href="/proposals?status=deferred">Deferred</a>
-  <a href="/proposals?queue_name=ocr_entity">OCR/Entity</a>
-  <a href="/proposals?queue_name=junk_mention">Junk Mention</a>
-  <a href="/proposals?queue_name=builder_repair">Builder Repair</a>
-  <a href="/proposals">All</a>
+<p class="page-title">Proposals</p>
+<p class="page-sub">Browse and filter all proposals</p>
+
+<div class="filter-row">
+  <a class="filter-pill filter-pill-danger" href="/proposals?queue_name=sensitivity">Sensitivity</a>
+  <a class="filter-pill" href="/proposals?status=queued">Queued</a>
+  <a class="filter-pill" href="/proposals?status=accepted_pending_apply">Accepted</a>
+  <a class="filter-pill" href="/proposals?status=rejected">Rejected</a>
+  <a class="filter-pill" href="/proposals?status=deferred">Deferred</a>
+  <a class="filter-pill" href="/proposals?queue_name=ocr_entity">OCR/Entity</a>
+  <a class="filter-pill" href="/proposals?queue_name=junk_mention">Junk mention</a>
+  <a class="filter-pill" href="/proposals?queue_name=builder_repair">Builder repair</a>
+  <a class="filter-pill active" href="/proposals">All</a>
 </div>
+
 {{ queue_summary | safe }}
-<table>
+
+<table class="mini-table">
   <thead>
     <tr>
-      <th>ID</th><th>Issue Class</th><th>Type</th><th>Status</th>
+      <th>ID</th><th>Issue class</th><th>Type</th><th>Status</th>
       <th>Confidence</th><th>Priority</th><th>Impact</th><th>Actions</th>
     </tr>
   </thead>
   <tbody>{{ rows | safe }}</tbody>
 </table>
-<div>
-  <a href="/proposals?{{ filter_params }}&offset={{ prev_offset }}&limit={{ limit }}">Previous</a>
-  <a href="/proposals?{{ filter_params }}&offset={{ next_offset }}&limit={{ limit }}">Next</a>
+
+<div class="pagination">
+  <a href="/proposals?{{ filter_params }}&offset={{ prev_offset }}&limit={{ limit }}">&laquo; Previous</a>
+  <a href="/proposals?{{ filter_params }}&offset={{ next_offset }}&limit={{ limit }}">Next &raquo;</a>
 </div>
 {% endblock %}

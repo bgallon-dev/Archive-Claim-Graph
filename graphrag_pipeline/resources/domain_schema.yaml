@@ -1,0 +1,40 @@
+version: "1"
+
+# Claim-entity relationship types in precedence order.
+# First entry wins when deduplicating links on the same claim-entity pair.
+claim_entity_relations:
+  - relation: SPECIES_FOCUS
+    entity_types: [Species]
+  - relation: HABITAT_FOCUS
+    entity_types: [Habitat]
+  - relation: METHOD_FOCUS
+    entity_types: [SurveyMethod]
+  - relation: MANAGEMENT_TARGET
+    entity_types: [Activity, Species]
+  - relation: LOCATION_FOCUS
+    entity_types: [Place, Refuge]
+  - relation: SUBJECT_OF_CLAIM
+    entity_types: [Person, Organization, Place, Refuge]
+  - relation: TOPIC_OF_CLAIM
+    entity_types: [Activity, Person, Organization, Place, Refuge]
+
+# The relationship type used for claim-to-location links.
+claim_location_relation: OCCURRED_AT
+claim_location_entity_types: [Place, Refuge]
+
+# All entity types that get their own Neo4j label (subtypes of :Entity).
+entity_labels:
+  - Refuge
+  - Place
+  - Person
+  - Organization
+  - Species
+  - Activity
+  - Period
+  - Habitat
+  - SurveyMethod
+
+# Legacy claim type renames (old extractor output -> current canonical type).
+legacy_renames:
+  wildlife_count: population_estimate
+  weather_condition: weather_observation

@@ -1,48 +1,40 @@
 {% extends "base.html" %}
 
-{% block title %}Ingest Documents — GraphRAG{% endblock %}
-
-{% block navbar %}
-<span class="navbar-brand">GraphRAG</span>
-<a href="/">Ingest</a>
-{% endblock %}
+{% block title %}Ingest Documents - Gemynd{% endblock %}
 
 {% block content %}
-<h1>Ingest Documents</h1>
-<p class="subtitle">Drag PDF or JSON files onto the zone below, then click Upload.</p>
-<div class="card">
-  <form id="upload-form" method="post" action="/ingest" enctype="multipart/form-data">
-    <div id="drop-zone" onclick="document.getElementById('file-input').click()">
-      <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/>
-      </svg>
-      <p>Drop PDF or JSON files here, or click to browse</p>
-      <p class="hint">Accepted formats: .pdf, .json</p>
-    </div>
-    <input id="file-input" type="file" name="files" multiple accept=".pdf,.json">
-    <div id="file-list"></div>
-    <div style="margin-top:1.25rem;display:flex;gap:0.75rem;align-items:center">
-      <button type="submit" class="btn btn-primary" id="submit-btn" disabled>
-        Upload &amp; Process
-      </button>
-      <span id="file-count" style="font-size:0.85rem;color:#6c757d"></span>
-    </div>
-  </form>
-</div>
+<p class="page-title">Ingest documents</p>
+<p class="page-sub">Upload PDF or JSON files for extraction and graph loading</p>
+
+<form id="upload-form" method="post" action="/ingest" enctype="multipart/form-data">
+  <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+    <svg width="40" height="40" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" viewBox="0 0 24 24" style="display:block;margin:0 auto 12px"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+    <p style="font-size:14px;color:var(--text-primary);margin:0 0 4px">Drop PDF or JSON files here, or click to browse</p>
+    <p style="font-size:12px;color:var(--text-tertiary);margin:0">Accepted formats: .pdf, .json</p>
+  </div>
+  <input id="file-input" type="file" name="files" multiple accept=".pdf,.json" style="display:none">
+  <div id="file-list" class="file-chips"></div>
+  <div style="margin-top:1rem;display:flex;gap:0.75rem;align-items:center">
+    <button type="submit" class="upload-btn" id="submit-btn" disabled>Upload &amp; process</button>
+    <span id="file-count" style="font-size:12px;color:var(--text-secondary)"></span>
+  </div>
+</form>
+{% endblock %}
+
+{% block scripts %}
 <script>
 (function() {
-  const zone = document.getElementById('drop-zone');
-  const inp = document.getElementById('file-input');
-  const list = document.getElementById('file-list');
-  const btn = document.getElementById('submit-btn');
-  const counter = document.getElementById('file-count');
-  let selectedFiles = [];
+  var zone = document.getElementById('drop-zone');
+  var inp = document.getElementById('file-input');
+  var list = document.getElementById('file-list');
+  var btn = document.getElementById('submit-btn');
+  var counter = document.getElementById('file-count');
+  var selectedFiles = [];
 
   function renderFiles() {
     list.innerHTML = '';
     selectedFiles.forEach(function(f, i) {
-      const chip = document.createElement('span');
+      var chip = document.createElement('span');
       chip.className = 'file-chip';
       chip.innerHTML = f.name + ' <span class="remove" data-i="' + i + '">&times;</span>';
       list.appendChild(chip);
@@ -59,7 +51,7 @@
   }
 
   function syncInput() {
-    const dt = new DataTransfer();
+    var dt = new DataTransfer();
     selectedFiles.forEach(function(f) { dt.items.add(f); });
     inp.files = dt.files;
   }

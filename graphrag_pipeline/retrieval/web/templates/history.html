@@ -1,129 +1,123 @@
 {% extends "retrieval_stats_base.html" %}
-{% block title %}Query History &mdash; Turnbull GraphRAG{% endblock %}
+{% block title %}Query History - Gemynd{% endblock %}
+
 {% block head %}
 <style>
-.action-link{color:#0d6efd;text-decoration:none;font-size:12px}
-.action-link:hover{text-decoration:underline}
-.del-btn{font-size:12px;padding:2px 6px;border:1px solid #dc3545;border-radius:4px;
-         background:transparent;color:#dc3545;cursor:pointer}
-.del-btn:hover{background:#dc3545;color:#fff}
-.save-details{display:inline-block;font-size:12px;vertical-align:middle}
-.save-details summary{color:#fd7e14;cursor:pointer;font-size:12px;display:inline;list-style:none}
-.save-details summary:hover{text-decoration:underline}
-.save-form{display:flex;gap:4px;align-items:center;margin-top:4px;flex-wrap:wrap}
-.save-form input[type=text]{font-size:12px;padding:2px 6px;border:1px solid #ced4da;border-radius:4px}
-.save-form button{font-size:12px;padding:2px 8px;border:none;border-radius:4px;
-                   background:#fd7e14;color:#fff;cursor:pointer}
-.pagination{margin-top:.75rem;font-size:13px}
-.pagination a{color:#0d6efd;text-decoration:none;margin:0 4px}
-.filter-bar{display:flex;gap:.75rem;align-items:flex-end;flex-wrap:wrap;margin-bottom:1rem}
-.filter-bar label{font-size:12px;color:#6c757d;display:block;margin-bottom:2px}
-.filter-bar input[type=text]{font-size:13px;padding:4px 8px;border:1px solid #ced4da;border-radius:4px}
-.filter-bar select{font-size:13px;padding:4px 8px;border:1px solid #ced4da;border-radius:4px}
-.filter-bar button{font-size:13px;padding:4px 10px;border:none;border-radius:4px;
-                    background:#0d6efd;color:#fff;cursor:pointer}
+.del-btn {
+  font-size: 11px; padding: 2px 8px;
+  border: 1px solid var(--accent-red-border); border-radius: 4px;
+  background: transparent; color: var(--accent-red-text); cursor: pointer;
+}
+.del-btn:hover { background: var(--accent-red-bg); }
+.save-details { display: inline-block; font-size: 12px; vertical-align: middle; }
+.save-details summary { color: var(--bark-500); cursor: pointer; font-size: 12px; display: inline; list-style: none; }
+.save-details summary:hover { color: var(--bark-700); }
+.save-form { display: flex; gap: 4px; align-items: center; margin-top: 4px; flex-wrap: wrap; }
+.save-form input[type=text] {
+  font-family: var(--font-body); font-size: 12px; padding: 3px 8px;
+  border: 1px solid var(--border-medium); border-radius: 4px;
+  background: var(--white); color: var(--text-primary);
+}
+.save-form button {
+  font-family: var(--font-body); font-size: 12px; padding: 3px 10px;
+  border: none; border-radius: 4px;
+  background: var(--bark-700); color: var(--text-inverse); cursor: pointer;
+}
 </style>
 {% endblock %}
-{% block nav %}
-<a class="nav-back" href="/">&#8592; Back to Chat</a>
-{% endblock %}
+
 {% block content %}
-<h1 style="font-size:1.4rem;margin-bottom:1.5rem">Query History &amp; Saved Searches</h1>
+<p class="page-title">Query history</p>
+<p class="page-sub">Recent queries and saved searches</p>
 
-<div class="stats-section">
-  <h2>Saved Searches</h2>
-  <div class="table-wrap">
-  <table class="stats">
-    <thead><tr>
-      <th>Label</th><th>Query</th><th>Type</th><th>Years</th>
-      <th>Saved by / When</th><th>Actions</th>
-    </tr></thead>
-    <tbody>
-      {% if saved %}
-      {% for s in saved %}
-      <tr>
-        <td>{% if s.label %}{{ s.label }}{% else %}<em style="color:#adb5bd">&mdash;</em>{% endif %}</td>
-        <td title="{{ s.sqtext }}">{{ s.sqtrun }}</td>
-        <td style="text-align:center"><span class="src-label">{{ s.sbkt }}</span></td>
-        <td style="text-align:center">{{ s.syr_str }}</td>
-        <td style="white-space:nowrap;font-size:11px;color:#6c757d">{{ s.screated_by }}<br>{{ s.sts }}</td>
-        <td style="white-space:nowrap">
-          <a href="{{ s.srerun_url }}" class="action-link">&#8617; Re-run</a>
-          <form method="POST" action="/history/saved/{{ s.saved_id }}/delete" style="display:inline">
-            <button type="submit" class="del-btn" onclick="return confirm('Delete this saved search?')">&#128465; Delete</button>
+<p class="section-heading">Saved searches</p>
+<table class="mini-table">
+  <thead><tr>
+    <th>Label</th><th>Query</th><th>Type</th><th>Years</th>
+    <th>Saved by / When</th><th>Actions</th>
+  </tr></thead>
+  <tbody>
+    {% if saved %}
+    {% for s in saved %}
+    <tr>
+      <td>{% if s.label %}{{ s.label }}{% else %}<span style="color:var(--text-tertiary)">&mdash;</span>{% endif %}</td>
+      <td title="{{ s.sqtext }}">{{ s.sqtrun }}</td>
+      <td><span class="badge badge-outline">{{ s.sbkt }}</span></td>
+      <td>{{ s.syr_str }}</td>
+      <td style="white-space:nowrap;font-size:11px;color:var(--text-tertiary)">{{ s.screated_by }}<br>{{ s.sts }}</td>
+      <td style="white-space:nowrap">
+        <a href="{{ s.srerun_url }}" class="action-link">Re-run</a>
+        <form method="POST" action="/history/saved/{{ s.saved_id }}/delete" style="display:inline;margin-left:6px">
+          <button type="submit" class="del-btn" onclick="return confirm('Delete this saved search?')">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr><td colspan="6" style="text-align:center;color:var(--text-tertiary);padding:1rem">No saved searches yet.</td></tr>
+    {% endif %}
+  </tbody>
+</table>
+
+<p class="section-heading">Recent queries</p>
+<form class="filter-bar" method="GET" action="/history">
+  <div>
+    <label>Search query text</label>
+    <input type="text" name="q" value="{{ q }}" placeholder="Filter by keyword..." style="width:220px">
+  </div>
+  <div>
+    <label>Type</label>
+    <select name="bucket">
+      {% for opt in bucket_options %}
+      <option value="{{ opt.value }}"{% if opt.selected %} selected{% endif %}>{{ opt.label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit">Filter</button>
+  <a href="/history" style="font-size:13px;color:var(--text-tertiary);text-decoration:none;align-self:flex-end;padding:4px 0">Clear</a>
+</form>
+
+<table class="mini-table">
+  <thead><tr>
+    <th>When</th><th>Query</th><th>Type</th><th>Years</th><th>Actions</th>
+  </tr></thead>
+  <tbody>
+    {% if rows %}
+    {% for row in rows %}
+    <tr>
+      <td style="white-space:nowrap;color:var(--text-tertiary);font-size:11px">{{ row.ts }}</td>
+      <td title="{{ row.qtext }}">{{ row.qtrun }}</td>
+      <td><span class="badge badge-outline">{{ row.bkt }}</span></td>
+      <td>{{ row.yr_str }}</td>
+      <td style="white-space:nowrap">
+        <a href="{{ row.rerun_url }}" class="action-link">Re-run</a>
+        &nbsp;
+        <details class="save-details">
+          <summary>Save</summary>
+          <form class="save-form" method="POST" action="/history/saved">
+            <input type="hidden" name="query_text" value="{{ row.qtext }}">
+            <input type="hidden" name="bucket" value="{{ row.bkt }}">
+            <input type="hidden" name="year_min" value="{{ row.yr_min }}">
+            <input type="hidden" name="year_max" value="{{ row.yr_max }}">
+            <input type="hidden" name="conversation_id" value="{{ row.conv_id }}">
+            <input type="text" name="label" placeholder="Label..." maxlength="200" style="width:140px">
+            <button type="submit">Save</button>
           </form>
-        </td>
-      </tr>
-      {% endfor %}
-      {% else %}
-      <tr><td colspan="6" style="text-align:center;color:#6c757d;padding:1rem">No saved searches yet.</td></tr>
-      {% endif %}
-    </tbody>
-  </table>
-  </div>
-</div>
+        </details>
+      </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr><td colspan="5" style="text-align:center;color:var(--text-tertiary);padding:1rem">No queries found.</td></tr>
+    {% endif %}
+  </tbody>
+</table>
 
-<div class="stats-section">
-  <h2>Recent Queries</h2>
-  <form class="filter-bar" method="GET" action="/history">
-    <div>
-      <label>Search query text</label>
-      <input type="text" name="q" value="{{ q }}" placeholder="Filter by keyword&#8230;" style="width:220px">
-    </div>
-    <div>
-      <label>Type</label>
-      <select name="bucket">
-        {% for opt in bucket_options %}
-        <option value="{{ opt.value }}"{% if opt.selected %} selected{% endif %}>{{ opt.label }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <button type="submit">Filter</button>
-    <a href="/history" style="font-size:13px;color:#6c757d;text-decoration:none;align-self:flex-end;padding:4px 0">Clear</a>
-  </form>
-  <div class="table-wrap">
-  <table class="stats">
-    <thead><tr>
-      <th>When</th><th>Query</th><th>Type</th><th>Years</th><th>Actions</th>
-    </tr></thead>
-    <tbody>
-      {% if rows %}
-      {% for row in rows %}
-      <tr>
-        <td style="white-space:nowrap;color:#6c757d;font-size:11px">{{ row.ts }}</td>
-        <td title="{{ row.qtext }}">{{ row.qtrun }}</td>
-        <td><span class="src-label">{{ row.bkt }}</span></td>
-        <td style="text-align:center">{{ row.yr_str }}</td>
-        <td style="white-space:nowrap">
-          <a href="{{ row.rerun_url }}" class="action-link">&#8617; Re-run</a>
-          &nbsp;
-          <details class="save-details">
-            <summary>&#11088; Save</summary>
-            <form class="save-form" method="POST" action="/history/saved">
-              <input type="hidden" name="query_text" value="{{ row.qtext }}">
-              <input type="hidden" name="bucket" value="{{ row.bkt }}">
-              <input type="hidden" name="year_min" value="{{ row.yr_min }}">
-              <input type="hidden" name="year_max" value="{{ row.yr_max }}">
-              <input type="hidden" name="conversation_id" value="{{ row.conv_id }}">
-              <input type="text" name="label" placeholder="Label&#8230;" maxlength="200" style="width:140px">
-              <button type="submit">Save</button>
-            </form>
-          </details>
-        </td>
-      </tr>
-      {% endfor %}
-      {% else %}
-      <tr><td colspan="5" style="text-align:center;color:#6c757d;padding:1rem">No queries found.</td></tr>
-      {% endif %}
-    </tbody>
-  </table>
-  </div>
-  {% if pagination %}
-  <div class="pagination">
-    {% if pagination.has_prev %}<a href="{{ pagination.prev_url }}">&laquo; Previous</a> {% endif %}
-    <span>{{ pagination.shown_start }}&ndash;{{ pagination.shown_end }} of {{ pagination.total }}</span>
-    {% if pagination.has_next %} <a href="{{ pagination.next_url }}">Next &raquo;</a>{% endif %}
-  </div>
-  {% endif %}
+{% if pagination %}
+<div class="pagination">
+  {% if pagination.has_prev %}<a href="{{ pagination.prev_url }}">&laquo; Previous</a> {% endif %}
+  <span>{{ pagination.shown_start }}&ndash;{{ pagination.shown_end }} of {{ pagination.total }}</span>
+  {% if pagination.has_next %} <a href="{{ pagination.next_url }}">Next &raquo;</a>{% endif %}
 </div>
+{% endif %}
 {% endblock %}

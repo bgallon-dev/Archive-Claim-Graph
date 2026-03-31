@@ -25,7 +25,11 @@ from .setup import ensure_setup_token_printed, get_setup_token, is_setup_needed,
 from .store import UserStore, verify_password
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
+_SHARED_TEMPLATES_DIR = Path(__file__).parent.parent / "shared_templates"
 _templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
+_templates.env.loader = __import__("jinja2").FileSystemLoader(
+    [str(_TEMPLATES_DIR), str(_SHARED_TEMPLATES_DIR)]
+)
 
 
 def _safe_next(next_url: str) -> str:

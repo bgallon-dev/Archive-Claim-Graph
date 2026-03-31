@@ -12,10 +12,8 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
-from graphrag_pipeline.core.claim_contract import (
-    CLAIM_TYPE_TO_EVENT_TYPE,
-    CLAIM_TYPE_TO_OBSERVATION_TYPE,
-)
+import functools
+
 from graphrag_pipeline.core.ids import make_year_id
 
 if TYPE_CHECKING:
@@ -29,6 +27,13 @@ if TYPE_CHECKING:
     )
 
 _YEAR_RE = re.compile(r"\b(1[89]\d{2}|20[0-2]\d)\b")
+
+
+@functools.cache
+def _default_registry() -> dict:
+    """Lazily load the derivation registry for the no-config fallback path."""
+    from graphrag_pipeline.shared.resource_loader import load_derivation_registry
+    return load_derivation_registry()
 
 
 def _extract_year(claim_date: str | None, report_year: int | None) -> tuple[int | None, str]:
@@ -205,14 +210,10 @@ def build_derivation_contexts(
     for claim in claims:
         ct = claim.claim_type
 
-        # Routing: registry wins when present, otherwise fall back to constants.
-        if registry:
-            obs_type, evt_type, _req, _opt = _get_spec(registry, ct)
-            required_entities: list[str] = list(_req)
-        else:
-            obs_type = CLAIM_TYPE_TO_OBSERVATION_TYPE.get(ct)
-            evt_type = CLAIM_TYPE_TO_EVENT_TYPE.get(ct)
-            required_entities = []
+        # Routing: registry wins when present, otherwise load from YAML.
+        effective_registry = registry if registry else _default_registry()
+        obs_type, evt_type, _req, _opt = _get_spec(effective_registry, ct)
+        required_entities: list[str] = list(_req)
 
         # measurement_owner
         if obs_type is not None:

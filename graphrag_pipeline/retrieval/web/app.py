@@ -32,7 +32,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 try:
-    from fastapi import Depends, FastAPI, Form, HTTPException, Query
+    from fastapi import Depends, FastAPI, Form, HTTPException, Query, Request
     from fastapi.responses import HTMLResponse
     from pydantic import BaseModel, Field, field_validator
 except Exception:  # pragma: no cover - optional dependency
@@ -583,6 +583,45 @@ def create_app(
         write_audit_path = os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db")
         from .write_audit_log import WriteAuditLogger
         state["write_audit"] = WriteAuditLogger(write_audit_path)
+
+        # Admin stores — optional, gracefully None if DBs missing.
+        # After construction (schema + migrations), reopen with
+        # check_same_thread=False so sync endpoints in FastAPI's
+        # threadpool can use the connection safely.
+        def _reopen_conn(store: Any) -> None:
+            """Replace the store's SQLite conn with a thread-safe one."""
+            store._conn.close()
+            store._conn = _sqlite3.connect(str(store.db_path), check_same_thread=False)
+            store._conn.row_factory = _sqlite3.Row
+            store._conn.execute("PRAGMA journal_mode=WAL")
+            store._conn.execute("PRAGMA foreign_keys=ON")
+
+        _review_db = os.environ.get("REVIEW_DB", "data/review.db")
+        try:
+            from graphrag_pipeline.review.store import ReviewStore
+            _rs = ReviewStore(_review_db)
+            _reopen_conn(_rs)
+            state["review_store"] = _rs
+        except Exception:
+            _log.warning("Review store unavailable (REVIEW_DB=%s)", _review_db)
+            state["review_store"] = None
+
+        _ingest_db = os.environ.get("INGEST_DB", "data/ingest_jobs.db")
+        try:
+            from graphrag_pipeline.ingest.store import IngestStore
+            state["ingest_store"] = IngestStore(_ingest_db)
+        except Exception:
+            _log.warning("Ingest store unavailable (INGEST_DB=%s)", _ingest_db)
+            state["ingest_store"] = None
+
+        _users_db = os.environ.get("USERS_DB", "data/users.db")
+        try:
+            from graphrag_pipeline.auth.store import UserStore
+            state["user_store"] = UserStore(_users_db)
+        except Exception:
+            _log.warning("User store unavailable (USERS_DB=%s)", _users_db)
+            state["user_store"] = None
+
         yield
         executor.close()
         if state.get("annotation_store"):
@@ -597,11 +636,27 @@ def create_app(
     )
 
     # Auth router (login/logout/me/user management at /auth/...)
-    from fastapi import Request
     from fastapi.responses import RedirectResponse as _RedirectResponse
     from fastapi.templating import Jinja2Templates
+    _shared_dir = str(Path(__file__).parent.parent.parent / "shared_templates")
     _templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
+    _templates.env.loader = __import__("jinja2").FileSystemLoader(
+        [str(_TEMPLATES_DIR), _shared_dir]
+    )
     _templates.env.filters["conf_tier_class"] = _conf_tier_class
+
+    def _user_ctx(user: UserContext) -> dict[str, Any]:
+        """Build template context vars from the authenticated user."""
+        email = user.email or ""
+        name = email.split("@")[0] if email else "User"
+        initials = (name[:2]).upper() if name else "U"
+        return {
+            "user_role": user.role,
+            "user_display_name": name,
+            "user_initials": initials,
+            "is_admin": user.role in ("admin", "indigenous_admin"),
+        }
+
     from graphrag_pipeline.auth.setup import is_setup_needed
 
     users_db_path = os.environ.get("USERS_DB", "data/users.db")
@@ -677,7 +732,7 @@ def create_app(
     # ------------------------------------------------------------------
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)
     def chat_ui(request: Request, user: UserContext = Depends(require_user)) -> HTMLResponse:
-        return _templates.TemplateResponse("chat.html", {"request": request})
+        return _templates.TemplateResponse("chat.html", {"request": request, **_user_ctx(user)})
 
     # ------------------------------------------------------------------
     # POST /query
@@ -961,7 +1016,7 @@ def create_app(
         temporal = executor.run(STATS_TEMPORAL_COVERAGE_QUERY, params) or []
         confidence = (executor.run(STATS_CONFIDENCE_DISTRIBUTION_QUERY, params) or [{}])[0]
         ctx = _build_stats_context(overview, doc_types, claim_types, entity_types, temporal, confidence)
-        return _templates.TemplateResponse("stats.html", {"request": request, **ctx})
+        return _templates.TemplateResponse("stats.html", {"request": request, "active_page": "stats", **_user_ctx(user), **ctx})
 
     # ------------------------------------------------------------------
     # GET /gaps  — collection gap analysis dashboard
@@ -983,14 +1038,14 @@ def create_app(
             conv_gaps = _read_query_signal_gaps(conv_log_db)
 
         ctx = _build_gaps_context(temporal, entity_depth, geo_coverage, claim_types, conv_gaps)
-        return _templates.TemplateResponse("gaps.html", {"request": request, **ctx})
+        return _templates.TemplateResponse("gaps.html", {"request": request, "active_page": "gaps", **_user_ctx(user), **ctx})
 
     # ------------------------------------------------------------------
     # GET /map  — relationship mapping explorer
     # ------------------------------------------------------------------
     @app.get("/map", response_class=HTMLResponse, include_in_schema=False)
     def relationship_map(request: Request, user: UserContext = Depends(require_user)):
-        return _templates.TemplateResponse("map.html", {"request": request})
+        return _templates.TemplateResponse("map.html", {"request": request, "active_page": "map", **_user_ctx(user)})
 
     # ------------------------------------------------------------------
     # GET /api/entities/search  — entity autocomplete
@@ -1059,11 +1114,23 @@ def create_app(
     # ------------------------------------------------------------------
     # GET /documents  — admin: list all documents including soft-deleted
     # ------------------------------------------------------------------
-    @app.get("/documents")
-    def list_documents(user: UserContext = Depends(require_admin)) -> dict[str, Any]:
+    def _list_documents_json(user: UserContext = Depends(require_admin)) -> dict[str, Any]:
+        """JSON list for /v1/documents API."""
         executor: Neo4jQueryExecutor = state["executor"]
         rows = executor.run(LIST_DOCUMENTS_QUERY, {"institution_id": user.institution_id})
         return {"institution_id": user.institution_id, "documents": rows}
+
+    @app.get("/documents", response_class=HTMLResponse, include_in_schema=False)
+    def list_documents(request: Request, user: UserContext = Depends(require_admin)):
+        executor: Neo4jQueryExecutor = state["executor"]
+        rows = executor.run(LIST_DOCUMENTS_QUERY, {"institution_id": user.institution_id})
+        return _templates.TemplateResponse("admin_documents.html", {
+            "request": request,
+            "active_page": "documents",
+            **_user_ctx(user),
+            "documents": rows,
+            "institution_id": user.institution_id,
+        })
 
     # ------------------------------------------------------------------
     # GET /document/{doc_id}/notes-panel  — HTMX partial: archivist notes
@@ -1151,7 +1218,7 @@ def create_app(
         total = store.count_queries(q=q, bucket=bucket)
         saved = store.get_saved_searches(created_by=user.identity)
         ctx = _build_history_context(rows, total, saved, q, bucket, limit, offset)
-        return _templates.TemplateResponse("history.html", {"request": request, **ctx})
+        return _templates.TemplateResponse("history.html", {"request": request, "active_page": "history", **_user_ctx(user), **ctx})
 
     @app.post("/history/saved", include_in_schema=False)
     async def save_query(
@@ -1230,6 +1297,7 @@ def create_app(
     @app.delete("/document/{doc_id}")
     def delete_document(
         doc_id: str,
+        request: Request,
         confirm: bool = Query(default=False),
         user: UserContext = Depends(require_admin),
     ) -> dict[str, Any]:
@@ -1261,6 +1329,9 @@ def create_app(
                 institution_id=user.institution_id,
                 performed_by=deleted_by,
             )
+        if request.headers.get("HX-Request") == "true":
+            doc = {"doc_id": doc_id, "title": rows[0].get("title"), "access_level": rows[0].get("access_level"), "deleted_at": deleted_at}
+            return _templates.TemplateResponse("fragments/document_row.html", {"request": request, "doc": doc})
         return {"status": "deleted", "doc_id": doc_id, "deleted_at": deleted_at, "deleted_by": deleted_by}
 
     # ------------------------------------------------------------------
@@ -1269,6 +1340,7 @@ def create_app(
     @app.post("/document/{doc_id}/restore")
     def restore_document(
         doc_id: str,
+        request: Request,
         user: UserContext = Depends(require_admin),
     ) -> dict[str, Any]:
         executor: Neo4jQueryExecutor = state["executor"]
@@ -1292,7 +1364,467 @@ def create_app(
                 institution_id=user.institution_id,
                 performed_by=performed_by,
             )
+        if request.headers.get("HX-Request") == "true":
+            doc = {"doc_id": doc_id, "title": rows[0].get("title"), "access_level": rows[0].get("access_level"), "deleted_at": None}
+            return _templates.TemplateResponse("fragments/document_row.html", {"request": request, "doc": doc})
         return {"status": "restored", "doc_id": doc_id, "restored_at": restored_at}
+
+    # ------------------------------------------------------------------
+    # GET /review  — admin: merged review queue (dashboard + list)
+    # POST /review/proposals/{id}/accept|reject|defer — HTMX actions
+    # ------------------------------------------------------------------
+
+    _ISSUE_CLASS_LABELS: dict[str, str] = {
+        "header_contamination": "Header contamination",
+        "boilerplate_contamination": "Boilerplate contamination",
+        "short_generic_token": "Short generic token",
+        "ocr_garbage_mention": "OCR garbage mention",
+        "ocr_spelling_variant": "OCR spelling variant",
+        "duplicate_entity_alias": "Duplicate entity alias",
+        "missing_species_focus": "Missing species link",
+        "missing_event_location": "Missing location link",
+        "method_overtrigger": "Method overtrigger",
+        "pii_exposure": "PII exposure",
+        "indigenous_sensitivity": "Indigenous cultural sensitivity",
+        "living_person_reference": "Living person reference",
+    }
+
+    _SENSITIVITY_CLASSES = {"pii_exposure", "indigenous_sensitivity", "living_person_reference"}
+
+    _QUEUE_LABELS: dict[str, str] = {
+        "sensitivity": "Sensitivity",
+        "ocr_entity": "OCR / Entity",
+        "junk_mention": "Junk mention",
+        "builder_repair": "Builder repair",
+    }
+
+    @app.get("/review", response_class=HTMLResponse, include_in_schema=False)
+    def review_page(
+        request: Request,
+        queue_name: str | None = Query(None),
+        user: UserContext = Depends(require_admin),
+    ):
+        import html as _html
+        import json as _json
+        from datetime import date as _date
+
+        review_store = state.get("review_store")
+        if review_store is None:
+            raise HTTPException(status_code=503, detail="Review store not configured.")
+
+        # Load proposals
+        proposals = review_store.list_proposals(
+            status="queued", queue_name=queue_name, limit=50
+        )
+
+        # Build card data for template
+        proposal_cards = []
+        for p in proposals:
+            rev = review_store.get_latest_revision(p.proposal_id)
+            evidence: dict = {}
+            if rev:
+                try:
+                    evidence = _json.loads(rev.evidence_snapshot_json)
+                except Exception:
+                    pass
+
+            is_sensitivity = p.issue_class in _SENSITIVITY_CLASSES
+            ic_label = _ISSUE_CLASS_LABELS.get(p.issue_class, p.issue_class)
+
+            # Build description from evidence using key_info_html from review app
+            try:
+                from graphrag_pipeline.review.web.app import _key_info_html
+                desc = _key_info_html(p.issue_class, evidence)
+            except Exception:
+                desc = _html.escape(p.issue_class)
+
+            proposal_cards.append({
+                "proposal_id": p.proposal_id,
+                "ic_label": ic_label,
+                "badge_cls": "badge-red" if is_sensitivity else "badge-blue",
+                "border_color": "var(--accent-red-border)" if is_sensitivity else "var(--border-medium)",
+                "priority": p.priority_score,
+                "confidence": p.confidence,
+                "description": desc,
+                "actionable": p.status in ("queued", "deferred"),
+                "can_reject": p.status in ("queued", "deferred"),
+                "can_defer": p.status == "queued",
+            })
+
+        # Queue filter counts
+        queue_counts = review_store.proposal_counts_by_queue()
+        # Filter to queued status only
+        queued_queue_counts = {}
+        try:
+            queued_proposals_all = review_store.list_proposals(status="queued", limit=10000)
+            # Count by queue manually isn't efficient; use the store counts
+            # The proposal_counts_by_queue doesn't filter by status, so let's use total queued
+            ic_counts = review_store.proposal_counts_by_issue_class(status="queued")
+            total_queued = sum(v["count"] for v in ic_counts.values())
+        except Exception:
+            ic_counts = {}
+            total_queued = len(proposals)
+
+        # Sensitivity count
+        sensitivity_count = sum(
+            v["count"] for k, v in ic_counts.items() if k in _SENSITIVITY_CLASSES
+        )
+
+        # Build queue filter pills
+        queue_filters = []
+        for qname, qlabel in _QUEUE_LABELS.items():
+            qcount = queue_counts.get(qname, 0)
+            if qcount > 0:
+                queue_filters.append((qname, qlabel, qcount))
+
+        # Detector count (unique queue names with proposals)
+        detector_count = len([q for q in queue_counts.values() if q > 0])
+
+        # Today's activity
+        today_iso = _date.today().isoformat()
+        event_counts = review_store.correction_event_counts(since_iso=today_iso)
+
+        return _templates.TemplateResponse("admin_review.html", {
+            "request": request,
+            "active_page": "review",
+            **_user_ctx(user),
+            "total_queued": total_queued,
+            "detector_count": detector_count,
+            "sensitivity_count": sensitivity_count,
+            "queue_filters": queue_filters,
+            "active_filter": queue_name,
+            "proposal_cards": proposal_cards,
+            "accepted_today": event_counts.get("accept", 0),
+            "rejected_today": event_counts.get("reject", 0),
+            "deferred_today": event_counts.get("defer", 0),
+        })
+
+    def _review_action_response(request: Request, action: str) -> HTMLResponse:
+        """Return empty for queue-page card deletion, or a confirmation for detail page."""
+        if request.headers.get("HX-Target", "").startswith("proposal-card-"):
+            return HTMLResponse("")  # hx-swap="delete" removes the card
+        return HTMLResponse(
+            f'<span class="badge badge-green" style="font-size:12px">{action}</span>'
+        )
+
+    @app.post("/review/proposals/{proposal_id}/accept", include_in_schema=False)
+    def review_accept(
+        proposal_id: str,
+        request: Request,
+        user: UserContext = Depends(require_admin),
+    ):
+        review_store = state.get("review_store")
+        if review_store is None:
+            raise HTTPException(status_code=503, detail="Review store not configured.")
+        from graphrag_pipeline.review.actions import accept_proposal, ReviewActionError
+        try:
+            accept_proposal(review_store, proposal_id, reviewer=user.identity)
+        except ReviewActionError as exc:
+            raise HTTPException(status_code=400, detail=str(exc))
+        return _review_action_response(request, "Accepted")
+
+    @app.post("/review/proposals/{proposal_id}/reject", include_in_schema=False)
+    def review_reject(
+        proposal_id: str,
+        request: Request,
+        user: UserContext = Depends(require_admin),
+    ):
+        review_store = state.get("review_store")
+        if review_store is None:
+            raise HTTPException(status_code=503, detail="Review store not configured.")
+        from graphrag_pipeline.review.actions import reject_proposal, ReviewActionError
+        try:
+            reject_proposal(review_store, proposal_id, reviewer=user.identity)
+        except ReviewActionError as exc:
+            raise HTTPException(status_code=400, detail=str(exc))
+        return _review_action_response(request, "Rejected")
+
+    @app.post("/review/proposals/{proposal_id}/defer", include_in_schema=False)
+    def review_defer(
+        proposal_id: str,
+        request: Request,
+        user: UserContext = Depends(require_admin),
+    ):
+        review_store = state.get("review_store")
+        if review_store is None:
+            raise HTTPException(status_code=503, detail="Review store not configured.")
+        from graphrag_pipeline.review.actions import defer_proposal, ReviewActionError
+        try:
+            defer_proposal(review_store, proposal_id, reviewer=user.identity)
+        except ReviewActionError as exc:
+            raise HTTPException(status_code=400, detail=str(exc))
+        return _review_action_response(request, "Deferred")
+
+    @app.get("/review/proposals/{proposal_id}", response_class=HTMLResponse, include_in_schema=False)
+    def review_detail(
+        proposal_id: str,
+        request: Request,
+        user: UserContext = Depends(require_admin),
+    ):
+        import json as _json
+
+        review_store = state.get("review_store")
+        if review_store is None:
+            raise HTTPException(status_code=503, detail="Review store not configured.")
+
+        proposal = review_store.get_proposal(proposal_id)
+        if not proposal:
+            raise HTTPException(status_code=404, detail="Proposal not found.")
+
+        targets = review_store.get_proposal_targets(proposal_id)
+        revisions = review_store.get_revisions(proposal_id)
+        events = review_store.get_correction_events(proposal_id)
+
+        latest_rev = revisions[-1] if revisions else None
+        patch_json = latest_rev.patch_spec_json if latest_rev else "{}"
+        evidence_json = latest_rev.evidence_snapshot_json if latest_rev else "{}"
+
+        try:
+            patch_formatted = _json.dumps(_json.loads(patch_json), indent=2)
+        except Exception:
+            patch_formatted = patch_json
+        evidence_dict: dict = {}
+        try:
+            evidence_dict = _json.loads(evidence_json)
+            evidence_formatted = _json.dumps(evidence_dict, indent=2)
+        except Exception:
+            evidence_formatted = evidence_json
+
+        # Key info description
+        try:
+            from graphrag_pipeline.review.web.app import _key_info_html
+            description = _key_info_html(proposal.issue_class, evidence_dict)
+        except Exception:
+            description = ""
+
+        ic_label = _ISSUE_CLASS_LABELS.get(proposal.issue_class, proposal.issue_class)
+
+        return _templates.TemplateResponse("admin_review_detail.html", {
+            "request": request,
+            "active_page": "review",
+            **_user_ctx(user),
+            "proposal_id": proposal.proposal_id,
+            "issue_class_label": ic_label,
+            "proposal_type": proposal.proposal_type,
+            "status": proposal.status,
+            "confidence": f"{proposal.confidence:.2f}",
+            "priority_score": f"{proposal.priority_score:.2f}",
+            "impact_size": proposal.impact_size,
+            "description": description,
+            "is_active": proposal.status in ("queued", "deferred"),
+            "targets": targets,
+            "revisions": revisions,
+            "events": events,
+            "patch_json": patch_formatted,
+            "evidence_json": evidence_formatted,
+        })
+
+    # ------------------------------------------------------------------
+    # GET /ingest — admin: ingest page (upload + status)
+    # POST /ingest — admin: upload files for processing
+    # GET /ingest/{job_id}/status — HTMX polling fragment
+    # ------------------------------------------------------------------
+    @app.get("/ingest", response_class=HTMLResponse, include_in_schema=False)
+    def ingest_page(
+        request: Request,
+        job_id: str | None = Query(None),
+        user: UserContext = Depends(require_admin),
+    ):
+        ingest_store = state.get("ingest_store")
+        ctx: dict[str, Any] = {
+            "request": request,
+            "active_page": "ingest",
+            **_user_ctx(user),
+            "active_job": False,
+        }
+        if ingest_store and job_id:
+            job = ingest_store.get_job(job_id)
+            if job:
+                docs = ingest_store.list_documents(job_id)
+                total = job["total_docs"]
+                done = job["completed_docs"] + job["failed_docs"]
+                pct = int(done / total * 100) if total else 0
+                ctx.update({
+                    "active_job": True,
+                    "job_id": job_id,
+                    "job": job,
+                    "docs": docs,
+                    "total": total,
+                    "done": done,
+                    "failed": job["failed_docs"],
+                    "pct": pct,
+                    "is_running": job["status"] == "running",
+                    "total_claims": sum((d.get("claims_count") or 0) for d in docs),
+                    "total_mentions": sum((d.get("mention_count") or 0) for d in docs),
+                })
+        return _templates.TemplateResponse("admin_ingest.html", ctx)
+
+    from fastapi import UploadFile as _UploadFile, BackgroundTasks as _BackgroundTasks
+
+    @app.post("/ingest", include_in_schema=False)
+    async def create_ingest_job(
+        files: list[_UploadFile],
+        background_tasks: _BackgroundTasks,
+        user: UserContext = Depends(require_admin),
+    ):
+        ingest_store = state.get("ingest_store")
+        if ingest_store is None:
+            raise HTTPException(status_code=503, detail="Ingest store not configured.")
+
+        if not files:
+            raise HTTPException(status_code=422, detail="No files uploaded.")
+
+        allowed = {".pdf", ".json"}
+        bad = [f.filename for f in files if Path(f.filename or "").suffix.lower() not in allowed]
+        if bad:
+            raise HTTPException(status_code=422, detail=f"Unsupported file type(s): {', '.join(bad)}")
+
+        out_dir_path = Path(os.environ.get("INGEST_OUT_DIR", "out"))
+        out_dir_path.mkdir(parents=True, exist_ok=True)
+        staging_dir = out_dir_path / ".ingest_staging"
+        staging_dir.mkdir(parents=True, exist_ok=True)
+
+        staged: list[tuple[Path, str]] = []
+        for upload in files:
+            orig_name = upload.filename or "unknown"
+            dest = staging_dir / orig_name
+            dest.write_bytes(await upload.read())
+            staged.append((dest, orig_name))
+
+        filenames = [orig for _, orig in staged]
+        job_id = ingest_store.create_job(str(out_dir_path), filenames)
+
+        import asyncio as _asyncio
+
+        async def _run_ingest_job(
+            jid: str,
+            staged_files: list[tuple[Path, str]],
+            sdir: Path,
+        ) -> None:
+            from graphrag_pipeline.ingest.pdf_converter import ConversionError, convert_pdf_to_json
+            from graphrag_pipeline.ingest.pipeline import _process_single_document
+            review_out = os.environ.get("REVIEW_OUT_DIR")
+            for file_path, orig in staged_files:
+                try:
+                    if file_path.suffix.lower() == ".pdf":
+                        ingest_store.update_document_status(jid, orig, "converting")
+                        json_path = await _asyncio.to_thread(convert_pdf_to_json, file_path, sdir)
+                    else:
+                        json_path = file_path
+                    ingest_store.update_document_status(jid, orig, "extracting")
+                    result = await _asyncio.to_thread(
+                        _process_single_document, str(json_path), str(out_dir_path), review_out
+                    )
+                    quality = result.get("quality", {})
+                    ingest_store.update_document_status(
+                        jid, orig, "completed",
+                        output_dir=result.get("structure_output"),
+                        claims_count=quality.get("claim_count"),
+                        mention_count=quality.get("mention_count"),
+                    )
+                except Exception as exc:
+                    _log.error("Ingest failed for %r: %s", orig, exc, exc_info=True)
+                    ingest_store.update_document_status(jid, orig, "failed", error_message=str(exc))
+
+        background_tasks.add_task(_run_ingest_job, job_id, staged, staging_dir)
+        return _RedirectResponse(url=f"/ingest?job_id={job_id}", status_code=303)
+
+    @app.get("/ingest/{job_id}/status", response_class=HTMLResponse, include_in_schema=False)
+    def ingest_status_fragment(
+        job_id: str,
+        request: Request,
+        _user: UserContext = Depends(require_admin),
+    ):
+        ingest_store = state.get("ingest_store")
+        if ingest_store is None:
+            raise HTTPException(status_code=503, detail="Ingest store not configured.")
+        job = ingest_store.get_job(job_id)
+        if job is None:
+            raise HTTPException(status_code=404, detail="Job not found.")
+        docs = ingest_store.list_documents(job_id)
+        total = job["total_docs"]
+        done = job["completed_docs"] + job["failed_docs"]
+        pct = int(done / total * 100) if total else 0
+        return _templates.TemplateResponse("fragments/ingest_status_fragment.html", {
+            "request": request,
+            "job_id": job_id,
+            "is_running": job["status"] == "running",
+            "docs": docs,
+            "total": total,
+            "done": done,
+            "failed": job["failed_docs"],
+            "pct": pct,
+            "total_claims": sum((d.get("claims_count") or 0) for d in docs),
+            "total_mentions": sum((d.get("mention_count") or 0) for d in docs),
+        })
+
+    # ------------------------------------------------------------------
+    # GET /users — admin: user management page
+    # POST /users — admin: create a new user
+    # POST /users/{user_id}/deactivate — admin: deactivate user
+    # POST /users/{user_id}/activate   — admin: reactivate user
+    # ------------------------------------------------------------------
+    @app.get("/users", response_class=HTMLResponse, include_in_schema=False)
+    def users_page(request: Request, user: UserContext = Depends(require_admin)):
+        user_store = state.get("user_store")
+        if user_store is None:
+            raise HTTPException(status_code=503, detail="User store not configured.")
+        users = user_store.list_users()
+        return _templates.TemplateResponse("admin_users.html", {
+            "request": request,
+            "active_page": "users",
+            **_user_ctx(user),
+            "users": users,
+        })
+
+    @app.post("/users", response_class=HTMLResponse, include_in_schema=False)
+    def create_user_page(
+        request: Request,
+        email: str = Form(...),
+        password: str = Form(...),
+        role: str = Form("readonly"),
+        user: UserContext = Depends(require_admin),
+    ):
+        user_store = state.get("user_store")
+        if user_store is None:
+            raise HTTPException(status_code=503, detail="User store not configured.")
+        try:
+            new_user = user_store.create_user(email.strip().lower(), password, role)
+        except ValueError:
+            raise HTTPException(status_code=400, detail="Could not create user. Check email and role.")
+        if request.headers.get("HX-Request") == "true":
+            return _templates.TemplateResponse("fragments/user_row.html", {"request": request, "user": new_user})
+        return _RedirectResponse(url="/users", status_code=303)
+
+    @app.post("/users/{user_id}/deactivate", response_class=HTMLResponse, include_in_schema=False)
+    def deactivate_user_page(
+        user_id: str,
+        request: Request,
+        admin: UserContext = Depends(require_admin),
+    ):
+        user_store = state.get("user_store")
+        if user_store is None:
+            raise HTTPException(status_code=503, detail="User store not configured.")
+        if admin.user_id and admin.user_id == user_id:
+            raise HTTPException(status_code=400, detail="Cannot deactivate your own account.")
+        if not user_store.deactivate_user(user_id):
+            raise HTTPException(status_code=404, detail="User not found.")
+        updated = user_store.get_by_id(user_id)
+        return _templates.TemplateResponse("fragments/user_row.html", {"request": request, "user": updated})
+
+    @app.post("/users/{user_id}/activate", response_class=HTMLResponse, include_in_schema=False)
+    def activate_user_page(
+        user_id: str,
+        request: Request,
+        _admin: UserContext = Depends(require_admin),
+    ):
+        user_store = state.get("user_store")
+        if user_store is None:
+            raise HTTPException(status_code=503, detail="User store not configured.")
+        if not user_store.activate_user(user_id):
+            raise HTTPException(status_code=404, detail="User not found.")
+        updated = user_store.get_by_id(user_id)
+        return _templates.TemplateResponse("fragments/user_row.html", {"request": request, "user": updated})
 
     # ------------------------------------------------------------------
     # /v1/ API versioning
@@ -1306,7 +1838,7 @@ def create_app(
     v1.add_api_route("/query/provenance", query_provenance, methods=["POST"])
     v1.add_api_route("/api/entities/search", entity_search, methods=["GET"])
     v1.add_api_route("/api/entity/{entity_id}/neighborhood", entity_neighborhood, methods=["GET"])
-    v1.add_api_route("/documents", list_documents, methods=["GET"])
+    v1.add_api_route("/documents", _list_documents_json, methods=["GET"])
     v1.add_api_route("/document/{doc_id}", delete_document, methods=["DELETE"])
     v1.add_api_route("/document/{doc_id}/restore", restore_document, methods=["POST"])
     v1.add_api_route("/document/{doc_id}/notes-panel", get_notes_panel, methods=["GET"])

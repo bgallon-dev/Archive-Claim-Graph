@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\anthropic\resources\beta\files.py
+# hypothesis_version: 6.151.9
+
+[',', '/v1/files?beta=true', 'Accept', 'AsyncFiles', 'Content-Type', 'Files', 'after_id', 'anthropic-beta', 'application/binary', 'before_id', 'file', 'files-api-2025-04-14', 'limit', 'multipart/form-data']

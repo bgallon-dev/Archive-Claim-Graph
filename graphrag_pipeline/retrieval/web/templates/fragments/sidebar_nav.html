@@ -1,0 +1,40 @@
+<a class="nav-item{% if active_page == 'chat' %} active{% endif %}" href="/">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
+  <span class="nav-label">Query</span>
+</a>
+<a class="nav-item{% if active_page == 'stats' %} active{% endif %}" href="/stats">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6m8 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0h6"/></svg>
+  <span class="nav-label">Collection stats</span>
+</a>
+<a class="nav-item{% if active_page == 'map' %} active{% endif %}" href="/map">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2a10 10 0 0110 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"/></svg>
+  <span class="nav-label">Relationship map</span>
+</a>
+<a class="nav-item{% if active_page == 'gaps' %} active{% endif %}" href="/gaps">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+  <span class="nav-label">Gap analysis</span>
+</a>
+<a class="nav-item{% if active_page == 'history' %} active{% endif %}" href="/history">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  <span class="nav-label">Query history</span>
+</a>
+
+{% if is_admin %}
+<div class="nav-section-label">Admin</div>
+<a class="nav-item{% if active_page == 'review' %} active{% endif %}" href="/review">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+  <span class="nav-label">Review queue</span>
+</a>
+<a class="nav-item{% if active_page == 'ingest' %} active{% endif %}" href="/ingest">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+  <span class="nav-label">Ingest</span>
+</a>
+<a class="nav-item{% if active_page == 'documents' %} active{% endif %}" href="/documents">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+  <span class="nav-label">Documents</span>
+</a>
+<a class="nav-item{% if active_page == 'users' %} active{% endif %}" href="/users">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+  <span class="nav-label">Users</span>
+</a>
+{% endif %}

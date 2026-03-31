@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import difflib
+import functools
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -13,7 +14,24 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from graphrag_pipeline.core.domain_config import DomainConfig
 
-_LOADED_OCR_CORRECTIONS: frozenset[str] = load_ocr_corrections()
+
+@functools.cache
+def _default_ocr_corrections() -> frozenset[str]:
+    return load_ocr_corrections()
+
+
+@functools.cache
+def _default_negative_forms() -> frozenset[str]:
+    return load_negative_entities()
+
+
+@functools.cache
+def _default_lexicon_hints() -> tuple[dict[str, list[str]], list[str]]:
+    """Return (hints_dict, sorted_terms) from default seed entities."""
+    hints: dict[str, list[str]] = {}
+    for entity in default_seed_entities():
+        hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
+    return hints, sorted(hints, key=len, reverse=True)
 
 
 @dataclass(slots=True)
@@ -86,8 +104,8 @@ def get_ocr_flags(
     lexicon_hints: dict[str, list[str]] | None = None,
 ) -> list[str]:
     normalized = re.sub(r"\s+", " ", surface.strip().lower())
-    known_errors = known_ocr_errors if known_ocr_errors is not None else _LOADED_OCR_CORRECTIONS
-    hints = lexicon_hints if lexicon_hints is not None else RuleBasedMentionExtractor._lexicon_hints
+    known_errors = known_ocr_errors if known_ocr_errors is not None else _default_ocr_corrections()
+    hints = lexicon_hints if lexicon_hints is not None else _default_lexicon_hints()[0]
 
     flags: list[str] = []
     if normalized in known_errors:
@@ -139,16 +157,6 @@ class RuleBasedMentionExtractor:
     # Stage 3: titlecase spans (1+ words, min 3 chars).
     _titlecase_span = re.compile(r"\b([A-Z][a-z]{2,}(?:[ \t]+[A-Z][a-z]+)*)\b")
 
-    _known_ocr_errors: frozenset[str] = _LOADED_OCR_CORRECTIONS
-    _seed_entities = default_seed_entities()
-    _negative_forms: frozenset[str] = load_negative_entities()
-
-    _lexicon_hints: dict[str, list[str]] = {}
-    for _entity in _seed_entities:
-        _lexicon_hints.setdefault(_entity.name.lower(), []).append(_entity.entity_type)
-
-    _lexicon_terms: list[str] = sorted(_lexicon_hints, key=len, reverse=True)
-
     def __init__(
         self,
         resources_dir: Path | None = None,
@@ -171,6 +179,10 @@ class RuleBasedMentionExtractor:
                 hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
             self._lexicon_hints = hints
             self._lexicon_terms = sorted(hints, key=len, reverse=True)
+        else:
+            self._known_ocr_errors = _default_ocr_corrections()
+            self._negative_forms = _default_negative_forms()
+            self._lexicon_hints, self._lexicon_terms = _default_lexicon_hints()
 
     def extract(self, paragraph_text: str) -> list[MentionDraft]:
         spans = self._detect(paragraph_text)

@@ -17,7 +17,7 @@ from graphrag_pipeline.core.models import ClaimRecord
 from graphrag_pipeline.ingest.derivation_context import _get_spec, build_derivation_contexts
 from graphrag_pipeline.ingest.extractors.claim_extractor import (
     RuleBasedClaimExtractor,
-    _LOADED_TYPE_PATTERNS,
+    _default_type_patterns,
 )
 
 _RESOURCES_DIR = Path(__file__).parent.parent / "graphrag_pipeline" / "resources"
@@ -49,6 +49,17 @@ def _minimal_domain_config(
         domain_anchor=base.domain_anchor,
         year_validation=base.year_validation,
         synthesis_context=base.synthesis_context,
+        claim_entity_relation_precedence=base.claim_entity_relation_precedence,
+        claim_entity_relations=base.claim_entity_relations,
+        relation_to_entity_type_hints=base.relation_to_entity_type_hints,
+        claim_location_relation=base.claim_location_relation,
+        entity_labels=base.entity_labels,
+        legacy_renames=base.legacy_renames,
+        allowed_claim_types=base.allowed_claim_types,
+        observation_eligible_types=base.observation_eligible_types,
+        event_eligible_types=base.event_eligible_types,
+        concept_rules=base.concept_rules,
+        query_intent_to_claim_types=base.query_intent_to_claim_types,
     )
 
 
@@ -96,6 +107,23 @@ def test_validate_config_warns_on_registry_entry_without_pattern(caplog: pytest.
 
 
 # ---------------------------------------------------------------------------
+# 4A-3b: _validate_config does NOT warn for legacy renames or unclassified fallback
+# ---------------------------------------------------------------------------
+
+def test_validate_config_no_warnings_on_real_resources(caplog: pytest.LogCaptureFixture) -> None:
+    """Real resource files should produce no cross-resource validation warnings."""
+    config = load_domain_config(_RESOURCES_DIR)
+    with caplog.at_level(logging.WARNING, logger="graphrag_pipeline.core.domain_config"):
+        caplog.clear()
+        _validate_config(config)
+    domain_warnings = [
+        r for r in caplog.records
+        if r.name == "graphrag_pipeline.core.domain_config"
+    ]
+    assert domain_warnings == [], f"Unexpected warnings: {[r.message for r in domain_warnings]}"
+
+
+# ---------------------------------------------------------------------------
 # 4A-4: _validate_config warns when preferred_entity_types references unknown type
 # ---------------------------------------------------------------------------
 
@@ -131,6 +159,17 @@ def test_extractor_with_config_uses_config_patterns() -> None:
         domain_anchor=real_config.domain_anchor,
         year_validation=real_config.year_validation,
         synthesis_context=real_config.synthesis_context,
+        claim_entity_relation_precedence=real_config.claim_entity_relation_precedence,
+        claim_entity_relations=real_config.claim_entity_relations,
+        relation_to_entity_type_hints=real_config.relation_to_entity_type_hints,
+        claim_location_relation=real_config.claim_location_relation,
+        entity_labels=real_config.entity_labels,
+        legacy_renames=real_config.legacy_renames,
+        allowed_claim_types=real_config.allowed_claim_types,
+        observation_eligible_types=real_config.observation_eligible_types,
+        event_eligible_types=real_config.event_eligible_types,
+        concept_rules=real_config.concept_rules,
+        query_intent_to_claim_types=real_config.query_intent_to_claim_types,
     )
     extractor = RuleBasedClaimExtractor(config=stub_config)
     assert extractor._type_scored_patterns is stub_patterns
@@ -142,7 +181,7 @@ def test_extractor_with_config_uses_config_patterns() -> None:
 
 def test_extractor_without_config_uses_module_defaults() -> None:
     extractor = RuleBasedClaimExtractor()
-    assert extractor._type_scored_patterns is _LOADED_TYPE_PATTERNS
+    assert extractor._type_scored_patterns is _default_type_patterns()
 
 
 # ---------------------------------------------------------------------------
@@ -235,3 +274,115 @@ def test_get_spec_returns_nones_for_none_registry() -> None:
     obs, evt, req, opt = _get_spec(None, "ct")
     assert obs is None and evt is None
     assert req == () and opt == ()
+
+
+# ---------------------------------------------------------------------------
+# Phase 5: Domain schema externalization tests
+# ---------------------------------------------------------------------------
+
+def test_domain_config_has_claim_entity_relation_precedence() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert len(config.claim_entity_relation_precedence) == 7
+    assert config.claim_entity_relation_precedence[0] == "SPECIES_FOCUS"
+    assert config.claim_entity_relation_precedence[-1] == "TOPIC_OF_CLAIM"
+
+
+def test_domain_config_claim_entity_relations_is_frozenset_of_precedence() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.claim_entity_relations == frozenset(config.claim_entity_relation_precedence)
+
+
+def test_domain_config_relation_hints_match_hardcoded() -> None:
+    """Verify relation hints loaded from YAML match the original Python constants."""
+    from graphrag_pipeline.core.claim_contract import RELATION_TO_ENTITY_TYPE_HINTS
+    config = load_domain_config(_RESOURCES_DIR)
+    for rel, expected_types in RELATION_TO_ENTITY_TYPE_HINTS.items():
+        assert config.relation_to_entity_type_hints.get(rel) == expected_types, (
+            f"Mismatch for {rel}: config={config.relation_to_entity_type_hints.get(rel)}, "
+            f"expected={expected_types}"
+        )
+
+
+def test_domain_config_entity_labels_match_hardcoded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    expected = {"Refuge", "Place", "Person", "Organization", "Species",
+                "Activity", "Period", "Habitat", "SurveyMethod"}
+    assert config.entity_labels == expected
+
+
+def test_domain_config_allowed_claim_types_match_hardcoded() -> None:
+    """Derived allowed_claim_types must be a superset of the original hardcoded set.
+
+    The derived set may include legacy names (e.g. wildlife_count) that appear
+    in the derivation registry but were excluded from the old Python constant.
+    """
+    from graphrag_pipeline.core.claim_contract import ALLOWED_CLAIM_TYPES
+    config = load_domain_config(_RESOURCES_DIR)
+    missing = ALLOWED_CLAIM_TYPES - config.allowed_claim_types
+    assert not missing, f"Missing from derived set: {missing}"
+    # Any extras should be legacy renames present in the registry.
+    extras = config.allowed_claim_types - ALLOWED_CLAIM_TYPES
+    for extra in extras:
+        assert extra in config.legacy_renames, (
+            f"Unexpected extra type {extra!r} not in legacy_renames"
+        )
+
+
+def test_domain_config_observation_eligible_types_match_hardcoded() -> None:
+    from graphrag_pipeline.core.claim_contract import OBSERVATION_ELIGIBLE_TYPES
+    config = load_domain_config(_RESOURCES_DIR)
+    # The hardcoded set includes "wildlife_count" (legacy); the derived set
+    # only includes types present in the registry. wildlife_count is a legacy
+    # rename, so it may or may not appear in the registry.
+    expected = OBSERVATION_ELIGIBLE_TYPES - {"wildlife_count"}
+    assert config.observation_eligible_types >= expected
+
+
+def test_domain_config_event_eligible_types_match_hardcoded() -> None:
+    from graphrag_pipeline.core.claim_contract import EVENT_ELIGIBLE_TYPES
+    config = load_domain_config(_RESOURCES_DIR)
+    missing = EVENT_ELIGIBLE_TYPES - config.event_eligible_types
+    assert not missing, f"Missing from derived set: {missing}"
+
+
+def test_domain_config_legacy_renames() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.legacy_renames == {
+        "wildlife_count": "population_estimate",
+        "weather_condition": "weather_observation",
+    }
+
+
+def test_domain_config_claim_location_relation() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.claim_location_relation == "OCCURRED_AT"
+
+
+def test_domain_config_claim_entity_relation_cypher_property() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    from graphrag_pipeline.core.graph.cypher import CLAIM_ENTITY_RELATION_CYPHER
+    assert config.claim_entity_relation_cypher == CLAIM_ENTITY_RELATION_CYPHER
+
+
+def test_domain_config_concept_rules_loaded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert len(config.concept_rules) == 17  # 17 rules in concept_rules.yaml
+    first = config.concept_rules[0]
+    assert first[0] == "concept_nesting_success"
+    assert isinstance(first[1], frozenset)
+    assert isinstance(first[2], re.Pattern)
+    assert first[3] == 0.85
+
+
+def test_domain_config_query_intent_loaded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert "predator" in config.query_intent_to_claim_types
+    assert config.query_intent_to_claim_types["predator"] == [
+        "predator_control", "management_action",
+    ]
+
+
+def test_domain_config_extractor_claim_link_relations_property() -> None:
+    from graphrag_pipeline.core.claim_contract import EXTRACTOR_CLAIM_LINK_RELATIONS
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.extractor_claim_link_relations == EXTRACTOR_CLAIM_LINK_RELATIONS

@@ -1,0 +1,93 @@
+{% extends "retrieval_stats_base.html" %}
+{% block title %}Proposal {{ proposal_id[:12] }}… - Gemynd{% endblock %}
+{% block content %}
+<p class="page-title">Proposal {{ proposal_id[:16] }}…</p>
+<p class="page-sub">{{ issue_class_label }} &middot; {{ proposal_type }}</p>
+
+<div class="stat-grid" style="max-width:600px;margin-bottom:1.5rem">
+  <div class="stat-card"><p class="stat-card-label">Status</p><p class="stat-card-value-sm">{{ status }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Confidence</p><p class="stat-card-value-sm">{{ confidence }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Priority</p><p class="stat-card-value-sm">{{ priority_score }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Impact</p><p class="stat-card-value-sm">{{ impact_size }} target{{ 's' if impact_size != 1 else '' }}</p></div>
+</div>
+
+{% if description %}
+<p class="section-heading">Key information</p>
+<p style="font-size:13px;margin-bottom:1.5rem">{{ description | safe }}</p>
+{% endif %}
+
+<p class="section-heading">Actions</p>
+<div id="action-result"></div>
+<div style="display:flex;gap:6px;margin-bottom:1.5rem">
+  <button hx-post="/review/proposals/{{ proposal_id }}/accept"
+          hx-target="#action-result" hx-swap="innerHTML"
+          {% if not is_active %}disabled{% endif %}
+          class="btn-sm btn-accept">Accept</button>
+  <button hx-post="/review/proposals/{{ proposal_id }}/reject"
+          hx-target="#action-result" hx-swap="innerHTML"
+          {% if not is_active %}disabled{% endif %}
+          class="btn-sm btn-reject">Reject</button>
+  <button hx-post="/review/proposals/{{ proposal_id }}/defer"
+          hx-target="#action-result" hx-swap="innerHTML"
+          {% if not is_active %}disabled{% endif %}
+          class="btn-sm btn-defer">Defer</button>
+  <a href="/review" class="action-link" style="margin-left:8px;font-size:12px">&larr; Back to queue</a>
+</div>
+
+<p class="section-heading">Targets</p>
+<table class="mini-table">
+  <thead><tr><th>Kind</th><th>ID</th><th>Role</th><th>In snapshot</th></tr></thead>
+  <tbody>
+    {% for t in targets %}
+    <tr>
+      <td>{{ t.target_kind }}</td>
+      <td style="font-size:12px;font-family:monospace">{{ t.target_id[:24] }}{% if t.target_id|length > 24 %}…{% endif %}</td>
+      <td>{{ t.target_role }}</td>
+      <td>{{ 'yes' if t.exists_in_snapshot else 'no' }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<details style="margin-top:1.5rem">
+  <summary style="cursor:pointer;font-size:13px;color:var(--text-secondary)">Patch spec (raw JSON)</summary>
+  <pre style="font-size:11px;max-height:300px;overflow:auto;background:var(--bark-50);padding:0.75rem;border-radius:var(--radius-sm)">{{ patch_json }}</pre>
+</details>
+
+<details style="margin-top:0.5rem">
+  <summary style="cursor:pointer;font-size:13px;color:var(--text-secondary)">Evidence snapshot (raw JSON)</summary>
+  <pre style="font-size:11px;max-height:300px;overflow:auto;background:var(--bark-50);padding:0.75rem;border-radius:var(--radius-sm)">{{ evidence_json }}</pre>
+</details>
+
+<p class="section-heading" style="margin-top:1.5rem">Revision history</p>
+<table class="mini-table">
+  <thead><tr><th>#</th><th>Kind</th><th>Detector</th><th>Validation</th><th>By</th><th>At</th></tr></thead>
+  <tbody>
+    {% for r in revisions %}
+    <tr>
+      <td>{{ r.revision_number }}</td>
+      <td>{{ r.revision_kind }}</td>
+      <td>{{ r.detector_name }}</td>
+      <td>{{ r.validation_state }}</td>
+      <td>{{ r.created_by }}</td>
+      <td>{{ r.created_at[:19] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p class="section-heading">Correction events</p>
+<table class="mini-table">
+  <thead><tr><th>Action</th><th>Reviewer</th><th>Note</th><th>At</th></tr></thead>
+  <tbody>
+    {% for e in events %}
+    <tr>
+      <td>{{ e.action }}</td>
+      <td>{{ e.reviewer }}</td>
+      <td>{{ e.reviewer_note }}</td>
+      <td>{{ e.created_at[:19] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

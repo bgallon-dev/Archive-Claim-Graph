@@ -838,9 +838,15 @@ class TestIntegrationRetrieval:
     def assembler(self, executor):
         return ProvenanceContextAssembler(executor=executor, budget_conversational=10)
 
+    _TENANT_PARAMS: dict[str, object] = {
+        "institution_id": "turnbull",
+        "permitted_levels": ["public", "staff_only", "restricted"],
+    }
+
     def test_temporal_template_executes(self, executor):
         from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
         rows = executor.run(TEMPORAL_CLAIMS_QUERY, {
+            **self._TENANT_PARAMS,
             "year_min": 1940,
             "year_max": 1950,
             "claim_types": None,
@@ -859,6 +865,7 @@ class TestIntegrationRetrieval:
         if len(species) < 2:
             pytest.skip("Need at least 2 species entities in graph")
         rows = executor.run(MULTI_ENTITY_CLAIMS_QUERY, {
+            **self._TENANT_PARAMS,
             "entity_ids": [s.entity_id for s in species],
             "claim_types": None,
             "year_min": None,
@@ -870,6 +877,7 @@ class TestIntegrationRetrieval:
     def test_claim_type_scoped_template_executes(self, executor):
         from graphrag_pipeline.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
         rows = executor.run(CLAIM_TYPE_SCOPED_QUERY, {
+            **self._TENANT_PARAMS,
             "claim_types": ["predator_control", "management_action"],
             "entity_ids": None,
             "year_min": None,

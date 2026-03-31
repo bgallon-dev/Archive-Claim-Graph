@@ -1,88 +1,84 @@
 {% extends "retrieval_stats_base.html" %}
-{% block title %}Collection Statistics{% endblock %}
+{% block title %}Collection Statistics - Gemynd{% endblock %}
 {% block content %}
-<h1>Collection Statistics</h1>
-<div class="stat-cards">
-  <div class="stat-card"><div class="value">{{ total_docs }}</div><div class="label">Documents</div></div>
-  <div class="stat-card"><div class="value">{{ total_claims }}</div><div class="label">Active Claims</div></div>
-  <div class="stat-card"><div class="value">{{ total_entities }}</div><div class="label">Entities</div></div>
-  <div class="stat-card"><div class="value">{{ date_span }}</div><div class="label">Date Span</div></div>
-  <div class="stat-card"><div class="value">{{ total_pages }}</div><div class="label">Total Pages</div></div>
+<p class="page-title">Collection statistics</p>
+<p class="page-sub">Archive overview and extraction profile</p>
+
+<div class="stat-grid">
+  <div class="stat-card"><p class="stat-card-label">Documents</p><p class="stat-card-value">{{ total_docs }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Active claims</p><p class="stat-card-value">{{ total_claims }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Entities</p><p class="stat-card-value">{{ total_entities }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Date span</p><p class="stat-card-value">{{ date_span }}</p></div>
+  <div class="stat-card"><p class="stat-card-label">Total pages</p><p class="stat-card-value">{{ total_pages }}</p></div>
 </div>
+
 {% if donor_restricted %}
-<p style="color:#6c757d;font-size:0.85rem">&#9432; {{ donor_restricted }} document(s) carry donor reproduction restrictions.</p>
+<p style="color:var(--text-secondary);font-size:13px;margin-bottom:1rem">{{ donor_restricted }} document(s) carry donor reproduction restrictions.</p>
 {% endif %}
 
-<div class="stats-section">
-  <h2>Document Types</h2>
-  <table class="stats">
-    <thead><tr><th>Type</th><th>Count</th></tr></thead>
-    <tbody>
-      {% for r in doc_types %}
-      <tr><td>{{ r.doc_type or '(unknown)' }}</td><td>{{ r.count }}</td></tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<div class="two-col">
+  <div>
+    <p class="section-heading">Claim type distribution</p>
+    <table class="mini-table">
+      <thead><tr><th>Type</th><th>Count</th><th>Avg conf.</th></tr></thead>
+      <tbody>
+        {% for r in claim_types %}
+        <tr>
+          <td>{{ r.claim_type or '(unknown)' }}</td>
+          <td>{{ r.count }}</td>
+          <td><span class="conf-pill {{ r.avg_confidence | conf_tier_class }}">{% if r.avg_confidence is not none %}{{ "%.2f" % r.avg_confidence }}{% else %}&mdash;{% endif %}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <p class="section-heading">Entity categories</p>
+    <table class="mini-table">
+      <thead><tr><th>Type</th><th>Count</th></tr></thead>
+      <tbody>
+        {% for r in entity_types %}
+        <tr><td>{{ r.entity_type or '(unknown)' }}</td><td>{{ r.count }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<div class="stats-section">
-  <h2>Claim Type Distribution</h2>
-  <table class="stats">
-    <thead><tr><th>Claim Type</th><th>Count</th><th>Avg Confidence</th></tr></thead>
-    <tbody>
-      {% for r in claim_types %}
-      <tr>
-        <td>{{ r.claim_type or '(unknown)' }}</td>
-        <td>{{ r.count }}</td>
-        <td class="{{ r.avg_confidence | conf_tier_class }}">{% if r.avg_confidence is not none %}{{ "%.2f" % r.avg_confidence }}{% else %}&mdash;{% endif %}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
+<p class="section-heading">Document types</p>
+<table class="mini-table">
+  <thead><tr><th>Type</th><th>Count</th></tr></thead>
+  <tbody>
+    {% for r in doc_types %}
+    <tr><td>{{ r.doc_type or '(unknown)' }}</td><td>{{ r.count }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% if temporal_rows %}
-<div class="stats-section">
-  <h2>Temporal Coverage</h2>
-  <table class="stats">
-    <thead><tr><th>Year/Decade</th><th>Documents</th></tr></thead>
-    <tbody>
-      {% for row in temporal_rows %}
-      <tr{% if row.is_gap %} class="gap-row"{% endif %}>
-        <td>{{ row.label }}</td>
-        <td>{{ row.count if not row.is_gap else '(none)' }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  <p style="font-size:0.8rem;color:#6c757d">Greyed rows = coverage gaps.</p>
+<p class="section-heading">Temporal coverage</p>
+<div style="max-width:500px">
+  {% for row in temporal_rows %}
+  <div class="temporal-row">
+    <span class="temporal-label" style="width:60px{% if row.is_gap %};color:var(--text-tertiary){% endif %}">{{ row.label }}</span>
+    <div class="bar-track">
+      {% if not row.is_gap %}
+      <div class="bar-fill" style="width:{{ (row.count / temporal_rows|map(attribute='count')|max * 100)|round }}%"></div>
+      {% endif %}
+    </div>
+    <span class="temporal-count" style="width:36px">{% if row.is_gap %}&mdash;{% else %}{{ row.count }}{% endif %}</span>
+  </div>
+  {% endfor %}
 </div>
 {% endif %}
 
-<div class="stats-section">
-  <h2>Entity Categories</h2>
-  <table class="stats">
-    <thead><tr><th>Entity Type</th><th>Count</th></tr></thead>
-    <tbody>
-      {% for r in entity_types %}
-      <tr><td>{{ r.entity_type or '(unknown)' }}</td><td>{{ r.count }}</td></tr>
-      {% endfor %}
-    </tbody>
-  </table>
+<p class="section-heading">Extraction confidence</p>
+<div style="max-width:420px">
+  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:var(--bark-700)">High</span><div class="bar-track"><div class="bar-fill" style="width:{{ high_pct }}%;background:var(--bark-700)"></div></div><span class="temporal-count" style="width:36px">{{ high_pct }}%</span></div>
+  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:var(--accent-amber-text)">Medium</span><div class="bar-track"><div class="bar-fill" style="width:{{ medium_pct }}%;background:var(--accent-amber-text)"></div></div><span class="temporal-count" style="width:36px">{{ medium_pct }}%</span></div>
+  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:var(--accent-red-text)">Low</span><div class="bar-track"><div class="bar-fill" style="width:{{ low_pct }}%;background:var(--accent-red-text)"></div></div><span class="temporal-count" style="width:36px">{{ low_pct }}%</span></div>
 </div>
+<p style="margin-top:0.5rem;font-size:12px;color:var(--text-secondary)">Average: {{ conf_avg_str }} | Epistemic 'uncertain' flags: {{ uncertain_epistemic }}</p>
 
-<div class="stats-section">
-  <h2>Confidence Profile</h2>
-  <p><strong>Average extraction confidence:</strong> {{ conf_avg_str }} &nbsp;|&nbsp; <strong>Epistemic 'uncertain' flags:</strong> {{ uncertain_epistemic }}</p>
-  <table class="stats">
-    <thead><tr><th>Tier</th><th>Claims</th><th>Share</th></tr></thead>
-    <tbody>
-      <tr><td class="tier-high">HIGH (&ge;0.85)</td><td>{{ high }}</td><td>{{ high_pct }}%</td></tr>
-      <tr><td class="tier-medium">MEDIUM (0.70&ndash;0.84)</td><td>{{ medium }}</td><td>{{ medium_pct }}%</td></tr>
-      <tr><td class="tier-low">LOW (&lt;0.70)</td><td>{{ low }}</td><td>{{ low_pct }}%</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<p style="margin-top:2rem;font-size:0.9rem"><a href="/gaps" style="color:#0d6efd">&#8594; View Gap Analysis</a></p>
+<p style="margin-top:1.5rem"><a href="/gaps" class="action-link" style="font-size:13px">View gap analysis &rarr;</a></p>
 {% endblock %}

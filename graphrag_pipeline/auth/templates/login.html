@@ -3,71 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign in</title>
+  <title>Sign in - Gemynd</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --font-display: 'Source Serif 4', Georgia, serif;
+      --bark-800: #3D2B1F;
+      --bark-700: #5A3E2B;
+      --bark-900: #2A1B12;
+      --bark-400: #A89272;
+      --bark-300: #C4A882;
+      --parchment: #FAF7F2;
+      --white: #FFFFFF;
+      --text-primary: #1A1410;
+      --text-secondary: #6B6054;
+      --text-inverse: #F0E6D8;
+      --border-medium: rgba(61, 43, 31, 0.18);
+      --accent-red-bg: #FDF2F0;
+      --accent-red-text: #8B2114;
+      --radius-md: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #f5f5f5;
+      font-family: var(--font-body);
+      font-size: 14px;
+      background: var(--parchment);
+      color: var(--text-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      margin: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    .card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.1);
-      padding: 2rem 2.5rem;
-      width: 100%;
-      max-width: 380px;
+    @keyframes loginFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    h1 { font-size: 1.25rem; margin: 0 0 1.5rem; color: #111; }
-    label { display: block; font-size: .875rem; color: #444; margin-bottom: .25rem; }
-    input[type=email], input[type=password] {
-      width: 100%;
-      padding: .5rem .75rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-      margin-bottom: 1rem;
+    .login-card {
+      width: 360px;
+      text-align: center;
+      animation: loginFadeIn 0.5s ease;
     }
-    input:focus { outline: 2px solid #3b82f6; border-color: transparent; }
-    button {
+    .login-logo {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      background: var(--bark-800);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .login-logo span {
+      font-family: var(--font-display);
+      color: var(--bark-300);
+      font-size: 24px;
+      font-weight: 500;
+    }
+    .login-heading {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin: 0 0 4px;
+    }
+    .login-sub {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin: 0 0 28px;
+    }
+    .login-field {
+      display: block;
       width: 100%;
-      padding: .6rem;
-      background: #1d4ed8;
-      color: #fff;
+      border: 1px solid var(--border-medium);
+      border-radius: var(--radius-md);
+      padding: 11px 14px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      margin-bottom: 10px;
+      background: var(--white);
+      color: var(--text-primary);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .login-field:focus { border-color: var(--bark-400); }
+    .login-btn {
+      width: 100%;
+      background: var(--bark-800);
+      color: var(--text-inverse);
       border: none;
-      border-radius: 4px;
-      font-size: 1rem;
+      border-radius: var(--radius-md);
+      padding: 11px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
       cursor: pointer;
+      margin-top: 6px;
+      transition: background 0.15s;
     }
-    button:hover { background: #1e40af; }
+    .login-btn:hover { background: var(--bark-700); }
+    .login-btn:active { background: var(--bark-900); }
     .error {
-      background: #fee2e2;
-      color: #b91c1c;
-      border-radius: 4px;
-      padding: .5rem .75rem;
-      font-size: .875rem;
-      margin-bottom: 1rem;
+      background: var(--accent-red-bg);
+      color: var(--accent-red-text);
+      border-radius: var(--radius-md);
+      padding: 8px 12px;
+      font-size: 13px;
+      margin-bottom: 12px;
+      text-align: left;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>GraphRAG &mdash; Sign in</h1>
+  <div class="login-card">
+    <div class="login-logo"><span>G</span></div>
+    <p class="login-heading">Gemynd</p>
+    <p class="login-sub">Archive explorer</p>
     {% if error %}<div class="error">{{ error }}</div>{% endif %}
     <form method="post" action="/auth/login">
       <input type="hidden" name="next" value="{{ next }}">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required autofocus
-             autocomplete="username" value="{{ email_prefill }}">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required
-             autocomplete="current-password">
-      <button type="submit">Sign in</button>
+      <input class="login-field" type="email" id="email" name="email" placeholder="Email"
+             required autofocus autocomplete="username" value="{{ email_prefill }}">
+      <input class="login-field" type="password" id="password" name="password" placeholder="Password"
+             required autocomplete="current-password">
+      <button type="submit" class="login-btn">Sign in</button>
     </form>
   </div>
 </body>

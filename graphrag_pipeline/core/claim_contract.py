@@ -1,10 +1,6 @@
 from __future__ import annotations
 
 from functools import lru_cache
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING:
-    pass
 
 CONTRACT_VERSION: str = "v2"
 UNCLASSIFIED_TYPE: str = "unclassified_assertion"
@@ -53,6 +49,8 @@ ALLOWED_CLAIM_TYPES: frozenset[str] = frozenset({
 })
 
 # Claim types that produce an Observation node during semantic extraction.
+# DEPRECATED: Derive from DomainConfig.observation_eligible_types instead.
+# Kept for backward-compat builder paths that do not yet receive config.
 OBSERVATION_ELIGIBLE_TYPES: frozenset[str] = frozenset({
     "population_estimate",
     "species_presence",
@@ -67,6 +65,8 @@ OBSERVATION_ELIGIBLE_TYPES: frozenset[str] = frozenset({
 })
 
 # Deterministic mapping from claim_type to observation_type.
+# DEPRECATED: Use derivation_registry.yaml via DomainConfig.derivation_registry instead.
+# Kept for backward-compat builder paths that do not yet receive config.
 CLAIM_TYPE_TO_OBSERVATION_TYPE: dict[str, str] = {
     "population_estimate": "population_count",
     "wildlife_count": "population_count",  # legacy compat
@@ -80,6 +80,8 @@ CLAIM_TYPE_TO_OBSERVATION_TYPE: dict[str, str] = {
 }
 
 # Deterministic mapping from claim_type to event_type (the Neo4j label).
+# DEPRECATED: Use derivation_registry.yaml via DomainConfig.derivation_registry instead.
+# Kept for backward-compat builder paths that do not yet receive config.
 CLAIM_TYPE_TO_EVENT_TYPE: dict[str, str] = {
     "population_estimate":  "SurveyEvent",
     "species_presence":     "SurveyEvent",
@@ -98,6 +100,8 @@ CLAIM_TYPE_TO_EVENT_TYPE: dict[str, str] = {
 }
 
 # All claim types that should produce an Event node.
+# DEPRECATED: Derive from DomainConfig.event_eligible_types instead.
+# Kept for backward-compat builder paths that do not yet receive config.
 EVENT_ELIGIBLE_TYPES: frozenset[str] = frozenset(CLAIM_TYPE_TO_EVENT_TYPE.keys())
 
 # Legacy rename map: old extractor output → current canonical type.
@@ -107,34 +111,76 @@ _LEGACY_RENAMES: dict[str, str] = {
 }
 
 
-def validate_claim_type(claim_type: str) -> str:
-    """Return a valid claim type, coercing unknown types to UNCLASSIFIED_TYPE."""
-    if claim_type in ALLOWED_CLAIM_TYPES:
+def validate_claim_type(
+    claim_type: str,
+    *,
+    allowed: frozenset[str] | None = None,
+    renames: dict[str, str] | None = None,
+) -> str:
+    """Return a valid claim type, coercing unknown types to UNCLASSIFIED_TYPE.
+
+    When *allowed* and *renames* are provided (from DomainConfig), they
+    replace the module-level constants.
+    """
+    _allowed = allowed if allowed is not None else ALLOWED_CLAIM_TYPES
+    _renames = renames if renames is not None else _LEGACY_RENAMES
+    if claim_type in _allowed:
         return claim_type
-    renamed = _LEGACY_RENAMES.get(claim_type)
+    renamed = _renames.get(claim_type)
     if renamed:
         return renamed
     return UNCLASSIFIED_TYPE
 
 
-def validate_claim_link_relation(relation_type: str) -> str | None:
+def validate_claim_link_relation(
+    relation_type: str,
+    *,
+    valid_relations: frozenset[str] | None = None,
+) -> str | None:
+    """Return cleaned relation type if valid, else None.
+
+    When *valid_relations* is provided (from DomainConfig), it replaces
+    the module-level EXTRACTOR_CLAIM_LINK_RELATIONS.
+    """
     cleaned = relation_type.strip().upper()
-    if cleaned in EXTRACTOR_CLAIM_LINK_RELATIONS:
+    _valid = valid_relations if valid_relations is not None else EXTRACTOR_CLAIM_LINK_RELATIONS
+    if cleaned in _valid:
         return cleaned
     return None
 
 
-def claim_relation_priority(relation_type: str) -> int:
+def claim_relation_priority(
+    relation_type: str,
+    *,
+    precedence: tuple[str, ...] | None = None,
+) -> int:
+    """Return the priority index for a relation type (lower = higher priority).
+
+    When *precedence* is provided (from DomainConfig), it replaces the
+    module-level CLAIM_ENTITY_RELATION_PRECEDENCE.
+    """
+    _prec = precedence if precedence is not None else CLAIM_ENTITY_RELATION_PRECEDENCE
     try:
-        return CLAIM_ENTITY_RELATION_PRECEDENCE.index(relation_type)
+        return _prec.index(relation_type)
     except ValueError:
-        return len(CLAIM_ENTITY_RELATION_PRECEDENCE)
+        return len(_prec)
 
 
-def entity_type_allowed_for_relation(relation_type: str, entity_type: str | None) -> bool:
+def entity_type_allowed_for_relation(
+    relation_type: str,
+    entity_type: str | None,
+    *,
+    hints: dict[str, frozenset[str]] | None = None,
+) -> bool:
+    """Check whether an entity type is valid for a given relation type.
+
+    When *hints* is provided (from DomainConfig), it replaces the
+    module-level RELATION_TO_ENTITY_TYPE_HINTS.
+    """
     if entity_type is None:
         return True
-    allowed = RELATION_TO_ENTITY_TYPE_HINTS.get(relation_type)
+    _hints = hints if hints is not None else RELATION_TO_ENTITY_TYPE_HINTS
+    allowed = _hints.get(relation_type)
     if not allowed:
         return True
     return entity_type in allowed

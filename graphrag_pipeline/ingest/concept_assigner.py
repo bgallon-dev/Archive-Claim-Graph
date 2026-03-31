@@ -2,8 +2,12 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from graphrag_pipeline.core.models import ClaimRecord
+
+if TYPE_CHECKING:
+    from graphrag_pipeline.core.domain_config import DomainConfig
 
 
 @dataclass(slots=True)
@@ -238,18 +242,27 @@ _CONCEPT_RULES: list[tuple[str, frozenset[str], re.Pattern[str], float]] = [
 ]
 
 
-def assign_concepts(claim: ClaimRecord) -> list[ConceptAssignment]:
+def assign_concepts(
+    claim: ClaimRecord,
+    *,
+    config: "DomainConfig | None" = None,
+) -> list[ConceptAssignment]:
     """Return concept assignments for a claim based on rule matching.
 
     A claim may match multiple concepts. All matches are returned —
     the caller decides whether to write all or only the top-scoring one.
     Concepts are only assigned when the claim_type is in the allowed
     set for that concept rule, preventing cross-domain noise.
+
+    When *config* is provided, concept rules come from ``config.concept_rules``
+    (loaded from ``concept_rules.yaml``). Otherwise the module-level
+    ``_CONCEPT_RULES`` fallback is used.
     """
+    rules = config.concept_rules if config is not None and config.concept_rules else _CONCEPT_RULES
     assignments: list[ConceptAssignment] = []
     sentence = claim.source_sentence or ""
 
-    for concept_id, allowed_types, pattern, confidence in _CONCEPT_RULES:
+    for concept_id, allowed_types, pattern, confidence in rules:
         if claim.claim_type not in allowed_types:
             continue
         if pattern.search(sentence):

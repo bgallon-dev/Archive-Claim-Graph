@@ -277,7 +277,7 @@ def _render_provenance_section(
 
     return (
         '<section class="provenance-section" style="margin:1.5rem 0">'
-        '<h2 style="margin-top:0;font-size:1rem;color:#6c757d">Provenance</h2>'
+        '<h2 style="margin-top:0;font-size:1rem;color:var(--text-secondary,#6B6054)">Provenance</h2>'
         "<table>"
         f"<tr><th>Snapshot ID</th><td><code>{esc(snapshot_id)}</code></td></tr>"
         f"<tr><th>Detector</th><td>{esc(detector_name)}</td></tr>"
@@ -366,7 +366,7 @@ def _collapsible_technical(inner_html: str) -> str:
     """Wrap technical detail HTML in a native collapsible <details> block."""
     return (
         '<details style="margin-top:1rem">'
-        '<summary style="cursor:pointer;color:#6c757d;font-size:0.9rem;'
+        '<summary style="cursor:pointer;color:var(--text-secondary,#6B6054);font-size:0.9rem;'
         'user-select:none">Technical details</summary>'
         '<div style="margin-top:0.5rem;padding:0.75rem;background:#f8f9fa;'
         'border-radius:4px;font-size:0.85rem">'
@@ -630,7 +630,7 @@ def _render_evidence_summary(
 
         # Severity warning (stays visible — do not collapse)
         parts.append(
-            '<p style="color:#dc3545"><strong>Action required:</strong> '
+            '<p style="color:var(--accent-red-text,#8B2114)"><strong>Action required:</strong> '
             "Review whether this claim contains personal information that should remain "
             "quarantined or be permanently restricted. Do not un-quarantine without data "
             "governance approval.</p>"
@@ -647,7 +647,7 @@ def _render_evidence_summary(
         if redacted:
             parts.append(
                 "<p><strong>Source sentence (PII redacted):</strong></p>"
-                '<blockquote style="border-left:4px solid #dc3545;margin:0;padding:0 1rem">'
+                '<blockquote style="border-left:4px solid var(--accent-red-border,#F0C4BC);margin:0;padding:0 1rem">'
                 f"<p>{esc(redacted)}</p></blockquote>"
             )
 
@@ -673,7 +673,7 @@ def _render_evidence_summary(
         # Consultation warning (stays visible — do not collapse)
         if require_consultation:
             parts.append(
-                '<p style="color:#dc3545;font-weight:bold">&#9888; Tribal consultation required: '
+                '<p style="color:var(--accent-red-text,#8B2114);font-weight:bold">&#9888; Tribal consultation required: '
                 "Clearing this quarantine requires documented consultation with the relevant "
                 "Indigenous nation(s). Archivist judgment alone is not sufficient.</p>"
             )
@@ -833,7 +833,7 @@ def _key_info_html(issue_class: str, evidence: dict) -> str:  # type: ignore[typ
         year_text = f" \u2014 most recent year: {esc(year)}" if year else ""
         return f'Person: <strong>{esc(", ".join(names))}</strong>{year_text}'
 
-    return f'<em style="color:#6c757d">({esc(ic)})</em>'
+    return f'<em style="color:var(--text-tertiary,#9C9488)">({esc(ic)})</em>'
 
 
 def _batch_sample_card(proposal: Any, evidence: dict) -> str:  # type: ignore[type-arg]
@@ -842,14 +842,14 @@ def _batch_sample_card(proposal: Any, evidence: dict) -> str:  # type: ignore[ty
         return _html.escape(str(v))
 
     return (
-        f'<div style="border:1px solid #dee2e6;border-radius:6px;'
-        f'padding:0.75rem;margin:0.5rem 0;background:#fff">'
-        f'<p style="margin:0 0 0.4rem;font-size:0.82rem;color:#6c757d">'
-        f'<code>{esc(proposal.proposal_id[:16])}&hellip;</code>'
+        f'<div style="border:1px solid var(--border-medium,rgba(61,43,31,.18));border-radius:8px;'
+        f'padding:0.75rem;margin:0.5rem 0;background:var(--white,#fff)">'
+        f'<p style="margin:0 0 0.4rem;font-size:12px;color:var(--text-secondary,#6B6054)">'
+        f'<code style="font-size:11px">{esc(proposal.proposal_id[:16])}&hellip;</code>'
         f' &nbsp;&middot;&nbsp; confidence {proposal.confidence:.2f}'
         f' &nbsp;&middot;&nbsp; '
-        f'<a href="/proposals/{esc(proposal.proposal_id)}">view detail &rarr;</a></p>'
-        f'<p style="margin:0">{_key_info_html(proposal.issue_class, evidence)}</p>'
+        f'<a href="/proposals/{esc(proposal.proposal_id)}" class="action-link" style="font-size:12px">view detail &rarr;</a></p>'
+        f'<p style="margin:0;font-size:13px">{_key_info_html(proposal.issue_class, evidence)}</p>'
         f'</div>'
     )
 
@@ -872,45 +872,40 @@ def _priority_card(proposal: Any, evidence: dict) -> str:  # type: ignore[type-a
     is_sensitivity = proposal.issue_class in (
         "pii_exposure", "indigenous_sensitivity", "living_person_reference"
     )
-    border_color = "#dc3545" if is_sensitivity else "#0d6efd"
-    badge_style = (
-        'background:#f8d7da;color:#842029'
-        if is_sensitivity else
-        'background:#cfe2ff;color:#084298'
-    )
+    border_color = "var(--accent-red-border,#F0C4BC)" if is_sensitivity else "var(--border-medium,rgba(61,43,31,.18))"
+    badge_cls = "badge-red" if is_sensitivity else "badge-blue"
 
     actionable = proposal.status in ("queued", "deferred")
     accept_btn = (
         f'<button hx-post="/proposals/{pid_esc}/accept" '
         f'hx-target="#{card_id}" hx-swap="delete" '
-        f'class="btn-accept" style="font-size:0.8rem;padding:0.2rem 0.5rem"'
+        f'class="btn-sm btn-accept"'
         f'{"" if actionable else " disabled"}>Accept</button>'
     )
     defer_btn = (
         f'<button hx-post="/proposals/{pid_esc}/defer" '
         f'hx-target="#{card_id}" hx-swap="delete" '
-        f'class="btn-defer" style="font-size:0.8rem;padding:0.2rem 0.5rem;margin-left:0.3rem"'
+        f'class="btn-sm btn-defer" style="margin-left:4px"'
         f'{"" if actionable and proposal.status == \"queued\" else \" disabled"}>Defer</button>'
     )
 
     return (
-        f'<div id="{card_id}" style="border:1px solid {border_color};border-radius:6px;'
-        f'padding:0.85rem;margin:0.5rem 0;background:#fff">'
+        f'<div id="{card_id}" style="border:1px solid {border_color};border-radius:var(--radius-md,8px);'
+        f'padding:0.85rem;margin:0.5rem 0;background:var(--white,#fff)">'
         f'<div style="display:flex;justify-content:space-between;align-items:flex-start;'
         f'margin-bottom:0.4rem">'
-        f'<span style="font-size:0.8rem;padding:0.15rem 0.5rem;border-radius:3px;'
-        f'font-weight:600;{badge_style}">{ic_label}</span>'
-        f'<span style="font-size:0.8rem;color:#6c757d">'
+        f'<span class="badge {badge_cls}">{ic_label}</span>'
+        f'<span style="font-size:12px;color:var(--text-secondary,#6B6054)">'
         f'priority {proposal.priority_score:.2f} &nbsp;&middot;&nbsp; '
         f'confidence {proposal.confidence:.2f} &nbsp;&middot;&nbsp; '
         f'{proposal.impact_size} target{"s" if proposal.impact_size != 1 else ""}'
         f'</span>'
         f'</div>'
-        f'<p style="margin:0.3rem 0 0.5rem">'
+        f'<p style="margin:0.3rem 0 0.5rem;font-size:13px">'
         f'{_key_info_html(proposal.issue_class, evidence)}</p>'
-        f'<div style="font-size:0.82rem">'
+        f'<div style="display:flex;align-items:center;gap:4px">'
         f'{accept_btn}{defer_btn}'
-        f'&nbsp;&nbsp;<a href="/proposals/{pid_esc}" style="color:#6c757d">'
+        f'<a href="/proposals/{pid_esc}" class="action-link" style="margin-left:8px;font-size:12px">'
         f'Full detail &rarr;</a>'
         f'</div>'
         f'</div>'
@@ -934,7 +929,11 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             "FastAPI is required for review-serve. Install with: pip install fastapi uvicorn"
         ) from e
 
+    _shared_dir = str(Path(__file__).parent.parent.parent / "shared_templates")
     _templates = Jinja2Templates(directory=str(_TEMPLATES_DIR))
+    _templates.env.loader = __import__("jinja2").FileSystemLoader(
+        [str(_TEMPLATES_DIR), _shared_dir]
+    )
 
     from graphrag_pipeline.auth.dependencies import (
         NeedsLoginException,
@@ -1018,7 +1017,8 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             priority_cards += _priority_card(p, ev)
         if not priority_cards:
             priority_cards = (
-                '<p style="color:#6c757d;font-style:italic">No queued proposals — queue is clear.</p>'
+                '<p style="color:var(--text-secondary,#6B6054);font-style:italic;font-size:13px">'
+                'No queued proposals — queue is clear.</p>'
             )
 
         # Sensitivity alert (shown above everything if non-zero)
@@ -1032,13 +1032,14 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
                 if k in ("pii_exposure", "indigenous_sensitivity", "living_person_reference")
             )
             sensitivity_alert = (
-                f'<div style="background:#f8d7da;border:1px solid #f5c2c7;border-radius:6px;'
-                f'padding:0.75rem 1rem;margin-bottom:1rem">'
-                f'<strong style="color:#842029">&#9888; Sensitivity queue:</strong> '
+                f'<div class="alert-bar" style="margin-bottom:1rem">'
+                f'<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" style="width:16px;height:16px;flex-shrink:0">'
+                f'<path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>'
+                f'<span><strong>Sensitivity queue:</strong> '
                 f'{sensitivity_total} proposal{"s" if sensitivity_total != 1 else ""} '
                 f'require urgent review. '
-                f'<a href="/proposals?queue_name=sensitivity" style="color:#842029;font-weight:600">'
-                f'Review now &rarr;</a>'
+                f'<a href="/proposals?queue_name=sensitivity" class="action-link" style="font-weight:600">'
+                f'Review now &rarr;</a></span>'
                 f'</div>'
             )
         else:
@@ -1064,7 +1065,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             )
         if not batch_rows:
             batch_rows = (
-                '<tr><td colspan="4" style="color:#6c757d;font-style:italic">'
+                '<tr><td colspan="4" style="color:var(--text-secondary,#6B6054);font-style:italic;font-size:13px">'
                 'No batch-eligible proposals queued.</td></tr>'
             )
 
@@ -1077,6 +1078,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
         return _templates.TemplateResponse("index.html", {
             "request": request,
+            "active_page": "dashboard",
             "sensitivity_alert": sensitivity_alert,
             "priority_cards": priority_cards,
             "batch_rows": batch_rows,
@@ -1152,10 +1154,10 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
                         f"</tr>"
                     )
                 queue_summary = (
-                    '<section style="margin:1rem 0;padding:1rem;background:#e7f1ff;'
-                    'border-radius:6px;border:1px solid #b6d4fe">'
-                    '<h2 style="margin-top:0;font-size:1rem">Queued proposals by issue class</h2>'
-                    '<table><thead><tr>'
+                    '<section style="margin:1rem 0;padding:1rem;background:var(--accent-blue-bg,#EFF4FB);'
+                    'border-radius:var(--radius-md,8px);border:1px solid var(--accent-blue-border,#B5CDE8)">'
+                    '<p class="section-heading" style="margin-top:0">Queued proposals by issue class</p>'
+                    '<table class="mini-table"><thead><tr>'
                     '<th>Issue Class</th><th>Count</th><th>Avg Confidence</th><th></th>'
                     '</tr></thead><tbody>'
                     + ic_rows
@@ -1177,6 +1179,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
         return _templates.TemplateResponse("list.html", {
             "request": request,
+            "active_page": "proposals",
             "rows": rows,
             "filter_params": filter_params,
             "next_offset": next_offset,
@@ -1274,6 +1277,7 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
 
         return _templates.TemplateResponse("detail.html", {
             "request": request,
+            "active_page": "proposals",
             "proposal_id": proposal.proposal_id,
             "issue_class": proposal.issue_class,
             "proposal_type": proposal.proposal_type,

@@ -13,6 +13,9 @@ resources:
   claim_relation_compatibility: claim_relation_compatibility.yaml
   negative_entities: negative_entities.yaml
   derivation_registry: derivation_registry.yaml
+  domain_schema: domain_schema.yaml
+  concept_rules: concept_rules.yaml
+  query_intent: query_intent.yaml
 
 year_validation:
   tolerance: 5

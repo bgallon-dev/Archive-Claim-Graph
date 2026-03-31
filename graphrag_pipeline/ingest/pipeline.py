@@ -345,9 +345,24 @@ def extract_semantic(
     resolver: EntityResolver | None = None,
     run_overrides: dict[str, str] | None = None,
     resources_dir: Path | None = None,
+    no_llm: bool = False,
 ) -> SemanticBundle:
     _config = load_domain_config(resources_dir)
-    claim_extractor = claim_extractor or HybridClaimExtractor(resources_dir=resources_dir, config=_config)
+    if claim_extractor is None:
+        if no_llm:
+            from graphrag_pipeline.ingest.extractors.claim_extractor import (
+                LLMClaimExtractor,
+                NullLLMAdapter,
+            )
+            claim_extractor = HybridClaimExtractor(
+                llm_extractor=LLMClaimExtractor(NullLLMAdapter()),
+                resources_dir=resources_dir,
+                config=_config,
+            )
+        else:
+            claim_extractor = HybridClaimExtractor(resources_dir=resources_dir, config=_config)
+    else:
+        pass  # caller-provided extractor takes priority
     measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor(resources_dir=resources_dir, config=_config)
     mention_extractor = mention_extractor or RuleBasedMentionExtractor(resources_dir=resources_dir, config=_config)
     resolver = resolver or DictionaryFuzzyResolver(
@@ -679,7 +694,7 @@ def extract_semantic(
     }
     claim_concept_links: list[ClaimConceptLinkRecord] = []
     for claim in claims:
-        for assignment in assign_concepts(claim):
+        for assignment in assign_concepts(claim, config=_config):
             if assignment.concept_id in _concept_ids:
                 claim_concept_links.append(
                     ClaimConceptLinkRecord(
@@ -924,6 +939,7 @@ def _process_single_document(
     domain_dir_str: str | None = None,
     run_id: str | None = None,
     supplementary_entity_rows: list[EntityRecord] | None = None,
+    no_llm: bool = False,
 ) -> dict[str, Any]:
     """Worker function for parallel document processing (parse + extract + save + quality).
 
@@ -944,6 +960,7 @@ def _process_single_document(
         resolver=resolver,
         resources_dir=resources_dir,
         run_overrides={"run_id": run_id} if run_id else None,
+        no_llm=no_llm,
     )
 
     # Sensitivity gate: quarantine high-confidence claims before graph write.
@@ -1026,6 +1043,7 @@ def run_e2e(
     review_db_path: str | Path | None = None,
     resources_dir: Path | None = None,
     graph_resolve: bool = False,
+    no_llm: bool = False,
 ) -> dict[str, Any]:
     output_dir = Path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -1107,7 +1125,7 @@ def run_e2e(
     already_ingested_inputs = {d["input"] for d in doc_summaries if d.get("skipped")}
     str_inputs = [i for i in all_str_inputs if i not in already_ingested_inputs]
 
-    # --- Phase 1: parallel extraction (parse + extract + save + quality) ---
+    # --- Phase 1 / Phase 2 setup ---
     effective_workers = min(max(workers, 1), len(str_inputs)) if str_inputs else 1
 
     # Pre-generate a unique run_id per document in the parent process so that
@@ -1117,36 +1135,6 @@ def run_e2e(
 
     _supp = supplementary_entities or None  # None when empty → workers use seed-only resolution
 
-    if effective_workers <= 1:
-        for input_item in str_inputs:
-            doc_summaries.append(
-                _process_single_document(input_item, str(output_dir), review_output_dir_str, domain_dir_str, doc_run_ids[input_item], _supp)
-            )
-    else:
-        with ProcessPoolExecutor(max_workers=effective_workers) as executor:
-            future_to_input = {
-                executor.submit(
-                    _process_single_document,
-                    input_item,
-                    str(output_dir),
-                    review_output_dir_str,
-                    domain_dir_str,
-                    doc_run_ids[input_item],
-                    _supp,
-                ): input_item
-                for input_item in str_inputs
-            }
-            for i, future in enumerate(as_completed(future_to_input), 1):
-                input_item = future_to_input[future]
-                summary = future.result()  # re-raises on worker exception
-                _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
-                doc_summaries.append(summary)
-
-    # Restore deterministic output order (as_completed is unordered).
-    # Skipped (already_ingested) entries are already in doc_summaries with an "input" key.
-    doc_summaries.sort(key=lambda d: d["input"])
-
-    # --- Phase 2: sequential graph loading and review detection ---
     neo4j_kwargs = dict(
         neo4j_uri=neo4j_uri,
         neo4j_user=neo4j_user,
@@ -1156,8 +1144,9 @@ def run_e2e(
         neo4j_ca_cert=neo4j_ca_cert,
     )
 
-    from .checkpoint import append_checkpoint, load_checkpoint
+    from .checkpoint import append_checkpoint, load_checkpoint, load_checkpoint_inputs
     completed_doc_ids = load_checkpoint(output_dir)
+    completed_inputs = load_checkpoint_inputs(output_dir)
     if completed_doc_ids:
         _log.info("Checkpoint: %d doc(s) already written — will skip them.", len(completed_doc_ids))
 
@@ -1171,62 +1160,123 @@ def run_e2e(
     document_entity_counts: Counter[str] = Counter()
 
     writer: GraphWriter | None = None
+
+    # -- Per-doc graph write helper (shared by single-worker and multi-worker paths) --
+    def _write_doc_to_graph(doc_summary: dict[str, Any]) -> None:
+        nonlocal writer
+        structure = load_structure_bundle(doc_summary["structure_output"])
+        semantic = load_semantic_bundle(doc_summary["semantic_output"])
+
+        # A3: Re-resolve with frequency prior if we have data from prior docs.
+        if document_entity_counts:
+            domain_dir = Path(resources_dir) if resources_dir is not None else None
+            _supp_for_prior = supplementary_entities if supplementary_entities else None
+            freq_resolver = DictionaryFuzzyResolver(
+                seed_entities=default_seed_entities(domain_dir),
+                supplementary_candidates=_supp_for_prior,
+                resources_dir=domain_dir,
+            )
+            _, new_resolutions = freq_resolver.resolve(
+                semantic.mentions,
+                contexts=_rebuild_resolution_contexts(semantic),
+                document_entity_counts=document_entity_counts,
+            )
+            semantic.entity_resolutions = new_resolutions
+            save_semantic_bundle(doc_summary["semantic_output"], semantic)
+
+        # Update the rolling counter with this document's REFERS_TO resolutions.
+        for resolution in semantic.entity_resolutions:
+            if resolution.relation_type == "REFERS_TO":
+                document_entity_counts[resolution.entity_id] += 1
+
+        if writer is None:
+            writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
+        else:
+            writer.load_structure(structure)
+            writer.load_semantic(structure, semantic)
+
+        # Checkpoint after successful graph write — not before.
+        # If the write throws, the doc stays uncheckpointed and will retry on re-run.
+        append_checkpoint(output_dir, doc_summary["doc_id"], doc_summary["input"])
+        _log.info("Checkpointed doc %s (%s)", doc_summary["doc_id"], Path(doc_summary["input"]).name)
+
+        if review_store is not None:
+            from graphrag_pipeline.review.detect import run_detection
+            review_result = run_detection(
+                structure, semantic, review_store,
+                structure_bundle_path=str(Path(doc_summary["structure_output"]).resolve()),
+                semantic_bundle_path=str(Path(doc_summary["semantic_output"]).resolve()),
+            )
+            doc_summary["review_detect"] = review_result
+
     try:
-        for doc_summary in doc_summaries:
-            if doc_summary.get("skipped"):
-                continue  # already_ingested — no graph work needed
-            doc_id = doc_summary["doc_id"]
-            if doc_id in completed_doc_ids:
-                _log.info("Skipping checkpointed doc: %s", doc_id)
-                continue
+        if effective_workers <= 1:
+            # --- Single-worker: interleaved extract + graph write per document ---
+            # Sort for deterministic frequency-prior accumulation order.
+            str_inputs_ordered = sorted(str_inputs)
+            for i, input_item in enumerate(str_inputs_ordered, 1):
+                if input_item in completed_inputs:
+                    _log.info("Skipping checkpointed doc: %s", Path(input_item).stem)
+                    # Update frequency prior from saved semantic bundle so
+                    # subsequent docs still benefit from prior resolutions.
+                    sem_path = output_dir / f"{Path(input_item).stem}.semantic.json"
+                    if sem_path.exists():
+                        _sem = load_semantic_bundle(sem_path)
+                        for res in _sem.entity_resolutions:
+                            if res.relation_type == "REFERS_TO":
+                                document_entity_counts[res.entity_id] += 1
+                    continue
 
-            structure = load_structure_bundle(doc_summary["structure_output"])
-            semantic = load_semantic_bundle(doc_summary["semantic_output"])
-
-            # A3: Re-resolve with frequency prior if we have data from prior docs.
-            if document_entity_counts:
-                domain_dir = Path(resources_dir) if resources_dir is not None else None
-                _supp_for_prior = supplementary_entities if supplementary_entities else None
-                freq_resolver = DictionaryFuzzyResolver(
-                    seed_entities=default_seed_entities(domain_dir),
-                    supplementary_candidates=_supp_for_prior,
-                    resources_dir=domain_dir,
+                summary = _process_single_document(
+                    input_item, str(output_dir), review_output_dir_str,
+                    domain_dir_str, doc_run_ids[input_item], _supp,
+                    no_llm=no_llm,
                 )
-                _, new_resolutions = freq_resolver.resolve(
-                    semantic.mentions,
-                    contexts=_rebuild_resolution_contexts(semantic),
-                    document_entity_counts=document_entity_counts,
-                )
-                semantic.entity_resolutions = new_resolutions
-                save_semantic_bundle(doc_summary["semantic_output"], semantic)
+                _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
 
-            # Update the rolling counter with this document's REFERS_TO resolutions.
-            for resolution in semantic.entity_resolutions:
-                if resolution.relation_type == "REFERS_TO":
-                    document_entity_counts[resolution.entity_id] += 1
+                _write_doc_to_graph(summary)
+                doc_summaries.append(summary)
 
-            if writer is None:
-                writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
-            else:
-                writer.load_structure(structure)
-                writer.load_semantic(structure, semantic)
+        else:
+            # --- Multi-worker: parallel extraction (Phase 1) ---
+            with ProcessPoolExecutor(max_workers=effective_workers) as executor:
+                future_to_input = {
+                    executor.submit(
+                        _process_single_document,
+                        input_item,
+                        str(output_dir),
+                        review_output_dir_str,
+                        domain_dir_str,
+                        doc_run_ids[input_item],
+                        _supp,
+                        no_llm,
+                    ): input_item
+                    for input_item in str_inputs
+                }
+                for i, future in enumerate(as_completed(future_to_input), 1):
+                    input_item = future_to_input[future]
+                    summary = future.result()  # re-raises on worker exception
+                    _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
+                    doc_summaries.append(summary)
 
-            # Checkpoint after successful graph write — not before.
-            # If the write throws, the doc stays uncheckpointed and will retry on re-run.
-            append_checkpoint(output_dir, doc_id, doc_summary["input"])
-            _log.info("Checkpointed doc %s (%s)", doc_id, Path(doc_summary["input"]).name)
+            # --- Multi-worker: sequential graph write (Phase 2) ---
+            # Restore deterministic output order (as_completed is unordered).
+            doc_summaries.sort(key=lambda d: d["input"])
 
-            if review_store is not None:
-                from graphrag_pipeline.review.detect import run_detection
-                review_result = run_detection(
-                    structure, semantic, review_store,
-                    structure_bundle_path=str(Path(doc_summary["structure_output"]).resolve()),
-                    semantic_bundle_path=str(Path(doc_summary["semantic_output"]).resolve()),
-                )
-                doc_summary["review_detect"] = review_result
+            for doc_summary in doc_summaries:
+                if doc_summary.get("skipped"):
+                    continue  # already_ingested — no graph work needed
+                doc_id = doc_summary["doc_id"]
+                if doc_id in completed_doc_ids:
+                    _log.info("Skipping checkpointed doc: %s", doc_id)
+                    continue
+                _write_doc_to_graph(doc_summary)
     finally:
         if review_store is not None:
             review_store.close()
+
+    # Restore deterministic output order for the final result.
+    doc_summaries.sort(key=lambda d: d["input"])
 
     already_ingested_count = sum(1 for d in doc_summaries if d.get("skipped"))
     result: dict[str, Any] = {

@@ -1,0 +1,86 @@
+{% extends "retrieval_stats_base.html" %}
+{% block title %}Ingest Documents - Gemynd{% endblock %}
+
+{% block content %}
+<p class="page-title">Ingest documents</p>
+<p class="page-sub">Upload PDF or JSON files for extraction and graph loading</p>
+
+<form id="upload-form" method="post" action="/ingest" enctype="multipart/form-data">
+  <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+    <svg width="40" height="40" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" viewBox="0 0 24 24" style="display:block;margin:0 auto 12px"><path d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+    <p style="font-size:14px;color:var(--text-primary);margin:0 0 4px">Drop PDF or JSON files here, or click to browse</p>
+    <p style="font-size:12px;color:var(--text-tertiary);margin:0">Accepted formats: .pdf, .json</p>
+  </div>
+  <input id="file-input" type="file" name="files" multiple accept=".pdf,.json" style="display:none">
+  <div id="file-list" class="file-chips"></div>
+  <div style="margin-top:1rem;display:flex;gap:0.75rem;align-items:center">
+    <button type="submit" class="upload-btn" id="submit-btn" disabled>Upload and process</button>
+    <span id="file-count" style="font-size:12px;color:var(--text-secondary)"></span>
+  </div>
+</form>
+
+{% if active_job %}
+<div style="margin-top:2rem">
+  {% include "fragments/ingest_status_fragment.html" %}
+</div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function() {
+  var zone = document.getElementById('drop-zone');
+  var inp = document.getElementById('file-input');
+  var list = document.getElementById('file-list');
+  var btn = document.getElementById('submit-btn');
+  var counter = document.getElementById('file-count');
+  var selectedFiles = [];
+
+  function renderFiles() {
+    list.innerHTML = '';
+    selectedFiles.forEach(function(f, i) {
+      var chip = document.createElement('span');
+      chip.className = 'file-chip';
+      chip.innerHTML = f.name + ' <span class="remove" data-i="' + i + '">&times;</span>';
+      list.appendChild(chip);
+    });
+    list.querySelectorAll('.remove').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        selectedFiles.splice(parseInt(this.dataset.i), 1);
+        syncInput(); renderFiles();
+      });
+    });
+    btn.disabled = selectedFiles.length === 0;
+    counter.textContent = selectedFiles.length > 0 ? selectedFiles.length + ' file(s) selected' : '';
+  }
+
+  function syncInput() {
+    var dt = new DataTransfer();
+    selectedFiles.forEach(function(f) { dt.items.add(f); });
+    inp.files = dt.files;
+  }
+
+  inp.addEventListener('change', function() {
+    Array.from(this.files).forEach(function(f) {
+      if (!selectedFiles.find(function(x) { return x.name === f.name; })) {
+        selectedFiles.push(f);
+      }
+    });
+    syncInput(); renderFiles();
+  });
+
+  zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('drag-over'); });
+  zone.addEventListener('dragleave', function() { zone.classList.remove('drag-over'); });
+  zone.addEventListener('drop', function(e) {
+    e.preventDefault(); zone.classList.remove('drag-over');
+    Array.from(e.dataTransfer.files).forEach(function(f) {
+      if (!selectedFiles.find(function(x) { return x.name === f.name; })) {
+        selectedFiles.push(f);
+      }
+    });
+    syncInput(); renderFiles();
+  });
+})();
+</script>
+{% endblock %}

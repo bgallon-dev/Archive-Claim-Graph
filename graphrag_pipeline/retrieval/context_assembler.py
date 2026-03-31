@@ -85,11 +85,15 @@ def _sanitize_fulltext(text: str) -> str:
     return _LUCENE_SPECIAL.sub(r'\\\1', text.strip()[:_FULLTEXT_MAX_LEN])
 
 
-def _infer_claim_types(query_text: str) -> list[str] | None:
+def _infer_claim_types(
+    query_text: str,
+    intent_map: dict[str, list[str]] | None = None,
+) -> list[str] | None:
     """Map query vocabulary to claim_type filters. Returns None if no signal."""
     lowered = query_text.lower()
     matched: set[str] = set()
-    for keyword, types in _QUERY_INTENT_TO_CLAIM_TYPES.items():
+    _map = intent_map if intent_map is not None else _QUERY_INTENT_TO_CLAIM_TYPES
+    for keyword, types in _map.items():
         if keyword in lowered:
             matched.update(types)
     return list(matched) if matched else None
@@ -103,6 +107,8 @@ def _select_retrieval_strategy(
     budget: int,
     permitted_levels: list[str] | None = None,
     institution_id: str | None = None,
+    *,
+    intent_map: dict[str, list[str]] | None = None,
 ) -> tuple[str, dict]:
     """Select the Cypher template and parameters best matched to this query shape.
 
@@ -114,7 +120,7 @@ def _select_retrieval_strategy(
     5. Single entity fallback — 1 entity, no vocabulary signal
     6. Fulltext — nothing else matched
     """
-    inferred_claim_types = _infer_claim_types(query_text)
+    inferred_claim_types = _infer_claim_types(query_text, intent_map=intent_map)
     resolved_ids = list(dict.fromkeys(e.entity_id for e in entity_context.resolved))
     has_years = year_min is not None or year_max is not None
     has_entities = len(resolved_ids) > 0
@@ -367,10 +373,13 @@ class ProvenanceContextAssembler:
         budget_conversational: int = _BUDGET_CONVERSATIONAL,
         budget_hybrid: int = _BUDGET_HYBRID,
         annotation_store: object | None = None,
+        *,
+        query_intent_map: dict[str, list[str]] | None = None,
     ) -> None:
         self._executor = executor
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
+        self._query_intent_map = query_intent_map or _QUERY_INTENT_TO_CLAIM_TYPES
         # Optional AnnotationStore; when set, archivist notes are injected into context.
         self._annotation_store = annotation_store
         # Populated after each assemble() call; read by the web layer for coverage stats.
@@ -411,12 +420,13 @@ class ProvenanceContextAssembler:
             Serialised string ready for injection into the synthesis prompt.
         """
         budget = self._budget_hybrid if is_hybrid else self._budget_conversational
-        inferred_claim_types = _infer_claim_types(query_text)
+        inferred_claim_types = _infer_claim_types(query_text, intent_map=self._query_intent_map)
 
         template, params = _select_retrieval_strategy(
             query_text, entity_context, year_min, year_max, budget,
             permitted_levels=permitted_levels,
             institution_id=institution_id,
+            intent_map=self._query_intent_map,
         )
 
         rows: list[dict] = []

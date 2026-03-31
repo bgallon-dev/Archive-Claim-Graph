@@ -1,0 +1,96 @@
+version: "1"
+
+# Concept assignment rules, ordered from most specific to most general.
+# Each rule gates on claim_type membership before testing the regex.
+rules:
+
+  # -- Outcome concepts (most specific -- check first) -----------------------
+  - concept_id: concept_nesting_success
+    claim_types: [breeding_activity, population_estimate, wildlife_count, species_presence]
+    regex: '\b(nest(?:ed|ing|s)?|hatch(?:ed|ing)?|fledg(?:ed|ing|ling)?|brood|clutch|reared|young|chick|duckling|gosling|cygnet)\b'
+    confidence: 0.85
+
+  - concept_id: concept_breeding_success
+    claim_types: [breeding_activity, population_estimate, wildlife_count, species_presence]
+    regex: '\b(reared to maturity|breeding success|successful(?:ly)? bred|pairs? nested|breeding pair|mating|courting|courtship)\b'
+    confidence: 0.85
+
+  - concept_id: concept_population_decline
+    claim_types: [population_estimate, wildlife_count, species_presence, species_absence]
+    regex: '\b(declin(?:e|ed|ing)|decreas(?:e|ed|ing)|reduc(?:e|ed|tion)|fewer than|lower than|less than.*(?:year|season|period)|not(?:ably)? fewer|absent|disappear|none observed|no\s+\w+\s+seen)\b'
+    confidence: 0.82
+
+  # -- Environmental stress concepts -----------------------------------------
+  - concept_id: concept_drought_condition
+    claim_types: [weather_observation, weather_condition, habitat_condition, species_absence]
+    regex: '\b(drought|dried? up|dry(?:ing)?|no rain|lack of water|water scarc|dewater|low water|water shortage|potholes?\s+(?:dried|empty|dry)|desicat)\b'
+    confidence: 0.88
+
+  - concept_id: concept_flood_condition
+    claim_types: [weather_observation, weather_condition, habitat_condition, management_action]
+    regex: '\b(flood(?:ed|ing)?|inundat(?:ed|ion)|high water|overflow(?:ed|ing)?|water(?:logged| too high)|standing water|excessive.*rain|spring flood|runoff)\b'
+    confidence: 0.88
+
+  - concept_id: concept_temperature_extremes
+    claim_types: [weather_observation, weather_condition]
+    regex: '\b(temperature|degrees?|heat wave|cold snap|frost|freeze|frozen|below zero|extreme(?:ly)?\s+(?:hot|cold|warm|cool)|record(?:ed)?\s+(?:high|low)|thermometer)\b'
+    confidence: 0.85
+
+  - concept_id: concept_precipitation_pattern
+    claim_types: [weather_observation, weather_condition]
+    regex: '\b(rain(?:fall)?|precip(?:itation)?|snow(?:fall)?|inch(?:es)? of|hundredths? of an inch|moisture|wet(?:ter)?|dry(?:er)?|annual precipitation|below normal|above normal)\b'
+    confidence: 0.85
+
+  # -- Habitat state concepts ------------------------------------------------
+  - concept_id: concept_habitat_degradation
+    claim_types: [habitat_condition, management_action, fire_incident, economic_use]
+    regex: '\b(degrad(?:e|ed|ation)|overgraze|overgraz(?:ed|ing)|erode|erosion|deplet(?:e|ed|ion)|deteriorat(?:e|ed|ion)|damage(?:d)?|destroy(?:ed)?|invasive|drain(?:ed|age)|compacted|weed(?:s|ed|ing)?|cheat grass|thistle)\b'
+    confidence: 0.82
+
+  - concept_id: concept_water_level_change
+    claim_types: [habitat_condition, weather_observation, weather_condition, management_action]
+    regex: '\b(water level|water(?:s)?\s+(?:rose|risen|fell|dropped|raised|lowered|receded|high|low)|pool(?:s|ed|ing)|pothole\s+(?:full|empty|dry|low|high)|impoundment|water control|dike|dam)\b'
+    confidence: 0.85
+
+  - concept_id: concept_habitat_condition
+    claim_types: [habitat_condition, management_action, species_presence, species_absence]
+    regex: '\b(habitat|vegetation|cover|marsh|wetland|grassland|upland|shrub|brush|canopy|understory|riparian|range condition|fair|good|poor|excellent)\b'
+    confidence: 0.78
+
+  # -- Management / restoration concepts -------------------------------------
+  - concept_id: concept_ecological_restoration
+    claim_types: [management_action, development_activity, habitat_condition]
+    regex: '\b(restor(?:e|ed|ation|ing)|revegetat(?:e|ed|ion)|reintroduc(?:e|ed|tion)|reseed(?:ed|ing)?|native plant(?:ing)?|prescribed burn|controlled burn|burn(?:ing)? for habitat|moist soil|water management for)\b'
+    confidence: 0.85
+
+  - concept_id: concept_infrastructure_rehabilitation
+    claim_types: [development_activity, management_action]
+    regex: '\b(construct(?:ed|ion)|repair(?:ed|ing)?|built|building|dike|road|bridge|culvert|pump(?:ing station)?|headgate|structure|facility|equipment|WPA|project\s+(?:started|completed)|rehabilitat(?:e|ed|ion))\b'
+    confidence: 0.85
+
+  - concept_id: concept_habitat_restoration
+    claim_types: [management_action, development_activity, habitat_condition]
+    regex: '\b(improv(?:e|ed|ement|ing)|enhanc(?:e|ed|ement|ing)|plant(?:ed|ing)|wild celery|food plot|nesting cover|water control|level control|managed(?:\s+for)?)\b'
+    confidence: 0.78
+
+  # -- Observational concepts ------------------------------------------------
+  - concept_id: concept_population_count
+    claim_types: [population_estimate, wildlife_count, species_presence, predator_control]
+    regex: '\b(\d+\s+(?:mallard|teal|coot|goose|geese|duck|pheasant|quail|partridge|grouse|deer|coyote|bird|individual)|approx(?:imately)?\s+\d+|counted|census|total\s+of\s+\d+|estimated\s+\d+|population\s+of)\b'
+    confidence: 0.85
+
+  - concept_id: concept_survey_result
+    claim_types: [population_estimate, wildlife_count, species_presence, species_absence, breeding_activity, migration_timing]
+    regex: '\b(survey(?:ed|ing)?|census|count(?:ed|ing)?|observed|recorded|noted|seen|found|detected|aerial|ground count|roadside|transect|banding|trap(?:ped|ping)?)\b'
+    confidence: 0.78
+
+  - concept_id: concept_breeding_activity
+    claim_types: [breeding_activity, species_presence, population_estimate, wildlife_count]
+    regex: '\b(breed(?:ing|ers?)?|nest(?:ing|ers?)?|pair(?:ing|s)?|mating|display|territorial|singing|calling|courtship|nuptial|spawning)\b'
+    confidence: 0.80
+
+  # -- Temporal / seasonal concept (broadest -- check last) ------------------
+  - concept_id: concept_seasonal_condition
+    claim_types: [weather_observation, weather_condition, habitat_condition, migration_timing, breeding_activity, species_presence]
+    regex: '\b(spring|summer|fall|winter|autumn|seasonal|annual|migration|arrival|departure|open season|hunting season|early|late\s+(?:spring|summer|fall|winter)|first\s+(?:of\s+the\s+)?season)\b'
+    confidence: 0.75

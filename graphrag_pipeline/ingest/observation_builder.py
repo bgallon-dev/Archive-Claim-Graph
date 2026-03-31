@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import re
 from collections import defaultdict
 from typing import TYPE_CHECKING
 
@@ -21,23 +20,10 @@ from graphrag_pipeline.core.models import (
     ObservationRecord,
     YearRecord,
 )
+from graphrag_pipeline.ingest.derivation_context import _extract_year
 
 if TYPE_CHECKING:
     from graphrag_pipeline.ingest.derivation_context import DerivationContext
-
-_YEAR_RE = re.compile(r"\b(1[89]\d{2}|20[0-2]\d)\b")
-
-
-def _extract_year(claim_date: str | None, report_year: int | None) -> tuple[int | None, str]:
-    """Return (year_int, year_source) where year_source is 'claim_date',
-    'document_primary_year', or 'unknown'."""
-    if claim_date:
-        match = _YEAR_RE.search(claim_date)
-        if match:
-            return int(match.group(1)), "claim_date"
-    if report_year is not None:
-        return report_year, "document_primary_year"
-    return None, "unknown"
 
 
 def build_observations(

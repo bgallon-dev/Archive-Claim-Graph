@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\anthropic\_response.py
+# hypothesis_version: 6.151.9
+
+['*', ';', 'APIResponse[Any]', 'P', 'R', '_APIResponseT', '_AsyncAPIResponseT', '_T', 'content-type', 'extra_headers', 'json', 'raw', 'request-id', 'stream', 'true', 'tuple[type, ...]', 'wb']

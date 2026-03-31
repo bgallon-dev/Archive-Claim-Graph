@@ -1,0 +1,12 @@
+version: "1"
+
+# Maps query vocabulary keywords to claim_type lists for retrieval scoping.
+# Used by context_assembler to select retrieval strategy based on user query.
+intent_to_claim_types:
+  predator: [predator_control, management_action]
+  habitat: [habitat_condition, weather_observation]
+  population: [population_estimate, species_presence, species_absence]
+  breeding: [breeding_activity]
+  migration: [migration_timing]
+  fire: [fire_incident]
+  management: [management_action, development_activity, economic_use]

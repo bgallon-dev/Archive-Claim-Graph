@@ -1,8 +1,11 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
+
 from graphrag_pipeline.core.claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
 
-ID_CONSTRAINTS: dict[str, str] = {
+# Structural constraints that every domain needs.
+_STRUCTURAL_CONSTRAINTS: dict[str, str] = {
     "Document": "doc_id",
     "Page": "page_id",
     "Section": "section_id",
@@ -14,17 +17,27 @@ ID_CONSTRAINTS: dict[str, str] = {
     "Mention": "mention_id",
     "Observation": "observation_id",
     "Year": "year_id",
-    "Refuge": "entity_id",
-    "Place": "entity_id",
-    "Person": "entity_id",
-    "Organization": "entity_id",
-    "Species": "entity_id",
-    "Activity": "entity_id",
-    "Period": "entity_id",
-    "Habitat": "entity_id",
-    "SurveyMethod": "entity_id",
     "Event": "event_id",
 }
+
+# Default entity labels for the Turnbull domain.
+_DEFAULT_ENTITY_LABELS: frozenset[str] = frozenset({
+    "Refuge", "Place", "Person", "Organization", "Species",
+    "Activity", "Period", "Habitat", "SurveyMethod",
+})
+
+
+def build_id_constraints(entity_labels: Iterable[str] | None = None) -> dict[str, str]:
+    """Return combined structural + domain entity ID constraints."""
+    labels = entity_labels if entity_labels is not None else _DEFAULT_ENTITY_LABELS
+    result = dict(_STRUCTURAL_CONSTRAINTS)
+    for label in labels:
+        result[label] = "entity_id"
+    return result
+
+
+# Module-level default for backward compatibility.
+ID_CONSTRAINTS: dict[str, str] = build_id_constraints()
 
 INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX document_report_year IF NOT EXISTS FOR (n:Document) ON (n.report_year)",
@@ -67,12 +80,18 @@ def build_constraint_statements() -> list[str]:
 
 
 SCHEMA_STATEMENTS: list[str] = build_constraint_statements() + INDEX_STATEMENTS
-CLAIM_ENTITY_RELATION_CYPHER = ", ".join(
+
+_DEFAULT_RELATION_CYPHER = ", ".join(
     f"'{relation}'" for relation in CLAIM_ENTITY_RELATION_PRECEDENCE
 )
+# Backward-compatible alias.
+CLAIM_ENTITY_RELATION_CYPHER = _DEFAULT_RELATION_CYPHER
 
 
-LATEST_VIEW_QUERY = """
+def build_latest_view_query(relation_cypher: str | None = None) -> str:
+    """Build the LATEST_VIEW_QUERY with parameterized relation types."""
+    rel_cypher = relation_cypher if relation_cypher is not None else _DEFAULT_RELATION_CYPHER
+    return """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
@@ -83,7 +102,7 @@ OPTIONAL MATCH (c)-[:HAS_MEASUREMENT]->(dm:Measurement)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (c)-[cer]->(e:Entity)
-WHERE type(cer) IN [""" + CLAIM_ENTITY_RELATION_CYPHER + """]
+WHERE type(cer) IN [""" + rel_cypher + """]
 WITH d, lr, c, p, obs,
      collect(DISTINCT om) + collect(DISTINCT dm) AS measurements,
      collect(DISTINCT e) AS entities,
@@ -94,6 +113,9 @@ RETURN d.doc_id AS doc_id, lr.run_id AS run_id, c.claim_id AS claim_id, c.claim_
        p.paragraph_id AS paragraph_id, obs.observation_id AS observation_id, obs.observation_type AS observation_type,
        measurements, entities, entity_links, species, years
 """
+
+
+LATEST_VIEW_QUERY = build_latest_view_query()
 
 
 AUDIT_VIEW_QUERY = """
@@ -551,14 +573,25 @@ RETURN d.report_year AS year, count(DISTINCT d) AS doc_count, count(c) AS claim_
 ORDER BY year
 """
 
-GAP_ENTITY_DEPTH_QUERY = """
+def build_gap_entity_depth_query(
+    relation_types: Iterable[str] | None = None,
+    entity_labels: Iterable[str] | None = None,
+) -> str:
+    """Build the GAP_ENTITY_DEPTH_QUERY with parameterized relation types and entity labels."""
+    if relation_types is None:
+        relation_types = ["SUBJECT_OF_CLAIM", "SPECIES_FOCUS", "HABITAT_FOCUS",
+                          "LOCATION_FOCUS", "MANAGEMENT_TARGET"]
+    if entity_labels is None:
+        entity_labels = ["Species", "Person", "Organization", "Habitat", "Activity"]
+    rel_list = ", ".join(f"'{r}'" for r in relation_types)
+    label_filter = " OR ".join(f"e:{label}" for label in entity_labels)
+    return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)
 WHERE d.institution_id = $institution_id AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
-  AND type(rel) IN ['SUBJECT_OF_CLAIM', 'SPECIES_FOCUS', 'HABITAT_FOCUS',
-                    'LOCATION_FOCUS', 'MANAGEMENT_TARGET']
-  AND (e:Species OR e:Person OR e:Organization OR e:Habitat OR e:Activity)
+  AND type(rel) IN [{rel_list}]
+  AND ({label_filter})
 WITH e, count(c) AS primary_claim_count,
      [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type
 WHERE primary_claim_count <= $thin_threshold
@@ -567,6 +600,9 @@ RETURN e.entity_id AS entity_id, e.name AS name, entity_type,
 ORDER BY primary_claim_count ASC, entity_type
 LIMIT $limit
 """
+
+
+GAP_ENTITY_DEPTH_QUERY = build_gap_entity_depth_query()
 
 GAP_GEOGRAPHIC_COVERAGE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)

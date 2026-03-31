@@ -1,313 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Turnbull GraphRAG</title>
-<style>
-:root {
-  --bg: #f0f2f5;
-  --header-bg: #1a1a2e;
-  --header-fg: #e5e7eb;
-  --panel-bg: #ffffff;
-  --bubble-user-bg: #2563eb;
-  --bubble-user-fg: #ffffff;
-  --bubble-ai-bg: #e8eaed;
-  --bubble-ai-fg: #1a1a1a;
-  --input-bg: #ffffff;
-  --border: #d1d5db;
-  --warning-bg: #fef3c7;
-  --warning-fg: #92400e;
-  --error-bg: #fee2e2;
-  --error-fg: #991b1b;
-  --badge-green: #16a34a;
-  --badge-amber: #d97706;
-  --badge-red: #dc2626;
-  --badge-fg: #ffffff;
-  --table-header: #f3f4f6;
-  --table-border: #e5e7eb;
-  --label: #6b7280;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111827;
-    --header-bg: #0f172a;
-    --header-fg: #e5e7eb;
-    --panel-bg: #1e293b;
-    --bubble-user-bg: #1d4ed8;
-    --bubble-user-fg: #ffffff;
-    --bubble-ai-bg: #1e293b;
-    --bubble-ai-fg: #e5e7eb;
-    --input-bg: #1e293b;
-    --border: #374151;
-    --warning-bg: #451a03;
-    --warning-fg: #fcd34d;
-    --error-bg: #450a0a;
-    --error-fg: #fca5a5;
-    --table-header: #0f172a;
-    --table-border: #374151;
-    --label: #9ca3af;
-  }
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { height: 100%; }
-body {
-  font-family: system-ui, -apple-system, sans-serif;
-  font-size: 14px;
-  background: var(--bg);
-  color: var(--bubble-ai-fg);
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
-}
+{% extends "gemynd_base.html" %}
+{% block title %}Gemynd - Query{% endblock %}
 
-/* ---- Header ---- */
-header {
-  background: var(--header-bg);
-  color: var(--header-fg);
-  padding: 0 1rem;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-header h1 { font-size: 1rem; font-weight: 600; letter-spacing: 0.02em; }
-#settings-toggle,
-#new-conv-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.25);
-  color: var(--header-fg);
-  border-radius: 6px;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: background 0.15s;
-}
-#settings-toggle:hover,
-#new-conv-btn:hover { background: rgba(255,255,255,0.1); }
-
-/* ---- Settings panel ---- */
-#settings-panel {
-  display: none;
-  background: var(--panel-bg);
-  border-bottom: 1px solid var(--border);
-  padding: 0.75rem 1rem;
-  flex-shrink: 0;
-}
-#settings-panel.open { display: block; }
-.settings-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-  align-items: flex-end;
-  max-width: 760px;
-  margin: 0 auto;
-}
-.settings-group { display: flex; flex-direction: column; gap: 4px; }
-.settings-group label { font-size: 12px; color: var(--label); font-weight: 500; }
-.settings-group input[type="text"],
-.settings-group input[type="number"] {
-  background: var(--input-bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 13px;
-  color: var(--bubble-ai-fg);
-  width: 100px;
-}
-.settings-group input[type="text"] { width: 200px; }
-.radio-row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
-.radio-row label { font-size: 13px; color: var(--bubble-ai-fg); display: flex; align-items: center; gap: 4px; cursor: pointer; }
-
-/* ---- Chat area ---- */
-#chat-area {
-  flex: 1;
-  overflow-y: auto;
-  padding: 1rem 1rem 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-.bubble-wrap {
-  display: flex;
-  max-width: 760px;
-  width: 100%;
-  margin: 0 auto;
-}
-.bubble-wrap.user { justify-content: flex-end; }
-.bubble {
-  padding: 0.65rem 0.9rem;
-  border-radius: 1rem;
-  max-width: 82%;
-  line-height: 1.55;
-  word-break: break-word;
-}
-.bubble.user {
-  background: var(--bubble-user-bg);
-  color: var(--bubble-user-fg);
-  border-bottom-right-radius: 4px;
-  white-space: pre-wrap;
-}
-.bubble.assistant {
-  background: var(--bubble-ai-bg);
-  color: var(--bubble-ai-fg);
-  border-bottom-left-radius: 4px;
-}
-.bubble.loading { opacity: 0.6; font-style: italic; }
-.bubble.error { background: var(--error-bg); color: var(--error-fg); }
-
-/* ---- Response internals ---- */
-.answer { margin-bottom: 0.5rem; white-space: pre-wrap; }
-.meta-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 0.35rem 0; }
-.badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--badge-fg);
-}
-.badge-green { background: var(--badge-green); }
-.badge-amber { background: var(--badge-amber); }
-.badge-red { background: var(--badge-red); }
-.mode-tag {
-  font-size: 11px;
-  padding: 2px 6px;
-  border-radius: 4px;
-  background: rgba(0,0,0,0.12);
-  color: inherit;
-  opacity: 0.8;
-}
-.warning {
-  background: var(--warning-bg);
-  color: var(--warning-fg);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-size: 13px;
-  margin: 0.35rem 0;
-}
-.caveats { margin: 0.35rem 0; font-size: 13px; }
-.caveats ul { margin: 0.25rem 0 0 1.25rem; }
-.caveats li { margin-bottom: 2px; }
-details { margin: 0.35rem 0; font-size: 13px; }
-summary { cursor: pointer; user-select: none; color: var(--label); font-size: 12px; }
-summary:hover { opacity: 0.8; }
-.table-wrap { overflow-x: auto; margin-top: 0.4rem; }
-table { border-collapse: collapse; width: 100%; font-size: 12px; }
-th { background: var(--table-header); padding: 4px 8px; text-align: left; border: 1px solid var(--table-border); font-weight: 600; }
-td { padding: 4px 8px; border: 1px solid var(--table-border); }
-.claim-ids { font-family: monospace; font-size: 12px; margin-top: 0.25rem; opacity: 0.85; }
-.coverage { font-size: 11px; color: var(--label); margin-top: 0.4rem; border-top: 1px solid var(--border); padding-top: 0.3rem; }
-.sources-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; }
-.sources-table th, .sources-table td { padding: 3px 8px; border: 1px solid var(--table-border); text-align: left; }
-.sources-table th { background: var(--table-header); font-weight: 600; }
-.src-id { font-family: monospace; font-size: 11px; }
-.src-label { font-size: 11px; background: var(--table-header); border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
-
-/* ---- Input bar ---- */
-#input-bar {
-  display: flex;
-  align-items: flex-end;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-top: 1px solid var(--border);
-  background: var(--panel-bg);
-  flex-shrink: 0;
-}
-#input-bar > div { max-width: 760px; width: 100%; margin: 0 auto; display: flex; gap: 0.5rem; align-items: flex-end; }
-#user-input {
-  flex: 1;
-  resize: none;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-family: inherit;
-  line-height: 1.4;
-  background: var(--input-bg);
-  color: var(--bubble-ai-fg);
-  max-height: 140px;
-  overflow-y: auto;
-}
-#user-input:focus { outline: none; border-color: var(--bubble-user-bg); }
-#send-btn {
-  flex-shrink: 0;
-  background: var(--bubble-user-bg);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-  height: 38px;
-  transition: opacity 0.15s;
-}
-#send-btn:disabled { opacity: 0.45; cursor: not-allowed; }
-#send-btn:not(:disabled):hover { opacity: 0.85; }
-.note-btn { font-size:11px; padding:2px 7px; border-radius:4px; background:transparent;
-            border:1px solid var(--border); color:var(--label); cursor:pointer; }
-.note-btn:hover { background:var(--table-header); }
-.notes-panel { margin-top:6px; padding:8px 10px; background:var(--warning-bg);
-               border-radius:6px; font-size:12px; }
-.notes-panel form { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
-.notes-panel textarea { flex:1; min-width:160px; font-size:12px; font-family:inherit;
-  border:1px solid var(--border); border-radius:4px; padding:4px 6px;
-  background:var(--input-bg); color:var(--bubble-ai-fg); resize:vertical; min-height:48px; }
-.notes-panel button[type=submit] { align-self:flex-end; padding:4px 12px; font-size:12px;
-  border:none; border-radius:4px; background:var(--bubble-user-bg); color:#fff; cursor:pointer; }
-</style>
+{% block head %}
 <script src="https://unpkg.com/htmx.org@1.9.12" crossorigin="anonymous"></script>
-</head>
-<body>
+{% endblock %}
 
-<header>
-  <h1>Turnbull GraphRAG</h1>
-  <div style="display:flex;gap:0.5rem;align-items:center;">
-    <a href="/stats" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128202; Collection Stats</a>
-    <a href="/gaps" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128270; Gap Analysis</a>
-    <a href="/map" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128101; Relationship Map</a>
-    <a href="/history" style="color:var(--header-fg);font-size:13px;text-decoration:none;border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:4px 10px;white-space:nowrap;">&#128203; History</a>
-    <button id="new-conv-btn">&#10011; New Conversation</button>
-    <button id="settings-toggle">&#9881; Settings</button>
-  </div>
-</header>
+{% set active_page = 'chat' %}
+{% block sidebar_nav %}
+{% include "fragments/sidebar_nav.html" %}
+{% endblock %}
 
-<div id="settings-panel">
-  <div class="settings-row">
-    <div class="settings-group">
-      <label>Mode</label>
-      <div class="radio-row">
-        <label><input type="radio" name="mode" value="auto" checked> Auto</label>
-        <label><input type="radio" name="mode" value="conversational"> Conversational</label>
-        <label><input type="radio" name="mode" value="analytical"> Analytical</label>
+{% block main %}
+<div class="chat-page">
+  <div id="settings-panel" class="settings-panel">
+    <div class="settings-row">
+      <div class="settings-group">
+        <label>Mode</label>
+        <div class="radio-row">
+          <label><input type="radio" name="mode" value="auto" checked> Auto</label>
+          <label><input type="radio" name="mode" value="conversational"> Conversational</label>
+          <label><input type="radio" name="mode" value="analytical"> Analytical</label>
+        </div>
+      </div>
+      <div class="settings-group">
+        <label>Year min</label>
+        <input type="number" id="year-min" placeholder="e.g. 1940" min="1900" max="2100">
+      </div>
+      <div class="settings-group">
+        <label>Year max</label>
+        <input type="number" id="year-max" placeholder="e.g. 1960" min="1900" max="2100">
+      </div>
+      <div class="settings-group">
+        <label>Entity hints (comma-separated)</label>
+        <input type="text" id="entity-hints" placeholder="mallard, pintail">
       </div>
     </div>
-    <div class="settings-group">
-      <label>Year min</label>
-      <input type="number" id="year-min" placeholder="e.g. 1940" min="1900" max="2100">
+  </div>
+
+  <div class="chat-scroll" id="chat-area"></div>
+
+  <div class="chat-input-bar">
+    <div class="chat-input-inner">
+      <textarea id="user-input" class="chat-input" rows="1" placeholder="Ask about the collection..."></textarea>
+      <button id="send-btn" class="chat-send">Send</button>
     </div>
-    <div class="settings-group">
-      <label>Year max</label>
-      <input type="number" id="year-max" placeholder="e.g. 1960" min="1900" max="2100">
-    </div>
-    <div class="settings-group">
-      <label>Entity hints (comma-separated)</label>
-      <input type="text" id="entity-hints" placeholder="mallard, pintail">
+    <div style="max-width:700px;margin:6px auto 0;display:flex;gap:8px">
+      <button id="settings-toggle" class="btn-sm btn-reject" style="font-size:11px;padding:3px 10px">Settings</button>
+      <button id="new-conv-btn" class="btn-sm btn-reject" style="font-size:11px;padding:3px 10px">New conversation</button>
     </div>
   </div>
 </div>
+{% endblock %}
 
-<div id="chat-area"></div>
-
-<div id="input-bar">
-  <div>
-    <textarea id="user-input" rows="1" placeholder="Ask about the Turnbull refuge archive&#8230;"></textarea>
-    <button id="send-btn">Send &#9654;</button>
-  </div>
-</div>
-
+{% block scripts %}
 <script>
 var conversationHistory = [];
 var HISTORY_LIMIT = 10;
@@ -333,21 +78,21 @@ function cellValue(v) {
 
 function confidenceBadge(conf) {
   if (conf === null || conf === undefined) return '';
-  const pct = Math.round(conf * 100);
-  const cls = conf >= 0.8 ? 'green' : conf >= 0.6 ? 'amber' : 'red';
+  var pct = Math.round(conf * 100);
+  var cls = conf >= 0.8 ? 'warm' : conf >= 0.6 ? 'amber' : 'red';
   return '<span class="badge badge-' + cls + '">' + pct + '% confidence</span>';
 }
 
 function formatTable(ar) {
   if (!ar || !ar.rows || ar.rows.length === 0) return '';
-  const cols = ar.columns;
-  const headers = cols.map(function(c) { return '<th>' + esc(c) + '</th>'; }).join('');
-  const rows = ar.rows.map(function(r) {
+  var cols = ar.columns;
+  var headers = cols.map(function(c) { return '<th>' + esc(c) + '</th>'; }).join('');
+  var rows = ar.rows.map(function(r) {
     var cells = cols.map(function(c) { return '<td>' + esc(cellValue(r[c])) + '</td>'; }).join('');
     return '<tr>' + cells + '</tr>';
   }).join('');
   return '<details class="analytical-details"><summary>Analytical result \u2014 ' + esc(ar.query_name) + ' (' + ar.rows.length + ' rows)</summary>'
-    + '<div class="table-wrap"><table><thead><tr>' + headers + '</tr></thead><tbody>' + rows + '</tbody></table></div></details>';
+    + '<div class="table-wrap"><table class="mini-table"><thead><tr>' + headers + '</tr></thead><tbody>' + rows + '</tbody></table></div></details>';
 }
 
 function formatResponse(data) {
@@ -387,7 +132,6 @@ function formatResponse(data) {
       + '<p class="claim-ids">' + data.supporting_claim_ids.map(esc).join(', ') + '</p></details>';
   }
 
-  // Archivist note buttons — one per unique cited document (archivist/admin role only).
   if (data.user_can_annotate && data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
     var seenDocs = {};
     data.supporting_claims_detail.forEach(function(c) {
@@ -430,9 +174,11 @@ function formatResponse(data) {
 function appendBubble(role, htmlContent) {
   var chat = document.getElementById('chat-area');
   var wrap = document.createElement('div');
-  wrap.className = 'bubble-wrap ' + role;
+  wrap.className = 'msg msg-' + (role === 'user' ? 'user' : 'ai');
   var bubble = document.createElement('div');
-  bubble.className = 'bubble ' + role;
+  bubble.className = 'bubble';
+  if (role === 'assistant loading') { bubble.classList.add('loading'); }
+  if (role === 'assistant error' || role === 'error') { bubble.classList.add('error'); }
   bubble.innerHTML = htmlContent;
   wrap.appendChild(bubble);
   chat.appendChild(wrap);
@@ -464,7 +210,6 @@ async function sendMessage() {
   document.getElementById('send-btn').disabled = true;
 
   var loadingWrap = appendBubble('assistant loading', '<em>Thinking\u2026</em>');
-  loadingWrap.querySelector('.bubble').className = 'bubble assistant loading';
 
   try {
     var resp = await fetch('/query', {
@@ -476,11 +221,11 @@ async function sendMessage() {
     if (!resp.ok) {
       var detail = resp.statusText;
       try { detail = (await resp.json()).detail || detail; } catch(e) {}
-      bubble.className = 'bubble assistant error';
+      bubble.className = 'bubble error';
       bubble.innerHTML = esc('Error ' + resp.status + ': ' + detail);
     } else {
       var data = await resp.json();
-      bubble.className = 'bubble assistant';
+      bubble.className = 'bubble';
       bubble.innerHTML = formatResponse(data);
       conversationHistory.push({role: 'user', content: text});
       conversationHistory.push({role: 'assistant', content: data.answer});
@@ -490,7 +235,7 @@ async function sendMessage() {
     }
   } catch(err) {
     var bubble2 = loadingWrap.querySelector('.bubble');
-    bubble2.className = 'bubble assistant error';
+    bubble2.className = 'bubble error';
     bubble2.innerHTML = esc('Network error: ' + err.message);
   }
 
@@ -517,22 +262,19 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('new-conv-btn').addEventListener('click', function() {
     conversationHistory = [];
     currentSessionId = generateSessionId();
-    console.log('[GraphRAG] New session:', currentSessionId);
     document.getElementById('chat-area').innerHTML = '';
     appendBubble('assistant',
-      '<p>New conversation started. Ask me anything about the Turnbull National Wildlife Refuge archive.</p>'
+      '<p>New conversation started. Ask me anything about the archive.</p>'
     );
   });
 
   document.getElementById('send-btn').addEventListener('click', sendMessage);
 
   appendBubble('assistant',
-    '<p>Hello! Ask me anything about the Turnbull National Wildlife Refuge archive. '
-    + 'Use <strong>\u2699 Settings</strong> to adjust mode, year range, or entity hints. '
-    + '<em>Shift+Enter</em> for a new line.</p>'
+    '<p>Welcome to the archive explorer. I can answer questions about species populations, management activities, habitat conditions, and more.</p>'
+    + '<p>Use <strong>Settings</strong> to adjust mode, year range, or entity hints. <em>Shift+Enter</em> for a new line.</p>'
   );
 
-  // Auto-submit if ?q= URL param is present (e.g., "Re-run" from the history page).
   var _urlQ = new URLSearchParams(window.location.search).get('q');
   if (_urlQ) {
     ta.value = _urlQ;
@@ -542,5 +284,4 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-</body>
-</html>
+{% endblock %}

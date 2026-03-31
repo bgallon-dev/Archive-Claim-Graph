@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from graphrag_pipeline.ingest.checkpoint import CHECKPOINT_FILENAME
 from graphrag_pipeline.shared.io_utils import load_semantic_bundle
 from graphrag_pipeline.ingest.pipeline import run_e2e
 
@@ -100,3 +101,15 @@ def test_e2e_on_three_reports(fixtures_dir: Path, tmp_path: Path) -> None:
         assert "observations_have_evidence" in quality["quality_gates"]
         assert "claim_link_diagnostic_counts" in quality
         assert quality["typed_claim_entity_link_share"] >= 0.0
+
+
+def test_e2e_single_worker_checkpoint_resume(fixtures_dir: Path, tmp_path: Path) -> None:
+    """Single-worker interleaved path skips extraction for checkpointed docs."""
+    inputs = [str(fixtures_dir / "report1.json")]
+    summary1 = run_e2e(inputs, tmp_path, backend="memory")
+    assert summary1["documents_processed"] == 1
+    assert (tmp_path / CHECKPOINT_FILENAME).exists()
+
+    # Re-run: checkpoint exists → doc fully skipped (no re-extraction).
+    summary2 = run_e2e(inputs, tmp_path, backend="memory")
+    assert summary2["documents_processed"] == 0

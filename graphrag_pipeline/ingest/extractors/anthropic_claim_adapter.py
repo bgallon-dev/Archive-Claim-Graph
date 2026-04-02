@@ -111,6 +111,7 @@ class AnthropicClaimAdapter:
         max_tokens: int = 2048,
         timeout: float = 60.0,
         config: "DomainConfig | None" = None,
+        token_logger: Any | None = None,
     ) -> None:
         if _anthropic_pkg is None:
             raise RuntimeError(
@@ -127,7 +128,12 @@ class AnthropicClaimAdapter:
                 "No Anthropic API key found. Set Anthropic_API_Key or "
                 "ANTHROPIC_API_KEY in your environment."
             )
-        self._client = _anthropic_pkg.Anthropic(api_key=resolved_key)
+        _raw_client = _anthropic_pkg.Anthropic(api_key=resolved_key)
+        if token_logger is not None:
+            from graphrag_pipeline.shared.token_tracker import MeteredAnthropicClient
+            self._client = MeteredAnthropicClient(_raw_client, token_logger, caller="claim_extraction")
+        else:
+            self._client = _raw_client
         self._model = (
             model
             or os.environ.get("CLAIM_EXTRACTION_MODEL")
@@ -188,6 +194,7 @@ def try_create_anthropic_adapter(
     *,
     cache_path: str | None = None,
     disable_cache: bool = False,
+    token_logger: Any | None = None,
 ) -> Any:
     """Attempt to create an AnthropicClaimAdapter; fall back to NullLLMAdapter.
 
@@ -206,7 +213,7 @@ def try_create_anthropic_adapter(
         _log.debug("No Anthropic API key found — using NullLLMAdapter for claim LLM path")
         return NullLLMAdapter()
     try:
-        adapter = AnthropicClaimAdapter(api_key=api_key, config=config)
+        adapter = AnthropicClaimAdapter(api_key=api_key, config=config, token_logger=token_logger)
     except Exception as exc:
         _log.warning("Failed to create AnthropicClaimAdapter: %s — falling back to NullLLMAdapter", exc)
         return NullLLMAdapter()
@@ -227,6 +234,7 @@ def try_create_anthropic_adapter(
             cache_path=resolved_path,
             model=adapter._model,
             system_prompt_hash=prompt_hash,
+            token_logger=token_logger,
         )
         _log.info("LLM claim extraction cache enabled at %s", resolved_path)
 

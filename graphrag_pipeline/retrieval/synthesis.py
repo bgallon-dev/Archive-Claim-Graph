@@ -129,13 +129,19 @@ class SynthesisEngine:
         max_tokens: int = 4096,
         synthesis_context: str | None = None,
         timeout: float | None = None,
+        token_logger: Any | None = None,
     ) -> None:
         if _anthropic_pkg is None:  # pragma: no cover - optional dependency
             raise RuntimeError(
                 "anthropic package is not installed. Install with: pip install -e .[retrieval]"
             )
         resolved_key = api_key or os.environ.get("Anthropic_API_Key") or os.environ.get("ANTHROPIC_API_KEY")
-        self._client = _anthropic_pkg.Anthropic(api_key=resolved_key)
+        _raw_client = _anthropic_pkg.Anthropic(api_key=resolved_key)
+        if token_logger is not None:
+            from graphrag_pipeline.shared.token_tracker import MeteredAnthropicClient
+            self._client = MeteredAnthropicClient(_raw_client, token_logger, caller="synthesis")
+        else:
+            self._client = _raw_client
         self._max_tokens = max_tokens
         self._system_prompt = _build_system_prompt(synthesis_context or _DEFAULT_SYNTHESIS_CONTEXT)
         self._timeout = timeout if timeout is not None else float(

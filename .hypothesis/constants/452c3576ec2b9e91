@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\review\detectors\sensitivity_monitor.py
+# hypothesis_version: 6.151.9
+
+[0.7, 0.85, 0.9, 0.92, 100, 2000, 'Person', 'address', 'all_patterns', 'ap_living_person', 'ap_pii_exposure', 'category', 'claim', 'claim_id', 'date_of_birth', 'email', 'enabled', 'flagged_claim', 'high', 'living_person', 'matched_pattern', 'matched_term', 'medium', 'most_recent_year', 'nations', 'paragraph_context', 'patterns', 'person_names', 'phone', 'pii_detection', 'pii_exposure', 'quarantine_claim', 'redacted_sentence', 'resources', 'sensitivity', 'sensitivity_monitor', 'source_sentence', 'ssn', 'summary', 'terms', 'utf-8', 'v1', 'version', 'vocabulary_file', 'year_threshold']

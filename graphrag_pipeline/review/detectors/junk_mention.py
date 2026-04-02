@@ -136,6 +136,8 @@ def detect(
             "page_number": paragraph.page_number if paragraph else None,
             "image_ref": page.image_ref if page else None,
             "source_file": structure.document.source_file,
+            "paragraph_raw_ocr_text": (paragraph.raw_ocr_text or "")[:2000] if paragraph else "",
+            "paragraph_clean_text": (paragraph.clean_text or "")[:2000] if paragraph else "",
         }
 
         page_paras = paragraphs_by_page.get(paragraph.page_id, [])

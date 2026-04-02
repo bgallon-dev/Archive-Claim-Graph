@@ -16,22 +16,86 @@
 <p style="font-size:13px;margin-bottom:1.5rem">{{ description | safe }}</p>
 {% endif %}
 
+{% if source_comparison %}
+<p class="section-heading">Source comparison</p>
+{% include "fragments/_source_comparison.html" %}
+{% endif %}
+
 <p class="section-heading">Actions</p>
 <div id="action-result"></div>
-<div style="display:flex;gap:6px;margin-bottom:1.5rem">
-  <button hx-post="/review/proposals/{{ proposal_id }}/accept"
-          hx-target="#action-result" hx-swap="innerHTML"
-          {% if not is_active %}disabled{% endif %}
-          class="btn-sm btn-accept">Accept</button>
-  <button hx-post="/review/proposals/{{ proposal_id }}/reject"
-          hx-target="#action-result" hx-swap="innerHTML"
-          {% if not is_active %}disabled{% endif %}
-          class="btn-sm btn-reject">Reject</button>
+<div style="display:flex;gap:6px;align-items:flex-start;margin-bottom:1.5rem;flex-wrap:wrap">
+
+  {# -- Accept with optional classification -- #}
+  <details {% if not is_active %}style="pointer-events:none;opacity:0.5"{% endif %}>
+    <summary class="btn-sm btn-accept" style="cursor:pointer">Accept</summary>
+    <div class="classification-form">
+      <form hx-post="/review/proposals/{{ proposal_id }}/accept" hx-target="#action-result" hx-swap="innerHTML">
+        <label>Error classification (optional)</label>
+        <select name="error_root_cause"
+                hx-get="/review/error-types-options"
+                hx-trigger="change"
+                hx-target="#accept-error-types"
+                hx-swap="innerHTML"
+                hx-include="this">
+          <option value="">-- none --</option>
+          {% for rc in error_root_causes %}
+          <option value="{{ rc }}"{% if rc == default_root_cause %} selected{% endif %}>{{ error_root_cause_labels.get(rc, rc) }}</option>
+          {% endfor %}
+        </select>
+        <select name="error_type" id="accept-error-types">
+          <option value="">-- select root cause first --</option>
+          {% for et in default_error_types %}
+          <option value="{{ et }}">{{ error_type_labels.get(et, et) }}</option>
+          {% endfor %}
+        </select>
+        <label>Note (optional)</label>
+        <textarea name="reviewer_note" placeholder="Optional note…"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn-sm btn-accept">Confirm accept</button>
+        </div>
+      </form>
+    </div>
+  </details>
+
+  {# -- Reject with required classification -- #}
+  <details {% if not is_active %}style="pointer-events:none;opacity:0.5"{% endif %}>
+    <summary class="btn-sm btn-reject" style="cursor:pointer">Reject</summary>
+    <div class="classification-form">
+      <form hx-post="/review/proposals/{{ proposal_id }}/reject" hx-target="#action-result" hx-swap="innerHTML">
+        <label>Error classification <strong>(required)</strong></label>
+        <select name="error_root_cause" required
+                hx-get="/review/error-types-options"
+                hx-trigger="change"
+                hx-target="#reject-error-types"
+                hx-swap="innerHTML"
+                hx-include="this">
+          <option value="">-- select root cause --</option>
+          {% for rc in error_root_causes %}
+          <option value="{{ rc }}"{% if rc == default_root_cause %} selected{% endif %}>{{ error_root_cause_labels.get(rc, rc) }}</option>
+          {% endfor %}
+        </select>
+        <select name="error_type" id="reject-error-types" required>
+          <option value="">-- select root cause first --</option>
+          {% for et in default_error_types %}
+          <option value="{{ et }}">{{ error_type_labels.get(et, et) }}</option>
+          {% endfor %}
+        </select>
+        <label>Note (optional)</label>
+        <textarea name="reviewer_note" placeholder="Why is this being rejected…"></textarea>
+        <div class="form-actions">
+          <button type="submit" class="btn-sm btn-reject">Confirm reject</button>
+        </div>
+      </form>
+    </div>
+  </details>
+
+  {# -- Defer (simple, no classification) -- #}
   <button hx-post="/review/proposals/{{ proposal_id }}/defer"
           hx-target="#action-result" hx-swap="innerHTML"
           {% if not is_active %}disabled{% endif %}
           class="btn-sm btn-defer">Defer</button>
-  <a href="/review" class="action-link" style="margin-left:8px;font-size:12px">&larr; Back to queue</a>
+
+  <a href="/review" class="action-link" style="margin-left:8px;font-size:12px;align-self:center">&larr; Back to queue</a>
 </div>
 
 <p class="section-heading">Targets</p>
@@ -78,12 +142,13 @@
 
 <p class="section-heading">Correction events</p>
 <table class="mini-table">
-  <thead><tr><th>Action</th><th>Reviewer</th><th>Note</th><th>At</th></tr></thead>
+  <thead><tr><th>Action</th><th>Reviewer</th><th>Error class</th><th>Note</th><th>At</th></tr></thead>
   <tbody>
     {% for e in events %}
     <tr>
       <td>{{ e.action }}</td>
       <td>{{ e.reviewer }}</td>
+      <td>{% if e.error_root_cause %}<span class="badge badge-warm">{{ e.error_root_cause }}</span>{% if e.error_type %} / {{ e.error_type }}{% endif %}{% else %}&mdash;{% endif %}</td>
       <td>{{ e.reviewer_note }}</td>
       <td>{{ e.created_at[:19] }}</td>
     </tr>

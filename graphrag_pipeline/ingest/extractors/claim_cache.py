@@ -42,8 +42,10 @@ class CachedClaimAdapter:
         cache_path: Path | str | None = None,
         model: str = "",
         system_prompt_hash: str = "",
+        token_logger: Any | None = None,
     ) -> None:
         self._inner = inner
+        self._token_logger = token_logger
         self._model = model
         self._prompt_hash = system_prompt_hash
         resolved = Path(
@@ -71,6 +73,9 @@ class CachedClaimAdapter:
         if row is not None:
             self._hits += 1
             _log.debug("Cache hit for paragraph (key=%s…)", key[:12])
+            if self._token_logger is not None:
+                from graphrag_pipeline.shared.token_tracker import log_cache_hit
+                log_cache_hit(self._token_logger, model=self._model)
             return json.loads(row[0])
 
         self._misses += 1

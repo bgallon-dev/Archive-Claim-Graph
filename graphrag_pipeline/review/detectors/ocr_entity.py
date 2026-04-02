@@ -71,6 +71,42 @@ def _is_ocr_variant(a: str, b: str) -> bool:
     return normalized_a == normalized_b
 
 
+def _collect_context_paragraphs(
+    entity_ids: list[str],
+    entity_to_mentions: dict[str, list[MentionRecord]],
+    paragraphs_by_id: dict[str, Any],
+    max_paragraphs: int = 3,
+) -> list[dict[str, Any]]:
+    """Collect up to *max_paragraphs* paragraph contexts where the given entities appear."""
+    seen_para_ids: set[str] = set()
+    contexts: list[dict[str, Any]] = []
+    for eid in entity_ids:
+        for mention in entity_to_mentions.get(eid, []):
+            pid = mention.paragraph_id
+            if pid in seen_para_ids:
+                continue
+            para = paragraphs_by_id.get(pid)
+            if not para:
+                continue
+            seen_para_ids.add(pid)
+            # Collect all surface forms for this paragraph across the given entities
+            surface_forms = sorted({
+                m.surface_form
+                for eid2 in entity_ids
+                for m in entity_to_mentions.get(eid2, [])
+                if m.paragraph_id == pid
+            })
+            contexts.append({
+                "paragraph_id": pid,
+                "raw_ocr_text": (para.raw_ocr_text or "")[:2000],
+                "clean_text": (para.clean_text or "")[:2000],
+                "mention_surface_forms": surface_forms,
+            })
+            if len(contexts) >= max_paragraphs:
+                return contexts
+    return contexts
+
+
 def detect(
     structure: StructureBundle,
     semantic: SemanticBundle,
@@ -84,6 +120,15 @@ def detect(
     mention_counts: dict[str, int] = defaultdict(int)
     for resolution in semantic.entity_resolutions:
         mention_counts[resolution.entity_id] += 1
+
+    # Build entity → mention → paragraph lookup for context paragraphs
+    paragraphs_by_id = {p.paragraph_id: p for p in structure.paragraphs}
+    mentions_by_id = {m.mention_id: m for m in semantic.mentions}
+    entity_to_mentions: dict[str, list[MentionRecord]] = defaultdict(list)
+    for resolution in semantic.entity_resolutions:
+        mention = mentions_by_id.get(resolution.mention_id)
+        if mention:
+            entity_to_mentions[resolution.entity_id].append(mention)
 
     groups = _group_similar_entities(semantic.entities)
     proposals: list[DetectorProposal] = []
@@ -137,6 +182,10 @@ def detect(
                 "alias_mention_count": mention_counts.get(other.entity_id, 0),
                 "similarity_score": _entity_similarity(canonical.normalized_form, other.normalized_form),
                 "source_file": structure.document.source_file,
+                "context_paragraphs": _collect_context_paragraphs(
+                    [canonical.entity_id, other.entity_id],
+                    entity_to_mentions, paragraphs_by_id,
+                ),
             }
             proposals.append(DetectorProposal(
                 anti_pattern_id="ap_duplicate_alias",
@@ -194,6 +243,10 @@ def detect(
                 "average_similarity": avg_sim,
                 "is_ocr_variant": all_ocr,
                 "source_file": structure.document.source_file,
+                "context_paragraphs": _collect_context_paragraphs(
+                    [canonical.entity_id] + [e.entity_id for e in others],
+                    entity_to_mentions, paragraphs_by_id,
+                ),
             }
             proposals.append(DetectorProposal(
                 anti_pattern_id="ap_ocr_spelling",

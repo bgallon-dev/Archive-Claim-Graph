@@ -42,6 +42,8 @@ def accept_proposal(
     proposal_id: str,
     reviewer: str,
     reviewer_note: str = "",
+    error_root_cause: str = "",
+    error_type: str = "",
 ) -> CorrectionEvent:
     """Transition a queued/deferred proposal to accepted_pending_apply."""
     proposal = store.get_proposal(proposal_id)
@@ -58,6 +60,8 @@ def accept_proposal(
         action="accept",
         reviewer=reviewer,
         reviewer_note=reviewer_note,
+        error_root_cause=error_root_cause,
+        error_type=error_type,
         created_at=now,
     )
     store.update_proposal_status(proposal_id, "accepted_pending_apply")
@@ -70,6 +74,8 @@ def reject_proposal(
     proposal_id: str,
     reviewer: str,
     reviewer_note: str = "",
+    error_root_cause: str = "",
+    error_type: str = "",
 ) -> CorrectionEvent:
     """Transition a queued/deferred proposal to rejected."""
     proposal = store.get_proposal(proposal_id)
@@ -86,6 +92,8 @@ def reject_proposal(
         action="reject",
         reviewer=reviewer,
         reviewer_note=reviewer_note,
+        error_root_cause=error_root_cause,
+        error_type=error_type,
         created_at=now,
     )
     store.update_proposal_status(proposal_id, "rejected")
@@ -98,6 +106,8 @@ def defer_proposal(
     proposal_id: str,
     reviewer: str,
     reviewer_note: str = "",
+    error_root_cause: str = "",
+    error_type: str = "",
 ) -> CorrectionEvent:
     """Set a queued proposal to deferred status."""
     proposal = store.get_proposal(proposal_id)
@@ -117,6 +127,8 @@ def defer_proposal(
         action="defer",
         reviewer=reviewer,
         reviewer_note=reviewer_note,
+        error_root_cause=error_root_cause,
+        error_type=error_type,
         created_at=now,
     )
     store.update_proposal_status(proposal_id, "deferred")

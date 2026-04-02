@@ -27,7 +27,7 @@ import re
 import sqlite3 as _sqlite3
 import statistics as _statistics
 from contextlib import asynccontextmanager
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Literal
 
@@ -570,11 +570,20 @@ def create_app(
         if domain_dir:
             from ...shared.resource_loader import load_domain_profile
             synthesis_ctx = load_domain_profile(Path(domain_dir)).get("synthesis_context")
+        # Token usage tracker
+        from graphrag_pipeline.shared.token_tracker import TokenUsageLogger, TokenUsageStore, load_pricing
+        _token_pricing = load_pricing()
+        _token_db = Path(os.environ.get("TOKEN_USAGE_DB", "data/token_usage.db"))
+        _token_logger = TokenUsageLogger(_token_db, _token_pricing)
+        state["token_logger"] = _token_logger
+        state["token_store"] = TokenUsageStore(_token_db)
+
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,
             max_tokens=max_tokens,
             synthesis_context=synthesis_ctx,
             timeout=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
+            token_logger=_token_logger,
         )
         conv_log_path = Path(os.environ.get("CONV_LOG_DB", "data/conversation_log.db"))
         state["conv_logger"] = ConversationLogger(conv_log_path)
@@ -628,6 +637,8 @@ def create_app(
             state["annotation_store"].close()
         if state.get("history_store"):
             state["history_store"].close()
+        if state.get("token_store"):
+            state["token_store"].close()
 
     app = FastAPI(
         title="Turnbull GraphRAG Retrieval API",
@@ -928,6 +939,7 @@ def create_app(
         claims_detail = [
             {
                 "claim_id": cid,
+                "source_sentence": blocks_by_id[cid].source_sentence if cid in blocks_by_id else "",
                 "confidence": blocks_by_id[cid].extraction_confidence if cid in blocks_by_id else None,
                 "epistemic_status": blocks_by_id[cid].epistemic_status if cid in blocks_by_id else "unknown",
                 "claim_type": blocks_by_id[cid].claim_type if cid in blocks_by_id else "",
@@ -1292,6 +1304,44 @@ def create_app(
         return store.get_saved_searches(created_by=user.identity)
 
     # ------------------------------------------------------------------
+    # GET /api/token-stats  — admin: current-period token usage summary
+    # ------------------------------------------------------------------
+    @app.get("/api/token-stats")
+    def api_token_stats(
+        user: UserContext = Depends(require_admin),
+    ) -> dict[str, Any]:
+        from graphrag_pipeline.shared.token_tracker import TokenUsageStore
+        store: TokenUsageStore | None = state.get("token_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="Token usage tracking not configured.")
+        inst = user.institution_id
+        return {
+            "today": store.today_summary(inst),
+            "this_month": store.month_summary(inst),
+            "budget_status": store.budget_status(inst),
+        }
+
+    # ------------------------------------------------------------------
+    # GET /api/token-stats/history  — admin: daily aggregates for date range
+    # ------------------------------------------------------------------
+    @app.get("/api/token-stats/history")
+    def api_token_stats_history(
+        start: str = Query(default="", alias="from"),
+        end: str = Query(default="", alias="to"),
+        caller: str = Query(default=""),
+        user: UserContext = Depends(require_admin),
+    ) -> list[dict[str, Any]]:
+        from graphrag_pipeline.shared.token_tracker import TokenUsageStore
+        store: TokenUsageStore | None = state.get("token_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="Token usage tracking not configured.")
+        if not start:
+            start = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
+        if not end:
+            end = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+        return store.history(start, end, caller=caller, institution_id=user.institution_id)
+
+    # ------------------------------------------------------------------
     # DELETE /document/{doc_id}  — admin: soft-delete a document
     # ------------------------------------------------------------------
     @app.delete("/document/{doc_id}")
@@ -1397,6 +1447,245 @@ def create_app(
         "junk_mention": "Junk mention",
         "builder_repair": "Builder repair",
     }
+
+    _JUNK_CLASSES = {
+        "header_contamination", "boilerplate_contamination",
+        "short_generic_token", "ocr_garbage_mention",
+    }
+
+    def _build_source_comparison_context(
+        issue_class: str, evidence: dict,
+    ) -> dict | None:
+        """Build source comparison context for the detail template.
+
+        Returns *None* when the evidence lacks the enriched fields needed to
+        render a meaningful comparison.
+        """
+        import html as _html
+        from graphrag_pipeline.review.web.diff_utils import char_diff_html, highlight_in_text
+
+        def esc(v: object) -> str:
+            return _html.escape(str(v))
+
+        # -- OCR spelling variant / duplicate alias: side-by-side char diff --
+        if issue_class == "ocr_spelling_variant":
+            canon = evidence.get("canonical_entity", {})
+            variants = evidence.get("merge_entities", [])
+            if not canon or not variants:
+                return None
+            # Build diff for each variant vs canonical
+            left_parts: list[str] = []
+            for v in variants[:5]:
+                v_html, c_html = char_diff_html(v.get("name", ""), canon.get("name", ""))
+                count = evidence.get("merge_mention_counts", {}).get(v.get("entity_id", ""), 0)
+                left_parts.append(
+                    f'<span class="source-entity-name">{v_html}</span>'
+                    f' <span style="font-size:11px;color:var(--text-secondary)">({count} mentions)</span>'
+                )
+            canon_count = evidence.get("canonical_mention_count", 0)
+            _, canon_html = char_diff_html(
+                variants[0].get("name", ""), canon.get("name", ""),
+            )
+            ctx_paras = []
+            for cp in evidence.get("context_paragraphs", [])[:3]:
+                para_text = cp.get("clean_text") or cp.get("raw_ocr_text", "")
+                # Highlight all mention surface forms
+                marked = esc(para_text)
+                for sf in cp.get("mention_surface_forms", []):
+                    marked = highlight_in_text(para_text, sf)
+                    para_text = para_text  # re-highlight each time from raw
+                ctx_paras.append({"label": f"Paragraph {cp.get('paragraph_id', '')[:12]}…", "html": marked})
+
+            return {
+                "comparison_type": "side_by_side",
+                "left_label": "Variant(s)",
+                "left_html": "<br>".join(left_parts),
+                "right_label": "Canonical",
+                "right_html": (
+                    f'<span class="source-entity-name">{canon_html}</span>'
+                    f' <span style="font-size:11px;color:var(--text-secondary)">({canon_count} mentions)</span>'
+                ),
+                "context_paragraphs": ctx_paras,
+                "badges": [],
+            }
+
+        if issue_class == "duplicate_entity_alias":
+            canon = evidence.get("canonical_entity", {})
+            alias = evidence.get("alias_entity", {})
+            if not canon or not alias:
+                return None
+            a_html, c_html = char_diff_html(alias.get("name", ""), canon.get("name", ""))
+            ctx_paras = []
+            for cp in evidence.get("context_paragraphs", [])[:3]:
+                para_text = cp.get("clean_text") or cp.get("raw_ocr_text", "")
+                marked = para_text
+                for sf in cp.get("mention_surface_forms", []):
+                    marked = highlight_in_text(para_text, sf)
+                ctx_paras.append({"label": f"Paragraph {cp.get('paragraph_id', '')[:12]}…", "html": marked})
+            return {
+                "comparison_type": "side_by_side",
+                "left_label": "Alias",
+                "left_html": (
+                    f'<span class="source-entity-name">{a_html}</span>'
+                    f' <span style="font-size:11px;color:var(--text-secondary)">'
+                    f'({evidence.get("alias_mention_count", 0)} mentions)</span>'
+                ),
+                "right_label": "Canonical",
+                "right_html": (
+                    f'<span class="source-entity-name">{c_html}</span>'
+                    f' <span style="font-size:11px;color:var(--text-secondary)">'
+                    f'({evidence.get("canonical_mention_count", 0)} mentions)</span>'
+                ),
+                "context_paragraphs": ctx_paras,
+                "badges": [],
+            }
+
+        # -- Junk mention classes: show paragraph with mention highlighted --
+        if issue_class in _JUNK_CLASSES:
+            mentions = evidence.get("affected_mentions", [])
+            if not mentions:
+                return None
+            # Pick the first mention that has paragraph text
+            m = next(
+                (m for m in mentions if m.get("paragraph_clean_text") or m.get("paragraph_raw_ocr_text")),
+                mentions[0],
+            )
+            para_text = m.get("paragraph_clean_text") or m.get("paragraph_raw_ocr_text") or ""
+            if not para_text:
+                return None
+            sf = m.get("surface_form") or m.get("normalized_form") or ""
+            marked = highlight_in_text(para_text, sf)
+            label_map = {
+                "header_contamination": "Header / footer region",
+                "boilerplate_contamination": "Boilerplate text",
+                "short_generic_token": "Short generic token",
+                "ocr_garbage_mention": "OCR garbage",
+            }
+            return {
+                "comparison_type": "single_context",
+                "left_label": "Paragraph context",
+                "left_html": f'<pre>{marked}</pre>',
+                "right_label": "",
+                "right_html": "",
+                "context_paragraphs": [],
+                "badges": [{"cls": "badge-amber", "text": label_map.get(issue_class, issue_class)}],
+            }
+
+        # -- Builder repair: source sentence + proposed link --
+        if issue_class in ("missing_species_focus", "missing_event_location"):
+            sentence = evidence.get("source_sentence", "")
+            candidate = evidence.get("candidate_species") or evidence.get("candidate_location") or {}
+            if not sentence:
+                return None
+            entity_name = candidate.get("name", "")
+            relation = "SPECIES_FOCUS" if issue_class == "missing_species_focus" else "OCCURRED_AT"
+            left_html = highlight_in_text(sentence, entity_name) if entity_name else esc(sentence)
+            para_text = evidence.get("paragraph_clean_text") or evidence.get("paragraph_raw_ocr_text") or ""
+            ctx_paras = []
+            if para_text:
+                ctx_paras.append({
+                    "label": "Full paragraph",
+                    "html": highlight_in_text(para_text, entity_name) if entity_name else esc(para_text),
+                })
+            return {
+                "comparison_type": "side_by_side",
+                "left_label": "Source sentence",
+                "left_html": f'<em>{left_html}</em>',
+                "right_label": "Proposed link",
+                "right_html": (
+                    f'<span class="badge badge-blue">{esc(relation)}</span> '
+                    f'<strong>{esc(entity_name)}</strong>'
+                    f'<br><span style="font-size:11px;color:var(--text-secondary)">'
+                    f'{esc(candidate.get("entity_type", ""))}</span>'
+                ),
+                "context_paragraphs": ctx_paras,
+                "badges": [],
+            }
+
+        if issue_class == "method_overtrigger":
+            sentence = evidence.get("source_sentence", "")
+            method = evidence.get("method_entity", {})
+            if not sentence:
+                return None
+            method_name = method.get("name", "")
+            left_html = highlight_in_text(sentence, method_name) if method_name else esc(sentence)
+            return {
+                "comparison_type": "side_by_side",
+                "left_label": "Source sentence",
+                "left_html": f'<em>{left_html}</em>',
+                "right_label": "Overtriggered link",
+                "right_html": (
+                    f'<span class="badge badge-red">METHOD_FOCUS</span> '
+                    f'<strong>{esc(method_name)}</strong>'
+                    f'<br><span style="font-size:11px;color:var(--text-secondary)">'
+                    f'Compatibility: {esc(evidence.get("compatibility", ""))}</span>'
+                ),
+                "context_paragraphs": [],
+                "badges": [],
+            }
+
+        # -- Sensitivity: PII --
+        if issue_class == "pii_exposure":
+            redacted = evidence.get("redacted_sentence", "")
+            if not redacted:
+                return None
+            pattern = evidence.get("matched_pattern", "")
+            return {
+                "comparison_type": "single_context",
+                "left_label": "Redacted sentence",
+                "left_html": f'<pre>{esc(redacted)}</pre>',
+                "right_label": "",
+                "right_html": "",
+                "context_paragraphs": [],
+                "badges": [{"cls": "badge-red", "text": f"PII: {pattern}"}],
+            }
+
+        # -- Sensitivity: Indigenous --
+        if issue_class == "indigenous_sensitivity":
+            sentence = evidence.get("source_sentence", "")
+            term = evidence.get("matched_term", "")
+            if not sentence and not term:
+                return None
+            marked = highlight_in_text(sentence, term) if sentence and term else esc(sentence or term)
+            nations = evidence.get("nations", [])
+            badges = [{"cls": "badge-amber", "text": f"Sensitivity: {evidence.get('sensitivity', '')}"}]
+            for n in nations[:5]:
+                badges.append({"cls": "badge-outline", "text": n})
+            return {
+                "comparison_type": "single_context",
+                "left_label": "Source sentence",
+                "left_html": f'<em>{marked}</em>',
+                "right_label": "",
+                "right_html": "",
+                "context_paragraphs": [],
+                "badges": badges,
+            }
+
+        # -- Sensitivity: Living person --
+        if issue_class == "living_person_reference":
+            sentence = evidence.get("source_sentence", "")
+            persons = evidence.get("person_names", [])
+            if not sentence:
+                return None
+            marked = esc(sentence)
+            for name in persons:
+                marked = highlight_in_text(sentence, name)
+                sentence = sentence  # keep re-highlighting from raw
+            year = evidence.get("most_recent_year", "")
+            badges = [{"cls": "badge-red", "text": f"Most recent year: {year}"}]
+            for name in persons[:3]:
+                badges.append({"cls": "badge-outline", "text": name})
+            return {
+                "comparison_type": "single_context",
+                "left_label": "Source sentence",
+                "left_html": f'<em>{marked}</em>',
+                "right_label": "",
+                "right_html": "",
+                "context_paragraphs": [],
+                "badges": badges,
+            }
+
+        return None
 
     @app.get("/review", response_class=HTMLResponse, include_in_schema=False)
     def review_page(
@@ -1507,18 +1796,43 @@ def create_app(
             f'<span class="badge badge-green" style="font-size:12px">{action}</span>'
         )
 
+    @app.get("/review/error-types-options", response_class=HTMLResponse, include_in_schema=False)
+    def review_error_types_options(
+        error_root_cause: str = Query(""),
+        user: UserContext = Depends(require_admin),
+    ):
+        """HTMX endpoint: return <option> elements for the error_type dropdown."""
+        import html as _html
+        from graphrag_pipeline.review.models import ERROR_TYPES, ERROR_TYPE_LABELS
+        types = sorted(ERROR_TYPES.get(error_root_cause, set()))
+        if not types:
+            return HTMLResponse('<option value="">-- select root cause first --</option>')
+        options = ['<option value="">-- select error type --</option>']
+        for t in types:
+            label = _html.escape(ERROR_TYPE_LABELS.get(t, t))
+            options.append(f'<option value="{_html.escape(t)}">{label}</option>')
+        return HTMLResponse("\n".join(options))
+
     @app.post("/review/proposals/{proposal_id}/accept", include_in_schema=False)
     def review_accept(
         proposal_id: str,
         request: Request,
         user: UserContext = Depends(require_admin),
+        error_root_cause: str = Form(""),
+        error_type: str = Form(""),
+        reviewer_note: str = Form(""),
     ):
         review_store = state.get("review_store")
         if review_store is None:
             raise HTTPException(status_code=503, detail="Review store not configured.")
         from graphrag_pipeline.review.actions import accept_proposal, ReviewActionError
         try:
-            accept_proposal(review_store, proposal_id, reviewer=user.identity)
+            accept_proposal(
+                review_store, proposal_id, reviewer=user.identity,
+                reviewer_note=reviewer_note,
+                error_root_cause=error_root_cause,
+                error_type=error_type,
+            )
         except ReviewActionError as exc:
             raise HTTPException(status_code=400, detail=str(exc))
         return _review_action_response(request, "Accepted")
@@ -1528,13 +1842,21 @@ def create_app(
         proposal_id: str,
         request: Request,
         user: UserContext = Depends(require_admin),
+        error_root_cause: str = Form(""),
+        error_type: str = Form(""),
+        reviewer_note: str = Form(""),
     ):
         review_store = state.get("review_store")
         if review_store is None:
             raise HTTPException(status_code=503, detail="Review store not configured.")
         from graphrag_pipeline.review.actions import reject_proposal, ReviewActionError
         try:
-            reject_proposal(review_store, proposal_id, reviewer=user.identity)
+            reject_proposal(
+                review_store, proposal_id, reviewer=user.identity,
+                reviewer_note=reviewer_note,
+                error_root_cause=error_root_cause,
+                error_type=error_type,
+            )
         except ReviewActionError as exc:
             raise HTTPException(status_code=400, detail=str(exc))
         return _review_action_response(request, "Rejected")
@@ -1544,16 +1866,39 @@ def create_app(
         proposal_id: str,
         request: Request,
         user: UserContext = Depends(require_admin),
+        reviewer_note: str = Form(""),
     ):
         review_store = state.get("review_store")
         if review_store is None:
             raise HTTPException(status_code=503, detail="Review store not configured.")
         from graphrag_pipeline.review.actions import defer_proposal, ReviewActionError
         try:
-            defer_proposal(review_store, proposal_id, reviewer=user.identity)
+            defer_proposal(
+                review_store, proposal_id, reviewer=user.identity,
+                reviewer_note=reviewer_note,
+            )
         except ReviewActionError as exc:
             raise HTTPException(status_code=400, detail=str(exc))
         return _review_action_response(request, "Deferred")
+
+    @app.get("/api/training-export", include_in_schema=False)
+    def training_export(
+        status: str | None = Query(None),
+        snapshot_id: str | None = Query(None),
+        classified_only: bool = Query(False),
+        user: UserContext = Depends(require_admin),
+    ):
+        """Export correction events with error classifications for model training."""
+        from fastapi.responses import JSONResponse as _JSONResponse
+        review_store = state.get("review_store")
+        if review_store is None:
+            raise HTTPException(status_code=503, detail="Review store not configured.")
+        data = review_store.export_training_data(
+            status=status,
+            snapshot_id=snapshot_id,
+            with_classification_only=classified_only,
+        )
+        return _JSONResponse(content=data)
 
     @app.get("/review/proposals/{proposal_id}", response_class=HTMLResponse, include_in_schema=False)
     def review_detail(
@@ -1599,11 +1944,30 @@ def create_app(
 
         ic_label = _ISSUE_CLASS_LABELS.get(proposal.issue_class, proposal.issue_class)
 
+        # Source comparison context (gracefully None for old evidence)
+        try:
+            source_comparison = _build_source_comparison_context(
+                proposal.issue_class, evidence_dict,
+            )
+        except Exception:
+            source_comparison = None
+
+        # Error classification defaults for the form
+        from graphrag_pipeline.review.models import (
+            ERROR_ROOT_CAUSE_LABELS,
+            ERROR_ROOT_CAUSES,
+            ERROR_TYPE_LABELS,
+            ERROR_TYPES,
+            ISSUE_CLASS_DEFAULT_ROOT_CAUSE,
+        )
+        default_root_cause = ISSUE_CLASS_DEFAULT_ROOT_CAUSE.get(proposal.issue_class, "")
+
         return _templates.TemplateResponse("admin_review_detail.html", {
             "request": request,
             "active_page": "review",
             **_user_ctx(user),
             "proposal_id": proposal.proposal_id,
+            "issue_class": proposal.issue_class,
             "issue_class_label": ic_label,
             "proposal_type": proposal.proposal_type,
             "status": proposal.status,
@@ -1612,11 +1976,19 @@ def create_app(
             "impact_size": proposal.impact_size,
             "description": description,
             "is_active": proposal.status in ("queued", "deferred"),
+            "source_comparison": source_comparison,
             "targets": targets,
             "revisions": revisions,
             "events": events,
             "patch_json": patch_formatted,
             "evidence_json": evidence_formatted,
+            # Error classification
+            "error_root_causes": sorted(ERROR_ROOT_CAUSES),
+            "error_root_cause_labels": ERROR_ROOT_CAUSE_LABELS,
+            "error_types": {k: sorted(v) for k, v in ERROR_TYPES.items()},
+            "error_type_labels": ERROR_TYPE_LABELS,
+            "default_root_cause": default_root_cause,
+            "default_error_types": sorted(ERROR_TYPES.get(default_root_cause, set())),
         })
 
     # ------------------------------------------------------------------
@@ -1845,6 +2217,8 @@ def create_app(
     v1.add_api_route("/document/{doc_id}/notes", post_document_note, methods=["POST"])
     v1.add_api_route("/api/history", api_history, methods=["GET"])
     v1.add_api_route("/api/history/saved", api_history_saved, methods=["GET"])
+    v1.add_api_route("/api/token-stats", api_token_stats, methods=["GET"])
+    v1.add_api_route("/api/token-stats/history", api_token_stats_history, methods=["GET"])
     app.include_router(v1)
 
     # Mark the original unversioned paths as deprecated in the schema.

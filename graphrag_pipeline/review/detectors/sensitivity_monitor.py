@@ -153,7 +153,11 @@ def detect_pii_in_text(text: str, config: dict[str, Any]) -> list[tuple[str, flo
     return results
 
 
-def _detect_pii(claims: list[ClaimRecord], config: dict[str, Any]) -> list[DetectorProposal]:
+def _detect_pii(
+    claims: list[ClaimRecord],
+    config: dict[str, Any],
+    paragraphs_by_id: dict[str, Any] | None = None,
+) -> list[DetectorProposal]:
     proposals: list[DetectorProposal] = []
     for claim in claims:
         matches = detect_pii_in_text(claim.source_sentence, config)
@@ -162,6 +166,8 @@ def _detect_pii(claims: list[ClaimRecord], config: dict[str, Any]) -> list[Detec
         # Use highest confidence among matched patterns.
         best_label, best_confidence = max(matches, key=lambda x: x[1])
         redacted = _redact_sentence(claim.source_sentence)
+        para = (paragraphs_by_id or {}).get(claim.paragraph_id)
+        para_context = _redact_sentence((para.clean_text or para.raw_ocr_text or "")[:2000]) if para else ""
         patch = make_patch_spec(
             "quarantine_claim",
             claim_id=claim.claim_id,
@@ -187,6 +193,8 @@ def _detect_pii(claims: list[ClaimRecord], config: dict[str, Any]) -> list[Detec
                 "all_patterns": [lbl for lbl, _ in matches],
                 "claim_id": claim.claim_id,
                 "redacted_sentence": redacted,
+                "source_sentence": redacted,  # same as redacted for PII (never expose raw)
+                "paragraph_context": para_context,
             },
             reasoning_summary={
                 "summary": f"PII pattern '{best_label}' detected in claim source sentence.",
@@ -220,6 +228,7 @@ def _detect_indigenous_sensitivity(
     claims: list[ClaimRecord],
     vocab_entries: list[dict[str, Any]],
     config: dict[str, Any],
+    paragraphs_by_id: dict[str, Any] | None = None,
 ) -> list[DetectorProposal]:
     if not vocab_entries:
         return []
@@ -256,6 +265,8 @@ def _detect_indigenous_sensitivity(
                 "sensitivity": best["sensitivity"],
                 "nations": best["nations"],
                 "claim_id": claim.claim_id,
+                "source_sentence": claim.source_sentence,
+                "paragraph_context": ((paragraphs_by_id or {}).get(claim.paragraph_id).clean_text or "")[:2000] if (paragraphs_by_id or {}).get(claim.paragraph_id) else "",
                 "require_tribal_consultation_before_clear": require_consultation,
             },
             reasoning_summary={
@@ -392,16 +403,17 @@ def detect(
     """
     config = _load_config()
     vocab_entries = _load_vocabulary()
+    paragraphs_by_id = {p.paragraph_id: p for p in structure.paragraphs}
     proposals: list[DetectorProposal] = []
 
     pii_cfg = config.get("pii_detection", {})
     if pii_cfg.get("enabled", True):
-        proposals.extend(_detect_pii(semantic.claims, pii_cfg))
+        proposals.extend(_detect_pii(semantic.claims, pii_cfg, paragraphs_by_id))
 
     indigenous_cfg = config.get("indigenous_sensitivity", {})
     if indigenous_cfg.get("enabled", True):
         proposals.extend(
-            _detect_indigenous_sensitivity(semantic.claims, vocab_entries, indigenous_cfg)
+            _detect_indigenous_sensitivity(semantic.claims, vocab_entries, indigenous_cfg, paragraphs_by_id)
         )
 
     living_cfg = config.get("living_person", {})

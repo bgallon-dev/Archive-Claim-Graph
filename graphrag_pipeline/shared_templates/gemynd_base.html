@@ -906,7 +906,9 @@ summary:hover { opacity: 0.8; }
 .sources-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; }
 .sources-table th, .sources-table td { padding: 3px 8px; border: 1px solid var(--border-light); text-align: left; }
 .sources-table th { background: var(--bark-50); font-weight: 500; color: var(--text-secondary); font-size: 11px; }
-.src-id { font-family: monospace; font-size: 11px; }
+.src-text { font-size: 12px; line-height: 1.4; max-width: 420px; }
+.src-meta { font-size: 11px; white-space: nowrap; vertical-align: top; }
+.src-doc { font-size: 11px; color: var(--text-secondary); }
 .src-label { font-size: 11px; background: var(--bark-50); border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
 .claim-ids { font-family: monospace; font-size: 12px; margin-top: 0.25rem; opacity: 0.85; }
 
@@ -977,6 +979,29 @@ code { font-size: 12px; }
   border-radius: var(--radius-md);
   margin: 1rem 0;
 }
+
+/* Source comparison */
+.source-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+.source-compare-single { margin: 1rem 0; }
+.source-panel { padding: 0.75rem; border-radius: var(--radius-sm); background: var(--bark-50); font-size: 13px; border: 1px solid var(--border-light); }
+.source-panel-label { font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0.4rem; }
+.source-panel pre { background: none; border: none; padding: 0; margin: 0; white-space: pre-wrap; word-break: break-word; font-size: 12px; }
+.diff-del { background: #fdd; text-decoration: line-through; color: var(--accent-red-text); }
+.diff-ins { background: #dfd; color: #1a7a1a; }
+.source-highlight { background: #fff3cd; padding: 1px 2px; border-radius: 2px; }
+.source-entity-name { font-family: monospace; font-size: 14px; letter-spacing: 0.5px; }
+
+/* Error classification form */
+.classification-form { margin-top: 0.75rem; padding: 0.75rem; background: var(--bark-50); border: 1px solid var(--border-light); border-radius: var(--radius-sm); }
+.classification-form label { display: block; font-size: 12px; color: var(--text-secondary); margin-bottom: 2px; margin-top: 0.5rem; }
+.classification-form label:first-child { margin-top: 0; }
+.classification-form select, .classification-form textarea {
+  width: 100%; font-family: var(--font-body); font-size: 13px; padding: 5px 8px;
+  border: 1px solid var(--border-medium); border-radius: var(--radius-sm);
+  background: var(--white); color: var(--text-primary);
+}
+.classification-form textarea { resize: vertical; min-height: 48px; margin-top: 2px; }
+.classification-form .form-actions { display: flex; gap: 6px; margin-top: 0.75rem; }
 
 /* Animations */
 @keyframes pageIn {

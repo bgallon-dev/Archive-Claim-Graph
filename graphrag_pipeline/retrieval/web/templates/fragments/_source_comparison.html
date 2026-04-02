@@ -1,0 +1,47 @@
+{# Source comparison fragment — included in admin_review_detail.html.
+   Expects `source_comparison` dict with keys: comparison_type, left_label,
+   left_html, right_label, right_html, context_paragraphs, badges. #}
+
+{% if source_comparison.comparison_type == "side_by_side" %}
+<div class="source-compare">
+  <div class="source-panel">
+    <p class="source-panel-label">{{ source_comparison.left_label }}</p>
+    <div>{{ source_comparison.left_html | safe }}</div>
+  </div>
+  <div class="source-panel">
+    <p class="source-panel-label">{{ source_comparison.right_label }}</p>
+    <div>{{ source_comparison.right_html | safe }}</div>
+  </div>
+</div>
+
+{% elif source_comparison.comparison_type == "single_context" %}
+<div class="source-compare-single">
+  <div class="source-panel">
+    {% if source_comparison.left_label %}
+    <p class="source-panel-label">{{ source_comparison.left_label }}</p>
+    {% endif %}
+    {% if source_comparison.badges %}
+    <div style="margin-bottom:0.4rem">
+      {% for badge in source_comparison.badges %}
+      <span class="badge {{ badge.cls }}">{{ badge.text }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div>{{ source_comparison.left_html | safe }}</div>
+  </div>
+</div>
+{% endif %}
+
+{% if source_comparison.context_paragraphs %}
+<details style="margin-top:0.5rem">
+  <summary style="cursor:pointer;font-size:12px;color:var(--text-secondary)">
+    Paragraph context ({{ source_comparison.context_paragraphs | length }})
+  </summary>
+  {% for ctx in source_comparison.context_paragraphs %}
+  <div class="source-panel" style="margin-top:0.4rem">
+    <p class="source-panel-label">{{ ctx.label }}</p>
+    <pre>{{ ctx.html | safe }}</pre>
+  </div>
+  {% endfor %}
+</details>
+{% endif %}

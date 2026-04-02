@@ -443,12 +443,12 @@ class Neo4jGraphWriter:
             [{"start_id": row.claim_id, "end_id": row.paragraph_id, "props": {"run_id": row.run_id}} for row in semantic.claims],
         )
         self._upsert_relationships(
-            "Claim",
-            "claim_id",
-            "EXTRACTED_IN",
             "ExtractionRun",
             "run_id",
-            [{"start_id": row.claim_id, "end_id": row.run_id, "props": {"run_id": row.run_id}} for row in semantic.claims],
+            "PRODUCED",
+            "Claim",
+            "claim_id",
+            [{"start_id": row.run_id, "end_id": row.claim_id, "props": {"run_id": row.run_id}} for row in semantic.claims],
         )
 
         # Measurements claimed by observations get Observation->HAS_MEASUREMENT instead

@@ -346,6 +346,7 @@ def extract_semantic(
     run_overrides: dict[str, str] | None = None,
     resources_dir: Path | None = None,
     no_llm: bool = False,
+    token_logger: Any | None = None,
 ) -> SemanticBundle:
     _config = load_domain_config(resources_dir)
     if claim_extractor is None:
@@ -360,7 +361,7 @@ def extract_semantic(
                 config=_config,
             )
         else:
-            claim_extractor = HybridClaimExtractor(resources_dir=resources_dir, config=_config)
+            claim_extractor = HybridClaimExtractor(resources_dir=resources_dir, config=_config, token_logger=token_logger)
     else:
         pass  # caller-provided extractor takes priority
     measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor(resources_dir=resources_dir, config=_config)

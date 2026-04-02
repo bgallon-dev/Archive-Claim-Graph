@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\review\detectors\ocr_entity.py
+# hypothesis_version: 6.151.9
+
+[0.82, 2000, '0', '1', 'alias', 'alias_entity', 'alias_mention_count', 'ap_duplicate_alias', 'ap_ocr_spelling', 'average_similarity', 'canonical', 'canonical_entity', 'clean_text', 'confidence', 'context_paragraphs', 'create_alias', 'entity', 'h', 'is_ocr_variant', 'issue_class', 'l', 'li', 'm', 'merge_entities', 'merge_mention_counts', 'merge_source', 'o', 'ocr_entity_detector', 'ocr_spelling_variant', 'paragraph_id', 'raw_ocr_text', 'reason', 'rn', 'similarity_score', 'source_file', 'v1']

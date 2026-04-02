@@ -185,6 +185,15 @@ class ReviewStore:
                 "ALTER TABLE proposal ADD COLUMN review_tier TEXT NOT NULL DEFAULT 'needs_review'"
             )
             self._conn.commit()
+        ce_cols = {r[1] for r in self._conn.execute("PRAGMA table_info(correction_event)")}
+        if "error_root_cause" not in ce_cols:
+            self._conn.execute(
+                "ALTER TABLE correction_event ADD COLUMN error_root_cause TEXT NOT NULL DEFAULT ''"
+            )
+            self._conn.execute(
+                "ALTER TABLE correction_event ADD COLUMN error_type TEXT NOT NULL DEFAULT ''"
+            )
+            self._conn.commit()
 
     def close(self) -> None:
         self._conn.close()
@@ -431,11 +440,13 @@ class ReviewStore:
     def save_correction_event(self, event: CorrectionEvent) -> None:
         self._conn.execute(
             """INSERT INTO correction_event
-               (event_id, proposal_id, revision_id, action, reviewer, reviewer_note, created_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?)""",
+               (event_id, proposal_id, revision_id, action, reviewer, reviewer_note,
+                error_root_cause, error_type, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 event.event_id, event.proposal_id, event.revision_id,
                 event.action, event.reviewer, event.reviewer_note,
+                event.error_root_cause, event.error_type,
                 event.created_at or _now_iso(),
             ),
         )
@@ -553,6 +564,71 @@ class ReviewStore:
             entry["revisions"] = [r.to_dict() for r in self.get_revisions(p.proposal_id)]
             entry["correction_events"] = [e.to_dict() for e in self.get_correction_events(p.proposal_id)]
             result.append(entry)
+        return result
+
+    def export_training_data(
+        self,
+        *,
+        status: str | None = None,
+        snapshot_id: str | None = None,
+        with_classification_only: bool = False,
+    ) -> list[dict[str, Any]]:
+        """Export correction events paired with evidence for model training.
+
+        Each returned dict contains the proposal's issue_class, the reviewer's
+        action and error classification, and the full evidence snapshot.
+        """
+        import json as _json
+
+        clauses: list[str] = []
+        params: list[Any] = []
+        if status:
+            clauses.append("p.status = ?")
+            params.append(status)
+        if snapshot_id:
+            clauses.append("p.snapshot_id = ?")
+            params.append(snapshot_id)
+        if with_classification_only:
+            clauses.append("ce.error_root_cause != ''")
+        where = f"WHERE {' AND '.join(clauses)}" if clauses else ""
+
+        rows = self._conn.execute(
+            f"""SELECT
+                    ce.event_id,
+                    ce.proposal_id,
+                    ce.action,
+                    ce.reviewer,
+                    ce.reviewer_note,
+                    ce.error_root_cause,
+                    ce.error_type,
+                    ce.created_at AS event_created_at,
+                    p.issue_class,
+                    p.proposal_type,
+                    p.confidence,
+                    p.priority_score,
+                    pr.evidence_snapshot_json,
+                    pr.patch_spec_json
+                FROM correction_event ce
+                JOIN proposal p ON ce.proposal_id = p.proposal_id
+                LEFT JOIN proposal_revision pr ON ce.revision_id = pr.revision_id
+                {where}
+                ORDER BY ce.created_at""",
+            params,
+        ).fetchall()
+
+        result: list[dict[str, Any]] = []
+        for r in rows:
+            row = dict(r)
+            # Parse JSON blobs into dicts
+            try:
+                row["evidence"] = _json.loads(row.pop("evidence_snapshot_json", "{}") or "{}")
+            except Exception:
+                row["evidence"] = {}
+            try:
+                row["patch_spec"] = _json.loads(row.pop("patch_spec_json", "{}") or "{}")
+            except Exception:
+                row["patch_spec"] = {}
+            result.append(row)
         return result
 
     def export_accepted_patches(self, snapshot_id: str | None = None) -> list[dict[str, Any]]:

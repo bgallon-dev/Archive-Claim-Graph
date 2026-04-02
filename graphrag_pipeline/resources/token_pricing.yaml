@@ -1,0 +1,22 @@
+# Per-model token pricing (USD per million tokens).
+# Env-var overrides: TOKEN_PRICE_<MODEL_KEY>_INPUT, TOKEN_PRICE_<MODEL_KEY>_OUTPUT
+# where MODEL_KEY is the model string with hyphens/dots replaced by underscores, uppercased.
+# Example: TOKEN_PRICE_CLAUDE_SONNET_4_6_INPUT=3.00
+
+version: "1"
+
+models:
+  claude-sonnet-4-6:
+    input_per_million: 3.00
+    output_per_million: 15.00
+  claude-haiku-4-5:
+    input_per_million: 0.80
+    output_per_million: 4.00
+  claude-opus-4-6:
+    input_per_million: 15.00
+    output_per_million: 75.00
+
+# Fallback for unknown models (new releases before YAML is updated)
+default:
+  input_per_million: 3.00
+  output_per_million: 15.00

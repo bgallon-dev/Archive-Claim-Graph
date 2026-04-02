@@ -111,6 +111,7 @@ def detect(
 ) -> list[DetectorProposal]:
     """Run the builder repair detector."""
     entity_lookup = {e.entity_id: e for e in semantic.entities}
+    paragraphs_by_id = {p.paragraph_id: p for p in structure.paragraphs}
     diagnostics_by_claim: dict[str, list[ClaimLinkDiagnosticRecord]] = defaultdict(list)
     for d in semantic.claim_link_diagnostics:
         diagnostics_by_claim[d.claim_id].append(d)
@@ -168,6 +169,7 @@ def detect(
                     relation_type="SPECIES_FOCUS",
                     evidence_basis="claim_link_diagnostic",
                 )
+                para = paragraphs_by_id.get(claim.paragraph_id)
                 evidence = {
                     "confidence": 0.65,
                     "issue_class": "missing_species_focus",
@@ -175,9 +177,12 @@ def detect(
                     "claim_id": claim.claim_id,
                     "claim_type": claim.claim_type,
                     "source_sentence": claim.source_sentence,
+                    "normalized_sentence": claim.normalized_sentence,
                     "candidate_species": best_species.to_dict(),
                     "diagnostics": [d.to_dict() for d in claim_diags],
                     "source_file": structure.document.source_file,
+                    "paragraph_raw_ocr_text": (para.raw_ocr_text or "")[:2000] if para else "",
+                    "paragraph_clean_text": (para.clean_text or "")[:2000] if para else "",
                 }
                 proposals.append(DetectorProposal(
                     anti_pattern_id="ap_missing_species",
@@ -233,6 +238,7 @@ def detect(
                     relation_type="OCCURRED_AT",
                     evidence_basis="document_context",
                 )
+                para = paragraphs_by_id.get(claim.paragraph_id)
                 evidence = {
                     "confidence": 0.60,
                     "issue_class": "missing_event_location",
@@ -240,8 +246,11 @@ def detect(
                     "claim_id": claim.claim_id,
                     "claim_type": claim.claim_type,
                     "source_sentence": claim.source_sentence,
+                    "normalized_sentence": claim.normalized_sentence,
                     "candidate_location": best_location.to_dict(),
                     "source_file": structure.document.source_file,
+                    "paragraph_raw_ocr_text": (para.raw_ocr_text or "")[:2000] if para else "",
+                    "paragraph_clean_text": (para.clean_text or "")[:2000] if para else "",
                 }
                 proposals.append(DetectorProposal(
                     anti_pattern_id="ap_missing_location",
@@ -288,6 +297,7 @@ def detect(
                         derivation_kind="observation",
                         reason="method_overtrigger",
                     )
+                    para = paragraphs_by_id.get(claim.paragraph_id)
                     evidence = {
                         "confidence": 0.80,
                         "issue_class": "method_overtrigger",
@@ -298,7 +308,10 @@ def detect(
                         "compatibility": compatibility,
                         "method_entity": method_entity.to_dict() if method_entity else {},
                         "source_sentence": claim.source_sentence,
+                        "normalized_sentence": claim.normalized_sentence,
                         "source_file": structure.document.source_file,
+                        "paragraph_raw_ocr_text": (para.raw_ocr_text or "")[:2000] if para else "",
+                        "paragraph_clean_text": (para.clean_text or "")[:2000] if para else "",
                     }
                     proposals.append(DetectorProposal(
                         anti_pattern_id="ap_method_overtrigger",

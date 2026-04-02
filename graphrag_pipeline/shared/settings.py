@@ -28,6 +28,7 @@ class Settings:
     write_audit_db: str = "data/write_audit.db"
     review_db: str = "data/review.db"
     annotation_db: str = ""
+    token_usage_db: str = "data/token_usage.db"
     # API tokens (JSON-encoded env var)
     graphrag_api_tokens: dict = field(default_factory=dict)
     # OCR metadata
@@ -61,6 +62,7 @@ class Settings:
             write_audit_db=os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db"),
             review_db=os.environ.get("REVIEW_DB", "data/review.db"),
             annotation_db=os.environ.get("ANNOTATION_DB", ""),
+            token_usage_db=os.environ.get("TOKEN_USAGE_DB", "data/token_usage.db"),
             graphrag_api_tokens=tokens,
             ocr_engine=os.environ.get("OCR_ENGINE", "tesseract"),
             ocr_version=os.environ.get("OCR_VERSION", "5.x"),

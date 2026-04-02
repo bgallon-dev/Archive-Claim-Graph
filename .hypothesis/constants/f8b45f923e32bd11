@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\ingest\extractors\anthropic_claim_adapter.py
+# hypothesis_version: 6.151.9
+
+[60.0, 2048, '40', 'ANTHROPIC_API_KEY', 'Anthropic_API_Key', 'CLAIM_CACHE_PATH', 'DomainConfig | None', 'SYNTHESIS_MODEL', 'claim_extraction', 'claude-haiku-4-5', 'content', 'role', 'user', 'utf-8']

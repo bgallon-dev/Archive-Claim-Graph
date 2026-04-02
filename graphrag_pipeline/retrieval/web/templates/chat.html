@@ -119,13 +119,22 @@ function formatResponse(data) {
   if (data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
     var rows = data.supporting_claims_detail.map(function(c) {
       var badge = (c.confidence != null) ? confidenceBadge(c.confidence) : '';
-      var epis = c.epistemic_status ? '<span class="src-label">' + esc(c.epistemic_status) + '</span>' : '';
       var ct = c.claim_type ? '<span class="src-label">' + esc(c.claim_type) + '</span>' : '';
-      return '<tr><td class="src-id">' + esc(c.claim_id) + '</td><td>' + badge + '</td><td>' + epis + '</td><td>' + ct + '</td></tr>';
+      var epis = (c.epistemic_status && c.epistemic_status !== 'unknown')
+        ? '<span class="src-label">' + esc(c.epistemic_status) + '</span>' : '';
+      var sentence = c.source_sentence ? esc(c.source_sentence) : '<em>No text available</em>';
+      var docLabel = c.doc_title ? esc(c.doc_title) : (c.doc_id ? esc(c.doc_id) : '');
+      var source = docLabel ? '<span class="src-doc">' + docLabel + '</span>' : '';
+      return '<tr>'
+        + '<td class="src-text">' + sentence + '</td>'
+        + '<td class="src-meta">' + source + '</td>'
+        + '<td class="src-meta">' + ct + ' ' + epis + '</td>'
+        + '<td class="src-meta">' + badge + '</td>'
+        + '</tr>';
     }).join('');
     html += '<details><summary>Sources (' + data.supporting_claims_detail.length + ' claims)</summary>'
       + '<table class="sources-table"><thead><tr>'
-      + '<th>Claim ID</th><th>Confidence</th><th>Epistemic Status</th><th>Type</th>'
+      + '<th>Claim</th><th>Document</th><th>Type</th><th>Confidence</th>'
       + '</tr></thead><tbody>' + rows + '</tbody></table></details>';
   } else if (data.supporting_claim_ids && data.supporting_claim_ids.length > 0) {
     html += '<details><summary>Sources (' + data.supporting_claim_ids.length + ' claims)</summary>'

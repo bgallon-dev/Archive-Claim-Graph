@@ -524,6 +524,7 @@ class HybridClaimExtractor:
         llm_extractor: ClaimExtractor | None = None,
         resources_dir: Path | None = None,
         config: "DomainConfig | None" = None,
+        token_logger: Any | None = None,
     ) -> None:
         self._rules = rules_extractor or RuleBasedClaimExtractor(
             resources_dir=resources_dir, config=config
@@ -532,7 +533,7 @@ class HybridClaimExtractor:
             self._llm = llm_extractor
         else:
             from graphrag_pipeline.ingest.extractors.anthropic_claim_adapter import try_create_anthropic_adapter
-            self._llm = LLMClaimExtractor(try_create_anthropic_adapter(config=config))
+            self._llm = LLMClaimExtractor(try_create_anthropic_adapter(config=config, token_logger=token_logger))
         self.last_telemetry: HybridTelemetry | None = None
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:

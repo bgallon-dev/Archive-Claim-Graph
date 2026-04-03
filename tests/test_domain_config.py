@@ -7,20 +7,20 @@ from pathlib import Path
 
 import pytest
 
-from graphrag_pipeline.core.domain_config import (
+from gemynd.core.domain_config import (
     ClaimDerivationSpec,
     DomainConfig,
     _validate_config,
     load_domain_config,
 )
-from graphrag_pipeline.core.models import ClaimRecord
-from graphrag_pipeline.ingest.derivation_context import _get_spec, build_derivation_contexts
-from graphrag_pipeline.ingest.extractors.claim_extractor import (
+from gemynd.core.models import ClaimRecord
+from gemynd.ingest.derivation_context import _get_spec, build_derivation_contexts
+from gemynd.ingest.extractors.claim_extractor import (
     RuleBasedClaimExtractor,
     _default_type_patterns,
 )
 
-_RESOURCES_DIR = Path(__file__).parent.parent / "graphrag_pipeline" / "resources"
+_RESOURCES_DIR = Path(__file__).parent.parent / "gemynd" / "resources"
 
 
 # ---------------------------------------------------------------------------
@@ -101,7 +101,7 @@ def test_validate_config_warns_on_registry_entry_without_pattern(caplog: pytest.
     bad_registry = _minimal_domain_config().derivation_registry.copy()
     bad_registry["nonexistent_claim_type_xyz"] = ClaimDerivationSpec("obs", "evt", (), ())
     bad_config = _minimal_domain_config(derivation_registry=bad_registry)
-    with caplog.at_level(logging.WARNING, logger="graphrag_pipeline.core.domain_config"):
+    with caplog.at_level(logging.WARNING, logger="gemynd.core.domain_config"):
         _validate_config(bad_config)
     assert "nonexistent_claim_type_xyz" in caplog.text
 
@@ -113,12 +113,12 @@ def test_validate_config_warns_on_registry_entry_without_pattern(caplog: pytest.
 def test_validate_config_no_warnings_on_real_resources(caplog: pytest.LogCaptureFixture) -> None:
     """Real resource files should produce no cross-resource validation warnings."""
     config = load_domain_config(_RESOURCES_DIR)
-    with caplog.at_level(logging.WARNING, logger="graphrag_pipeline.core.domain_config"):
+    with caplog.at_level(logging.WARNING, logger="gemynd.core.domain_config"):
         caplog.clear()
         issues = _validate_config(config, _RESOURCES_DIR)
     domain_warnings = [
         r for r in caplog.records
-        if r.name == "graphrag_pipeline.core.domain_config"
+        if r.name == "gemynd.core.domain_config"
     ]
     assert domain_warnings == [], f"Unexpected warnings: {[r.message for r in domain_warnings]}"
     assert issues == [], f"Unexpected issues: {issues}"
@@ -131,7 +131,7 @@ def test_validate_config_no_warnings_on_real_resources(caplog: pytest.LogCapture
 def test_validate_config_warns_on_unknown_preferred_entity_type(caplog: pytest.LogCaptureFixture) -> None:
     bad_preferred = {"population_estimate": ["UnknownEntityTypeXYZ"]}
     bad_config = _minimal_domain_config(preferred_entity_types=bad_preferred)
-    with caplog.at_level(logging.WARNING, logger="graphrag_pipeline.core.domain_config"):
+    with caplog.at_level(logging.WARNING, logger="gemynd.core.domain_config"):
         _validate_config(bad_config)
     assert "UnknownEntityTypeXYZ" in caplog.text
 
@@ -295,7 +295,7 @@ def test_domain_config_claim_entity_relations_is_frozenset_of_precedence() -> No
 
 def test_domain_config_relation_hints_match_hardcoded() -> None:
     """Verify relation hints loaded from YAML match the original Python constants."""
-    from graphrag_pipeline.core.claim_contract import RELATION_TO_ENTITY_TYPE_HINTS
+    from gemynd.core.claim_contract import RELATION_TO_ENTITY_TYPE_HINTS
     config = load_domain_config(_RESOURCES_DIR)
     for rel, expected_types in RELATION_TO_ENTITY_TYPE_HINTS.items():
         assert config.relation_to_entity_type_hints.get(rel) == expected_types, (
@@ -317,7 +317,7 @@ def test_domain_config_allowed_claim_types_match_hardcoded() -> None:
     The derived set may include legacy names (e.g. wildlife_count) that appear
     in the derivation registry but were excluded from the old Python constant.
     """
-    from graphrag_pipeline.core.claim_contract import ALLOWED_CLAIM_TYPES
+    from gemynd.core.claim_contract import ALLOWED_CLAIM_TYPES
     config = load_domain_config(_RESOURCES_DIR)
     missing = ALLOWED_CLAIM_TYPES - config.allowed_claim_types
     assert not missing, f"Missing from derived set: {missing}"
@@ -330,7 +330,7 @@ def test_domain_config_allowed_claim_types_match_hardcoded() -> None:
 
 
 def test_domain_config_observation_eligible_types_match_hardcoded() -> None:
-    from graphrag_pipeline.core.claim_contract import OBSERVATION_ELIGIBLE_TYPES
+    from gemynd.core.claim_contract import OBSERVATION_ELIGIBLE_TYPES
     config = load_domain_config(_RESOURCES_DIR)
     # The hardcoded set includes "wildlife_count" (legacy); the derived set
     # only includes types present in the registry. wildlife_count is a legacy
@@ -340,7 +340,7 @@ def test_domain_config_observation_eligible_types_match_hardcoded() -> None:
 
 
 def test_domain_config_event_eligible_types_match_hardcoded() -> None:
-    from graphrag_pipeline.core.claim_contract import EVENT_ELIGIBLE_TYPES
+    from gemynd.core.claim_contract import EVENT_ELIGIBLE_TYPES
     config = load_domain_config(_RESOURCES_DIR)
     missing = EVENT_ELIGIBLE_TYPES - config.event_eligible_types
     assert not missing, f"Missing from derived set: {missing}"
@@ -361,7 +361,7 @@ def test_domain_config_claim_location_relation() -> None:
 
 def test_domain_config_claim_entity_relation_cypher_property() -> None:
     config = load_domain_config(_RESOURCES_DIR)
-    from graphrag_pipeline.core.graph.cypher import CLAIM_ENTITY_RELATION_CYPHER
+    from gemynd.core.graph.cypher import CLAIM_ENTITY_RELATION_CYPHER
     assert config.claim_entity_relation_cypher == CLAIM_ENTITY_RELATION_CYPHER
 
 
@@ -384,7 +384,7 @@ def test_domain_config_query_intent_loaded() -> None:
 
 
 def test_domain_config_extractor_claim_link_relations_property() -> None:
-    from graphrag_pipeline.core.claim_contract import EXTRACTOR_CLAIM_LINK_RELATIONS
+    from gemynd.core.claim_contract import EXTRACTOR_CLAIM_LINK_RELATIONS
     config = load_domain_config(_RESOURCES_DIR)
     assert config.extractor_claim_link_relations == EXTRACTOR_CLAIM_LINK_RELATIONS
 

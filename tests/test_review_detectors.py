@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.core.models import (
+from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLinkDiagnosticRecord,
     ClaimLocationLinkRecord,
@@ -18,7 +18,7 @@ from graphrag_pipeline.core.models import (
     SemanticBundle,
     StructureBundle,
 )
-from graphrag_pipeline.review.detectors import ocr_entity, junk_mention, builder_repair
+from gemynd.review.detectors import ocr_entity, junk_mention, builder_repair
 
 
 def _make_structure(

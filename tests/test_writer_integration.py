@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from graphrag_pipeline.ingest.graph.writer import DOMAIN_LABELS, InMemoryGraphWriter
-from graphrag_pipeline.ingest.pipeline import extract_semantic
-from graphrag_pipeline.ingest.source_parser import parse_source_file
+from gemynd.ingest.graph.writer import DOMAIN_LABELS, InMemoryGraphWriter
+from gemynd.ingest.pipeline import extract_semantic
+from gemynd.ingest.source_parser import parse_source_file
 
 
 def _has_rel(

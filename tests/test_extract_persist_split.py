@@ -7,16 +7,16 @@ from typing import Any
 
 import pytest
 
-from graphrag_pipeline.core.models import SemanticBundle, StructureBundle
-from graphrag_pipeline.ingest.extraction_result import (
+from gemynd.core.models import SemanticBundle, StructureBundle
+from gemynd.ingest.extraction_result import (
     ExtractionResult,
     GateResult,
     PersistResult,
     QuarantineSummary,
     SensitivityGate,
 )
-from graphrag_pipeline.ingest.pipeline import extract_document, persist_document
-from graphrag_pipeline.ingest.sensitivity_gate import (
+from gemynd.ingest.pipeline import extract_document, persist_document
+from gemynd.ingest.sensitivity_gate import (
     DefaultSensitivityGate,
     NullSensitivityGate,
 )

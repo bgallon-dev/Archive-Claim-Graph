@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\concept_assigner.py
+# hypothesis_version: 6.151.9
+
+[0.75, 0.78, 0.8, 0.82, 0.85, 0.88, 'DomainConfig | None', 'breeding_activity', 'development_activity', 'economic_use', 'fire_incident', 'habitat_condition', 'management_action', 'migration_timing', 'population_estimate', 'predator_control', 'species_absence', 'species_presence', 'weather_condition', 'weather_observation', 'wildlife_count']

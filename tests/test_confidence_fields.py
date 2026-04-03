@@ -1,5 +1,5 @@
-from graphrag_pipeline.ingest.extractors.claim_extractor import LLMClaimExtractor
-from graphrag_pipeline.core.models import ClaimRecord, EntityResolutionRecord
+from gemynd.ingest.extractors.claim_extractor import LLMClaimExtractor
+from gemynd.core.models import ClaimRecord, EntityResolutionRecord
 
 
 def test_claim_record_serializes_epistemic_status_instead_of_certainty() -> None:

@@ -11,7 +11,7 @@ import pytest
 
 # Import the script module directly (no package install required).
 _SCRIPT_PATH = Path(__file__).parent.parent / "scripts" / "generate_ocr_variants.py"
-_RESOURCES_DIR = Path(__file__).parent.parent / "graphrag_pipeline" / "resources"
+_RESOURCES_DIR = Path(__file__).parent.parent / "gemynd" / "resources"
 
 import importlib.util
 

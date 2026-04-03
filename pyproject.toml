@@ -3,7 +3,7 @@ requires = ["setuptools>=69", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "graphrag-pipeline"
+name = "gemynd"
 version = "0.1.0"
 description = "Claim-centric narrative report extraction and Neo4j graph pipeline."
 readme = "README.md"
@@ -44,8 +44,8 @@ ingest = [
 ]
 
 [project.scripts]
-graphrag = "graphrag_pipeline.cli:main"
-graphrag-create-admin = "graphrag_pipeline.auth.seed:main"
+gemynd = "gemynd.cli:main"
+gemynd-create-admin = "gemynd.auth.seed:main"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
@@ -56,33 +56,33 @@ markers = [
 
 [tool.setuptools]
 packages = [
-    "graphrag_pipeline",
-    "graphrag_pipeline.core",
-    "graphrag_pipeline.core.graph",
-    "graphrag_pipeline.shared",
-    "graphrag_pipeline.auth",
-    "graphrag_pipeline.ingest",
-    "graphrag_pipeline.ingest.web",
-    "graphrag_pipeline.ingest.extractors",
-    "graphrag_pipeline.ingest.graph",
-    "graphrag_pipeline.ingest.export",
-    "graphrag_pipeline.ingest.annotation",
-    "graphrag_pipeline.review",
-    "graphrag_pipeline.review.detectors",
-    "graphrag_pipeline.review.web",
-    "graphrag_pipeline.retrieval",
-    "graphrag_pipeline.retrieval.web",
+    "gemynd",
+    "gemynd.core",
+    "gemynd.core.graph",
+    "gemynd.shared",
+    "gemynd.auth",
+    "gemynd.ingest",
+    "gemynd.ingest.web",
+    "gemynd.ingest.extractors",
+    "gemynd.ingest.graph",
+    "gemynd.ingest.export",
+    "gemynd.ingest.annotation",
+    "gemynd.review",
+    "gemynd.review.detectors",
+    "gemynd.review.web",
+    "gemynd.retrieval",
+    "gemynd.retrieval.web",
     # Legacy shim packages — still importable via re-export stubs
-    "graphrag_pipeline.extractors",
-    "graphrag_pipeline.graph",
-    "graphrag_pipeline.annotation",
-    "graphrag_pipeline.export",
-    "graphrag_pipeline.queries",
+    "gemynd.extractors",
+    "gemynd.graph",
+    "gemynd.annotation",
+    "gemynd.export",
+    "gemynd.queries",
 ]
 
 [tool.setuptools.package-data]
-"graphrag_pipeline" = ["resources/*.yaml", "resources/*.csv"]
-"graphrag_pipeline.auth" = ["templates/*.html"]
-"graphrag_pipeline.ingest.web" = ["templates/*.html", "templates/fragments/*.html"]
-"graphrag_pipeline.review.web" = ["templates/*.html"]
-"graphrag_pipeline.retrieval.web" = ["templates/*.html", "templates/fragments/*.html"]
+"gemynd" = ["resources/*.yaml", "resources/*.csv"]
+"gemynd.auth" = ["templates/*.html"]
+"gemynd.ingest.web" = ["templates/*.html", "templates/fragments/*.html"]
+"gemynd.review.web" = ["templates/*.html"]
+"gemynd.retrieval.web" = ["templates/*.html", "templates/fragments/*.html"]

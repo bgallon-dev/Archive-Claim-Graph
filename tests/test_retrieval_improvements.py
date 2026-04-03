@@ -24,16 +24,16 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from graphrag_pipeline.core.graph.cypher import (
+from gemynd.core.graph.cypher import (
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
 )
-from graphrag_pipeline.retrieval.context_assembler import (
+from gemynd.retrieval.context_assembler import (
     ProvenanceContextAssembler,
     _row_to_block,
     _serialise_block,
 )
-from graphrag_pipeline.retrieval.models import (
+from gemynd.retrieval.models import (
     EntityContext,
     ProvenanceBlock,
     ResolvedEntity,
@@ -41,8 +41,8 @@ from graphrag_pipeline.retrieval.models import (
 
 # Load domain config once for anchor_entity_id needed by temporal tests.
 from pathlib import Path as _Path
-from graphrag_pipeline.core.domain_config import load_domain_config as _load_domain_config
-_TEST_CONFIG = _load_domain_config(_Path(__file__).parent.parent / "graphrag_pipeline" / "resources")
+from gemynd.core.domain_config import load_domain_config as _load_domain_config
+_TEST_CONFIG = _load_domain_config(_Path(__file__).parent.parent / "gemynd" / "resources")
 _TEST_ANCHOR_ID = _TEST_CONFIG.anchor_entity_id
 
 
@@ -120,14 +120,14 @@ def _make_raw_row(
 class TestInferClaimTypes:
     """
     Tests for query vocabulary → claim_type list mapping.
-    Import path will be graphrag_pipeline.retrieval.context_assembler
+    Import path will be gemynd.retrieval.context_assembler
     once _infer_claim_types is added there.
     """
 
     def _infer(self, query: str) -> list[str] | None:
         # Import here so the test file loads even before the function exists,
         # giving a clear ImportError rather than a confusing AttributeError.
-        from graphrag_pipeline.retrieval.context_assembler import _infer_claim_types
+        from gemynd.retrieval.context_assembler import _infer_claim_types
         return _infer_claim_types(query)
 
     def test_predator_keywords_map_to_predator_types(self):
@@ -205,7 +205,7 @@ class TestSelectRetrievalStrategy:
         year_max: int | None = None,
         budget: int = 20,
     ):
-        from graphrag_pipeline.retrieval.context_assembler import _select_retrieval_strategy
+        from gemynd.retrieval.context_assembler import _select_retrieval_strategy
         entity_ctx = EntityContext(resolved=resolved or [])
         return _select_retrieval_strategy(
             query, entity_ctx, year_min, year_max, budget,
@@ -215,7 +215,7 @@ class TestSelectRetrievalStrategy:
     # --- Fulltext fallback ---
 
     def test_no_signal_uses_fulltext(self):
-        from graphrag_pipeline.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
         template, params = self._select("tell me about the refuge")
         assert template == FULLTEXT_CLAIMS_QUERY
         assert "search_text" in params
@@ -223,7 +223,7 @@ class TestSelectRetrievalStrategy:
     # --- Temporal path ---
 
     def test_year_range_no_entity_uses_temporal_template(self):
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what happened in the 1950s?",
             year_min=1950, year_max=1959,
@@ -234,7 +234,7 @@ class TestSelectRetrievalStrategy:
         assert params["refuge_id"]
 
     def test_temporal_template_passes_claim_types_when_detected(self):
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what predator control happened in the 1950s?",
             year_min=1950, year_max=1959,
@@ -244,7 +244,7 @@ class TestSelectRetrievalStrategy:
         assert "predator_control" in params["claim_types"]
 
     def test_temporal_template_claim_types_none_when_no_signal(self):
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what happened at the refuge in 1945?",
             year_min=1945, year_max=1945,
@@ -255,7 +255,7 @@ class TestSelectRetrievalStrategy:
     # --- Multi-entity comparative path ---
 
     def test_two_entities_uses_multi_entity_template(self):
-        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         resolved = [
             _make_resolved("sp-mallard", "Species"),
             _make_resolved("sp-teal", "Species"),
@@ -269,7 +269,7 @@ class TestSelectRetrievalStrategy:
         assert "sp-teal" in params["entity_ids"]
 
     def test_multi_entity_includes_year_bounds(self):
-        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         resolved = [_make_resolved("sp-mallard"), _make_resolved("h-marsh", "Habitat")]
         template, params = self._select(
             "compare mallard and marsh habitat",
@@ -309,7 +309,7 @@ class TestSelectRetrievalStrategy:
     # --- Claim type scoped, no entity ---
 
     def test_claim_type_no_entity_uses_claim_type_scoped(self):
-        from graphrag_pipeline.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+        from gemynd.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
         template, params = self._select(
             "describe all predator control activities"
         )
@@ -339,7 +339,7 @@ class TestSelectRetrievalStrategy:
         assert params["limit"] >= budget
 
     def test_temporal_limit_is_at_least_budget(self):
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
         budget = 20
         template, params = self._select(
             "what happened in 1945?",
@@ -453,7 +453,7 @@ class TestSynthesisPromptBehavior:
     """
 
     def _make_engine(self, response_text: str):
-        from graphrag_pipeline.retrieval.synthesis import SynthesisEngine
+        from gemynd.retrieval.synthesis import SynthesisEngine
         engine = SynthesisEngine.__new__(SynthesisEngine)
         content_block = MagicMock()
         content_block.text = response_text
@@ -464,7 +464,7 @@ class TestSynthesisPromptBehavior:
         engine._client = client
         engine._max_tokens = 1000
         engine._timeout = 60
-        from graphrag_pipeline.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
+        from gemynd.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
         engine._system_prompt = _build_system_prompt(_DEFAULT_SYNTHESIS_CONTEXT)
         return engine
 
@@ -483,7 +483,7 @@ class TestSynthesisPromptBehavior:
         The system prompt should instruct the model to organize by year
         for temporal queries. Verify the prompt text contains this rule.
         """
-        from graphrag_pipeline.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
+        from gemynd.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
         assert "year or time period" in _SYSTEM_PROMPT_TEMPLATE.lower() or \
                "temporal" in _SYSTEM_PROMPT_TEMPLATE.lower() or \
                "single-document" in _SYSTEM_PROMPT_TEMPLATE.lower(), (
@@ -497,7 +497,7 @@ class TestSynthesisPromptBehavior:
         that appear in only one document — this was the primary cause of
         vague answers on temporal and management queries.
         """
-        from graphrag_pipeline.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
+        from gemynd.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
         # The old instruction that caused suppression
         assert "no corroborating parallel" not in _SYSTEM_PROMPT_TEMPLATE
         assert "omit" not in _SYSTEM_PROMPT_TEMPLATE.lower() or \
@@ -507,13 +507,13 @@ class TestSynthesisPromptBehavior:
 
     def test_confidence_tier_referenced_in_prompt(self):
         """Model must be told how to use the CONFIDENCE_TIER signal."""
-        from graphrag_pipeline.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
+        from gemynd.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
         assert "HIGH" in _SYSTEM_PROMPT_TEMPLATE or \
                "confidence" in _SYSTEM_PROMPT_TEMPLATE.lower()
 
     def test_retrieved_via_referenced_in_prompt(self):
         """Model must be told what RETRIEVED_VIA means."""
-        from graphrag_pipeline.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
+        from gemynd.retrieval.synthesis import _SYSTEM_PROMPT_TEMPLATE
         assert "RETRIEVED_VIA" in _SYSTEM_PROMPT_TEMPLATE or \
                "retrieved" in _SYSTEM_PROMPT_TEMPLATE.lower()
 
@@ -654,7 +654,7 @@ class TestEndToEndRetrievalPath:
     """
 
     def _make_pipeline(self, rows: list[dict], synthesis_answer: str = "Test answer."):
-        from graphrag_pipeline.retrieval.synthesis import SynthesisEngine
+        from gemynd.retrieval.synthesis import SynthesisEngine
 
         mock_executor = MagicMock()
         mock_executor.run.return_value = rows
@@ -681,13 +681,13 @@ class TestEndToEndRetrievalPath:
         engine._client = client
         engine._max_tokens = 1000
         engine._timeout = 60
-        from graphrag_pipeline.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
+        from gemynd.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
         engine._system_prompt = _build_system_prompt(_DEFAULT_SYNTHESIS_CONTEXT)
 
         return assembler, engine, mock_executor
 
     def test_temporal_query_calls_temporal_template(self):
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         rows = [_make_raw_row(f"c-{i:03d}") for i in range(5)]
         assembler, engine, mock_executor = self._make_pipeline(rows)
 
@@ -704,7 +704,7 @@ class TestEndToEndRetrievalPath:
         )
 
     def test_comparative_query_calls_multi_entity_template(self):
-        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         rows = [_make_raw_row(f"c-{i:03d}") for i in range(5)]
         assembler, engine, mock_executor = self._make_pipeline(rows)
 
@@ -834,7 +834,7 @@ class TestIntegrationRetrieval:
     @pytest.fixture(scope="class")
     def executor(self):
         import os
-        from graphrag_pipeline.retrieval.executor import Neo4jQueryExecutor
+        from gemynd.retrieval.executor import Neo4jQueryExecutor
         uri = os.environ.get("NEO4J_URI")
         user = os.environ.get("NEO4J_USER")
         password = os.environ.get("NEO4J_PASSWORD")
@@ -855,7 +855,7 @@ class TestIntegrationRetrieval:
     }
 
     def test_temporal_template_executes(self, executor):
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
         rows = executor.run(TEMPORAL_CLAIMS_QUERY, {
             **self._TENANT_PARAMS,
             "year_min": 1940,
@@ -869,8 +869,8 @@ class TestIntegrationRetrieval:
             assert "y" in row
 
     def test_multi_entity_template_executes(self, executor):
-        from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
-        from graphrag_pipeline.core.resolver import default_seed_entities
+        from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+        from gemynd.core.resolver import default_seed_entities
         seeds = default_seed_entities()
         species = [e for e in seeds if e.entity_type == "Species"][:2]
         if len(species) < 2:
@@ -886,7 +886,7 @@ class TestIntegrationRetrieval:
         assert isinstance(rows, list)
 
     def test_claim_type_scoped_template_executes(self, executor):
-        from graphrag_pipeline.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+        from gemynd.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
         rows = executor.run(CLAIM_TYPE_SCOPED_QUERY, {
             **self._TENANT_PARAMS,
             "claim_types": ["predator_control", "management_action"],
@@ -932,7 +932,7 @@ class TestIntegrationRetrieval:
             assert any(tier in context_text for tier in ("HIGH", "MEDIUM", "LOW"))
 
     def test_retrieved_via_present_for_entity_anchored_blocks(self, assembler):
-        from graphrag_pipeline.core.resolver import default_seed_entities
+        from gemynd.core.resolver import default_seed_entities
         seeds = default_seed_entities()
         species = next((e for e in seeds if e.entity_type == "Species"), None)
         if not species:

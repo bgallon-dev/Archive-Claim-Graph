@@ -7,8 +7,8 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.core.domain_config import load_domain_config
-from graphrag_pipeline.core.models import (
+from gemynd.core.domain_config import load_domain_config
+from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
     ClaimRecord,
@@ -22,8 +22,8 @@ from graphrag_pipeline.core.models import (
     StructureBundle,
     YearRecord,
 )
-from graphrag_pipeline.ingest.extraction_state import ExtractionState
-from graphrag_pipeline.ingest.phases import (
+from gemynd.ingest.extraction_state import ExtractionState
+from gemynd.ingest.phases import (
     assign_concepts_phase,
     build_extraction_run,
     create_domain_anchor,
@@ -226,7 +226,7 @@ class TestCreateYearEntities:
 
     def test_does_not_duplicate_existing_year(self):
         state = _state()
-        from graphrag_pipeline.core.ids import make_year_id
+        from gemynd.core.ids import make_year_id
         existing = YearRecord(year_id=make_year_id(1956), year=1956, year_label="1956")
         state.years = [existing]
         create_year_entities(state)
@@ -279,7 +279,7 @@ class TestResolveClaimLinks:
         state.entity_lookup = {"e1": entity}
         state.resolutions_by_mention = {"m1": resolution}
 
-        from graphrag_pipeline.ingest.extractors.claim_extractor import ClaimLinkDraft
+        from gemynd.ingest.extractors.claim_extractor import ClaimLinkDraft
         state.claim_links_by_claim["claim_1"] = [
             ClaimLinkDraft(
                 relation_type="SPECIES_FOCUS",
@@ -313,7 +313,7 @@ class TestResolveClaimLinks:
         state.entity_lookup = {"e1": entity}
         state.resolutions_by_mention = {"m1": resolution}
 
-        from graphrag_pipeline.ingest.extractors.claim_extractor import ClaimLinkDraft
+        from gemynd.ingest.extractors.claim_extractor import ClaimLinkDraft
         # Same link twice
         draft = ClaimLinkDraft(
             relation_type="SPECIES_FOCUS",

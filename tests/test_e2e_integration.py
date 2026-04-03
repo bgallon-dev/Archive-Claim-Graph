@@ -29,14 +29,14 @@ from dataclasses import dataclass, field
 
 import pytest
 
-from graphrag_pipeline.retrieval.classifier import classify_query
-from graphrag_pipeline.retrieval.context_assembler import ProvenanceContextAssembler
-from graphrag_pipeline.retrieval.entity_gateway import EntityResolutionGateway
-from graphrag_pipeline.retrieval.in_memory_executor import (
+from gemynd.retrieval.classifier import classify_query
+from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+from gemynd.retrieval.entity_gateway import EntityResolutionGateway
+from gemynd.retrieval.in_memory_executor import (
     InMemoryQueryExecutor,
     _ENTITY_LABELS,
 )
-from graphrag_pipeline.retrieval.models import EntityContext
+from gemynd.retrieval.models import EntityContext
 
 
 # ---------------------------------------------------------------------------
@@ -305,7 +305,7 @@ class TestRefugeLinking:
 
     def test_temporal_refuge_query_returns_rows(self, full_pipeline):
         """TEMPORAL_CLAIMS_QUERY_WITH_REFUGE must find claims when the refuge is linked."""
-        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
 
         refuge_ids = {
             ei

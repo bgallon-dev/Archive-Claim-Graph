@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.review.patch_spec import (
+from gemynd.review.patch_spec import (
     PatchSpecValidationError,
     make_patch_spec,
     validate_patch_spec,

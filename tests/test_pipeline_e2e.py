@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from graphrag_pipeline.ingest.checkpoint import CHECKPOINT_FILENAME
-from graphrag_pipeline.shared.io_utils import load_semantic_bundle
-from graphrag_pipeline.ingest.pipeline import run_e2e
+from gemynd.ingest.checkpoint import CHECKPOINT_FILENAME
+from gemynd.shared.io_utils import load_semantic_bundle
+from gemynd.ingest.pipeline import run_e2e
 
 
 def test_e2e_parallel(fixtures_dir: Path, tmp_path: Path) -> None:

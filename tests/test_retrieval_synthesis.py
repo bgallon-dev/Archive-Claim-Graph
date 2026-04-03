@@ -14,7 +14,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from graphrag_pipeline.retrieval.models import AnalyticalResult, ProvenanceBlock, SynthesisResult
+from gemynd.retrieval.models import AnalyticalResult, ProvenanceBlock, SynthesisResult
 
 
 def _make_block(claim_id: str, confidence: float) -> ProvenanceBlock:
@@ -55,7 +55,7 @@ _RESPONSE_WITH_FENCE = f"```json\n{_VALID_RESPONSE}\n```"
 
 class TestSynthesise:
     def _engine(self, response_text: str):
-        from graphrag_pipeline.retrieval.synthesis import SynthesisEngine
+        from gemynd.retrieval.synthesis import SynthesisEngine
         engine = SynthesisEngine.__new__(SynthesisEngine)
         engine._client = _make_mock_client(response_text)
         engine._max_tokens = 1000
@@ -111,7 +111,7 @@ class TestSynthesise:
         assert result.analytical_result is analytical
 
     def test_anthropic_client_called_with_correct_model(self):
-        from graphrag_pipeline.retrieval.synthesis import MODEL
+        from gemynd.retrieval.synthesis import MODEL
         engine = self._engine(_VALID_RESPONSE)
         engine.synthesise("query", [], "context")
         call_kwargs = engine._client.messages.create.call_args[1]

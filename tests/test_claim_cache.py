@@ -8,7 +8,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from graphrag_pipeline.ingest.extractors.claim_cache import (
+from gemynd.ingest.extractors.claim_cache import (
     CachedClaimAdapter,
     _cache_key,
 )

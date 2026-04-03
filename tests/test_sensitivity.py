@@ -27,18 +27,18 @@ from unittest.mock import patch
 
 import pytest
 
-from graphrag_pipeline.core.models import ClaimRecord
-from graphrag_pipeline.ingest.pipeline import _process_single_document
-from graphrag_pipeline.retrieval.context_assembler import _sanitize_claim_text
-from graphrag_pipeline.review.detectors.sensitivity_monitor import (
+from gemynd.core.models import ClaimRecord
+from gemynd.ingest.pipeline import _process_single_document
+from gemynd.retrieval.context_assembler import _sanitize_claim_text
+from gemynd.review.detectors.sensitivity_monitor import (
     LIVING_PERSON_YEAR_THRESHOLD,
     _detect_indigenous_sensitivity,
     _load_config,
     detect_indigenous_in_text,
     detect_pii_in_text,
 )
-from graphrag_pipeline.review.models import DetectorProposal, ProposalTarget
-from graphrag_pipeline.shared.io_utils import load_semantic_bundle
+from gemynd.review.models import DetectorProposal, ProposalTarget
+from gemynd.shared.io_utils import load_semantic_bundle
 
 _FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -139,7 +139,7 @@ class TestEmptyIndigenousVocabulary:
 # Case 3 — Sensitivity gate exception → all claims quarantined
 # ---------------------------------------------------------------------------
 
-_SENSITIVITY_DETECT = "graphrag_pipeline.review.detectors.sensitivity_monitor.detect"
+_SENSITIVITY_DETECT = "gemynd.review.detectors.sensitivity_monitor.detect"
 
 
 class TestSensitivityGateExceptionHandling:

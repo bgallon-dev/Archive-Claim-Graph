@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\review\detect.py
+# hypothesis_version: 6.151.9
+
+[0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.9, 1.0, 5.0, 10.0, 'auto_accepted', 'auto_suppressed', 'confidence', 'counts_by_queue', 'counts_by_status', 'counts_by_tier', 'create_alias', 'doc_id', 'error', 'generated', 'header_contamination', 'impact_size', 'issue_class', 'merge_entities', 'needs_review', 'ocr_garbage', 'priority_score', 'proposal_type', 'proposals_generated', 'proposals_rejected', 'proposals_upserted', 'proposals_valid', 'queued', 'rejected', 'rejected_details', 'review_run_id', 'short_generic_token', 'snapshot_id', 'suppress_mention', 'suppression_reason', 'system', 'v1', 'valid', '{}']

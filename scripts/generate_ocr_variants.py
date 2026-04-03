@@ -8,7 +8,7 @@ for each seed entity in csv, yaml, or seed_patch format.
 Usage::
 
     python scripts/generate_ocr_variants.py \\
-        --resources-dir graphrag_pipeline/resources \\
+        --resources-dir gemynd/resources \\
         [--review-store path/to/review.db] \\
         [--min-prob 0.05] \\
         [--output-format csv] \\
@@ -241,7 +241,7 @@ def main(argv: list[str] | None = None) -> None:
     parser.add_argument(
         "--resources-dir",
         default=None,
-        help="Path to resources/ directory. Defaults to graphrag_pipeline/resources/.",
+        help="Path to resources/ directory. Defaults to gemynd/resources/.",
     )
     parser.add_argument(
         "--review-store",
@@ -272,16 +272,16 @@ def main(argv: list[str] | None = None) -> None:
     if args.resources_dir:
         resources_dir = Path(args.resources_dir)
     else:
-        candidate = Path(__file__).parent.parent / "graphrag_pipeline" / "resources"
+        candidate = Path(__file__).parent.parent / "gemynd" / "resources"
         if candidate.exists():
             resources_dir = candidate
 
-    # Make sure graphrag_pipeline is importable
+    # Make sure gemynd is importable
     _project_root = Path(__file__).parent.parent
     if str(_project_root) not in sys.path:
         sys.path.insert(0, str(_project_root))
 
-    from graphrag_pipeline.shared.resource_loader import (
+    from gemynd.shared.resource_loader import (
         load_ocr_correction_map,
         load_seed_entity_rows,
     )

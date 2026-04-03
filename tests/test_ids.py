@@ -1,4 +1,4 @@
-from graphrag_pipeline.core.ids import (
+from gemynd.core.ids import (
     make_claim_id,
     make_doc_id,
     make_entity_id,

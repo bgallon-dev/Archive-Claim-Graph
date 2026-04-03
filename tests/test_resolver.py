@@ -1,8 +1,8 @@
 import pytest
 
-from graphrag_pipeline.core.ids import make_entity_id
-from graphrag_pipeline.core.models import MentionRecord
-from graphrag_pipeline.core.resolver import (
+from gemynd.core.ids import make_entity_id
+from gemynd.core.models import MentionRecord
+from gemynd.core.resolver import (
     DictionaryFuzzyResolver,
     default_seed_entities,
     normalize_name,

@@ -24,8 +24,8 @@ from __future__ import annotations
 from hypothesis import assume, given, settings
 from hypothesis import strategies as st
 
-from graphrag_pipeline.ingest.extractors.claim_extractor import ClaimDraft
-from graphrag_pipeline.ingest.extractors.measurement_extractor import RuleBasedMeasurementExtractor
+from gemynd.ingest.extractors.claim_extractor import ClaimDraft
+from gemynd.ingest.extractors.measurement_extractor import RuleBasedMeasurementExtractor
 
 # ---------------------------------------------------------------------------
 # Shared extractor — constructed once so YAML is loaded only once per session.

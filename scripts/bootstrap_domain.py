@@ -166,7 +166,7 @@ def _collect_text_stratified(sample_paths: list[Path], n: int) -> tuple[str, int
 
     Returns ``(concatenated_text, doc_count)``.
     """
-    from graphrag_pipeline.ingest.source_parser import parse_source_file
+    from gemynd.ingest.source_parser import parse_source_file
 
     paragraphs: list[str] = []
     docs_read = 0
@@ -378,11 +378,11 @@ def _run_validation(
     Returns ``(aggregate_metrics, doc_bundles)`` where *doc_bundles* is a list
     of ``(StructureBundle, SemanticBundle)`` tuples.
     """
-    from graphrag_pipeline.ingest.pipeline import (
+    from gemynd.ingest.pipeline import (
         extract_semantic,
         quality_report,
     )
-    from graphrag_pipeline.ingest.source_parser import parse_source
+    from gemynd.ingest.source_parser import parse_source
 
     aggregate_claims = 0
     aggregate_unclassified = 0
@@ -508,7 +508,7 @@ def _apply_refinements(out_dir: Path, refinements: dict) -> dict:
     Returns a summary ``{patterns_added, patterns_modified, entities_added,
     rationales}``.
     """
-    from graphrag_pipeline.core.domain_config import load_domain_config
+    from gemynd.core.domain_config import load_domain_config
 
     patterns_path = out_dir / "claim_type_patterns.yaml"
     entities_path = out_dir / "seed_entities.csv"
@@ -937,7 +937,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"  1. Review {out_dir}/claim_type_patterns.yaml")
             print(f"  2. Review {out_dir}/seed_entities.csv")
             print(f"  3. Fill in {out_dir}/domain_profile.yaml")
-            print(f"  4. Run: graphrag validate-domain --samples <files> --domain-dir {out_dir}")
+            print(f"  4. Run: gemynd validate-domain --samples <files> --domain-dir {out_dir}")
             return 0
 
     # ------------------------------------------------------------------
@@ -1028,7 +1028,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"  2. Tune {out_dir}/claim_type_patterns.yaml as needed")
     print(f"  3. Review {out_dir}/seed_entities.csv")
     print(f"  4. Fill in {out_dir}/domain_profile.yaml (document_anchor, synthesis_context)")
-    print(f"  5. Run: graphrag validate-domain --samples <files> --domain-dir {out_dir}")
+    print(f"  5. Run: gemynd validate-domain --samples <files> --domain-dir {out_dir}")
     return 0
 
 

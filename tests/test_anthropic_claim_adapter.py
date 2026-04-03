@@ -6,13 +6,13 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from graphrag_pipeline.ingest.extractors.anthropic_claim_adapter import (
+from gemynd.ingest.extractors.anthropic_claim_adapter import (
     AnthropicClaimAdapter,
     _build_system_prompt,
     _parse_response,
     try_create_anthropic_adapter,
 )
-from graphrag_pipeline.ingest.extractors.claim_extractor import (
+from gemynd.ingest.extractors.claim_extractor import (
     LLMClaimExtractor,
     NullLLMAdapter,
 )
@@ -73,7 +73,7 @@ def test_build_prompt_with_config_uses_domain_context() -> None:
     """When a DomainConfig is provided, the prompt uses its synthesis_context,
     claim types from patterns, and entity types from seed entities."""
     import re
-    from graphrag_pipeline.core.domain_config import DomainConfig
+    from gemynd.core.domain_config import DomainConfig
 
     config = DomainConfig(
         seed_entities=[],
@@ -233,10 +233,10 @@ def test_try_create_no_api_key_returns_null_adapter() -> None:
 
 @patch.dict("os.environ", {"Anthropic_API_Key": "sk-test-key"})
 def test_try_create_with_key_returns_cached_adapter() -> None:
-    import graphrag_pipeline.ingest.extractors.anthropic_claim_adapter as mod
+    import gemynd.ingest.extractors.anthropic_claim_adapter as mod
     if mod._anthropic_pkg is None:
         pytest.skip("anthropic package not installed")
-    from graphrag_pipeline.ingest.extractors.claim_cache import CachedClaimAdapter
+    from gemynd.ingest.extractors.claim_cache import CachedClaimAdapter
     result = try_create_anthropic_adapter()
     assert isinstance(result, CachedClaimAdapter)
     assert isinstance(result._inner, AnthropicClaimAdapter)
@@ -244,14 +244,14 @@ def test_try_create_with_key_returns_cached_adapter() -> None:
 
 @patch.dict("os.environ", {"Anthropic_API_Key": "sk-test-key"})
 def test_try_create_disable_cache_returns_raw_adapter() -> None:
-    import graphrag_pipeline.ingest.extractors.anthropic_claim_adapter as mod
+    import gemynd.ingest.extractors.anthropic_claim_adapter as mod
     if mod._anthropic_pkg is None:
         pytest.skip("anthropic package not installed")
     result = try_create_anthropic_adapter(disable_cache=True)
     assert isinstance(result, AnthropicClaimAdapter)
 
 
-@patch("graphrag_pipeline.ingest.extractors.anthropic_claim_adapter._anthropic_pkg", None)
+@patch("gemynd.ingest.extractors.anthropic_claim_adapter._anthropic_pkg", None)
 def test_try_create_no_anthropic_pkg_returns_null_adapter() -> None:
     result = try_create_anthropic_adapter()
     assert isinstance(result, NullLLMAdapter)

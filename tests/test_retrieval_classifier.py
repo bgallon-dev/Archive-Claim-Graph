@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.retrieval.classifier import classify_query
+from gemynd.retrieval.classifier import classify_query
 
 
 class TestBucketAssignment:

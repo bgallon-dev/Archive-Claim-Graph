@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.ingest.extractors.claim_extractor import ClaimDraft, ClaimLinkDraft
-from graphrag_pipeline.ingest.extractors.mention_extractor import MentionDraft
-from graphrag_pipeline.core.models import EntityRecord, EntityResolutionRecord
-from graphrag_pipeline.ingest.pipeline import extract_semantic, parse_source, quality_report
+from gemynd.ingest.extractors.claim_extractor import ClaimDraft, ClaimLinkDraft
+from gemynd.ingest.extractors.mention_extractor import MentionDraft
+from gemynd.core.models import EntityRecord, EntityResolutionRecord
+from gemynd.ingest.pipeline import extract_semantic, parse_source, quality_report
 
 
 class StaticClaimExtractor:

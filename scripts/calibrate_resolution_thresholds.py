@@ -55,10 +55,10 @@ def extract_features(bundles_dir: Path) -> tuple[list[list[float]], list[int], i
         skipped: count of records excluded (non-REFERS_TO/POSSIBLY_REFERS_TO)
     """
     try:
-        from graphrag_pipeline.shared.io_utils import load_semantic_bundle
-        from graphrag_pipeline.shared.resource_loader import load_claim_relation_compatibility
+        from gemynd.shared.io_utils import load_semantic_bundle
+        from gemynd.shared.resource_loader import load_claim_relation_compatibility
     except ImportError as exc:
-        sys.exit(f"Error: graphrag_pipeline package not importable: {exc}")
+        sys.exit(f"Error: gemynd package not importable: {exc}")
 
     # Load preferred_entity_types for the entity_type_match feature.
     try:

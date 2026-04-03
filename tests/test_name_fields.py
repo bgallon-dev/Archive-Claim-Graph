@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from graphrag_pipeline.core.models import EntityRecord, MentionRecord
-from graphrag_pipeline.ingest.pipeline import extract_semantic
-from graphrag_pipeline.ingest.source_parser import parse_source_file
+from gemynd.core.models import EntityRecord, MentionRecord
+from gemynd.ingest.pipeline import extract_semantic
+from gemynd.ingest.source_parser import parse_source_file
 
 
 def test_mention_and_entity_load_legacy_normalized_name_alias() -> None:

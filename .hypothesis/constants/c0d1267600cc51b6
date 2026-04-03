@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\core\graph\cypher.py
+# hypothesis_version: 6.151.9
+
+[' OR ', ', ', 'Activity', 'Annotation', 'Claim', 'Document', 'Event', 'ExtractionRun', 'HABITAT_FOCUS', 'Habitat', 'LOCATION_FOCUS', 'MANAGEMENT_TARGET', 'Measurement', 'Mention', 'Observation', 'Organization', 'Page', 'Paragraph', 'Period', 'Person', 'Place', 'Refuge', 'SPECIES_FOCUS', 'SUBJECT_OF_CLAIM', 'Section', 'Species', 'SurveyMethod', 'Year', 'annotation_id', 'claim_id', 'doc_id', 'entity_id', 'event_id', 'measurement_id', 'mention_id', 'observation_id', 'page_id', 'paragraph_id', 'run_id', 'section_id', 'year_id']

@@ -1,12 +1,12 @@
 import json
 from pathlib import Path
 
-from graphrag_pipeline.cli import main
-from graphrag_pipeline.ingest.graph.writer import InMemoryGraphWriter
-from graphrag_pipeline.shared.io_utils import save_semantic_bundle, save_structure_bundle
-from graphrag_pipeline.core.models import EntityRecord
-from graphrag_pipeline.ingest.pipeline import extract_semantic
-from graphrag_pipeline.ingest.source_parser import parse_source_file
+from gemynd.cli import main
+from gemynd.ingest.graph.writer import InMemoryGraphWriter
+from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
+from gemynd.core.models import EntityRecord
+from gemynd.ingest.pipeline import extract_semantic
+from gemynd.ingest.source_parser import parse_source_file
 
 
 def test_entity_record_keeps_entity_type_in_bundle_but_not_node_props() -> None:

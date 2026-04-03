@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\extraction_result.py
+# hypothesis_version: 6.151.9
+
+['doc_id', 'input', 'quality', 'run_id', 'semantic_output', 'structure_output']

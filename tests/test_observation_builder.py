@@ -1,4 +1,4 @@
-from graphrag_pipeline.core.models import (
+from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
     ClaimPeriodLinkRecord,
@@ -6,7 +6,7 @@ from graphrag_pipeline.core.models import (
     EntityRecord,
     MeasurementRecord,
 )
-from graphrag_pipeline.ingest.observation_builder import build_observations
+from gemynd.ingest.observation_builder import build_observations
 
 
 def _make_claim(

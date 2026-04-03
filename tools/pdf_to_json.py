@@ -279,10 +279,10 @@ def build_payload(
 
 def validate_payload(payload: dict[str, Any], pdf_path: Path) -> bool:
     try:
-        # Add project root to path so graphrag_pipeline is importable
+        # Add project root to path so gemynd is importable
         import os
         sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-        from graphrag_pipeline.ingest.source_parser import parse_source_payload  # type: ignore
+        from gemynd.ingest.source_parser import parse_source_payload  # type: ignore
         parse_source_payload(payload, source_file=str(pdf_path))
         return True
     except Exception as exc:
@@ -410,7 +410,7 @@ def main() -> None:
     if written:
         print("\nNext step — run through the pipeline:")
         inputs = " ".join(str(p) for p in written)
-        print(f"  graphrag run-e2e --inputs {inputs} --out-dir out --backend memory")
+        print(f"  gemynd run-e2e --inputs {inputs} --out-dir out --backend memory")
 
 
 if __name__ == "__main__":

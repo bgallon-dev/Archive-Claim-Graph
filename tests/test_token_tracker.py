@@ -9,7 +9,7 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-from graphrag_pipeline.shared.token_tracker import (
+from gemynd.shared.token_tracker import (
     MeteredAnthropicClient,
     TokenUsageLogger,
     TokenUsageRecord,
@@ -328,7 +328,7 @@ def test_cached_adapter_logs_cache_hit(tmp_path: Path, pricing: dict) -> None:
     logger = TokenUsageLogger(token_db, pricing)
 
     # Build a CachedClaimAdapter with a mock inner
-    from graphrag_pipeline.ingest.extractors.claim_cache import CachedClaimAdapter
+    from gemynd.ingest.extractors.claim_cache import CachedClaimAdapter
 
     inner = MagicMock()
     inner.extract_claims.return_value = [{"claim": "test"}]

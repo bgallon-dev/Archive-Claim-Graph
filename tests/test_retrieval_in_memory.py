@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.core.graph.cypher import (
+from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
@@ -19,8 +19,8 @@ from graphrag_pipeline.core.graph.cypher import (
     TEMPORAL_CLAIMS_QUERY,
     TEMPORAL_CLAIMS_QUERY_WITH_REFUGE,
 )
-from graphrag_pipeline.retrieval.context_assembler import ProvenanceContextAssembler
-from graphrag_pipeline.retrieval.models import EntityContext, ResolvedEntity
+from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+from gemynd.retrieval.models import EntityContext, ResolvedEntity
 
 # Default access params used in every query (match the pipeline defaults).
 _ACCESS = {"institution_id": "turnbull", "permitted_levels": ["public"]}
@@ -48,7 +48,7 @@ def _species_ids_in_writer(populated_writer) -> list[str]:
 
 def _entity_ids_linked_to_claims(populated_writer) -> list[str]:
     """Return entity_ids that have at least one Claim->Entity relationship."""
-    from graphrag_pipeline.retrieval.in_memory_executor import _ENTITY_LABELS
+    from gemynd.retrieval.in_memory_executor import _ENTITY_LABELS
     seen: set[str] = set()
     for sl, si, rt, el, ei, _ in populated_writer.rel_store:
         if sl == "Claim" and el in _ENTITY_LABELS:
@@ -536,7 +536,7 @@ class TestIntegrationWithAssembler:
             pytest.skip("No entity-linked claims in fixture data")
         entity_id = entity_ids[0]
         # Find label for this entity
-        from graphrag_pipeline.retrieval.in_memory_executor import _ENTITY_LABELS
+        from gemynd.retrieval.in_memory_executor import _ENTITY_LABELS
         entity_type = "Species"
         for label in _ENTITY_LABELS:
             if entity_id in populated_writer.node_store.get(label, {}):
@@ -576,7 +576,7 @@ class TestIntegrationWithAssembler:
 
     def test_rows_convertible_to_blocks(self, populated_executor, populated_writer):
         """Every row from the executor must produce a valid ProvenanceBlock or None."""
-        from graphrag_pipeline.retrieval.context_assembler import _row_to_block
+        from gemynd.retrieval.context_assembler import _row_to_block
 
         rows = populated_executor.run(
             FULLTEXT_CLAIMS_QUERY,

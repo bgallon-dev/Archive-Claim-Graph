@@ -5,7 +5,7 @@ import importlib
 
 import pytest
 
-from graphrag_pipeline.core.models import (
+from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
     ClaimPeriodLinkRecord,
@@ -13,14 +13,14 @@ from graphrag_pipeline.core.models import (
     EntityRecord,
     MeasurementRecord,
 )
-from graphrag_pipeline.ingest.derivation_context import (
+from gemynd.ingest.derivation_context import (
     DerivationContext,
     _check_year_plausibility,
     _extract_year,
     build_derivation_contexts,
 )
-from graphrag_pipeline.ingest.observation_builder import build_observations
-from graphrag_pipeline.ingest.event_builder import build_events
+from gemynd.ingest.observation_builder import build_observations
+from gemynd.ingest.event_builder import build_events
 
 
 # ---------------------------------------------------------------------------
@@ -199,12 +199,12 @@ class TestDerivationContextBasics:
 
     def test_event_builder_does_not_import_from_observation_builder(self):
         """3A-6: event_builder imports _extract_year from derivation_context, not observation_builder."""
-        import graphrag_pipeline.ingest.event_builder as eb
+        import gemynd.ingest.event_builder as eb
         src = eb.__file__
         with open(src, encoding="utf-8") as fh:
             source = fh.read()
         assert "from .observation_builder import" not in source
-        assert "from graphrag_pipeline.ingest.derivation_context import _extract_year" in source
+        assert "from gemynd.ingest.derivation_context import _extract_year" in source
 
     def test_contexts_path_produces_identical_observations(self):
         """3A-4: build_observations with _contexts matches the no-contexts baseline."""
@@ -343,7 +343,7 @@ class TestDerivationRegistry:
 
     def test_load_derivation_registry_returns_empty_when_absent(self, tmp_path):
         """3B-2: load_derivation_registry() returns {} when file is absent."""
-        from graphrag_pipeline.shared.resource_loader import load_derivation_registry
+        from gemynd.shared.resource_loader import load_derivation_registry
         result = load_derivation_registry(resources_dir=tmp_path)
         assert result == {}
 
@@ -364,7 +364,7 @@ class TestDerivationRegistry:
             encoding="utf-8",
         )
         (tmp_path / "derivation_registry.yaml").write_text(yaml_content, encoding="utf-8")
-        from graphrag_pipeline.shared.resource_loader import load_derivation_registry
+        from gemynd.shared.resource_loader import load_derivation_registry
         result = load_derivation_registry(resources_dir=tmp_path)
         assert "population_estimate" in result
         assert result["population_estimate"]["observation_type"] == "population_count"

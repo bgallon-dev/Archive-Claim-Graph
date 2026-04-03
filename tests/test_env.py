@@ -1,6 +1,6 @@
 import os
 
-from graphrag_pipeline.shared.env import load_dotenv
+from gemynd.shared.env import load_dotenv
 
 
 _ENV_KEYS = ("NEO4J_URI", "NEO4J_USER", "NEO4J_PASSWORD", "NEO4J_DATABASE")

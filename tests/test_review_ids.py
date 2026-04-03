@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.review.ids import (
+from gemynd.review.ids import (
     make_claim_entity_link_target_id,
     make_claim_location_link_target_id,
     make_correction_event_id,

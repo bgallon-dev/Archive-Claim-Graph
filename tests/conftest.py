@@ -32,7 +32,7 @@ def fixtures_dir() -> Path:
 @pytest.fixture(scope="session")
 def populated_writer(tmp_path_factory):
     """Run the full pipeline on all 3 fixture reports into an InMemoryGraphWriter."""
-    from graphrag_pipeline.ingest.pipeline import run_e2e
+    from gemynd.ingest.pipeline import run_e2e
 
     _fixtures = Path(__file__).parent / "fixtures"
     tmp = tmp_path_factory.mktemp("graph_data")
@@ -47,6 +47,6 @@ def populated_writer(tmp_path_factory):
 @pytest.fixture(scope="session")
 def populated_executor(populated_writer):
     """InMemoryQueryExecutor backed by the fully-populated writer."""
-    from graphrag_pipeline.retrieval.in_memory_executor import InMemoryQueryExecutor
+    from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
 
     return InMemoryQueryExecutor(populated_writer)

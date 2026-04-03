@@ -7,14 +7,14 @@ from pathlib import Path
 
 import pytest
 
-from graphrag_pipeline.review.models import (
+from gemynd.review.models import (
     CorrectionEvent,
     Proposal,
     ProposalRevision,
     ProposalTarget,
     ReviewRun,
 )
-from graphrag_pipeline.review.store import ReviewStore
+from gemynd.review.store import ReviewStore
 
 
 @pytest.fixture

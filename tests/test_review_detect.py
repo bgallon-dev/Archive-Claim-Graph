@@ -6,8 +6,8 @@ from pathlib import Path
 
 import pytest
 
-from graphrag_pipeline.shared.io_utils import save_semantic_bundle, save_structure_bundle
-from graphrag_pipeline.core.models import (
+from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
+from gemynd.core.models import (
     ClaimRecord,
     DocumentRecord,
     EntityRecord,
@@ -19,14 +19,14 @@ from graphrag_pipeline.core.models import (
     SemanticBundle,
     StructureBundle,
 )
-from graphrag_pipeline.review.detect import run_detection
-from graphrag_pipeline.review.export import (
+from gemynd.review.detect import run_detection
+from gemynd.review.export import (
     export_accepted_patches_json,
     export_proposals_csv,
     export_proposals_json,
 )
-from graphrag_pipeline.review.store import ReviewStore
-from graphrag_pipeline.review.actions import accept_proposal, reject_proposal, defer_proposal
+from gemynd.review.store import ReviewStore
+from gemynd.review.actions import accept_proposal, reject_proposal, defer_proposal
 
 
 def _fixture_bundles(tmp_path: Path) -> tuple[StructureBundle, SemanticBundle, str, str]:

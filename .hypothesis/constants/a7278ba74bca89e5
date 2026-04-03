@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\scripts\generate_ocr_variants.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.05, 0.08, 0.1, 0.15, 0.2, 0.25, '-', '--min-prob', '--output', '--output-format', '--resources-dir', '--review-store', '0', '1', 'OCRConfusionMatrix', '__main__', 'cl', 'correct', 'csv', 'd', 'entity_name', 'entity_type', 'entries', 'gemynd', 'h', 'l', 'li', 'm', 'name', 'o', 'probability', 'prop_key', 'prop_value', 'replace', 'resources', 'rn', 'seed_patch', 'utf-8', 'variant', 'w', 'wrong', 'yaml']

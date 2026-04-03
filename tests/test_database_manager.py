@@ -5,8 +5,8 @@ import sqlite3
 
 import pytest
 
-from graphrag_pipeline.shared.database_manager import DatabaseManager
-from graphrag_pipeline.shared.settings import Settings
+from gemynd.shared.database_manager import DatabaseManager
+from gemynd.shared.settings import Settings
 
 
 @pytest.fixture()
@@ -147,7 +147,7 @@ class TestCloseAll:
 class TestStoresWithManagedConnections:
     def test_review_store_with_conn(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.review.store import ReviewStore
+        from gemynd.review.store import ReviewStore
         conn = manager.get_connection("review")
         store = ReviewStore(manager.get_path("review"), conn=conn)
         # Should be able to query without error.
@@ -156,7 +156,7 @@ class TestStoresWithManagedConnections:
 
     def test_annotation_store_with_conn(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.ingest.annotation.store import AnnotationStore
+        from gemynd.ingest.annotation.store import AnnotationStore
         conn = manager.get_connection("annotation")
         store = AnnotationStore(manager.get_path("annotation"), conn=conn)
         result = store.get_current_note("doc-1")
@@ -164,7 +164,7 @@ class TestStoresWithManagedConnections:
 
     def test_query_history_store_with_conn(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.retrieval.conversation_log import QueryHistoryStore
+        from gemynd.retrieval.conversation_log import QueryHistoryStore
         conn = manager.get_connection("conv_log")
         store = QueryHistoryStore(manager.get_path("conv_log"), conn=conn)
         queries = store.list_queries(limit=5)
@@ -172,7 +172,7 @@ class TestStoresWithManagedConnections:
 
     def test_token_usage_store_with_conn(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.shared.token_tracker import TokenUsageStore
+        from gemynd.shared.token_tracker import TokenUsageStore
         conn = manager.get_connection("token_usage")
         store = TokenUsageStore(manager.get_path("token_usage"), conn=conn)
         summary = store.today_summary()
@@ -180,21 +180,21 @@ class TestStoresWithManagedConnections:
 
     def test_user_store_skip_init(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.auth.store import UserStore
+        from gemynd.auth.store import UserStore
         store = UserStore(manager.get_path("users"), skip_init=True)
         users = store.list_users()
         assert isinstance(users, list)
 
     def test_ingest_store_skip_init(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.ingest.store import IngestStore
+        from gemynd.ingest.store import IngestStore
         store = IngestStore(str(manager.get_path("ingest")), skip_init=True)
         result = store.get_job("nonexistent")
         assert result is None
 
     def test_write_audit_skip_init(self, manager):
         manager.run_migrations()
-        from graphrag_pipeline.retrieval.web.write_audit_log import WriteAuditLogger
+        from gemynd.retrieval.web.write_audit_log import WriteAuditLogger
         wal = WriteAuditLogger(manager.get_path("write_audit"), skip_init=True)
         # Should be able to log without error.
         wal.log("ingestion", "doc-1", "Test", "test-inst", "cli")

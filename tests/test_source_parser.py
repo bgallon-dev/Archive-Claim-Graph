@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from graphrag_pipeline.ingest.source_parser import _infer_year_from_filename, parse_source_file, parse_source_payload
+from gemynd.ingest.source_parser import _infer_year_from_filename, parse_source_file, parse_source_payload
 
 
 def test_parse_source_sections_and_paragraphs(fixtures_dir: Path) -> None:

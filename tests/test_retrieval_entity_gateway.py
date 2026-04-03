@@ -3,10 +3,10 @@ from __future__ import annotations
 
 import pytest
 
-from graphrag_pipeline.core.models import EntityRecord, EntityResolutionRecord, MentionRecord
-from graphrag_pipeline.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
-from graphrag_pipeline.retrieval.entity_gateway import EntityResolutionGateway
-from graphrag_pipeline.retrieval.models import EntityContext
+from gemynd.core.models import EntityRecord, EntityResolutionRecord, MentionRecord
+from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
+from gemynd.retrieval.entity_gateway import EntityResolutionGateway
+from gemynd.retrieval.models import EntityContext
 
 
 def _make_entity(entity_id: str, entity_type: str, name: str, normalized_form: str) -> EntityRecord:

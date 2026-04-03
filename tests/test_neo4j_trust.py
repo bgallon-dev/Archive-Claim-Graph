@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import graphrag_pipeline.ingest.graph.writer as writer_mod
+import gemynd.ingest.graph.writer as writer_mod
 
 
 class _DummyDriver:

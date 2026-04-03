@@ -1,4 +1,4 @@
-from graphrag_pipeline.core.claim_contract import (
+from gemynd.core.claim_contract import (
     ALLOWED_CLAIM_TYPES,
     CLAIM_LOCATION_RELATION,
     CLAIM_ENTITY_RELATIONS,

@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from graphrag_pipeline.cli import main as cli_main
-from graphrag_pipeline.shared.io_utils import save_semantic_bundle, save_structure_bundle
-from graphrag_pipeline.ingest.pipeline import build_spelling_review_queue, extract_semantic, parse_source, run_e2e
+from gemynd.cli import main as cli_main
+from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
+from gemynd.ingest.pipeline import build_spelling_review_queue, extract_semantic, parse_source, run_e2e
 
 
 def _build_queue(

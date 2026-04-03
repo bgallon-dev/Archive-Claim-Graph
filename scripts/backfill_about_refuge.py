@@ -12,7 +12,7 @@ if env_path.exists():
             k, _, v = line.partition("=")
             os.environ.setdefault(k.strip(), v.strip())
 
-from graphrag_pipeline.retrieval.executor import Neo4jQueryExecutor
+from gemynd.retrieval.executor import Neo4jQueryExecutor
 
 executor = Neo4jQueryExecutor(
     uri=os.environ["NEO4J_URI"],

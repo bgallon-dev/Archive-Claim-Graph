@@ -13,12 +13,12 @@ from unittest.mock import MagicMock
 
 import pytest
 
-from graphrag_pipeline.core.graph.cypher import (
+from gemynd.core.graph.cypher import (
     HABITAT_CONDITION_QUERY,
     PROVENANCE_CHAIN_QUERY,
     SPECIES_TREND_QUERY,
 )
-from graphrag_pipeline.retrieval.query_builder import CypherQueryBuilder
+from gemynd.retrieval.query_builder import CypherQueryBuilder
 
 
 # ---------------------------------------------------------------------------
@@ -115,12 +115,12 @@ class TestProvenanceChain:
 
 class TestAnalyticalResultToSummary:
     def test_to_summary_text_no_rows(self):
-        from graphrag_pipeline.retrieval.models import AnalyticalResult
+        from gemynd.retrieval.models import AnalyticalResult
         result = AnalyticalResult(query_name="species_trend", columns=["year", "count"], rows=[])
         assert "no results" in result.to_summary_text()
 
     def test_to_summary_text_with_rows(self):
-        from graphrag_pipeline.retrieval.models import AnalyticalResult
+        from gemynd.retrieval.models import AnalyticalResult
         result = AnalyticalResult(
             query_name="species_trend",
             columns=["year", "count"],

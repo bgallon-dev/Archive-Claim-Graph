@@ -32,9 +32,9 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     try:
-        from graphrag_pipeline.ingest.pipeline import parse_source, extract_semantic
+        from gemynd.ingest.pipeline import parse_source, extract_semantic
     except ImportError as exc:
-        print(f"[error] Could not import graphrag_pipeline: {exc}", file=sys.stderr)
+        print(f"[error] Could not import gemynd: {exc}", file=sys.stderr)
         print("  Run: pip install -e . from the project root", file=sys.stderr)
         return 1
 

@@ -41,7 +41,6 @@ _EXTRACTION_STOPWORDS: frozenset[str] = frozenset({
     "patterns", "changes", "trends", "during", "across", "stand", "stood",
     "decade", "period", "years", "year", "time", "times", "date", "dates",
     "significant", "important", "notable", "common", "general", "specific",
-    "turnbull",  # always resolves to Refuge — handled separately by capitalized pass
 })
 
 # Patterns used to pull year values from query text.
@@ -53,6 +52,7 @@ def classify_query(
     text: str,
     year_range: tuple[int, int] | None = None,
     entity_hints: list[str] | None = None,
+    extra_stopwords: frozenset[str] | None = None,
 ) -> QueryIntent:
     """Classify *text* into analytical / conversational / hybrid.
 
@@ -122,7 +122,7 @@ def classify_query(
         norm = normalize_name(m.group(1))
         if (len(norm) >= 4
                 and norm not in seen_normalized
-                and m.group(1).lower() not in _EXTRACTION_STOPWORDS):
+                and m.group(1).lower() not in (_EXTRACTION_STOPWORDS | (extra_stopwords or frozenset()))):
             entities.append(m.group(1).lower())
             seen_normalized.add(norm)
 

@@ -335,6 +335,7 @@ def _build_gaps_context(
     geo_coverage: list[dict],
     claim_types: list[dict],
     conv_gaps: list[dict],
+    expected_claim_shares: dict[str, float] | None = None,
 ) -> dict:
     temporal_gaps = _compute_temporal_gaps(temporal)
     year_span = f"{temporal[0]['year']}–{temporal[-1]['year']}" if temporal else "unknown"
@@ -357,7 +358,8 @@ def _build_gaps_context(
     unclassified_pct = round(unclassified_count / total_claims * 100) if total_claims > 0 else 0
 
     topic_rows = []
-    for claim_type, expected in sorted(_EXPECTED_CLAIM_SHARES.items(), key=lambda x: -x[1]):
+    _shares = expected_claim_shares or _EXPECTED_CLAIM_SHARES
+    for claim_type, expected in sorted(_shares.items(), key=lambda x: -x[1]):
         actual = actual_shares.get(claim_type, 0.0)
         actual_pct = round(actual * 100, 1)
         expected_pct = round(expected * 100, 1)
@@ -543,8 +545,17 @@ def create_app(
         period_seconds=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
     )
 
+    def _try_init(factory: Any) -> Any:
+        """Attempt to construct a store; return None on failure."""
+        try:
+            return factory()
+        except Exception:
+            _log.warning("Store unavailable", exc_info=True)
+            return None
+
     @asynccontextmanager
     async def lifespan(app: FastAPI):  # type: ignore[misc]
+        # --- Neo4j executor ---
         executor = Neo4jQueryExecutor(
             uri=uri,
             user=user,
@@ -557,27 +568,87 @@ def create_app(
         corpus_rows = executor.run(CORPUS_STATS_QUERY, {})
         state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
         state["executor"] = executor
-        state["query_builder"] = CypherQueryBuilder(executor)
-        _ann_db = annotation_db_path or os.environ.get("ANNOTATION_DB")
-        _annotation_store = None
-        if _ann_db:
-            from graphrag_pipeline.ingest.annotation import AnnotationStore
-            _annotation_store = AnnotationStore(_ann_db)
-            state["annotation_store"] = _annotation_store
-        state["assembler"] = ProvenanceContextAssembler(executor, annotation_store=_annotation_store)
-        state["gateway"] = EntityResolutionGateway()
-        synthesis_ctx: str | None = None
-        if domain_dir:
-            from ...shared.resource_loader import load_domain_profile
-            synthesis_ctx = load_domain_profile(Path(domain_dir)).get("synthesis_context")
-        # Token usage tracker
-        from graphrag_pipeline.shared.token_tracker import TokenUsageLogger, TokenUsageStore, load_pricing
-        _token_pricing = load_pricing()
-        _token_db = Path(os.environ.get("TOKEN_USAGE_DB", "data/token_usage.db"))
-        _token_logger = TokenUsageLogger(_token_db, _token_pricing)
-        state["token_logger"] = _token_logger
-        state["token_store"] = TokenUsageStore(_token_db)
 
+        # --- Domain config ---
+        _domain_config = None
+        if domain_dir:
+            from graphrag_pipeline.core.domain_config import load_domain_config
+            _domain_config = load_domain_config(Path(domain_dir))
+        state["domain_config"] = _domain_config
+
+        # --- DatabaseManager: centralised SQLite lifecycle ---
+        from graphrag_pipeline.shared.database_manager import DatabaseManager
+        from graphrag_pipeline.shared.settings import Settings
+        _settings = Settings.from_env()
+        if annotation_db_path:
+            _settings = dataclasses.replace(_settings, annotation_db=annotation_db_path)
+        db_mgr = DatabaseManager(_settings)
+        db_mgr.run_migrations()
+        state["db_manager"] = db_mgr
+
+        # --- Persistent-connection stores (receive managed connections) ---
+        from graphrag_pipeline.review.store import ReviewStore
+        state["review_store"] = _try_init(
+            lambda: ReviewStore(_settings.review_db, conn=db_mgr.get_connection("review"))
+        )
+
+        _annotation_store = None
+        if _settings.annotation_db:
+            from graphrag_pipeline.ingest.annotation import AnnotationStore
+            _annotation_store = _try_init(
+                lambda: AnnotationStore(_settings.annotation_db, conn=db_mgr.get_connection("annotation"))
+            )
+        state["annotation_store"] = _annotation_store
+
+        from graphrag_pipeline.retrieval.conversation_log import QueryHistoryStore as _QHSInit
+        state["history_store"] = _QHSInit(
+            _settings.conv_log_db, conn=db_mgr.get_connection("conv_log"),
+        )
+
+        from graphrag_pipeline.shared.token_tracker import TokenUsageLogger, TokenUsageStore, load_pricing
+        state["token_store"] = TokenUsageStore(
+            _settings.token_usage_db, conn=db_mgr.get_connection("token_usage"),
+        )
+
+        # --- On-demand / daemon stores (skip_init, manager ran migrations) ---
+        from graphrag_pipeline.auth.store import UserStore
+        state["user_store"] = _try_init(
+            lambda: UserStore(_settings.users_db, skip_init=True)
+        )
+
+        from graphrag_pipeline.ingest.store import IngestStore
+        state["ingest_store"] = _try_init(
+            lambda: IngestStore(_settings.ingest_db, skip_init=True)
+        )
+
+        from .write_audit_log import WriteAuditLogger
+        state["write_audit"] = WriteAuditLogger(_settings.write_audit_db, skip_init=True)
+
+        # Daemon writers: own their thread connections, skip schema init.
+        _token_pricing = load_pricing()
+        _token_logger = TokenUsageLogger(
+            db_mgr.get_path("token_usage"), _token_pricing, skip_init=True,
+        )
+        state["token_logger"] = _token_logger
+        state["conv_logger"] = ConversationLogger(
+            db_mgr.get_path("conv_log"), skip_init=True,
+        )
+
+        # --- Pipeline components ---
+        state["query_builder"] = CypherQueryBuilder(
+            executor,
+            institution_id=_domain_config.institution_id if _domain_config else None,
+        )
+        state["assembler"] = ProvenanceContextAssembler(
+            executor,
+            annotation_store=_annotation_store,
+            query_intent_map=_domain_config.query_intent_to_claim_types if _domain_config else None,
+            institution_id=_domain_config.institution_id if _domain_config else None,
+            anchor_entity_id=_domain_config.anchor_entity_id if _domain_config else None,
+            anchor_entity_type=_domain_config.anchor_entity_type if _domain_config else None,
+        )
+        state["gateway"] = EntityResolutionGateway()
+        synthesis_ctx = _domain_config.synthesis_context if _domain_config else None
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,
             max_tokens=max_tokens,
@@ -585,60 +656,10 @@ def create_app(
             timeout=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
             token_logger=_token_logger,
         )
-        conv_log_path = Path(os.environ.get("CONV_LOG_DB", "data/conversation_log.db"))
-        state["conv_logger"] = ConversationLogger(conv_log_path)
-        from graphrag_pipeline.retrieval.conversation_log import QueryHistoryStore as _QHSInit
-        state["history_store"] = _QHSInit(conv_log_path)
-        write_audit_path = os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db")
-        from .write_audit_log import WriteAuditLogger
-        state["write_audit"] = WriteAuditLogger(write_audit_path)
-
-        # Admin stores — optional, gracefully None if DBs missing.
-        # After construction (schema + migrations), reopen with
-        # check_same_thread=False so sync endpoints in FastAPI's
-        # threadpool can use the connection safely.
-        def _reopen_conn(store: Any) -> None:
-            """Replace the store's SQLite conn with a thread-safe one."""
-            store._conn.close()
-            store._conn = _sqlite3.connect(str(store.db_path), check_same_thread=False)
-            store._conn.row_factory = _sqlite3.Row
-            store._conn.execute("PRAGMA journal_mode=WAL")
-            store._conn.execute("PRAGMA foreign_keys=ON")
-
-        _review_db = os.environ.get("REVIEW_DB", "data/review.db")
-        try:
-            from graphrag_pipeline.review.store import ReviewStore
-            _rs = ReviewStore(_review_db)
-            _reopen_conn(_rs)
-            state["review_store"] = _rs
-        except Exception:
-            _log.warning("Review store unavailable (REVIEW_DB=%s)", _review_db)
-            state["review_store"] = None
-
-        _ingest_db = os.environ.get("INGEST_DB", "data/ingest_jobs.db")
-        try:
-            from graphrag_pipeline.ingest.store import IngestStore
-            state["ingest_store"] = IngestStore(_ingest_db)
-        except Exception:
-            _log.warning("Ingest store unavailable (INGEST_DB=%s)", _ingest_db)
-            state["ingest_store"] = None
-
-        _users_db = os.environ.get("USERS_DB", "data/users.db")
-        try:
-            from graphrag_pipeline.auth.store import UserStore
-            state["user_store"] = UserStore(_users_db)
-        except Exception:
-            _log.warning("User store unavailable (USERS_DB=%s)", _users_db)
-            state["user_store"] = None
 
         yield
         executor.close()
-        if state.get("annotation_store"):
-            state["annotation_store"].close()
-        if state.get("history_store"):
-            state["history_store"].close()
-        if state.get("token_store"):
-            state["token_store"].close()
+        db_mgr.close_all()
 
     app = FastAPI(
         title="Turnbull GraphRAG Retrieval API",
@@ -781,10 +802,12 @@ def create_app(
         turn_number = len(req.conversation_history) // 2 + 1
 
         # Layer 0: classify intent.
+        _dc = state.get("domain_config")
         intent = classify_query(
             text=req.text,
             year_range=req.year_range,
             entity_hints=req.entity_hints or [],
+            extra_stopwords=_dc.extraction_stopwords if _dc else None,
         )
         if req.mode != "auto":
             # Caller overrides bucket.
@@ -1049,7 +1072,11 @@ def create_app(
         if conv_log_db and os.path.exists(conv_log_db):
             conv_gaps = _read_query_signal_gaps(conv_log_db)
 
-        ctx = _build_gaps_context(temporal, entity_depth, geo_coverage, claim_types, conv_gaps)
+        _dc = state.get("domain_config")
+        ctx = _build_gaps_context(
+            temporal, entity_depth, geo_coverage, claim_types, conv_gaps,
+            expected_claim_shares=_dc.expected_claim_shares if _dc else None,
+        )
         return _templates.TemplateResponse("gaps.html", {"request": request, "active_page": "gaps", **_user_ctx(user), **ctx})
 
     # ------------------------------------------------------------------

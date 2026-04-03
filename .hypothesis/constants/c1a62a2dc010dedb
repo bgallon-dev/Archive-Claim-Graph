@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\retrieval\conversation_log.py
+# hypothesis_version: 6.151.9
+
+[1.0, 200, ' AND ', 'BEGIN', 'WHERE ', 'bucket = ?', 'conv-log-writer', 'int | None', 'list[dict]', 'query_text LIKE ?', 'request_id', 'session_id', 'str | None', 'str | Path', 'turn_number']

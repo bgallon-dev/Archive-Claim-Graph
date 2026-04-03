@@ -598,12 +598,26 @@ def main(argv: list[str] | None = None) -> int:
         safe_claims = max(1, aggregate_claims)
         unclassified_rate = aggregate_unclassified / safe_claims
         passes = unclassified_rate <= args.threshold_unclassified
+
+        # Onboarding validation: cross-resource consistency + retrieval readiness.
+        from graphrag_pipeline.core.domain_config import load_domain_config, _validate_config
+        _cfg = load_domain_config(resources_dir)
+        config_issues = _validate_config(_cfg, resources_dir)
+
+        retrieval_warnings: list[str] = list(config_issues)
+        if not _cfg.expected_claim_shares:
+            retrieval_warnings.append("missing expected_claim_shares")
+        if not _cfg.domain_anchor:
+            retrieval_warnings.append("missing document_anchor (no anchor entity for retrieval)")
+
         summary = {
-            "pass": passes,
+            "pass": passes and not config_issues,
             "documents": len(per_document),
             "aggregate_claim_count": aggregate_claims,
             "unclassified_rate": round(unclassified_rate, 4),
             "threshold_unclassified": args.threshold_unclassified,
+            "config_issues": config_issues,
+            "retrieval_warnings": retrieval_warnings,
             "per_document": per_document,
         }
         if args.output:

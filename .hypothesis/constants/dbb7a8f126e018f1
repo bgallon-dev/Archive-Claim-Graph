@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\shared\token_tracker.py
+# hypothesis_version: 6.151.9
+
+[0.0, 1.0, 3.0, 15.0, 100, 200, 1000000, ' AND caller = ?', '%', '%Y-%m-%d', '%Y-%m-01', '[^A-Za-z0-9]', '_', '__default__', 'alert', 'alert_threshold', 'by_caller', 'cache_hit', 'cache_hits', 'caller', 'claim_cache', 'cost', 'daily', 'default', 'enforcement', 'input_per_million', 'limit', 'max_cost_usd', 'models', 'monthly', 'output_per_million', 'pct', 'period', 'requests', 'resources', 'token-usage-writer', 'token_pricing.yaml', 'total_cost_usd', 'total_input', 'total_input_tokens', 'total_output', 'total_output_tokens', 'total_requests', 'used', 'utf-8']

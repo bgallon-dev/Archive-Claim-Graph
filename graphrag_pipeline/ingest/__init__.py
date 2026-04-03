@@ -4,22 +4,41 @@ from __future__ import annotations
 from .pipeline import (
     parse_source,
     extract_semantic,
+    extract_document,
+    persist_document,
     load_graph,
     quality_report,
     build_spelling_review_queue,
     run_e2e,
     resolve_mentions_targeted,
 )
+from .extraction_result import (
+    ExtractionResult,
+    PersistResult,
+    QuarantineSummary,
+    GateResult,
+    SensitivityGate,
+)
+from .sensitivity_gate import DefaultSensitivityGate, NullSensitivityGate
 
 __all__ = [
     "IngestPipeline",
     "parse_source",
     "extract_semantic",
+    "extract_document",
+    "persist_document",
     "load_graph",
     "quality_report",
     "build_spelling_review_queue",
     "run_e2e",
     "resolve_mentions_targeted",
+    "ExtractionResult",
+    "PersistResult",
+    "QuarantineSummary",
+    "GateResult",
+    "SensitivityGate",
+    "DefaultSensitivityGate",
+    "NullSensitivityGate",
 ]
 
 
@@ -57,6 +76,30 @@ class IngestPipeline:
         Delegates to :func:`graphrag_pipeline.ingest.pipeline.extract_semantic`.
         """
         return extract_semantic(structure, **kwargs)
+
+    # ------------------------------------------------------------------
+    # Document extraction (pure, no side effects)
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def extract_document(input_item, **kwargs):
+        """Parse and extract a document into an :class:`ExtractionResult`.
+
+        Delegates to :func:`graphrag_pipeline.ingest.pipeline.extract_document`.
+        """
+        return extract_document(input_item, **kwargs)
+
+    # ------------------------------------------------------------------
+    # Document persistence (effectful)
+    # ------------------------------------------------------------------
+
+    @staticmethod
+    def persist_document(result, out_dir, **kwargs):
+        """Run sensitivity gate, save bundles, and generate quality report.
+
+        Delegates to :func:`graphrag_pipeline.ingest.pipeline.persist_document`.
+        """
+        return persist_document(result, out_dir, **kwargs)
 
     # ------------------------------------------------------------------
     # Graph loading

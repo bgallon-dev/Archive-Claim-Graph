@@ -32,34 +32,10 @@ _log = logging.getLogger(__name__)
 # Default context window budgets.
 _BUDGET_CONVERSATIONAL = 20
 
-# Cached Turnbull Refuge entity_id — resolved once at first use.
-_TURNBULL_REFUGE_ID: str | None = None
-
-
-def _get_default_refuge_id() -> str | None:
-    """Return the canonical Refuge entity_id for Turnbull.
-    Resolved once and cached — avoids repeated seed entity loading."""
-    global _TURNBULL_REFUGE_ID
-    if _TURNBULL_REFUGE_ID is not None:
-        return _TURNBULL_REFUGE_ID
-    try:
-        from graphrag_pipeline.core.resolver import default_seed_entities
-        seeds = default_seed_entities()
-        refuge = next(
-            (e for e in seeds
-             if e.entity_type == "Refuge"
-             and "turnbull" in e.normalized_form),
-            None,
-        )
-        if refuge:
-            _TURNBULL_REFUGE_ID = refuge.entity_id
-    except Exception:
-        pass
-    return _TURNBULL_REFUGE_ID
 _BUDGET_HYBRID = 4
 
-# Maps query vocabulary keywords to claim_type lists for retrieval scoping.
-_QUERY_INTENT_TO_CLAIM_TYPES: dict[str, list[str]] = {
+# Fallback intent map used when no config-driven query_intent_map is provided.
+_FALLBACK_INTENT_MAP: dict[str, list[str]] = {
     "predator": ["predator_control", "management_action"],
     "habitat": ["habitat_condition", "weather_observation"],
     "population": ["population_estimate", "species_presence", "species_absence"],
@@ -92,7 +68,7 @@ def _infer_claim_types(
     """Map query vocabulary to claim_type filters. Returns None if no signal."""
     lowered = query_text.lower()
     matched: set[str] = set()
-    _map = intent_map if intent_map is not None else _QUERY_INTENT_TO_CLAIM_TYPES
+    _map = intent_map if intent_map is not None else _FALLBACK_INTENT_MAP
     for keyword, types in _map.items():
         if keyword in lowered:
             matched.update(types)
@@ -109,6 +85,7 @@ def _select_retrieval_strategy(
     institution_id: str | None = None,
     *,
     intent_map: dict[str, list[str]] | None = None,
+    anchor_entity_id: str | None = None,
 ) -> tuple[str, dict]:
     """Select the Cypher template and parameters best matched to this query shape.
 
@@ -127,14 +104,13 @@ def _select_retrieval_strategy(
     has_claim_types = bool(inferred_claim_types)
 
     _permitted = permitted_levels if permitted_levels is not None else ["public"]
-    _institution = institution_id if institution_id is not None else "turnbull"
-    _access_params = {"permitted_levels": _permitted, "institution_id": _institution}
+    _access_params = {"permitted_levels": _permitted, "institution_id": institution_id or ""}
 
     if has_years and len(resolved_ids) <= 1:
-        # When no entity resolved, anchor to the default refuge
+        # When no entity resolved, anchor to the configured domain anchor
         # so the temporal query doesn't scan the full corpus
         if len(resolved_ids) == 0:
-            refuge_id = _get_default_refuge_id()
+            refuge_id = anchor_entity_id
             if refuge_id:
                 return TEMPORAL_CLAIMS_QUERY_WITH_REFUGE, {
                     "refuge_id": refuge_id,
@@ -375,30 +351,35 @@ class ProvenanceContextAssembler:
         annotation_store: object | None = None,
         *,
         query_intent_map: dict[str, list[str]] | None = None,
+        institution_id: str | None = None,
+        anchor_entity_id: str | None = None,
+        anchor_entity_type: str | None = None,
     ) -> None:
         self._executor = executor
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
-        self._query_intent_map = query_intent_map or _QUERY_INTENT_TO_CLAIM_TYPES
+        self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
+        self._institution_id = institution_id
+        self._anchor_entity_id = anchor_entity_id
         # Optional AnnotationStore; when set, archivist notes are injected into context.
         self._annotation_store = annotation_store
         # Populated after each assemble() call; read by the web layer for coverage stats.
         self._last_candidate_count: int = 0
         self._last_ocr_dropped: int = 0
         self._last_context_count: int = 0
-        # Seed the refuge ID cache from the graph at startup — graph-authoritative,
-        # avoids dependency on seed entity CSV at query time.
-        global _TURNBULL_REFUGE_ID
-        if _TURNBULL_REFUGE_ID is None:
-            try:
-                rows = executor.run(
-                    "MATCH (:Document)-[:ABOUT_REFUGE]->(r:Refuge)"
-                    " RETURN r.entity_id AS eid LIMIT 1"
-                )
-                if rows:
-                    _TURNBULL_REFUGE_ID = rows[0]["eid"]
-            except Exception:
-                pass
+        # Graph-based fallback: resolve anchor entity from graph when not
+        # supplied via config (e.g. seed_entities had no match).
+        if self._anchor_entity_id is None and anchor_entity_type:
+            if re.match(r'^[A-Za-z_]+$', anchor_entity_type):
+                try:
+                    rows = executor.run(
+                        f"MATCH (:Document)-->(r:{anchor_entity_type})"
+                        " RETURN r.entity_id AS eid LIMIT 1"
+                    )
+                    if rows:
+                        self._anchor_entity_id = rows[0]["eid"]
+                except Exception:
+                    pass
 
     def assemble(
         self,
@@ -425,8 +406,9 @@ class ProvenanceContextAssembler:
         template, params = _select_retrieval_strategy(
             query_text, entity_context, year_min, year_max, budget,
             permitted_levels=permitted_levels,
-            institution_id=institution_id,
+            institution_id=institution_id or self._institution_id,
             intent_map=self._query_intent_map,
+            anchor_entity_id=self._anchor_entity_id,
         )
 
         rows: list[dict] = []
@@ -525,7 +507,7 @@ class ProvenanceContextAssembler:
         rows = self._executor.run(PROVENANCE_CHAIN_QUERY, {
             "claim_id": claim_id,
             "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
-            "institution_id": institution_id if institution_id is not None else "turnbull",
+            "institution_id": institution_id or self._institution_id or "",
         })
         blocks = [_row_to_block(r) for r in rows]
         return [b for b in blocks if b is not None]

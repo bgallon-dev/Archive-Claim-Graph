@@ -90,9 +90,21 @@ class TestEntityExtraction:
                 f"Common word '{word}' should not be extracted as an entity candidate"
             )
 
-    def test_turnbull_not_extracted_as_standalone_token(self):
-        intent = classify_query("What happened at Turnbull Refuge in 1942?")
+    def test_turnbull_not_extracted_when_in_extra_stopwords(self):
+        intent = classify_query(
+            "What happened at Turnbull Refuge in 1942?",
+            extra_stopwords=frozenset({"turnbull"}),
+        )
         extracted_lower = [e.lower() for e in intent.entities]
         # "turnbull" alone should not appear — only "Turnbull Refuge" as a phrase
         assert "turnbull" not in extracted_lower
         assert any("Turnbull" in e for e in intent.entities)
+
+    def test_extra_stopwords_merged_with_base(self):
+        """Domain-specific stopwords are merged with the base set."""
+        intent = classify_query(
+            "What myinstitution data shows about mallard",
+            extra_stopwords=frozenset({"myinstitution"}),
+        )
+        extracted_lower = [e.lower() for e in intent.entities]
+        assert "myinstitution" not in extracted_lower

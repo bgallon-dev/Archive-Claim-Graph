@@ -292,9 +292,18 @@ class TokenUsageLogger:
         record is discarded rather than blocking the caller.
     """
 
-    def __init__(self, db_path: Path, pricing: dict[str, dict[str, float]], maxsize: int = 200) -> None:
+    def __init__(
+        self,
+        db_path: Path,
+        pricing: dict[str, dict[str, float]],
+        maxsize: int = 200,
+        *,
+        skip_init: bool = False,
+    ) -> None:
         self._db_path = db_path
-        self._db_path.parent.mkdir(parents=True, exist_ok=True)
+        self._skip_init = skip_init
+        if not skip_init:
+            self._db_path.parent.mkdir(parents=True, exist_ok=True)
         self._pricing = pricing
         self._queue: queue.Queue[TokenUsageRecord] = queue.Queue(maxsize=maxsize)
         self._budget_callback: Callable[[str, str, float, float], None] | None = _default_budget_callback
@@ -328,9 +337,11 @@ class TokenUsageLogger:
                 pass  # accept the loss
 
     def _writer_loop(self) -> None:
+        self._db_path.parent.mkdir(parents=True, exist_ok=True)
         conn = sqlite3.connect(str(self._db_path))
         conn.execute("PRAGMA journal_mode=WAL")
-        _init_db(conn)
+        if not self._skip_init:
+            _init_db(conn)
         while True:
             try:
                 record = self._queue.get(timeout=1.0)
@@ -363,8 +374,11 @@ class TokenUsageStore:
     Opens its own WAL-mode connection so reads never block the writer thread.
     """
 
-    def __init__(self, db_path: Path | str) -> None:
+    def __init__(self, db_path: Path | str, *, conn: sqlite3.Connection | None = None) -> None:
         self._db_path = Path(db_path)
+        if conn is not None:
+            self._conn = conn
+            return
         self._conn = sqlite3.connect(str(self._db_path), check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
         self._conn.execute("PRAGMA journal_mode=WAL")

@@ -330,10 +330,16 @@ class InMemoryQueryExecutor:
         return [self._build_row(doc_id, claim_id)]
 
     def _generic_dispatch(self, cypher: str, p: dict) -> list[dict]:
-        # Assembler __init__ startup query to find the refuge entity_id.
-        if "ABOUT_REFUGE" in cypher and "eid" in cypher:
+        # Assembler __init__ startup query to find anchor entity by label.
+        # Handles both the legacy "ABOUT_REFUGE" pattern and the new generic
+        # "MATCH (:Document)-->(r:{EntityType})" pattern.
+        if "eid" in cypher and ("ABOUT_REFUGE" in cypher or "(:Document)-->" in cypher):
+            # Extract target label from Cypher like "...(r:Refuge)..."
+            import re as _re
+            label_match = _re.search(r'\(r:(\w+)\)', cypher)
+            target_label = label_match.group(1) if label_match else "Refuge"
             for sl, si, rt, el, ei, _ in self._w.rel_store:
-                if rt == "ABOUT_REFUGE" and el == "Refuge":
+                if el == target_label and sl == "Document":
                     return [{"eid": ei}]
             return []
         # Stats queries and anything else — return empty (not needed for retrieval tests).

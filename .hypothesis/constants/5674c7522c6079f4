@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\core\domain_config.py
+# hypothesis_version: 6.151.9
+
+[', ', 'OCCURRED_AT', 'compatibility', 'document_anchor', 'entity_labels', 'entity_type', 'entity_types', 'event_type', 'institution_id', 'legacy_renames', 'normalized_form', 'observation_type', 'optional_entities', 'relation', 'required_entities', 'synthesis_context', 'title_keywords', 'year_validation']

@@ -51,10 +51,7 @@ except Exception:  # pragma: no cover - optional dependency
 
 MODEL = os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6")
 
-_DEFAULT_SYNTHESIS_CONTEXT = (
-    "historical wildlife refuge reports for the "
-    "Turnbull National Wildlife Refuge (Washington State, USA)"
-)
+_DEFAULT_SYNTHESIS_CONTEXT = "historical archival documents"
 
 _SYSTEM_PROMPT_TEMPLATE = """\
 You are a specialist researcher working with {synthesis_context}. \

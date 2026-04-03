@@ -11,92 +11,38 @@ from pathlib import Path
 from typing import Any
 
 from .extractors import HybridClaimExtractor, RuleBasedMeasurementExtractor, RuleBasedMentionExtractor
-from graphrag_pipeline.core.claim_validator import is_valid_claim_sentence
-from .extractors.claim_extractor import ClaimExtractor, ClaimLinkDraft
+from .extractors.claim_extractor import ClaimExtractor
 from .extractors.measurement_extractor import MeasurementExtractor
 from .extractors.mention_extractor import MentionExtractor, ResolutionContext
 from .graph.writer import GraphWriter, InMemoryGraphWriter, Neo4jGraphWriter
-from graphrag_pipeline.core.ids import (
-    make_claim_id,
-    make_entity_id,
-    make_measurement_id,
-    make_mention_id,
-    make_period_id,
-    make_run_id,
-    make_year_id,
-    stable_hash,
-)
 from graphrag_pipeline.shared.io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_json, save_semantic_bundle, save_structure_bundle
 from graphrag_pipeline.core.models import (
-    ClaimConceptLinkRecord,
     ClaimEntityLinkRecord,
-    ClaimLinkDiagnosticRecord,
-    ClaimLocationLinkRecord,
-    ClaimPeriodLinkRecord,
     ClaimRecord,
-    DocumentPeriodLinkRecord,
-    DocumentRefugeLinkRecord,
-    DocumentYearLinkRecord,
     EntityRecord,
-    ExtractionRunRecord,
-    MeasurementRecord,
     MentionRecord,
-    PlaceRefugeLinkRecord,
     SemanticBundle,
     StructureBundle,
-    YearRecord,
 )
-from .concept_assigner import assign_concepts
 from graphrag_pipeline.core.claim_contract import (
     CLAIM_ENTITY_RELATIONS,
     CLAIM_ENTITY_RELATION_PRECEDENCE,
-    CLAIM_LOCATION_RELATION,
     entity_type_allowed_for_relation,
-    get_preferred_entity_types,
     get_relation_compatibility,
-    validate_claim_type,
 )
-from .derivation_context import build_derivation_contexts
-from .event_builder import build_events
-from .observation_builder import build_observations
 from graphrag_pipeline.core.resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_entities
-from graphrag_pipeline.shared.resource_loader import load_derivation_registry, load_domain_profile
 from graphrag_pipeline.core.domain_config import load_domain_config
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
+from .extraction_result import (
+    ExtractionResult,
+    PersistResult,
+    SensitivityGate,
+)
+from .sensitivity_gate import DefaultSensitivityGate
 
 _log = logging.getLogger(__name__)
 
-PERIOD_TYPE_PUBLICATION = "publication_period"
-PERIOD_TYPE_EVENT = "event_period"
-PERIOD_TYPE_SURVEY_SEASON = "survey_season"
-
-MONTHS = {
-    "jan": "01",
-    "january": "01",
-    "feb": "02",
-    "february": "02",
-    "mar": "03",
-    "march": "03",
-    "apr": "04",
-    "april": "04",
-    "may": "05",
-    "jun": "06",
-    "june": "06",
-    "jul": "07",
-    "july": "07",
-    "aug": "08",
-    "august": "08",
-    "sep": "09",
-    "sept": "09",
-    "september": "09",
-    "oct": "10",
-    "october": "10",
-    "nov": "11",
-    "november": "11",
-    "dec": "12",
-    "december": "12",
-}
 
 CLAUSE_MARKERS = (",", ";", " and ", " or ")
 
@@ -111,229 +57,10 @@ def parse_source(input_path: str | Path | dict[str, Any]) -> StructureBundle:
     return parse_source_payload(payload, source_file=str(path))
 
 
-def _claim_span(claim: ClaimRecord, paragraph_text: str) -> tuple[int, int]:
-    if claim.evidence_start is not None and claim.evidence_end is not None:
-        return claim.evidence_start, claim.evidence_end
-    return 0, len(paragraph_text)
-
-
 def _is_short_simple_sentence(sentence: str) -> bool:
     normalized = f" {sentence.strip().lower()} "
     token_count = len(re.findall(r"\b\w+\b", sentence))
     return token_count < 25 and not any(marker in normalized for marker in CLAUSE_MARKERS)
-
-
-def _diagnostic_record(
-    claim_id: str,
-    claim_link: ClaimLinkDraft,
-    diagnostic_code: str,
-    *,
-    candidate_count: int = 0,
-    detail: str = "",
-) -> ClaimLinkDiagnosticRecord:
-    return ClaimLinkDiagnosticRecord(
-        claim_id=claim_id,
-        relation_type=claim_link.relation_type,
-        surface_form=claim_link.surface_form,
-        normalized_form=claim_link.normalized_form,
-        diagnostic_code=diagnostic_code,
-        entity_type_hint=claim_link.entity_type_hint,
-        candidate_count=candidate_count,
-        detail=detail,
-    )
-
-
-_WEAK_CONFIDENCE_PENALTY: float = 0.10
-
-
-def _narrow_link_candidates(
-    candidates: list[tuple[MentionRecord, EntityRecord]],
-    claim_link: ClaimLinkDraft,
-    claim_type: str = "",
-) -> tuple[tuple[MentionRecord, EntityRecord] | None, ClaimLinkDiagnosticRecord | None]:
-    if not candidates:
-        return None, None
-
-    relation_filtered = [
-        row for row in candidates if entity_type_allowed_for_relation(claim_link.relation_type, row[1].entity_type)
-    ]
-    if not relation_filtered:
-        return None, _diagnostic_record(
-            "",
-            claim_link,
-            "RELATION_TYPE_CONFLICT",
-            candidate_count=len(candidates),
-            detail="Resolved mentions in span did not match the relation's allowed entity types.",
-        )
-
-    # ── Compatibility check: claim_type × relation_type ───────────────────────
-    if claim_type:
-        tier = get_relation_compatibility(claim_type, claim_link.relation_type)
-        if tier == "forbidden":
-            return None, _diagnostic_record(
-                "",
-                claim_link,
-                "RELATION_COMPATIBILITY_FORBIDDEN",
-                candidate_count=len(relation_filtered),
-                detail=(
-                    f"Relation {claim_link.relation_type!r} is forbidden for claim type {claim_type!r}. "
-                    "Link dropped."
-                ),
-            )
-        # "weak" tier: keep candidates but note it; confidence will be penalised
-        # in _resolve_claim_link after the winning entity is selected.
-
-    # ── End-label preference: re-rank by preferred entity types ──────────────
-    preferred = get_preferred_entity_types(claim_type) if claim_type else []
-    if preferred and len(relation_filtered) > 1:
-        def _preference_rank(row: tuple[MentionRecord, EntityRecord]) -> int:
-            et = row[1].entity_type
-            try:
-                return preferred.index(et)
-            except ValueError:
-                return len(preferred)
-
-        relation_filtered_sorted = sorted(relation_filtered, key=_preference_rank)
-        # If the best preferred candidate differs from the first unranked one,
-        # emit an informational diagnostic (non-blocking) to make it visible.
-        if relation_filtered_sorted[0][1].entity_type != relation_filtered[0][1].entity_type:
-            # We don't return a diagnostic here — we just reorder so the
-            # preferred entity wins.  Callers see the reranking in the resolved link.
-            pass
-        relation_filtered = relation_filtered_sorted
-
-    if len(relation_filtered) == 1 and not claim_link.entity_type_hint:
-        return relation_filtered[0], None
-
-    if claim_link.entity_type_hint:
-        hinted = [row for row in relation_filtered if row[1].entity_type == claim_link.entity_type_hint]
-        if len(hinted) == 1:
-            return hinted[0], None
-        if not hinted:
-            return None, _diagnostic_record(
-                "",
-                claim_link,
-                "TYPE_HINT_CONFLICT",
-                candidate_count=len(relation_filtered),
-                detail=f"No resolved mention matched entity_type_hint={claim_link.entity_type_hint!r}.",
-            )
-        return None, _diagnostic_record(
-            "",
-            claim_link,
-            "AMBIGUOUS_FALLBACK",
-            candidate_count=len(hinted),
-            detail="Multiple resolved mentions remained after applying entity_type_hint.",
-        )
-
-    if len(relation_filtered) == 1:
-        return relation_filtered[0], None
-    return None, _diagnostic_record(
-        "",
-        claim_link,
-        "AMBIGUOUS_FALLBACK",
-        candidate_count=len(relation_filtered),
-        detail="Multiple resolved mentions matched the normalized form within the claim span.",
-    )
-
-
-def _resolve_claim_link(
-    claim: ClaimRecord,
-    claim_link: ClaimLinkDraft,
-    paragraph_mentions: list[MentionRecord],
-    resolutions_by_mention: dict[str, Any],
-    entity_lookup: dict[str, EntityRecord],
-    paragraph_text: str,
-) -> tuple[EntityRecord | None, ClaimLinkDiagnosticRecord | None]:
-    claim_type = claim.claim_type
-    span_start, span_end = _claim_span(claim, paragraph_text)
-    resolved_in_span: list[tuple[MentionRecord, EntityRecord]] = []
-    for mention in paragraph_mentions:
-        if mention.start_offset < span_start or mention.end_offset > span_end:
-            continue
-        resolution = resolutions_by_mention.get(mention.mention_id)
-        if not resolution:
-            continue
-        entity = entity_lookup.get(resolution.entity_id)
-        if not entity:
-            continue
-        if entity.entity_type == "SurveyMethod" and resolution.relation_type != "REFERS_TO":
-            continue
-        resolved_in_span.append((mention, entity))
-
-    exact_candidates = [
-        row
-        for row in resolved_in_span
-        if claim_link.start_offset is not None
-        and claim_link.end_offset is not None
-        and row[0].start_offset == claim_link.start_offset
-        and row[0].end_offset == claim_link.end_offset
-    ]
-    exact_match, exact_diagnostic = _narrow_link_candidates(exact_candidates, claim_link, claim_type)
-    if exact_match:
-        return _apply_compatibility_penalty(exact_match[1], claim_type, claim_link.relation_type), None
-
-    normalized_candidates = [
-        row for row in resolved_in_span if row[0].normalized_form == claim_link.normalized_form
-    ]
-    normalized_match, normalized_diagnostic = _narrow_link_candidates(normalized_candidates, claim_link, claim_type)
-    if normalized_match:
-        return _apply_compatibility_penalty(normalized_match[1], claim_type, claim_link.relation_type), None
-
-    # Fallback: if span matching found nothing, try matching
-    # any resolved mention in the paragraph whose normalized_form
-    # appears in the claim's normalized_sentence
-    if not exact_match and not normalized_match and not normalized_diagnostic and not exact_diagnostic:
-        sentence_normalized = claim.normalized_sentence or ""
-        sentence_candidates = [
-            row for row in resolved_in_span
-            if row[0].normalized_form in sentence_normalized
-        ]
-        # Widen the search to full paragraph if span search found nothing
-        if not sentence_candidates:
-            for mention in paragraph_mentions:
-                resolution = resolutions_by_mention.get(mention.mention_id)
-                if not resolution:
-                    continue
-                entity = entity_lookup.get(resolution.entity_id)
-                if not entity:
-                    continue
-                if mention.normalized_form in sentence_normalized:
-                    sentence_candidates.append((mention, entity))
-
-        if sentence_candidates:
-            sentence_match, sentence_diagnostic = _narrow_link_candidates(
-                sentence_candidates, claim_link, claim_type
-            )
-            if sentence_match:
-                return _apply_compatibility_penalty(
-                    sentence_match[1], claim_type, claim_link.relation_type
-                ), None
-
-    diagnostic = normalized_diagnostic or exact_diagnostic
-    if diagnostic:
-        diagnostic.claim_id = claim.claim_id
-        return None, diagnostic
-    return None, _diagnostic_record(
-        claim.claim_id,
-        claim_link,
-        "NO_RESOLVED_MENTION",
-        detail="No resolved mention matched the claim link within the claim evidence span.",
-    )
-
-
-def _apply_compatibility_penalty(
-    entity: EntityRecord,
-    claim_type: str,
-    relation_type: str,
-) -> EntityRecord:
-    """No-op for now: compatibility penalty is applied at the claim level downstream.
-
-    The weak-tier signal is surfaced via diagnostics; callers that need to
-    lower extraction_confidence on weak links should call
-    ``get_relation_compatibility()`` on the resolved ClaimEntityLinkRecord.
-    Returning the entity unchanged keeps this function pure and testable.
-    """
-    return entity
 
 
 def extract_semantic(
@@ -348,7 +75,25 @@ def extract_semantic(
     no_llm: bool = False,
     token_logger: Any | None = None,
 ) -> SemanticBundle:
+    from .extraction_state import ExtractionState
+    from .phases import (
+        assign_concepts_phase,
+        build_derivation_phase,
+        build_events_phase,
+        build_extraction_run,
+        build_observations_phase,
+        create_domain_anchor,
+        create_period_entity,
+        create_place_refuge_links,
+        create_year_entities,
+        extract_paragraphs,
+        resolve_claim_links,
+        resolve_entities,
+    )
+
     _config = load_domain_config(resources_dir)
+
+    # -- Extractor initialisation (kept here: couples to constructor args) --
     if claim_extractor is None:
         if no_llm:
             from graphrag_pipeline.ingest.extractors.claim_extractor import (
@@ -362,375 +107,30 @@ def extract_semantic(
             )
         else:
             claim_extractor = HybridClaimExtractor(resources_dir=resources_dir, config=_config, token_logger=token_logger)
-    else:
-        pass  # caller-provided extractor takes priority
     measurement_extractor = measurement_extractor or RuleBasedMeasurementExtractor(resources_dir=resources_dir, config=_config)
     mention_extractor = mention_extractor or RuleBasedMentionExtractor(resources_dir=resources_dir, config=_config)
-    resolver = resolver or DictionaryFuzzyResolver(
-        resources_dir=resources_dir,
+    resolver = resolver or DictionaryFuzzyResolver(resources_dir=resources_dir, config=_config)
+
+    # -- Build state and run phases --
+    state = ExtractionState(
+        structure=structure,
         config=_config,
+        extraction_run=build_extraction_run(run_overrides),
     )
 
-    now = datetime.now(timezone.utc)
-    overrides = run_overrides or {}
-    run_id = overrides.get("run_id", make_run_id(overrides.get("ocr_engine", "unknown"), now))
-    extraction_run = ExtractionRunRecord(
-        run_id=run_id,
-        ocr_engine=overrides.get("ocr_engine", "unknown"),
-        ocr_version=overrides.get("ocr_version", "unknown"),
-        normalizer_version=overrides.get("normalizer_version", "v1"),
-        ner_model=overrides.get("ner_model", "hybrid-rules-llm"),
-        relation_model=overrides.get("relation_model", "hybrid-rules-llm"),
-        run_timestamp=overrides.get("run_timestamp", now.isoformat()),
-        config_fingerprint=stable_hash(
-            overrides.get("ocr_engine", "unknown"),
-            overrides.get("ocr_version", "unknown"),
-            overrides.get("normalizer_version", "v1"),
-            overrides.get("ner_model", "hybrid-rules-llm"),
-            overrides.get("relation_model", "hybrid-rules-llm"),
-        ),
-        claim_type_schema_version="v2",
-    )
+    extract_paragraphs(state, claim_extractor, measurement_extractor, mention_extractor)
+    resolve_entities(state, resolver)
+    create_domain_anchor(state)
+    resolve_claim_links(state)
+    create_period_entity(state)
+    build_derivation_phase(state)
+    build_observations_phase(state)
+    build_events_phase(state)
+    create_year_entities(state)
+    create_place_refuge_links(state)
+    assign_concepts_phase(state)
 
-    claims: list[ClaimRecord] = []
-    measurements: list[MeasurementRecord] = []
-    mentions: list[MentionRecord] = []
-    claim_links_by_claim: dict[str, list[ClaimLinkDraft]] = defaultdict(list)
-
-    claim_counter = 0
-    measurement_counter = 0
-
-    paragraph_texts = {
-        paragraph.paragraph_id: (paragraph.clean_text or paragraph.raw_ocr_text)
-        for paragraph in structure.paragraphs
-    }
-    mentions_by_paragraph: dict[str, list[MentionRecord]] = defaultdict(list)
-    claims_by_paragraph: dict[str, list[ClaimRecord]] = defaultdict(list)
-
-    for paragraph in structure.paragraphs:
-        paragraph_text = paragraph_texts[paragraph.paragraph_id]
-        claim_drafts = claim_extractor.extract(paragraph_text)
-        mention_drafts = mention_extractor.extract(paragraph_text)
-
-        for draft in mention_drafts:
-            mention_id = make_mention_id(
-                extraction_run.run_id,
-                paragraph.paragraph_id,
-                draft.start_offset,
-                draft.end_offset,
-                draft.surface_form,
-            )
-            mention = MentionRecord(
-                mention_id=mention_id,
-                run_id=extraction_run.run_id,
-                paragraph_id=paragraph.paragraph_id,
-                surface_form=draft.surface_form,
-                normalized_form=draft.normalized_form,
-                start_offset=draft.start_offset,
-                end_offset=draft.end_offset,
-                detection_confidence=draft.detection_confidence,
-                ocr_suspect=bool(draft.ocr_flags),
-            )
-            mentions.append(mention)
-            mentions_by_paragraph[paragraph.paragraph_id].append(mention)
-
-        for idx, draft in enumerate(claim_drafts, start=1):
-            valid, _reason = is_valid_claim_sentence(draft.source_sentence)
-            if not valid:
-                continue
-            claim_counter += 1
-            claim_id = make_claim_id(extraction_run.run_id, paragraph.paragraph_id, claim_counter + idx, draft.normalized_sentence)
-            claim_date = draft.claim_date or _infer_claim_date(
-                draft.source_sentence,
-                fallback_year=structure.document.report_year,
-            )
-            claim = ClaimRecord(
-                claim_id=claim_id,
-                run_id=extraction_run.run_id,
-                paragraph_id=paragraph.paragraph_id,
-                claim_type=validate_claim_type(draft.claim_type),
-                source_sentence=draft.source_sentence,
-                normalized_sentence=draft.normalized_sentence,
-                certainty=draft.epistemic_status,
-                extraction_confidence=draft.extraction_confidence,
-                evidence_start=draft.evidence_start,
-                evidence_end=draft.evidence_end,
-                claim_date=claim_date,
-                notes=draft.notes,
-            )
-            claims.append(claim)
-            claims_by_paragraph[paragraph.paragraph_id].append(claim)
-            claim_links_by_claim[claim_id] = list(draft.claim_links)
-
-            measurement_drafts = measurement_extractor.extract(draft)
-            for measurement_idx, measurement_draft in enumerate(measurement_drafts, start=1):
-                measurement_counter += 1
-                measurement = MeasurementRecord(
-                    measurement_id=make_measurement_id(
-                        extraction_run.run_id,
-                        claim_id,
-                        measurement_counter + measurement_idx,
-                        measurement_draft.name,
-                        measurement_draft.raw_value,
-                    ),
-                    claim_id=claim_id,
-                    run_id=extraction_run.run_id,
-                    name=measurement_draft.name,
-                    raw_value=measurement_draft.raw_value,
-                    numeric_value=measurement_draft.numeric_value,
-                    unit=measurement_draft.unit,
-                    approximate=measurement_draft.approximate,
-                    lower_bound=measurement_draft.lower_bound,
-                    upper_bound=measurement_draft.upper_bound,
-                    qualifier=measurement_draft.qualifier,
-                    measurement_date=claim_date,
-                    methodology_note=measurement_draft.methodology_note,
-                )
-                measurements.append(measurement)
-
-    # Build per-paragraph ResolutionContext from extracted claims so the resolver
-    # can apply type-conditioned score adjustments.
-    resolution_contexts: dict[str, ResolutionContext] = {
-        paragraph.paragraph_id: ResolutionContext(
-            paragraph_id=paragraph.paragraph_id,
-            claim_types=sorted({c.claim_type for c in claims_by_paragraph.get(paragraph.paragraph_id, [])}),
-        )
-        for paragraph in structure.paragraphs
-    }
-
-    entities, entity_resolutions = resolver.resolve(mentions, contexts=resolution_contexts)
-    entity_lookup = {entity.entity_id: entity for entity in entities}
-    resolutions_by_mention = {resolution.mention_id: resolution for resolution in entity_resolutions}
-
-    claim_entity_links: list[ClaimEntityLinkRecord] = []
-    claim_link_diagnostics: list[ClaimLinkDiagnosticRecord] = []
-    claim_location_links: list[ClaimLocationLinkRecord] = []
-    claim_period_links: list[ClaimPeriodLinkRecord] = []
-    document_refuge_links: list[DocumentRefugeLinkRecord] = []
-    document_period_links: list[DocumentPeriodLinkRecord] = []
-
-    seen_claim_entity: set[tuple[str, str, str]] = set()
-    seen_claim_location: set[tuple[str, str]] = set()
-
-    # Create document-level anchor entity before link assembly so doc_anchor_id is in scope for doc-level links.
-    doc_anchor_id: str | None = None
-    anchor_cfg = _config.domain_anchor
-    if anchor_cfg:
-        raw_kw = anchor_cfg.get("title_keywords") or anchor_cfg.get("title_keyword") or []
-        keywords = [raw_kw] if isinstance(raw_kw, str) else list(raw_kw)
-        title_lower = structure.document.title.lower()
-        if any(kw.lower() in title_lower for kw in keywords):
-            entity_type = anchor_cfg["entity_type"]
-            name = anchor_cfg["name"]
-            norm = anchor_cfg.get("normalized_form", name.lower())
-            props = anchor_cfg.get("properties", {})
-            doc_anchor_id = make_entity_id(entity_type, norm)
-            if doc_anchor_id not in entity_lookup:
-                anchor_entity = EntityRecord(
-                    entity_id=doc_anchor_id,
-                    entity_type=entity_type,
-                    name=name,
-                    normalized_form=norm,
-                    properties=props,
-                )
-                entities.append(anchor_entity)
-                entity_lookup[doc_anchor_id] = anchor_entity
-            document_refuge_links.append(DocumentRefugeLinkRecord(doc_id=structure.document.doc_id, refuge_id=doc_anchor_id))
-
-    for paragraph_id, paragraph_claims in claims_by_paragraph.items():
-        paragraph_mentions = mentions_by_paragraph.get(paragraph_id, [])
-        paragraph_text = paragraph_texts.get(paragraph_id, "")
-        for claim in paragraph_claims:
-            for claim_link in claim_links_by_claim.get(claim.claim_id, []):
-                entity, diagnostic = _resolve_claim_link(
-                    claim,
-                    claim_link,
-                    paragraph_mentions,
-                    resolutions_by_mention,
-                    entity_lookup,
-                    paragraph_text,
-                )
-                if diagnostic:
-                    claim_link_diagnostics.append(diagnostic)
-                    continue
-                if not entity:
-                    continue
-                if claim_link.relation_type == CLAIM_LOCATION_RELATION:
-                    key = (claim.claim_id, entity.entity_id)
-                    if key not in seen_claim_location:
-                        claim_location_links.append(ClaimLocationLinkRecord(claim_id=claim.claim_id, entity_id=entity.entity_id))
-                        seen_claim_location.add(key)
-                    continue
-                if claim_link.relation_type not in CLAIM_ENTITY_RELATIONS:
-                    continue
-                # Apply weak-tier confidence penalty before recording the link.
-                if claim.claim_type and get_relation_compatibility(claim.claim_type, claim_link.relation_type) == "weak":
-                    claim.extraction_confidence = max(
-                        0.0, claim.extraction_confidence - _WEAK_CONFIDENCE_PENALTY
-                    )
-                    claim_link_diagnostics.append(
-                        _diagnostic_record(
-                            claim.claim_id,
-                            claim_link,
-                            "RELATION_COMPATIBILITY_WEAK",
-                            detail=(
-                                f"Relation {claim_link.relation_type!r} is weak for claim type "
-                                f"{claim.claim_type!r}; confidence penalised by {_WEAK_CONFIDENCE_PENALTY}."
-                            ),
-                        )
-                    )
-                key = (claim.claim_id, entity.entity_id, claim_link.relation_type)
-                if key not in seen_claim_entity:
-                    claim_entity_links.append(
-                        ClaimEntityLinkRecord(
-                            claim_id=claim.claim_id,
-                            entity_id=entity.entity_id,
-                            relation_type=claim_link.relation_type,
-                        )
-                    )
-                    seen_claim_entity.add(key)
-
-    period_entity_id: str | None = None
-    if structure.document.date_start or structure.document.date_end:
-        period_entity_id = make_period_id(
-            structure.document.date_start,
-            structure.document.date_end,
-            source_title=structure.document.title,
-        )
-        period_entity = EntityRecord(
-            entity_id=period_entity_id,
-            entity_type="Period",
-            name=f"{structure.document.date_start or '?'} to {structure.document.date_end or '?'}",
-            normalized_form=f"{structure.document.date_start or '?'} to {structure.document.date_end or '?'}",
-            properties={
-                "period_id": period_entity_id,
-                "start_date": structure.document.date_start,
-                "end_date": structure.document.date_end,
-                "source_title": structure.document.title,
-                "period_type": PERIOD_TYPE_PUBLICATION,
-            },
-        )
-        if period_entity_id not in entity_lookup:
-            entities.append(period_entity)
-            entity_lookup[period_entity_id] = period_entity
-        document_period_links.append(DocumentPeriodLinkRecord(doc_id=structure.document.doc_id, period_id=period_entity_id))
-        for claim in claims:
-            claim_period_links.append(ClaimPeriodLinkRecord(claim_id=claim.claim_id, period_id=period_entity_id))
-
-    # Build shared per-claim derivation contexts (entity bindings, year, routing)
-    derivation_contexts = build_derivation_contexts(
-        claims=claims,
-        measurements=measurements,
-        claim_entity_links=claim_entity_links,
-        claim_location_links=claim_location_links,
-        claim_period_links=claim_period_links,
-        entity_lookup=entity_lookup,
-        run_id=extraction_run.run_id,
-        report_year=structure.document.report_year,
-        doc_date_start=structure.document.date_start,
-        doc_date_end=structure.document.date_end,
-        registry=_config.derivation_registry or None,
-        year_validation_cfg=_config.year_validation,
-    )
-
-    # Build Observations from eligible claims
-    observations, years, obs_measurement_links, _ = build_observations(
-        claims=claims,
-        measurements=measurements,
-        claim_entity_links=claim_entity_links,
-        claim_location_links=claim_location_links,
-        claim_period_links=claim_period_links,
-        entity_lookup=entity_lookup,
-        run_id=extraction_run.run_id,
-        report_year=structure.document.report_year,
-        _contexts=derivation_contexts,
-    )
-
-    # Build Events from event-eligible claims
-    events, event_obs_links, event_meas_links, event_years = build_events(
-        claims=claims,
-        measurements=measurements,
-        claim_entity_links=claim_entity_links,
-        claim_location_links=claim_location_links,
-        claim_period_links=claim_period_links,
-        entity_lookup=entity_lookup,
-        observations=observations,
-        run_id=extraction_run.run_id,
-        report_year=structure.document.report_year,
-        _contexts=derivation_contexts,
-    )
-    # Merge event-derived year nodes without duplicates
-    existing_year_ids = {y.year_id for y in years}
-    for yr in event_years:
-        if yr.year_id not in existing_year_ids:
-            years.append(yr)
-            existing_year_ids.add(yr.year_id)
-
-    # Create Year node from document report_year and link document
-    document_year_links: list[DocumentYearLinkRecord] = []
-    if structure.document.report_year:
-        doc_year_id = make_year_id(structure.document.report_year)
-        if not any(y.year_id == doc_year_id for y in years):
-            years.append(YearRecord(year_id=doc_year_id, year=structure.document.report_year, year_label=str(structure.document.report_year)))
-        document_year_links.append(DocumentYearLinkRecord(doc_id=structure.document.doc_id, year_id=doc_year_id))
-
-    # Place PART_OF Refuge links
-    place_refuge_links: list[PlaceRefugeLinkRecord] = []
-    if doc_anchor_id:
-        for entity in entities:
-            if entity.entity_type == "Place":
-                place_refuge_links.append(PlaceRefugeLinkRecord(place_id=entity.entity_id, refuge_id=doc_anchor_id))
-
-    # Concept assignment
-    _concept_ids = {
-        "concept_nesting_success", "concept_breeding_success",
-        "concept_population_decline", "concept_drought_condition",
-        "concept_flood_condition", "concept_temperature_extremes",
-        "concept_precipitation_pattern", "concept_habitat_degradation",
-        "concept_water_level_change", "concept_habitat_condition",
-        "concept_ecological_restoration", "concept_infrastructure_rehabilitation",
-        "concept_habitat_restoration", "concept_population_count",
-        "concept_survey_result", "concept_breeding_activity",
-        "concept_seasonal_condition",
-    }
-    claim_concept_links: list[ClaimConceptLinkRecord] = []
-    for claim in claims:
-        for assignment in assign_concepts(claim, config=_config):
-            if assignment.concept_id in _concept_ids:
-                claim_concept_links.append(
-                    ClaimConceptLinkRecord(
-                        claim_id=claim.claim_id,
-                        concept_id=assignment.concept_id,
-                        confidence=assignment.confidence,
-                        matched_rule=assignment.matched_rule,
-                    )
-                )
-
-    return SemanticBundle(
-        extraction_run=extraction_run,
-        claims=claims,
-        measurements=measurements,
-        mentions=mentions,
-        entities=entities,
-        entity_resolutions=entity_resolutions,
-        claim_entity_links=claim_entity_links,
-        claim_link_diagnostics=claim_link_diagnostics,
-        claim_location_links=claim_location_links,
-        claim_period_links=claim_period_links,
-        document_refuge_links=document_refuge_links,
-        document_period_links=document_period_links,
-        document_signed_by_links=[],
-        person_affiliation_links=[],
-        observations=observations,
-        years=years,
-        observation_measurement_links=obs_measurement_links,
-        document_year_links=document_year_links,
-        place_refuge_links=place_refuge_links,
-        events=events,
-        event_observation_links=event_obs_links,
-        event_measurement_links=event_meas_links,
-        claim_concept_links=claim_concept_links,
-    )
+    return state.to_semantic_bundle()
 
 
 def load_graph(
@@ -933,19 +333,17 @@ def _fetch_graph_entities(
     return result
 
 
-def _process_single_document(
+def extract_document(
     input_item: str,
-    out_dir: str,
-    review_out_dir: str | None,
     domain_dir_str: str | None = None,
     run_id: str | None = None,
     supplementary_entity_rows: list[EntityRecord] | None = None,
     no_llm: bool = False,
-) -> dict[str, Any]:
-    """Worker function for parallel document processing (parse + extract + save + quality).
+) -> ExtractionResult:
+    """Pure extraction: parse source and run semantic extraction.
 
-    Must be defined at module scope so ProcessPoolExecutor can pickle it on Windows.
-    domain_dir_str is kept as str | None (not Path) so it is pickling-safe on Windows.
+    No side effects (no file I/O, no sensitivity gate).  Module-scope and
+    pickle-safe so it can be submitted to :class:`ProcessPoolExecutor`.
     """
     resources_dir = Path(domain_dir_str) if domain_dir_str else None
     structure = parse_source(input_item)
@@ -963,69 +361,80 @@ def _process_single_document(
         run_overrides={"run_id": run_id} if run_id else None,
         no_llm=no_llm,
     )
+    return ExtractionResult(
+        structure=structure,
+        semantic=semantic,
+        doc_id=structure.document.doc_id,
+        run_id=semantic.extraction_run.run_id,
+        input_path=input_item,
+    )
 
-    # Sensitivity gate: quarantine high-confidence claims before graph write.
-    # Runs after extraction but before saving bundles so quarantine_status
-    # is persisted on disk and written to the graph atomically.
-    try:
-        from graphrag_pipeline.review.detectors import sensitivity_monitor as _sm
-        _sm_proposals = _sm.detect(structure, semantic, snapshot_id="")
-        _sm_cfg = _sm._load_config()
-        _auto_quarantine_threshold = (
-            _sm_cfg.get("pii_detection", {}).get("auto_quarantine_threshold", 0.85)
-        )
-        _now_ts = datetime.now(timezone.utc).isoformat()
-        _quarantined_ids: set[str] = set()
-        for _prop in _sm_proposals:
-            if _prop.confidence >= _auto_quarantine_threshold:
-                for _target in _prop.targets:
-                    if _target.target_kind == "claim" and _target.target_id not in _quarantined_ids:
-                        for _claim in semantic.claims:
-                            if _claim.claim_id == _target.target_id:
-                                _claim.quarantine_status = "quarantined"
-                                _claim.quarantine_reason = _prop.issue_class
-                                _claim.quarantine_timestamp = _now_ts
-                                _quarantined_ids.add(_claim.claim_id)
-    except Exception as _gate_exc:
-        _log.error(
-            "Sensitivity gate failed for %r: %s — quarantining all claims as precaution",
-            input_item, _gate_exc, exc_info=True,
-        )
-        # Quarantine everything in the document rather than silently ingesting
-        # un-screened content.  A reviewer can clear individual claims once the
-        # detector issue is resolved.
-        _now_ts = datetime.now(timezone.utc).isoformat()
-        for _claim in semantic.claims:
-            if _claim.quarantine_status == "active":
-                _claim.quarantine_status = "quarantined"
-                _claim.quarantine_reason = "sensitivity_gate_error"
-                _claim.quarantine_timestamp = _now_ts
 
-    stem = Path(input_item).stem
+def persist_document(
+    result: ExtractionResult,
+    out_dir: str,
+    review_out_dir: str | None = None,
+    sensitivity_gate: SensitivityGate | None = None,
+) -> PersistResult:
+    """Effectful persistence: sensitivity gate, file I/O, quality report.
+
+    The *sensitivity_gate* parameter allows institutions to inject custom
+    screening logic.  When ``None``, :class:`DefaultSensitivityGate` is used.
+    """
+    gate = sensitivity_gate or DefaultSensitivityGate()
+    gate_result = gate(result.structure, result.semantic)
+    semantic = gate_result.semantic
+
+    stem = Path(result.input_path).stem
     output_dir = Path(out_dir)
     structure_path = output_dir / f"{stem}.structure.json"
     semantic_path = output_dir / f"{stem}.semantic.json"
-    save_structure_bundle(structure_path, structure)
+    save_structure_bundle(structure_path, result.structure)
     save_semantic_bundle(semantic_path, semantic)
 
-    metrics = quality_report(structure, semantic)
-    doc_summary: dict[str, Any] = {
-        "input": input_item,
-        "doc_id": structure.document.doc_id,
-        "run_id": semantic.extraction_run.run_id,
-        "structure_output": str(structure_path),
-        "semantic_output": str(semantic_path),
-        "quality": metrics,
-    }
+    metrics = quality_report(result.structure, semantic)
 
+    spelling_review_output: str | None = None
+    spelling_review_issue_count = 0
     if review_out_dir is not None:
-        review_rows = build_spelling_review_queue(structure, semantic)
+        review_rows = build_spelling_review_queue(result.structure, semantic)
         review_path = Path(review_out_dir) / f"{stem}.spelling_review.json"
         save_json(review_path, review_rows)
-        doc_summary["spelling_review_output"] = str(review_path)
-        doc_summary["spelling_review_issue_count"] = len(review_rows)
+        spelling_review_output = str(review_path)
+        spelling_review_issue_count = len(review_rows)
 
-    return doc_summary
+    return PersistResult(
+        input_path=result.input_path,
+        doc_id=result.doc_id,
+        run_id=result.run_id,
+        structure_output=str(structure_path),
+        semantic_output=str(semantic_path),
+        quality=metrics,
+        quarantine_summary=gate_result.quarantine_summary,
+        spelling_review_output=spelling_review_output,
+        spelling_review_issue_count=spelling_review_issue_count,
+    )
+
+
+def _process_single_document(
+    input_item: str,
+    out_dir: str,
+    review_out_dir: str | None,
+    domain_dir_str: str | None = None,
+    run_id: str | None = None,
+    supplementary_entity_rows: list[EntityRecord] | None = None,
+    no_llm: bool = False,
+) -> dict[str, Any]:
+    """Worker function for parallel document processing.
+
+    Thin wrapper around :func:`extract_document` + :func:`persist_document`.
+    Must be defined at module scope so ProcessPoolExecutor can pickle it on Windows.
+    """
+    result = extract_document(
+        input_item, domain_dir_str, run_id, supplementary_entity_rows, no_llm,
+    )
+    persist = persist_document(result, out_dir, review_out_dir)
+    return persist.to_summary_dict()
 
 
 def run_e2e(
@@ -1228,11 +637,14 @@ def run_e2e(
                                 document_entity_counts[res.entity_id] += 1
                     continue
 
-                summary = _process_single_document(
-                    input_item, str(output_dir), review_output_dir_str,
-                    domain_dir_str, doc_run_ids[input_item], _supp,
-                    no_llm=no_llm,
+                extraction = extract_document(
+                    input_item, domain_dir_str, doc_run_ids[input_item],
+                    _supp, no_llm=no_llm,
                 )
+                persist = persist_document(
+                    extraction, str(output_dir), review_output_dir_str,
+                )
+                summary = persist.to_summary_dict()
                 _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
 
                 _write_doc_to_graph(summary)
@@ -1468,19 +880,3 @@ def resolve_mentions_targeted(
     }
 
 
-def _infer_claim_date(sentence: str, fallback_year: int | None) -> str | None:
-    match = re.search(
-        r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})(?:,\s*(\d{4}))?\b",
-        sentence,
-    )
-    if not match:
-        return None
-    month_key = match.group(1).strip().lower()
-    month = MONTHS.get(month_key)
-    if not month:
-        return None
-    day = int(match.group(2))
-    year = int(match.group(3)) if match.group(3) else fallback_year
-    if not year:
-        return None
-    return f"{year:04d}-{month}-{day:02d}"

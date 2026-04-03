@@ -62,7 +62,9 @@ def full_pipeline(populated_writer):
     per test file; the expensive pipeline run is shared with the session fixture.
     """
     executor = InMemoryQueryExecutor(populated_writer)
-    assembler = ProvenanceContextAssembler(executor)
+    assembler = ProvenanceContextAssembler(
+        executor, anchor_entity_type="Refuge", institution_id="turnbull",
+    )
     gateway = EntityResolutionGateway()
     doc_ids = set(populated_writer.node_store.get("Document", {}).keys())
     return PipelineFixture(

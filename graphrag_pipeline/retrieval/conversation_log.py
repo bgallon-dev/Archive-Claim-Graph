@@ -211,8 +211,9 @@ class ConversationLogger:
         record is discarded rather than blocking the caller.
     """
 
-    def __init__(self, db_path: Path, maxsize: int = 200) -> None:
+    def __init__(self, db_path: Path, maxsize: int = 200, *, skip_init: bool = False) -> None:
         self._db_path = db_path
+        self._skip_init = skip_init
         self._queue: queue.Queue[LogRecord] = queue.Queue(maxsize=maxsize)
         self._thread = threading.Thread(target=self._writer_loop, daemon=True, name="conv-log-writer")
         self._thread.start()
@@ -236,10 +237,12 @@ class ConversationLogger:
                 pass  # accept the loss
 
     def _writer_loop(self) -> None:
+        self._db_path.parent.mkdir(parents=True, exist_ok=True)
         conn = sqlite3.connect(str(self._db_path))
         conn.execute("PRAGMA journal_mode=WAL")
         conn.execute("PRAGMA foreign_keys=ON")
-        _init_db(conn)
+        if not self._skip_init:
+            _init_db(conn)
         while True:
             try:
                 record = self._queue.get(timeout=1.0)
@@ -287,7 +290,11 @@ class QueryHistoryStore:
         Path to the SQLite database file.  Created on first use.
     """
 
-    def __init__(self, db_path: "str | Path") -> None:
+    def __init__(self, db_path: "str | Path", *, conn: sqlite3.Connection | None = None) -> None:
+        if conn is not None:
+            self._conn = conn
+            self._lock = threading.Lock()
+            return
         _p = Path(db_path)
         _p.parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(str(_p), check_same_thread=False)

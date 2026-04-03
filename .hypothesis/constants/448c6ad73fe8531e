@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\retrieval\query_builder.py
+# hypothesis_version: 6.151.9
+
+['avg_confidence', 'claim_id', 'habitat', 'habitat_conditions', 'habitat_id', 'institution_id', 'measurements', 'observation_count', 'permitted_levels', 'public', 'species', 'species_id', 'species_trend', 'year', 'year_max', 'year_min']

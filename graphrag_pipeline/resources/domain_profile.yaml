@@ -32,6 +32,17 @@ document_anchor:
     refuge_id: turnbull_refuge
     name: Turnbull Refuge
 
+institution_id: turnbull
+
 synthesis_context: >
   historical wildlife refuge reports for the Turnbull National Wildlife
   Refuge (Washington State, USA)
+
+expected_claim_shares:
+  population_estimate: 0.22
+  species_presence: 0.18
+  management_action: 0.14
+  habitat_condition: 0.10
+  breeding_activity: 0.07
+  migration_timing: 0.05
+  weather_observation: 0.04

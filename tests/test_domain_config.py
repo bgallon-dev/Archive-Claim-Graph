@@ -115,12 +115,13 @@ def test_validate_config_no_warnings_on_real_resources(caplog: pytest.LogCapture
     config = load_domain_config(_RESOURCES_DIR)
     with caplog.at_level(logging.WARNING, logger="graphrag_pipeline.core.domain_config"):
         caplog.clear()
-        _validate_config(config)
+        issues = _validate_config(config, _RESOURCES_DIR)
     domain_warnings = [
         r for r in caplog.records
         if r.name == "graphrag_pipeline.core.domain_config"
     ]
     assert domain_warnings == [], f"Unexpected warnings: {[r.message for r in domain_warnings]}"
+    assert issues == [], f"Unexpected issues: {issues}"
 
 
 # ---------------------------------------------------------------------------
@@ -386,3 +387,171 @@ def test_domain_config_extractor_claim_link_relations_property() -> None:
     from graphrag_pipeline.core.claim_contract import EXTRACTOR_CLAIM_LINK_RELATIONS
     config = load_domain_config(_RESOURCES_DIR)
     assert config.extractor_claim_link_relations == EXTRACTOR_CLAIM_LINK_RELATIONS
+
+
+# ---------------------------------------------------------------------------
+# Retrieval-layer fields: institution_id, expected_claim_shares, derived properties
+# ---------------------------------------------------------------------------
+
+def test_domain_config_institution_id_loaded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.institution_id == "turnbull"
+
+
+def test_domain_config_expected_claim_shares_loaded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert "population_estimate" in config.expected_claim_shares
+    assert config.expected_claim_shares["population_estimate"] == 0.22
+    assert len(config.expected_claim_shares) == 7
+
+
+def test_domain_config_extraction_stopwords_derived() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    stopwords = config.extraction_stopwords
+    assert "turnbull" in stopwords
+    assert "tbl" in stopwords
+    assert "refuge" in stopwords
+
+
+def test_domain_config_extraction_stopwords_empty_when_no_anchor() -> None:
+    config = _minimal_domain_config()
+    # Override domain_anchor to None
+    object.__setattr__(config, "domain_anchor", None)
+    assert config.extraction_stopwords == frozenset()
+
+
+def test_domain_config_anchor_entity_id_resolved() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    # The real seed_entities should contain a Refuge matching "turnbull refuge"
+    anchor_id = config.anchor_entity_id
+    assert anchor_id is not None
+    # Verify it matches a Refuge-type entity
+    matching = [e for e in config.seed_entities if e.entity_id == anchor_id]
+    assert len(matching) == 1
+    assert matching[0].entity_type == "Refuge"
+
+
+def test_domain_config_anchor_entity_id_none_when_no_anchor() -> None:
+    config = _minimal_domain_config()
+    object.__setattr__(config, "domain_anchor", None)
+    assert config.anchor_entity_id is None
+
+
+def test_domain_config_anchor_entity_type() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.anchor_entity_type == "Refuge"
+
+
+def test_domain_config_anchor_entity_type_none_when_no_anchor() -> None:
+    config = _minimal_domain_config()
+    object.__setattr__(config, "domain_anchor", None)
+    assert config.anchor_entity_type is None
+
+
+def test_domain_config_defaults_for_new_fields() -> None:
+    """DomainConfig constructor works without explicitly passing new retrieval fields."""
+    config = _minimal_domain_config()
+    # institution_id and expected_claim_shares get defaults from load_domain_config
+    assert isinstance(config.institution_id, str)
+    assert isinstance(config.expected_claim_shares, dict)
+
+
+# ---------------------------------------------------------------------------
+# Onboarding validation: entity_labels vs. seed entities
+# ---------------------------------------------------------------------------
+
+def test_validate_warns_entity_label_without_seed() -> None:
+    config = _minimal_domain_config()
+    # Add a bogus label that has no seed entity
+    object.__setattr__(config, "entity_labels", config.entity_labels | {"AlienType"})
+    issues = _validate_config(config)
+    assert any("AlienType" in i and "seed entity" in i for i in issues)
+
+
+def test_validate_warns_seed_type_without_label() -> None:
+    config = _minimal_domain_config()
+    # Remove a label that has seeds
+    object.__setattr__(config, "entity_labels", config.entity_labels - {"Species"})
+    issues = _validate_config(config)
+    assert any("Species" in i and "entity_labels" in i for i in issues)
+
+
+# ---------------------------------------------------------------------------
+# Onboarding validation: derivation registry covers pattern claim types
+# ---------------------------------------------------------------------------
+
+def test_validate_warns_pattern_type_without_registry() -> None:
+    config = _minimal_domain_config()
+    # Remove a registry entry that has a pattern
+    trimmed = {k: v for k, v in config.derivation_registry.items() if k != "population_estimate"}
+    object.__setattr__(config, "derivation_registry", trimmed)
+    issues = _validate_config(config)
+    assert any("population_estimate" in i and "derivation_registry" in i for i in issues)
+
+
+# ---------------------------------------------------------------------------
+# Onboarding validation: document anchor entity type in seed vocabulary
+# ---------------------------------------------------------------------------
+
+def test_validate_warns_anchor_type_not_in_seeds() -> None:
+    config = _minimal_domain_config()
+    bad_anchor = dict(config.domain_anchor)
+    bad_anchor["entity_type"] = "NonexistentType"
+    object.__setattr__(config, "domain_anchor", bad_anchor)
+    issues = _validate_config(config)
+    assert any("NonexistentType" in i and "document_anchor" in i for i in issues)
+
+
+def test_validate_no_anchor_warning_when_anchor_is_none() -> None:
+    config = _minimal_domain_config()
+    object.__setattr__(config, "domain_anchor", None)
+    issues = _validate_config(config)
+    assert not any("document_anchor" in i for i in issues)
+
+
+# ---------------------------------------------------------------------------
+# Onboarding validation: sensitivity vocabulary file
+# ---------------------------------------------------------------------------
+
+def test_validate_warns_missing_sensitivity_vocab(tmp_path: Path) -> None:
+    """When sensitivity_config references a vocabulary file that doesn't exist, warn."""
+    import yaml
+    sens_cfg = {
+        "indigenous_sensitivity": {
+            "enabled": True,
+            "vocabulary_file": "nonexistent_vocab.yaml",
+        }
+    }
+    (tmp_path / "sensitivity_config.yaml").write_text(
+        yaml.dump(sens_cfg), encoding="utf-8",
+    )
+    config = _minimal_domain_config()
+    issues = _validate_config(config, tmp_path)
+    assert any("nonexistent_vocab.yaml" in i for i in issues)
+
+
+def test_validate_no_vocab_warning_when_file_exists(tmp_path: Path) -> None:
+    import yaml
+    sens_cfg = {
+        "indigenous_sensitivity": {
+            "enabled": True,
+            "vocabulary_file": "terms.yaml",
+        }
+    }
+    (tmp_path / "sensitivity_config.yaml").write_text(
+        yaml.dump(sens_cfg), encoding="utf-8",
+    )
+    (tmp_path / "terms.yaml").write_text("version: 1\n", encoding="utf-8")
+    config = _minimal_domain_config()
+    issues = _validate_config(config, tmp_path)
+    assert not any("vocabulary_file" in i for i in issues)
+
+
+# ---------------------------------------------------------------------------
+# Onboarding validation: _validate_config returns issues list
+# ---------------------------------------------------------------------------
+
+def test_validate_returns_issues_list() -> None:
+    config = _minimal_domain_config()
+    issues = _validate_config(config)
+    assert isinstance(issues, list)

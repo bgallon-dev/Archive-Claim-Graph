@@ -152,8 +152,11 @@ def _now_iso() -> str:
 class ReviewStore:
     """SQLite-backed store for the anti-pattern review subsystem."""
 
-    def __init__(self, db_path: str | Path) -> None:
+    def __init__(self, db_path: str | Path, *, conn: sqlite3.Connection | None = None) -> None:
         self.db_path = Path(db_path)
+        if conn is not None:
+            self._conn = conn
+            return
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(str(self.db_path))
         self._conn.row_factory = sqlite3.Row

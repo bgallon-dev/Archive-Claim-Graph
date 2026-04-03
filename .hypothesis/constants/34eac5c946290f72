@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\shared\database_manager.py
+# hypothesis_version: 6.151.9
+
+['Failed to close %s', 'annotation', 'anti_pattern_id', 'conv_log', 'description', 'error_root_cause', 'ingest', 'name', 'queue_name', 'review', 'review_tier', 'reviewer_override', 'token_usage', 'users', 'write_audit']

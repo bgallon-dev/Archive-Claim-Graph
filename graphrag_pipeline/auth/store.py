@@ -57,8 +57,10 @@ def verify_password(plain: str, hashed: str) -> bool:
 class UserStore:
     """CRUD operations against the users SQLite database."""
 
-    def __init__(self, db_path: str | Path = "data/users.db") -> None:
+    def __init__(self, db_path: str | Path = "data/users.db", *, skip_init: bool = False) -> None:
         self._path = Path(db_path)
+        if skip_init:
+            return
         self._path.parent.mkdir(parents=True, exist_ok=True)
         with self._connect() as conn:
             conn.executescript(_SCHEMA)

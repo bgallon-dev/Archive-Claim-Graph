@@ -310,16 +310,26 @@ class TestSelectRetrievalStrategy:
         ]
         return EntityContext(resolved=resolved)
 
-    def test_temporal_route_when_year_and_no_entity(self):
+    def test_temporal_route_when_year_and_no_entity_with_anchor(self):
         from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
 
         template, params = _select_retrieval_strategy(
-            "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10
+            "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
+            anchor_entity_id="refuge_abc",
         )
         assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         assert params["year_min"] == 1950
         assert params["year_max"] == 1960
-        assert params["refuge_id"]
+        assert params["refuge_id"] == "refuge_abc"
+
+    def test_temporal_route_when_year_and_no_entity_no_anchor(self):
+        from graphrag_pipeline.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
+
+        template, params = _select_retrieval_strategy(
+            "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
+        )
+        assert template == TEMPORAL_CLAIMS_QUERY
+        assert params["year_min"] == 1950
 
     def test_multi_entity_route_when_two_entities(self):
         from graphrag_pipeline.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY

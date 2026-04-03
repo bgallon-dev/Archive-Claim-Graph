@@ -39,6 +39,12 @@ from graphrag_pipeline.retrieval.models import (
     ResolvedEntity,
 )
 
+# Load domain config once for anchor_entity_id needed by temporal tests.
+from pathlib import Path as _Path
+from graphrag_pipeline.core.domain_config import load_domain_config as _load_domain_config
+_TEST_CONFIG = _load_domain_config(_Path(__file__).parent.parent / "graphrag_pipeline" / "resources")
+_TEST_ANCHOR_ID = _TEST_CONFIG.anchor_entity_id
+
 
 # ---------------------------------------------------------------------------
 # Helpers shared across test classes
@@ -201,7 +207,10 @@ class TestSelectRetrievalStrategy:
     ):
         from graphrag_pipeline.retrieval.context_assembler import _select_retrieval_strategy
         entity_ctx = EntityContext(resolved=resolved or [])
-        return _select_retrieval_strategy(query, entity_ctx, year_min, year_max, budget)
+        return _select_retrieval_strategy(
+            query, entity_ctx, year_min, year_max, budget,
+            anchor_entity_id=_TEST_ANCHOR_ID,
+        )
 
     # --- Fulltext fallback ---
 
@@ -653,6 +662,8 @@ class TestEndToEndRetrievalPath:
         assembler = ProvenanceContextAssembler(
             executor=mock_executor,
             budget_conversational=20,
+            anchor_entity_id=_TEST_ANCHOR_ID,
+            institution_id="turnbull",
         )
 
         engine = SynthesisEngine.__new__(SynthesisEngine)

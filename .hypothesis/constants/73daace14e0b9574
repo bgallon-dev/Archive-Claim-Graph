@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\retrieval\web\write_audit_log.py
+# hypothesis_version: 6.151.9
+
+['data/write_audit.db', 'ingestion', 'restore', 'soft_delete']

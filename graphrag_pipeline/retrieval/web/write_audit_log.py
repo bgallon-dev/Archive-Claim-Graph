@@ -48,8 +48,10 @@ class WriteAuditLogger:
         automatically. Defaults to ``data/write_audit.db``.
     """
 
-    def __init__(self, db_path: str | Path = "data/write_audit.db") -> None:
+    def __init__(self, db_path: str | Path = "data/write_audit.db", *, skip_init: bool = False) -> None:
         self._path = Path(db_path)
+        if skip_init:
+            return
         self._path.parent.mkdir(parents=True, exist_ok=True)
         with self._connect() as conn:
             conn.execute(_CREATE_TABLE)

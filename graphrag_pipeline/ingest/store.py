@@ -15,8 +15,10 @@ def _utcnow() -> str:
 class IngestStore:
     """Tracks ingest jobs and per-document processing status in SQLite."""
 
-    def __init__(self, db_path: str) -> None:
+    def __init__(self, db_path: str, *, skip_init: bool = False) -> None:
         self._db_path = db_path
+        if skip_init:
+            return
         Path(db_path).parent.mkdir(parents=True, exist_ok=True)
         self._init_schema()
 

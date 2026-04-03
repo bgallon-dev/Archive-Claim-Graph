@@ -58,7 +58,7 @@ def mock_executor():
 
 @pytest.fixture()
 def builder(mock_executor):
-    return CypherQueryBuilder(executor=mock_executor)
+    return CypherQueryBuilder(executor=mock_executor, institution_id="turnbull")
 
 
 class TestSpeciesTrend:

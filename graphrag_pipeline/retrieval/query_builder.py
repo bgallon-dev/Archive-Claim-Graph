@@ -25,8 +25,11 @@ class CypherQueryBuilder:
         a mock executor without a live Neo4j instance.
     """
 
-    def __init__(self, executor: Neo4jQueryExecutor) -> None:
+    def __init__(
+        self, executor: Neo4jQueryExecutor, *, institution_id: str | None = None,
+    ) -> None:
         self._executor = executor
+        self._institution_id = institution_id
 
     # ------------------------------------------------------------------
     # Analytical templates
@@ -48,7 +51,7 @@ class CypherQueryBuilder:
                 "year_min": year_min,
                 "year_max": year_max,
                 "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
-                "institution_id": institution_id if institution_id is not None else "turnbull",
+                "institution_id": institution_id or self._institution_id or "",
             },
         )
         return AnalyticalResult(
@@ -73,7 +76,7 @@ class CypherQueryBuilder:
                 "year_min": year_min,
                 "year_max": year_max,
                 "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
-                "institution_id": institution_id if institution_id is not None else "turnbull",
+                "institution_id": institution_id or self._institution_id or "",
             },
         )
         return AnalyticalResult(

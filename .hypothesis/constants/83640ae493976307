@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\graphrag_pipeline\shared\settings.py
+# hypothesis_version: 6.151.9
+
+['24', '5.x', 'ANNOTATION_DB', 'ANTHROPIC_API_KEY', 'Anthropic_API_Key', 'CONV_LOG_DB', 'COOKIE_SECURE', 'GRAPHRAG_API_TOKENS', 'INGEST_DB', 'JWT_EXPIRE_HOURS', 'JWT_SECRET_KEY', 'NEO4J_CA_CERT', 'NEO4J_DATABASE', 'NEO4J_PASSWORD', 'NEO4J_TRUST', 'NEO4J_URI', 'NEO4J_USER', 'OCR_ENGINE', 'OCR_VERSION', 'REVIEW_DB', 'SYNTHESIS_MODEL', 'Settings', 'TOKEN_USAGE_DB', 'USERS_DB', 'WRITE_AUDIT_DB', 'claude-sonnet-4-6', 'data/ingest_jobs.db', 'data/review.db', 'data/token_usage.db', 'data/users.db', 'data/write_audit.db', 'false', 'neo4j', 'system', 'tesseract', 'true', '{}']

@@ -72,12 +72,6 @@ packages = [
     "gemynd.review.web",
     "gemynd.retrieval",
     "gemynd.retrieval.web",
-    # Legacy shim packages — still importable via re-export stubs
-    "gemynd.extractors",
-    "gemynd.graph",
-    "gemynd.annotation",
-    "gemynd.export",
-    "gemynd.queries",
 ]
 
 [tool.setuptools.package-data]

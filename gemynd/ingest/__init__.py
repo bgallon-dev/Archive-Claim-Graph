@@ -50,7 +50,7 @@ class IngestPipeline:
         pipeline = IngestPipeline()
         structure = pipeline.parse_source(path)
         semantic  = pipeline.extract_semantic(structure)
-        pipeline.load_graph(structure, semantic, graph_writer)
+        pipeline.load_graph(structure, semantic, config=domain_config)
     """
 
     # ------------------------------------------------------------------
@@ -106,12 +106,13 @@ class IngestPipeline:
     # ------------------------------------------------------------------
 
     @staticmethod
-    def load_graph(structure, semantic, writer, **kwargs):
+    def load_graph(structure, semantic, **kwargs):
         """Write a (StructureBundle, SemanticBundle) pair to a graph backend.
 
-        Delegates to :func:`gemynd.ingest.pipeline.load_graph`.
+        Delegates to :func:`gemynd.ingest.pipeline.load_graph`. Caller must
+        pass ``config=DomainConfig`` in ``kwargs``.
         """
-        return load_graph(structure, semantic, writer, **kwargs)
+        return load_graph(structure, semantic, **kwargs)
 
     # ------------------------------------------------------------------
     # Quality reporting

@@ -3,6 +3,7 @@ from pathlib import Path
 from gemynd.ingest.graph.writer import InMemoryGraphWriter
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
+from tests.conftest import TEST_ENTITY_LABELS
 
 
 def test_year_fields_are_scoped_to_their_canonical_node_types(fixtures_dir: Path) -> None:
@@ -12,7 +13,7 @@ def test_year_fields_are_scoped_to_their_canonical_node_types(fixtures_dir: Path
         run_overrides={"run_id": "run_year_fields", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter()
+    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)

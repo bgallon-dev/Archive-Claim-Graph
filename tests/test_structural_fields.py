@@ -7,6 +7,7 @@ from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
 from gemynd.core.models import EntityRecord
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
+from tests.conftest import TEST_ENTITY_LABELS
 
 
 def test_entity_record_keeps_entity_type_in_bundle_but_not_node_props() -> None:
@@ -34,7 +35,7 @@ def test_entity_type_not_persisted_on_graph_nodes(fixtures_dir: Path) -> None:
         run_overrides={"run_id": "run_group_f", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter()
+    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)

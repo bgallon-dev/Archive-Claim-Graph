@@ -36,15 +36,35 @@ class Neo4jQueryExecutor:
         database: str = "neo4j",
         trust_mode: str = "system",
         ca_cert_path: str | None = None,
+        *,
+        entity_labels: frozenset[str] | None = None,
     ) -> None:
         if GraphDatabase is None:  # pragma: no cover - optional dependency
             raise RuntimeError(
                 "neo4j package is not installed. Install with: pip install -e .[retrieval]"
             )
+        from ..core.graph.cypher import (
+            INDEX_STATEMENTS,
+            build_constraint_statements,
+        )
+
         driver_kwargs = _build_driver_kwargs(uri=uri, trust_mode=trust_mode, ca_cert_path=ca_cert_path)
         self._driver = GraphDatabase.driver(uri, auth=(user, password), **driver_kwargs)
         self._database = database
         self._uri = uri
+        # entity_labels is optional at construction so read-only callers
+        # (duplicate-hash check, graph-entity fetch, ad-hoc queries) don't
+        # need to load a full DomainConfig just to run a SELECT. It becomes
+        # required only when ensure_schema() is called.
+        self._entity_labels: frozenset[str] | None = (
+            frozenset(entity_labels) if entity_labels is not None else None
+        )
+        if self._entity_labels is not None:
+            self._schema_statements = (
+                build_constraint_statements(self._entity_labels) + INDEX_STATEMENTS
+            )
+        else:
+            self._schema_statements = ()
 
         try:
             self._driver.verify_connectivity()
@@ -80,13 +100,17 @@ class Neo4jQueryExecutor:
     def ensure_schema(self) -> None:
         """Apply schema constraints and indexes to the connected database.
 
-        All statements in SCHEMA_STATEMENTS use IF NOT EXISTS so this is
-        idempotent — safe to call on every server startup.
+        All statements use IF NOT EXISTS so this is idempotent — safe to
+        call on every server startup.
         """
-        from ..core.graph.cypher import SCHEMA_STATEMENTS
-
+        if self._entity_labels is None:
+            raise RuntimeError(
+                "ensure_schema() requires entity_labels to be passed at "
+                "construction time; load a DomainConfig and pass "
+                "entity_labels=config.entity_labels"
+            )
         with self._driver.session(database=self._database) as session:
-            for stmt in SCHEMA_STATEMENTS:
+            for stmt in self._schema_statements:
                 session.run(stmt)
 
     def close(self) -> None:

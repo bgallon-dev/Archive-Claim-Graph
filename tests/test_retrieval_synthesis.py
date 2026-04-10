@@ -77,7 +77,7 @@ class TestSynthesise:
         result = engine.synthesise("query", blocks, "context")
         assert result.min_extraction_confidence == pytest.approx(0.7, abs=1e-4)
 
-    def test_min_confidence_none_when_no_matching_blocks(self):
+    def test_min_confidence_from_all_blocks_not_just_cited(self):
         response = json.dumps({
             "answer": "answer",
             "confidence_assessment": "ok",
@@ -87,7 +87,7 @@ class TestSynthesise:
         engine = self._engine(response)
         blocks = [_make_block("c-001", 0.9)]
         result = engine.synthesise("query", blocks, "context")
-        assert result.min_extraction_confidence is None
+        assert result.min_extraction_confidence == pytest.approx(0.9, abs=1e-4)
 
     def test_markdown_fence_stripped(self):
         engine = self._engine(_RESPONSE_WITH_FENCE)

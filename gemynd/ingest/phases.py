@@ -368,7 +368,11 @@ def extract_paragraphs(
             state.mentions_by_paragraph[paragraph.paragraph_id].append(mention)
 
         for idx, draft in enumerate(claim_drafts, start=1):
-            valid, _reason = is_valid_claim_sentence(draft.source_sentence)
+            valid, _reason = is_valid_claim_sentence(
+                draft.source_sentence,
+                verb_re=state.config.validator_verb_re,
+                heading_re=state.config.validator_heading_re,
+            )
             if not valid:
                 continue
             state.claim_counter += 1
@@ -386,7 +390,11 @@ def extract_paragraphs(
                 claim_id=claim_id,
                 run_id=state.extraction_run.run_id,
                 paragraph_id=paragraph.paragraph_id,
-                claim_type=validate_claim_type(draft.claim_type),
+                claim_type=validate_claim_type(
+                    draft.claim_type,
+                    allowed=state.config.allowed_claim_types,
+                    renames=state.config.legacy_renames,
+                ),
                 source_sentence=draft.source_sentence,
                 normalized_sentence=draft.normalized_sentence,
                 certainty=draft.epistemic_status,
@@ -596,15 +604,8 @@ def build_derivation_phase(state: ExtractionState) -> None:
 def build_observations_phase(state: ExtractionState) -> None:
     """Phase 8: build observations from eligible claims."""
     observations, years, obs_measurement_links, _ = build_observations(
-        claims=state.claims,
-        measurements=state.measurements,
-        claim_entity_links=state.claim_entity_links,
-        claim_location_links=state.claim_location_links,
-        claim_period_links=state.claim_period_links,
-        entity_lookup=state.entity_lookup,
-        run_id=state.extraction_run.run_id,
-        report_year=state.structure.document.report_year,
-        _contexts=state.derivation_contexts,
+        state.derivation_contexts,
+        state.extraction_run.run_id,
     )
     state.observations = observations
     state.years = years
@@ -614,16 +615,8 @@ def build_observations_phase(state: ExtractionState) -> None:
 def build_events_phase(state: ExtractionState) -> None:
     """Phase 9: build events from event-eligible claims and merge year nodes."""
     events, event_obs_links, event_meas_links, event_years = build_events(
-        claims=state.claims,
-        measurements=state.measurements,
-        claim_entity_links=state.claim_entity_links,
-        claim_location_links=state.claim_location_links,
-        claim_period_links=state.claim_period_links,
-        entity_lookup=state.entity_lookup,
-        observations=state.observations,
-        run_id=state.extraction_run.run_id,
-        report_year=state.structure.document.report_year,
-        _contexts=state.derivation_contexts,
+        state.derivation_contexts,
+        state.extraction_run.run_id,
     )
     state.events = events
     state.event_obs_links = event_obs_links

@@ -232,6 +232,7 @@ class ReviewRun:
     semantic_bundle_path: str
     structure_bundle_sha256: str
     semantic_bundle_sha256: str
+    institution_id: str = ""
     snapshot_schema_version: str = "v1"
     extraction_run_id: str = ""
     created_at: str = ""

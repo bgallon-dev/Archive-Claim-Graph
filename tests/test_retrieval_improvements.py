@@ -42,8 +42,13 @@ from gemynd.retrieval.models import (
 # Load domain config once for anchor_entity_id needed by temporal tests.
 from pathlib import Path as _Path
 from gemynd.core.domain_config import load_domain_config as _load_domain_config
+from gemynd.core.graph.cypher import build_temporal_with_anchor_query as _build_temporal_with_anchor_query
 _TEST_CONFIG = _load_domain_config(_Path(__file__).parent.parent / "gemynd" / "resources")
 _TEST_ANCHOR_ID = _TEST_CONFIG.anchor_entity_id
+_TEST_ANCHOR_TEMPORAL_CYPHER = _build_temporal_with_anchor_query(
+    _TEST_CONFIG.anchor_entity_type or "Refuge",
+    _TEST_CONFIG.anchor_relation or "ABOUT_REFUGE",
+)
 
 
 # ---------------------------------------------------------------------------
@@ -210,6 +215,7 @@ class TestSelectRetrievalStrategy:
         return _select_retrieval_strategy(
             query, entity_ctx, year_min, year_max, budget,
             anchor_entity_id=_TEST_ANCHOR_ID,
+            anchor_temporal_cypher=_TEST_ANCHOR_TEMPORAL_CYPHER,
         )
 
     # --- Fulltext fallback ---
@@ -223,33 +229,30 @@ class TestSelectRetrievalStrategy:
     # --- Temporal path ---
 
     def test_year_range_no_entity_uses_temporal_template(self):
-        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what happened in the 1950s?",
             year_min=1950, year_max=1959,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        assert template is _TEST_ANCHOR_TEMPORAL_CYPHER
         assert params["year_min"] == 1950
         assert params["year_max"] == 1959
-        assert params["refuge_id"]
+        assert params["anchor_id"]
 
     def test_temporal_template_passes_claim_types_when_detected(self):
-        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what predator control happened in the 1950s?",
             year_min=1950, year_max=1959,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        assert template is _TEST_ANCHOR_TEMPORAL_CYPHER
         assert params["claim_types"] is not None
         assert "predator_control" in params["claim_types"]
 
     def test_temporal_template_claim_types_none_when_no_signal(self):
-        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         template, params = self._select(
             "what happened at the refuge in 1945?",
             year_min=1945, year_max=1945,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        assert template is _TEST_ANCHOR_TEMPORAL_CYPHER
         assert params["claim_types"] is None
 
     # --- Multi-entity comparative path ---
@@ -663,6 +666,8 @@ class TestEndToEndRetrievalPath:
             executor=mock_executor,
             budget_conversational=20,
             anchor_entity_id=_TEST_ANCHOR_ID,
+            anchor_entity_type=_TEST_CONFIG.anchor_entity_type or "Refuge",
+            anchor_relation=_TEST_CONFIG.anchor_relation or "ABOUT_REFUGE",
             institution_id="turnbull",
         )
 
@@ -687,7 +692,6 @@ class TestEndToEndRetrievalPath:
         return assembler, engine, mock_executor
 
     def test_temporal_query_calls_temporal_template(self):
-        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
         rows = [_make_raw_row(f"c-{i:03d}") for i in range(5)]
         assembler, engine, mock_executor = self._make_pipeline(rows)
 
@@ -699,8 +703,8 @@ class TestEndToEndRetrievalPath:
             year_max=1959,
         )
         called_templates = [call[0][0] for call in mock_executor.run.call_args_list]
-        assert any(TEMPORAL_CLAIMS_QUERY_WITH_REFUGE in t for t in called_templates), (
-            "Temporal query with year bounds should use TEMPORAL_CLAIMS_QUERY_WITH_REFUGE"
+        assert any(t is _TEST_ANCHOR_TEMPORAL_CYPHER for t in called_templates), (
+            "Temporal query with year bounds should dispatch the anchor-aware template"
         )
 
     def test_comparative_query_calls_multi_entity_template(self):

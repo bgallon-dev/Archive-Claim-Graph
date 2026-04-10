@@ -30,85 +30,19 @@ RELATION_TO_ENTITY_TYPE_HINTS: dict[str, frozenset[str]] = {
     CLAIM_LOCATION_RELATION: frozenset({"Place", "Refuge"}),
 }
 
-# All claim types recognised by the pipeline, including the coercion fallback.
-ALLOWED_CLAIM_TYPES: frozenset[str] = frozenset({
-    "population_estimate",
-    "species_presence",
-    "species_absence",
-    "breeding_activity",
-    "habitat_condition",
-    "management_action",
-    "migration_timing",
-    "weather_observation",
-    "predator_control",
-    "fire_incident",
-    "economic_use",
-    "development_activity",
-    "public_contact",
-    UNCLASSIFIED_TYPE,
-})
+# Minimal fallback allow-list used only when a caller fails to pass the
+# DomainConfig-derived set. The canonical allowed set lives on
+# ``DomainConfig.allowed_claim_types`` and is derived from the derivation
+# registry at load time.
+ALLOWED_CLAIM_TYPES: frozenset[str] = frozenset({UNCLASSIFIED_TYPE})
 
-# Claim types that produce an Observation node during semantic extraction.
-# DEPRECATED: Derive from DomainConfig.observation_eligible_types instead.
-# Kept for backward-compat builder paths that do not yet receive config.
-OBSERVATION_ELIGIBLE_TYPES: frozenset[str] = frozenset({
-    "population_estimate",
-    "species_presence",
-    "species_absence",
-    "breeding_activity",
-    "habitat_condition",
-    "migration_timing",
-    "weather_observation",
-    "predator_control",
-    # Legacy name kept for backward compat with older serialized bundles.
-    "wildlife_count",
-})
-
-# Deterministic mapping from claim_type to observation_type.
-# DEPRECATED: Use derivation_registry.yaml via DomainConfig.derivation_registry instead.
-# Kept for backward-compat builder paths that do not yet receive config.
-CLAIM_TYPE_TO_OBSERVATION_TYPE: dict[str, str] = {
-    "population_estimate": "population_count",
-    "wildlife_count": "population_count",  # legacy compat
-    "species_presence": "presence_record",
-    "species_absence": "presence_record",
-    "breeding_activity": "nesting_record",
-    "migration_timing": "migration_record",
-    "weather_observation": "weather_record",
-    "habitat_condition": "habitat_record",
-    "predator_control": "predator_record",
-}
-
-# Deterministic mapping from claim_type to event_type (the Neo4j label).
-# DEPRECATED: Use derivation_registry.yaml via DomainConfig.derivation_registry instead.
-# Kept for backward-compat builder paths that do not yet receive config.
-CLAIM_TYPE_TO_EVENT_TYPE: dict[str, str] = {
-    "population_estimate":  "SurveyEvent",
-    "species_presence":     "SurveyEvent",
-    "species_absence":      "SurveyEvent",
-    "breeding_activity":    "BreedingEvent",
-    "migration_timing":     "MigrationEvent",
-    "fire_incident":        "FireEvent",
-    "predator_control":     "ManagementEvent",
-    "management_action":    "ManagementEvent",
-    "habitat_condition":    "HabitatEvent",
-    "weather_observation":  "WeatherEvent",
-    "economic_use":         "ManagementEvent",
-    "development_activity": "ManagementEvent",
-    "public_contact":       "ManagementEvent",
-    # "unclassified_assertion" intentionally excluded — not a real event
-}
-
-# All claim types that should produce an Event node.
-# DEPRECATED: Derive from DomainConfig.event_eligible_types instead.
-# Kept for backward-compat builder paths that do not yet receive config.
-EVENT_ELIGIBLE_TYPES: frozenset[str] = frozenset(CLAIM_TYPE_TO_EVENT_TYPE.keys())
+# Observation/event eligibility and claim_type → derivation-type mappings are
+# loaded per domain from derivation_registry.yaml via DomainConfig. No
+# module-level fallback — callers must route through DerivationContext.
 
 # Legacy rename map: old extractor output → current canonical type.
-_LEGACY_RENAMES: dict[str, str] = {
-    "wildlife_count": "population_estimate",
-    "weather_condition": "weather_observation",
-}
+# Empty by default; domain-specific renames come from DomainConfig.legacy_renames.
+_LEGACY_RENAMES: dict[str, str] = {}
 
 
 def validate_claim_type(

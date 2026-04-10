@@ -96,7 +96,7 @@ class UserStore:
         email: str,
         password: str,
         role: str,
-        institution_id: str = "turnbull",
+        institution_id: str = "",
     ) -> User:
         """Hash *password* and insert a new user row.
 

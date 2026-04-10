@@ -24,6 +24,15 @@ def _load_dotenv(env_path: Path) -> None:
 _load_dotenv(Path(__file__).parent.parent / ".env")
 
 
+# Turnbull-corpus entity labels used by tests that build a writer directly.
+# Any test that constructs InMemoryGraphWriter / Neo4jGraphWriter without going
+# through load_graph() should pass entity_labels=TEST_ENTITY_LABELS.
+TEST_ENTITY_LABELS: frozenset[str] = frozenset({
+    "Refuge", "Place", "Person", "Organization", "Species",
+    "Activity", "Period", "Habitat", "SurveyMethod",
+})
+
+
 @pytest.fixture()
 def fixtures_dir() -> Path:
     return Path(__file__).parent / "fixtures"
@@ -49,4 +58,9 @@ def populated_executor(populated_writer):
     """InMemoryQueryExecutor backed by the fully-populated writer."""
     from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
 
-    return InMemoryQueryExecutor(populated_writer)
+    return InMemoryQueryExecutor(
+        populated_writer,
+        entity_labels=TEST_ENTITY_LABELS,
+        anchor_entity_type="Refuge",
+        anchor_relation="ABOUT_REFUGE",
+    )

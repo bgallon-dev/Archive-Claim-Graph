@@ -1,0 +1,6 @@
+version: "1"
+pii_detection:
+  enabled: true
+  confidence_threshold: 0.85
+indigenous_sensitivity:
+  enabled: false

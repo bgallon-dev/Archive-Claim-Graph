@@ -64,7 +64,9 @@ def test_parse_filters_non_dict_items() -> None:
 def test_build_prompt_without_config_uses_defaults() -> None:
     prompt = _build_system_prompt(None)
     assert "domain-specific documents" in prompt
-    assert "population_estimate" in prompt
+    # No-config fallback carries only the sentinel claim type and the
+    # domain-neutral relation vocabulary.
+    assert "unclassified_assertion" in prompt
     assert "SPECIES_FOCUS" in prompt
     assert "source_sentence" in prompt
 

@@ -238,15 +238,10 @@ class SynthesisEngine:
 
         supporting_ids: list[str] = raw.get("supporting_claim_ids") or []
 
-        # Compute min extraction_confidence across supporting claims.
+        # Compute min extraction_confidence across all retrieved provenance blocks.
         min_conf: float | None = None
         if provenance_blocks:
-            supporting_set = set(supporting_ids)
-            confidences = [
-                b.extraction_confidence
-                for b in provenance_blocks
-                if b.claim_id in supporting_set
-            ]
+            confidences = [b.extraction_confidence for b in provenance_blocks]
             if confidences:
                 min_conf = round(min(confidences), 4)
 

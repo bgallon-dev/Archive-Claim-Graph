@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from gemynd.core.domain_config import load_domain_config
 from gemynd.ingest.pipeline import extract_semantic, load_graph
 from gemynd.ingest.source_parser import parse_source_file
 
@@ -35,7 +36,7 @@ def test_load_graph_reads_neo4j_trust_env(monkeypatch, fixtures_dir: Path) -> No
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(structure, run_overrides={"run_id": "run_env", "run_timestamp": "2026-03-10T00:00:00+00:00"})
 
-    load_graph(structure, semantic, backend="neo4j")
+    load_graph(structure, semantic, config=load_domain_config(), backend="neo4j")
     assert _DummyNeo4jWriter.captured["uri"] == "bolt://localhost:7687"
     assert _DummyNeo4jWriter.captured["trust_mode"] == "custom"
     assert _DummyNeo4jWriter.captured["ca_cert_path"] == "C:/tmp/ca.crt"

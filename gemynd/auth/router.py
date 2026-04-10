@@ -47,7 +47,7 @@ class CreateUserRequest(BaseModel):
     email: EmailStr
     password: str = Field(..., min_length=12)
     role: Literal["admin", "archivist", "readonly"]
-    institution_id: str = "turnbull"
+    institution_id: str = ""
 
 
 class UserResponse(BaseModel):

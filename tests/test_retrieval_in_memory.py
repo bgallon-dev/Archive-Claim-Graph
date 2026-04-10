@@ -17,10 +17,17 @@ from gemynd.core.graph.cypher import (
     MULTI_ENTITY_CLAIMS_QUERY,
     PROVENANCE_CHAIN_QUERY,
     TEMPORAL_CLAIMS_QUERY,
-    TEMPORAL_CLAIMS_QUERY_WITH_REFUGE,
+    build_temporal_with_anchor_query,
+)
+
+# The anchor-aware template for the Turnbull corpus. Re-created via the
+# memoized builder so object identity matches what the executor pre-caches.
+TEMPORAL_CLAIMS_QUERY_WITH_ANCHOR = build_temporal_with_anchor_query(
+    "Refuge", "ABOUT_REFUGE"
 )
 from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
 from gemynd.retrieval.models import EntityContext, ResolvedEntity
+from tests.conftest import TEST_ENTITY_LABELS
 
 # Default access params used in every query (match the pipeline defaults).
 _ACCESS = {"institution_id": "turnbull", "permitted_levels": ["public"]}
@@ -48,10 +55,10 @@ def _species_ids_in_writer(populated_writer) -> list[str]:
 
 def _entity_ids_linked_to_claims(populated_writer) -> list[str]:
     """Return entity_ids that have at least one Claim->Entity relationship."""
-    from gemynd.retrieval.in_memory_executor import _ENTITY_LABELS
+    from tests.conftest import TEST_ENTITY_LABELS
     seen: set[str] = set()
     for sl, si, rt, el, ei, _ in populated_writer.rel_store:
-        if sl == "Claim" and el in _ENTITY_LABELS:
+        if sl == "Claim" and el in TEST_ENTITY_LABELS:
             seen.add(ei)
     return list(seen)
 
@@ -170,9 +177,9 @@ class TestTemporalQuery:
             pytest.skip("No ABOUT_REFUGE relationships in fixture data")
         refuge_id = next(iter(about_refuge))
         rows = populated_executor.run(
-            TEMPORAL_CLAIMS_QUERY_WITH_REFUGE,
+            TEMPORAL_CLAIMS_QUERY_WITH_ANCHOR,
             {
-                "refuge_id": refuge_id,
+                "anchor_id": refuge_id,
                 "year_min": None,
                 "year_max": None,
                 "claim_types": None,
@@ -450,14 +457,14 @@ class TestClaimTypeScoped:
 
 class TestGenericDispatch:
     def test_startup_refuge_query_returns_eid(self, populated_executor, populated_writer):
-        """The assembler's __init__ refuge lookup must be handled by _generic_dispatch."""
+        """The assembler's __init__ anchor lookup must be handled by _generic_dispatch."""
         refuge_linked = {
             ei
             for sl, si, rt, el, ei, _ in populated_writer.rel_store
             if rt == "ABOUT_REFUGE" and el == "Refuge"
         }
         rows = populated_executor.run(
-            "MATCH (:Document)-[:ABOUT_REFUGE]->(r:Refuge)"
+            "MATCH (:Document)-->(r:Refuge)"
             " RETURN r.entity_id AS eid LIMIT 1"
         )
         if refuge_linked:
@@ -536,9 +543,8 @@ class TestIntegrationWithAssembler:
             pytest.skip("No entity-linked claims in fixture data")
         entity_id = entity_ids[0]
         # Find label for this entity
-        from gemynd.retrieval.in_memory_executor import _ENTITY_LABELS
         entity_type = "Species"
-        for label in _ENTITY_LABELS:
+        for label in TEST_ENTITY_LABELS:
             if entity_id in populated_writer.node_store.get(label, {}):
                 entity_type = label
                 break

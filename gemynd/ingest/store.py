@@ -36,6 +36,7 @@ class IngestStore:
                     job_id         TEXT PRIMARY KEY,
                     status         TEXT NOT NULL DEFAULT 'running',
                     out_dir        TEXT NOT NULL,
+                    institution_id TEXT NOT NULL DEFAULT '',
                     created_at     TEXT NOT NULL,
                     completed_at   TEXT,
                     total_docs     INTEGER NOT NULL DEFAULT 0,
@@ -55,16 +56,25 @@ class IngestStore:
                     completed_at  TEXT
                 );
             """)
+            # Migration: add institution_id column to existing databases.
+            try:
+                conn.execute(
+                    "ALTER TABLE ingest_job ADD COLUMN institution_id TEXT NOT NULL DEFAULT ''"
+                )
+            except sqlite3.OperationalError:
+                pass  # column already exists
 
-    def create_job(self, out_dir: str, filenames: list[str]) -> str:
+    def create_job(
+        self, out_dir: str, filenames: list[str], *, institution_id: str = ""
+    ) -> str:
         """Create a new ingest job and return its job_id."""
         job_id = uuid.uuid4().hex
         now = _utcnow()
         with self._connect() as conn:
             conn.execute(
-                "INSERT INTO ingest_job (job_id, status, out_dir, created_at, total_docs)"
-                " VALUES (?, 'running', ?, ?, ?)",
-                (job_id, out_dir, now, len(filenames)),
+                "INSERT INTO ingest_job (job_id, status, out_dir, institution_id, created_at, total_docs)"
+                " VALUES (?, 'running', ?, ?, ?, ?)",
+                (job_id, out_dir, institution_id, now, len(filenames)),
             )
             for fn in filenames:
                 conn.execute(

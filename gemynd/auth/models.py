@@ -20,7 +20,7 @@ ROLE_PERMITTED_LEVELS: dict[str, list[str]] = {
     "indigenous_admin": ["public", "staff_only", "restricted", "indigenous_restricted"],
 }
 
-_DEFAULT_INSTITUTION = "turnbull"
+_DEFAULT_INSTITUTION = ""
 
 
 # ---------------------------------------------------------------------------

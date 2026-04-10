@@ -30,6 +30,7 @@ class Settings:
     annotation_db: str = ""
     token_usage_db: str = "data/token_usage.db"
     ingest_db: str = "data/ingest_jobs.db"
+    corpus_registry_path: str = "data/corpus_registry.yaml"
     # API tokens (JSON-encoded env var)
     graphrag_api_tokens: dict = field(default_factory=dict)
     # OCR metadata
@@ -65,6 +66,7 @@ class Settings:
             annotation_db=os.environ.get("ANNOTATION_DB", ""),
             token_usage_db=os.environ.get("TOKEN_USAGE_DB", "data/token_usage.db"),
             ingest_db=os.environ.get("INGEST_DB", "data/ingest_jobs.db"),
+            corpus_registry_path=os.environ.get("CORPUS_REGISTRY_PATH", "data/corpus_registry.yaml"),
             graphrag_api_tokens=tokens,
             ocr_engine=os.environ.get("OCR_ENGINE", "tesseract"),
             ocr_version=os.environ.get("OCR_VERSION", "5.x"),

@@ -31,7 +31,7 @@ from gemynd.core.claim_contract import (
     get_relation_compatibility,
 )
 from gemynd.core.resolver import DictionaryFuzzyResolver, EntityResolver, default_seed_entities
-from gemynd.core.domain_config import load_domain_config
+from gemynd.core.domain_config import DomainConfig, load_domain_config
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
 from .extraction_result import (
@@ -93,6 +93,10 @@ def extract_semantic(
 
     _config = load_domain_config(resources_dir)
 
+    # Set institution_id from domain config if not already set on the document.
+    if not structure.document.institution_id and _config.institution_id:
+        structure.document.institution_id = _config.institution_id
+
     # -- Extractor initialisation (kept here: couples to constructor args) --
     if claim_extractor is None:
         if no_llm:
@@ -137,6 +141,7 @@ def load_graph(
     structure: StructureBundle,
     semantic: SemanticBundle,
     *,
+    config: DomainConfig,
     backend: str = "memory",
     neo4j_uri: str | None = None,
     neo4j_user: str | None = None,
@@ -145,6 +150,7 @@ def load_graph(
     neo4j_trust_mode: str | None = None,
     neo4j_ca_cert: str | None = None,
 ) -> GraphWriter:
+    entity_labels = config.entity_labels
     writer: GraphWriter
     if backend == "neo4j":
         uri = neo4j_uri or os.environ.get("NEO4J_URI")
@@ -162,9 +168,10 @@ def load_graph(
             database=database,
             trust_mode=trust_mode,
             ca_cert_path=ca_cert_path,
+            entity_labels=entity_labels,
         )
     else:
-        writer = InMemoryGraphWriter()
+        writer = InMemoryGraphWriter(entity_labels=entity_labels)
 
     writer.create_schema()
     writer.load_structure(structure)
@@ -461,6 +468,7 @@ def run_e2e(
     if review_output_dir_str is not None:
         Path(review_output_dir_str).mkdir(parents=True, exist_ok=True)
     domain_dir_str = str(resources_dir) if resources_dir is not None else None
+    _run_config = load_domain_config(resources_dir)
 
     # --- Phase 0: pre-flight Neo4j checks (duplicate detection + graph entities) ---
     # Both run only when backend=="neo4j" and a URI is available, so the memory-
@@ -600,7 +608,12 @@ def run_e2e(
                 document_entity_counts[resolution.entity_id] += 1
 
         if writer is None:
-            writer = load_graph(structure, semantic, backend=backend, **neo4j_kwargs)
+            writer = load_graph(
+                structure, semantic,
+                config=_run_config,
+                backend=backend,
+                **neo4j_kwargs,
+            )
         else:
             writer.load_structure(structure)
             writer.load_semantic(structure, semantic)

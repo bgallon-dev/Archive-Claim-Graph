@@ -168,7 +168,7 @@ def require_login(
                     detail="API token has expired",
                 )
             role = entry.get("role", "public")
-            institution_id = entry.get("institution_id", "turnbull")
+            institution_id = entry.get("institution_id", "")
             client_id = entry.get("client_id")
             return UserContext.from_token_entry(role, institution_id, client_id=client_id)
         # Token present but not found in store.

@@ -455,7 +455,7 @@ class LLMClaimExtractor:
                     source_sentence=raw,
                     normalized_sentence=normalized,
                     epistemic_status=str(row.get("epistemic_status", row.get("certainty", "uncertain"))),
-                    extraction_confidence=float(row.get("extraction_confidence", 0.6)),
+                    extraction_confidence=max(0.0, min(1.0, float(row.get("extraction_confidence", 0.6)))),
                     evidence_start=int(row["evidence_start"]) if row.get("evidence_start") is not None else None,
                     evidence_end=int(row["evidence_end"]) if row.get("evidence_end") is not None else None,
                     claim_date=str(row["claim_date"]) if row.get("claim_date") else None,

@@ -79,7 +79,7 @@ function cellValue(v) {
 function confidenceBadge(conf) {
   if (conf === null || conf === undefined) return '';
   var pct = Math.round(conf * 100);
-  var cls = conf >= 0.8 ? 'warm' : conf >= 0.6 ? 'amber' : 'red';
+  var cls = conf >= 0.85 ? 'warm' : conf >= 0.70 ? 'amber' : 'red';
   return '<span class="badge badge-' + cls + '">' + pct + '% confidence</span>';
 }
 

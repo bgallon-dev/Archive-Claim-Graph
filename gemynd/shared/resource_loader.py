@@ -305,3 +305,21 @@ def load_query_intent(
         data: dict[str, Any] = yaml.safe_load(fh) or {}
     raw = data.get("intent_to_claim_types") or {}
     return {str(k): [str(v) for v in vs] for k, vs in raw.items()}
+
+
+# ── Validator verbs ──────────────────────────────────────────────────────────
+
+def load_validator_verbs(
+    resources_dir: Path | None = None,
+) -> tuple[str, ...]:
+    """Return domain-specific finite-verb vocabulary for claim sentence validation.
+
+    If the resource file does not exist, returns an empty tuple — the caller
+    is expected to fall back to a hardcoded default list.
+    """
+    path = _resource_path("validator_verbs", resources_dir)
+    if not path.exists():
+        return ()
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    return tuple(str(v).strip().lower() for v in (data.get("verbs") or []) if v)

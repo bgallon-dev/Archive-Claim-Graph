@@ -11,6 +11,7 @@ from gemynd.shared.env import load_dotenv
 from gemynd.shared.io_utils import load_semantic_bundle, load_structure_bundle, save_json, save_rows_csv, save_semantic_bundle, save_structure_bundle
 from gemynd.shared.settings import Settings
 
+from gemynd.core.domain_config import load_domain_config
 from gemynd.ingest.pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, resolve_mentions_targeted, run_e2e
 
 
@@ -57,8 +58,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     ingest_parser.add_argument(
         "--institution-id",
-        default="turnbull",
-        help="Institution identifier for multi-tenant isolation (default: turnbull).",
+        default=None,
+        help="Institution identifier for multi-tenant isolation. "
+             "Defaults to the default corpus in the registry.",
+    )
+    ingest_parser.add_argument(
+        "--corpus",
+        default=None,
+        help="Corpus ID from registry. Resolves --institution-id and --domain-dir automatically.",
     )
     ingest_parser.add_argument(
         "--donor-restricted",
@@ -87,7 +94,13 @@ def build_parser() -> argparse.ArgumentParser:
     graph_parser.add_argument("--backend", choices=["memory", "neo4j"], default="memory")
     graph_parser.add_argument("--workers", type=int, default=1,
                               help="Parallel threads for loading bundles from disk (default: 1). Use 0 to auto-detect. Only applies with --input-dir.")
+    graph_parser.add_argument(
+        "--corpus",
+        default=None,
+        help="Corpus ID from registry. Resolves --domain-dir automatically.",
+    )
     _add_neo4j_args(graph_parser)
+    _add_domain_args(graph_parser)
 
     e2e_parser = subparsers.add_parser("run-e2e", help="Run parse + extract + load over multiple reports.")
     e2e_parser.add_argument("--inputs", nargs="+", required=True, help="Paths to source report JSON files or a directory.")
@@ -109,6 +122,11 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         default=False,
         help="Disable LLM-based claim extraction; use only rule-based extraction (zero API calls).",
+    )
+    e2e_parser.add_argument(
+        "--corpus",
+        default=None,
+        help="Corpus ID from registry. Resolves --domain-dir automatically.",
     )
     _add_neo4j_args(e2e_parser)
     _add_domain_args(e2e_parser)
@@ -271,8 +289,14 @@ def build_parser() -> argparse.ArgumentParser:
     )
     corpus_export_parser.add_argument(
         "--institution-id",
-        default="turnbull",
-        help="Institution identifier (default: turnbull). Used in HTML report title and EAD eadid.",
+        default=None,
+        help="Institution identifier. Used in HTML report title and EAD eadid. "
+             "Defaults to the default corpus in the registry.",
+    )
+    corpus_export_parser.add_argument(
+        "--corpus",
+        default=None,
+        help="Corpus ID from registry. Resolves --institution-id automatically.",
     )
     corpus_export_parser.add_argument(
         "--collection-title",
@@ -281,7 +305,47 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _add_neo4j_args(corpus_export_parser)
 
+    # -- Corpus management commands -------------------------------------------
+    corpus_parser = subparsers.add_parser("corpus", help="Manage registered corpora.")
+    corpus_sub = corpus_parser.add_subparsers(dest="corpus_command", required=True)
+
+    corpus_sub.add_parser("list", help="List all registered corpora.")
+
+    corpus_show_parser = corpus_sub.add_parser("show", help="Show details for a corpus.")
+    corpus_show_parser.add_argument("id", help="Corpus ID to show.")
+
+    corpus_create_parser = corpus_sub.add_parser("create", help="Register a new corpus.")
+    corpus_create_parser.add_argument("--id", required=True, help="Corpus identifier (slug).")
+    corpus_create_parser.add_argument("--name", required=True, help="Human-readable display name.")
+    corpus_create_parser.add_argument("--resources-dir", required=True, help="Path to the domain resources directory.")
+    corpus_create_parser.add_argument("--description", default="", help="Corpus description.")
+
+    corpus_default_parser = corpus_sub.add_parser("set-default", help="Set a corpus as the default.")
+    corpus_default_parser.add_argument("id", help="Corpus ID to set as default.")
+
     return parser
+
+
+def _resolve_corpus_arg(args: argparse.Namespace) -> None:
+    """Resolve --corpus into --institution-id and --domain-dir from the registry."""
+    from gemynd.core.corpus_registry import get_corpus, get_default_corpus
+
+    corpus_id = getattr(args, "corpus", None)
+    if corpus_id:
+        entry = get_corpus(corpus_id)
+        if getattr(args, "institution_id", None) is None:
+            args.institution_id = entry.corpus_id
+        if getattr(args, "domain_dir", None) is None:
+            args.domain_dir = entry.resources_dir
+    elif getattr(args, "institution_id", None) is None:
+        # No --corpus and no --institution-id: fall back to registry default
+        try:
+            entry = get_default_corpus()
+            args.institution_id = entry.corpus_id
+            if getattr(args, "domain_dir", None) is None:
+                args.domain_dir = entry.resources_dir
+        except KeyError:
+            pass  # No registry or empty — leave as None
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -291,6 +355,9 @@ def main(argv: list[str] | None = None) -> int:
     settings = Settings.from_env()  # noqa: F841 — available for programmatic callers
     parser = build_parser()
     args = parser.parse_args(argv)
+
+    # Resolve --corpus flag into --institution-id and --domain-dir
+    _resolve_corpus_arg(args)
 
     if args.command == "ingest-structure":
         access_level = args.access_level
@@ -342,6 +409,8 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "load-graph":
+        lg_resources_dir = Path(args.domain_dir) if args.domain_dir else None
+        lg_config = load_domain_config(lg_resources_dir)
         neo4j_kwargs = dict(
             neo4j_uri=args.neo4j_uri,
             neo4j_user=args.neo4j_user,
@@ -387,7 +456,12 @@ def main(argv: list[str] | None = None) -> int:
                 structure_path, structure, semantic = item
                 semantic_path = structure_path.with_suffix("").with_suffix(".semantic.json")
                 if writer is None:
-                    writer = load_graph(structure, semantic, backend=args.backend, **neo4j_kwargs)
+                    writer = load_graph(
+                        structure, semantic,
+                        config=lg_config,
+                        backend=args.backend,
+                        **neo4j_kwargs,
+                    )
                 else:
                     writer.load_structure(structure)
                     writer.load_semantic(structure, semantic)
@@ -396,7 +470,12 @@ def main(argv: list[str] | None = None) -> int:
         elif args.structure and args.semantic:
             structure = load_structure_bundle(args.structure)
             semantic = load_semantic_bundle(args.semantic)
-            writer = load_graph(structure, semantic, backend=args.backend, **neo4j_kwargs)
+            writer = load_graph(
+                structure, semantic,
+                config=lg_config,
+                backend=args.backend,
+                **neo4j_kwargs,
+            )
             result = {"status": "ok", "backend": args.backend, "doc_id": structure.document.doc_id}
             if args.backend == "memory":
                 result["node_count"] = sum(len(v) for v in writer.node_store.values())  # type: ignore[attr-defined]
@@ -600,7 +679,7 @@ def main(argv: list[str] | None = None) -> int:
         passes = unclassified_rate <= args.threshold_unclassified
 
         # Onboarding validation: cross-resource consistency + retrieval readiness.
-        from gemynd.core.domain_config import load_domain_config, _validate_config
+        from gemynd.core.domain_config import _validate_config
         _cfg = load_domain_config(resources_dir)
         config_issues = _validate_config(_cfg, resources_dir)
 
@@ -762,6 +841,63 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps({"status": "ok", "format": "ead-xml", "output": str(output_path), "components": count}, indent=2))
 
         return 0
+
+    if args.command == "corpus":
+        from gemynd.core.corpus_registry import (
+            CorpusEntry,
+            list_corpora,
+            get_corpus,
+            register_corpus,
+            set_default,
+            utcnow_iso,
+        )
+
+        if args.corpus_command == "list":
+            entries = list_corpora()
+            if not entries:
+                print("No corpora registered.")
+                return 0
+            for e in entries:
+                default_marker = " (default)" if e.is_default else ""
+                print(f"  {e.corpus_id}{default_marker}  —  {e.display_name}")
+                if e.description:
+                    print(f"    {e.description.strip()}")
+                print(f"    resources: {e.resources_dir}")
+            return 0
+
+        if args.corpus_command == "show":
+            try:
+                e = get_corpus(args.id)
+            except KeyError:
+                print(f"[error] Corpus {args.id!r} not found.", file=sys.stderr)
+                return 1
+            print(json.dumps(e.to_dict(), indent=2))
+            return 0
+
+        if args.corpus_command == "create":
+            entry = CorpusEntry(
+                corpus_id=args.id,
+                display_name=args.name,
+                resources_dir=args.resources_dir,
+                description=args.description,
+                created_at=utcnow_iso(),
+            )
+            try:
+                register_corpus(entry)
+            except ValueError as exc:
+                print(f"[error] {exc}", file=sys.stderr)
+                return 1
+            print(json.dumps({"status": "ok", "corpus_id": entry.corpus_id}, indent=2))
+            return 0
+
+        if args.corpus_command == "set-default":
+            try:
+                set_default(args.id)
+            except KeyError:
+                print(f"[error] Corpus {args.id!r} not found.", file=sys.stderr)
+                return 1
+            print(f"Default corpus set to {args.id!r}.")
+            return 0
 
     parser.error("Unknown command")
     return 2

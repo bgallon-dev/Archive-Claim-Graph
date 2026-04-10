@@ -22,7 +22,7 @@ from gemynd.core.graph.cypher import (
     FULLTEXT_CLAIMS_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
     TEMPORAL_CLAIMS_QUERY,
-    TEMPORAL_CLAIMS_QUERY_WITH_REFUGE,
+    build_temporal_with_anchor_query,
 )
 from .executor import Neo4jQueryExecutor
 from .models import EntityContext, ProvenanceBlock
@@ -86,6 +86,7 @@ def _select_retrieval_strategy(
     *,
     intent_map: dict[str, list[str]] | None = None,
     anchor_entity_id: str | None = None,
+    anchor_temporal_cypher: str | None = None,
 ) -> tuple[str, dict]:
     """Select the Cypher template and parameters best matched to this query shape.
 
@@ -110,10 +111,9 @@ def _select_retrieval_strategy(
         # When no entity resolved, anchor to the configured domain anchor
         # so the temporal query doesn't scan the full corpus
         if len(resolved_ids) == 0:
-            refuge_id = anchor_entity_id
-            if refuge_id:
-                return TEMPORAL_CLAIMS_QUERY_WITH_REFUGE, {
-                    "refuge_id": refuge_id,
+            if anchor_entity_id and anchor_temporal_cypher is not None:
+                return anchor_temporal_cypher, {
+                    "anchor_id": anchor_entity_id,
                     "year_min": year_min,
                     "year_max": year_max,
                     "claim_types": inferred_claim_types,
@@ -354,6 +354,7 @@ class ProvenanceContextAssembler:
         institution_id: str | None = None,
         anchor_entity_id: str | None = None,
         anchor_entity_type: str | None = None,
+        anchor_relation: str | None = None,
     ) -> None:
         self._executor = executor
         self._budget_conversational = budget_conversational
@@ -361,6 +362,29 @@ class ProvenanceContextAssembler:
         self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
         self._institution_id = institution_id
         self._anchor_entity_id = anchor_entity_id
+        self._anchor_entity_type = anchor_entity_type
+        self._anchor_relation = anchor_relation
+        # Pre-build (and memoize) the anchor-aware temporal template. The
+        # lru_cache inside build_temporal_with_anchor_query guarantees the
+        # same (label, relation) pair returns the same string object, so
+        # identity-based dispatch in the in-memory executor keeps working.
+        if anchor_entity_type and anchor_relation:
+            self._anchor_temporal_cypher: str | None = build_temporal_with_anchor_query(
+                anchor_entity_type, anchor_relation
+            )
+        else:
+            self._anchor_temporal_cypher = None
+        # Template → human label map, built once so the telemetry logger
+        # can name the (dynamic) anchor template too.
+        self._template_names: dict[str, str] = {
+            TEMPORAL_CLAIMS_QUERY: "TEMPORAL",
+            MULTI_ENTITY_CLAIMS_QUERY: "MULTI_ENTITY",
+            CLAIM_TYPE_SCOPED_QUERY: "CLAIM_TYPE_SCOPED",
+            ENTITY_ANCHORED_CLAIMS_QUERY: "ENTITY_ANCHORED",
+            FULLTEXT_CLAIMS_QUERY: "FULLTEXT",
+        }
+        if self._anchor_temporal_cypher is not None:
+            self._template_names[self._anchor_temporal_cypher] = "TEMPORAL_ANCHOR"
         # Optional AnnotationStore; when set, archivist notes are injected into context.
         self._annotation_store = annotation_store
         # Populated after each assemble() call; read by the web layer for coverage stats.
@@ -409,6 +433,7 @@ class ProvenanceContextAssembler:
             institution_id=institution_id or self._institution_id,
             intent_map=self._query_intent_map,
             anchor_entity_id=self._anchor_entity_id,
+            anchor_temporal_cypher=self._anchor_temporal_cypher,
         )
 
         rows: list[dict] = []
@@ -446,20 +471,12 @@ class ProvenanceContextAssembler:
             rows = filtered or rows  # fall back to unfiltered if filter removes everything
 
         # Diagnostic: log claim_type distribution to stderr for depth/breadth analysis.
-        _TEMPLATE_NAMES = {
-            TEMPORAL_CLAIMS_QUERY: "TEMPORAL",
-            TEMPORAL_CLAIMS_QUERY_WITH_REFUGE: "TEMPORAL_REFUGE",
-            MULTI_ENTITY_CLAIMS_QUERY: "MULTI_ENTITY",
-            CLAIM_TYPE_SCOPED_QUERY: "CLAIM_TYPE_SCOPED",
-            ENTITY_ANCHORED_CLAIMS_QUERY: "ENTITY_ANCHORED",
-            FULLTEXT_CLAIMS_QUERY: "FULLTEXT",
-        }
         claim_types_in_result = collections.Counter(
             (r.get("c") or {}).get("claim_type", "unknown") for r in rows
         )
         _log.debug(
             "retrieval: template=%s n_rows=%d claim_type_dist=%s",
-            _TEMPLATE_NAMES.get(template, "unknown"),
+            self._template_names.get(template, "unknown"),
             len(rows),
             dict(claim_types_in_result),
         )

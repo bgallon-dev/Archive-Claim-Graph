@@ -54,7 +54,7 @@ def render_ead_xml(
     bundles_dir: Path,
     output_path: Path,
     *,
-    institution_id: str = "turnbull",
+    institution_id: str = "",
     collection_title: str | None = None,
     glob_pattern: str = "*.semantic.json",
 ) -> int:

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\core\claim_contract.py
+# hypothesis_version: 6.151.9
+
+['Activity', 'HABITAT_FOCUS', 'Habitat', 'LOCATION_FOCUS', 'MANAGEMENT_TARGET', 'METHOD_FOCUS', 'OCCURRED_AT', 'Organization', 'Person', 'Place', 'Refuge', 'SPECIES_FOCUS', 'SUBJECT_OF_CLAIM', 'Species', 'SurveyMethod', 'TOPIC_OF_CLAIM', 'compatibility', 'v2', 'weak']

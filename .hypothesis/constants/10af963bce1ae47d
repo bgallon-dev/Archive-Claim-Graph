@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\retrieval\in_memory_executor.py
+# hypothesis_version: 6.151.9
+
+[0.0, '(:Document)-->', 'Claim', 'Document', 'ExtractionRun', 'HAS_CLAIM', 'HAS_MEASUREMENT', 'HAS_PAGE', 'HAS_PARAGRAPH', 'HAS_SECTION', 'IN_YEAR', 'InMemoryGraphWriter', 'Measurement', 'OF_SPECIES', 'Observation', 'PROCESSED_BY', 'Page', 'Paragraph', 'SUPPORTS', 'Section', 'Species', 'Year', '\\(r:(\\w+)\\)', 'access_level', 'active', 'anchor_id', 'c', 'claim_id', 'claim_type', 'claim_types', 'd', 'deleted_at', 'eid', 'entity_id', 'entity_ids', 'institution_id', 'limit', 'matched_entity_ids', 'measurements', 'normalized_sentence', 'obs', 'para', 'permitted_levels', 'pg', 'public', 'quarantine_status', 'run_id', 'run_timestamp', 'search_text', 'sec', 'source_sentence', 'sp', 'traversal_rel_type', 'y', 'year', 'year_max', 'year_min']

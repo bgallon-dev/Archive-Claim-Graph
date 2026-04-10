@@ -1,0 +1,5 @@
+version: "1"
+description: >
+  Scored regex patterns for claim type classification.
+  Add entries for your domain's claim types.
+patterns: []

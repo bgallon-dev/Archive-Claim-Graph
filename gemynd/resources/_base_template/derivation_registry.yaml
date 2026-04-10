@@ -1,0 +1,5 @@
+version: "1"
+description: >
+  Maps each claim type to its observation_type, event_type, and required/optional
+  entity types. Add entries as you define claim types for your domain.
+entries: {}

@@ -5,7 +5,7 @@ but executes against ``InMemoryGraphWriter``'s ``node_store`` / ``rel_store``.
 
 The dispatcher uses Python ``is`` (object identity) to recognise the closed set
 of module-level query-template constants.  Any other Cypher string (e.g. the
-refuge-id startup query the assembler runs on ``__init__``) is handled by
+anchor-id startup query the assembler runs on ``__init__``) is handled by
 ``_generic_dispatch``.
 """
 from __future__ import annotations
@@ -19,20 +19,11 @@ from gemynd.core.graph.cypher import (
     MULTI_ENTITY_CLAIMS_QUERY,
     PROVENANCE_CHAIN_QUERY,
     TEMPORAL_CLAIMS_QUERY,
-    TEMPORAL_CLAIMS_QUERY_WITH_REFUGE,
+    build_temporal_with_anchor_query,
 )
 
 if TYPE_CHECKING:
     from gemynd.ingest.graph.writer import InMemoryGraphWriter
-
-# Default domain entity labels (backward compat).
-_DEFAULT_ENTITY_LABELS: frozenset[str] = frozenset({
-    "Refuge", "Place", "Person", "Organization", "Species",
-    "Activity", "Period", "Habitat", "SurveyMethod",
-})
-
-# Backward-compatible alias.
-_ENTITY_LABELS = _DEFAULT_ENTITY_LABELS
 
 
 class InMemoryQueryExecutor:
@@ -47,10 +38,20 @@ class InMemoryQueryExecutor:
         self,
         writer: "InMemoryGraphWriter",
         *,
-        entity_labels: frozenset[str] | None = None,
+        entity_labels: frozenset[str],
+        anchor_entity_type: str | None = None,
+        anchor_relation: str | None = None,
     ) -> None:
         self._w = writer
-        self._entity_labels = entity_labels or _DEFAULT_ENTITY_LABELS
+        self._entity_labels = entity_labels
+        self._anchor_entity_type = anchor_entity_type
+        self._anchor_relation = anchor_relation
+        if anchor_entity_type and anchor_relation:
+            self._anchor_temporal_cypher: str | None = build_temporal_with_anchor_query(
+                anchor_entity_type, anchor_relation
+            )
+        else:
+            self._anchor_temporal_cypher = None
 
     # ── public interface ────────────────────────────────────────────────────
 
@@ -63,8 +64,11 @@ class InMemoryQueryExecutor:
             return self._entity_anchored(p)
         if cypher is TEMPORAL_CLAIMS_QUERY:
             return self._temporal(p)
-        if cypher is TEMPORAL_CLAIMS_QUERY_WITH_REFUGE:
-            return self._temporal_with_refuge(p)
+        if (
+            self._anchor_temporal_cypher is not None
+            and cypher is self._anchor_temporal_cypher
+        ):
+            return self._temporal_with_anchor(p)
         if cypher is MULTI_ENTITY_CLAIMS_QUERY:
             return self._multi_entity(p)
         if cypher is CLAIM_TYPE_SCOPED_QUERY:
@@ -79,7 +83,7 @@ class InMemoryQueryExecutor:
 
     def _entity_anchored(self, p: dict) -> list[dict]:
         entity_id = p["entity_id"]
-        institution_id = p.get("institution_id", "turnbull")
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -109,7 +113,7 @@ class InMemoryQueryExecutor:
         return rows[:limit]
 
     def _temporal(self, p: dict) -> list[dict]:
-        institution_id = p.get("institution_id", "turnbull")
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -144,23 +148,31 @@ class InMemoryQueryExecutor:
         )
         return rows[:limit]
 
-    def _temporal_with_refuge(self, p: dict) -> list[dict]:
-        refuge_id = p["refuge_id"]
-        institution_id = p.get("institution_id", "turnbull")
+    def _temporal_with_anchor(self, p: dict) -> list[dict]:
+        anchor_id = p["anchor_id"]
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
         claim_types = p.get("claim_types")
         limit = p.get("limit", 20)
 
+        anchor_rel = self._anchor_relation
+        anchor_label = self._anchor_entity_type
+
         valid = set(self._valid_docs(institution_id, permitted_levels))
-        refuge_docs: set[str] = set()
+        anchor_docs: set[str] = set()
         for sl, si, rt, el, ei, _ in self._w.rel_store:
-            if rt == "ABOUT_REFUGE" and el == "Refuge" and ei == refuge_id and si in valid:
-                refuge_docs.add(si)
+            if (
+                rt == anchor_rel
+                and el == anchor_label
+                and ei == anchor_id
+                and si in valid
+            ):
+                anchor_docs.add(si)
 
         rows: list[dict] = []
-        for doc_id in refuge_docs:
+        for doc_id in anchor_docs:
             run_id = self._latest_run_id(doc_id)
             if not run_id:
                 continue
@@ -176,7 +188,7 @@ class InMemoryQueryExecutor:
                         continue
                     if year_max is not None and year > year_max:
                         continue
-                    rows.append(self._build_row(doc_id, claim_id, "ABOUT_REFUGE"))
+                    rows.append(self._build_row(doc_id, claim_id, anchor_rel))
                     break
 
         rows.sort(
@@ -189,7 +201,7 @@ class InMemoryQueryExecutor:
 
     def _multi_entity(self, p: dict) -> list[dict]:
         entity_ids: list[str] = p["entity_ids"]
-        institution_id = p.get("institution_id", "turnbull")
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -241,7 +253,7 @@ class InMemoryQueryExecutor:
     def _claim_type_scoped(self, p: dict) -> list[dict]:
         claim_types: list[str] = p["claim_types"]
         entity_ids = p.get("entity_ids")
-        institution_id = p.get("institution_id", "turnbull")
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -280,7 +292,7 @@ class InMemoryQueryExecutor:
 
     def _fulltext(self, p: dict) -> list[dict]:
         search_text: str = p.get("search_text", "")
-        institution_id = p.get("institution_id", "turnbull")
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
         limit = p.get("limit", 20)
         needle = search_text.lower()
@@ -309,7 +321,7 @@ class InMemoryQueryExecutor:
 
     def _provenance_chain(self, p: dict) -> list[dict]:
         claim_id: str = p["claim_id"]
-        institution_id = p.get("institution_id", "turnbull")
+        institution_id = p.get("institution_id", "")
         permitted_levels = p.get("permitted_levels", ["public"])
 
         claim_props = self._w.node_store.get("Claim", {}).get(claim_id)
@@ -330,19 +342,18 @@ class InMemoryQueryExecutor:
         return [self._build_row(doc_id, claim_id)]
 
     def _generic_dispatch(self, cypher: str, p: dict) -> list[dict]:
-        # Assembler __init__ startup query to find anchor entity by label.
-        # Handles both the legacy "ABOUT_REFUGE" pattern and the new generic
-        # "MATCH (:Document)-->(r:{EntityType})" pattern.
-        if "eid" in cypher and ("ABOUT_REFUGE" in cypher or "(:Document)-->" in cypher):
-            # Extract target label from Cypher like "...(r:Refuge)..."
+        # Assembler __init__ startup query to find anchor entity by label:
+        # "MATCH (:Document)-->(r:{EntityType}) RETURN r.entity_id AS eid"
+        if "eid" in cypher and "(:Document)-->" in cypher:
             import re as _re
             label_match = _re.search(r'\(r:(\w+)\)', cypher)
-            target_label = label_match.group(1) if label_match else "Refuge"
+            target_label = label_match.group(1) if label_match else self._anchor_entity_type
+            if target_label is None:
+                return []
             for sl, si, rt, el, ei, _ in self._w.rel_store:
                 if el == target_label and sl == "Document":
                     return [{"eid": ei}]
             return []
-        # Stats queries and anything else — return empty (not needed for retrieval tests).
         return []
 
     # ── document filtering ──────────────────────────────────────────────────

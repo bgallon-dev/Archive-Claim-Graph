@@ -19,9 +19,10 @@ cannot reach:
 
 - **Bug C** — Missing ABOUT_REFUGE link: if document-anchor matching fails during
   ingestion (refuge name variant not in seed_entities) no ``ABOUT_REFUGE`` edge is
-  written.  The strategy selector then picks ``TEMPORAL_CLAIMS_QUERY_WITH_REFUGE``
-  scoped to the Turnbull refuge entity_id, finds no linked documents, and returns an
-  empty result set — silently losing the data.
+  written.  The strategy selector then picks the anchor-aware temporal template
+  (``build_temporal_with_anchor_query("Refuge", "ABOUT_REFUGE")``) scoped to the
+  Turnbull refuge entity_id, finds no linked documents, and returns an empty
+  result set — silently losing the data.
 """
 from __future__ import annotations
 
@@ -32,11 +33,11 @@ import pytest
 from gemynd.retrieval.classifier import classify_query
 from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
 from gemynd.retrieval.entity_gateway import EntityResolutionGateway
-from gemynd.retrieval.in_memory_executor import (
-    InMemoryQueryExecutor,
-    _ENTITY_LABELS,
-)
+from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
 from gemynd.retrieval.models import EntityContext
+from tests.conftest import TEST_ENTITY_LABELS
+
+_ENTITY_LABELS = TEST_ENTITY_LABELS
 
 
 # ---------------------------------------------------------------------------
@@ -61,9 +62,17 @@ def full_pipeline(populated_writer):
     Module-scoped so the (cheap) executor/assembler/gateway construction happens once
     per test file; the expensive pipeline run is shared with the session fixture.
     """
-    executor = InMemoryQueryExecutor(populated_writer)
+    executor = InMemoryQueryExecutor(
+        populated_writer,
+        entity_labels=TEST_ENTITY_LABELS,
+        anchor_entity_type="Refuge",
+        anchor_relation="ABOUT_REFUGE",
+    )
     assembler = ProvenanceContextAssembler(
-        executor, anchor_entity_type="Refuge", institution_id="turnbull",
+        executor,
+        anchor_entity_type="Refuge",
+        anchor_relation="ABOUT_REFUGE",
+        institution_id="turnbull",
     )
     gateway = EntityResolutionGateway()
     doc_ids = set(populated_writer.node_store.get("Document", {}).keys())
@@ -304,8 +313,8 @@ class TestRefugeLinking:
         )
 
     def test_temporal_refuge_query_returns_rows(self, full_pipeline):
-        """TEMPORAL_CLAIMS_QUERY_WITH_REFUGE must find claims when the refuge is linked."""
-        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        """The anchor-aware temporal query must find claims when the refuge is linked."""
+        from gemynd.core.graph.cypher import build_temporal_with_anchor_query
 
         refuge_ids = {
             ei
@@ -316,10 +325,11 @@ class TestRefugeLinking:
             pytest.skip("No ABOUT_REFUGE in writer — already caught by previous test")
 
         refuge_id = next(iter(refuge_ids))
+        anchor_cypher = build_temporal_with_anchor_query("Refuge", "ABOUT_REFUGE")
         rows = full_pipeline.executor.run(
-            TEMPORAL_CLAIMS_QUERY_WITH_REFUGE,
+            anchor_cypher,
             {
-                "refuge_id": refuge_id,
+                "anchor_id": refuge_id,
                 "year_min": None,
                 "year_max": None,
                 "claim_types": None,
@@ -329,7 +339,7 @@ class TestRefugeLinking:
             },
         )
         assert rows, (
-            f"TEMPORAL_CLAIMS_QUERY_WITH_REFUGE for refuge_id={refuge_id!r} "
+            f"anchor-aware temporal query for anchor_id={refuge_id!r} "
             "returned no rows even though ABOUT_REFUGE exists — "
             "executor traversal is broken (Bug C)"
         )

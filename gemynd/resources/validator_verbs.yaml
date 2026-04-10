@@ -1,0 +1,54 @@
+version: "1"
+# Finite-verb vocabulary for claim_validator.py sentence screening.
+# Sentences that contain none of these verbs are rejected as headings
+# or noun-phrase fragments.  Case-insensitive matching via \b word boundary.
+verbs:
+  # Auxiliaries / copulae
+  - was
+  - were
+  - is
+  - are
+  - had
+  - have
+  - has
+  - been
+  - being
+  - be
+  # Ecological / environmental prose
+  - burned
+  - started
+  - fell
+  - dried
+  - came
+  - reared
+  - taken
+  - seen
+  - made
+  - consisted
+  - allowed
+  - felt
+  - needed
+  - noted
+  - handled
+  - occurred
+  - controlled
+  - inhabited
+  - planted
+  - attended
+  - continued
+  - provided
+  - lasted
+  - reached
+  - produced
+  - caused
+  - resulted
+  - reported
+  - recorded
+  - conducted
+  - completed
+  - observed
+  - detected
+  - identified
+  - received
+  - increased
+  - decreased

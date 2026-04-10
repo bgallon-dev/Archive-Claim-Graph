@@ -1,0 +1,5 @@
+version: "1"
+description: >
+  Maps (claim_type, entity_type) pairs to role policy.
+  Add entries for your domain.
+policy: {}

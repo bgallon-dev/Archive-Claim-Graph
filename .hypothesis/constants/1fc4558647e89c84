@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\auth\store.py
+# hypothesis_version: 6.151.9
+
+['admin', 'archivist', 'created_at', 'data/users.db', 'email', 'hashed_password', 'institution_id', 'is_active', 'readonly', 'role', 'token_version', 'user_id', 'utf-8']

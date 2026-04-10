@@ -1,8 +1,13 @@
-from gemynd.core.graph.cypher import SCHEMA_STATEMENTS
+from gemynd.core.graph.cypher import INDEX_STATEMENTS, build_constraint_statements
 
 
 def test_schema_contains_required_constraints_and_indexes() -> None:
-    statements = "\n".join(SCHEMA_STATEMENTS)
+    entity_labels = frozenset({
+        "Refuge", "Place", "Person", "Organization", "Species",
+        "Activity", "Period", "Habitat", "SurveyMethod",
+    })
+    schema = build_constraint_statements(entity_labels) + INDEX_STATEMENTS
+    statements = "\n".join(schema)
     for label in [
         "Document",
         "Page",

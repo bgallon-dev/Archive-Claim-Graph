@@ -1,0 +1,18 @@
+version: "1"
+
+claim_entity_relations:
+  - relation: SUBJECT_OF_CLAIM
+    entity_types: [Person, Organization, Place]
+  - relation: TOPIC_OF_CLAIM
+    entity_types: [Person, Organization, Place]
+
+claim_location_relation: OCCURRED_AT
+claim_location_entity_types: [Place]
+
+entity_labels:
+  - Place
+  - Person
+  - Organization
+  - Period
+
+legacy_renames: {}

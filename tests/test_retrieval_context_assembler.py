@@ -311,16 +311,18 @@ class TestSelectRetrievalStrategy:
         return EntityContext(resolved=resolved)
 
     def test_temporal_route_when_year_and_no_entity_with_anchor(self):
-        from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        from gemynd.core.graph.cypher import build_temporal_with_anchor_query
 
+        anchor_cypher = build_temporal_with_anchor_query("Refuge", "ABOUT_REFUGE")
         template, params = _select_retrieval_strategy(
             "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
             anchor_entity_id="refuge_abc",
+            anchor_temporal_cypher=anchor_cypher,
         )
-        assert template == TEMPORAL_CLAIMS_QUERY_WITH_REFUGE
+        assert template is anchor_cypher
         assert params["year_min"] == 1950
         assert params["year_max"] == 1960
-        assert params["refuge_id"] == "refuge_abc"
+        assert params["anchor_id"] == "refuge_abc"
 
     def test_temporal_route_when_year_and_no_entity_no_anchor(self):
         from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY

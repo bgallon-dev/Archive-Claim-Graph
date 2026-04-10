@@ -182,94 +182,52 @@ class TestDerivationContextBasics:
         assert ctx_list[0].observation_id is None
 
     def test_observation_id_set_after_build_observations(self):
-        """3A-5: observation_id is populated after build_observations() with _contexts."""
+        """3A-5: observation_id is populated after build_observations() runs."""
         ctx_list = _build(claims=[_claim("c1", "population_estimate")])
-        build_observations(
-            claims=[ctx_list[0].claim],
-            measurements=[],
-            claim_entity_links=[],
-            claim_location_links=[],
-            claim_period_links=[],
-            entity_lookup={},
-            run_id="run_1",
-            report_year=1956,
-            _contexts=ctx_list,
-        )
+        build_observations(ctx_list, "run_1")
         assert ctx_list[0].observation_id is not None
 
     def test_event_builder_does_not_import_from_observation_builder(self):
-        """3A-6: event_builder imports _extract_year from derivation_context, not observation_builder."""
+        """3A-6: event_builder has no dependency on observation_builder."""
         import gemynd.ingest.event_builder as eb
         src = eb.__file__
         with open(src, encoding="utf-8") as fh:
             source = fh.read()
         assert "from .observation_builder import" not in source
-        assert "from gemynd.ingest.derivation_context import _extract_year" in source
+        assert "from gemynd.ingest.observation_builder import" not in source
 
-    def test_contexts_path_produces_identical_observations(self):
-        """3A-4: build_observations with _contexts matches the no-contexts baseline."""
-        claim = _claim("c1", "population_estimate")
+    def test_build_observations_returns_expected_shape(self):
+        """build_observations yields one ObservationRecord per observation-eligible ctx."""
         species = _entity("sp1", "Species", "mallard")
-        entity_lookup = {"sp1": species}
         entity_links = [ClaimEntityLinkRecord(claim_id="c1", entity_id="sp1", relation_type="SPECIES_FOCUS")]
-
-        shared_kwargs = dict(
-            claims=[claim],
-            measurements=[],
-            claim_entity_links=entity_links,
-            claim_location_links=[],
-            claim_period_links=[],
-            entity_lookup=entity_lookup,
-            run_id="run_1",
-            report_year=1956,
-        )
-
-        baseline_obs, baseline_years, _, _ = build_observations(**shared_kwargs)
-
         ctx_list = _build(
-            claims=[claim],
+            claims=[_claim("c1", "population_estimate")],
             entity_links=entity_links,
-            entity_lookup=entity_lookup,
+            entity_lookup={"sp1": species},
         )
-        ctx_obs, ctx_years, _, _ = build_observations(**shared_kwargs, _contexts=ctx_list)
+        obs, years, _, _ = build_observations(ctx_list, "run_1")
+        assert len(obs) == 1
+        assert obs[0].observation_type == "population_count"
+        assert obs[0].species_id == "sp1"
+        assert obs[0].year == 1956
+        assert obs[0].year_source == "claim_date"
+        assert len(years) == 1
 
-        assert len(ctx_obs) == len(baseline_obs)
-        assert ctx_obs[0].observation_type == baseline_obs[0].observation_type
-        assert ctx_obs[0].species_id == baseline_obs[0].species_id
-        assert ctx_obs[0].year == baseline_obs[0].year
-        assert ctx_obs[0].year_source == baseline_obs[0].year_source
-
-    def test_contexts_path_produces_identical_events(self):
-        """3A-4: build_events with _contexts matches the no-contexts baseline."""
-        claim = _claim("c1", "population_estimate")
+    def test_build_events_bridges_to_observations(self):
+        """When a ctx has both observation and event types, events bridge to the observation."""
         species = _entity("sp1", "Species", "mallard")
-        entity_lookup = {"sp1": species}
         entity_links = [ClaimEntityLinkRecord(claim_id="c1", entity_id="sp1", relation_type="SPECIES_FOCUS")]
-
-        shared_kwargs = dict(
-            claims=[claim],
-            measurements=[],
-            claim_entity_links=entity_links,
-            claim_location_links=[],
-            claim_period_links=[],
-            entity_lookup=entity_lookup,
-            run_id="run_1",
-            report_year=1956,
-        )
-        baseline_obs, _, _, _ = build_observations(**shared_kwargs)
-        baseline_events, _, _, _ = build_events(**shared_kwargs, observations=baseline_obs)
-
         ctx_list = _build(
-            claims=[claim],
+            claims=[_claim("c1", "population_estimate")],
             entity_links=entity_links,
-            entity_lookup=entity_lookup,
+            entity_lookup={"sp1": species},
         )
-        build_observations(**shared_kwargs, _contexts=ctx_list)
-        ctx_events, _, _, _ = build_events(**shared_kwargs, observations=baseline_obs, _contexts=ctx_list)
-
-        assert len(ctx_events) == len(baseline_events)
-        assert ctx_events[0].event_type == baseline_events[0].event_type
-        assert ctx_events[0].species_id == baseline_events[0].species_id
+        build_observations(ctx_list, "run_1")
+        events, event_obs_links, _, _ = build_events(ctx_list, "run_1")
+        assert len(events) == 1
+        assert events[0].event_type == "SurveyEvent"
+        assert events[0].species_id == "sp1"
+        assert len(event_obs_links) == 1
 
 
 # ===========================================================================
@@ -295,14 +253,14 @@ class TestDerivationRegistry:
         assert ctx_list[0].observation_type == "custom_obs"
         assert ctx_list[0].event_type == "CustomEvent"
 
-    def test_constants_fallback_when_no_registry(self):
-        """3B-2: Without registry, constants from claim_contract are used."""
+    def test_default_yaml_fallback_when_no_registry(self):
+        """3B-2: Without registry, the default derivation_registry.yaml is loaded."""
         ctx_list = _build(claims=[_claim("c1", "population_estimate")])
         assert ctx_list[0].observation_type == "population_count"
         assert ctx_list[0].event_type == "SurveyEvent"
 
-    def test_empty_registry_uses_constants(self):
-        """3B-2: Empty registry dict (load absent file) falls back to constants."""
+    def test_none_registry_uses_default_yaml(self):
+        """3B-2: registry=None triggers _default_registry() YAML load."""
         ctx_list = _build(claims=[_claim("c1", "population_estimate")], registry=None)
         assert ctx_list[0].observation_type == "population_count"
 

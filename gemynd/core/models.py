@@ -53,7 +53,7 @@ class DocumentRecord(_BaseRecord):
     file_hash: str = ""
     page_count: int = 0
     access_level: str = "public"        # "public" | "staff_only" | "restricted" | "indigenous_restricted"
-    institution_id: str = "turnbull"    # tenant identifier for multi-institution isolation
+    institution_id: str = ""             # tenant identifier for multi-institution isolation
     donor_restricted: bool = False      # reproduction restrictions from donor agreement
     deleted_at: str | None = None       # ISO-8601 UTC timestamp when soft-deleted; None = active
     deleted_by: str | None = None       # identity string of the user who performed deletion

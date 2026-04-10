@@ -79,6 +79,12 @@ class DomainConfig:
     concept_rules: list[tuple[str, frozenset[str], re.Pattern, float]]
     query_intent_to_claim_types: dict[str, list[str]]
 
+    # Claim sentence validator — domain-specific finite-verb pattern
+    validator_verb_re: re.Pattern[str] | None = None
+    # Heading detection override — None means use default; set to a compiled
+    # pattern to customise, or to a pattern that never matches to disable.
+    validator_heading_re: re.Pattern[str] | None = None
+
     # Retrieval-layer fields
     institution_id: str = ""
     expected_claim_shares: dict[str, float] = field(default_factory=dict)
@@ -114,6 +120,17 @@ class DomainConfig:
         return None
 
     @property
+    def anchor_relation(self) -> str | None:
+        """Document→anchor relation type (e.g. 'ABOUT_REFUGE').
+
+        Read from ``document_anchor.relation`` in ``domain_profile.yaml``.
+        ``None`` when the domain has no anchor or the relation is unset.
+        """
+        if self.domain_anchor:
+            return self.domain_anchor.get("relation")
+        return None
+
+    @property
     def claim_entity_relation_cypher(self) -> str:
         """Cypher IN-list literal for claim-entity relation types."""
         return ", ".join(f"'{r}'" for r in self.claim_entity_relation_precedence)
@@ -146,6 +163,7 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         load_ocr_correction_map,
         load_ocr_corrections,
         load_query_intent,
+        load_validator_verbs,
     )
 
     profile = load_domain_profile(resources_dir)
@@ -196,6 +214,33 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         ct for ct, spec in registry.items() if spec.event_type
     )
 
+    # Validator verb vocabulary
+    verb_words = load_validator_verbs(resources_dir)
+    validator_verb_re: re.Pattern[str] | None = None
+    if verb_words:
+        verb_alt = "|".join(re.escape(v) for v in verb_words)
+        try:
+            validator_verb_re = re.compile(rf"\b({verb_alt})\b", re.IGNORECASE)
+        except re.error:
+            _log.warning("validator_verbs produced invalid regex; using default")
+            validator_verb_re = None
+
+    # Heading detection override from domain_profile.yaml:
+    #   heading_detection: false          → disable heading rejection entirely
+    #   heading_detection: "^REGEX$"      → use custom regex
+    #   heading_detection: (absent/true)  → use built-in default
+    validator_heading_re: re.Pattern[str] | None = None
+    heading_cfg = profile.get("heading_detection")
+    if heading_cfg is False:
+        # Explicitly disabled — use a pattern that never matches.
+        validator_heading_re = re.compile(r"(?!)")  # negative lookahead: never matches
+    elif isinstance(heading_cfg, str):
+        try:
+            validator_heading_re = re.compile(heading_cfg)
+        except re.error:
+            _log.warning("heading_detection regex is invalid; using default")
+            validator_heading_re = None
+
     config = DomainConfig(
         seed_entities=default_seed_entities(resources_dir),
         claim_type_patterns=claim_type_patterns,
@@ -222,6 +267,8 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         event_eligible_types=evt_eligible,
         concept_rules=load_concept_rules(resources_dir),
         query_intent_to_claim_types=load_query_intent(resources_dir),
+        validator_verb_re=validator_verb_re,
+        validator_heading_re=validator_heading_re,
         institution_id=profile.get("institution_id", ""),
         expected_claim_shares=profile.get("expected_claim_shares") or {},
     )
@@ -307,6 +354,11 @@ def _validate_config(
         if anchor_type and anchor_type not in seed_entity_types:
             _warn(
                 f"document_anchor entity_type {anchor_type!r} not found in seed_entities"
+            )
+        if not config.domain_anchor.get("relation"):
+            _warn(
+                "document_anchor is set but 'relation' is missing — "
+                "retrieval cannot build an anchor-scoped temporal query"
             )
 
     # 4. Sensitivity vocabulary file exists

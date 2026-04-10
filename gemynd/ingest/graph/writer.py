@@ -4,7 +4,11 @@ from collections import defaultdict
 from typing import Any, Protocol
 
 from gemynd.core.models import SemanticBundle, StructureBundle
-from gemynd.core.graph.cypher import ID_CONSTRAINTS, SCHEMA_STATEMENTS
+from gemynd.core.graph.cypher import (
+    INDEX_STATEMENTS,
+    build_constraint_statements,
+    build_id_constraints,
+)
 
 try:
     import neo4j as neo4j_pkg
@@ -25,15 +29,6 @@ class GraphWriter(Protocol):
         ...
 
 
-_DEFAULT_DOMAIN_LABELS: frozenset[str] = frozenset({
-    "Refuge", "Place", "Person", "Organization", "Species",
-    "Activity", "Period", "Habitat", "SurveyMethod",
-})
-
-# Backward-compatible alias.
-DOMAIN_LABELS = _DEFAULT_DOMAIN_LABELS
-
-
 class InMemoryGraphWriter:
     """In-memory graph backend used for testing and development.
 
@@ -43,14 +38,18 @@ class InMemoryGraphWriter:
     ``rel_store`` is keyed ``(start_label, start_id, rel_type, end_label, end_id, run_marker)``.
     """
 
-    def __init__(self, *, entity_labels: frozenset[str] | None = None) -> None:
-        self._entity_labels = entity_labels or _DEFAULT_DOMAIN_LABELS
+    def __init__(self, *, entity_labels: frozenset[str]) -> None:
+        self._entity_labels = frozenset(entity_labels)
+        self._id_constraints = build_id_constraints(self._entity_labels)
+        self._schema_statements = (
+            build_constraint_statements(self._entity_labels) + INDEX_STATEMENTS
+        )
         self.node_store: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
         self.rel_store: dict[tuple[str, str, str, str, str, str | None], dict[str, Any]] = {}
         self.schema_statements_executed: list[str] = []
 
     def create_schema(self) -> None:
-        self.schema_statements_executed = list(SCHEMA_STATEMENTS)
+        self.schema_statements_executed = list(self._schema_statements)
 
     def load_structure(self, structure: StructureBundle) -> None:
         self._merge_node("Document", "doc_id", structure.document.doc_id, structure.document.to_dict())
@@ -298,7 +297,7 @@ class Neo4jGraphWriter:
         trust_mode: str = "system",
         ca_cert_path: str | None = None,
         *,
-        entity_labels: frozenset[str] | None = None,
+        entity_labels: frozenset[str],
     ) -> None:
         if GraphDatabase is None:  # pragma: no cover - optional dependency
             raise RuntimeError("neo4j package is not installed. Install with: pip install -e .[neo4j]")
@@ -306,7 +305,11 @@ class Neo4jGraphWriter:
         self._driver = GraphDatabase.driver(uri, auth=(user, password), **driver_kwargs)
         self._database = database
         self._uri = uri
-        self._entity_labels = entity_labels or _DEFAULT_DOMAIN_LABELS
+        self._entity_labels = frozenset(entity_labels)
+        self._id_constraints = build_id_constraints(self._entity_labels)
+        self._schema_statements = (
+            build_constraint_statements(self._entity_labels) + INDEX_STATEMENTS
+        )
 
         try:
             self._driver.verify_connectivity()
@@ -319,7 +322,7 @@ class Neo4jGraphWriter:
 
     def create_schema(self) -> None:
         with self._driver.session(database=self._database) as session:
-            for statement in SCHEMA_STATEMENTS:
+            for statement in self._schema_statements:
                 session.run(statement).consume()
 
     def load_structure(self, structure: StructureBundle) -> None:
@@ -781,10 +784,6 @@ class Neo4jGraphWriter:
         )
         with self._driver.session(database=self._database) as session:
             session.run(query, rows=rows).consume()
-
-
-def node_id_key_for_label(label: str) -> str:
-    return ID_CONSTRAINTS.get(label, "entity_id")
 
 
 def _build_driver_kwargs(uri: str, trust_mode: str, ca_cert_path: str | None) -> dict[str, Any]:

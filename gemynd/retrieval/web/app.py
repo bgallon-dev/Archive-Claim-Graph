@@ -555,7 +555,20 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):  # type: ignore[misc]
+        # --- Domain config (loaded first so entity_labels can be passed
+        #     into the Neo4j executor for schema creation) ---
+        _domain_config = None
+        if domain_dir:
+            from gemynd.core.domain_config import load_domain_config
+            _domain_config = load_domain_config(Path(domain_dir))
+        state["domain_config"] = _domain_config
+
         # --- Neo4j executor ---
+        if _domain_config is None:
+            raise RuntimeError(
+                "retrieval web app requires --domain-dir so that entity_labels "
+                "can be resolved from the corpus domain_schema.yaml"
+            )
         executor = Neo4jQueryExecutor(
             uri=uri,
             user=user,
@@ -563,18 +576,16 @@ def create_app(
             database=database,
             trust_mode=trust,
             ca_cert_path=ca_cert,
+            entity_labels=_domain_config.entity_labels,
         )
         executor.ensure_schema()
-        corpus_rows = executor.run(CORPUS_STATS_QUERY, {})
-        state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
         state["executor"] = executor
 
-        # --- Domain config ---
-        _domain_config = None
-        if domain_dir:
-            from gemynd.core.domain_config import load_domain_config
-            _domain_config = load_domain_config(Path(domain_dir))
-        state["domain_config"] = _domain_config
+        _stats_institution = _domain_config.institution_id if _domain_config else ""
+        corpus_rows = executor.run(
+            CORPUS_STATS_QUERY, {"institution_id": _stats_institution or None}
+        )
+        state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
 
         # --- DatabaseManager: centralised SQLite lifecycle ---
         from gemynd.shared.database_manager import DatabaseManager
@@ -646,6 +657,7 @@ def create_app(
             institution_id=_domain_config.institution_id if _domain_config else None,
             anchor_entity_id=_domain_config.anchor_entity_id if _domain_config else None,
             anchor_entity_type=_domain_config.anchor_entity_type if _domain_config else None,
+            anchor_relation=_domain_config.anchor_relation if _domain_config else None,
         )
         state["gateway"] = EntityResolutionGateway()
         synthesis_ctx = _domain_config.synthesis_context if _domain_config else None
@@ -958,18 +970,17 @@ def create_app(
             )
 
         # Build per-claim detail for uncertainty surfacing in the UI.
-        blocks_by_id = {b.claim_id: b for b in blocks}
         claims_detail = [
             {
-                "claim_id": cid,
-                "source_sentence": blocks_by_id[cid].source_sentence if cid in blocks_by_id else "",
-                "confidence": blocks_by_id[cid].extraction_confidence if cid in blocks_by_id else None,
-                "epistemic_status": blocks_by_id[cid].epistemic_status if cid in blocks_by_id else "unknown",
-                "claim_type": blocks_by_id[cid].claim_type if cid in blocks_by_id else "",
-                "doc_id": blocks_by_id[cid].doc_id if cid in blocks_by_id else "",
-                "doc_title": blocks_by_id[cid].doc_title if cid in blocks_by_id else "",
+                "claim_id": b.claim_id,
+                "source_sentence": b.source_sentence,
+                "confidence": b.extraction_confidence,
+                "epistemic_status": b.epistemic_status,
+                "claim_type": b.claim_type,
+                "doc_id": b.doc_id,
+                "doc_title": b.doc_title,
             }
-            for cid in result.supporting_claim_ids
+            for b in blocks
         ]
 
         return QueryResponse(

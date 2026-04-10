@@ -20,7 +20,7 @@ import sys
 def seed_admin(
     email: str,
     password: str,
-    institution_id: str = "turnbull",
+    institution_id: str = "",
     db_path: str = "data/users.db",
 ):
     """Create the first admin user. Idempotent if the email already exists as admin.
@@ -67,8 +67,8 @@ def main() -> int:
     )
     parser.add_argument(
         "--institution-id",
-        default="turnbull",
-        help="Institution ID (default: turnbull)",
+        default=None,
+        help="Institution ID. Defaults to the default corpus from the registry.",
     )
     parser.add_argument(
         "--db",
@@ -76,6 +76,14 @@ def main() -> int:
         help="Path to users SQLite database (default: data/users.db)",
     )
     args = parser.parse_args()
+
+    institution_id = args.institution_id
+    if institution_id is None:
+        try:
+            from gemynd.core.corpus_registry import get_default_corpus
+            institution_id = get_default_corpus().corpus_id
+        except KeyError:
+            institution_id = ""
 
     password = args.password
     if not password:
@@ -86,7 +94,7 @@ def main() -> int:
             return 1
 
     try:
-        seed_admin(args.email, password, args.institution_id, args.db)
+        seed_admin(args.email, password, institution_id, args.db)
         return 0
     except ValueError as e:
         print(f"Error: {e}", file=sys.stderr)

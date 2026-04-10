@@ -1,11 +1,13 @@
 from __future__ import annotations
 
+import functools
+import re
 from collections.abc import Iterable
 
 from gemynd.core.claim_contract import CLAIM_ENTITY_RELATION_PRECEDENCE
 
-# Structural constraints that every domain needs.
-_STRUCTURAL_CONSTRAINTS: dict[str, str] = {
+# Truly universal: every domain produces documents, paragraphs, claims, measurements.
+_UNIVERSAL_CONSTRAINTS: dict[str, str] = {
     "Document": "doc_id",
     "Page": "page_id",
     "Section": "section_id",
@@ -15,71 +17,88 @@ _STRUCTURAL_CONSTRAINTS: dict[str, str] = {
     "Claim": "claim_id",
     "Measurement": "measurement_id",
     "Mention": "mention_id",
+}
+
+# Derivation-dependent: only created if the domain has a derivation registry
+# producing Observation / Event nodes.
+_DERIVATION_CONSTRAINTS: dict[str, str] = {
     "Observation": "observation_id",
     "Year": "year_id",
     "Event": "event_id",
 }
 
-# Default entity labels for the Turnbull domain.
-_DEFAULT_ENTITY_LABELS: frozenset[str] = frozenset({
-    "Refuge", "Place", "Person", "Organization", "Species",
-    "Activity", "Period", "Habitat", "SurveyMethod",
-})
 
+def build_id_constraints(
+    entity_labels: Iterable[str],
+    *,
+    include_derivation: bool = True,
+) -> dict[str, str]:
+    """Return combined structural + domain entity ID constraints.
 
-def build_id_constraints(entity_labels: Iterable[str] | None = None) -> dict[str, str]:
-    """Return combined structural + domain entity ID constraints."""
-    labels = entity_labels if entity_labels is not None else _DEFAULT_ENTITY_LABELS
-    result = dict(_STRUCTURAL_CONSTRAINTS)
-    for label in labels:
+    When ``include_derivation`` is False, Observation/Year/Event constraints
+    are omitted — use this for domains whose derivation_registry is empty.
+    """
+    result = dict(_UNIVERSAL_CONSTRAINTS)
+    if include_derivation:
+        result.update(_DERIVATION_CONSTRAINTS)
+    for label in entity_labels:
         result[label] = "entity_id"
     return result
 
-
-# Module-level default for backward compatibility.
-ID_CONSTRAINTS: dict[str, str] = build_id_constraints()
-
-INDEX_STATEMENTS: list[str] = [
+_UNIVERSAL_INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX document_report_year IF NOT EXISTS FOR (n:Document) ON (n.report_year)",
     "CREATE INDEX claim_type IF NOT EXISTS FOR (n:Claim) ON (n.claim_type)",
     "CREATE INDEX measurement_name IF NOT EXISTS FOR (n:Measurement) ON (n.name)",
-    "CREATE INDEX period_dates IF NOT EXISTS FOR (n:Period) ON (n.start_date, n.end_date)",
     "CREATE INDEX mention_ocr_suspect IF NOT EXISTS FOR (n:Mention) ON (n.ocr_suspect)",
-    "CREATE INDEX observation_type IF NOT EXISTS FOR (n:Observation) ON (n.observation_type)",
-    "CREATE INDEX year_value IF NOT EXISTS FOR (n:Year) ON (n.year)",
-    # observation_species and observation_year dropped: species_id/year_id are no longer stored
-    # on Observation nodes; use OF_SPECIES / IN_YEAR edges instead.
-    "CREATE INDEX observation_year_int IF NOT EXISTS FOR (n:Observation) ON (n.year)",
-    "CREATE INDEX period_type IF NOT EXISTS FOR (n:Period) ON (n.period_type)",
     "CREATE INDEX measurement_date IF NOT EXISTS FOR (n:Measurement) ON (n.measurement_date)",
     "CREATE INDEX run_config IF NOT EXISTS FOR (n:ExtractionRun) ON (n.config_fingerprint)",
-    "CREATE INDEX event_type IF NOT EXISTS FOR (n:Event) ON (n.event_type)",
-    # event_year dropped: year_id is no longer stored on Event nodes; use IN_YEAR edge instead.
-    "CREATE INDEX event_year_int IF NOT EXISTS FOR (n:Event) ON (n.year)",
     # Fulltext index for retrieval-layer keyword fallback search on claim text.
     "CREATE FULLTEXT INDEX claim_normalized_sentence IF NOT EXISTS FOR (n:Claim) ON EACH [n.normalized_sentence]",
     # Access control and institution isolation indexes.
     "CREATE INDEX document_access_level IF NOT EXISTS FOR (n:Document) ON (n.access_level)",
     "CREATE INDEX document_institution IF NOT EXISTS FOR (n:Document) ON (n.institution_id)",
-    # Soft-delete index for fast IS NULL filter.
     "CREATE INDEX document_deleted_at IF NOT EXISTS FOR (n:Document) ON (n.deleted_at)",
-    # Quarantine index for fast quarantine_status filter on claims and documents.
     "CREATE INDEX claim_quarantine IF NOT EXISTS FOR (n:Claim) ON (n.quarantine_status)",
     "CREATE INDEX document_quarantine IF NOT EXISTS FOR (n:Document) ON (n.quarantine_status)",
 ]
 
+_DERIVATION_INDEX_STATEMENTS: list[str] = [
+    "CREATE INDEX observation_type IF NOT EXISTS FOR (n:Observation) ON (n.observation_type)",
+    "CREATE INDEX year_value IF NOT EXISTS FOR (n:Year) ON (n.year)",
+    "CREATE INDEX observation_year_int IF NOT EXISTS FOR (n:Observation) ON (n.year)",
+    "CREATE INDEX period_dates IF NOT EXISTS FOR (n:Period) ON (n.start_date, n.end_date)",
+    "CREATE INDEX period_type IF NOT EXISTS FOR (n:Period) ON (n.period_type)",
+    "CREATE INDEX event_type IF NOT EXISTS FOR (n:Event) ON (n.event_type)",
+    "CREATE INDEX event_year_int IF NOT EXISTS FOR (n:Event) ON (n.year)",
+]
 
-def build_constraint_statements() -> list[str]:
+
+def build_index_statements(*, include_derivation: bool = True) -> list[str]:
+    """Return CREATE INDEX DDL for universal + optional derivation indexes."""
+    if include_derivation:
+        return list(_UNIVERSAL_INDEX_STATEMENTS) + list(_DERIVATION_INDEX_STATEMENTS)
+    return list(_UNIVERSAL_INDEX_STATEMENTS)
+
+
+# Back-compat module-level list used by existing callers and tests.
+INDEX_STATEMENTS: list[str] = build_index_statements()
+
+
+def build_constraint_statements(
+    entity_labels: Iterable[str],
+    *,
+    include_derivation: bool = True,
+) -> list[str]:
+    """Return CREATE CONSTRAINT DDL for structural + domain entity labels."""
     statements: list[str] = []
-    for label, property_name in ID_CONSTRAINTS.items():
+    for label, property_name in build_id_constraints(
+        entity_labels, include_derivation=include_derivation
+    ).items():
         constraint_name = f"{label.lower()}_{property_name}"
         statements.append(
             f"CREATE CONSTRAINT {constraint_name} IF NOT EXISTS FOR (n:{label}) REQUIRE n.{property_name} IS UNIQUE"
         )
     return statements
-
-
-SCHEMA_STATEMENTS: list[str] = build_constraint_statements() + INDEX_STATEMENTS
 
 _DEFAULT_RELATION_CYPHER = ", ".join(
     f"'{relation}'" for relation in CLAIM_ENTITY_RELATION_PRECEDENCE
@@ -221,16 +240,36 @@ ORDER BY y.year, c.extraction_confidence DESC
 LIMIT $limit
 """
 
-TEMPORAL_CLAIMS_QUERY_WITH_REFUGE = """
-MATCH (d:Document)-[:ABOUT_REFUGE]->(ref:Refuge {entity_id: $refuge_id})
+_CYPHER_IDENT_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
+
+
+@functools.lru_cache(maxsize=32)
+def build_temporal_with_anchor_query(anchor_label: str, anchor_relation: str) -> str:
+    """Build a temporal-claims query anchored to a domain-specific entity.
+
+    ``anchor_label`` is the Neo4j node label (e.g. ``Refuge``) and
+    ``anchor_relation`` is the Document→anchor relation type
+    (e.g. ``ABOUT_REFUGE``). Both must be valid Cypher identifiers since
+    they are substituted directly into the query string.
+
+    Results are memoized so that repeated calls with the same arguments
+    return the same ``str`` object — this preserves identity-based dispatch
+    in ``InMemoryQueryExecutor``.
+    """
+    if not _CYPHER_IDENT_RE.match(anchor_label):
+        raise ValueError(f"invalid anchor_label for Cypher: {anchor_label!r}")
+    if not _CYPHER_IDENT_RE.match(anchor_relation):
+        raise ValueError(f"invalid anchor_relation for Cypher: {anchor_relation!r}")
+    return f"""
+MATCH (d:Document)-[:{anchor_relation}]->(ref:{anchor_label} {{entity_id: $anchor_id}})
 WHERE d.institution_id = $institution_id
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
 MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
-MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
-MATCH (c:Claim {run_id: lr.run_id})
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
+MATCH (c:Claim {{run_id: lr.run_id}})
 WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
 MATCH (c)-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
@@ -243,14 +282,10 @@ OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 RETURN d, pg, sec, para, c, obs, sp, y,
        collect(DISTINCT m) AS measurements,
-       'ABOUT_REFUGE' AS traversal_rel_type
+       '{anchor_relation}' AS traversal_rel_type
 ORDER BY y.year, c.extraction_confidence DESC
 LIMIT $limit
 """
-# traversal_rel_type is 'ABOUT_REFUGE' (not 'IN_YEAR') because the
-# distinguishing path for this template is the document→refuge anchor.
-# The IN_YEAR traversal is implicit to all temporal queries; logging
-# ABOUT_REFUGE correctly identifies which retrieval strategy was used.
 
 MULTI_ENTITY_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
@@ -310,15 +345,31 @@ ORDER BY c.extraction_confidence DESC
 LIMIT $limit
 """
 
-SPECIES_TREND_QUERY = """
+@functools.lru_cache(maxsize=32)
+def build_role_trend_query(role_label: str, role_relation: str) -> str:
+    """Build a time-series trend query anchored on a role entity.
+
+    ``role_label`` is the Neo4j node label (e.g. ``Species``) and
+    ``role_relation`` is the Observation→role relation type
+    (e.g. ``OF_SPECIES``). Caller passes ``$species_id`` as the param name
+    regardless of label (back-compat).
+
+    Both args are substituted directly into the query string and must be
+    valid Cypher identifiers. Results are memoized by (label, relation) pair.
+    """
+    if not _CYPHER_IDENT_RE.match(role_label):
+        raise ValueError(f"invalid role_label for Cypher: {role_label!r}")
+    if not _CYPHER_IDENT_RE.match(role_relation):
+        raise ValueError(f"invalid role_relation for Cypher: {role_relation!r}")
+    return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE d.institution_id = $institution_id
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
 WITH d, max(r.run_timestamp) AS latest_ts
-MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
-MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:OF_SPECIES]->(sp:Species {entity_id: $species_id})
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
+MATCH (c:Claim {{run_id: lr.run_id}})-[:SUPPORTS]->(obs:Observation)-[:{role_relation}]->(sp:{role_label} {{entity_id: $species_id}})
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 WHERE ($year_min IS NULL OR y.year >= $year_min)
@@ -327,25 +378,52 @@ WHERE ($year_min IS NULL OR y.year >= $year_min)
 RETURN sp.name AS species, y.year AS year,
        count(obs) AS observation_count,
        avg(c.extraction_confidence) AS avg_confidence,
-       collect({name: m.name, value: m.numeric_value, unit: m.unit, approximate: m.approximate}) AS measurements
+       collect({{name: m.name, value: m.numeric_value, unit: m.unit, approximate: m.approximate}}) AS measurements
 ORDER BY y.year
 """
 
+
+# Back-compat alias — wildlife default. New callers should use
+# ``build_role_trend_query(config.trend_role_label, config.trend_role_relation)``.
+SPECIES_TREND_QUERY = build_role_trend_query("Species", "OF_SPECIES")
+
 CORPUS_STATS_QUERY = """
-CALL () { MATCH (p:Paragraph) RETURN count(p) AS n } WITH n AS total_paragraphs
-CALL () { MATCH (d:Document)  RETURN count(d) AS n } WITH total_paragraphs, n AS total_documents
+CALL () {
+  MATCH (d:Document)
+  WHERE ($institution_id IS NULL OR $institution_id = '' OR d.institution_id = $institution_id)
+    AND d.deleted_at IS NULL
+  RETURN count(d) AS n
+} WITH n AS total_documents
+CALL () {
+  MATCH (d:Document)-[:HAS_PAGE]->(:Page)-[:HAS_PARAGRAPH]->(p:Paragraph)
+  WHERE ($institution_id IS NULL OR $institution_id = '' OR d.institution_id = $institution_id)
+    AND d.deleted_at IS NULL
+  RETURN count(p) AS n
+} WITH total_documents, n AS total_paragraphs
 RETURN total_paragraphs, total_documents
 """
 
-HABITAT_CONDITION_QUERY = """
+@functools.lru_cache(maxsize=32)
+def build_scope_condition_query(scope_label: str, scope_relation: str) -> str:
+    """Build a condition query anchored on a secondary scope entity.
+
+    ``scope_label`` is the Neo4j node label (e.g. ``Habitat``) and
+    ``scope_relation`` is the Observation→scope relation type
+    (e.g. ``IN_HABITAT``). Caller passes ``$habitat_id`` regardless of label.
+    """
+    if not _CYPHER_IDENT_RE.match(scope_label):
+        raise ValueError(f"invalid scope_label for Cypher: {scope_label!r}")
+    if not _CYPHER_IDENT_RE.match(scope_relation):
+        raise ValueError(f"invalid scope_relation for Cypher: {scope_relation!r}")
+    return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE d.institution_id = $institution_id
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
 WITH d, max(r.run_timestamp) AS latest_ts
-MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
-MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:IN_HABITAT]->(h:Habitat {entity_id: $habitat_id})
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
+MATCH (c:Claim {{run_id: lr.run_id}})-[:SUPPORTS]->(obs:Observation)-[:{scope_relation}]->(h:{scope_label} {{entity_id: $habitat_id}})
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
@@ -355,9 +433,13 @@ WHERE ($year_min IS NULL OR y.year >= $year_min)
 RETURN h.name AS habitat, y.year AS year, sp.name AS species,
        count(obs) AS observation_count,
        avg(c.extraction_confidence) AS avg_confidence,
-       collect({name: m.name, value: m.numeric_value, unit: m.unit}) AS measurements
+       collect({{name: m.name, value: m.numeric_value, unit: m.unit}}) AS measurements
 ORDER BY y.year, sp.name
 """
+
+
+# Back-compat alias — wildlife default.
+HABITAT_CONDITION_QUERY = build_scope_condition_query("Habitat", "IN_HABITAT")
 
 # ---------------------------------------------------------------------------
 # Admin document management queries
@@ -573,16 +655,34 @@ RETURN d.report_year AS year, count(DISTINCT d) AS doc_count, count(c) AS claim_
 ORDER BY year
 """
 
+# Wildlife-domain defaults preserved as named constants so the coupling is
+# visible. Domains should pass their own values derived from DomainConfig
+# rather than relying on these.
+_DEFAULT_GAP_RELATION_TYPES: tuple[str, ...] = (
+    "SUBJECT_OF_CLAIM", "SPECIES_FOCUS", "HABITAT_FOCUS",
+    "LOCATION_FOCUS", "MANAGEMENT_TARGET",
+)
+_DEFAULT_GAP_ENTITY_LABELS: tuple[str, ...] = (
+    "Species", "Person", "Organization", "Habitat", "Activity",
+)
+_DEFAULT_GAP_GEOGRAPHIC_LABELS: tuple[str, ...] = ("Place", "Refuge")
+_DEFAULT_GAP_GEOGRAPHIC_RELATIONS: tuple[str, ...] = ("OCCURRED_AT", "LOCATION_FOCUS")
+
+
 def build_gap_entity_depth_query(
     relation_types: Iterable[str] | None = None,
     entity_labels: Iterable[str] | None = None,
 ) -> str:
-    """Build the GAP_ENTITY_DEPTH_QUERY with parameterized relation types and entity labels."""
+    """Build the GAP_ENTITY_DEPTH_QUERY with parameterized relation types and entity labels.
+
+    When called with ``None``, falls back to wildlife-domain defaults for
+    back-compat. Cross-domain callers should pass explicit lists derived
+    from ``DomainConfig``.
+    """
     if relation_types is None:
-        relation_types = ["SUBJECT_OF_CLAIM", "SPECIES_FOCUS", "HABITAT_FOCUS",
-                          "LOCATION_FOCUS", "MANAGEMENT_TARGET"]
+        relation_types = _DEFAULT_GAP_RELATION_TYPES
     if entity_labels is None:
-        entity_labels = ["Species", "Person", "Organization", "Habitat", "Activity"]
+        entity_labels = _DEFAULT_GAP_ENTITY_LABELS
     rel_list = ", ".join(f"'{r}'" for r in relation_types)
     label_filter = " OR ".join(f"e:{label}" for label in entity_labels)
     return f"""
@@ -602,15 +702,30 @@ LIMIT $limit
 """
 
 
-GAP_ENTITY_DEPTH_QUERY = build_gap_entity_depth_query()
+def build_gap_geographic_coverage_query(
+    location_labels: Iterable[str] | None = None,
+    location_relations: Iterable[str] | None = None,
+) -> str:
+    """Build the geographic-coverage gap query with parameterized labels.
 
-GAP_GEOGRAPHIC_COVERAGE_QUERY = """
+    ``location_labels`` is the list of Neo4j labels that count as "place"
+    nodes (e.g. ``["Place", "Refuge"]``). ``location_relations`` is the list
+    of claim→location relation types (e.g. ``["OCCURRED_AT", "LOCATION_FOCUS"]``).
+    Both fall back to wildlife-domain defaults when ``None``.
+    """
+    if location_labels is None:
+        location_labels = _DEFAULT_GAP_GEOGRAPHIC_LABELS
+    if location_relations is None:
+        location_relations = _DEFAULT_GAP_GEOGRAPHIC_RELATIONS
+    rel_list = ", ".join(f"'{r}'" for r in location_relations)
+    label_filter = " OR ".join(f"e:{label}" for label in location_labels)
+    return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)
 WHERE d.institution_id = $institution_id AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
-  AND type(rel) IN ['OCCURRED_AT', 'LOCATION_FOCUS']
-  AND (e:Place OR e:Refuge)
+  AND type(rel) IN [{rel_list}]
+  AND ({label_filter})
 WITH e, count(c) AS geo_claim_count,
      [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type
 WHERE geo_claim_count <= $thin_threshold
@@ -619,6 +734,10 @@ RETURN e.entity_id AS entity_id, e.name AS name, entity_type,
 ORDER BY geo_claim_count ASC
 LIMIT $limit
 """
+
+
+GAP_ENTITY_DEPTH_QUERY = build_gap_entity_depth_query()
+GAP_GEOGRAPHIC_COVERAGE_QUERY = build_gap_geographic_coverage_query()
 
 # ---------------------------------------------------------------------------
 # Relationship Mapping Queries

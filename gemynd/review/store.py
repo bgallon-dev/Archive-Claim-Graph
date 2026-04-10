@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS review_run (
     review_run_id           TEXT PRIMARY KEY,
     snapshot_id             TEXT NOT NULL,
     doc_id                  TEXT NOT NULL,
+    institution_id          TEXT NOT NULL DEFAULT '',
     structure_bundle_path   TEXT NOT NULL,
     semantic_bundle_path    TEXT NOT NULL,
     structure_bundle_sha256 TEXT NOT NULL,
@@ -188,6 +189,12 @@ class ReviewStore:
                 "ALTER TABLE proposal ADD COLUMN review_tier TEXT NOT NULL DEFAULT 'needs_review'"
             )
             self._conn.commit()
+        run_cols = {r[1] for r in self._conn.execute("PRAGMA table_info(review_run)")}
+        if "institution_id" not in run_cols:
+            self._conn.execute(
+                "ALTER TABLE review_run ADD COLUMN institution_id TEXT NOT NULL DEFAULT ''"
+            )
+            self._conn.commit()
         ce_cols = {r[1] for r in self._conn.execute("PRAGMA table_info(correction_event)")}
         if "error_root_cause" not in ce_cols:
             self._conn.execute(
@@ -206,12 +213,14 @@ class ReviewStore:
     def save_review_run(self, run: ReviewRun) -> None:
         self._conn.execute(
             """INSERT OR REPLACE INTO review_run
-               (review_run_id, snapshot_id, doc_id, structure_bundle_path,
-                semantic_bundle_path, structure_bundle_sha256, semantic_bundle_sha256,
+               (review_run_id, snapshot_id, doc_id, institution_id,
+                structure_bundle_path, semantic_bundle_path,
+                structure_bundle_sha256, semantic_bundle_sha256,
                 snapshot_schema_version, extraction_run_id, created_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 run.review_run_id, run.snapshot_id, run.doc_id,
+                run.institution_id,
                 run.structure_bundle_path, run.semantic_bundle_path,
                 run.structure_bundle_sha256, run.semantic_bundle_sha256,
                 run.snapshot_schema_version, run.extraction_run_id, run.created_at,

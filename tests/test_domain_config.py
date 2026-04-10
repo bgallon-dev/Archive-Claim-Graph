@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from gemynd.core.claim_contract import UNCLASSIFIED_TYPE
 from gemynd.core.domain_config import (
     ClaimDerivationSpec,
     DomainConfig,
@@ -311,39 +312,24 @@ def test_domain_config_entity_labels_match_hardcoded() -> None:
     assert config.entity_labels == expected
 
 
-def test_domain_config_allowed_claim_types_match_hardcoded() -> None:
-    """Derived allowed_claim_types must be a superset of the original hardcoded set.
-
-    The derived set may include legacy names (e.g. wildlife_count) that appear
-    in the derivation registry but were excluded from the old Python constant.
-    """
-    from gemynd.core.claim_contract import ALLOWED_CLAIM_TYPES
+def test_domain_config_allowed_claim_types_populated() -> None:
+    """Derived allowed_claim_types must be non-trivial for the Turnbull fixture."""
     config = load_domain_config(_RESOURCES_DIR)
-    missing = ALLOWED_CLAIM_TYPES - config.allowed_claim_types
-    assert not missing, f"Missing from derived set: {missing}"
-    # Any extras should be legacy renames present in the registry.
-    extras = config.allowed_claim_types - ALLOWED_CLAIM_TYPES
-    for extra in extras:
-        assert extra in config.legacy_renames, (
-            f"Unexpected extra type {extra!r} not in legacy_renames"
-        )
+    assert UNCLASSIFIED_TYPE in config.allowed_claim_types
+    # Sanity: the Turnbull derivation registry defines several claim types.
+    assert len(config.allowed_claim_types) > 1
 
 
-def test_domain_config_observation_eligible_types_match_hardcoded() -> None:
-    from gemynd.core.claim_contract import OBSERVATION_ELIGIBLE_TYPES
+def test_domain_config_observation_eligible_types_populated() -> None:
     config = load_domain_config(_RESOURCES_DIR)
-    # The hardcoded set includes "wildlife_count" (legacy); the derived set
-    # only includes types present in the registry. wildlife_count is a legacy
-    # rename, so it may or may not appear in the registry.
-    expected = OBSERVATION_ELIGIBLE_TYPES - {"wildlife_count"}
-    assert config.observation_eligible_types >= expected
+    assert "population_estimate" in config.observation_eligible_types
+    assert UNCLASSIFIED_TYPE not in config.observation_eligible_types
 
 
-def test_domain_config_event_eligible_types_match_hardcoded() -> None:
-    from gemynd.core.claim_contract import EVENT_ELIGIBLE_TYPES
+def test_domain_config_event_eligible_types_populated() -> None:
     config = load_domain_config(_RESOURCES_DIR)
-    missing = EVENT_ELIGIBLE_TYPES - config.event_eligible_types
-    assert not missing, f"Missing from derived set: {missing}"
+    assert "fire_incident" in config.event_eligible_types
+    assert UNCLASSIFIED_TYPE not in config.event_eligible_types
 
 
 def test_domain_config_legacy_renames() -> None:

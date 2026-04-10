@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\auth\models.py
+# hypothesis_version: 6.151.9
+
+['UserContext', 'admin', 'archivist', 'indigenous_admin', 'public', 'readonly', 'restricted', 'staff', 'staff_only']

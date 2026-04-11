@@ -161,8 +161,19 @@ function renderGraph(data) {
     { selector: 'node', style: {
         'label': 'data(label)',
         'background-color': function(ele) { return entityColor(ele.data('entity_type')); },
-        'border-width': function(ele) { return ele.data('is_center') ? 3 : 1; },
-        'border-color': function(ele) { return ele.data('is_center') ? '#A89272' : '#fff'; },
+        'border-width': function(ele) {
+          if (ele.data('is_center')) return 3;
+          var insts = ele.data('institution_ids') || [];
+          return insts.length > 1 ? 3 : 1;
+        },
+        'border-color': function(ele) {
+          if (ele.data('is_center')) return '#A89272';
+          var insts = ele.data('institution_ids') || [];
+          // Cross-corpus nodes get a distinct outline so overlaps pop out.
+          if (insts.length > 1) return '#6B4D35';
+          if (insts.length === 1 && insts[0] === 'spokane_newspaper') return '#2E5D8F';
+          return '#fff';
+        },
         'width': function(ele) { return ele.data('is_center') ? 60 : 36; },
         'height': function(ele) { return ele.data('is_center') ? 60 : 36; },
         'font-size': 11,

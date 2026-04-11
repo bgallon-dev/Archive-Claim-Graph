@@ -75,20 +75,23 @@ def _infer_claim_types(
     return list(matched) if matched else None
 
 
-def _select_retrieval_strategy(
+def _select_retrieval_plan(
     query_text: str,
     entity_context: "EntityContext",
     year_min: int | None,
     year_max: int | None,
     budget: int,
     permitted_levels: list[str] | None = None,
-    institution_id: str | None = None,
+    institution_ids: list[str] | None = None,
     *,
     intent_map: dict[str, list[str]] | None = None,
-    anchor_entity_id: str | None = None,
-    anchor_temporal_cypher: str | None = None,
-) -> tuple[str, dict]:
-    """Select the Cypher template and parameters best matched to this query shape.
+    anchor_temporal_plans: list[tuple[str, str]] | None = None,
+) -> list[tuple[str, dict]]:
+    """Return one or more (template, params) pairs matching the query shape.
+
+    A list is returned so that multi-corpus temporal queries (one per corpus
+    anchor) can be emitted in a single plan. All other strategies still
+    return a single-element list for uniform iteration in ``assemble()``.
 
     Priority cascade:
     1. Temporal — year bounds present, no entity anchor
@@ -105,57 +108,65 @@ def _select_retrieval_strategy(
     has_claim_types = bool(inferred_claim_types)
 
     _permitted = permitted_levels if permitted_levels is not None else ["public"]
-    _access_params = {"permitted_levels": _permitted, "institution_id": institution_id or ""}
+    _ids = list(institution_ids) if institution_ids else []
+    _access_params = {"permitted_levels": _permitted, "institution_ids": _ids}
 
     if has_years and len(resolved_ids) <= 1:
-        # When no entity resolved, anchor to the configured domain anchor
-        # so the temporal query doesn't scan the full corpus
-        if len(resolved_ids) == 0:
-            if anchor_entity_id and anchor_temporal_cypher is not None:
-                return anchor_temporal_cypher, {
-                    "anchor_id": anchor_entity_id,
-                    "year_min": year_min,
-                    "year_max": year_max,
-                    "claim_types": inferred_claim_types,
-                    "limit": budget * 3,
-                    **_access_params,
-                }
-        return TEMPORAL_CLAIMS_QUERY, {
+        # When no entity resolved, anchor to each configured per-corpus anchor
+        # so the temporal query doesn't scan the full graph. Emit one query
+        # per corpus anchor and let assemble() merge the results.
+        if len(resolved_ids) == 0 and anchor_temporal_plans:
+            plans: list[tuple[str, dict]] = []
+            for anchor_id, anchor_cypher in anchor_temporal_plans:
+                plans.append((
+                    anchor_cypher,
+                    {
+                        "anchor_id": anchor_id,
+                        "year_min": year_min,
+                        "year_max": year_max,
+                        "claim_types": inferred_claim_types,
+                        "limit": budget * 3,
+                        **_access_params,
+                    },
+                ))
+            if plans:
+                return plans
+        return [(TEMPORAL_CLAIMS_QUERY, {
             "year_min": year_min,
             "year_max": year_max,
             "claim_types": inferred_claim_types,
             "limit": budget * 3,
             **_access_params,
-        }
+        })]
     if len(resolved_ids) >= 2:
-        return MULTI_ENTITY_CLAIMS_QUERY, {
+        return [(MULTI_ENTITY_CLAIMS_QUERY, {
             "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
             "year_min": year_min, "year_max": year_max, "limit": budget * 2,
             **_access_params,
-        }
+        })]
     if has_entities and has_claim_types:
         # Over-fetch; post-filter by claim_type in assemble()
-        return ENTITY_ANCHORED_CLAIMS_QUERY, {
+        return [(ENTITY_ANCHORED_CLAIMS_QUERY, {
             "entity_id": resolved_ids[0], "year_min": year_min,
             "year_max": year_max, "limit": budget * 3,
             **_access_params,
-        }
+        })]
     if has_claim_types and not has_entities:
-        return CLAIM_TYPE_SCOPED_QUERY, {
+        return [(CLAIM_TYPE_SCOPED_QUERY, {
             "claim_types": inferred_claim_types, "entity_ids": None,
             "year_min": year_min, "year_max": year_max, "limit": budget * 2,
             **_access_params,
-        }
+        })]
     if has_entities:
-        return ENTITY_ANCHORED_CLAIMS_QUERY, {
+        return [(ENTITY_ANCHORED_CLAIMS_QUERY, {
             "entity_id": resolved_ids[0], "year_min": year_min,
             "year_max": year_max, "limit": budget * 2,
             **_access_params,
-        }
-    return FULLTEXT_CLAIMS_QUERY, {
+        })]
+    return [(FULLTEXT_CLAIMS_QUERY, {
         "search_text": _sanitize_fulltext(query_text), "limit": budget * 2,
         **_access_params,
-    }
+    })]
 
 
 # ---------------------------------------------------------------------------
@@ -351,31 +362,21 @@ class ProvenanceContextAssembler:
         annotation_store: object | None = None,
         *,
         query_intent_map: dict[str, list[str]] | None = None,
-        institution_id: str | None = None,
-        anchor_entity_id: str | None = None,
-        anchor_entity_type: str | None = None,
-        anchor_relation: str | None = None,
+        institution_ids: list[str] | None = None,
+        anchors: dict[str, tuple[str | None, str | None, str | None]] | None = None,
     ) -> None:
         self._executor = executor
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
         self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
-        self._institution_id = institution_id
-        self._anchor_entity_id = anchor_entity_id
-        self._anchor_entity_type = anchor_entity_type
-        self._anchor_relation = anchor_relation
-        # Pre-build (and memoize) the anchor-aware temporal template. The
-        # lru_cache inside build_temporal_with_anchor_query guarantees the
-        # same (label, relation) pair returns the same string object, so
-        # identity-based dispatch in the in-memory executor keeps working.
-        if anchor_entity_type and anchor_relation:
-            self._anchor_temporal_cypher: str | None = build_temporal_with_anchor_query(
-                anchor_entity_type, anchor_relation
-            )
-        else:
-            self._anchor_temporal_cypher = None
-        # Template → human label map, built once so the telemetry logger
-        # can name the (dynamic) anchor template too.
+        self._institution_ids = list(institution_ids) if institution_ids else []
+        # Per-institution anchors: {inst_id: (entity_id, entity_type, relation)}
+        self._anchors: dict[str, tuple[str | None, str | None, str | None]] = dict(anchors or {})
+
+        # Pre-build per-corpus anchor-temporal cypher templates, in the same
+        # order as institution_ids so result iteration is deterministic.
+        self._anchor_temporal_plans: list[tuple[str, str]] = []
+        # Map of cypher template → human label for telemetry.
         self._template_names: dict[str, str] = {
             TEMPORAL_CLAIMS_QUERY: "TEMPORAL",
             MULTI_ENTITY_CLAIMS_QUERY: "MULTI_ENTITY",
@@ -383,27 +384,37 @@ class ProvenanceContextAssembler:
             ENTITY_ANCHORED_CLAIMS_QUERY: "ENTITY_ANCHORED",
             FULLTEXT_CLAIMS_QUERY: "FULLTEXT",
         }
-        if self._anchor_temporal_cypher is not None:
-            self._template_names[self._anchor_temporal_cypher] = "TEMPORAL_ANCHOR"
+        for inst_id in self._institution_ids:
+            spec = self._anchors.get(inst_id)
+            if not spec:
+                continue
+            entity_id, entity_type, relation = spec
+            # Graph-based fallback: resolve anchor entity from graph when
+            # not supplied via config (e.g. seed_entities had no match).
+            if entity_id is None and entity_type and re.match(r'^[A-Za-z_]+$', entity_type):
+                try:
+                    rows = executor.run(
+                        f"MATCH (d:Document)-->(r:{entity_type})"
+                        " WHERE d.institution_id = $inst_id"
+                        " RETURN r.entity_id AS eid LIMIT 1",
+                        {"inst_id": inst_id},
+                    )
+                    if rows:
+                        entity_id = rows[0]["eid"]
+                        self._anchors[inst_id] = (entity_id, entity_type, relation)
+                except Exception:
+                    pass
+            if entity_id and entity_type and relation:
+                cypher = build_temporal_with_anchor_query(entity_type, relation)
+                self._anchor_temporal_plans.append((entity_id, cypher))
+                self._template_names[cypher] = f"TEMPORAL_ANCHOR[{inst_id}]"
+
         # Optional AnnotationStore; when set, archivist notes are injected into context.
         self._annotation_store = annotation_store
         # Populated after each assemble() call; read by the web layer for coverage stats.
         self._last_candidate_count: int = 0
         self._last_ocr_dropped: int = 0
         self._last_context_count: int = 0
-        # Graph-based fallback: resolve anchor entity from graph when not
-        # supplied via config (e.g. seed_entities had no match).
-        if self._anchor_entity_id is None and anchor_entity_type:
-            if re.match(r'^[A-Za-z_]+$', anchor_entity_type):
-                try:
-                    rows = executor.run(
-                        f"MATCH (:Document)-->(r:{anchor_entity_type})"
-                        " RETURN r.entity_id AS eid LIMIT 1"
-                    )
-                    if rows:
-                        self._anchor_entity_id = rows[0]["eid"]
-                except Exception:
-                    pass
 
     def assemble(
         self,
@@ -413,7 +424,7 @@ class ProvenanceContextAssembler:
         year_max: int | None = None,
         is_hybrid: bool = False,
         permitted_levels: list[str] | None = None,
-        institution_id: str | None = None,
+        institution_ids: list[str] | None = None,
     ) -> tuple[list[ProvenanceBlock], str]:
         """Retrieve and serialise provenance blocks for *query_text*.
 
@@ -426,32 +437,22 @@ class ProvenanceContextAssembler:
         """
         budget = self._budget_hybrid if is_hybrid else self._budget_conversational
         inferred_claim_types = _infer_claim_types(query_text, intent_map=self._query_intent_map)
+        effective_ids = list(institution_ids) if institution_ids else list(self._institution_ids)
 
-        template, params = _select_retrieval_strategy(
+        plan = _select_retrieval_plan(
             query_text, entity_context, year_min, year_max, budget,
             permitted_levels=permitted_levels,
-            institution_id=institution_id or self._institution_id,
+            institution_ids=effective_ids,
             intent_map=self._query_intent_map,
-            anchor_entity_id=self._anchor_entity_id,
-            anchor_temporal_cypher=self._anchor_temporal_cypher,
+            anchor_temporal_plans=self._anchor_temporal_plans,
         )
 
         rows: list[dict] = []
         claim_rel_types: dict[str, list[str]] = {}
+        seen_claim_ids: set[str] = set()
+        last_template = plan[-1][0] if plan else FULLTEXT_CLAIMS_QUERY
 
-        if template == MULTI_ENTITY_CLAIMS_QUERY:
-            seen_claim_ids: set[str] = set()
-            for r in self._executor.run(template, params):
-                c = r.get("c") or {}
-                cid = c.get("claim_id")
-                if cid:
-                    rel_type = r.get("traversal_rel_type")
-                    if rel_type and rel_type not in claim_rel_types.get(cid, []):
-                        claim_rel_types.setdefault(cid, []).append(rel_type)
-                if cid and cid not in seen_claim_ids:
-                    seen_claim_ids.add(cid)
-                    rows.append(r)
-        else:
+        for template, params in plan:
             raw = self._executor.run(template, params)
             for r in raw:
                 c = r.get("c") or {}
@@ -460,10 +461,15 @@ class ProvenanceContextAssembler:
                     rel_type = r.get("traversal_rel_type")
                     if rel_type and rel_type not in claim_rel_types.get(cid, []):
                         claim_rel_types.setdefault(cid, []).append(rel_type)
-            rows = raw
+                # Dedupe across multi-entity and multi-corpus-anchor plans.
+                if cid and cid not in seen_claim_ids:
+                    seen_claim_ids.add(cid)
+                    rows.append(r)
+                elif not cid:
+                    rows.append(r)
 
         # Post-filter by claim_type when entity-anchored path over-fetches (Case 3).
-        if template == ENTITY_ANCHORED_CLAIMS_QUERY and inferred_claim_types:
+        if last_template == ENTITY_ANCHORED_CLAIMS_QUERY and inferred_claim_types:
             filtered = [
                 r for r in rows
                 if (r.get("c") or {}).get("claim_type") in inferred_claim_types
@@ -475,8 +481,8 @@ class ProvenanceContextAssembler:
             (r.get("c") or {}).get("claim_type", "unknown") for r in rows
         )
         _log.debug(
-            "retrieval: template=%s n_rows=%d claim_type_dist=%s",
-            self._template_names.get(template, "unknown"),
+            "retrieval: templates=%s n_rows=%d claim_type_dist=%s",
+            [self._template_names.get(t, "unknown") for t, _ in plan],
             len(rows),
             dict(claim_types_in_result),
         )
@@ -513,7 +519,7 @@ class ProvenanceContextAssembler:
         self,
         claim_id: str,
         permitted_levels: list[str] | None = None,
-        institution_id: str | None = None,
+        institution_ids: list[str] | None = None,
     ) -> list[ProvenanceBlock]:
         """Return the full provenance chain for a single known *claim_id*.
 
@@ -521,10 +527,11 @@ class ProvenanceContextAssembler:
         """
         from ..core.graph.cypher import PROVENANCE_CHAIN_QUERY
 
+        effective_ids = list(institution_ids) if institution_ids else list(self._institution_ids)
         rows = self._executor.run(PROVENANCE_CHAIN_QUERY, {
             "claim_id": claim_id,
             "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
-            "institution_id": institution_id or self._institution_id or "",
+            "institution_ids": effective_ids,
         })
         blocks = [_row_to_block(r) for r in rows]
         return [b for b in blocks if b is not None]

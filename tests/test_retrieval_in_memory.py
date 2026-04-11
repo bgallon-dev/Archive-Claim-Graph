@@ -30,7 +30,7 @@ from gemynd.retrieval.models import EntityContext, ResolvedEntity
 from tests.conftest import TEST_ENTITY_LABELS
 
 # Default access params used in every query (match the pipeline defaults).
-_ACCESS = {"institution_id": "turnbull", "permitted_levels": ["public"]}
+_ACCESS = {"institution_ids": ["turnbull"], "permitted_levels": ["public"]}
 
 
 # ---------------------------------------------------------------------------

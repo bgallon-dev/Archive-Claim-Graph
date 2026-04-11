@@ -515,7 +515,8 @@ def main(argv: list[str] | None = None) -> int:
             graph_resolve=args.graph_resolve,
             no_llm=args.no_llm,
         )
-        print(json.dumps(summary, indent=2))
+        printable_summary = {k: v for k, v in summary.items() if k != "writer"}
+        print(json.dumps(printable_summary, indent=2))
         return 0
 
     if args.command == "quality-report":

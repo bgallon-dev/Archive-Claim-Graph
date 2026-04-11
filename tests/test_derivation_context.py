@@ -5,6 +5,9 @@ import importlib
 
 import pytest
 
+from pathlib import Path
+
+from gemynd.core.domain_config import DomainConfig, load_domain_config
 from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
@@ -21,6 +24,13 @@ from gemynd.ingest.derivation_context import (
 )
 from gemynd.ingest.observation_builder import build_observations
 from gemynd.ingest.event_builder import build_events
+
+
+_RESOURCES_DIR = Path(__file__).resolve().parent.parent / "gemynd" / "resources"
+
+
+def _wildlife_config() -> DomainConfig:
+    return load_domain_config(_RESOURCES_DIR)
 
 
 # ---------------------------------------------------------------------------
@@ -76,6 +86,7 @@ def _build(
     period_links=None,
     entity_lookup=None,
     report_year: int | None = 1956,
+    config: DomainConfig | None = None,
     **kwargs,
 ) -> list[DerivationContext]:
     return build_derivation_contexts(
@@ -87,6 +98,7 @@ def _build(
         entity_lookup=entity_lookup or {},
         run_id="run_1",
         report_year=report_year,
+        config=config if config is not None else _wildlife_config(),
         **kwargs,
     )
 
@@ -108,7 +120,7 @@ class TestDerivationContextBasics:
         ctx = ctx_list[0]
         assert ctx.observation_type == "population_count"
         assert ctx.event_type == "SurveyEvent"
-        assert ctx.species_id == "sp1"
+        assert ctx.role_entities["species"] == "sp1"
         assert ctx.measurement_owner == "observation"
 
     def test_fire_incident_routing(self):
@@ -150,10 +162,10 @@ class TestDerivationContextBasics:
             entity_lookup=entity_lookup,
         )
         ctx = ctx_list[0]
-        assert ctx.species_id == "sp1"
-        assert ctx.habitat_id == "h1"
-        assert ctx.survey_method_id == "sm1"
-        assert ctx.refuge_id == "r1"
+        assert ctx.role_entities["species"] == "sp1"
+        assert ctx.role_entities["habitat"] == "h1"
+        assert ctx.role_entities["survey_method"] == "sm1"
+        assert ctx.role_entities["refuge"] == "r1"
         assert ctx.place_id == "p1"
 
     def test_management_target_populates_species(self):
@@ -164,7 +176,7 @@ class TestDerivationContextBasics:
             entity_links=[ClaimEntityLinkRecord(claim_id="c1", entity_id="sp1", relation_type="MANAGEMENT_TARGET")],
             entity_lookup={"sp1": species},
         )
-        assert ctx_list[0].species_id == "sp1"
+        assert ctx_list[0].role_entities["species"] == "sp1"
 
     def test_measurement_ids_collected(self):
         """measurement_ids on context contains all measurements for the claim."""
@@ -208,7 +220,7 @@ class TestDerivationContextBasics:
         obs, years, _, _ = build_observations(ctx_list, "run_1")
         assert len(obs) == 1
         assert obs[0].observation_type == "population_count"
-        assert obs[0].species_id == "sp1"
+        assert obs[0].role_entities["species"] == "sp1"
         assert obs[0].year == 1956
         assert obs[0].year_source == "claim_date"
         assert len(years) == 1
@@ -226,7 +238,7 @@ class TestDerivationContextBasics:
         events, event_obs_links, _, _ = build_events(ctx_list, "run_1")
         assert len(events) == 1
         assert events[0].event_type == "SurveyEvent"
-        assert events[0].species_id == "sp1"
+        assert events[0].role_entities["species"] == "sp1"
         assert len(event_obs_links) == 1
 
 

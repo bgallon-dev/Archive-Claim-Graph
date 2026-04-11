@@ -32,6 +32,22 @@ TEST_ENTITY_LABELS: frozenset[str] = frozenset({
     "Activity", "Period", "Habitat", "SurveyMethod",
 })
 
+# Role → (target label, edge type) tables matching the wildlife domain schema.
+# Tests that build a writer directly pass these to keep the role-driven edge
+# emission producing the same edges as the legacy hardcoded path.
+TEST_OBSERVATION_ROLE_EDGES: dict[str, tuple[str, str]] = {
+    "species":       ("Species",      "OF_SPECIES"),
+    "refuge":        ("Refuge",       "AT_REFUGE"),
+    "habitat":       ("Habitat",      "IN_HABITAT"),
+    "survey_method": ("SurveyMethod", "USED_METHOD"),
+}
+TEST_EVENT_ROLE_EDGES: dict[str, tuple[str, str]] = {
+    "species":       ("Species",      "INVOLVED_SPECIES"),
+    "refuge":        ("Refuge",       "OCCURRED_AT"),
+    "habitat":       ("Habitat",      "IN_HABITAT"),
+    "survey_method": ("SurveyMethod", "USED_METHOD"),
+}
+
 
 @pytest.fixture()
 def fixtures_dir() -> Path:

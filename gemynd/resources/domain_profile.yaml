@@ -30,6 +30,8 @@ document_anchor:
   relation: ABOUT_REFUGE
   name: Turnbull Refuge
   normalized_form: turnbull refuge
+  hierarchy_child_types: [Place]
+  hierarchy_relation: LOCATED_IN_REFUGE
   properties:
     refuge_id: turnbull_refuge
     name: Turnbull Refuge

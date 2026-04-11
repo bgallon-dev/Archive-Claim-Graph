@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\derivation_context.py
+# hypothesis_version: 6.151.9
+
+['Place', 'action', 'claim_date', 'entity_links', 'event', 'event_type', 'exclude', 'flag', 'location_links', 'none', 'observation', 'observation_type', 'optional_entities', 'required_entities', 'suspect', 'tolerance', 'unknown']

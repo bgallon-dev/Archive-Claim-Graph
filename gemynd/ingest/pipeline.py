@@ -83,8 +83,8 @@ def extract_semantic(
         build_extraction_run,
         build_observations_phase,
         create_domain_anchor,
+        create_entity_hierarchy_links,
         create_period_entity,
-        create_place_refuge_links,
         create_year_entities,
         extract_paragraphs,
         resolve_claim_links,
@@ -131,7 +131,7 @@ def extract_semantic(
     build_observations_phase(state)
     build_events_phase(state)
     create_year_entities(state)
-    create_place_refuge_links(state)
+    create_entity_hierarchy_links(state)
     assign_concepts_phase(state)
 
     return state.to_semantic_bundle()
@@ -169,9 +169,15 @@ def load_graph(
             trust_mode=trust_mode,
             ca_cert_path=ca_cert_path,
             entity_labels=entity_labels,
+            observation_role_edges=config.observation_role_edges,
+            event_role_edges=config.event_role_edges,
         )
     else:
-        writer = InMemoryGraphWriter(entity_labels=entity_labels)
+        writer = InMemoryGraphWriter(
+            entity_labels=entity_labels,
+            observation_role_edges=config.observation_role_edges,
+            event_role_edges=config.event_role_edges,
+        )
 
     writer.create_schema()
     writer.load_structure(structure)
@@ -210,7 +216,7 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
     mention_count = max(1, len(semantic.mentions))
 
     observation_count = len(semantic.observations)
-    obs_with_species = sum(1 for obs in semantic.observations if obs.species_id)
+    obs_with_species = sum(1 for obs in semantic.observations if "species" in obs.role_entities)
     obs_with_year = sum(1 for obs in semantic.observations if obs.year_id)
     obs_with_evidence = sum(1 for obs in semantic.observations if obs.claim_id in claim_ids)
     safe_obs_count = max(1, observation_count)

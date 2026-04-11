@@ -55,6 +55,7 @@ from gemynd.core.graph.cypher import (
     STATS_DOC_OVERVIEW_QUERY,
     STATS_DOC_TYPE_QUERY,
     STATS_CLAIM_TYPE_QUERY,
+    STATS_CLAIM_TYPE_BY_INSTITUTION_QUERY,
     STATS_ENTITY_TYPE_QUERY,
     STATS_TEMPORAL_COVERAGE_QUERY,
     STATS_CONFIDENCE_DISTRIBUTION_QUERY,
@@ -142,18 +143,6 @@ class QueryResponse(BaseModel):
 # ---------------------------------------------------------------------------
 
 _TEMPLATES_DIR: Path = Path(__file__).parent / "templates"
-
-# Expected claim-type share for a wildlife refuge annual-report corpus.
-# Used by gap detection to identify underrepresented topical areas.
-_EXPECTED_CLAIM_SHARES: dict[str, float] = {
-    "population_estimate": 0.22,
-    "species_presence":    0.18,
-    "management_action":   0.14,
-    "habitat_condition":   0.10,
-    "breeding_activity":   0.07,
-    "migration_timing":    0.05,
-    "weather_observation": 0.04,
-}
 
 def _conf_tier_class(avg: float | None) -> str:
     if avg is None:
@@ -329,13 +318,39 @@ def _build_stats_context(
     }
 
 
+def _compute_topic_rows(
+    actual_shares: dict[str, float],
+    expected_shares: dict[str, float],
+) -> list[dict]:
+    """Return gap-annotated rows for a (actual, expected) claim-share pair."""
+    rows: list[dict] = []
+    for claim_type, expected in sorted(expected_shares.items(), key=lambda x: -x[1]):
+        actual = actual_shares.get(claim_type, 0.0)
+        actual_pct = round(actual * 100, 1)
+        expected_pct = round(expected * 100, 1)
+        if actual < expected * 0.25:
+            status = "gap"
+        elif actual < expected * 0.50:
+            status = "thin"
+        else:
+            status = "ok"
+        rows.append({
+            "claim_type": claim_type,
+            "actual_pct": actual_pct,
+            "expected_pct": expected_pct,
+            "status": status,
+        })
+    return rows
+
+
 def _build_gaps_context(
     temporal: list[dict],
     entity_depth: list[dict],
     geo_coverage: list[dict],
     claim_types: list[dict],
     conv_gaps: list[dict],
-    expected_claim_shares: dict[str, float] | None = None,
+    per_corpus_expected_shares: dict[str, dict[str, float]] | None = None,
+    per_corpus_claim_types: list[dict] | None = None,
 ) -> dict:
     temporal_gaps = _compute_temporal_gaps(temporal)
     year_span = f"{temporal[0]['year']}–{temporal[-1]['year']}" if temporal else "unknown"
@@ -344,6 +359,8 @@ def _build_gaps_context(
     for row in entity_depth:
         entity_depth_by_type.setdefault(row["entity_type"], []).append(row)
 
+    # Blended topical share: union of claim_types across corpora, share
+    # computed against the unioned total.
     total_claims = sum(r.get("count", 0) for r in claim_types)
     actual_shares: dict[str, float] = {}
     unclassified_count = 0
@@ -357,23 +374,48 @@ def _build_gaps_context(
     show_unclassified_banner = total_claims > 0 and unclassified_count / total_claims > 0.10
     unclassified_pct = round(unclassified_count / total_claims * 100) if total_claims > 0 else 0
 
-    topic_rows = []
-    _shares = expected_claim_shares or _EXPECTED_CLAIM_SHARES
-    for claim_type, expected in sorted(_shares.items(), key=lambda x: -x[1]):
-        actual = actual_shares.get(claim_type, 0.0)
-        actual_pct = round(actual * 100, 1)
-        expected_pct = round(expected * 100, 1)
-        if actual < expected * 0.25:
-            status = "gap"
-        elif actual < expected * 0.50:
-            status = "thin"
-        else:
-            status = "ok"
-        topic_rows.append({
-            "claim_type": claim_type,
-            "actual_pct": actual_pct,
-            "expected_pct": expected_pct,
-            "status": status,
+    # Per-corpus claim-type totals, keyed by institution_id → {claim_type: count}
+    per_corpus_counts: dict[str, dict[str, int]] = {}
+    for r in per_corpus_claim_types or []:
+        inst = r.get("institution_id") or ""
+        ct = r.get("claim_type") or ""
+        per_corpus_counts.setdefault(inst, {})[ct] = int(r.get("count", 0))
+
+    # Blend the expected shares across corpora weighted by document count.
+    # If a corpus has no weight signal in per_corpus_counts, weight it equally.
+    _shares_by_corpus = per_corpus_expected_shares or {}
+    corpus_weights: dict[str, float] = {}
+    for inst in _shares_by_corpus:
+        corpus_weights[inst] = float(sum(per_corpus_counts.get(inst, {}).values()))
+    total_weight = sum(corpus_weights.values())
+    blended_expected: dict[str, float] = {}
+    if total_weight > 0:
+        for inst, shares in _shares_by_corpus.items():
+            w = corpus_weights.get(inst, 0.0) / total_weight
+            for ct, share in shares.items():
+                blended_expected[ct] = blended_expected.get(ct, 0.0) + share * w
+    elif _shares_by_corpus:
+        # Unweighted average fallback when no counts are available yet.
+        n = len(_shares_by_corpus)
+        for shares in _shares_by_corpus.values():
+            for ct, share in shares.items():
+                blended_expected[ct] = blended_expected.get(ct, 0.0) + share / n
+
+    topic_rows = _compute_topic_rows(actual_shares, blended_expected)
+
+    # Per-corpus panel data for the gaps template.
+    per_corpus_panels: list[dict] = []
+    for inst, shares in sorted(_shares_by_corpus.items()):
+        counts = per_corpus_counts.get(inst, {})
+        corpus_total = sum(counts.values())
+        corpus_actual = {
+            ct: (cnt / corpus_total if corpus_total else 0.0)
+            for ct, cnt in counts.items()
+        }
+        per_corpus_panels.append({
+            "institution_id": inst,
+            "total_claims": corpus_total,
+            "topic_rows": _compute_topic_rows(corpus_actual, shares),
         })
 
     return {
@@ -384,6 +426,7 @@ def _build_gaps_context(
         "show_unclassified_banner": show_unclassified_banner,
         "unclassified_pct": unclassified_pct,
         "topic_rows": topic_rows,
+        "per_corpus_panels": per_corpus_panels,
         "conv_gaps": conv_gaps,
     }
 
@@ -555,20 +598,31 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):  # type: ignore[misc]
-        # --- Domain config (loaded first so entity_labels can be passed
-        #     into the Neo4j executor for schema creation) ---
-        _domain_config = None
+        # --- Domain config: load every registered corpus from the
+        #     corpus_registry.yaml, then union them into a composite view.
+        #     The --domain-dir CLI flag still takes precedence when supplied
+        #     (single-corpus mode), but by default we blend all registered
+        #     corpora so the retrieval tools see the entire graph at once.
+        from gemynd.core.domain_config import (
+            load_all_registered_corpora,
+            load_domain_config,
+            merge_domain_configs,
+        )
         if domain_dir:
-            from gemynd.core.domain_config import load_domain_config
-            _domain_config = load_domain_config(Path(domain_dir))
+            _members = [load_domain_config(Path(domain_dir))]
+        else:
+            _members = load_all_registered_corpora()
+        if not _members:
+            raise RuntimeError(
+                "retrieval web app requires at least one registered corpus "
+                "(data/corpus_registry.yaml) or an explicit --domain-dir"
+            )
+        _composite = merge_domain_configs(_members)
+        _domain_config = _composite.default_member  # back-compat for call sites
         state["domain_config"] = _domain_config
+        state["composite_config"] = _composite
 
         # --- Neo4j executor ---
-        if _domain_config is None:
-            raise RuntimeError(
-                "retrieval web app requires --domain-dir so that entity_labels "
-                "can be resolved from the corpus domain_schema.yaml"
-            )
         executor = Neo4jQueryExecutor(
             uri=uri,
             user=user,
@@ -576,14 +630,13 @@ def create_app(
             database=database,
             trust_mode=trust,
             ca_cert_path=ca_cert,
-            entity_labels=_domain_config.entity_labels,
+            entity_labels=_composite.entity_labels,
         )
         executor.ensure_schema()
         state["executor"] = executor
 
-        _stats_institution = _domain_config.institution_id if _domain_config else ""
         corpus_rows = executor.run(
-            CORPUS_STATS_QUERY, {"institution_id": _stats_institution or None}
+            CORPUS_STATS_QUERY, {"institution_ids": _composite.institution_ids}
         )
         state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
 
@@ -648,19 +701,20 @@ def create_app(
         # --- Pipeline components ---
         state["query_builder"] = CypherQueryBuilder(
             executor,
-            institution_id=_domain_config.institution_id if _domain_config else None,
+            institution_ids=_composite.institution_ids,
         )
         state["assembler"] = ProvenanceContextAssembler(
             executor,
             annotation_store=_annotation_store,
-            query_intent_map=_domain_config.query_intent_to_claim_types if _domain_config else None,
-            institution_id=_domain_config.institution_id if _domain_config else None,
-            anchor_entity_id=_domain_config.anchor_entity_id if _domain_config else None,
-            anchor_entity_type=_domain_config.anchor_entity_type if _domain_config else None,
-            anchor_relation=_domain_config.anchor_relation if _domain_config else None,
+            query_intent_map=_composite.query_intent_to_claim_types,
+            institution_ids=_composite.institution_ids,
+            anchors={
+                inst_id: _composite.anchor_for(inst_id)
+                for inst_id in _composite.institution_ids
+            },
         )
         state["gateway"] = EntityResolutionGateway()
-        synthesis_ctx = _domain_config.synthesis_context if _domain_config else None
+        synthesis_ctx = _composite.synthesis_context()
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,
             max_tokens=max_tokens,
@@ -856,7 +910,7 @@ def create_app(
                     year_min=intent.year_min,
                     year_max=intent.year_max,
                     permitted_levels=user.permitted_levels,
-                    institution_id=user.institution_id,
+                    institution_ids=user.permitted_institution_ids,
                 )
             elif habitat_entities:
                 analytical_result = builder.habitat_conditions(
@@ -864,7 +918,7 @@ def create_app(
                     year_min=intent.year_min,
                     year_max=intent.year_max,
                     permitted_levels=user.permitted_levels,
-                    institution_id=user.institution_id,
+                    institution_ids=user.permitted_institution_ids,
                 )
 
         # Layer 2B: conversational path.
@@ -875,7 +929,7 @@ def create_app(
             year_max=intent.year_max,
             is_hybrid=is_hybrid,
             permitted_levels=user.permitted_levels,
-            institution_id=user.institution_id,
+            institution_ids=user.permitted_institution_ids,
         )
 
         # Build coverage stats before synthesis.
@@ -954,7 +1008,7 @@ def create_app(
             _qrows = _executor.run(
                 COUNT_QUARANTINED_CLAIMS_QUERY,
                 {
-                    "institution_id": user.institution_id,
+                    "institution_ids": user.permitted_institution_ids,
                     "permitted_levels": user.permitted_levels,
                 },
             )
@@ -1020,7 +1074,7 @@ def create_app(
         blocks = assembler.chain_for_claim(
             req.claim_id,
             permitted_levels=user.permitted_levels,
-            institution_id=user.institution_id,
+            institution_ids=user.permitted_institution_ids,
         )
         if not blocks:
             raise HTTPException(status_code=404, detail=f"No provenance found for claim_id={req.claim_id!r}")
@@ -1054,7 +1108,10 @@ def create_app(
     @app.get("/stats", response_class=HTMLResponse, include_in_schema=False)
     def collection_stats(request: Request, user: UserContext = Depends(require_user)):
         executor: Neo4jQueryExecutor = state["executor"]
-        params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
+        params = {
+            "institution_ids": user.permitted_institution_ids,
+            "permitted_levels": user.permitted_levels,
+        }
         overview = (executor.run(STATS_DOC_OVERVIEW_QUERY, params) or [{}])[0]
         doc_types = executor.run(STATS_DOC_TYPE_QUERY, params) or []
         claim_types = executor.run(STATS_CLAIM_TYPE_QUERY, params) or []
@@ -1070,23 +1127,31 @@ def create_app(
     @app.get("/gaps", response_class=HTMLResponse, include_in_schema=False)
     def collection_gaps(request: Request, user: UserContext = Depends(require_admin)):
         executor: Neo4jQueryExecutor = state["executor"]
-        params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
+        params = {
+            "institution_ids": user.permitted_institution_ids,
+            "permitted_levels": user.permitted_levels,
+        }
         thin_params = {**params, "thin_threshold": 3, "limit": 50}
 
         temporal = executor.run(GAP_TEMPORAL_DENSITY_QUERY, params) or []
         entity_depth = executor.run(GAP_ENTITY_DEPTH_QUERY, thin_params) or []
         geo_coverage = executor.run(GAP_GEOGRAPHIC_COVERAGE_QUERY, thin_params) or []
         claim_types = executor.run(STATS_CLAIM_TYPE_QUERY, params) or []
+        per_corpus_claim_types = executor.run(
+            STATS_CLAIM_TYPE_BY_INSTITUTION_QUERY, params
+        ) or []
 
         conv_gaps: list[dict] = []
         conv_log_db = os.environ.get("CONV_LOG_DB", "")
         if conv_log_db and os.path.exists(conv_log_db):
             conv_gaps = _read_query_signal_gaps(conv_log_db)
 
-        _dc = state.get("domain_config")
+        _composite = state.get("composite_config")
+        _per_corpus_shares = _composite.expected_claim_shares() if _composite else {}
         ctx = _build_gaps_context(
             temporal, entity_depth, geo_coverage, claim_types, conv_gaps,
-            expected_claim_shares=_dc.expected_claim_shares if _dc else None,
+            per_corpus_expected_shares=_per_corpus_shares,
+            per_corpus_claim_types=per_corpus_claim_types,
         )
         return _templates.TemplateResponse("gaps.html", {"request": request, "active_page": "gaps", **_user_ctx(user), **ctx})
 
@@ -1109,7 +1174,14 @@ def create_app(
         if not q.strip():
             return []
         executor: Neo4jQueryExecutor = state["executor"]
-        return executor.run(ENTITY_SEARCH_QUERY, {"query": q.strip(), "limit": limit}) or []
+        return executor.run(
+            ENTITY_SEARCH_QUERY,
+            {
+                "query": q.strip(),
+                "limit": limit,
+                "institution_ids": user.permitted_institution_ids,
+            },
+        ) or []
 
     # ------------------------------------------------------------------
     # GET /api/entity/{entity_id}/neighborhood  — graph neighborhood data
@@ -1123,7 +1195,10 @@ def create_app(
         if not _ENTITY_ID_RE.match(entity_id):
             raise HTTPException(status_code=400, detail="Invalid entity_id format")
         executor: Neo4jQueryExecutor = state["executor"]
-        params = {"institution_id": user.institution_id, "permitted_levels": user.permitted_levels}
+        params = {
+            "institution_ids": user.permitted_institution_ids,
+            "permitted_levels": user.permitted_levels,
+        }
 
         center_rows = executor.run(ENTITY_DETAIL_QUERY, {**params, "entity_id": entity_id}) or [{}]
         center = center_rows[0] if center_rows else {}
@@ -1138,6 +1213,7 @@ def create_app(
             "id": center["entity_id"], "label": center["name"],
             "entity_type": center.get("entity_type", ""),
             "claim_count": center.get("claim_count", 0),
+            "institution_ids": [],
             "is_center": True,
         }}]
         edges: list[dict] = []
@@ -1146,6 +1222,7 @@ def create_app(
                 "id": n["entity_id"], "label": n["name"],
                 "entity_type": n.get("entity_type", ""),
                 "claim_count": 0,
+                "institution_ids": n.get("institution_ids") or [],
                 "is_center": False,
             }})
             edges.append({"data": {
@@ -1155,6 +1232,7 @@ def create_app(
                 "relationship_types": n.get("relationship_types") or [],
                 "sample_sentences": n.get("sample_sentences") or [],
                 "sample_claim_ids": n.get("sample_claim_ids") or [],
+                "institution_ids": n.get("institution_ids") or [],
                 "source_label": center["name"],
                 "target_label": n["name"],
             }})

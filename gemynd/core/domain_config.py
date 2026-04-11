@@ -42,6 +42,20 @@ class ClaimDerivationSpec:
     optional_entities: tuple[str, ...]
 
 
+@dataclass(frozen=True, slots=True)
+class RoleResolver:
+    """How to resolve a role entity from a claim's links.
+
+    ``source`` is either ``"entity_links"`` (match ``claim_entity_links``
+    by relation type) or ``"location_links"`` (match
+    ``claim_location_links`` by ``entity_type``).
+    """
+
+    source: str
+    relations: frozenset[str] = frozenset()
+    entity_type: str | None = None
+
+
 @dataclass(slots=True)
 class DomainConfig:
     """All domain resources bundled into one place.
@@ -88,6 +102,16 @@ class DomainConfig:
     # Retrieval-layer fields
     institution_id: str = ""
     expected_claim_shares: dict[str, float] = field(default_factory=dict)
+
+    # Phase 8 — derivation role externalization.  Role name → resolver
+    # spec (how to find the entity from the claim's links), plus two
+    # edge maps keyed by role name → (neo4j label, edge type).  Two
+    # separate edge maps because the writer uses different edges per
+    # record type (e.g. OF_SPECIES from Observation, INVOLVED_SPECIES
+    # from Event).
+    role_resolution: dict[str, RoleResolver] = field(default_factory=dict)
+    observation_role_edges: dict[str, tuple[str, str]] = field(default_factory=dict)
+    event_role_edges: dict[str, tuple[str, str]] = field(default_factory=dict)
 
     @property
     def extraction_stopwords(self) -> frozenset[str]:
@@ -139,6 +163,173 @@ class DomainConfig:
     def extractor_claim_link_relations(self) -> frozenset[str]:
         """All relation types valid in extractor claim links."""
         return frozenset(self.claim_entity_relations | {self.claim_location_relation})
+
+
+@dataclass(slots=True)
+class CompositeDomainConfig:
+    """Multi-corpus view over a list of :class:`DomainConfig` objects.
+
+    Mergeable fields (claim types, stopwords, intent maps, concept rules,
+    entity labels, relation precedence) are unioned across all corpora so
+    the retrieval layer can classify, resolve, and query any corpus without
+    knowing which one a claim came from.
+
+    Non-mergeable fields (anchor, expected_claim_shares, synthesis_context)
+    stay keyed by ``institution_id`` and are accessed via the per-corpus
+    helper methods.
+    """
+
+    members: list[DomainConfig]
+
+    @property
+    def institution_ids(self) -> list[str]:
+        return [c.institution_id for c in self.members if c.institution_id]
+
+    @property
+    def default_member(self) -> DomainConfig:
+        """Return the first member — used as a fallback for callers that
+        still expect a single-corpus view (e.g. single-entity search UIs).
+        """
+        return self.members[0]
+
+    # ---- unioned fields --------------------------------------------------
+
+    @property
+    def allowed_claim_types(self) -> frozenset[str]:
+        result: set[str] = set()
+        for c in self.members:
+            result |= c.allowed_claim_types
+        return frozenset(result)
+
+    @property
+    def entity_labels(self) -> frozenset[str]:
+        result: set[str] = set()
+        for c in self.members:
+            result |= c.entity_labels
+        return frozenset(result)
+
+    @property
+    def extraction_stopwords(self) -> frozenset[str]:
+        result: set[str] = set()
+        for c in self.members:
+            result |= c.extraction_stopwords
+        return frozenset(result)
+
+    @property
+    def query_intent_to_claim_types(self) -> dict[str, list[str]]:
+        merged: dict[str, list[str]] = {}
+        for c in self.members:
+            for keyword, claim_types in c.query_intent_to_claim_types.items():
+                existing = merged.setdefault(keyword, [])
+                for ct in claim_types:
+                    if ct not in existing:
+                        existing.append(ct)
+        return merged
+
+    @property
+    def claim_entity_relation_precedence(self) -> tuple[str, ...]:
+        # Preserve order from the first corpus, then append any relations
+        # from later corpora that weren't already present.
+        seen: list[str] = []
+        for c in self.members:
+            for rel in c.claim_entity_relation_precedence:
+                if rel not in seen:
+                    seen.append(rel)
+        return tuple(seen)
+
+    @property
+    def claim_entity_relations(self) -> frozenset[str]:
+        return frozenset(self.claim_entity_relation_precedence)
+
+    # ---- per-corpus helpers ---------------------------------------------
+
+    def expected_claim_shares(self) -> dict[str, dict[str, float]]:
+        """Return a mapping ``institution_id -> expected share dict``."""
+        return {
+            c.institution_id: dict(c.expected_claim_shares)
+            for c in self.members
+            if c.institution_id
+        }
+
+    def anchor_for(self, institution_id: str) -> tuple[str | None, str | None, str | None]:
+        """Return ``(entity_id, entity_type, relation)`` for a corpus, or ``(None, None, None)``."""
+        for c in self.members:
+            if c.institution_id == institution_id:
+                return (c.anchor_entity_id, c.anchor_entity_type, c.anchor_relation)
+        return (None, None, None)
+
+    def anchors(self) -> dict[str, tuple[str, str, str]]:
+        """Return a dict of ``institution_id -> (entity_id, entity_type, relation)``
+        for corpora that have a fully-specified anchor. Corpora with a null
+        or partial anchor are omitted.
+        """
+        out: dict[str, tuple[str, str, str]] = {}
+        for c in self.members:
+            if not c.institution_id:
+                continue
+            aid, atype, arel = c.anchor_entity_id, c.anchor_entity_type, c.anchor_relation
+            if aid and atype and arel:
+                out[c.institution_id] = (aid, atype, arel)
+        return out
+
+    def synthesis_context(self) -> str:
+        """Return a merged synthesis context string covering all member corpora."""
+        parts = [c.synthesis_context for c in self.members if c.synthesis_context]
+        if not parts:
+            return ""
+        if len(parts) == 1:
+            return parts[0]
+        return " / ".join(parts)
+
+
+def merge_domain_configs(configs: list[DomainConfig]) -> CompositeDomainConfig:
+    """Bundle one or more :class:`DomainConfig` instances into a composite.
+
+    The result keeps references to the originals — no field copies are made,
+    so mutations to the member configs are visible through the composite.
+    """
+    if not configs:
+        raise ValueError("merge_domain_configs requires at least one DomainConfig")
+    return CompositeDomainConfig(members=list(configs))
+
+
+def load_all_registered_corpora(
+    registry_path: Path | None = None,
+) -> list[DomainConfig]:
+    """Load every corpus listed in ``data/corpus_registry.yaml`` as a
+    :class:`DomainConfig`. Corpora whose resources directory cannot be found
+    are skipped with a warning so partial-deployment environments still boot.
+    """
+    from gemynd.shared.resource_loader import (
+        load_corpus_registry,
+        resolve_corpus_resources_dir,
+    )
+
+    entries = load_corpus_registry(registry_path)
+    result: list[DomainConfig] = []
+    for entry in entries:
+        try:
+            rdir = resolve_corpus_resources_dir(entry, registry_path)
+        except ValueError as e:
+            _log.warning("corpus_registry entry skipped: %s", e)
+            continue
+        if not rdir.exists():
+            _log.warning(
+                "corpus_registry entry %r resources_dir %s does not exist — skipping",
+                entry.get("corpus_id"),
+                rdir,
+            )
+            continue
+        try:
+            result.append(load_domain_config(rdir))
+        except Exception as e:
+            _log.warning(
+                "failed to load domain config for corpus %r from %s: %s",
+                entry.get("corpus_id"),
+                rdir,
+                e,
+            )
+    return result
 
 
 def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
@@ -197,6 +388,33 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
 
     entity_labels = frozenset(schema.get("entity_labels") or [])
     legacy_renames = schema.get("legacy_renames") or {}
+
+    # Derivation roles: resolver specs + per-record-type edge maps.
+    # Missing section degrades to empty dicts so non-wildlife resource
+    # bundles without this block still load.
+    roles_block = schema.get("derivation_roles") or {}
+    role_resolution: dict[str, RoleResolver] = {}
+    for role_name, spec in (roles_block.get("resolution") or {}).items():
+        role_resolution[str(role_name)] = RoleResolver(
+            source=str(spec.get("source", "entity_links")),
+            relations=frozenset(spec.get("relations") or []),
+            entity_type=spec.get("entity_type"),
+        )
+
+    def _parse_edge_map(raw: Any) -> dict[str, tuple[str, str]]:
+        result: dict[str, tuple[str, str]] = {}
+        for role_name, pair in (raw or {}).items():
+            if not pair or len(pair) != 2:
+                _log.warning(
+                    "derivation_roles edge entry %r is not a [label, edge_type] pair",
+                    role_name,
+                )
+                continue
+            result[str(role_name)] = (str(pair[0]), str(pair[1]))
+        return result
+
+    observation_role_edges = _parse_edge_map(roles_block.get("observation_edges"))
+    event_role_edges = _parse_edge_map(roles_block.get("event_edges"))
 
     # Derive allowed_claim_types from patterns + registry + unclassified sentinel.
     from gemynd.core.claim_contract import UNCLASSIFIED_TYPE
@@ -271,6 +489,9 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         validator_heading_re=validator_heading_re,
         institution_id=profile.get("institution_id", ""),
         expected_claim_shares=profile.get("expected_claim_shares") or {},
+        role_resolution=role_resolution,
+        observation_role_edges=observation_role_edges,
+        event_role_edges=event_role_edges,
     )
     _validate_config(config, resources_dir)
     return config

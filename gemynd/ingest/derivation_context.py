@@ -17,6 +17,7 @@ import functools
 from gemynd.core.ids import make_year_id
 
 if TYPE_CHECKING:
+    from gemynd.core.domain_config import DomainConfig
     from gemynd.core.models import (
         ClaimEntityLinkRecord,
         ClaimLocationLinkRecord,
@@ -99,14 +100,17 @@ class DerivationContext:
     builders when passed as ``_contexts``.  ``observation_id`` starts as
     ``None`` and is filled in by ``build_observations()`` after each
     ``ObservationRecord`` is created.
+
+    ``role_entities`` holds the resolved role → entity_id bindings (e.g.
+    ``{"species": "ent_123", "refuge": "ent_456"}``) driven by
+    ``DomainConfig.role_resolution``. ``place_id`` / ``period_id`` /
+    ``year_id`` remain first-class because they participate in distinct
+    edge-emission paths that are domain-neutral.
     """
 
     claim: ClaimRecord
-    species_id: str | None
-    refuge_id: str | None
+    role_entities: dict[str, str]
     place_id: str | None
-    habitat_id: str | None
-    survey_method_id: str | None
     period_id: str | None
     observation_type: str | None     # None = not observation-eligible
     event_type: str | None           # None = not event-eligible
@@ -162,6 +166,7 @@ def build_derivation_contexts(
     run_id: str,
     report_year: int | None,
     *,
+    config: DomainConfig | None = None,
     doc_date_start: str | None = None,
     doc_date_end: str | None = None,
     registry: dict[str, dict] | None = None,
@@ -204,6 +209,21 @@ def build_derivation_contexts(
     for link in claim_period_links:
         periods_by_claim[link.claim_id] = link.period_id
 
+    # Resolve role → resolver spec map from config, with a no-config fallback.
+    role_resolution = config.role_resolution if config is not None else {}
+    role_location_entity_types: set[str] = {
+        resolver.entity_type
+        for resolver in role_resolution.values()
+        if resolver.source == "location_links" and resolver.entity_type
+    }
+
+    # Build a reverse index: entity_type → role_name for the missing-required
+    # check, which receives entity-type strings from the derivation registry.
+    role_for_entity_type: dict[str, str] = {}
+    for role_name, resolver in role_resolution.items():
+        if resolver.source == "location_links" and resolver.entity_type:
+            role_for_entity_type[resolver.entity_type] = role_name
+
     # ── Per-claim construction ───────────────────────────────────────────────
     contexts: list[DerivationContext] = []
 
@@ -223,26 +243,30 @@ def build_derivation_contexts(
         else:
             measurement_owner = "none"
 
-        # Entity resolution (same precedence rules as both builders).
-        species_id: str | None = None
-        habitat_id: str | None = None
-        survey_method_id: str | None = None
-        refuge_id: str | None = None
+        # Config-driven role resolution.
+        role_entities: dict[str, str] = {}
         place_id: str | None = None
 
-        for relation_type, entity in entity_links_by_claim.get(claim.claim_id, []):
-            if entity.entity_type == "Species" and species_id is None and relation_type in {"SPECIES_FOCUS", "MANAGEMENT_TARGET"}:
-                species_id = entity.entity_id
-            elif entity.entity_type == "Habitat" and habitat_id is None and relation_type == "HABITAT_FOCUS":
-                habitat_id = entity.entity_id
-            elif entity.entity_type == "SurveyMethod" and survey_method_id is None and relation_type == "METHOD_FOCUS":
-                survey_method_id = entity.entity_id
+        for role_name, resolver in role_resolution.items():
+            if resolver.source == "entity_links":
+                for relation_type, entity in entity_links_by_claim.get(claim.claim_id, []):
+                    if relation_type in resolver.relations:
+                        role_entities[role_name] = entity.entity_id
+                        break
+            elif resolver.source == "location_links":
+                for entity in locations_by_claim.get(claim.claim_id, []):
+                    if resolver.entity_type and entity.entity_type == resolver.entity_type:
+                        role_entities[role_name] = entity.entity_id
+                        break
 
+        # place_id stays first-class: pick the first non-role-claimed location.
         for entity in locations_by_claim.get(claim.claim_id, []):
-            if entity.entity_type == "Refuge" and refuge_id is None:
-                refuge_id = entity.entity_id
-            elif entity.entity_type == "Place" and place_id is None:
+            if entity.entity_type == "Place":
                 place_id = entity.entity_id
+                break
+            if entity.entity_type not in role_location_entity_types:
+                place_id = entity.entity_id
+                break
 
         # Year extraction + optional plausibility check.
         year_value, year_source = _extract_year(claim.claim_date, report_year)
@@ -254,30 +278,35 @@ def build_derivation_contexts(
             )
         year_id: str | None = make_year_id(year_value) if year_value is not None else None
 
-        # Missing required entities.
-        resolved_types: set[str] = set()
-        if species_id:
-            resolved_types.add("Species")
-        if habitat_id:
-            resolved_types.add("Habitat")
-        if survey_method_id:
-            resolved_types.add("SurveyMethod")
-        if refuge_id:
-            resolved_types.add("Refuge")
-        if place_id:
-            resolved_types.add("Place")
-        missing = [et for et in required_entities if et not in resolved_types]
+        # Missing required entities: map required entity_type → role, fall back
+        # to checking place_id for entity types that are not role-resolved.
+        missing: list[str] = []
+        for required_type in required_entities:
+            role_name = role_for_entity_type.get(required_type)
+            if role_name is not None:
+                if role_name not in role_entities:
+                    missing.append(required_type)
+                continue
+            # Also check entity_links sources (species/habitat/method) by
+            # matching entity_type on claim links.
+            resolved_via_entity_links = any(
+                entity.entity_type == required_type
+                for _, entity in entity_links_by_claim.get(claim.claim_id, [])
+            )
+            if resolved_via_entity_links:
+                continue
+            # Place is first-class.
+            if required_type == "Place" and place_id:
+                continue
+            missing.append(required_type)
 
         measurement_ids = [m.measurement_id for m in measurements_by_claim.get(claim.claim_id, [])]
         period_id = periods_by_claim.get(claim.claim_id)
 
         contexts.append(DerivationContext(
             claim=claim,
-            species_id=species_id,
-            refuge_id=refuge_id,
+            role_entities=role_entities,
             place_id=place_id,
-            habitat_id=habitat_id,
-            survey_method_id=survey_method_id,
             period_id=period_id,
             observation_type=obs_type,
             event_type=evt_type,

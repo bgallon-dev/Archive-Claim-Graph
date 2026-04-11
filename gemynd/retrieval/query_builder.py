@@ -26,14 +26,22 @@ class CypherQueryBuilder:
     """
 
     def __init__(
-        self, executor: Neo4jQueryExecutor, *, institution_id: str | None = None,
+        self,
+        executor: Neo4jQueryExecutor,
+        *,
+        institution_ids: list[str] | None = None,
     ) -> None:
         self._executor = executor
-        self._institution_id = institution_id
+        self._institution_ids = list(institution_ids) if institution_ids else []
 
     # ------------------------------------------------------------------
     # Analytical templates
     # ------------------------------------------------------------------
+
+    def _resolve_ids(self, override: list[str] | None) -> list[str]:
+        if override is not None:
+            return list(override)
+        return list(self._institution_ids)
 
     def species_trend(
         self,
@@ -41,7 +49,7 @@ class CypherQueryBuilder:
         year_min: int | None = None,
         year_max: int | None = None,
         permitted_levels: list[str] | None = None,
-        institution_id: str | None = None,
+        institution_ids: list[str] | None = None,
     ) -> AnalyticalResult:
         """Return observation counts per year for *species_id*."""
         rows = self._executor.run(
@@ -51,7 +59,7 @@ class CypherQueryBuilder:
                 "year_min": year_min,
                 "year_max": year_max,
                 "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
-                "institution_id": institution_id or self._institution_id or "",
+                "institution_ids": self._resolve_ids(institution_ids),
             },
         )
         return AnalyticalResult(
@@ -66,7 +74,7 @@ class CypherQueryBuilder:
         year_min: int | None = None,
         year_max: int | None = None,
         permitted_levels: list[str] | None = None,
-        institution_id: str | None = None,
+        institution_ids: list[str] | None = None,
     ) -> AnalyticalResult:
         """Return observation counts per year/species for *habitat_id*."""
         rows = self._executor.run(
@@ -76,7 +84,7 @@ class CypherQueryBuilder:
                 "year_min": year_min,
                 "year_max": year_max,
                 "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
-                "institution_id": institution_id or self._institution_id or "",
+                "institution_ids": self._resolve_ids(institution_ids),
             },
         )
         return AnalyticalResult(

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Any, Protocol
+from typing import TYPE_CHECKING, Any, Protocol
 
 from gemynd.core.models import SemanticBundle, StructureBundle
 from gemynd.core.graph.cypher import (
@@ -9,6 +9,9 @@ from gemynd.core.graph.cypher import (
     build_constraint_statements,
     build_id_constraints,
 )
+
+if TYPE_CHECKING:
+    from gemynd.core.domain_config import DomainConfig
 
 try:
     import neo4j as neo4j_pkg
@@ -38,12 +41,20 @@ class InMemoryGraphWriter:
     ``rel_store`` is keyed ``(start_label, start_id, rel_type, end_label, end_id, run_marker)``.
     """
 
-    def __init__(self, *, entity_labels: frozenset[str]) -> None:
+    def __init__(
+        self,
+        *,
+        entity_labels: frozenset[str],
+        observation_role_edges: dict[str, tuple[str, str]] | None = None,
+        event_role_edges: dict[str, tuple[str, str]] | None = None,
+    ) -> None:
         self._entity_labels = frozenset(entity_labels)
         self._id_constraints = build_id_constraints(self._entity_labels)
         self._schema_statements = (
             build_constraint_statements(self._entity_labels) + INDEX_STATEMENTS
         )
+        self._observation_role_edges = dict(observation_role_edges or {})
+        self._event_role_edges = dict(event_role_edges or {})
         self.node_store: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
         self.rel_store: dict[tuple[str, str, str, str, str, str | None], dict[str, Any]] = {}
         self.schema_statements_executed: list[str] = []
@@ -121,6 +132,10 @@ class InMemoryGraphWriter:
                 props={"run_id": mention.run_id},
             )
 
+        entity_type_lookup: dict[str, str] = {
+            entity.entity_id: entity.entity_type for entity in semantic.entities
+        }
+
         for entity in semantic.entities:
             props = entity.node_props()
             self._merge_node(entity.entity_type, "entity_id", entity.entity_id, props)
@@ -176,8 +191,11 @@ class InMemoryGraphWriter:
         for link in semantic.claim_period_links:
             self._merge_rel("Claim", link.claim_id, "OCCURRED_DURING", "Period", link.period_id)
 
-        for link in semantic.document_refuge_links:
-            self._merge_rel("Document", link.doc_id, "ABOUT_REFUGE", "Refuge", link.refuge_id)
+        for link in semantic.document_anchor_links:
+            end_label = entity_type_lookup.get(link.anchor_entity_id) or "Entity"
+            self._merge_rel(
+                "Document", link.doc_id, link.relation_type, end_label, link.anchor_entity_id,
+            )
 
         for link in semantic.document_period_links:
             self._merge_rel("Document", link.doc_id, "COVERS_PERIOD", "Period", link.period_id)
@@ -193,20 +211,20 @@ class InMemoryGraphWriter:
             self._merge_node("Observation", "observation_id", obs.observation_id, obs.node_props())
             self._merge_rel("Claim", obs.claim_id, "SUPPORTS", "Observation", obs.observation_id, props={"run_id": obs.run_id})
             self._merge_rel("Observation", obs.observation_id, "EVIDENCED_BY", "Paragraph", obs.paragraph_id, props={"run_id": obs.run_id})
-            if obs.species_id:
-                self._merge_rel("Observation", obs.observation_id, "OF_SPECIES", "Species", obs.species_id)
-            if obs.refuge_id:
-                self._merge_rel("Observation", obs.observation_id, "AT_REFUGE", "Refuge", obs.refuge_id)
+            for role, entity_id in obs.role_entities.items():
+                edge_spec = self._observation_role_edges.get(role)
+                if not edge_spec or not entity_id:
+                    continue
+                target_label, edge_type = edge_spec
+                self._merge_rel(
+                    "Observation", obs.observation_id, edge_type, target_label, entity_id,
+                )
             if obs.place_id:
                 self._merge_rel("Observation", obs.observation_id, "AT_PLACE", "Place", obs.place_id)
             if obs.period_id:
                 self._merge_rel("Observation", obs.observation_id, "DURING", "Period", obs.period_id)
             if obs.year_id:
                 self._merge_rel("Observation", obs.observation_id, "IN_YEAR", "Year", obs.year_id)
-            if obs.habitat_id:
-                self._merge_rel("Observation", obs.observation_id, "IN_HABITAT", "Habitat", obs.habitat_id)
-            if obs.survey_method_id:
-                self._merge_rel("Observation", obs.observation_id, "USED_METHOD", "SurveyMethod", obs.survey_method_id)
 
         for link in semantic.observation_measurement_links:
             self._merge_rel("Observation", link.observation_id, "HAS_MEASUREMENT", "Measurement", link.measurement_id, props={"run_id": run.run_id})
@@ -216,20 +234,20 @@ class InMemoryGraphWriter:
             self._merge_node("Event", "event_id", evt.event_id, evt.node_props())
             self._merge_rel("Claim", evt.claim_id, "TRIGGERED", "Event", evt.event_id, props={"run_id": evt.run_id})
             self._merge_rel("Event", evt.event_id, "SOURCED_FROM", "Paragraph", evt.paragraph_id, props={"run_id": evt.run_id})
-            if evt.species_id:
-                self._merge_rel("Event", evt.event_id, "INVOLVED_SPECIES", "Species", evt.species_id)
-            if evt.refuge_id:
-                self._merge_rel("Event", evt.event_id, "OCCURRED_AT", "Refuge", evt.refuge_id)
+            for role, entity_id in evt.role_entities.items():
+                edge_spec = self._event_role_edges.get(role)
+                if not edge_spec or not entity_id:
+                    continue
+                target_label, edge_type = edge_spec
+                self._merge_rel(
+                    "Event", evt.event_id, edge_type, target_label, entity_id,
+                )
             if evt.place_id:
                 self._merge_rel("Event", evt.event_id, "OCCURRED_AT", "Place", evt.place_id)
             if evt.period_id:
                 self._merge_rel("Event", evt.event_id, "DURING", "Period", evt.period_id)
             if evt.year_id:
                 self._merge_rel("Event", evt.event_id, "IN_YEAR", "Year", evt.year_id)
-            if evt.habitat_id:
-                self._merge_rel("Event", evt.event_id, "IN_HABITAT", "Habitat", evt.habitat_id)
-            if evt.survey_method_id:
-                self._merge_rel("Event", evt.event_id, "USED_METHOD", "SurveyMethod", evt.survey_method_id)
 
         for link in semantic.event_observation_links:
             self._merge_rel("Event", link.event_id, "PRODUCED", "Observation", link.observation_id)
@@ -244,9 +262,14 @@ class InMemoryGraphWriter:
         for link in semantic.document_year_links:
             self._merge_rel("Document", link.doc_id, "COVERS_YEAR", "Year", link.year_id)
 
-        # --- Place -> Refuge (semantic relation, defaults to LOCATED_IN_REFUGE) ---
-        for link in semantic.place_refuge_links:
-            self._merge_rel("Place", link.place_id, link.relation_type, "Refuge", link.refuge_id)
+        # --- Entity-hierarchy edges (child entity -> anchor entity) ---
+        for link in semantic.entity_hierarchy_links:
+            child_label = entity_type_lookup.get(link.child_entity_id) or "Entity"
+            parent_label = entity_type_lookup.get(link.parent_entity_id) or "Entity"
+            self._merge_rel(
+                child_label, link.child_entity_id, link.relation_type,
+                parent_label, link.parent_entity_id,
+            )
 
         # --- Annotation targeting (semantic annotations) ---
         for annotation in structure.annotations:
@@ -298,6 +321,8 @@ class Neo4jGraphWriter:
         ca_cert_path: str | None = None,
         *,
         entity_labels: frozenset[str],
+        observation_role_edges: dict[str, tuple[str, str]] | None = None,
+        event_role_edges: dict[str, tuple[str, str]] | None = None,
     ) -> None:
         if GraphDatabase is None:  # pragma: no cover - optional dependency
             raise RuntimeError("neo4j package is not installed. Install with: pip install -e .[neo4j]")
@@ -310,6 +335,8 @@ class Neo4jGraphWriter:
         self._schema_statements = (
             build_constraint_statements(self._entity_labels) + INDEX_STATEMENTS
         )
+        self._observation_role_edges = dict(observation_role_edges or {})
+        self._event_role_edges = dict(event_role_edges or {})
 
         try:
             self._driver.verify_connectivity()
@@ -589,14 +616,16 @@ class Neo4jGraphWriter:
             "entity_id",
             [{"start_id": row.claim_id, "end_id": row.period_id, "props": {}} for row in semantic.claim_period_links],
         )
-        self._upsert_relationships(
-            "Document",
-            "doc_id",
-            "ABOUT_REFUGE",
-            "Refuge",
-            "entity_id",
-            [{"start_id": row.doc_id, "end_id": row.refuge_id, "props": {}} for row in semantic.document_refuge_links],
-        )
+        anchor_rows_by_key: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+        for row in semantic.document_anchor_links:
+            anchor_label = entity_label_lookup.get(row.anchor_entity_id, "Entity")
+            anchor_rows_by_key[(row.relation_type, anchor_label)].append(
+                {"start_id": row.doc_id, "end_id": row.anchor_entity_id, "props": {}}
+            )
+        for (rel_type, end_label), rows in anchor_rows_by_key.items():
+            self._upsert_relationships(
+                "Document", "doc_id", rel_type, end_label, "entity_id", rows,
+            )
         self._upsert_relationships(
             "Document",
             "doc_id",
@@ -643,12 +672,21 @@ class Neo4jGraphWriter:
             "Observation", "observation_id", "EVIDENCED_BY", "Paragraph", "paragraph_id",
             [{"start_id": obs.observation_id, "end_id": obs.paragraph_id, "props": {"run_id": obs.run_id}} for obs in semantic.observations],
         )
-        # Observation -> entity relationships (batched by target label)
-        obs_species_rows = [{"start_id": obs.observation_id, "end_id": obs.species_id, "props": {}} for obs in semantic.observations if obs.species_id]
-        self._upsert_relationships("Observation", "observation_id", "OF_SPECIES", "Species", "entity_id", obs_species_rows)
-
-        obs_refuge_rows = [{"start_id": obs.observation_id, "end_id": obs.refuge_id, "props": {}} for obs in semantic.observations if obs.refuge_id]
-        self._upsert_relationships("Observation", "observation_id", "AT_REFUGE", "Refuge", "entity_id", obs_refuge_rows)
+        # Observation -> role-entity relationships (batched by edge type and target label)
+        obs_role_rows_by_key: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+        for obs in semantic.observations:
+            for role, entity_id in obs.role_entities.items():
+                edge_spec = self._observation_role_edges.get(role)
+                if not edge_spec or not entity_id:
+                    continue
+                target_label, edge_type = edge_spec
+                obs_role_rows_by_key[(edge_type, target_label)].append(
+                    {"start_id": obs.observation_id, "end_id": entity_id, "props": {}}
+                )
+        for (edge_type, target_label), rows in obs_role_rows_by_key.items():
+            self._upsert_relationships(
+                "Observation", "observation_id", edge_type, target_label, "entity_id", rows,
+            )
 
         obs_place_rows = [{"start_id": obs.observation_id, "end_id": obs.place_id, "props": {}} for obs in semantic.observations if obs.place_id]
         self._upsert_relationships("Observation", "observation_id", "AT_PLACE", "Place", "entity_id", obs_place_rows)
@@ -658,12 +696,6 @@ class Neo4jGraphWriter:
 
         obs_year_rows = [{"start_id": obs.observation_id, "end_id": obs.year_id, "props": {}} for obs in semantic.observations if obs.year_id]
         self._upsert_relationships("Observation", "observation_id", "IN_YEAR", "Year", "year_id", obs_year_rows)
-
-        obs_habitat_rows = [{"start_id": obs.observation_id, "end_id": obs.habitat_id, "props": {}} for obs in semantic.observations if obs.habitat_id]
-        self._upsert_relationships("Observation", "observation_id", "IN_HABITAT", "Habitat", "entity_id", obs_habitat_rows)
-
-        obs_method_rows = [{"start_id": obs.observation_id, "end_id": obs.survey_method_id, "props": {}} for obs in semantic.observations if obs.survey_method_id]
-        self._upsert_relationships("Observation", "observation_id", "USED_METHOD", "SurveyMethod", "entity_id", obs_method_rows)
 
         self._upsert_relationships(
             "Observation", "observation_id", "HAS_MEASUREMENT", "Measurement", "measurement_id",
@@ -684,11 +716,20 @@ class Neo4jGraphWriter:
             "Event", "event_id", "SOURCED_FROM", "Paragraph", "paragraph_id",
             [{"start_id": evt.event_id, "end_id": evt.paragraph_id, "props": {"run_id": evt.run_id}} for evt in semantic.events],
         )
-        evt_species_rows = [{"start_id": evt.event_id, "end_id": evt.species_id, "props": {}} for evt in semantic.events if evt.species_id]
-        self._upsert_relationships("Event", "event_id", "INVOLVED_SPECIES", "Species", "entity_id", evt_species_rows)
-
-        evt_refuge_rows = [{"start_id": evt.event_id, "end_id": evt.refuge_id, "props": {}} for evt in semantic.events if evt.refuge_id]
-        self._upsert_relationships("Event", "event_id", "OCCURRED_AT", "Refuge", "entity_id", evt_refuge_rows)
+        evt_role_rows_by_key: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+        for evt in semantic.events:
+            for role, entity_id in evt.role_entities.items():
+                edge_spec = self._event_role_edges.get(role)
+                if not edge_spec or not entity_id:
+                    continue
+                target_label, edge_type = edge_spec
+                evt_role_rows_by_key[(edge_type, target_label)].append(
+                    {"start_id": evt.event_id, "end_id": entity_id, "props": {}}
+                )
+        for (edge_type, target_label), rows in evt_role_rows_by_key.items():
+            self._upsert_relationships(
+                "Event", "event_id", edge_type, target_label, "entity_id", rows,
+            )
 
         evt_place_rows = [{"start_id": evt.event_id, "end_id": evt.place_id, "props": {}} for evt in semantic.events if evt.place_id]
         self._upsert_relationships("Event", "event_id", "OCCURRED_AT", "Place", "entity_id", evt_place_rows)
@@ -698,12 +739,6 @@ class Neo4jGraphWriter:
 
         evt_year_rows = [{"start_id": evt.event_id, "end_id": evt.year_id, "props": {}} for evt in semantic.events if evt.year_id]
         self._upsert_relationships("Event", "event_id", "IN_YEAR", "Year", "year_id", evt_year_rows)
-
-        evt_habitat_rows = [{"start_id": evt.event_id, "end_id": evt.habitat_id, "props": {}} for evt in semantic.events if evt.habitat_id]
-        self._upsert_relationships("Event", "event_id", "IN_HABITAT", "Habitat", "entity_id", evt_habitat_rows)
-
-        evt_method_rows = [{"start_id": evt.event_id, "end_id": evt.survey_method_id, "props": {}} for evt in semantic.events if evt.survey_method_id]
-        self._upsert_relationships("Event", "event_id", "USED_METHOD", "SurveyMethod", "entity_id", evt_method_rows)
 
         self._upsert_relationships(
             "Event", "event_id", "PRODUCED", "Observation", "observation_id",
@@ -721,11 +756,18 @@ class Neo4jGraphWriter:
             [{"start_id": link.doc_id, "end_id": link.year_id, "props": {}} for link in semantic.document_year_links],
         )
 
-        # --- Place -> Refuge (semantic relation, defaults to LOCATED_IN_REFUGE) ---
-        self._upsert_relationships(
-            "Place", "entity_id", "LOCATED_IN_REFUGE", "Refuge", "entity_id",
-            [{"start_id": link.place_id, "end_id": link.refuge_id, "props": {}} for link in semantic.place_refuge_links],
-        )
+        # --- Entity-hierarchy edges (child entity -> anchor entity) ---
+        hierarchy_rows_by_key: dict[tuple[str, str, str], list[dict[str, Any]]] = defaultdict(list)
+        for link in semantic.entity_hierarchy_links:
+            child_label = entity_label_lookup.get(link.child_entity_id, "Entity")
+            parent_label = entity_label_lookup.get(link.parent_entity_id, "Entity")
+            hierarchy_rows_by_key[(child_label, link.relation_type, parent_label)].append(
+                {"start_id": link.child_entity_id, "end_id": link.parent_entity_id, "props": {}}
+            )
+        for (child_label, rel_type, parent_label), rows in hierarchy_rows_by_key.items():
+            self._upsert_relationships(
+                child_label, "entity_id", rel_type, parent_label, "entity_id", rows,
+            )
 
         # --- Annotation targeting ---
         for annotation in structure.annotations:

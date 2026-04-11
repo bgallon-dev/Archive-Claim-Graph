@@ -77,7 +77,7 @@ def _fixture_bundles(tmp_path: Path) -> tuple[StructureBundle, SemanticBundle, s
         claim_link_diagnostics=[],
         claim_location_links=[],
         claim_period_links=[],
-        document_refuge_links=[],
+        document_anchor_links=[],
         document_period_links=[],
         document_signed_by_links=[],
         person_affiliation_links=[],

@@ -37,14 +37,14 @@ from gemynd.core.models import (
     ClaimLocationLinkRecord,
     ClaimPeriodLinkRecord,
     ClaimRecord,
+    DocumentAnchorLinkRecord,
     DocumentPeriodLinkRecord,
-    DocumentRefugeLinkRecord,
     DocumentYearLinkRecord,
+    EntityHierarchyLinkRecord,
     EntityRecord,
     ExtractionRunRecord,
     MeasurementRecord,
     MentionRecord,
-    PlaceRefugeLinkRecord,
     YearRecord,
 )
 from gemynd.ingest.concept_assigner import assign_concepts
@@ -484,8 +484,13 @@ def create_domain_anchor(state: ExtractionState) -> None:
         state.register_entity(anchor_entity)
 
     state.doc_anchor_id = doc_anchor_id
-    state.document_refuge_links.append(
-        DocumentRefugeLinkRecord(doc_id=state.structure.document.doc_id, refuge_id=doc_anchor_id)
+    anchor_relation = anchor_cfg.get("relation", "ABOUT_ANCHOR")
+    state.document_anchor_links.append(
+        DocumentAnchorLinkRecord(
+            doc_id=state.structure.document.doc_id,
+            anchor_entity_id=doc_anchor_id,
+            relation_type=anchor_relation,
+        )
     )
 
 
@@ -594,6 +599,7 @@ def build_derivation_phase(state: ExtractionState) -> None:
         entity_lookup=state.entity_lookup,
         run_id=state.extraction_run.run_id,
         report_year=state.structure.document.report_year,
+        config=state.config,
         doc_date_start=state.structure.document.date_start,
         doc_date_end=state.structure.document.date_end,
         registry=state.config.derivation_registry or None,
@@ -645,14 +651,32 @@ def create_year_entities(state: ExtractionState) -> None:
     )
 
 
-def create_place_refuge_links(state: ExtractionState) -> None:
-    """Phase 11: link Place entities to the document anchor refuge."""
+def create_entity_hierarchy_links(state: ExtractionState) -> None:
+    """Phase 11: link child entities to the document anchor entity.
+
+    Reads ``hierarchy_child_types`` (list of entity types to include) and
+    ``hierarchy_relation`` (Neo4j edge type) from ``config.domain_anchor``.
+    No-ops when either key is absent or there is no document anchor.
+    """
     if not state.doc_anchor_id:
         return
+    anchor_cfg = state.config.domain_anchor or {}
+    raw_child_types = anchor_cfg.get("hierarchy_child_types") or []
+    if isinstance(raw_child_types, str):
+        child_types = {raw_child_types}
+    else:
+        child_types = {str(t) for t in raw_child_types}
+    if not child_types:
+        return
+    relation_type = anchor_cfg.get("hierarchy_relation", "PART_OF")
     for entity in state.entities:
-        if entity.entity_type == "Place":
-            state.place_refuge_links.append(
-                PlaceRefugeLinkRecord(place_id=entity.entity_id, refuge_id=state.doc_anchor_id)
+        if entity.entity_type in child_types:
+            state.entity_hierarchy_links.append(
+                EntityHierarchyLinkRecord(
+                    child_entity_id=entity.entity_id,
+                    parent_entity_id=state.doc_anchor_id,
+                    relation_type=relation_type,
+                )
             )
 
 

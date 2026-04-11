@@ -38,3 +38,33 @@ entity_labels:
 legacy_renames:
   wildlife_count: population_estimate
   weather_condition: weather_observation
+
+# Derivation roles: how role entities are resolved from claim links and
+# which graph edges they produce when the writer emits observation/event
+# records. Each role has a resolver spec and two edge specs (one per
+# record type) because the writer uses different edge types for
+# observations vs. events (e.g. OF_SPECIES vs. INVOLVED_SPECIES).
+derivation_roles:
+  resolution:
+    species:
+      source: entity_links
+      relations: [SPECIES_FOCUS, MANAGEMENT_TARGET]
+    habitat:
+      source: entity_links
+      relations: [HABITAT_FOCUS]
+    survey_method:
+      source: entity_links
+      relations: [METHOD_FOCUS]
+    refuge:
+      source: location_links
+      entity_type: Refuge
+  observation_edges:
+    species:       [Species,      OF_SPECIES]
+    refuge:        [Refuge,       AT_REFUGE]
+    habitat:       [Habitat,      IN_HABITAT]
+    survey_method: [SurveyMethod, USED_METHOD]
+  event_edges:
+    species:       [Species,      INVOLVED_SPECIES]
+    refuge:        [Refuge,       OCCURRED_AT]
+    habitat:       [Habitat,      IN_HABITAT]
+    survey_method: [SurveyMethod, USED_METHOD]

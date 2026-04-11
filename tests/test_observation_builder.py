@@ -1,3 +1,6 @@
+from pathlib import Path
+
+from gemynd.core.domain_config import load_domain_config
 from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
@@ -8,6 +11,9 @@ from gemynd.core.models import (
 )
 from gemynd.ingest.derivation_context import build_derivation_contexts
 from gemynd.ingest.observation_builder import build_observations
+
+
+_RESOURCES_DIR = Path(__file__).resolve().parent.parent / "gemynd" / "resources"
 
 
 def _make_claim(
@@ -64,6 +70,7 @@ def _run(
         entity_lookup=entity_lookup or {},
         run_id="run_1",
         report_year=report_year,
+        config=load_domain_config(_RESOURCES_DIR),
     )
     return build_observations(contexts, "run_1")
 
@@ -82,7 +89,7 @@ def test_eligible_claim_produces_observation() -> None:
     assert len(observations) == 1
     obs = observations[0]
     assert obs.observation_type == "population_count"
-    assert obs.species_id == "sp1"
+    assert obs.role_entities["species"] == "sp1"
     assert obs.claim_id == "c1"
     assert obs.year_id == "year_1956"
     assert len(years) == 1
@@ -133,7 +140,7 @@ def test_location_entities_assigned() -> None:
         entity_lookup={refuge.entity_id: refuge, place.entity_id: place},
     )
 
-    assert observations[0].refuge_id == "r1"
+    assert observations[0].role_entities["refuge"] == "r1"
     assert observations[0].place_id == "p1"
 
 
@@ -154,9 +161,9 @@ def test_management_target_species_and_method_focus_feed_observation() -> None:
     )
 
     obs = observations[0]
-    assert obs.species_id == "sp1"
-    assert obs.survey_method_id == "sm1"
-    assert obs.habitat_id == "h1"
+    assert obs.role_entities["species"] == "sp1"
+    assert obs.role_entities["survey_method"] == "sm1"
+    assert obs.role_entities["habitat"] == "h1"
 
 
 def test_year_derived_from_claim_date() -> None:

@@ -16,7 +16,7 @@ from gemynd.retrieval.context_assembler import (
     ProvenanceContextAssembler,
     _infer_claim_types,
     _row_to_block,
-    _select_retrieval_strategy,
+    _select_retrieval_plan,
     _serialise_block,
 )
 from gemynd.retrieval.models import EntityContext, ProvenanceBlock, ResolvedEntity
@@ -314,11 +314,12 @@ class TestSelectRetrievalStrategy:
         from gemynd.core.graph.cypher import build_temporal_with_anchor_query
 
         anchor_cypher = build_temporal_with_anchor_query("Refuge", "ABOUT_REFUGE")
-        template, params = _select_retrieval_strategy(
+        plan = _select_retrieval_plan(
             "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
-            anchor_entity_id="refuge_abc",
-            anchor_temporal_cypher=anchor_cypher,
+            anchor_temporal_plans=[("refuge_abc", anchor_cypher)],
         )
+        assert len(plan) == 1
+        template, params = plan[0]
         assert template is anchor_cypher
         assert params["year_min"] == 1950
         assert params["year_max"] == 1960
@@ -327,7 +328,7 @@ class TestSelectRetrievalStrategy:
     def test_temporal_route_when_year_and_no_entity_no_anchor(self):
         from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
 
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
         )
         assert template == TEMPORAL_CLAIMS_QUERY
@@ -336,7 +337,7 @@ class TestSelectRetrievalStrategy:
     def test_multi_entity_route_when_two_entities(self):
         from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
 
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "compare mallard and teal", self._make_entity_ctx(2),
             year_min=None, year_max=None, budget=10
         )
@@ -346,7 +347,7 @@ class TestSelectRetrievalStrategy:
     def test_entity_plus_claim_type_route(self):
         from gemynd.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "habitat conditions for mallard", self._make_entity_ctx(1),
             year_min=None, year_max=None, budget=10
         )
@@ -357,7 +358,7 @@ class TestSelectRetrievalStrategy:
     def test_claim_type_only_route_when_no_entity(self):
         from gemynd.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
 
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "describe all population estimates", self._make_entity_ctx(0),
             year_min=None, year_max=None, budget=10
         )
@@ -367,7 +368,7 @@ class TestSelectRetrievalStrategy:
     def test_single_entity_fallback_no_claim_type(self):
         from gemynd.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "tell me about the refuge", self._make_entity_ctx(1),
             year_min=None, year_max=None, budget=10
         )
@@ -377,7 +378,7 @@ class TestSelectRetrievalStrategy:
     def test_fulltext_fallback_when_nothing_matches(self):
         from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
 
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "tell me about the refuge", self._make_entity_ctx(0),
             year_min=None, year_max=None, budget=10
         )
@@ -396,7 +397,7 @@ class TestDuplicateEntityIdDedup:
             ResolvedEntity("refuge", "refuge_abc", "Refuge", 0.88, "REFERS_TO"),
         ]
         entity_ctx = EntityContext(resolved=resolved)
-        template, params = _select_retrieval_strategy(
+        [(template, params)] = _select_retrieval_plan(
             "what wildlife observations at Turnbull Refuge",
             entity_ctx, year_min=None, year_max=None, budget=20,
         )

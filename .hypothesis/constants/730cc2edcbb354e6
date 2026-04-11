@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\phases.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.1, ' and ', ' or ', ',', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', ';', 'ABOUT_ANCHOR', 'AMBIGUOUS_FALLBACK', 'NO_RESOLVED_MENTION', 'PART_OF', 'Period', 'REFERS_TO', 'SurveyMethod', 'TYPE_HINT_CONFLICT', '\\b\\w+\\b', 'apr', 'april', 'aug', 'august', 'dec', 'december', 'end_date', 'entity_type', 'feb', 'february', 'forbidden', 'hierarchy_relation', 'hybrid-rules-llm', 'jan', 'january', 'jul', 'july', 'jun', 'june', 'mar', 'march', 'may', 'name', 'ner_model', 'normalized_form', 'normalizer_version', 'nov', 'november', 'ocr_engine', 'ocr_version', 'oct', 'october', 'period_id', 'period_type', 'properties', 'publication_period', 'relation', 'relation_model', 'run_id', 'run_timestamp', 'sep', 'sept', 'september', 'source_title', 'start_date', 'title_keyword', 'title_keywords', 'unknown', 'v1', 'v2', 'weak']

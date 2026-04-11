@@ -83,14 +83,14 @@ class InMemoryQueryExecutor:
 
     def _entity_anchored(self, p: dict) -> list[dict]:
         entity_id = p["entity_id"]
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
         limit = p.get("limit", 20)
 
         rows: list[dict] = []
-        for doc_id in self._valid_docs(institution_id, permitted_levels):
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
             run_id = self._latest_run_id(doc_id)
             if not run_id:
                 continue
@@ -113,7 +113,7 @@ class InMemoryQueryExecutor:
         return rows[:limit]
 
     def _temporal(self, p: dict) -> list[dict]:
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -121,7 +121,7 @@ class InMemoryQueryExecutor:
         limit = p.get("limit", 20)
 
         rows: list[dict] = []
-        for doc_id in self._valid_docs(institution_id, permitted_levels):
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
             run_id = self._latest_run_id(doc_id)
             if not run_id:
                 continue
@@ -150,7 +150,7 @@ class InMemoryQueryExecutor:
 
     def _temporal_with_anchor(self, p: dict) -> list[dict]:
         anchor_id = p["anchor_id"]
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -160,7 +160,7 @@ class InMemoryQueryExecutor:
         anchor_rel = self._anchor_relation
         anchor_label = self._anchor_entity_type
 
-        valid = set(self._valid_docs(institution_id, permitted_levels))
+        valid = set(self._valid_docs(institution_ids, permitted_levels))
         anchor_docs: set[str] = set()
         for sl, si, rt, el, ei, _ in self._w.rel_store:
             if (
@@ -201,7 +201,7 @@ class InMemoryQueryExecutor:
 
     def _multi_entity(self, p: dict) -> list[dict]:
         entity_ids: list[str] = p["entity_ids"]
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -211,7 +211,7 @@ class InMemoryQueryExecutor:
 
         seen: set[str] = set()
         rows: list[dict] = []
-        for doc_id in self._valid_docs(institution_id, permitted_levels):
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
             run_id = self._latest_run_id(doc_id)
             if not run_id:
                 continue
@@ -253,7 +253,7 @@ class InMemoryQueryExecutor:
     def _claim_type_scoped(self, p: dict) -> list[dict]:
         claim_types: list[str] = p["claim_types"]
         entity_ids = p.get("entity_ids")
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
         year_min = p.get("year_min")
         year_max = p.get("year_max")
@@ -261,7 +261,7 @@ class InMemoryQueryExecutor:
         entity_id_set = set(entity_ids) if entity_ids else None
 
         rows: list[dict] = []
-        for doc_id in self._valid_docs(institution_id, permitted_levels):
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
             run_id = self._latest_run_id(doc_id)
             if not run_id:
                 continue
@@ -292,7 +292,7 @@ class InMemoryQueryExecutor:
 
     def _fulltext(self, p: dict) -> list[dict]:
         search_text: str = p.get("search_text", "")
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
         limit = p.get("limit", 20)
         needle = search_text.lower()
@@ -310,7 +310,7 @@ class InMemoryQueryExecutor:
             if doc_id is None:
                 continue
             d = self._w.node_store.get("Document", {}).get(doc_id, {})
-            if not self._doc_is_valid(d, institution_id, permitted_levels):
+            if not self._doc_is_valid(d, institution_ids, permitted_levels):
                 continue
             run_id = self._latest_run_id(doc_id)
             if claim_props.get("run_id") != run_id:
@@ -321,7 +321,7 @@ class InMemoryQueryExecutor:
 
     def _provenance_chain(self, p: dict) -> list[dict]:
         claim_id: str = p["claim_id"]
-        institution_id = p.get("institution_id", "")
+        institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
 
         claim_props = self._w.node_store.get("Claim", {}).get(claim_id)
@@ -334,7 +334,7 @@ class InMemoryQueryExecutor:
         if doc_id is None:
             return []
         d = self._w.node_store.get("Document", {}).get(doc_id, {})
-        if not self._doc_is_valid(d, institution_id, permitted_levels):
+        if not self._doc_is_valid(d, institution_ids, permitted_levels):
             return []
         run_id = self._latest_run_id(doc_id)
         if claim_props.get("run_id") != run_id:
@@ -343,15 +343,21 @@ class InMemoryQueryExecutor:
 
     def _generic_dispatch(self, cypher: str, p: dict) -> list[dict]:
         # Assembler __init__ startup query to find anchor entity by label:
-        # "MATCH (:Document)-->(r:{EntityType}) RETURN r.entity_id AS eid"
-        if "eid" in cypher and "(:Document)-->" in cypher:
+        # "MATCH (d:Document)-->(r:{EntityType}) WHERE d.institution_id = $inst_id
+        #  RETURN r.entity_id AS eid"
+        if "eid" in cypher and "Document" in cypher and "-->" in cypher:
             import re as _re
             label_match = _re.search(r'\(r:(\w+)\)', cypher)
             target_label = label_match.group(1) if label_match else self._anchor_entity_type
             if target_label is None:
                 return []
+            target_inst = p.get("inst_id")
             for sl, si, rt, el, ei, _ in self._w.rel_store:
                 if el == target_label and sl == "Document":
+                    if target_inst is not None:
+                        d = self._w.node_store.get("Document", {}).get(si, {})
+                        if d.get("institution_id") != target_inst:
+                            continue
                     return [{"eid": ei}]
             return []
         return []
@@ -359,23 +365,23 @@ class InMemoryQueryExecutor:
     # ── document filtering ──────────────────────────────────────────────────
 
     def _valid_docs(
-        self, institution_id: str, permitted_levels: list[str]
+        self, institution_ids: list[str], permitted_levels: list[str]
     ) -> list[str]:
         result: list[str] = []
         for doc_id, props in self._w.node_store.get("Document", {}).items():
-            if self._doc_is_valid(props, institution_id, permitted_levels):
+            if self._doc_is_valid(props, institution_ids, permitted_levels):
                 result.append(doc_id)
         return result
 
     def _doc_is_valid(
         self,
         props: dict,
-        institution_id: str,
+        institution_ids: list[str],
         permitted_levels: list[str],
     ) -> bool:
         if props.get("deleted_at") is not None:
             return False
-        if props.get("institution_id") != institution_id:
+        if institution_ids and props.get("institution_id") not in institution_ids:
             return False
         if props.get("access_level") not in permitted_levels:
             return False

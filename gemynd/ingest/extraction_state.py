@@ -20,9 +20,10 @@ if TYPE_CHECKING:
         ClaimLocationLinkRecord,
         ClaimPeriodLinkRecord,
         ClaimRecord,
+        DocumentAnchorLinkRecord,
         DocumentPeriodLinkRecord,
-        DocumentRefugeLinkRecord,
         DocumentYearLinkRecord,
+        EntityHierarchyLinkRecord,
         EntityRecord,
         EntityResolutionRecord,
         EventMeasurementLinkRecord,
@@ -33,7 +34,6 @@ if TYPE_CHECKING:
         MentionRecord,
         ObservationMeasurementLinkRecord,
         ObservationRecord,
-        PlaceRefugeLinkRecord,
         SemanticBundle,
         StructureBundle,
         YearRecord,
@@ -82,7 +82,7 @@ class ExtractionState:
 
     # ── Phase 6: period ────────────────────────────────────────────────
     claim_period_links: list[ClaimPeriodLinkRecord] = field(default_factory=list)
-    document_refuge_links: list[DocumentRefugeLinkRecord] = field(default_factory=list)
+    document_anchor_links: list[DocumentAnchorLinkRecord] = field(default_factory=list)
     document_period_links: list[DocumentPeriodLinkRecord] = field(default_factory=list)
 
     # ── Phases 7–9: derivation, observations, events ───────────────────
@@ -94,9 +94,9 @@ class ExtractionState:
     event_obs_links: list[EventObservationLinkRecord] = field(default_factory=list)
     event_meas_links: list[EventMeasurementLinkRecord] = field(default_factory=list)
 
-    # ── Phases 10–12: year entities, place-refuge, concepts ────────────
+    # ── Phases 10–12: year entities, entity hierarchy, concepts ────────
     document_year_links: list[DocumentYearLinkRecord] = field(default_factory=list)
-    place_refuge_links: list[PlaceRefugeLinkRecord] = field(default_factory=list)
+    entity_hierarchy_links: list[EntityHierarchyLinkRecord] = field(default_factory=list)
     claim_concept_links: list[ClaimConceptLinkRecord] = field(default_factory=list)
 
     # ── Helpers ────────────────────────────────────────────────────────
@@ -121,7 +121,7 @@ class ExtractionState:
             claim_link_diagnostics=self.claim_link_diagnostics,
             claim_location_links=self.claim_location_links,
             claim_period_links=self.claim_period_links,
-            document_refuge_links=self.document_refuge_links,
+            document_anchor_links=self.document_anchor_links,
             document_period_links=self.document_period_links,
             document_signed_by_links=[],
             person_affiliation_links=[],
@@ -129,7 +129,7 @@ class ExtractionState:
             years=self.years,
             observation_measurement_links=self.obs_measurement_links,
             document_year_links=self.document_year_links,
-            place_refuge_links=self.place_refuge_links,
+            entity_hierarchy_links=self.entity_hierarchy_links,
             events=self.events,
             event_observation_links=self.event_obs_links,
             event_measurement_links=self.event_meas_links,

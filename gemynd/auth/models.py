@@ -57,6 +57,14 @@ class UserContext:
     is_api_client: bool = False
     # Per-client identifier for API token holders (improves audit trail granularity).
     client_id: str | None = None
+    # Institution IDs this user may read across. Defaults to a single-element
+    # list containing ``institution_id`` for back-compat; the web app
+    # overrides this at request time with the composite-config corpus list.
+    permitted_institution_ids: list[str] = field(default_factory=list)
+
+    def __post_init__(self) -> None:
+        if not self.permitted_institution_ids:
+            self.permitted_institution_ids = [self.institution_id] if self.institution_id else []
 
     @classmethod
     def from_user(cls, user: User) -> "UserContext":

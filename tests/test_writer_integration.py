@@ -3,10 +3,22 @@ from pathlib import Path
 from gemynd.ingest.graph.writer import InMemoryGraphWriter
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
-from tests.conftest import TEST_ENTITY_LABELS
+from tests.conftest import (
+    TEST_ENTITY_LABELS,
+    TEST_EVENT_ROLE_EDGES,
+    TEST_OBSERVATION_ROLE_EDGES,
+)
 
 # DOMAIN_LABELS was removed; this test fixture uses the Turnbull label set.
 DOMAIN_LABELS = TEST_ENTITY_LABELS
+
+
+def _make_writer() -> InMemoryGraphWriter:
+    return InMemoryGraphWriter(
+        entity_labels=TEST_ENTITY_LABELS,
+        observation_role_edges=TEST_OBSERVATION_ROLE_EDGES,
+        event_role_edges=TEST_EVENT_ROLE_EDGES,
+    )
 
 
 def _has_rel(
@@ -50,7 +62,7 @@ def test_inmemory_upsert_idempotent_and_historical(fixtures_dir: Path) -> None:
         run_overrides={"run_id": "run_test_2", "run_timestamp": "2026-03-10T01:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
 
     writer.load_structure(structure)
@@ -75,7 +87,7 @@ def test_observation_and_year_nodes_created(fixtures_dir: Path) -> None:
         run_overrides={"run_id": "run_obs_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)
@@ -102,7 +114,7 @@ def test_observation_and_year_nodes_created(fixtures_dir: Path) -> None:
 def test_doc_id_not_stored_on_structural_nodes(fixtures_dir: Path) -> None:
     structure = parse_source_file(fixtures_dir / "report1.json")
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
 
@@ -121,7 +133,7 @@ def test_group_a_redundant_fk_properties_not_stored_on_nodes(fixtures_dir: Path)
         run_overrides={"run_id": "run_group_a", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)
@@ -135,21 +147,15 @@ def test_group_a_redundant_fk_properties_not_stored_on_nodes(fixtures_dir: Path)
         "Mention": {"paragraph_id"},
         "Observation": {
             "paragraph_id",
-            "species_id",
-            "refuge_id",
+            "role_entities",
             "place_id",
             "year_id",
-            "habitat_id",
-            "survey_method_id",
         },
         "Event": {
             "paragraph_id",
-            "species_id",
-            "refuge_id",
+            "role_entities",
             "place_id",
             "year_id",
-            "habitat_id",
-            "survey_method_id",
         },
     }
 
@@ -166,7 +172,7 @@ def test_group_a_edges_replace_removed_fk_properties(fixtures_dir: Path) -> None
         run_overrides={"run_id": "run_group_a_edges", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)
@@ -215,40 +221,36 @@ def test_group_a_edges_replace_removed_fk_properties(fixtures_dir: Path) -> None
 
     for obs in semantic.observations:
         assert _has_rel(writer, "Observation", obs.observation_id, "EVIDENCED_BY", "Paragraph", obs.paragraph_id)
-        if obs.species_id:
-            assert _has_rel(writer, "Observation", obs.observation_id, "OF_SPECIES", "Species", obs.species_id)
-        if obs.refuge_id:
-            assert _has_rel(writer, "Observation", obs.observation_id, "AT_REFUGE", "Refuge", obs.refuge_id)
+        for role, entity_id in obs.role_entities.items():
+            target_label, edge_type = TEST_OBSERVATION_ROLE_EDGES[role]
+            assert _has_rel(
+                writer, "Observation", obs.observation_id, edge_type, target_label, entity_id,
+            )
         if obs.place_id:
             assert _has_rel(writer, "Observation", obs.observation_id, "AT_PLACE", "Place", obs.place_id)
         if obs.year_id:
             assert _has_rel(writer, "Observation", obs.observation_id, "IN_YEAR", "Year", obs.year_id)
-        if obs.habitat_id:
-            assert _has_rel(writer, "Observation", obs.observation_id, "IN_HABITAT", "Habitat", obs.habitat_id)
-        if obs.survey_method_id:
-            assert _has_rel(writer, "Observation", obs.observation_id, "USED_METHOD", "SurveyMethod", obs.survey_method_id)
 
     for evt in semantic.events:
         assert _has_rel(writer, "Claim", evt.claim_id, "TRIGGERED", "Event", evt.event_id)
         assert _has_rel(writer, "Event", evt.event_id, "SOURCED_FROM", "Paragraph", evt.paragraph_id)
-        if evt.species_id:
-            assert _has_rel(writer, "Event", evt.event_id, "INVOLVED_SPECIES", "Species", evt.species_id)
-        if evt.refuge_id:
-            assert _has_rel(writer, "Event", evt.event_id, "OCCURRED_AT", "Refuge", evt.refuge_id)
+        for role, entity_id in evt.role_entities.items():
+            target_label, edge_type = TEST_EVENT_ROLE_EDGES[role]
+            assert _has_rel(
+                writer, "Event", evt.event_id, edge_type, target_label, entity_id,
+            )
         if evt.place_id:
             assert _has_rel(writer, "Event", evt.event_id, "OCCURRED_AT", "Place", evt.place_id)
         if evt.year_id:
             assert _has_rel(writer, "Event", evt.event_id, "IN_YEAR", "Year", evt.year_id)
-        if evt.habitat_id:
-            assert _has_rel(writer, "Event", evt.event_id, "IN_HABITAT", "Habitat", evt.habitat_id)
-        if evt.survey_method_id:
-            assert _has_rel(writer, "Event", evt.event_id, "USED_METHOD", "SurveyMethod", evt.survey_method_id)
 
     for link in semantic.event_measurement_links:
         assert _has_rel(writer, "Event", link.event_id, "PRODUCED_MEASUREMENT", "Measurement", link.measurement_id)
 
-    for link in semantic.document_refuge_links:
-        assert _has_rel(writer, "Document", link.doc_id, "ABOUT_REFUGE", "Refuge", link.refuge_id)
+    for link in semantic.document_anchor_links:
+        assert _has_rel(
+            writer, "Document", link.doc_id, link.relation_type, "Refuge", link.anchor_entity_id,
+        )
 
     for link in semantic.document_year_links:
         assert _has_rel(writer, "Document", link.doc_id, "COVERS_YEAR", "Year", link.year_id)
@@ -261,7 +263,7 @@ def test_entity_resolution_edges_store_match_score_not_score(fixtures_dir: Path)
         run_overrides={"run_id": "run_match_score", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)
@@ -286,7 +288,7 @@ def test_domain_entities_also_stored_under_entity_label(fixtures_dir: Path) -> N
         run_overrides={"run_id": "run_label_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)
@@ -305,7 +307,7 @@ def test_located_in_refuge_edge_emitted(fixtures_dir: Path) -> None:
         run_overrides={"run_id": "run_refuge_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
-    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer = _make_writer()
     writer.create_schema()
     writer.load_structure(structure)
     writer.load_semantic(structure, semantic)

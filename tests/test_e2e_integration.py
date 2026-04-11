@@ -70,9 +70,8 @@ def full_pipeline(populated_writer):
     )
     assembler = ProvenanceContextAssembler(
         executor,
-        anchor_entity_type="Refuge",
-        anchor_relation="ABOUT_REFUGE",
-        institution_id="turnbull",
+        institution_ids=["turnbull"],
+        anchors={"turnbull": (None, "Refuge", "ABOUT_REFUGE")},
     )
     gateway = EntityResolutionGateway()
     doc_ids = set(populated_writer.node_store.get("Document", {}).keys())
@@ -334,7 +333,7 @@ class TestRefugeLinking:
                 "year_max": None,
                 "claim_types": None,
                 "limit": 50,
-                "institution_id": "turnbull",
+                "institution_ids": ["turnbull"],
                 "permitted_levels": ["public"],
             },
         )

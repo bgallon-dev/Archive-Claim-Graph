@@ -58,7 +58,7 @@ def _make_semantic(
         claim_link_diagnostics=claim_link_diagnostics or [],
         claim_location_links=claim_location_links or [],
         claim_period_links=[],
-        document_refuge_links=[],
+        document_anchor_links=[],
         document_period_links=[],
         document_signed_by_links=[],
         person_affiliation_links=[],

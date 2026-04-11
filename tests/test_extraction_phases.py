@@ -28,7 +28,7 @@ from gemynd.ingest.phases import (
     build_extraction_run,
     create_domain_anchor,
     create_period_entity,
-    create_place_refuge_links,
+    create_entity_hierarchy_links,
     create_year_entities,
     resolve_claim_links,
 )
@@ -160,7 +160,7 @@ class TestCreateDomainAnchor:
         state = _state(config=cfg)
         create_domain_anchor(state)
         assert state.doc_anchor_id is None
-        assert state.document_refuge_links == []
+        assert state.document_anchor_links == []
 
     def test_creates_anchor_when_title_matches(self):
         cfg = _config()
@@ -169,7 +169,7 @@ class TestCreateDomainAnchor:
         state = _state(structure=_structure(doc=_doc(title="Turnbull NWR 1956")))
         create_domain_anchor(state)
         assert state.doc_anchor_id is not None
-        assert len(state.document_refuge_links) == 1
+        assert len(state.document_anchor_links) == 1
         assert state.doc_anchor_id in state.entity_lookup
 
     def test_noop_when_title_does_not_match(self):
@@ -234,26 +234,26 @@ class TestCreateYearEntities:
 
 
 # ---------------------------------------------------------------------------
-# create_place_refuge_links
+# create_entity_hierarchy_links
 # ---------------------------------------------------------------------------
 
-class TestCreatePlaceRefugeLinks:
+class TestCreateEntityHierarchyLinks:
     def test_links_places_to_anchor(self):
         state = _state()
         state.doc_anchor_id = "refuge_1"
         place = _entity("place_1", "Place", "Kepple Lake")
         non_place = _entity("species_1", "Species", "Goose")
         state.entities = [place, non_place]
-        create_place_refuge_links(state)
-        assert len(state.place_refuge_links) == 1
-        assert state.place_refuge_links[0].place_id == "place_1"
-        assert state.place_refuge_links[0].refuge_id == "refuge_1"
+        create_entity_hierarchy_links(state)
+        assert len(state.entity_hierarchy_links) == 1
+        assert state.entity_hierarchy_links[0].child_entity_id == "place_1"
+        assert state.entity_hierarchy_links[0].parent_entity_id == "refuge_1"
 
     def test_noop_when_no_anchor(self):
         state = _state()
         state.entities = [_entity("place_1", "Place")]
-        create_place_refuge_links(state)
-        assert state.place_refuge_links == []
+        create_entity_hierarchy_links(state)
+        assert state.entity_hierarchy_links == []
 
 
 # ---------------------------------------------------------------------------

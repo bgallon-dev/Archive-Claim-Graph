@@ -3,7 +3,7 @@ Tests for retrieval pipeline improvements.
 
 Coverage:
   - _infer_claim_types: query vocabulary → claim_type mapping
-  - _select_retrieval_strategy: template routing logic
+  - _select_retrieval_plan: template routing logic
   - _serialise_block: confidence tier and RETRIEVED_VIA signal
   - Synthesis prompt: per-question-type answer structure
   - End-to-end: query → template → blocks → answer (mocked executor)
@@ -192,7 +192,7 @@ class TestInferClaimTypes:
 
 
 # ---------------------------------------------------------------------------
-# _select_retrieval_strategy
+# _select_retrieval_plan
 # ---------------------------------------------------------------------------
 
 class TestSelectRetrievalStrategy:
@@ -210,13 +210,14 @@ class TestSelectRetrievalStrategy:
         year_max: int | None = None,
         budget: int = 20,
     ):
-        from gemynd.retrieval.context_assembler import _select_retrieval_strategy
+        from gemynd.retrieval.context_assembler import _select_retrieval_plan
         entity_ctx = EntityContext(resolved=resolved or [])
-        return _select_retrieval_strategy(
+        plan = _select_retrieval_plan(
             query, entity_ctx, year_min, year_max, budget,
-            anchor_entity_id=_TEST_ANCHOR_ID,
-            anchor_temporal_cypher=_TEST_ANCHOR_TEMPORAL_CYPHER,
+            anchor_temporal_plans=[(_TEST_ANCHOR_ID, _TEST_ANCHOR_TEMPORAL_CYPHER)],
         )
+        # Tests expect a single (template, params) tuple for simplicity.
+        return plan[0]
 
     # --- Fulltext fallback ---
 
@@ -665,10 +666,14 @@ class TestEndToEndRetrievalPath:
         assembler = ProvenanceContextAssembler(
             executor=mock_executor,
             budget_conversational=20,
-            anchor_entity_id=_TEST_ANCHOR_ID,
-            anchor_entity_type=_TEST_CONFIG.anchor_entity_type or "Refuge",
-            anchor_relation=_TEST_CONFIG.anchor_relation or "ABOUT_REFUGE",
-            institution_id="turnbull",
+            institution_ids=["turnbull"],
+            anchors={
+                "turnbull": (
+                    _TEST_ANCHOR_ID,
+                    _TEST_CONFIG.anchor_entity_type or "Refuge",
+                    _TEST_CONFIG.anchor_relation or "ABOUT_REFUGE",
+                )
+            },
         )
 
         engine = SynthesisEngine.__new__(SynthesisEngine)
@@ -854,7 +859,7 @@ class TestIntegrationRetrieval:
         return ProvenanceContextAssembler(executor=executor, budget_conversational=10)
 
     _TENANT_PARAMS: dict[str, object] = {
-        "institution_id": "turnbull",
+        "institution_ids": ["turnbull"],
         "permitted_levels": ["public", "staff_only", "restricted"],
     }
 

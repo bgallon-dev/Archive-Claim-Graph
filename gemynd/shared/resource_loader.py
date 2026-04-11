@@ -307,6 +307,57 @@ def load_query_intent(
     return {str(k): [str(v) for v in vs] for k, vs in raw.items()}
 
 
+# ── Corpus registry ──────────────────────────────────────────────────────────
+
+# Default location of the multi-corpus registry, relative to the repo root.
+# Resolved as ``<repo_root>/data/corpus_registry.yaml``.
+_DEFAULT_REGISTRY_PATH: Path = (
+    Path(__file__).parent.parent.parent / "data" / "corpus_registry.yaml"
+)
+
+
+def load_corpus_registry(
+    registry_path: Path | None = None,
+) -> list[dict[str, Any]]:
+    """Return the list of ``corpora`` entries from ``corpus_registry.yaml``.
+
+    Each entry has keys ``corpus_id``, ``display_name``, ``resources_dir`` and
+    optional ``description``, ``created_at``, ``is_default``. ``resources_dir``
+    may be relative (resolved against the registry file's parent-parent, i.e.
+    the repo root) or absolute.
+    """
+    path = registry_path if registry_path is not None else _DEFAULT_REGISTRY_PATH
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    entries = data.get("corpora") or []
+    return [dict(e) for e in entries if e.get("corpus_id")]
+
+
+def resolve_corpus_resources_dir(
+    entry: dict[str, Any],
+    registry_path: Path | None = None,
+) -> Path:
+    """Resolve a corpus entry's ``resources_dir`` to an absolute path.
+
+    Relative paths are resolved against the repo root (the parent of the
+    ``data/`` directory that holds the registry file).
+    """
+    raw = str(entry.get("resources_dir") or "")
+    if not raw:
+        raise ValueError(f"corpus entry {entry.get('corpus_id')!r} has no resources_dir")
+    p = Path(raw)
+    if p.is_absolute():
+        return p
+    base = (
+        registry_path.parent.parent
+        if registry_path is not None
+        else _DEFAULT_REGISTRY_PATH.parent.parent
+    )
+    return (base / p).resolve()
+
+
 # ── Validator verbs ──────────────────────────────────────────────────────────
 
 def load_validator_verbs(

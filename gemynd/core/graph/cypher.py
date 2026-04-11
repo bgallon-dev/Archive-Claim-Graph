@@ -155,7 +155,7 @@ ORDER BY d.doc_id, r.run_timestamp, c.claim_id
 
 PROVENANCE_CHAIN_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -176,7 +176,7 @@ RETURN d, pg, sec, para, c, obs, sp, y,
 
 ENTITY_ANCHORED_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -203,7 +203,7 @@ CALL db.index.fulltext.queryNodes('claim_normalized_sentence', $search_text)
 YIELD node AS c, score
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -219,7 +219,7 @@ LIMIT $limit
 
 TEMPORAL_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -262,7 +262,7 @@ def build_temporal_with_anchor_query(anchor_label: str, anchor_relation: str) ->
         raise ValueError(f"invalid anchor_relation for Cypher: {anchor_relation!r}")
     return f"""
 MATCH (d:Document)-[:{anchor_relation}]->(ref:{anchor_label} {{entity_id: $anchor_id}})
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -289,7 +289,7 @@ LIMIT $limit
 
 MULTI_ENTITY_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -318,7 +318,7 @@ LIMIT $limit
 
 CLAIM_TYPE_SCOPED_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -363,7 +363,7 @@ def build_role_trend_query(role_label: str, role_relation: str) -> str:
         raise ValueError(f"invalid role_relation for Cypher: {role_relation!r}")
     return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -390,13 +390,13 @@ SPECIES_TREND_QUERY = build_role_trend_query("Species", "OF_SPECIES")
 CORPUS_STATS_QUERY = """
 CALL () {
   MATCH (d:Document)
-  WHERE ($institution_id IS NULL OR $institution_id = '' OR d.institution_id = $institution_id)
+  WHERE ($institution_ids IS NULL OR size($institution_ids) = 0 OR d.institution_id IN $institution_ids)
     AND d.deleted_at IS NULL
   RETURN count(d) AS n
 } WITH n AS total_documents
 CALL () {
   MATCH (d:Document)-[:HAS_PAGE]->(:Page)-[:HAS_PARAGRAPH]->(p:Paragraph)
-  WHERE ($institution_id IS NULL OR $institution_id = '' OR d.institution_id = $institution_id)
+  WHERE ($institution_ids IS NULL OR size($institution_ids) = 0 OR d.institution_id IN $institution_ids)
     AND d.deleted_at IS NULL
   RETURN count(p) AS n
 } WITH total_documents, n AS total_paragraphs
@@ -417,7 +417,7 @@ def build_scope_condition_query(scope_label: str, scope_relation: str) -> str:
         raise ValueError(f"invalid scope_relation for Cypher: {scope_relation!r}")
     return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
@@ -541,7 +541,7 @@ RETURN d.doc_id AS doc_id
 
 COUNT_QUARANTINED_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND c.quarantine_status = 'quarantined'
@@ -574,7 +574,7 @@ SKIP $offset LIMIT $batch_size
 
 STATS_DOC_OVERVIEW_QUERY = """
 MATCH (d:Document)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
 RETURN count(d) AS total_docs,
@@ -586,7 +586,7 @@ RETURN count(d) AS total_docs,
 
 STATS_DOC_TYPE_QUERY = """
 MATCH (d:Document)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
 RETURN d.doc_type AS doc_type, count(d) AS count
@@ -595,7 +595,7 @@ ORDER BY count DESC
 
 STATS_CLAIM_TYPE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
@@ -605,9 +605,21 @@ RETURN c.claim_type AS claim_type,
 ORDER BY count DESC
 """
 
+STATS_CLAIM_TYPE_BY_INSTITUTION_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
+WHERE d.institution_id IN $institution_ids
+  AND d.deleted_at IS NULL
+  AND d.access_level IN $permitted_levels
+  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+RETURN d.institution_id AS institution_id,
+       c.claim_type AS claim_type,
+       count(c) AS count
+ORDER BY institution_id, count DESC
+"""
+
 STATS_ENTITY_TYPE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[]->(e:Entity)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
 RETURN [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type, count(DISTINCT e) AS count
@@ -616,7 +628,7 @@ ORDER BY count DESC
 
 STATS_TEMPORAL_COVERAGE_QUERY = """
 MATCH (d:Document)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND d.report_year IS NOT NULL
@@ -626,7 +638,7 @@ ORDER BY year
 
 STATS_CONFIDENCE_DISTRIBUTION_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
@@ -645,7 +657,7 @@ RETURN
 
 GAP_TEMPORAL_DENSITY_QUERY = """
 MATCH (d:Document)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND d.report_year IS NOT NULL
@@ -653,6 +665,23 @@ OPTIONAL MATCH (d)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
 WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
 RETURN d.report_year AS year, count(DISTINCT d) AS doc_count, count(c) AS claim_count
 ORDER BY year
+"""
+
+# Per-corpus temporal density breakdown — used by the gap-analysis dashboard
+# to render side-by-side panels per institution alongside the blended view.
+GAP_TEMPORAL_DENSITY_BY_INSTITUTION_QUERY = """
+MATCH (d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.deleted_at IS NULL
+  AND d.access_level IN $permitted_levels
+  AND d.report_year IS NOT NULL
+OPTIONAL MATCH (d)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+RETURN d.institution_id AS institution_id,
+       d.report_year AS year,
+       count(DISTINCT d) AS doc_count,
+       count(c) AS claim_count
+ORDER BY institution_id, year
 """
 
 # Wildlife-domain defaults preserved as named constants so the coupling is
@@ -687,7 +716,7 @@ def build_gap_entity_depth_query(
     label_filter = " OR ".join(f"e:{label}" for label in entity_labels)
     return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)
-WHERE d.institution_id = $institution_id AND d.deleted_at IS NULL
+WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
   AND type(rel) IN [{rel_list}]
@@ -721,7 +750,7 @@ def build_gap_geographic_coverage_query(
     label_filter = " OR ".join(f"e:{label}" for label in location_labels)
     return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)
-WHERE d.institution_id = $institution_id AND d.deleted_at IS NULL
+WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
   AND type(rel) IN [{rel_list}]
@@ -745,8 +774,12 @@ GAP_GEOGRAPHIC_COVERAGE_QUERY = build_gap_geographic_coverage_query()
 
 ENTITY_SEARCH_QUERY = """
 MATCH (e:Entity)
-WHERE toLower(e.name) CONTAINS toLower($query)
-   OR toLower(e.normalized_form) CONTAINS toLower($query)
+WHERE (toLower(e.name) CONTAINS toLower($query)
+       OR toLower(e.normalized_form) CONTAINS toLower($query))
+  AND ($institution_ids IS NULL OR size($institution_ids) = 0 OR EXISTS {
+        MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(:Claim)-[]->(e)
+        WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
+      })
 RETURN e.entity_id AS entity_id, e.name AS name,
        [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type
 ORDER BY e.name
@@ -756,7 +789,7 @@ LIMIT $limit
 ENTITY_DETAIL_QUERY = """
 MATCH (e:Entity {entity_id: $entity_id})
 OPTIONAL MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e)
-WHERE d.institution_id = $institution_id AND d.deleted_at IS NULL
+WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
 RETURN e.entity_id AS entity_id, e.name AS name,
@@ -766,13 +799,13 @@ RETURN e.entity_id AS entity_id, e.name AS name,
 
 ENTITY_NEIGHBORHOOD_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[r1]->(e1:Entity {entity_id: $entity_id})
-WHERE d.institution_id = $institution_id AND d.deleted_at IS NULL
+WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
-WITH c, e1
+WITH c, e1, d
 MATCH (c)-[r2]->(e2:Entity)
 WHERE e2 <> e1
-WITH e1, e2, c,
+WITH e1, e2, c, d,
      type(r2) AS rel_type,
      c.source_sentence AS sentence,
      c.claim_id AS claim_id
@@ -780,10 +813,12 @@ WITH e1, e2,
      collect(DISTINCT rel_type) AS relationship_types,
      collect(DISTINCT claim_id)[..5] AS sample_claim_ids,
      collect(DISTINCT sentence)[..3] AS sample_sentences,
+     collect(DISTINCT d.institution_id) AS institution_ids,
      count(DISTINCT c) AS co_occurrence_count
 ORDER BY co_occurrence_count DESC
 LIMIT $limit
 RETURN e2.entity_id AS entity_id, e2.name AS name,
        [x IN labels(e2) WHERE x <> 'Entity'][0] AS entity_type,
-       co_occurrence_count, relationship_types, sample_claim_ids, sample_sentences
+       co_occurrence_count, relationship_types, sample_claim_ids, sample_sentences,
+       institution_ids
 """

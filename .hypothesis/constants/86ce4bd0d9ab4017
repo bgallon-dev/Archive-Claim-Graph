@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\shared\resource_loader.py
+# hypothesis_version: 6.151.9
+
+['(', '(?:', ')', '*', '+', '?', "[A-Za-z][A-Za-z'-]*", '[A-Za-z]{3,}', '\\b', '\\s+', '_', 'claim_role_policy', 'claim_type', 'claim_type_patterns', 'claim_types', 'concept_id', 'concept_rules', 'confidence', 'corpora', 'corpus_id', 'corpus_registry.yaml', 'data', 'derivation_registry', 'domain_profile.yaml', 'domain_schema', 'entity_type', 'entries', 'known_errors', 'measurement_species', 'measurement_units', 'name', 'negative_entities', 'ocr_corrections', 'patterns', 'policy', 'query_intent', 'regex', 'relation_type', 'resources', 'resources_dir', 'rules', 'seed_entities', 'unit', 'units', 'utf-8', 'validator_verbs', 'verbs', 'weight', '|']

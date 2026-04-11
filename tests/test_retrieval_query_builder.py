@@ -58,7 +58,7 @@ def mock_executor():
 
 @pytest.fixture()
 def builder(mock_executor):
-    return CypherQueryBuilder(executor=mock_executor, institution_id="turnbull")
+    return CypherQueryBuilder(executor=mock_executor, institution_ids=["turnbull"])
 
 
 class TestSpeciesTrend:
@@ -67,7 +67,7 @@ class TestSpeciesTrend:
         mock_executor.run.assert_called_once_with(
             SPECIES_TREND_QUERY,
             {"species_id": "sp-mallard", "year_min": 1940, "year_max": 1950,
-             "permitted_levels": ["public"], "institution_id": "turnbull"},
+             "permitted_levels": ["public"], "institution_ids": ["turnbull"]},
         )
 
     def test_returns_analytical_result(self, builder):
@@ -91,7 +91,7 @@ class TestHabitatConditions:
         mock_executor.run.assert_called_once_with(
             HABITAT_CONDITION_QUERY,
             {"habitat_id": "h-pothole", "year_min": 1945, "year_max": 1960,
-             "permitted_levels": ["public"], "institution_id": "turnbull"},
+             "permitted_levels": ["public"], "institution_ids": ["turnbull"]},
         )
 
     def test_returns_analytical_result(self, builder):

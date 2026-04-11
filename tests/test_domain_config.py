@@ -11,6 +11,7 @@ from gemynd.core.claim_contract import UNCLASSIFIED_TYPE
 from gemynd.core.domain_config import (
     ClaimDerivationSpec,
     DomainConfig,
+    RoleResolver,
     _validate_config,
     load_domain_config,
 )
@@ -541,3 +542,60 @@ def test_validate_returns_issues_list() -> None:
     config = _minimal_domain_config()
     issues = _validate_config(config)
     assert isinstance(issues, list)
+
+
+# ---------------------------------------------------------------------------
+# Phase 8: derivation_roles externalization
+# ---------------------------------------------------------------------------
+
+def test_domain_config_role_resolution_loaded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert set(config.role_resolution.keys()) == {
+        "species", "habitat", "survey_method", "refuge",
+    }
+    species = config.role_resolution["species"]
+    assert species.source == "entity_links"
+    assert species.relations == frozenset({"SPECIES_FOCUS", "MANAGEMENT_TARGET"})
+    assert species.entity_type is None
+
+    refuge = config.role_resolution["refuge"]
+    assert refuge.source == "location_links"
+    assert refuge.entity_type == "Refuge"
+    assert refuge.relations == frozenset()
+
+
+def test_domain_config_observation_and_event_role_edges_loaded() -> None:
+    config = load_domain_config(_RESOURCES_DIR)
+    assert config.observation_role_edges == {
+        "species": ("Species", "OF_SPECIES"),
+        "refuge": ("Refuge", "AT_REFUGE"),
+        "habitat": ("Habitat", "IN_HABITAT"),
+        "survey_method": ("SurveyMethod", "USED_METHOD"),
+    }
+    assert config.event_role_edges == {
+        "species": ("Species", "INVOLVED_SPECIES"),
+        "refuge": ("Refuge", "OCCURRED_AT"),
+        "habitat": ("Habitat", "IN_HABITAT"),
+        "survey_method": ("SurveyMethod", "USED_METHOD"),
+    }
+
+
+def test_domain_config_role_maps_absent_section_degrades_to_empty(tmp_path: Path) -> None:
+    """A domain_schema.yaml without derivation_roles must still load."""
+    import shutil
+    import yaml
+
+    # Copy the real resources dir into tmp_path, then strip derivation_roles.
+    dst = tmp_path / "resources"
+    shutil.copytree(_RESOURCES_DIR, dst)
+    schema_path = dst / "domain_schema.yaml"
+    with schema_path.open(encoding="utf-8") as fh:
+        schema = yaml.safe_load(fh)
+    schema.pop("derivation_roles", None)
+    with schema_path.open("w", encoding="utf-8") as fh:
+        yaml.safe_dump(schema, fh)
+
+    config = load_domain_config(dst)
+    assert config.role_resolution == {}
+    assert config.observation_role_edges == {}
+    assert config.event_role_edges == {}

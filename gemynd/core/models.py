@@ -325,10 +325,20 @@ class ClaimPeriodLinkRecord(_BaseRecord):
 
 
 @dataclass(slots=True)
-class DocumentRefugeLinkRecord(_BaseRecord):
+class DocumentAnchorLinkRecord(_BaseRecord):
     doc_id: str
-    refuge_id: str
-    relation_type: str = "ABOUT_REFUGE"
+    anchor_entity_id: str
+    relation_type: str
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "DocumentAnchorLinkRecord":
+        # Accept legacy key "refuge_id" → "anchor_entity_id" for
+        # round-tripping pre-Phase-8 serialized bundles.
+        data = dict(payload)
+        if "anchor_entity_id" not in data and "refuge_id" in data:
+            data["anchor_entity_id"] = data.pop("refuge_id")
+        known = {f.name for f in cls.__dataclass_fields__.values()}
+        return cls(**{k: v for k, v in data.items() if k in known})
 
 
 @dataclass(slots=True)
@@ -352,12 +362,38 @@ class PersonAffiliationLinkRecord(_BaseRecord):
     relation_type: str = "AFFILIATED_WITH"
 
 
+_LEGACY_WILDLIFE_ROLE_KEYS: dict[str, str] = {
+    "species_id": "species",
+    "refuge_id": "refuge",
+    "habitat_id": "habitat",
+    "survey_method_id": "survey_method",
+}
+
+
+def _pack_legacy_role_keys(payload: dict[str, Any]) -> dict[str, Any]:
+    """Move legacy wildlife FK keys into a ``role_entities`` dict.
+
+    Pre-Phase-8 serialized observation/event records carried
+    ``species_id`` / ``refuge_id`` / ``habitat_id`` / ``survey_method_id``
+    as typed fields.  Packing them into ``role_entities`` preserves
+    round-trip compatibility with bundles on disk and in test fixtures.
+    """
+    data = dict(payload)
+    role_entities: dict[str, str] = dict(data.get("role_entities") or {})
+    for legacy_key, role_name in _LEGACY_WILDLIFE_ROLE_KEYS.items():
+        if legacy_key in data:
+            value = data.pop(legacy_key)
+            if value is not None and role_name not in role_entities:
+                role_entities[role_name] = value
+    data["role_entities"] = role_entities
+    return data
+
+
 @dataclass(slots=True)
 class ObservationRecord(_BaseRecord):
     _EDGE_FKS = frozenset({
-        "species_id", "refuge_id", "place_id", "period_id",
-        "year_id", "habitat_id", "survey_method_id",
-        "paragraph_id", "claim_id",
+        "place_id", "period_id", "year_id",
+        "paragraph_id", "claim_id", "role_entities",
     })
 
     observation_id: str
@@ -365,13 +401,10 @@ class ObservationRecord(_BaseRecord):
     observation_type: str
     claim_id: str
     paragraph_id: str
-    species_id: str | None = None
-    refuge_id: str | None = None
     place_id: str | None = None
     period_id: str | None = None
     year_id: str | None = None
-    habitat_id: str | None = None
-    survey_method_id: str | None = None
+    role_entities: dict[str, str] = field(default_factory=dict)
     value_text: str | None = None
     confidence: float = 0.0  # pipeline confidence carried forward from the supporting claim extraction
     is_estimate: bool = False
@@ -380,6 +413,12 @@ class ObservationRecord(_BaseRecord):
     source_claim_type: str = ""
     year: int | None = None
     year_source: str = "unknown"   # "claim_date" | "document_primary_year" | "unknown"
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "ObservationRecord":
+        data = _pack_legacy_role_keys(payload)
+        known = {f.name for f in cls.__dataclass_fields__.values()}
+        return cls(**{k: v for k, v in data.items() if k in known})
 
 
 @dataclass(slots=True)
@@ -398,9 +437,8 @@ class ObservationMeasurementLinkRecord(_BaseRecord):
 @dataclass(slots=True)
 class EventRecord(_BaseRecord):
     _EDGE_FKS = frozenset({
-        "species_id", "refuge_id", "place_id", "period_id",
-        "year_id", "habitat_id", "survey_method_id",
-        "paragraph_id", "claim_id",
+        "place_id", "period_id", "year_id",
+        "paragraph_id", "claim_id", "role_entities",
     })
 
     event_id: str
@@ -408,18 +446,21 @@ class EventRecord(_BaseRecord):
     event_type: str            # "SurveyEvent", "FireEvent", etc.
     claim_id: str
     paragraph_id: str
-    species_id: str | None = None
-    refuge_id: str | None = None
     place_id: str | None = None
     period_id: str | None = None
     year_id: str | None = None
-    habitat_id: str | None = None
-    survey_method_id: str | None = None
+    role_entities: dict[str, str] = field(default_factory=dict)
     source_claim_type: str = ""
     year: int | None = None
     year_source: str = "unknown"
     confidence: float = 0.0  # pipeline confidence carried forward from the supporting claim extraction
     review_status: str = "unreviewed"
+
+    @classmethod
+    def from_dict(cls, payload: dict[str, Any]) -> "EventRecord":
+        data = _pack_legacy_role_keys(payload)
+        known = {f.name for f in cls.__dataclass_fields__.values()}
+        return cls(**{k: v for k, v in data.items() if k in known})
 
 
 @dataclass(slots=True)
@@ -442,19 +483,22 @@ class DocumentYearLinkRecord(_BaseRecord):
 
 
 @dataclass(slots=True)
-class PlaceRefugeLinkRecord(_BaseRecord):
-    place_id: str
-    refuge_id: str
-    relation_type: str = "LOCATED_IN_REFUGE"
+class EntityHierarchyLinkRecord(_BaseRecord):
+    child_entity_id: str
+    parent_entity_id: str
+    relation_type: str
 
     @classmethod
-    def from_dict(cls, payload: dict[str, Any]) -> "PlaceRefugeLinkRecord":
+    def from_dict(cls, payload: dict[str, Any]) -> "EntityHierarchyLinkRecord":
+        # Accept legacy keys "place_id"/"refuge_id" for round-tripping
+        # pre-Phase-8 serialized bundles.
+        data = dict(payload)
+        if "child_entity_id" not in data and "place_id" in data:
+            data["child_entity_id"] = data.pop("place_id")
+        if "parent_entity_id" not in data and "refuge_id" in data:
+            data["parent_entity_id"] = data.pop("refuge_id")
         known = {f.name for f in cls.__dataclass_fields__.values()}
-        data = {k: v for k, v in payload.items() if k in known}
-        # Remap legacy PART_OF to LOCATED_IN_REFUGE on load.
-        if data.get("relation_type") == "PART_OF":
-            data["relation_type"] = "LOCATED_IN_REFUGE"
-        return cls(**data)
+        return cls(**{k: v for k, v in data.items() if k in known})
 
 
 @dataclass(slots=True)
@@ -505,7 +549,7 @@ class SemanticBundle:
     claim_link_diagnostics: list[ClaimLinkDiagnosticRecord]
     claim_location_links: list[ClaimLocationLinkRecord]
     claim_period_links: list[ClaimPeriodLinkRecord]
-    document_refuge_links: list[DocumentRefugeLinkRecord]
+    document_anchor_links: list[DocumentAnchorLinkRecord]
     document_period_links: list[DocumentPeriodLinkRecord]
     document_signed_by_links: list[DocumentSignedByLinkRecord]
     person_affiliation_links: list[PersonAffiliationLinkRecord]
@@ -513,7 +557,7 @@ class SemanticBundle:
     years: list[YearRecord] = field(default_factory=list)
     observation_measurement_links: list[ObservationMeasurementLinkRecord] = field(default_factory=list)
     document_year_links: list[DocumentYearLinkRecord] = field(default_factory=list)
-    place_refuge_links: list[PlaceRefugeLinkRecord] = field(default_factory=list)
+    entity_hierarchy_links: list[EntityHierarchyLinkRecord] = field(default_factory=list)
     entity_resolution_confirmations: list[EntityResolutionConfirmationRecord] = field(default_factory=list)
     events: list[EventRecord] = field(default_factory=list)
     event_observation_links: list[EventObservationLinkRecord] = field(default_factory=list)
@@ -532,7 +576,7 @@ class SemanticBundle:
             "claim_link_diagnostics": [item.to_dict() for item in self.claim_link_diagnostics],
             "claim_location_links": [item.to_dict() for item in self.claim_location_links],
             "claim_period_links": [item.to_dict() for item in self.claim_period_links],
-            "document_refuge_links": [item.to_dict() for item in self.document_refuge_links],
+            "document_anchor_links": [item.to_dict() for item in self.document_anchor_links],
             "document_period_links": [item.to_dict() for item in self.document_period_links],
             "document_signed_by_links": [item.to_dict() for item in self.document_signed_by_links],
             "person_affiliation_links": [item.to_dict() for item in self.person_affiliation_links],
@@ -540,7 +584,7 @@ class SemanticBundle:
             "years": [item.to_dict() for item in self.years],
             "observation_measurement_links": [item.to_dict() for item in self.observation_measurement_links],
             "document_year_links": [item.to_dict() for item in self.document_year_links],
-            "place_refuge_links": [item.to_dict() for item in self.place_refuge_links],
+            "entity_hierarchy_links": [item.to_dict() for item in self.entity_hierarchy_links],
             "entity_resolution_confirmations": [item.to_dict() for item in self.entity_resolution_confirmations],
             "events": [item.to_dict() for item in self.events],
             "event_observation_links": [item.to_dict() for item in self.event_observation_links],
@@ -561,7 +605,10 @@ class SemanticBundle:
             claim_link_diagnostics=[ClaimLinkDiagnosticRecord.from_dict(row) for row in payload.get("claim_link_diagnostics", [])],
             claim_location_links=[ClaimLocationLinkRecord.from_dict(row) for row in payload["claim_location_links"]],
             claim_period_links=[ClaimPeriodLinkRecord.from_dict(row) for row in payload["claim_period_links"]],
-            document_refuge_links=[DocumentRefugeLinkRecord.from_dict(row) for row in payload["document_refuge_links"]],
+            document_anchor_links=[
+                DocumentAnchorLinkRecord.from_dict(row)
+                for row in payload.get("document_anchor_links", payload.get("document_refuge_links", []))
+            ],
             document_period_links=[DocumentPeriodLinkRecord.from_dict(row) for row in payload["document_period_links"]],
             document_signed_by_links=[DocumentSignedByLinkRecord.from_dict(row) for row in payload["document_signed_by_links"]],
             person_affiliation_links=[PersonAffiliationLinkRecord.from_dict(row) for row in payload["person_affiliation_links"]],
@@ -569,7 +616,10 @@ class SemanticBundle:
             years=[YearRecord.from_dict(row) for row in payload.get("years", [])],
             observation_measurement_links=[ObservationMeasurementLinkRecord.from_dict(row) for row in payload.get("observation_measurement_links", [])],
             document_year_links=[DocumentYearLinkRecord.from_dict(row) for row in payload.get("document_year_links", [])],
-            place_refuge_links=[PlaceRefugeLinkRecord.from_dict(row) for row in payload.get("place_refuge_links", [])],
+            entity_hierarchy_links=[
+                EntityHierarchyLinkRecord.from_dict(row)
+                for row in payload.get("entity_hierarchy_links", payload.get("place_refuge_links", []))
+            ],
             entity_resolution_confirmations=[EntityResolutionConfirmationRecord.from_dict(row) for row in payload.get("entity_resolution_confirmations", [])],
             events=[EventRecord.from_dict(row) for row in payload.get("events", [])],
             event_observation_links=[EventObservationLinkRecord.from_dict(row) for row in payload.get("event_observation_links", [])],

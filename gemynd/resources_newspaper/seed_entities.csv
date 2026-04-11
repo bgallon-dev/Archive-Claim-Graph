@@ -1,0 +1,99 @@
+entity_type,name,prop_key,prop_value
+Organization,Northern Pacific Railway,org_type,railroad
+Organization,Northern Pacific Railway,alias,Northern Pacific
+Organization,Northern Pacific Railway,alias,N. P.
+Organization,Great Northern Railway,org_type,railroad
+Organization,Great Northern Railway,alias,Great Northern
+Organization,Chicago Milwaukee and St. Paul Railway,org_type,railroad
+Organization,Chicago Milwaukee and St. Paul Railway,alias,Milwaukee Road
+Organization,Chicago Milwaukee and St. Paul Railway,alias,Chicago Milwaukee
+Organization,Oregon Railroad and Navigation Company,org_type,railroad
+Organization,Oregon Railroad and Navigation Company,alias,O. R. & N.
+Organization,Spokane and Inland Empire Railroad,org_type,railroad
+Organization,Spokane and Inland Empire Railroad,alias,Spokane & Inland
+Organization,Spokane and Inland Empire Railroad,alias,Inland Empire Railroad
+Organization,Interstate Commerce Commission,org_type,federal_agency
+Organization,Interstate Commerce Commission,alias,Interstate Commerce
+Organization,Industrial Workers of the World,org_type,labor_union
+Organization,Industrial Workers of the World,alias,I. W. W.
+Organization,Industrial Workers of the World,alias,IWW
+Organization,American Federation of Labor,org_type,labor_union
+Organization,Western Federation of Miners,org_type,labor_union
+Organization,Western Federation of Miners,alias,Federation of Miners
+Organization,Spokane Trades Council,org_type,labor_union
+Organization,Spokane Trades Council,alias,Trades Council
+Organization,Spokane Chamber of Commerce,org_type,civic
+Organization,Spokane Chamber of Commerce,alias,Chamber of Commerce
+Organization,Spokane Board of Trade,org_type,civic
+Organization,Spokane Board of Trade,alias,Board of Trade
+Organization,Washington State Legislature,org_type,state_government
+Organization,Woman's Christian Temperance Union,org_type,civic
+Organization,Woman's Christian Temperance Union,alias,W. C. T. U.
+Organization,Woman's Christian Temperance Union,alias,WCTU
+Organization,Washington State Grange,org_type,agricultural
+Organization,Washington State Grange,alias,State Grange
+Organization,Bunker Hill and Sullivan Mining Company,org_type,mining
+Organization,Bunker Hill and Sullivan Mining Company,alias,Bunker Hill and Sullivan
+Organization,Spokane Press,org_type,newspaper
+Organization,Spokesman-Review,org_type,newspaper
+Organization,Spokane Chronicle,org_type,newspaper
+Person,Elizabeth Gurley Flynn,role,labor_organizer
+Person,Elizabeth Gurley Flynn,alias,Gurley Flynn
+Person,James H. Walsh,role,labor_organizer
+Person,Frank Little,role,labor_organizer
+Person,Vincent St. John,role,labor_organizer
+Person,William D. Haywood,role,labor_organizer
+Person,William D. Haywood,alias,Big Bill Haywood
+Person,Samuel Gompers,role,labor_leader
+Person,Samuel Gompers,alias,Gompers
+Person,Theodore Roosevelt,role,president
+Person,William Howard Taft,role,president
+Person,Woodrow Wilson,role,president
+Person,Miles C. Moore,role,territorial_governor
+Person,Robert B. Strahorn,role,railroad_promoter
+Person,Levi Hutton,role,labor_activist
+Person,May Arkwright Hutton,role,suffragist
+Person,May Arkwright Hutton,alias,May Arkwright
+Person,Frank Steunenberg,role,governor_idaho
+Person,Chief Lot,role,spokane_chief
+Person,Chief Garry,role,spokane_chief
+Person,Chief Garry,alias,Spokane Garry
+Person,Cyrus Turnbull,role,settler
+Place,Spokane,place_type,city
+Place,Cheney,place_type,city
+Place,Medical Lake,place_type,city
+Place,Davenport,place_type,city
+Place,Colfax,place_type,city
+Place,Pullman,place_type,city
+Place,Hillyard,place_type,neighborhood
+Place,Spokane Falls,place_type,city_historical
+Place,Spokane Falls,alias,Falls of the Spokane
+Place,Spokane County,place_type,county
+Place,Lincoln County,place_type,county
+Place,Whitman County,place_type,county
+Place,Stevens County,place_type,county
+Place,Adams County,place_type,county
+Place,Washington State,place_type,state
+Place,Inland Empire,place_type,region
+Place,Palouse,place_type,region
+Place,Coeur d'Alene Mining District,place_type,mining_district
+Place,Coeur d'Alene Mining District,alias,Coeur d'Alene district
+Place,Spokane River,place_type,river
+Place,Pine Creek,place_type,creek
+Place,Turnbull Slough,place_type,wetland
+Place,Hangman Creek,place_type,creek
+Place,Hangman Creek,alias,Latah Creek
+Place,Cheney Normal School,place_type,institution
+Place,Cheney Normal School,alias,State Normal School
+Place,Monroe Street Bridge,place_type,bridge
+Place,Riverside Avenue,place_type,street
+Place,Spokane Indian Reservation,place_type,reservation
+Place,Spokane Indian Reservation,alias,Spokane Reservation
+Place,Coeur d'Alene Reservation,place_type,reservation
+Place,Colville Reservation,place_type,reservation
+Place,Kalispel Reservation,place_type,reservation
+Place,Bunker Hill Mine,place_type,mine
+Place,Sullivan Mine,place_type,mine
+Event,Spokane Free Speech Fight,event_type,labor_action
+Event,Spokane Free Speech Fight,alias,Free Speech Fight
+Event,Interstate Fair,event_type,agricultural_exposition

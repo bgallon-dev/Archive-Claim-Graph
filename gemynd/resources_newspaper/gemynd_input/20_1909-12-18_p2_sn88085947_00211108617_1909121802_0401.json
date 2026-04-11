@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-18 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-18",
+    "date_end": "1909-12-18",
+    "report_year": 1909,
+    "source_file": "20_1909-12-18_p2_sn88085947_00211108617_1909121802_0401",
+    "archive_ref": "20_1909-12-18_p2_sn88085947_00211108617_1909121802_0401",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "20_1909-12-18_p2_sn88085947_00211108617_1909121802_0401",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "closed shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 156,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "closed shop",
+            "weight": 2.0,
+            "offset": 346,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Members and officers of the Spo-\nkane painters union declare they\nhave the best organized body, and\nare working under the most agree\nable conditions of any labor organ\nization in the city, and perhaps the\nstate. They boast that there is not\na nonunion paint shop in the city,\nand that they have persuaded all\nthe master painters to sign up for a\nclosed shop.\n\n\nHave you given OF promised your\nsupport to the movement for a\nnight car service and better SER\nvice during the day? Do you real\nize what it may mean to you to-\nmorrow or next week, though you\nwould be affected neither one way\nnor another at the present time by\nthe establishment of a night SER\nvice?\n\n\nToday you may be working at\na comfortable day job. Jobs are\nrather uncertain at this season of\nthe year, and work is scarce, con-\nsequently, perhaps, you will be at"
+    }
+  ]
+}

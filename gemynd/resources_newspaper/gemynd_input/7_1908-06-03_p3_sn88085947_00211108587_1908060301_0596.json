@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THEATER\n\nSPOKANE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-06-03",
+    "date_end": "1908-06-03",
+    "report_year": 1908,
+    "source_file": "7_1908-06-03_p3_sn88085947_00211108587_1908060301_0596",
+    "archive_ref": "7_1908-06-03_p3_sn88085947_00211108587_1908060301_0596",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-06-03_p3_sn88085947_00211108587_1908060301_0596",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 200,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"The Whirl o. tn Town.\" pre-\nsented by local talent under the\nauspices of the Woman's club last\nevening scored big success. The\nhouse was crowded. There is no\nparticular plot, but plenty of clean\ncomedy. The principal trouble\nlast evening was that the numer-\nGUS encores of the leading numbers\ncaused the performance to last we'll\non to midnight. Many excellent\nmusical numbers were on the pro-\ngram. Mrs. J. c. Cunningham made\nhit in her numbers, \"Would You\nIf You Could?\" and \"Twinkling\nSTAR\" in which latter she was as\nsisted by Prof. Ryan; while Miss\nMcclellan in Take Me Where\nThere's a Big Brass Band; Miss\nAlma Marshall in $50 Long, Mary\"\nand Mr.. Demert in katy Dear re-\nceived liberal applause and en-\ncores. w. w. Tolman in brief\nspeech prior to the raising Of the\ncurtain told of the aims of the club\nand it's desire to erect a suitable\nclubhouse, towards which the pro-\nceeds of 'The Whirl O. tn Town\"\nwill be applied. The performance\nwill be repeated tonight.\n\n\nThe big musical affair of the\nyear is promised Friday and Satur-\nday nights with Saturday matinee\nin Walter Damrosch's New York\nSymphony orchestra."
+    }
+  ]
+}

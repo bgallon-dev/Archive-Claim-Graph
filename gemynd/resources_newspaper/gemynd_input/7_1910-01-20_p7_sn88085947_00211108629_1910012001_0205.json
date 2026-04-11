@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MORE CARS.\n\n\nFOR DIVISION\n\nBUILDING OF NEW LINES\nMEANS IMPROVED SERVICE\n\n\nDUE BY SEPTEMBER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-20",
+    "date_end": "1910-01-20",
+    "report_year": 1910,
+    "source_file": "7_1910-01-20_p7_sn88085947_00211108629_1910012001_0205",
+    "archive_ref": "7_1910-01-20_p7_sn88085947_00211108629_1910012001_0205",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-01-20_p7_sn88085947_00211108629_1910012001_0205",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 171,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 138,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With the building of the new car\nlines on the north hill, 10 minute\ncar service or better is in sight for\nDivision street. The Washington\nWater Power Co. now has its en-\ngineers at work making surveys, for\nthe new lines to run north from\nLiberty avenue On Division and Ad-\nOlson street to Rowan avenue.\nThese lines will have independent\ncar service, separating at the juno\nture of Division and Liberty, There\nwill be at least 20 minute service\non each line and better If the traffic\nwarrants it, the company has as\nsured the people.\nBoth lines will enter the city over\nDivision street, insuring for that\nthoroughfare the bulk of the traffic\nof the vast region to the north. It\nwill give Division street, Riverside\nto Boone avenues, three car lines. as\nthe Aston line runs on Division to\nBoone. The new Division and Ad-\nOlson lines, which will replace the\nLidgerwoGd lines, are required I'M\nder the franchise to be in operation\nby September 1 next."
+    }
+  ]
+}

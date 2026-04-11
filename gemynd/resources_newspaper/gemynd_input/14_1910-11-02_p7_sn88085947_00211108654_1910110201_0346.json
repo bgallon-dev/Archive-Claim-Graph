@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "co N TIN UE ID !\n\n\nF r o -\nP A @ f. Q N F. |\n\nWHAT LABOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-02",
+    "date_end": "1910-11-02",
+    "report_year": 1910,
+    "source_file": "14_1910-11-02_p7_sn88085947_00211108654_1910110201_0346",
+    "archive_ref": "14_1910-11-02_p7_sn88085947_00211108654_1910110201_0346",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1910-11-02_p7_sn88085947_00211108654_1910110201_0346",
+      "composite_score": 1.68,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 650,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 2096,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 2560,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "were taken up In discussion or\nthese conditions with the judges,\nan dthey dismissed us with the\npromise that they would notify us\nof their decision in the matter.\n\n\nAfter week of delay, we were\nnotified through the evening pa\npers that the judges had sent let\ntie rto Secretary Morford, saying\nthat they had decided not to call\na grand jury, for the reason that\nyour showing is insufficient to\nwarrant them (the judges) in call\ning grand jury. This was pretty\nmuch of a surprise to your commit\ntee-that is, the showing being in\nsufficient Your committee cited\nmany cases to the judges and told\nthem they could produce plenty Of\nevidence to substantiate the\ncharges. The judges did not ask\nas to who the witnesses were, and\nagreed with us that many of the\nmatters laid before them were seri-\nGUS and should be corrected.\n\n\n\"The judges said to us at the\nmeeting that many Of the matters\nbrought to their attention could be\ngotten at through the prosecuting\nattorneys office, and your commit\nteemen called attention to the lack\nof proper action in cases which\nhad been brought to the prose-\ncutor's attention. They showed US\nthat the prosecutor could not be\nset aside under the law, and that\nhe must have charge of any grand\njury selected.\n\n\nMANY of the irregularities and\nimmoralities in city and county\ngovernment complained of were de-\ncided by the judges to not come\nunder the law, but that a grand\njury investigation could report\nthem End likely put a stop to them\nthrough publicity. They asked us\nthis question: Which do you deem\nmost important, the prosecution of\npublic officials for crimes under\nthe law Implying that they had\nlittle faith in the outcome of such\nprosecutions) or the investigation\nand report on serious misconduct\nin public life We promptly replied\nthat under the circumstances we\nbelieved an investigation by a\ngrand jury to cure these immorali-\nties and Irregularities was more\nimportant than any criminal\ncharges against officials. The\nJudges expressed themselves that\nthese charges were most serious\nand needed correction-one OF\nthem being that prisoners in the\ncounty Jail were denied treatment\nin the hospital section of the\ncounty Jail because jaiIors used the\nplace for sexual intercourse with\nfemale prisoners-and yet they now\ntell us that the Showing. was in.\nsufficient\n\n\n\"Your committee has no recon.\nmendatiOn to make in the matter,\nin the way of outlining further ac-\nton by this Central Labor council\nin appealing to the authorities of\ncity and county government for\ncleaner and better government. We\nhave appealed to the city council\nand our demand for an honest in\nvestigation of corruption in the po-\nlice department, with representa-\nton on such investigation commit\ntee, chosen by this body, and were\nignored. We have appealed to the\nsuperior judges to give us the. op-\nportunity of getting at the matters\nthrough grand jury, and here\nagain we have met with refusal.\nWe have no confidence In the hon.\nesty of purpose of the county prose-\ncutting attorney in prosecuting GRIM\ninaI charges against city and\ncounty officials, as his action In the\nElliott case will show, inasmuch as\nhe has not even yet brought a\ncharge of betrayal and abortion\nagainst officer Glider, though he\nhas confessions of the victim her.\nself in the matter. So in the way\nof the regularly constituted author\ntiles there seems no way of getting\nat the sources of public corruption,\nimmoralities and irregularities\nwhich are known to exist and of\nwhich your committee offered\nplenty Of evidence before the SUI\nperior judges. Publicity seems to\nbe the only way open, and how this\ncan be had to any great extent,\nwith only the columns of The Spo-\nkane Press and the Labor World\nopen, Is problem that will be left\nto you to determine\""
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-09-04 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-04",
+    "date_end": "1909-09-04",
+    "report_year": 1909,
+    "source_file": "16_1909-09-04_p6_sn88085947_00211108605_1909090401_0806",
+    "archive_ref": "16_1909-09-04_p6_sn88085947_00211108605_1909090401_0806",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1909-09-04_p6_sn88085947_00211108605_1909090401_0806",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 542,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1474,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 932,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "4 NOTICE.\n\n\nIn the Superior Court of the State\nT of Washington, holding terms in\n\n\nand for the County Of Spokane.\n\n\nChicago, Milwaukee & Puget\nSound Railway Company, q corpor-\nalton, vs. McAtee-Knepp Invest\nfment Company, a corporation; Ideal\nLaundry Company, corporation;\nF. l.. WIKI and Wiki, his\nwife; Hermine Schoenfeld and Ben.\njamin Schoenfeld, Respondents.\n+ The State of Washington, to the\nabove named respondents, F. L..\nWiki and -- Wilk, his wife;\nHermine Schoenfeld and Benjamin\nSchoenfeld, Greeting:\n\n\nYou, and each of you, are hereby\nnotified that the above named pc\ntitioner, Chicago, Milwaukee &\nPuget Sound Railway Company, a\ncorporation, has filed it's petition in\nthe above entitled court, against\nyou as parties owning or claiming\nan interest in the property herein\nafter described, praying for a judg-\nment of condemnation and appro-\npriation Of lot thirteen (13), in\nblock ten Q0), of Havermale's Ad-\ndition to Spokane Falls (now Spo-\nkane), In Spokane County, Wash\nington.\nThe objects of said petition are\nto obtain decree of said court ad-\njudging that the contemplated use\nfor which said land is sought to be\nappropriated by said petitioner,\nwhich use is for the construction,\nmaintenance and operation of a\ncertain line of railroad to be con-\nstructed by said petitioner, extend\nIng from a point at or near the\ntown of Maiden, in Whitman\ncounty, Washington, to the city of\nSpokane, in Spokane county, Wash\nington, and for the necessary side\ntracks, depot grounds, terminal,\ntransfer and switching grounds,\nand warehouses required for re-\nceiving, delivering, storage and\nhandling of freight with security\nand safety to the public in the con-\nstruction maintenance and opera\nton of said railroad, is really a\npublic use; that the public interest\nrequires the prosecution of such\nenterprise; that said land is re-\nQuired and necessary for the pur-\nposes of such enterprise; and to\nsecure the determination by jury\nas provided by law, unless such\njury be waived, and in that event\nby said court, of the damages which\nshall result by reason of the appro-\npriation and use of said land by\npetitioner, as aforesaid, and which\nshould be paid to the owners and\nEall other persons, If any, interested\nin said land, for the taking of said\nland by petitioner for the uses and\npurposes aforesaid; and to obtain\nla judgment Of appropriation Of said\ndescribed land, thereby vesting the\nIllegal title to the same In said petit.\np toner.\n\n\nIl And you are further notified that\nthe said petitioner will, on the goth\nof September, A. D. 1909, at the\nhour of $50 o'clock a. m. Of said\nday, or as soon thereafter as petit\ntioner can be heard, present its said\npetition to the Honorable J. d\nHinkle, one of the judges of the\nabove named court, at his court\nroom, in the county court house OF\nSpokane county, in the City of Spo\nkane, Washington; and will, at said\ntime and place, or at such time and\nplace as the said court may then\ncontinue such hearing to, submit\nproof as prescribed by law, Of the\nmatters and things alleged in said\npetition.\n\n\nCULLEN e DUDLEY,\nAttorneys for said Chicago, Milwau\n\n\nkee & Puget Sound Railway\n| COmDany"
+    }
+  ]
+}

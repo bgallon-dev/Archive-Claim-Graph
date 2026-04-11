@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "GRADE\nCROSSINGS\n\n\nABOLISHED\n\nPLAN OF NORTH COAST HAD\nELIMINATED THESE MAN\n\n\nKILLERS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-21",
+    "date_end": "1910-03-21",
+    "report_year": 1910,
+    "source_file": "2_1910-03-21_p1_sn88085947_00211108629_1910032101_1041",
+    "archive_ref": "2_1910-03-21_p1_sn88085947_00211108629_1910032101_1041",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-03-21_p1_sn88085947_00211108629_1910032101_1041",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 201,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 840,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 226,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In response to the inquiry as to\nwhat the North Coast railway pro-\nposed to grant in the way of grade\nseparation and common user con-\ncessions, in return for the franchise\n1t asks, an investigation made to-\nday shows that the city council and\nthe North Coast had practically\nagreed upon grade separation for\nthe nearly so crossings of that road\nleading into the city. In caring for\nthis grade separation the company\nexpected to expend for that one\nitem $400, 900 to $500, 900.\n\n\nThe Milwaukee likewise expects\nto have practically complete grade\nseparation. but its plans had not\nbeen examined in detail when the\ndiscussion Of the franchise ceased\nby the city council.\n\n\nAs to the common user clause the\ntwo roads had agreed to permit the\nJoint occupation of the union ter\nminal station and terminals be-\ntween Center street on the east\nand Monroe street on the west, al\nthough the proposed franchise Of\nthe joint terminal company ex-\ntended only as far west as Lincoln\nstreet.\n\n\nThe question of the extent of the\nterminals open to the common user\nprovision had never been discussed.\nas the NEGOTIATIONS had been ended\nbefore that point was reached."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NO SPRfNKL|NG;P UMPS\n\n\nARE CRIPPLED",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-16",
+    "date_end": "1909-07-16",
+    "report_year": 1909,
+    "source_file": "12_1909-07-16_p1_sn88085947_00211108605_1909071601_0420",
+    "archive_ref": "12_1909-07-16_p1_sn88085947_00211108605_1909071601_0420",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1909-07-16_p1_sn88085947_00211108605_1909071601_0420",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 203,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 733,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Owing to a serious mIshap at the\ncity pumping station, Mayor Pratt\nthis afternoon issued an order that\nall sprinkling mus, cease IN every\npart of the city this evening and\ntomorrow. This course Is abso-\nIutely necessary to preserve water\nto drink and for fire projection.\n\n\nAt 8 this morning a set Of CRATES\nfell into the fIune, followed by\nsome pIanking, and in order to re-\npair the damage it was found nee\nessary to close the head gates,\nshutting the water off from the\nwheels that drive the pumps.\n\n\nConsequently the power has been\nbadly crippled and the greatest\ncare will be needed the next 48\nhours at least.\n\n\nThis accident emphasizes Com\nmissioner ReuterdahI's contention\nfor an auxiliary steam plant to be\nused In case the water power plant\nfails, as II has failed today.\n\n\nIl failed today because there has\nbeen no opportunity to stop the\npumps for repairs. There was\nsimply nothing to do but keep them\nrunning and trust to Providence.\n\n\nBY means of the reservoirs and\nwhat pumping can be done the\ncommissioner hopes to avoid any\nsuffering, but consumers can make\nthis impossible II they refuse to\nrecognize the gravity Of the situa-\nton."
+    }
+  ]
+}

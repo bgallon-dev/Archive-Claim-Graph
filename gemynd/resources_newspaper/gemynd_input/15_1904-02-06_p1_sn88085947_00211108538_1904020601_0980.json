@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "More Home Seekers\n\n\nto Start West Soon",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-06",
+    "date_end": "1904-02-06",
+    "report_year": 1904,
+    "source_file": "15_1904-02-06_p1_sn88085947_00211108538_1904020601_0980",
+    "archive_ref": "15_1904-02-06_p1_sn88085947_00211108538_1904020601_0980",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1904-02-06_p1_sn88085947_00211108538_1904020601_0980",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 106,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 83,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Homeseekers' emigration is again\nIn evidence. c. w. Mott. emigration\nagent for the Northern Pacific. has\nprepared and sent out advertising\nmatter to all the large colonies In the\neast and the emigrants win be conn\ning west as soon as railway trafiic 10\nopen. The emigration rates will 70\ninto effect on the first of March and\nwill hold until the first Of April. at\nwhich time the rate will be with\ndrawn and will not go into effect\nagain until September I.\n\n\nTraffic officials say that already\n1904 promises to be the biggest year\nIn the history of the emigration\nmovement to the west."
+    }
+  ]
+}

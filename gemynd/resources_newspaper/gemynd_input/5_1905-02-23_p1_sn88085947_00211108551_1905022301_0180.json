@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Defeat of the Commission Bill is One of\nthe Dital Questions Which Concerns\n\n\nEUery Class of Business, Euery Udge\n\n\nGarner and Every Merchant in City.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-23",
+    "date_end": "1905-02-23",
+    "report_year": 1905,
+    "source_file": "5_1905-02-23_p1_sn88085947_00211108551_1905022301_0180",
+    "archive_ref": "5_1905-02-23_p1_sn88085947_00211108551_1905022301_0180",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1905-02-23_p1_sn88085947_00211108551_1905022301_0180",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 484,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 608,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "But thus far Spokane jobbers have\nheld their own through favor in the\nmatter of distributing rates out Of\nSpokane to intermediate points west\nfor a prescribed distance.\n\n\nThat Is, rates to points within the\n100 mile radius are so adjusted that\nthe Spokane shipper gets the advan-\ntage of a lower cost Of transporta-\nton to a given point in that terri\ntory than does the Portland or Seattle\njobber.\n\n\n1t is through this that the Spokane\njobber can compete successfully with\nthe coast shippers.\n\n\nWhat will happen when two coast\ncommissioners and one Spokane COM\nmissioner take control of the local\nrates as a railroad commission?\n\n\n1t is this very adjustment of rates\nwhich the Seattle and Portland ship\npers declare to be unfair and unjust\nto them. They accuse the railroads\nof discriminating in a certain terri\ntory in favor of Spokane shippers\nand insist that the discrimination is\nillegal.\n\n\nWill not the two commissioners\nfrom the coast vote that such dis\nexaminations are illegal? Will they\nhave to violate their oaths of office\nor go outside the legal procedure to\ndo it?\n\n\nAnd when that railroad commission\nhas decided such rates Illegal and\nhas levelled them to enable the Sc\nattic and Portland jobber-the latter\nshipping by way of Vancouver-to\ncompete on an equal or lower price\nbasis with Spokane, will not Seattle\nand Portland get the business?\n\n\nWon't the man in Lincoln, Douglas\nor Okanogan county buy his lawn\njobber? If he does, can the Spokane\njobber keep on doing business, when\nhis customers refuse to buy of him?\nDo you think that $100,000,00O in\nvestment is going to remain in Spo-\nkane, If no returns can be secured\non it?\n\n\nDo you think those financiers will\ncontinue to pay you 100000 an\nnually as wages when you can do\nnothing to earn it?\n\n\nRather, will not those men seek\nother places of investment, where\nthey can secure returns?\n\n\nThis is what mean when say\nevery man, woman and child In Spo-\nkane is interested in the defeat of\nDurhamism. Your homes, your lux\nuries, your very existence is threat\nened because, with the humiliation,\nor removal, of the mills, factories and\nwholesale houses, Spokane will lose\nthat which has been her support\nwhich has grown to be her very life\nher commercial interests.\n\n\nVIII you believe the men who sign\ned that telegram sent to Olympia\nprotesting against the passage of the\nrailroad commission bill? VIII you\nbelieve the men who head the big\nconcerns of Holley, Mason, Marks &\nCo, the Spokane Dry Goods company,\nBoothe- McClintock, John w. Graham\n& Co, Griffith Heating & Plumbing\nCo, b. L. Gordon & Co.?\n\n\nOr will you believe the Franken-\nstein of the tall tower who would\nhave you assume that every man who\ntalks, or writes, against the railroad\ncommission bill is on the payrolls of\nthe railroads?"
+    }
+  ]
+}

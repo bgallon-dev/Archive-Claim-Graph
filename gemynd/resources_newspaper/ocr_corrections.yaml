@@ -1,0 +1,14 @@
+version: "1"
+# Known OCR error tokens for the Spokane newspaper corpus.
+# Normalized (lowercased) surface forms that are likely OCR misreads.
+# Populated incrementally from the spelling review cycle.
+known_errors:
+  spokano: spokane
+  spokaue: spokane
+  spckane: spokane
+  uorthern: northern
+  pacitic: pacific
+  paeific: pacific
+  rairoad: railroad
+  raiiroad: railroad
+  rai1road: railroad

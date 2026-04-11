@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-25 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-25",
+    "date_end": "1903-03-25",
+    "report_year": 1903,
+    "source_file": "18_1903-03-25_p4_sn88085947_00211108526_1903032501_0478",
+    "archive_ref": "18_1903-03-25_p4_sn88085947_00211108526_1903032501_0478",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1903-03-25_p4_sn88085947_00211108526_1903032501_0478",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 61,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the smelter to be erected at Sand\npoint, Idaho, by the Panhandle Min\ning and Smelling company.\n\n\nIl was also stated today that the\nSullivan Mining company has secured\n$250.000 to complete the smelter at\nMarysville.\n\n\nThe company has refused to accept\nthe resignation of Manager Finley,\nsaying in reply that work at the\nmine will begin in a few weeks."
+    }
+  ]
+}

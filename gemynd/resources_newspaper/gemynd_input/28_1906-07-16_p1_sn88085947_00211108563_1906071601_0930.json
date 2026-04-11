@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Want ALL\n\n\nTO Benefit\n\nGARMENTS INCREASE At HILL.\nYARD Is NOT GENERAL AND\n\n\nSESSION IS CALLED At ST.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-16",
+    "date_end": "1906-07-16",
+    "report_year": 1906,
+    "source_file": "28_1906-07-16_p1_sn88085947_00211108563_1906071601_0930",
+    "archive_ref": "28_1906-07-16_p1_sn88085947_00211108563_1906071601_0930",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1906-07-16_p1_sn88085947_00211108563_1906071601_0930",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 185,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nThe Great Northern railroad has\ngranted to it's employees in thein\ncarshops at Hillyard, Everett and\nHavre, Mont, raise of Is cents\nday, which has been accepted by\nthe carmen at these points. As\nthe demand for a general increase\nOF wages along the whole system\nhas not been complied with, the\njoint protective board of the Great\nNorthern system has been sum-\nmoned to conveen in st. Paul no\nlater than July 20.\n\n\nJohn Aldrich. financial secre-\ntary Of Pride of the West lodge,\nNo. 313, and chairman of the\njoint protective board. left Hill\nyard this morning for st. Paul. His\nstay will be determined by the\namount of work the joint protective\nboard will perform. His instruc-\nlions from the lodges are to re-\nmilan in ST. Paul until concessions\nasked for are obtained from\nofficials of the road All lodges OF\nthe Brotherhood of Railroad Car.\nmen have been notified to have\ntheir delegates in st. Paul no later\nthan July 22.\n\n\nP. G. Cheyne, past chief Of Pride\nof the West lodge, No. 313, left to.\nday for Havre, Mont."
+    }
+  ]
+}

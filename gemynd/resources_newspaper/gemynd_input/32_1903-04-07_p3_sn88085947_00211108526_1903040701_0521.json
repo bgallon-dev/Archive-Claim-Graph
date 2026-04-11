@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "ORDINANCE NO.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-07",
+    "date_end": "1903-04-07",
+    "report_year": 1903,
+    "source_file": "32_1903-04-07_p3_sn88085947_00211108526_1903040701_0521",
+    "archive_ref": "32_1903-04-07_p3_sn88085947_00211108526_1903040701_0521",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1903-04-07_p3_sn88085947_00211108526_1903040701_0521",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 667,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 3171,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 2855,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OhOINANCG NO.\nAn ordinance granting to Spokane\n\n\nTraction Company its successors\n\n\nand assigns, the right to build,\n\n\nequip and operate single or double\n\n\ntrack electric railway system upon\n\n\ncertain streets in the City of Spo-\n\n\nkane.\n\n\nThe City of Spokane does ordain as\n\n\nfollows:\n\n\nSection 1. There is hereby granted\nto Spokane Traction Company. a cor\nporation organized and existing under\nthe laws of the state of Washington.\nit's successors and assigns. the right\nto construct, equip and operate a\nstreet railway system in the City of\nSpokane. for the carriage of passen-\ngers, express baggage. mail and\nfreight; and 10 that end to lay down\nbuild. construct. equip. maintain and\noperate a single or double track cleo\ntrio railway together with side\ntracks switches, turn-outs, crossings\nand connections over. across. along\nand upon the following streets and\npublic places In the City of Spokane,\nto-wit:\n\n\nFrom the north line of Second ave-\nnue. on Washington street to a point\nopposite the center of Second avenue\nthence east on Second avenue to\nSherman street; thence south on Sher-\nman street to Rusk avenue: thence\neast on Rusk avenue to Hatch street:\nthence south on Hatch street to the\nnorth line of Highland avenue: thence\nacross Highland avenue to private\nproperty; across east Kaufman street\nfrom private property to private\nproperty; across Sherman street from\nprivate property to private property;\nacross west Kaufman street from pri-\nvate property to Rose avenue: west\non Rose avenue to it's west line: from\nprivate property across City View\nstreet to Rose Court: thence along\nRose Court to its west end line: from\nproviate property onto Prospect\nstreet: thence southwesterly on Pros\npect street to its western terminus;\nthence on Grand avenue from its\nnorth and northcasterly line to\nThirty-third avenue. 50 far as Grand\navenue Is a dedicated and public\nstreet.\n\n\nAlso commencing at the intersec-\nton of Washington street and Sinto\navenue. and running thence east on\nSinto avenue to Calispel street; thence\nnorth on Calispel street to Sinto ave\nnue.. thence east on Sinto avenue to\nthe east city limits.\n\n\nAlso right to build and construct\na bridge across the Spokane river on\nSinto avenue, and to occupy the\nbridge with its tracks and cars for\noperation when so built and con-\nstructed.\n\n\nAlso commencing at the intersec-\nton of Washington street and Main\navenue; running thence west on Main\navenue to Mill street. thence south\non Mill street to Sprague avenue,\nand thence east on Sprague avenue\nto the point Of Intersection with the\ncenter of Washington street.\n\n\nSec. 2. In tho occupation of the\nforegoing streets for the purposes\naforesaid. the right liz granted like\nwise to erect and maintain along the\nside lines of said streets. the neces-\nsary poles therefor. of such height\nand dimensions as may be prescribed\nby the board of public works. to be\nnot less than 125 feet apart. except\nwhere poles have been erected and\nused for other purposes. In which\ncase to be not less than 100 feet\napart. No poles shall be erected UNI\nder this ordinance In the center of\nthe streets or in \"A position to OBJ\nstruct travel, Whenever there Is.\nor shall be. electric light or tele-\nphone poles erected upon any or all\nof the foregoing streets. the city may\nrequire the wires suspending the cleo\ntrio cable to be attached thereto. and\nrequire the removal of any and all\nunnecessary poles erected under this\nordinance\n\n\nThere shall he constructed AS near\nthe upper end of the poles as prac-\ntlcahle. erected under this ordinance.\na cross-arm. hereby reserved for the\nexclusive use OF the city OF Spo-\nkane to carry wires for the city bust\nness. Said licensee. It's SUCCESSORS or\nassigns. shall establish and maintain\nIl metallic return circuit conductor\nindependent Of the rails. upon the\nrespective lines of street railway\nhereby authorized TO be operated by\noverhead or underground contact\nwires Excepting, however. that\nwhen the tracks shall be constructed"
+    }
+  ]
+}

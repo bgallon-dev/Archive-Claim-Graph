@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "NEW FREIGHT RATES\n\n\nON N. p. AND C. ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-22",
+    "date_end": "1910-11-22",
+    "report_year": 1910,
+    "source_file": "17_1910-11-22_p8_sn88085947_00211108654_1910112201_0607",
+    "archive_ref": "17_1910-11-22_p8_sn88085947_00211108654_1910112201_0607",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1910-11-22_p8_sn88085947_00211108654_1910112201_0607",
+      "composite_score": 20.16,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 59,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "enjoying an immense oriental\ntrade.\n\n\nGeorge B. Dodwell of London,\nhead of the we'll known shipping\nfirm of Dodwell and Company,\nLimited, was in Seattle, Saturday,\nin conference with leading traffic\nand shipping officials. Three new\nbig fast freighters are now being\nbuilt for his firm in the trade from\nthe United Kingdom and the Orient\nto Puget Sound."
+    }
+  ]
+}

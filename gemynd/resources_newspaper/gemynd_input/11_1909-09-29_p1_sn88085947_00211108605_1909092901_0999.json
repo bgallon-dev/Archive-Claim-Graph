@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TO DOUBLE:\nPUMPING\n\n\nCAPACITY\n\nSPOKANE TO HAVE MOST COM\nPLETE PUMPING SYSTEM\n\n\nIN COUNTRY. &",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-29",
+    "date_end": "1909-09-29",
+    "report_year": 1909,
+    "source_file": "11_1909-09-29_p1_sn88085947_00211108605_1909092901_0999",
+    "archive_ref": "11_1909-09-29_p1_sn88085947_00211108605_1909092901_0999",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-09-29_p1_sn88085947_00211108605_1909092901_0999",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 376,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1248,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The pumping capacity of the\nSpokane water system win almost\nbe doubled when the pumps called\nfor In plans just, prepared by Water\nCommissioner .aleuterdahl are in.\nstalled at the upriver pumping\nstation.\n\n\n1t has been said by laymen not\nconversant with engineering mat\n'ters that they way to get more\nwater Is to pump more, and to\npump more means the addition OF\nmore machinery, as every pump in\nthe present plant was worked to it,\nutmost last summer.\n\n\nHaving disposed of the problems\ninvolved in the storage of water az\nrepresented by the four new stand\npipes and the new reservoir, Com\nmissioner Reuterdahl turned his at\ntention to the matter Of getting\npumps to I'LL these receptacles.\n\n\nThe result Of his efforts is the\npreparation of one Of the most COM\nplete pumping plants of It's ca\npacity to be found In the country\nThree new pumps will be installed\nand room left for a fourth in the\nnew building or addition to be\nerected at the upriver pumping sta\ntion.. The pumps will be Of the turs\nbine multtphase centrifugal VAR\nETY., now being installed in tho\nmost modern pumping plants. The\npumps are directly connected within\nelectric motors, no belts or shaft\ning OF any kind being employed.\nOne Of the pumps will be connected\nwith the city's water power, which\nis deemed ample to operate some\nof the new pumps In addition to all\nof the old ones.\n\n\nThe present capacity of the mp\nriver pumping station on the low\npressure, such az supplies the\ndowntown district and all OF the\ncity between the north and south\nhills, is 34,500.000 gallons In \"a\nhours. Only four of the Is pumps\nat present employed con work on\nhigh pressure, pumping to the high\nlands, and their capacity 10 10000\n900 gallons daily.\n\n\nThe new pumps are constructed\nSO that they can work ON either the\nhigh or low pressure. Their ca\npacity in \"a hours on the low press.\nure Is 28.e00.000 gallons, and on\nthe high pressure 1850. 900 gar\nIons. Thus the capacity for pump\ning water to the higher levels viii\nbe almost trebled.\n\n\nBids for these pumps and the\nelectric motors attached will be\nopened October s."
+    }
+  ]
+}

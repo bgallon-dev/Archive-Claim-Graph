@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "y\nPILES TELLS !.\n\n\nDEAL DETAILS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-03",
+    "date_end": "1908-09-03",
+    "report_year": 1908,
+    "source_file": "4_1908-09-03_p5_sn88085947_00211108587_1908090301_0921",
+    "archive_ref": "4_1908-09-03_p5_sn88085947_00211108587_1908090301_0921",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-09-03_p5_sn88085947_00211108587_1908090301_0921",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 402,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 844,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "United States Senator Piles tolt\nan audience at Ballard how he was\n| elected. He said that in addition tt\nthe pledge that the next senator\nshall be man from east of the\nmountains, there was written into\nthe agreement with Charles\nSweeny's friends that Senator Piles\nshould not disturb the federal ap\n| pointments already made.\n\n\nAfter relating how he had been\npersuaded to become a candidate\nand how the balloting in the legis\nlature had progressed, he said that\nhe was invited to Charles Sweeny's\napartments at Olympia where he\nmet friends of Mr.. Sweeny and OF\nSenator Ankeny.\n\n\nThere were several things talk\ned over there which were not put\nin writing\" said Senator Piles\nZone of those men from Eastern\nWashington said to me +:\n\n\n1--WE are perfectly willing to sup\nport you, but the people of eastern\nWashington are greatly interested\nin a railroad commission bill. II\nwe elect you we expect your sup\nport of this bill. We don't want g\nbill such as you people will write;\nWe will write it ourselves\n| 81 said that it was entirely sat\nisfactory to me and they requested\nthat they hear from the lips of two\nor three men from King county\nwho were opposed to their bill thai\nthey would give it their support\n| sent for the men and they agreed\nto the proposition.\n\n\n| Another proposition was made\nto me at that time. They said:\neve want you to support the\n| policy of President Roosevelt to en-\nlarge the powers of the interstate\n| commerce commission | replied\nthat l was perfectly willing to dc\n| that.\n\n\n| when we came to that agree\nment the only words which touched\non the election of a United States\nsenator were these:\n\n\n1.-The next senator to succeed\nLevi Ankeny shall come from easa\nof the mountains I;\n\n\n1T did also provide that Senate,\n| Ankeny and Charles Sweeny an(\ntheir friends would support me OF\nthe following day.\n\n\nThere was also in that agree\nment a pledge that l would moi\ndisturb the federal appointments\nthat had already been made il\nWashington. have kept thai\npledge. l have not put any of those\nmen out of Office; If the people\nwho are calling this an unholy\nagreement can show me any reason\nwhy these men should not continue\nin Office l shall put them out."
+    }
+  ]
+}

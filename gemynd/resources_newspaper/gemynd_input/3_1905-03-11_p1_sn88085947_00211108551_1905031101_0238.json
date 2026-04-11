@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WATER COMMISSION\n\n\nIN SECRET SESSION",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-11",
+    "date_end": "1905-03-11",
+    "report_year": 1905,
+    "source_file": "3_1905-03-11_p1_sn88085947_00211108551_1905031101_0238",
+    "archive_ref": "3_1905-03-11_p1_sn88085947_00211108551_1905031101_0238",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1905-03-11_p1_sn88085947_00211108551_1905031101_0238",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 404,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 302,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "souri, river. He has held many minor\npositions of responsibility and trust\nrequiring a profound knowledge of\ntechnology and a sound, practical\ntraining. He was five years in the\nUnited States civil service, a life\nposition, which he resigned to come\nto Spokane, and during this period of\nfive years as irrigation engineer for\nthe United States government he con-\nstructed water supply for irrigation\nsystems as well as water works,\nsewerage systems, pumping stations,\nhead works. syphon and pipe lines\nFor the past four years he has been\nassistant engineer for the city of\nSpokane.\n\n\nProfessor O. l.. Waller, graduate of\nthe University of Michigan in 1888,\nGraduate of the University of Chi\ncago, in 1856, Phi. ID. and PHI. NJ.\nHillsdale in 1887. He has been con-\nnected for the last 10 or IL years\nwith the Pullman Agricultural college\nin the state of Washington, also\nshort time superintendent of the Col\nfax schools. For the last two or\nthree years he has spent a part of\nhis summer vacation visiting irriga-\ntion enterprises to acquire some\npractical knowledge along this line.\nHe has also been consulting engineer\nfor the Sunnyside Canal company. AS\nprofessor of the Pullman Agricultural\ncollege he has acquired data for the\nUnited States government.\n\n\nThere seems to be no record what\never of Professor Waller having ever\ndesigned any hydraulic improvements\nOf any kind or nature. lie has never\npumping station or built, or designed,\na reservoir in his life, nor can any\nthing he found to show that he is n\ngraduate of any technical institution,\nor has had any technical training\nwhatever. His record as a prominent\neducator, a gentleman and a scholar\nare flattering indeed and credit to\nany man, but his record as hydrau-\nlie engineer is not yet apparent.\n\n\nMr.. Otto Weile of this city is well\nknown and anyone familiar with the\ncontroversy needs no information in\nthat line.\n\n\nII. w. Scott of Seattle was born In\nthe Puget Sound country, began his\ncareer as assistant to one of the well\nknown engineers and then became am\nemploye In the city engineers office\nin Seattle. which position he has held\never since. Thus IL will he seen that\nMr.. Scott's entire experience is linn\ntied to the shores OF Puget souuI,\nand no record can he found OF his\never having constructed any hydrau-\nlie improvements on his own rcspou-\nsibility."
+    }
+  ]
+}

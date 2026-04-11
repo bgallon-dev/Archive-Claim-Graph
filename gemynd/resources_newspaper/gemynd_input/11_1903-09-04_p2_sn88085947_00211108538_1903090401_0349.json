@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-04 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-04",
+    "date_end": "1903-09-04",
+    "report_year": 1903,
+    "source_file": "11_1903-09-04_p2_sn88085947_00211108538_1903090401_0349",
+    "archive_ref": "11_1903-09-04_p2_sn88085947_00211108538_1903090401_0349",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-09-04_p2_sn88085947_00211108538_1903090401_0349",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 95,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 144,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the city $500 and the street car\ncompany about $1,000. Pilings are\nbeing sunk to prolong the life of\nthe East Olive street bridge until\nspring. Electric lights are being\nstrung on the West Olive street\nbridge in order to push the work OF\nrepair night and day.\n\n\nThe new bridge on the Fairmount\ncemetery road is being put in this\nweek.\n\n\nSeveral hundred dollars will be the\ncity's share of the cost of strength\nening the Washington street bridge\npreparatory to it's use by the Spokane\nTraction company. This work 10 now\nIn progress."
+    }
+  ]
+}

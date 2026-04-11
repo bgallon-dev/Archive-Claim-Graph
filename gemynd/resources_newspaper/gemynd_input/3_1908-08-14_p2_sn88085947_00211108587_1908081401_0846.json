@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HEAVY TRUST HAND ON WESTERN FARMER.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-14",
+    "date_end": "1908-08-14",
+    "report_year": 1908,
+    "source_file": "3_1908-08-14_p2_sn88085947_00211108587_1908081401_0846",
+    "archive_ref": "3_1908-08-14_p2_sn88085947_00211108587_1908081401_0846",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-08-14_p2_sn88085947_00211108587_1908081401_0846",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 449,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 1850,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "More every day the people of the United States\ncoming to that the private ownershps of public uti\n\n\ntiles is obnoxious. But in western states this matter\nhas taken phase Generally it is the city man\nwho is ridden down by the trust has been the gas\npany, the street railway and the water company; but in\nmany parts of the west the farmer is awakening to the\nfact that he is about to be laid under tribute The pri\nvate corporation has to his valley and laid its hand\nthe waters up in the canyon Those waters have been\nhanessed and made to generate electric power And for\nthe of that power the residents of the valley\ntaxed\n\n\nAt present the price may be satisfactory. These\nThe man who has promoted the power\ncompany resident Of the principal village served\nHe is regarded benefactor to the community. His\nenterprise deserving Of praise; his capital entitled to\nextra reward.\n\n\nBut how about the future? How about 10 years from\nnow? When the promoter is dead or has moved away;\nwhen the corporation has been sold to eastern synd\ncate; when its capital stock has been increased and the\nservice has been permitted to deprecate; when equp\nment is neglected and the rates raisedwhat then\n\n\nAbout that time the prominent orchardman in the in\ndignation meeting will be asking who gave this corpora\nton perpetual right to the waters up in the canyon.\nSomeone will want to know where the authorities were\nwhen this concern chartered without any proviso\nlimiting the rates it might charge. third will ask why\nprivate and alien corporation should levy tax on the\ncommunity for the of public thing like the waters\nwhich from the up in the mountain tops.\nAnd the who his citrus grove whitening for lack\nof the water which he longer afford to pump at the\nincreased cost OF power will the mprovldent men OF\ngeneration who let this thing go\n\n\nIn its management of the irrigation works the govern\nment has shown how it should be managed. In all gov\neminent projects the water rights go with the lands and\nthe DAMS bikes and reservoirs all held and admins\ntered in socialistic basis. There is no\nlandlord and waterford Every man has his acre\nand every is proportonate owner of the water.\n\n\nTo let private corporations in and establish\nthemselves powerlords is crime against the coming\ngeneration Monopoly unrestraned is invariably oppres\nson If power cannot be developed by communities and\nadministered communism then the federal government\nor the authorities ought to that there is super\nvision for such trusts which will go their rates, capital\nization and practical administration."
+    }
+  ]
+}

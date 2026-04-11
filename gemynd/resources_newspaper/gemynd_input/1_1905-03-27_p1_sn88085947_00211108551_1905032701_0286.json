@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "PAYS MONEY TO\n\n\nHIRELINGS in COURT",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-27",
+    "date_end": "1905-03-27",
+    "report_year": 1905,
+    "source_file": "1_1905-03-27_p1_sn88085947_00211108551_1905032701_0286",
+    "archive_ref": "1_1905-03-27_p1_sn88085947_00211108551_1905032701_0286",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1905-03-27_p1_sn88085947_00211108551_1905032701_0286",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 349,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 804,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 131,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Judge Keunan today denied the motion for stay of\nproceedings in the application of W. W. Hindman for\nwrit of mandate to compel the city council to submit to\nthe people the charter amendment providing for refer\nendum of franchises The judge took the ground\ntaken by Judge Warren Saturday night that stay of\nproceedings at this time would nullfy the writ.\nAlthough Judge Warren made this ruling Saturday\nnight after overrung the motion to quas overriding the\ndefendants and the half dozen other objections\nraised by the corporation attorneys these lawyers sought\nto carry the matter before Judge KEENAN, on regular\nmotion to stay the proceedings pending appeal to the\nsupreme court.\n\n\nJudge KEENAN, after listening to the arguments of Cor\nporaton Counsel Dudley and the lawyers representing\nthe Washington Water Power company the gas companies\nana the old telephone company announced that he had\npreviously considered the question raised application\nfor writ of mandate and had overruled The case had\ngone to the supreme court which had sustained the ruling\n\n\nImmediately after the decision was announced Mr.\nDudley filed regular notice of appeal to the supreme\n|court.\n\n\nAfter the proceedings had closed there ensued\nwhich is rarely witnessed in court room in connection\nwith\n\n\nThe old telephone company, through its representative\nCharles Reynolds, had called many witnesses presumably\n\n\nfor the purpose OF attacking the genuneness of the sigma\nlures to the petition These witnesses were not placed on\nthe stand.\n\n\nBut Agent Reynolds, court over took up\nhis position at table and placed thereon big pill Of\nmoney Then the \"workngmen\" and other witnesses\nwho to have testified for the corporations filed by\nthe table gave their names and paid for their time\nand trouble in appearing in court.\n\n\nThe money paid openly and with attempt to dis\nguse the fact that the witnesses were brought there by\nthe corporations and at agreed price.\n\n\n1t was stated by of the attorneys afterwards that\nthe corporations had summoned several hundreds wit\nnesses all of whom told that they would be paid for\ntheir time by the companies concerned"
+    }
+  ]
+}

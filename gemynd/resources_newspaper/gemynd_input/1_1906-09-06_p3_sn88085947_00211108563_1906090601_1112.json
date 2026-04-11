@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE UNIONS\nTO STAND BY\n\n\nGOMPERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-06",
+    "date_end": "1906-09-06",
+    "report_year": 1906,
+    "source_file": "1_1906-09-06_p3_sn88085947_00211108563_1906090601_1112",
+    "archive_ref": "1_1906-09-06_p3_sn88085947_00211108563_1906090601_1112",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-09-06_p3_sn88085947_00211108563_1906090601_1112",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 259,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 197,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Members of Spokane unions who\nexpress themselves in regard to the\nattack Speaker Cannon made on\nPresident Gompers last night say\nthat Cannon is but poorly informed\nin regard to the workings If the\nAmerican Federation of Labor.\nThey claim that Gompers Is only\nthe servant of the unions and that\nhe has but little authority other\nthan what he receives from the in\nterna tionals which comprise the\nfederation. 1t is argued from this\nthat Mr.. Gompers is not setting\nhimselg up as a car but is only\nobeying orders as it is his duty to\ndo as union man and an officer.\nThe attempt of Mr.. Cannon to APP\npeal to the loyalty of the republi\ncan wOrkingmen and voters t. vote\nthe same old machine ticket will\nfall upon unheeding ears if local\nunion men can be believed They\nclaim that the unions do not ask\nfor anything that they are not will\ning to leave to a vote of all the\npeople of the country, hence their\nagitation for the initiative and ref\nerendum and direct primary. They\nclaim that Mr.. Cannon, the corpor-\nalton newspapers and every inter\nest in the land that has fattened\noff the public is opposed to union\nlabor and the reforms they advo-\ncate and which they believe VIII\nbenefit the entire country.\n\n\nThe union men say that they are\nwilling and anxious to aid Mr..\nGompers in every way and that any\nassessments for carrying on the\nlabor campaign will be cheerfully\nmet by members of all parties."
+    }
+  ]
+}

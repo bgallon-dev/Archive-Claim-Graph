@@ -1,0 +1,221 @@
+version: "1"
+# Compatibility matrix: claim_type × relation_type → "strong" | "weak" | "forbidden"
+#
+# strong    — freely allowed; no penalty
+# weak      — allowed but penalised (confidence −0.10) and flagged
+# forbidden — blocked; link is dropped with diagnostic
+#
+# Unlisted (claim_type, relation_type) pairs default to "weak".
+#
+# The newspaper corpus has four relation types:
+#   SUBJECT_OF_CLAIM     — the person or org performing an action
+#   LOCATION_OF_CLAIM    — where something happened
+#   ORGANIZATION_FOCUS   — the institutional actor or body
+#   TOPIC_OF_CLAIM       — what is being discussed (broadest)
+
+compatibility:
+
+  # ── Railroad and Transportation ──────────────────────────────────────
+  railroad_activity:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  freight_rate_dispute:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  depot_construction:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  # ── Labor and IWW ────────────────────────────────────────────────────
+  labor_action:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  free_speech_event:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  worker_condition:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  labor_legal_action:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: weak
+
+  # ── Indigenous Dispossession ─────────────────────────────────────────
+  indigenous_policy:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: strong
+
+  # ── Agriculture and Land Economy ─────────────────────────────────────
+  agricultural_condition:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: strong
+
+  land_policy_action:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  farm_organization:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  # ── Turnbull Pre-History ─────────────────────────────────────────────
+  turnbull_prehistory:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: strong
+
+  # ── Spokane Development ──────────────────────────────────────────────
+  civic_development:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: strong
+
+  infrastructure_project:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  # ── Mining and Extraction ────────────────────────────────────────────
+  mining_activity:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  # ── Depression Era ───────────────────────────────────────────────────
+  depression_relief:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: strong
+
+  # ── Education ────────────────────────────────────────────────────────
+  education_event:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  # ── Women's Civic Life ──────────────────────────────────────────────
+  womens_civic_action:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: weak
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: strong
+
+  # ── Structural / Cross-Domain ────────────────────────────────────────
+  legal_notice:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: weak
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: strong
+
+  editorial_opinion:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: weak
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: strong
+
+  public_meeting:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  election_event:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: strong
+
+  commercial_transaction:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: strong
+    TOPIC_OF_CLAIM: weak
+
+  accident_disaster:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: weak
+
+  crime_report:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: weak
+
+  person_profile:
+    SUBJECT_OF_CLAIM: strong
+    LOCATION_OF_CLAIM: strong
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: weak
+
+  unclassified_assertion:
+    SUBJECT_OF_CLAIM: weak
+    LOCATION_OF_CLAIM: weak
+    ORGANIZATION_FOCUS: weak
+    TOPIC_OF_CLAIM: weak
+
+
+# Preferred entity types per claim type — used to rank candidates when
+# multiple span matches exist.  Types earlier in the list are preferred.
+preferred_entity_types:
+  railroad_activity:        [Organization, Place, Person]
+  freight_rate_dispute:     [Organization, Place, Person]
+  depot_construction:       [Place, Organization, Person]
+  labor_action:             [Organization, Person, Place]
+  free_speech_event:        [Person, Organization, Place]
+  worker_condition:         [Organization, Place, Person]
+  labor_legal_action:       [Person, Organization, Place]
+  indigenous_policy:        [Organization, Place, Person]
+  agricultural_condition:   [Place, Organization, Event]
+  land_policy_action:       [Place, Person, Organization]
+  farm_organization:        [Organization, Place, Person]
+  turnbull_prehistory:      [Place, Organization, Person]
+  civic_development:        [Organization, Place, Person]
+  infrastructure_project:   [Place, Organization, Person]
+  mining_activity:          [Place, Organization, Person]
+  depression_relief:        [Organization, Place, Person]
+  education_event:          [Organization, Place, Person]
+  womens_civic_action:      [Organization, Person, Place]
+  legal_notice:             [Person, Organization, Place]
+  editorial_opinion:        [Organization, Person, Place]
+  public_meeting:           [Organization, Place, Person]
+  election_event:           [Person, Organization, Place]
+  commercial_transaction:   [Organization, Place, Person]
+  accident_disaster:        [Place, Person, Organization]
+  crime_report:             [Person, Place, Organization]
+  person_profile:           [Person, Place, Organization]
+  unclassified_assertion:   []

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-06-23 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-06-23",
+    "date_end": "1904-06-23",
+    "report_year": 1904,
+    "source_file": "3_1904-06-23_p4_sn88085947_0021110854A_1904062301_0117",
+    "archive_ref": "3_1904-06-23_p4_sn88085947_0021110854A_1904062301_0117",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1904-06-23_p4_sn88085947_0021110854A_1904062301_0117",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 463,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 944,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "were the miscreants that fired the\n\n\npistol that blew up that platform at\nIndependence. Bloodhounds were sent\n, there; they took the trail, but they\ndid not go to the miners headquar-\n! tiers; they did not go to the union\n\n\nminers houses. but they went, as If\n\n\nthe finger of God had pointed it out,\nto the detective who was in the en-\nploy of the various associations that\n\n\nare UNFOLDING martial lave in the\nCripple Creek district, and they were\n| pulled off the track two different\n\n\ntimes.\n\n\nReign OF Terror.\n\n\nThen, my friends, the reign of\n\n\ndespotism commenced. The next day\n| martial law was declared. Every\n\n\nman in the district was prescribed,\neven as the first born of Israel were\nprescribed. They were rounded up,\nthey were convicted in advance. No\ndefense they might make was heard.\n\n\nyou must remember that the cit\n\n\nliens alliance of Victor is composed\nof men who were opposed to union\nminers. Those miners in Cripple\nCreek, the Western Federation of\nMiners, have great store; and these\n| men Of the Citizens Alliance set upon\nthat store and destroyed in the va\nplaces there forty thousand dollars\nworth of goods that were the result\nof the Drawn and muscle Of the Fed\nGrafton Of Miners. There was a mag\nnificent hall in Victor which cost\n100000, that had been built by the\ntoll of the wage earners belonging to\nthe Western Federation of Miners.\nMen with guns and steel bullets rang\ned upon the other side and they prac-\ntically shot down that magnificent\nhall.\n\n\n\"They took coil Of rope and plac-\ned it around the sheriff's neck, threat\nened him with 1t and made him re-\nsign; they overthrow the county\nJudge, overthrow all Of the law, and\nthen, having taken away from the\nminers Of the Cripple Creek district\nevery vestige of civil liberty, they\n\n\nmarched them one by one through\na hooting line into a car and deport-\ned them beyond the lines of the state.\nLeft to Starve.\n\n\nWhat right has a military despot\nto take a citizen of Colorado, against\nwhom no charge in any court is pend\ning and no affidavit or oath has been\nlodged before any person, away from\nhis wife, his home, his children, his\nproperty. marched him into an ar\n\n\nmored train, run him into the state\n\n\nOf Kansas and leave him to starvei\n\n\nTell me by what right little insig-\n\n\nnifcant military commander, usurp-\n\n\ning all the powers Of the car Of Rus\n\n\nSTA. can take the flower of American\n\n\ncitizenship. the wage earners of an\n\n\nentire district. into another state and\nnotify them that II they return to\n\n\ntheir homes they will be killed?\n\n\nLabor xfust SPEAK.\n\n\nMY friends. union and non-unior"
+    }
+  ]
+}

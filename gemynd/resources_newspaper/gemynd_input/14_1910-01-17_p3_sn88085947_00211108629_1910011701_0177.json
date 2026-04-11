@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "title": "Do YOU LONG TO OWN LAND? HERE ARE FREE RICH ACRES\n\nMany Irrigated Farms to Be\nOpened for Homesteading\nin February on One Of\nRoosevelt's Reclamation\nPrOjects-Combination of\nCity and Farm Life Una\ntilla Lands-Early Crops,\nHigh Prices.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-17",
+    "date_end": "1910-01-17",
+    "report_year": 1910,
+    "source_file": "14_1910-01-17_p3_sn88085947_00211108629_1910011701_0177",
+    "archive_ref": "14_1910-01-17_p3_sn88085947_00211108629_1910011701_0177",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1910-01-17_p3_sn88085947_00211108629_1910011701_0177",
+      "composite_score": 22.75,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 8.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "agriculture": [
+          "land office",
+          "reclamation"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 453,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 137,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 163,
+            "in_headline": false
+          },
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 213,
+            "in_headline": false
+          },
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 136,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 2467,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 27,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "4A1Su I TUGS.\n\n\nLA GRANDE, Ore, Jan. 17.-One\nhundred fine farms, rescued from\nthe desert by the wonders of irriga-\ntion, will be open to homestead\nentry under the reclamation act\nafter 8 a. m. February 10, at the\nland office here.\n\n\nUnder notice already issued, en-\ntries made hereafter for these\nfarms under the third unit of the\ngreat Umatilla project shall be ac-\ncompanied by application for water\nrights and by the first installment\nOF charges for the right, not less\nthan $3.50 per acre of irrigable\nland, being first payment on the\nbuilding charge of SIS per acre and\n$1.30 for operation and mainten-\nance for the first year.\n\n\nThe second installment of the\ncharge, not less than Sc per acre,\nand the appropriate charge for op-\nGRAFTON and maintenance, becomes\ndue on December / of each year\nthereafter until paid.\n\n\nThe great Umatilla project is just\none of the many monuments to\nTheodore Roosevelt's policies of\nconservation, against which the\nhand of Taft is lifted in Washing\nton. 1t is 100 miles east of Port\nlang, along the Columbia river, and\nbetween it and the Umatilla.\n\n\nThe soil is of great depth, sum-\nmer comes early, and the growing\nseason is longer than in most parts\nOf the west. The truck and fruit\ngrower on this project can probably\nplace his crops on the market in\nadvance of his competitors, and be\nsure of top prices in the markets of\nSpokane, Seattle, Tacoma and\nPortland, all of which are tributary\nby rail or water transportation.\n\n\nThe farms soon to be opened to\nentry vary from 10 to 40 acres each.\nDuring the past three years settle\nment has been going on rapidly in\ncompleted parts of the project, and\nconsiderable areas have been plant\ned in orchards and small fruits.\n\n\nAn interesting phase OF the de-\nvelopment here is the combination\nVi CItt anu country lllc, ldl illo are\nSMALL many five and ten-acre or\nchards are being laid out about the\ntowns, and the owners have built\ntheir homes in town.\n\n\nThe water supply is the flood\nflow of the Umatilla river, which is\nstored in reservoir created by\nconstructing an earthen embank-\nment nearly 100 feet in height and\nhalf mile long. Owing to the por-\nGUS character of the soil many of\nthe canals are lined with cement.\n\n\nThe main line of the O. Il. & n.\nrailroad skirts the western edge of\nthe project, and the Spokane\nbranch runs through the northern\npart. When the Cello locks are\ncompleted the Columbia river will\nfurnish navigation to Portland and\nAstoria. The main line of the\nNorthern Pacific railroad is on the\nnorth bank of the river."
+    }
+  ]
+}

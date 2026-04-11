@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "title": "MARTYRS MORE.\nNUMEROUS\n\nRANK AND FILE OF I. W. w.\nACCEPT IMPRISONMENT AND\nJAIL FARE THEIR LEADER\nDODGEO.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-08",
+    "date_end": "1909-03-08",
+    "report_year": 1909,
+    "source_file": "7_1909-03-08_p5_sn88085947_00211108599_1909030801_0810",
+    "archive_ref": "7_1909-03-08_p5_sn88085947_00211108599_1909030801_0810",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-03-08_p5_sn88085947_00211108599_1909030801_0810",
+      "composite_score": 19.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 14.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "industrial workers",
+          "arrested",
+          "i. w. w.",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 256,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 211,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 512,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 811,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 41,
+            "in_headline": true
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 74,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Nineteen more martyrs to free\nspeech\" enthusiastically broke into\nthe city bastile yesterday after\nnoon and evening by attempting to\nharangue crowds within the fire\nlimits. All of them are from the\nranks of the Industrial Workers of\nthe World. They cursed and shout\ned most of the night in celebration\nof the event. This morning W..\nSmith, e. r. Chaplin, Charley\nGrant. w. Clare, Nick Foskimp and\nA. Kruger, convicted in police\ncourt Saturday of speaking on the\nstreets and sentenced by Judge\nMann to 80 days in Jail and fined\n500 and costs each, refused to\nwork on the rock pile and will be\nconfined on diet of bread and\nwater.\n\n\nThough Organizer Walsh of the\nl. w. w. was able to buy ham and\neggs and other dainties not in\ncluded in the plain prison menu,\nand also able to secure bail, not\none of the parties arrested yester-\nday had the price of coffee and\ndOughnuts when booked at the\npolice station. Only a few of them\ncan speak the English language in\ndiligently.\n\n\nTwo women with gaudy red\nscarfs wound about their threats\nmingled with the throngs. They\nwere a portion of the squad Of\nwomen speakers mentioned by\nWalsh the other day, but they re.\nfused to mount the box after 10 of\nthe male martyrs had been taken\nby the police.\n\n\nThe police have prepared for\ndrastic measures in case of VIC\nlence on the part of the violators\nof the ordinance against street\nspeaking inside the fire limits."
+    }
+  ]
+}

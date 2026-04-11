@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-08-26 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-26",
+    "date_end": "1904-08-26",
+    "report_year": 1904,
+    "source_file": "2_1904-08-26_p3_sn88085947_0021110854A_1904082601_0350",
+    "archive_ref": "2_1904-08-26_p3_sn88085947_0021110854A_1904082601_0350",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-08-26_p3_sn88085947_0021110854A_1904082601_0350",
+      "composite_score": 9.75,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 4.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "spokane_development": [
+          "water power"
+        ],
+        "mining": [
+          "mining camp",
+          "bunker hill",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "owners world have entered into a\ncombination. commonly termed here\nthe \"Mineowners association\" To con-\ntroll the output of lead ore. They have\nsegregated the country-divided it in\nto districts.\n\n\nThe Nine Mile district, which in\ncludes Sunset peak and Murray, is\ncontrolled by Campbell Il Finch. Nine\nMile gulch runs north from Wallace.\n\n\nIn the Wardner country Mr. Sweeny\nis the king.\n\n\nThis district. the Hunter. is con-\ntrollcd by Larson X Greenough,\neither of whom is in a position to\ndispute with the others the right of\nbeing known as the greater million\naire in the wealthy combination.\n\n\nEffect Of Strike.\n\n\nNaturally the blowing up of the\nFrisco properties near Burke in -\nand later the Bunker Hill mill eN-\nplOsion in April, 80, made foreign in\nvestnrs timid, but instead of allay-\ning this timidity it has been the\nfblltN VI ltltSt WHO uppe u tpiltlpi\nthis great lead-producing country to\nincrease its effects through Il we'll\npaid-for control of the news that is\ngiven out through the newspapers.\nparticularly in the east\n\n\nSweeny Does Not Want Americans.\n\n\n\\ secondary condition that makes\nthe mining camps in this great min\ncral belt look like SO many crossroads\ntowns in Missouri farming district\nis the permit system of employing\nskilled and common labor.\n\n\nTo get work you must first apply\nto the official employment agent. Ills\nInterrogation points never follow a\nquestion as to the applicants expert\nence as a miner. They are dotted in\namong a series of interrogatories as\nto your antecedents, the different\nplaces YOU have formerly worked and\nwhether or not you ever belonged to\nlabor union. and the less you know\nabout the English language and the\nrights of an American citizen the bet\nter chance YOU stand to get n job.\nne ltSull Is tutt tlt ipttlulHlloll OF\nIndependence and Chinese wash bill\nlook alike to n majority of the men\nworking in many of the big mines\nhere and the only thing they know\nproperly is how to get up to the\nmoney order window of the postof-\ntice ON pay day and, through the as\nsistanco of am interpreter, send the\nbulk of their earnings to foreign\nhome, This would not be so bad were\nthe generously inclined to hope that\nthey were sending 1t To \"a needy\nmother, wife or sister. but they will\nturn from the postotiice To various\nconGenial rendezvous and there pool\ncities for their clothing and pro-\nvisions. 1t is possible to find In the\nOccur dAlene country more volumi-\nnous price lists from eastern business\nhouses than in any other section of\nAmerica covering the same surface\nOf territory.\n\n\nThe third obstacle against which\nthe country finds itself faced Is the\n| wildcat\" promoter--the 2entccl fel.\nlow to whom $500 commission looks\nbigger than block of stock in the\n! Washington Water Power company\n| lie Is not as promiscuous as he has\n! been. but he Is still part Of the"
+    }
+  ]
+}

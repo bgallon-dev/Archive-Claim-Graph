@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TAKEN\n\n\nIN BIG CASE\n\nAFTER &c YEARS OF CON\nTlNuoUs LITIGATION WILL\nAGAIN GO TO THE HIGHER\nCOURT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-23",
+    "date_end": "1909-06-23",
+    "report_year": 1909,
+    "source_file": "4_1909-06-23_p2_sn88085947_00211108605_1909062301_0248",
+    "archive_ref": "4_1909-06-23_p2_sn88085947_00211108605_1909062301_0248",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-06-23_p2_sn88085947_00211108605_1909062301_0248",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 248,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 71,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In that famous and much It'll\ngated case Of Joseph H. Boyd\nagainst the Northern Pacific rail\nroad an appeal has been taken by\nthe railroad to the circuit court OF\nappeals, sitting either at Seattle\nor San Francisco, which court will\nfinally decide the matter.\n\n\nThe appeal is taken from the de-\ncision of Judge Whitson of the fed.\neral court here, who awarded Boyd\nthe plaintiff, judgment against the\nrailroad for about $4,000.\n\n\nThis case Is one of the longest\nin litigation in the memory of the\nlegal profession, the first COM\nplant being filed in 1887, and has\nbeen before the courts continuous.\nly ever since.\n\n\nThe first Judgment awarded\nBoyd was for $4,000. One appeal\nafter another was taken to the va\nrious courts on different legal\ntechnicalities and the latest judg.\nment of Judge Whitson represents\nthe original amount of the claim\nwith accumulated interest after ~\nyears of litigation.\n\n\nThe case was originally predi-\nGated on the fact that D. c. Corbin,\nat present owner of the Spokane\nInternational, built narrow gauge\nrailroad to the Occur d'Alenes and\nawarded to Boyd and others a con-\ntract for part of the work. Boyd\nalleged that he put 100000 into the\ncontract and that when 1t was fin\nished Corbin sold the road to the\nNorthern Pacific without paying\nhis claim.\n\n\n1t was to recover this amount\nthat he brought the now famous\nsuit. 1t will be finally decided at\nSeattle likely in September."
+    }
+  ]
+}

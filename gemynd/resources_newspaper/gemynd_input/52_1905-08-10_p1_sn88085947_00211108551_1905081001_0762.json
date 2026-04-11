@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-08-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-08-10",
+    "date_end": "1905-08-10",
+    "report_year": 1905,
+    "source_file": "52_1905-08-10_p1_sn88085947_00211108551_1905081001_0762",
+    "archive_ref": "52_1905-08-10_p1_sn88085947_00211108551_1905081001_0762",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "52_1905-08-10_p1_sn88085947_00211108551_1905081001_0762",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 87,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 241,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "President Roosevelt's address to\nthe Catholic Total Abstinence I'm.\nion is as follows:\n\n\n81 am particularly glad to speak\nto this audience of miners and\ntheir wives and children. and es-\npecially to speak under the aus.\npieces of this great temperance so\nciety. In our country the happi\nness of all the rest of our people\ndepends most of all upon the wei.\nfrae of the wage-worker and the\nwelfare OF the farmer. If we can\nsecure the welfare of these two\n\n\nContinued on fourth page)"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-07-06 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-06",
+    "date_end": "1906-07-06",
+    "report_year": 1906,
+    "source_file": "19_1906-07-06_p4_sn88085947_00211108563_1906070601_0901",
+    "archive_ref": "19_1906-07-06_p4_sn88085947_00211108563_1906070601_0901",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1906-07-06_p4_sn88085947_00211108563_1906070601_0901",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 418,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 279,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ut cares lot. It's got 500 men\nhere handling coal and every single\nman was born in some foreign\ncountry where they give beer to\nthe babies. You couldn't get the\ncoal handled If this was a dry\ntown.\"\n\n\n| Its a mistake\" said Lundley.\nThose very men would be the\nwarmest friends of temperance II\nthey worked few weeks without\nbeer and saw how much better off\nthey were.\"\nEyes, maybe So\" admitted\n| O'Hearn.\nNow, Jim, the temperance peo-\npie Of this town wish to make 4.\ndry, and we're counting on your\nhelp. You can give it a boost by\nputting me on the primary ticket\nfor delegate to the convention next\n| month\"\nyou want to go into politics?''\ngasped O'Hearn.\n\n\nYes, sir, do\"\nCali right, you're in. But one\ndose will cure you\"\nThen you promise to put my\nname on my ward ticket?'\nYou're on. But can't promise\nto elect you. You'll have to hustle\nfor that\"\nIl don't ask any more than to\nhave my namem placed t.-are. If\ncan't be elected l don't deserve to\nbe-\"\n\n\nThat's the talk\" said O'Hearn.\nYou've caught onto the game in\nfine shape. Is there anything else\nyou want?\"\nEyes. I want to be on the reso.\nluton committee. A word from\nyou to the chairman of the con.\nvention will put me there\"\n\n\n\"Tll do better than that. I'll see\nthat you're chairman of that com.\nmittee.\"\n\n\nLundley was profuse in his\nthanks for the favor.\n\n\nThe drys Of Lundley's ward turn\ned out to the primary as never be-\nbore and the count not only showed\nLundley's election, but it showed\nhe was high man of the three\nchosen.\n\n\nThe old rink was crowded with\ndry spectators when the conven\nton was called to order two weeks\nlater.\n\n\n\"The committee on resolutions,\nANNOUNCED the chairman, when the\nmotion for it's appointment had\nbeen passed, will consist of Sam\nuel Lundley, Dennis Sullivan and\nThomas Davidson. The committee\nmay retire and prepare the resolu\nTONS\"\n\n\nTIE members Of the committee\nleft their seats and met in what\nhad been the cloalSroom of the ole\nrink.\n\n\nGentlemen\" said Lundley, I\"\nhave. brought paper and pen, 81\nwe'll lose no time looking for ma\nterials.\"\n\n\nWhat's the paper and pen FOL? ?\nlasked Sullivan.\n\n\nITO write out the resolutions, 0\ncourse\"\n\n\nwhy, I've got the resolution\nright here. typewriter\" said Sui\nlivan, drawing a sheet of pape\nfrom his pocket and handing It t,\nLundley."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LOOKS LIKE\n\n\nJObBERY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-07",
+    "date_end": "1909-05-07",
+    "report_year": 1909,
+    "source_file": "15_1909-05-07_p1_sn88085947_00211108599_1909050701_1208",
+    "archive_ref": "15_1909-05-07_p1_sn88085947_00211108599_1909050701_1208",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1909-05-07_p1_sn88085947_00211108599_1909050701_1208",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 201,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 65,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Opinions Of attorneys who served\non the commission to revise the\ncity charter are divided on the le'\ngal phase of the mistake in the\npublication of amendment n, the\nlast seven sections of which were\nomitted in the official publication,\n\n\nBY one process Of reasoning it IL\nheld that clerk or printer can.\nnot invaldate the will of the PEG,\npie by carelessness in the matter\nOF looking after legal publication\n\n\nThe other view holds that an\namendment to the city charter be\ning the fundamental law of the\nmunicipality canont be adopted OF\nrepealed In any way except by q\nstrict compliance with the letter\nOf the law, which provides that all\namendments shall be published in\nfull for 80 days prior to the cleo,\nton at which such amendment Is\nto be balloted upon. When an\namendment Is not published In full\nII cannot be held that there was an\nexpression of the people on the sub\nject, II Is argued, for the reason\nthat the expression might have\nbeen different had the whole\namendment been published and\nconsidered by the voter.\n\n\nThe important parts of amend\nment II were printed, the omitted\nsections pertaining only to the"
+    }
+  ]
+}

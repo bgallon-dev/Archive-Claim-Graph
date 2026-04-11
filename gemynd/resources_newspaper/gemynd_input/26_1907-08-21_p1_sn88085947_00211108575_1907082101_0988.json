@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SUES S. + !.\n\n\nFOR $4,000",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-21",
+    "date_end": "1907-08-21",
+    "report_year": 1907,
+    "source_file": "26_1907-08-21_p1_sn88085947_00211108575_1907082101_0988",
+    "archive_ref": "26_1907-08-21_p1_sn88085947_00211108575_1907082101_0988",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "26_1907-08-21_p1_sn88085947_00211108575_1907082101_0988",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 58,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 81,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Sadie Gable, by her guardian, J.\nH. Marks, this morning brought\nsuit against the Spokane & Inland\nelectric railroad for $4,000 for the\ndeath of her father, Rufus Gable,\nMay IL. Gable and his daughter\nwere driving to Spokane Bridge to\nmeet the train when the horse be-\ncame Frightened crossing the track\nand they were run. dowl"
+    }
+  ]
+}

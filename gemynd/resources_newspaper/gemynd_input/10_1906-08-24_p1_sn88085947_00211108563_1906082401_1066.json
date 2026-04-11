@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NOW WHERE\nIS 0'BR|EN",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-24",
+    "date_end": "1906-08-24",
+    "report_year": 1906,
+    "source_file": "10_1906-08-24_p1_sn88085947_00211108563_1906082401_1066",
+    "archive_ref": "10_1906-08-24_p1_sn88085947_00211108563_1906082401_1066",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1906-08-24_p1_sn88085947_00211108563_1906082401_1066",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 119,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 356,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "What's the trouble with J. p\nO'Brien, general manager of the o\nn. l. NJ\n\n\nCity commissioner and council\nmen want to know. A request was\nmade yesterday that the genera\nmanager intimate when the city of\nfcials might meet him for the pur\npose Of discussing the question of q\nWashington street viaduct, but In\nstead Of replying he hitched his\nprivate onto the Northern Pacific\ntrain early this morning and went\nto Seattle.\n\n\nMr.. O'Brien was out over the\nlocal division on freight engine\noil day yesterday and did not return\nto the city until IL o'clock last\nnight. He snatched a few hours\nsleep and then went west.\n\n\nDoes he really want to do bust\nness?"
+    }
+  ]
+}

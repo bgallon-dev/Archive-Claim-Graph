@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "RAILROADS ARE INCREASING\n\n\nFREIGHT RATES EVERYWHERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "4_1910-05-01_p2_sn88085947_00211108630_1910050101_0445",
+    "archive_ref": "4_1910-05-01_p2_sn88085947_00211108630_1910050101_0445",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-05-01_p2_sn88085947_00211108630_1910050101_0445",
+      "composite_score": 20.16,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 151,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 27,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 27,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, April 30,-Every\nmail is bringing to the interstate\ncommerce commission notices of\nlarge increases in rates by the rail\nroads. 1t is expected that these in\ncreases will excite protest from\nshippers and that the effect will be\nto make congress more inclined\ntoward enacting a stringent railroad\nmeasure.\n\n\nNotices are coming in covering\nmuch of the s-MisSOuri ter i\ntory and the territory tributary to\nChicago. The proposed increases\naffect a wide range of commodities.\n\n\nWhile no accurate figures have\nyet been worried out, as to the aver\nage of increases, they approximate\nIS per cent.\n\n\nExperts of the interstate com\nmerce commission are at work an\nalyzing the figures sent in to find\nhow the increase compares with\nthe raises in wages. When these\ncomputations have been made the\ncommission will consider the rem\nedy to be applied in case these new\nrates are found to be excessive."
+    }
+  ]
+}

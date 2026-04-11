@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "PROSPEROUS SEASON\n\n\nIN SPOKANE REALTY\n\nAll Real Estate Men Unanimous in DECLARING 1908\nWill See Decided Boom in thu Sale\n\n\nof Property",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-21",
+    "date_end": "1903-02-21",
+    "report_year": 1903,
+    "source_file": "4_1903-02-21_p4_sn88085947_00211108526_1903022101_0370",
+    "archive_ref": "4_1903-02-21_p4_sn88085947_00211108526_1903022101_0370",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-02-21_p4_sn88085947_00211108526_1903022101_0370",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 130,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 246,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 43,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane realty sales. while not ex-\nactly booming. are steady. AS spring\napproaches investments are frequent\nand dealers say that better and\nmore prosperous season has not been\nushered in for several years.\n\n\n1t is the consensus of opinion\namong real estate men that the mar\nket opens with a steadier demand\nthan usual.\n\n\nG. A. Harvey of Chamberlin &\nChamberlin said this morning that\nhe had not sold a speculative piece\nof property in a week.\n\n\nMY sales\" said Mr.. Harvey, have\nall been to persons who wish to make\nthis community their Iire's home.\n\n\nThere is no speculative incentive\nas far as 1 can Judge. ] can say en-\nphatically that no spring outlook has\nbeen so prosperous as the one of\n1903\"\n\n\nChamberlin & Chamberlin also re-"
+    }
+  ]
+}

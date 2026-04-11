@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "'BA[L|NGER A\n\n\nYELLOW DOG\"",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-24",
+    "date_end": "1910-04-24",
+    "report_year": 1910,
+    "source_file": "7_1910-04-24_p2_sn88085947_00211108630_1910042401_0355",
+    "archive_ref": "7_1910-04-24_p2_sn88085947_00211108630_1910042401_0355",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-04-24_p2_sn88085947_00211108630_1910042401_0355",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 162,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 657,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "another\" and advised Smith to\n\n\nChange his coat\"\n\n\nIntimate personal comment on\nthe conservation controversy was\nscontained in letter read by\nSmith. 1t was written by him to\n\n\nColonel H. c. Riser, acting director\nOf the survey, dated August Is, and\nwas \"a record Of the Pinchot-Bal-\nlinger trouble, which came to a\nhead at Spokane\" when the irri-\ncation congress was in session and\nwhen Pinchot first publicly took\nhis stand against Ballinger. \"The\nwhole conservation movement\"\nSmith wrote, SIS now linked up\nwith Mr. Pinchot's views on the\nsubject, so orthodoxy in the cause\nmeans agreement with Mr.. Pin\nchot. Ex-Governor Pardee, who\nwas down to speak on Irrigation\nInterests of the People, spoke on\nThe Sins of Ballinger,' and though\nhe told me he intended nothing\npersonal and that he would be\nglad to have me tell Secretary\nBallinger SO, he insinuated that\nBallinger was either a fool or\nknave, and rather intimated the\nlatter as his favorite hypothesis\""
+    }
+  ]
+}

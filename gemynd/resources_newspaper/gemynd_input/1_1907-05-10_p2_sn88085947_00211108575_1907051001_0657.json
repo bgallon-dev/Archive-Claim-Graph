@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "This is the age of the woman.\nAnd the future also is hers.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-10",
+    "date_end": "1907-05-10",
+    "report_year": 1907,
+    "source_file": "1_1907-05-10_p2_sn88085947_00211108575_1907051001_0657",
+    "archive_ref": "1_1907-05-10_p2_sn88085947_00211108575_1907051001_0657",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-05-10_p2_sn88085947_00211108575_1907051001_0657",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 231,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 517,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "IL\n\n\n1t is less than so years since American girls were re-\nfused admission to the colleges their brothers attended\nNow there are more in the colleges than men.\n\n\nAlmost every agency Of modern times caters to woman\nMerchants vie for her custom The pulpit wants her\nstrong support The press seeks her favor and patronage\nWoman is longer behind the throne She is the throne\n\n\nAll this change of few years seems radical depar\nture. But cast your eyes Europe.\n\n\nThe of Britain pounding at the doors OF\nparliament seeking suffrage.\n\n\nIn Germany the gates of the ancient universities have\nbeen lifted from their hinges to let women in.\n\n\nIn Italy the parliament has appointed commission\nto arrange if possible, for equal suffrage.\n\n\nThe French have gone ahead OF men IN the\nfield of scientific discovery And in England of the II\nbest selling books every written by woman.\n\n\nEven in darkest Russia physicians are teach\ning the doctors of the world advance methods in hospital\nwork.\n\n\nBut most striking of all, in Finland-tlink of tin\nTnland!-19 women occupy seats as law makers III\nthe legislature of that duchy!\n\n\nIn point of fact. in its appreciation and advance of\nwomen-great as that advance has beenAmerica is in\nsome respects far behind\n\n\nThis is the woman's age.\n\n\nIn this equation of modern life is man to be the\nN-the unknown quantity?"
+    }
+  ]
+}

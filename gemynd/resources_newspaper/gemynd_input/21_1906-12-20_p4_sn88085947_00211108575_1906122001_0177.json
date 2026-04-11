@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "COMPERS: THE KIND OF man WHO\n\n\nLEADS TWO MILLION WORKERS\n\nBY gibson GARDNER",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-20",
+    "date_end": "1906-12-20",
+    "report_year": 1906,
+    "source_file": "21_1906-12-20_p4_sn88085947_00211108575_1906122001_0177",
+    "archive_ref": "21_1906-12-20_p4_sn88085947_00211108575_1906122001_0177",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1906-12-20_p4_sn88085947_00211108575_1906122001_0177",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 541,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 132,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 768,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nWASHINGTON, Dec. 20.-The\nvoice of 100000 working men\nthe embodiment of union labor in\nAmerica-Samuel Gompers, presi-\ndent of the American Federation of\nLabor, Just reelected to that posi-\nton for the Gath annual term\nwhat manner of man is he?\n\n\nWe were having a little informal\ntalk and worldly riches were men\ntoned. Bribery in high and low\nplaces soon drifted into the discus\nsion. Mr.. Gompers said nobody had\never tried to bride him. Then he\nremarked:\n\n\n81 believe there is less bribery\nthan is commonly supposed. On\nthe whole, men are pretty honest.\nThat is my experience. If they are\nnot, they are quickly found out and\nsent 10 the rear\n\n\nAre you rich, Mr.. Gompers?'\n\n\nThe president of the American\nFederation seemed surprised, then\namused.\n\n\nDO you own any real estate?\"\n\n\nNot a shovelful of sand\n\n\n\"Any stocks, bonds or securities\nanything from which you may\nclip coupons?\"\n\n\nNot a share of anything. have\nnot an investment. | have no es-\ntate, and when ! die all | will leave\nmy family will be $3.50, my Cigar\nmakers union insurance.\n\n\n81 have no other property.\nhave no ambition to have any. |\ndo not care for money. | believe\ncan get the few things that l\nwant-if not as president of the\nAmerican Federation, at my trade\nor some other work. | am poor\nl am proud to say that | am poor.\n\n\nBut you have had chances to\nmake money!\n\n\nIl have. Offers and opportunities\nhave come to MEETINGS which\nwould have made me money. | was\ninterested in other things\n\n\nAnd you feel contented with\nyour \"a years of service as organ\nizer and manager of the American\nFederation?'\n\n\n81 shall feel contented to die with\nno estate if l can go with the feel\ning that l have done something to\nserve my fellowmen, my fellow\nworkmen.' ..- ..-.--r\n\n\n\"And you feel that you have in\nfact been of service to them?\"\n\n\nIl most certainly do. Their con-\nditions are better than they were.\n1t is hard to understand how much\nbetter the condition of the work\nman is now than it was 20 or 30\nyears ago. The man of small in\ncome has more now than he used\nto. and he has more time to enjoy\nit. He has more of the comforts\nof life\"\n\n\n(Which is due to organization ?\"\n\n\nyes\"\n\n\n\"And you feel that the Fedora\nton is sufficient monument and\nlegacy?\"\n\n\nIl am proud of the American\nFederation. | little dreamed when\nI was first associated with the\nwork, what it would come to. The\nfirst six years l served as presi-\ndent without pay. | worked and\nsupported my family at my trade\nas cigarmaker. Evenings and holi-\ndays and half days Off | devoted to\nwork of organization.\n\n\ncover in New York We had one\nlittle room in tenement--one\nroom and my bedroom. That was\nthe Federation's headquarters. Now\nsee. We are In this fine building.\nWe have all this floor and several\nrooms in the basement. We have\n40 clerks and 1850 organizers. Our\nmembership is in the neighborhood\nof 100000. We have a record Of\naccom- plishment; better wages, bet\nter industrial conditions, some good"
+    }
+  ]
+}

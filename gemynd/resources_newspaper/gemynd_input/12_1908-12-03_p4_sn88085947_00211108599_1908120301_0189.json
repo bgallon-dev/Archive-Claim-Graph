@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "$50, 900 FOR INJURIES",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-03",
+    "date_end": "1908-12-03",
+    "report_year": 1908,
+    "source_file": "12_1908-12-03_p4_sn88085947_00211108599_1908120301_0189",
+    "archive_ref": "12_1908-12-03_p4_sn88085947_00211108599_1908120301_0189",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1908-12-03_p4_sn88085947_00211108599_1908120301_0189",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 89,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Dennis Tracy, rancher, has\nsued the Great Northern for $780,\n600 damages for injuries received\nby being struck by a freight train\non the highway crossing near\nMead last October He alleges\nthat the company is at fault for\npiling earth 10 feet high on both\nsides of the road leading to the\ncrossing, and that no warning by\nlight or whistle was given as to the\napproach of the train. Tracey's\nwagon was struck and he claims to\nhave received fracture of the\nskull and two broken ribs."
+    }
+  ]
+}

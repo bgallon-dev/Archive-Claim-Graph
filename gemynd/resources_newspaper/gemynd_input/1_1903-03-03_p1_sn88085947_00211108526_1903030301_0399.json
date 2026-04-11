@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "A h[W DEPOT\n\n\nfOR SPOKANE.\nCanadian Pacific and the\n0. R. ( n. Said to\n\n\nHave Agreed.\nWAIT FOR D. G. CORBIN\nBranch Line Into City to Have an\nOutlet Over O. R. & N. and\n\n\nU. P. Tracks.\n\nWAIT FOR D. G. CORBIN",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-03",
+    "date_end": "1903-03-03",
+    "report_year": 1903,
+    "source_file": "1_1903-03-03_p1_sn88085947_00211108526_1903030301_0399",
+    "archive_ref": "1_1903-03-03_p1_sn88085947_00211108526_1903030301_0399",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1903-03-03_p1_sn88085947_00211108526_1903030301_0399",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 215,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 469,
+            "in_headline": false
+          },
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 634,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Prominent officials have been In\nformed during the past few days\nthat deal has been completed be-\ntween the Canadian Pacific railway\nand the o. r. & N. officials whereby\nthe former road Is to build a branch\nline into Spokane and is to have an\noutlet to Portland and the southeast\nover the o. r. G. N. and Union Pa\ncific tracks.\n\n\nA person identified with the Harri-\nman interests has given out the news\nin Spokane.\n\n\nBy the arrangements the two roads\nare to have union depot in Spokane.\nThe site desired for the new depot is\non the north bank of the Spokane\nriver near Howard street.\n\n\nNegotiations are now under way\nfor securing the right of way to the\ndepot site. The o. R. & N. yards\nwill be used for freightage purposes.\n\n\n1.-THE men interested in this plan\nare waiting the return Of d. c. Cor\nbin from Olympia\" said a city Of\nfetal. \"As soon as Mr.. Corbin returns\nactive steps are to be taken in COM\nplotting the arrangement. Mr.. Corbin\nwill be in town only a few days, and\nwill then go to New York and Wash\nington in the interest of the pro-\nject, he being the prime mover in the\narrangements that are being made\""
+    }
+  ]
+}

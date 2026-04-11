@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-09-29 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-29",
+    "date_end": "1905-09-29",
+    "report_year": 1905,
+    "source_file": "7_1905-09-29_p1_sn88085947_00211108551_1905092901_0934",
+    "archive_ref": "7_1905-09-29_p1_sn88085947_00211108551_1905092901_0934",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-09-29_p1_sn88085947_00211108551_1905092901_0934",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 116,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 488,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "sent to its grave by Corporation\nCounsel Geraghty, was so branded\nand there are others which will\ncome into the public gaze from time\nto time which will bear closest\nscrutiny.\n\n\nAt present the city's money is\ndeposited in number of the city\nbanks. The banks where it shall\nbe deposited are not selected by the\ncity treasurer, but by the bonding\ncompany that has guaranteed the\nsafety of these funds.\n\n\nThe city receives little, If any, in.\ncome from funds deposited in the\nbanks, and the city charter should\nbe amended to allow of competitive\nbidding for this money. The city\nshould get the greatest amount Of\nincome possible from it's deposits.\nconsistent with safety."
+    }
+  ]
+}

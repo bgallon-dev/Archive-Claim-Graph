@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-10-13 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-13",
+    "date_end": "1903-10-13",
+    "report_year": 1903,
+    "source_file": "3_1903-10-13_p2_sn88085947_00211108538_1903101301_0517",
+    "archive_ref": "3_1903-10-13_p2_sn88085947_00211108538_1903101301_0517",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-10-13_p2_sn88085947_00211108538_1903101301_0517",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 138,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 517,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "was creditable. and I believe we shall\ncome out on the right side of the\nledger\"\n\n\nFor this afternoon the mana cement\nprepared a specially attractive racing\nprogram. Mcmillan, the strong man,\ndid the browning stunt of his en-\ngagement by dragging eight men off\ntheir feet single handed in a tug of\nwar contest. \"Daredevil' Edwards\nexecuted his thrilling high bicycle\ndive; Hanlon and Singer were skill\nfull with the Roman rings. and the\nballoon ascension and parachute flight\nwas a thrilling spectacle.\n\n\nAt the main exposition hall the\nwork of dismantling the various ex-\nhibits started early this morning and\nby tomorrow noon there will be little\nleft of its glories and riches but\ndebris and paper. The blooded live\nstock and horses have scattered and\nonly the racing nags will be on the\ngrounds tonight."
+    }
+  ]
+}

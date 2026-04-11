@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AMONG THE TOHERJ\nThe Fight Against the Tobacco Trust Has\n\n\nReached Spokane.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-13",
+    "date_end": "1903-01-13",
+    "report_year": 1903,
+    "source_file": "9_1903-01-13_p3_sn88085947_00211108526_1903011301_0237",
+    "archive_ref": "9_1903-01-13_p3_sn88085947_00211108526_1903011301_0237",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-01-13_p3_sn88085947_00211108526_1903011301_0237",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 312,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 1588,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Blue Label league, which is\nthe fact that they are doing all in\ntheir power to crush out the Cigar\nmakers International union, will have\na strong ally in the Cigarmakers'\nunion of Spokane.\n\n\nAt the meeting of the State Fed\nGrafton of Labor at Seattle last week\nthe Pacific Coast Blue Label league\nwas organized and it is the intention\nof the members, which will soon in\nclude nearly every union cigarmaker\nof British Columbia, Washington\nand Oregon, to wage a war of eX\ntermination against trust goods in\nthe lines of tobacco and cigars.\n\n\nI'VE have done nothing yet\" said\nthe president of Spokane Cigarmak-\ners' union. but we shall take action,\nprobably at our next meeting, and we\nwill have the support of every labor\nunion in the city\"\n\n\nThe State Federation of Labor en-\ndorsed the movement in a resolution\nwhich was unanimously adopted.\n\n\nThe tobacco trust is trying to\ncrush out the life of the Cigarmakers\nunion said Il member of that body\nyesterday. \"and we don't propose to\nsubmit In the first place. n boy\ncolt will be placed on every class Of\ncigar and every class of tobacco that\ndoes not bear the union blue label\nWe have the dealers between us.\nThey can buy the trust goods cheap\ner than the union made goods for\nthe reason that much OF them are put\nup by children and Incompetent labor\nof cheap sort. Therefore dealers\ndo not want to refuse to handle trust\ngoods. Now the time has come when\nthe cigar and tobacco dealer must de-\nclare himself one way or the other\nHe must either be willing to drop\nthe trust goods until they bear the\nunion label or he must stand union\nboycott There will be no stop after\nwe once get started until all trust\ngoods bear the union label\""
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "New Fire Limits.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-27",
+    "date_end": "1903-11-27",
+    "report_year": 1903,
+    "source_file": "3_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+    "archive_ref": "3_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "spokane_development": [
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 212,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 968,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 274,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Corporation Counsel Judson has been\ndirected by Councilmen Doolttle and\nBoyd of the Third ward to draft a\nnew ordinance extending the city fire\nlimits.\n\n\nThe proposed extension follows re-\nquest from the lleiber Brewing COM\npany and other extensive property own\ners west of Monroe street, who feai\nthat n disastrous fire may result unless\nthe building of planning mills and wood\nen- structures ends in the thickly built\nup part of the city west of Madison\nstreet and south of the river.\n\n\nThe present fire limits are Division\nstreet on the east, the alley between\nSecond and Third avenues on the south\nMadison street on. the west south Of\nthe river, Mallon avenue on the north\nand Monroe street on the west north q\nthe .giver. The proposed extension will\nbe to Walnut street on the west soutl\nof the river and south tc the North\ncrn Pacific railway tracks.\n\n\nThis would give an extension of five\nblocks in the western part Of the city\nSeveral valuable brick buildings hay,\nbeen put up in this district within tn,\nlast two years and Others are to b,\nbuilt this year. IT Is the hope of tn\nowners of these valuable Improvement\n20 keep the fire risk down as low a\npossible."
+    }
+  ]
+}

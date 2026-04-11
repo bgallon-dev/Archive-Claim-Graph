@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HUNTINGTON\n\n\nGOES NEXT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-24",
+    "date_end": "1906-12-24",
+    "report_year": 1906,
+    "source_file": "15_1906-12-24_p1_sn88085947_00211108575_1906122401_0186",
+    "archive_ref": "15_1906-12-24_p1_sn88085947_00211108575_1906122401_0186",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1906-12-24_p1_sn88085947_00211108575_1906122401_0186",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 78,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 76,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The resignation of D. l.. Hunt\n+ington as general manager of the\nWashington Water Power Co, to\ntake effect Jan. l, is reported. His\nsuccessor is not announced\nMr.. Huntington has been appoint\ned second vice president of the\nEdison Electric Co. for the North\nwest.\n\n\nSeveral weeks ago The Press\npublished news of a w. w. P. Co.\nshake up that would probably dis\nplace Huntington and Superinten-\ndent Lumsden. The latter has been\nout some time."
+    }
+  ]
+}

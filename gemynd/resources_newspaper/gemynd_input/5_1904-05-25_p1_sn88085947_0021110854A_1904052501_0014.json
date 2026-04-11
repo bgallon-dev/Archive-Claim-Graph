@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "They Are Still Stubborn and Will\nAct Until They Have Their Own\n..Way-.-UnCle Sam Holds the Same\nOpinion. 80. =,",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-25",
+    "date_end": "1904-05-25",
+    "report_year": 1904,
+    "source_file": "5_1904-05-25_p1_sn88085947_0021110854A_1904052501_0014",
+    "archive_ref": "5_1904-05-25_p1_sn88085947_0021110854A_1904052501_0014",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-05-25_p1_sn88085947_0021110854A_1904052501_0014",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 199,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 390,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 319,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "til such time as they chose to remove\n1t do not appeal to the department\nat Washington. The absurdity of the\nproposition is the only one which ap-\nparentiy has made an impression\nthere as is evidenced by the letter\nwhich has been received by POST\nmaster Harrison, the contents Of\nwhich were transmitted to the board\nOF public works.\n\n\nThe government only accepted the\nsite on the corner of Riverside avenue\nand Lincoln street on condition that\nstreet were to be opened on each Of\nthe four sides. Mr.. Cowles and Mr.\nJones were very anxious to obtain the\nbuilding in that end of town and\nreadily granted the condition that\nthey dedicate the street and promised\nthat 1t would be opened whenever re-\nquested. This promise they already\nhave broken and now it remains to\nbe seen whether for the sake of the\nrents from the Powell block they will\ncontinue to hold on until forced by\nsome legal process to comply with\nthe promises they so readily made.\n\n\nMr.. Jones when seen this after\nnoon refused to say what would be\ndone In reference to the demand of\nthe department Mr.. Cowles could\nnot be found."
+    }
+  ]
+}

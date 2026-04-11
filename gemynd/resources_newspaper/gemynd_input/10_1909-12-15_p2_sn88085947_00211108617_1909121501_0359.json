@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-15 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-15",
+    "date_end": "1909-12-15",
+    "report_year": 1909,
+    "source_file": "10_1909-12-15_p2_sn88085947_00211108617_1909121501_0359",
+    "archive_ref": "10_1909-12-15_p2_sn88085947_00211108617_1909121501_0359",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-12-15_p2_sn88085947_00211108617_1909121501_0359",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 195,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 44,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 11,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is a conspiracy on foot to\nsend me to jail\" vehemently de-\ncared Samuel T. Crane this morn\ning in addressing the jury in his\nown defense in his appeal trial on\ndsorderIy conduct charge. 1.-THE\npolice evidence is made to order;\nthe officers lied and perjured them\nselves. They intend to get me,\nand am making the fight of my\nlife.\n\n\nIts the police evidence, the evil\ndence of the Spokane police, sher-\nifs office and the sleuths that is\nthe strongest against me; the civil\nians have not injured me a bit\nthey told the truth-it's the manu-\ntured stories of the police that are\ndepended upon to convict me.\n\n\nDO you think. gentlemen of the\njury, that if | had been SO crazy as\nto make the declaration, 4 can lick\nany man on the police force or in\nthe sheriff's office that no civil\nians could be secured TO testify to\nthat. One officer stood 60 feet\naway and yet he testified that he\nclearly heard me make that state\nment. If he could hear me, there\nwere over 200 citizens nearer than\nhe and surely among them a few"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Ordinance Vetoed\n\n\nby Mayor 6yrne'",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-02",
+    "date_end": "1903-04-02",
+    "report_year": 1903,
+    "source_file": "10_1903-04-02_p2_sn88085947_00211108526_1903040201_0504",
+    "archive_ref": "10_1903-04-02_p2_sn88085947_00211108526_1903040201_0504",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1903-04-02_p2_sn88085947_00211108526_1903040201_0504",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 84,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 106,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 382,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mayor Byrne at s o'clock last night\nvetoed the ordinance proposing to va\ncate part of Main avenue west of\nMonroe street. He gave as his rea-\nson for vetoing the ordinance that\nit would mar the beauty Of the juno\nton of Main avenue with Riverside\navenue and that the tract offered\nthe city in exchange for the proposed\nvacated plot was not of proportionate\nvalue.\n\n\n1t is likely the city council will\npass the measure over the veto at the\nmeeting tonight."
+    }
+  ]
+}

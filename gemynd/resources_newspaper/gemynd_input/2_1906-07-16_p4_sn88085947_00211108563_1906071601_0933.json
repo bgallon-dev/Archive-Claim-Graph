@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UNION MEN ARE\n\n\nAPATHETIC",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-16",
+    "date_end": "1906-07-16",
+    "report_year": 1906,
+    "source_file": "2_1906-07-16_p4_sn88085947_00211108563_1906071601_0933",
+    "archive_ref": "2_1906-07-16_p4_sn88085947_00211108563_1906071601_0933",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-07-16_p4_sn88085947_00211108563_1906071601_0933",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 180,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 80,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Says a Spokane union labor\nofficial:\n\n\nThe efforts of President Com\npers of the American Federation of\nLabor to interest union labor in\nthings political and to secure bet\nter treatment at the hands of the\npoliticians OF the country is meet\ning with fair portion of success.\nThe greatest obstacle Mr.. Gompers\nhas to contend with is the lack\nof interest evidenced by members\nof organized labor in politics. For\nsome reason the union men fail to\nregister and participate in nomin-\nating the tickets and seem to con-\ntent themselves with sitting back\nand complaining or in letting some\none else make the fight for them.\n\n\nThis state of affairs was we'll\nillustrated during the last week.\nwhen poll of one Spokane union\nmeeting, with 100 members pres\nent, showed that only two of those\npresent had registered. Another\npolled last Wednesday\nnight showed out of 60 present only\ntire registered. 1t is this great\nlack of interest on the part of the\nunionists that will make the work\nof the officers of the American\nFederation most difficult\""
+    }
+  ]
+}

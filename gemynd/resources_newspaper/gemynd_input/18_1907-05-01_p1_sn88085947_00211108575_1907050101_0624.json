@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WIDOW ASKS\n\n\n$4,000",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-01",
+    "date_end": "1907-05-01",
+    "report_year": 1907,
+    "source_file": "18_1907-05-01_p1_sn88085947_00211108575_1907050101_0624",
+    "archive_ref": "18_1907-05-01_p1_sn88085947_00211108575_1907050101_0624",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1907-05-01_p1_sn88085947_00211108575_1907050101_0624",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 63,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 167,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A suit for the recovery of $40,3l4\nwas filed in the superior court this\nmorning against the Great North\nern Railway Co. by Mrs. Lizzie\nJones, widow of Owen Jones, the\nGreat Northern engineer who was\nkilled March %, 1905, hen his train\nwas thrown into the Kootenai river\nnear Kalka, Idaho, by rock slide.\nThe widow has 3 minor children to\nsupport."
+    }
+  ]
+}

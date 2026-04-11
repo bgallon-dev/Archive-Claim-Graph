@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-06-15 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-15",
+    "date_end": "1905-06-15",
+    "report_year": 1905,
+    "source_file": "10_1905-06-15_p1_sn88085947_00211108551_1905061501_0568",
+    "archive_ref": "10_1905-06-15_p1_sn88085947_00211108551_1905061501_0568",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1905-06-15_p1_sn88085947_00211108551_1905061501_0568",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 151,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 139,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 190,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "plans for additions to the water sys-\nTEN, and\n\n\n\"Fourth-The number of horse\npower that would be available for the\npurpose of operating an electric light\nand power plant.\n\n\nAnd the board of public works is\nfurther directed to furnish at said\ntime an estimate of the cost of MAX\ning the power plant to be erected as\nprovided for in the plans for addi-\nlions to the water system of sufficient\nsize and equipping the same with the\nadditional machinery necessary for\nthe operation of an electric lighting\nplant for the city\"\n\n\nA saving of thousands of dollars\nthe first year is assured by the plan\nand the extra horse power can be\nconserved at the up-river water works\nand used to run the plant, thus in\nsurfing a comparatively small cost or\nmaintenance after the first cost OF\ninstallation, which latter will GER\ntainly be saved within short time."
+    }
+  ]
+}

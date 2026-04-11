@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ANOTHER BRIDGE FARCE\n\n\nEXHIBITION Que TONIGHT\n\nw. W. p. Ready With Old Promises and Devices\n\n\nto Delay Demand for Expenditure by Company.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-12",
+    "date_end": "1907-07-12",
+    "report_year": 1907,
+    "source_file": "8_1907-07-12_p1_sn88085947_00211108575_1907071201_0852",
+    "archive_ref": "8_1907-07-12_p1_sn88085947_00211108575_1907071201_0852",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-07-12_p1_sn88085947_00211108575_1907071201_0852",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 219,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 235,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Following a meeting of Mayor\nMoore, councilmen and representa-\ntives of the Washington Water\nPower Co. yesterday afternoon,\nMayor Moore has called for spe-\ncial meeting of the council tonight\nat which the objection Of the. Wash\nington Water Power Co. to the\nWallace-Coates bridge plans will be\npresented.\n\n\n1t is just possible that the coun-\nGil may exact from Henry M.\nRichards, president of the w. w. p,\nanother promise about paying part\nof the cost Of new bridges. The\nsame promise\" was made In re-\ngard to the Howard st. span but it\nwas never kept.\n\n\nThe council, mayor then in, Office\nand every city Official having au-\nthority, is just as much to blame\nfor that as Richards, however, for\nno effort was made to compel good\nfaith. They allowed him to pull\nthe wool over their eyes with his\npromises and said they liked 1t.\n\n\nJudging from this, after the\nbridge question is finally threshed\nout, and everyone has had a say,\nthe city will pay all the construc-\nton price for the new bridges, the\nw. w. p. will use them and per-\nhaps knock them down some more,\nand the taxper will continue to\nhowl, as in the past. The meeting\ntonight will be farcical in that 1t\nbears the aspect of requesting"
+    }
+  ]
+}

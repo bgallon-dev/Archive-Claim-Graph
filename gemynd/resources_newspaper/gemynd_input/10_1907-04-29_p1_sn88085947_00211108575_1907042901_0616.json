@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GOVERNOR ADDS\n\n\nCONDEM",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-29",
+    "date_end": "1907-04-29",
+    "report_year": 1907,
+    "source_file": "10_1907-04-29_p1_sn88085947_00211108575_1907042901_0616",
+    "archive_ref": "10_1907-04-29_p1_sn88085947_00211108575_1907042901_0616",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-04-29_p1_sn88085947_00211108575_1907042901_0616",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 71,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 159,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "LOS ANGELES, Cal, April %\nGovernor Buchtel, OF Colorado, who\nis here, in an interview on the\nMoyer-Haywo case, said:\n\n\nTHE citizens Of Colorado believe\nMeyer, Haywood and Pettibone not\nonly guilty indirectly Of the murder\nof Steunenberg, but also guilty CT\nmany other murders and crimes\nwhich proceeded this. When ! say\ncitizens of Colorado / mean the Law\nabiding citizens. What the preSl'\ndent said fitted the case exactly"
+    }
+  ]
+}

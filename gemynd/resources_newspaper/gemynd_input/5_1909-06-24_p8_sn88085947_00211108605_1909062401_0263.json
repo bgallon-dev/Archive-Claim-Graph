@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MARKET\n\n\n0vERRUN\n\nBIG INFLUX OF OUTSIDE\nWORklNGMEN WILL CAUSE\nA RUSH TO THE HARVEST\nFIELD.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-24",
+    "date_end": "1909-06-24",
+    "report_year": 1909,
+    "source_file": "5_1909-06-24_p8_sn88085947_00211108605_1909062401_0263",
+    "archive_ref": "5_1909-06-24_p8_sn88085947_00211108605_1909062401_0263",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-06-24_p8_sn88085947_00211108605_1909062401_0263",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 219,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 702,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "From present indications many\nof Spokane's workingmen will go\nto the wehat fields for employment\nduring harvest this fall. Seattle is\nfilled to overlooking with men\nlooking for work, and there is now\nlittle chance of getting jobs there\nfor any of the outside idle men,\nmany of whom have come to Spo-\nkane.\n\n\nEven the bakers are having a\nhard time keeping in work. In the\nsmall towns many of the bakers\nwere turned off when the price of\nflour began to go up by leaps and\nbounds. The proprietors or boss\nbakers took their places and things\nare coming back to their normal\ncondition very slowly.\n\n\nA great many working men from\nthe east who flocked in to take\ntheir chances of getting work at\nthe Seattle exposition are now in\nSpokane looking for something to\ndo. Among the unskilled and man.\nual laborers present indications\npromise a plenty of work for the\nrest of the season. 1t is the men\nwith trades that are now out of\nwork. Harvest will soon begin in\nthe whole surrounding country and\nit is believed that the highest\nwages paid in years will be OF\nfered for competent help in the\ngrain fields and with threshing out\nfits. At the present time farmers\nare said to be short of help."
+    }
+  ]
+}

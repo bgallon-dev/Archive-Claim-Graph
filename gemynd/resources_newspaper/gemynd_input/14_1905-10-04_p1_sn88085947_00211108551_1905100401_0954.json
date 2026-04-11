@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT BECAME OF M'INTYRES\n\n\nREPORT ON LIGHT PLANT ?",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-04",
+    "date_end": "1905-10-04",
+    "report_year": 1905,
+    "source_file": "14_1905-10-04_p1_sn88085947_00211108551_1905100401_0954",
+    "archive_ref": "14_1905-10-04_p1_sn88085947_00211108551_1905100401_0954",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1905-10-04_p1_sn88085947_00211108551_1905100401_0954",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 84,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 253,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "would take a raise of four feet in\nthe dam and would leave a surplus\nof 1777 horse power for sale to the\npublic.\n\n\nWhat the municipal league will\ninquire into is why nothing has\nbeen done with McIntyre's report.\nAbout $4,000 year is paid the\nWashington Water Power company\nand the city plant could be paid for\nIn two years. Why has no action\nbeen taken is what the league\nwants to know.\n\n\nDoes the Washington Water\nPower company control the city\nhall?"
+    }
+  ]
+}

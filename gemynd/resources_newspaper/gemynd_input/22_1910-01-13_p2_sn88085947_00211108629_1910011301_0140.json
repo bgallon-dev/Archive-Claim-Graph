@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CHARTER DRAFT\n\n\nTO Be READ",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-13",
+    "date_end": "1910-01-13",
+    "report_year": 1910,
+    "source_file": "22_1910-01-13_p2_sn88085947_00211108629_1910011301_0140",
+    "archive_ref": "22_1910-01-13_p2_sn88085947_00211108629_1910011301_0140",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1910-01-13_p2_sn88085947_00211108629_1910011301_0140",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 97,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 205,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the meeting of the Mems\nNeighborhood club of the Fifth\nward. to be held next Friday night\nut the Pilgrim Congregational\nchurch. the evening will be given\nover to The peoples question\nnight with the new city charter. =\"\n\n\nDinner will be served at $50.\nFollowing the dinner. the first\ndraft OF the new city charter which\nIs proposed for the city of Spokane\nwill be read and submitted to the\nmeeting for questions. The COM\nmittee on revision will be present\nto answer all questions. and every\ncitizen on the North Side should\nbe there."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-07-14 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-14",
+    "date_end": "1905-07-14",
+    "report_year": 1905,
+    "source_file": "1_1905-07-14_p4_sn88085947_00211108551_1905071401_0671",
+    "archive_ref": "1_1905-07-14_p4_sn88085947_00211108551_1905071401_0671",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1905-07-14_p4_sn88085947_00211108551_1905071401_0671",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 197,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ton was attended by many promi-\nnent women connected with the\nequal suffrage movement. The\nAmerican Library Association also\nheld a convention during the week\nwhich was attended by prominent\nlibrarians from all parts of the\nUnited States. British Columbia\nand Idaho cities celebrated special\ndays during the week. Wednesday\nwas American Boy day.\n\n\nThis is Western Authors week,\nand the week will close with Joa-\nquin Miller day. July Is, when the\nveteran poet Of the Sierras will be\npresent to receive the honors due\nhim at the hands of the people of\nthe state in which he was reared,\nand which he has celebrated by his\nverse. Some 1000 doctors with\ntheir wives and families are pre-\nsent this week to attend the most\n| notable gathering of medical men\never held on the Pacific coast, the\n| convention of the American Medi-\n| cal Association. Montana cities\n\n\nwill have special days next week,\nand July 20 has been designated as\n\n\nMontana day. The convention of\n| the national association are also\nslated for the week and the Lewis\n\n\nand Clark Methodist congress and\n\n\nLewis and Clark Dental congress\n\n\nwill be features.\n\n\nw. E. BRINDLEY,"
+    }
+  ]
+}

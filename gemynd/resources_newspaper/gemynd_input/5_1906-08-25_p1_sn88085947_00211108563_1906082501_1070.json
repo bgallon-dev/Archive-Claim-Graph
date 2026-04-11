@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-08-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-25",
+    "date_end": "1906-08-25",
+    "report_year": 1906,
+    "source_file": "5_1906-08-25_p1_sn88085947_00211108563_1906082501_1070",
+    "archive_ref": "5_1906-08-25_p1_sn88085947_00211108563_1906082501_1070",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-08-25_p1_sn88085947_00211108563_1906082501_1070",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 165,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 363,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Press intends to keep on\nturning up the bridge question until\nthere is some safe assurance that\ncitizens may cross the river without\ntaking their lives int their hands.\n\n\nThat such Is not the condition\nnow will not be disputed unless the\nadministration discountenances the\nreport of it's accepted bridge ex-\npert, G. T. F;rsyth.\n\n\n1t rested On the Washington\nWater Power company's expert UNI\ntil compelled to another view in\nregard to Howard street by the col\nlapse Of portion of that structure.\nThat inciden. could scarcely be\nhidden even by the liberal coat of\nwhitewask applied. The ruins in\nthe river were uncomfortably evi.\ndent anc the rotten spots, like\nmurder, would out.\n\n\nForsyth is something of a mys.\nterry as bridge expert in this city.\nHe came from the o. r. & N, vol,\nunteered in fact, and went to work\napparently foi the purpose Of do\ning something.\n\n\nAS bridge after bridge fell under\nthe ban of his investigation the"
+    }
+  ]
+}

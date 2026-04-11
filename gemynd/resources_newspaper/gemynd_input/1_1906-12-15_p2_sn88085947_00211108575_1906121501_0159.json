@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "\"HIGH\" WAGES THAT ARE Low.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-15",
+    "date_end": "1906-12-15",
+    "report_year": 1906,
+    "source_file": "1_1906-12-15_p2_sn88085947_00211108575_1906121501_0159",
+    "archive_ref": "1_1906-12-15_p2_sn88085947_00211108575_1906121501_0159",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-12-15_p2_sn88085947_00211108575_1906121501_0159",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 291,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 818,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Certain corporations making great parade of the\nfact that few of hem because of the general prosperity\nand increased cost of living have voluntarily raised the\nwages of employees.\n\n\nNo opportunity is lost for laying emphasis on\nfhe fact that American labor is better paid than is the\nlabor of most other countries.\n\n\nSuch assertion is sort Of spread gleism that is\nsupposed to hurt nobody and to help the corporations\na more complacent enjoyment of their profits.\n\n\nBut the real truth is that measured by the value of\nIts product the labor Of this country, instead of being\nthe highest paid, is the lowest paid in the world\n\n\nCensus reports show that in American manufactures\nThe per capita production is three times the average of\nEuropean factories while wages less than twice\nhigh\n\n\nJames J. Hill, president of the Great Northern and\nother railroads. is authority for the assertion that train\ngang his American railroads handles more than seven\ntimes many miles of freight do the train gangs\nseven times much result American trainmen receive\nJess than twice much wages.\nSecretary Wilson, of the department of agriculture\nIn address the other day. said that American farm\nband produces more rice than 400 Cinnamon Chinese\nwages only 10 to II cents day, but if the rice\nworkers of this country got the rate for results\nproduced their pay would be $44 to $4S dayinstead\npf $3.50.\n\n\n\"Cleap labor'' never could produce the marvellous\ndrops and manufactures of this country Yet measured\nby what it does it is the cheapest labor the surface\npf Che earth.\n\n\nAnd is utterly false that prices are high because\n0ages are high.\n\n\nCompared with the prices the pays, wages\npre- lower thar. ip Europe or China."
+    }
+  ]
+}

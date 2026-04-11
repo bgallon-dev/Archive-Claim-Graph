@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BATTLING WITH\n\n\nWASHOUTS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-08",
+    "date_end": "1907-02-08",
+    "report_year": 1907,
+    "source_file": "6_1907-02-08_p1_sn88085947_00211108575_1907020801_0344",
+    "archive_ref": "6_1907-02-08_p1_sn88085947_00211108575_1907020801_0344",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1907-02-08_p1_sn88085947_00211108575_1907020801_0344",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 199,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 541,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "All railroads throughout the\nNorthwest have big gangs at work\nbattling with washouts and snow\nslides as the consequence of yester-\ndays Chinook and today's rain.\nNumerous washouts are reported\nall along the line of the o. r. & N.\nroad Telegraph and telephone\nwires are down along different Sec\ntons of the line. All trains on the\nmain line have been annulled. The\nWallace branch is the only one fit\nfor traffic in this part of the coun-\ntry and stub made up to connect\nwith the Wallace train at Tekoa Is\nrunning as far west as Winona.\n\n\nThe Northern Pacific is reported\nin fair order this morning, having\nbeen cleared some time after mid\nnight, and trains may be able to go\nthrough to Portland today If that\ncity remains out of water.\n\n\nTrains will be started east this\nevening. one due to leave here at\n4 o'clock and one at o'clock.\n\n\nNo serious trouble Is reported on\nthe Great Nrthern today. but trains\nare considerably behind time from\nthe east on account Of Ice covered\nrails on eastern divisions. Snow\nslides block the way through the\nCascades and no trains proceed fur\nTheir west than Leavenworth."
+    }
+  ]
+}

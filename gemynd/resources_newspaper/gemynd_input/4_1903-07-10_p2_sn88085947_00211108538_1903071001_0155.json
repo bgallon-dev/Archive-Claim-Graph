@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SECOND SHELTER IN\n\n\nPROSPECT AT CRANKY",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-10",
+    "date_end": "1903-07-10",
+    "report_year": 1903,
+    "source_file": "4_1903-07-10_p2_sn88085947_00211108538_1903071001_0155",
+    "archive_ref": "4_1903-07-10_p2_sn88085947_00211108538_1903071001_0155",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-07-10_p2_sn88085947_00211108538_1903071001_0155",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 106,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 570,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Grand Forks. The plant will have\nan initial capacity. of two furnaces.\ncapable of treating 600 tons each \"a\nhours. Provision will also be made\nfor charging the plant.\n\n\nSituated a. Grand Forks is on the\nline of three Independent railways,\nwith feeders stretching out to half\na dozen producing camps and with\nits coal fields to the north. there Is\nreason to believe that second smeit-\ning plant would obtain all the ton\nmage 1t needed to make 1t q paying\ninvestment.\n\n\nMr.. Manly was instrumental in\nhaving his town selected by the\nCRANKY company for the erection Of\nits smelter and donated the site."
+    }
+  ]
+}

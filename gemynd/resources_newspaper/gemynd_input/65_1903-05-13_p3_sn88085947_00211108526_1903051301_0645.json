@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "LANrS! LANDSl LANDSi",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-13",
+    "date_end": "1903-05-13",
+    "report_year": 1903,
+    "source_file": "65_1903-05-13_p3_sn88085947_00211108526_1903051301_0645",
+    "archive_ref": "65_1903-05-13_p3_sn88085947_00211108526_1903051301_0645",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "65_1903-05-13_p3_sn88085947_00211108526_1903051301_0645",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "orchard",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 110,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 358,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 156,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ARNkSs A>hNVSi khNuSi\n\n\n$40 acres. quarter mile from town.\non Central Washington railroad, all\nfenced. 5-room house. barn. windmill,\nplenty of water. large orchard. 4S0\nacres in cultivation, 100 acres pas\nture; price. $50 per acre: half cash,\nbalance to suit.\n\n\n$40 acres. three miles from o. r.\n4 N. Whitman county. half broke,\nall fenced. balance all fine wheat land;\nprice. $40 per acre.\n\n\nS21 acres. eight miles from Spo-\nkane. 200 acres in cultivation, SIS\nacres in winter wheat. good house.\nbarn and outbuildings, plenty of wa\nter; price $50 per acre; half cash,\nbalance to suit at per cent\n\n\nw. e. STEPHENS.\n1919 Ziegler Block. Spokane. Wash."
+    }
+  ]
+}

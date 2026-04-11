@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CITY DOES WORK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-14",
+    "date_end": "1907-06-14",
+    "report_year": 1907,
+    "source_file": "17_1907-06-14_p3_sn88085947_00211108575_1907061401_0758",
+    "archive_ref": "17_1907-06-14_p3_sn88085947_00211108575_1907061401_0758",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1907-06-14_p3_sn88085947_00211108575_1907061401_0758",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 112,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 120,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Commissioner Como gave orders\n10 his street force today to remodel\nthe 2 manholes that are in the way\nof the Washington Water Power\nCo.'S work at the corner of River\nside av. and Howard st. One man\nhole will be changed over so as\nto be farther from the track, and\nthe other will be raised. The city\nwill do the work and charge it to\nthe power company.\n\n\nThe city did the work of rebuild\ning the collapsed Howard st.\nbridge and charged half of it to\nthe company. 1t has not been col\nlected yet, and probably never will\nbe. as the bill was presented sew\neral months ago."
+    }
+  ]
+}

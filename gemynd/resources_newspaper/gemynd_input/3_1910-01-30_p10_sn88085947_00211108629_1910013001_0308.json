@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BREWER AND PASTOR\nTRAVEL TOGETHER\nON BOOZE INVES-\n\n\nTIGATION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-30",
+    "date_end": "1910-01-30",
+    "report_year": 1910,
+    "source_file": "3_1910-01-30_p10_sn88085947_00211108629_1910013001_0308",
+    "archive_ref": "3_1910-01-30_p10_sn88085947_00211108629_1910013001_0308",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-01-30_p10_sn88085947_00211108629_1910013001_0308",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 136,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 213,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "NORTH YAKIMA, Jan. 29-John\nSchlotfeldt, the North Yakima\nbrewer, and Rev. Morton l.. Rose,\nof the North Yakima Christian\nchurch, who went to Pendleton to\nascertain from first hand investi-\ncations the effect that prohibition\nhad on the business conditions Of\nthat city, have returned. Rev\nRose said that the pictures and\nstatements made by the vets\"\nhad been grossly exaggerated; Mr..\nSchlotfeldt says that not all the\ntruth was told.\n\n\nHe says that not only are there\nas many vacant buildings as was\nshown, but there has been a large\ndecrease all down the line in rents\nand values. He says that he found\nthat number of people who had\nworked the hardest for local op-\nton had left Pendleton as soon as\nthey found out how disastrous were\nthe effects of prohibition. He says"
+    }
+  ]
+}

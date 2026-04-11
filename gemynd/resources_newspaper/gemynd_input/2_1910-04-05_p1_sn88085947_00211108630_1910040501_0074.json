@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "IF MRS, HAY WANTS SUFFRAGE\n\n\nGOVERNOR WILL VOTE FOR It",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-05",
+    "date_end": "1910-04-05",
+    "report_year": 1910,
+    "source_file": "2_1910-04-05_p1_sn88085947_00211108630_1910040501_0074",
+    "archive_ref": "2_1910-04-05_p1_sn88085947_00211108630_1910040501_0074",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-04-05_p1_sn88085947_00211108630_1910040501_0074",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 6.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 182,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 106,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 8,
+            "in_headline": true
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 18,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "office woman, though, If that\ncounts for anything in their favor.\nBut | am really going to vote with\nMrs. Hay.\n\n\nIl have my fingers crossed. |\ncouldn't say anything at present\nabout the senatorial fight\" And\nthe insurgents and Uncle Joe Can\nnon, he wouldn't talk about them.\n\n\n1T is going to be a bitter fight,\nand since\" he continued, as he\nstood up, threw back his head and\nassumed an air as IL suffocated\nwith Importance, they didn't see\nfit to allow me to appoint senator\n| refuse to get into the fight. This\nmomentary arrogant air wasn't\ncharacteristic OF the governor.\nshould say not. He was just max\ning fun. And in few minutes\nmore he was talking and laughing\nin further discussion.\n\n\nThere will doubtless be some\nthings brought to light this month\nwhen report is made public In\nregard to the graft investigation at\nOlympia. The papers and reports\nare at present at my office at the\ncapitol\" said the governor. II have\nuntil April 10 TO make them public.\nthink 1t will have done some\ngood\""
+    }
+  ]
+}

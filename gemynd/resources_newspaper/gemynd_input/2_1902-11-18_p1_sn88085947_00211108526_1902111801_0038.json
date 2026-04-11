@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PRESIDENT ME LIEN\n\n\nADMITS AGREEMENT",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-18",
+    "date_end": "1902-11-18",
+    "report_year": 1902,
+    "source_file": "2_1902-11-18_p1_sn88085947_00211108526_1902111801_0038",
+    "archive_ref": "2_1902-11-18_p1_sn88085947_00211108526_1902111801_0038",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1902-11-18_p1_sn88085947_00211108526_1902111801_0038",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 184,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 453,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "II suppose they are. All know\nabout these matters is what | read\nin the newspapers, and everything\nthat | read in the newspapers do\nnot generally believe\"\n\n\nus it fact that branch is be-\ning built or will be built into the\nKlickitat country\"\n\n\nYes, the fact is that we have a\nparty surveying the route at the\npresent time, and we intend build\ning shortly to Lyle, instead of\nalong the north bank of the Co\nlumbia, as originally intended\"\n\n\nDoes not the Northern Pacific\ndo more business in this part Of\nthe country than all the other roads\ncombined?\"\n\n\nIf you mean by this country, the\nPacific Northwest, then yes. We\nhave the territory and we do the\nbusiness\"\n\n\nHow about the road to Lewis\nton; Is the Northern Pacific going\nto build the road jointly with the\no. r. & N. Co. or not?\"\n\n\nTHE newspapers seem better in\nformed on railroad subjects than\nwe railroad officials. l know moth\ning Of any Joint line\"\n\n\nPresident Mellen and party left\nlast night for Seattle. where they\nare spending the day."
+    }
+  ]
+}

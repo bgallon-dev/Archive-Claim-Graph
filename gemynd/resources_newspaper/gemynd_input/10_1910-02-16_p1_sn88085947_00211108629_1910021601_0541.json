@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Continued on Page Two.\n\n|RALST0N PLEADS\n| | FOR v. W.P. co.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-16",
+    "date_end": "1910-02-16",
+    "report_year": 1910,
+    "source_file": "10_1910-02-16_p1_sn88085947_00211108629_1910021601_0541",
+    "archive_ref": "10_1910-02-16_p1_sn88085947_00211108629_1910021601_0541",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1910-02-16_p1_sn88085947_00211108629_1910021601_0541",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 141,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 63,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "City Engineer Ralston was the\nchief witness for the Washington\nWater Power company yesterday at\nOccur d'Alene in its effort to show\nthat the municipality Of Spokane\nwill suffer grievous loss If it Is\nmade to cease flooding the lands of\nthe farmers abutting Lake Occur\nd'Alene. Mr.. Ralston told of the\nsevere loss that will be entailed by\nthe city If the government compels\nthe power trust to remove it's bear\ntrap dam at Post Falls. Ralston\nfigured that II the dam is removed\nII will mean loss to the city in\npumping capacity of 40 per cent in\nthe season of low water In the sum-\nIner time, when water is needed\nthe most. He said that 1t would\nmean decrease of 20,000,000 gal\nIons daily pumping capacity In the\ncontemplated pumpage ability of\n54000,000 gallons in \"a hours."
+    }
+  ]
+}

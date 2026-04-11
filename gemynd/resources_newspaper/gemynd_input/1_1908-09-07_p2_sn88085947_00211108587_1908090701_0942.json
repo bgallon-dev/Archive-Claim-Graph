@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PROHIBITIONISTS\n\n\nIn CONVENTION",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-07",
+    "date_end": "1908-09-07",
+    "report_year": 1908,
+    "source_file": "1_1908-09-07_p2_sn88085947_00211108587_1908090701_0942",
+    "archive_ref": "1_1908-09-07_p2_sn88085947_00211108587_1908090701_0942",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-09-07_p2_sn88085947_00211108587_1908090701_0942",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 113,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 342,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Tomorrow afternoon at l o'clock\nthe prohibitionists of the county\nwill meet in convention in Judge\nHuneke's courtroom to select, upon\ntheir own platform, candidates in\nwhom they can place entire conf\ndence as to carrying out the party\npolicies.\n\n\nNever was there a time when a\nticket was needed more than now\"\nsaid John Anderson, a prominent\nprohibition worker, this morning.\n\n\nI'VE have no faith in the prom.\nises of the other parties to take\ncare of our interests in exchange\nfor our votes\"\n\n\nOwing to the keen interest mani.\ntested In the coming convention\nthe attendance is expected to be\nthe largest in the history of pro.\nhibition in Spokane county."
+    }
+  ]
+}

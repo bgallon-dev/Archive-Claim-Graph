@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-11-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-02",
+    "date_end": "1903-11-02",
+    "report_year": 1903,
+    "source_file": "7_1903-11-02_p1_sn88085947_00211108538_1903110201_0648",
+    "archive_ref": "7_1903-11-02_p1_sn88085947_00211108538_1903110201_0648",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1903-11-02_p1_sn88085947_00211108538_1903110201_0648",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 172,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 199,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 855,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "said to be III store for the plumbers,\nunion before an Endorsement of their\nposition will be allowed.\n\n\nIn striking so suddenly the plumb\ners, it is declared, disobeyed one of the\nfirst rules of the Trades Council,\nwhich provides that all contemplated\nraises in wages, or strikes, must first\nbe submitted. So far as is known by\nunion men of the city, this was not\ndone.\n\n\nThe plumbers union today claims to\nhave information which leads them to\nbelieve that small force of non-union\nplumbers have been shipped from\nMinneapolis with this city as their des-\ntination.\n\n\nPresident Evans of the Master\nPlumbers association was asked as to\nthe truth of the rumor, and stated he\nknew nothing of the matter. How\never, he would neither affirm nor deny\nthe report.\n\n\n1t now looks as though an appalling\nstate of affairs confronts Spokane. If\nthe plumbers remain on strike much\nlonger all the building operations in\nthe city will be tied up and the build\ning trades thrown out of work."
+    }
+  ]
+}

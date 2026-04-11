@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-03 — pp14",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-03",
+    "date_end": "1909-12-03",
+    "report_year": 1909,
+    "source_file": "5_1909-12-03_p14_sn88085947_00211108617_1909120301_0241",
+    "archive_ref": "5_1909-12-03_p14_sn88085947_00211108617_1909120301_0241",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-12-03_p14_sn88085947_00211108617_1909120301_0241",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "vagrancy"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 188,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "vagrancy",
+            "weight": 1.5,
+            "offset": 809,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "HALF 10 DEATH DAILY BY CE\n\n\nChief Stewards way-the billy\nclub way--is simple. A big police\nsergeant from the Harrison street\nstation takes a squad of police. and\nthey wait until meal time comes.\nThe sergeant knows then that the\nwork seekers will be driven by\nhunger to wait at the very doors of\nthe labor agents.\n\n\nThen the sqHad starts. Their at\ntack is systematic but simple,\nThere Is no resistance. The hun\nCRY men don't dare mutter. even.\nfor in nine cases out of 10 their\npockets are empty. A growl from\nthe sergeant. a chorus of commands\nfrom the harsh threats of the pc.\nlicemen, clubs fly, heads are bat\ntered and half shod feet patter\ndown the sidewalks in a path OF\ndistress.\n\n\nThis is the logical\" kind Of re-\nform that prevents poverty, bo-\ncause 1t keeps poverty from show\nIng its face.\n\n\nOn the vagrancy report which the\npolice now are required to fill out,\nthere is blank which calls for the\nprevious occupation of the men\nwho are being experimental on\nwith billy club reform.\n\n\n'Never known to work\" is writ"
+    }
+  ]
+}

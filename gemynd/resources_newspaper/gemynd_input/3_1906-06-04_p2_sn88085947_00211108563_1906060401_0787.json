@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "new TIME TABLES\n\n\nTAKE EFFECT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-04",
+    "date_end": "1906-06-04",
+    "report_year": 1906,
+    "source_file": "3_1906-06-04_p2_sn88085947_00211108563_1906060401_0787",
+    "archive_ref": "3_1906-06-04_p2_sn88085947_00211108563_1906060401_0787",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-06-04_p2_sn88085947_00211108563_1906060401_0787",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 143,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The new time table wen. into\neffect On the Great Northern yes\nterday. The eastbound Oriental\nLimited will arrive in Spokane at\n9:40 p. m. instead of at 9:15 a. m.\n1t Will leave at 9:55 p. m. The\nwestbound Oriental Limited will ar\nrive at GAS a. m. and will leave\nat z a. m. No. 4, eastbound, will\narrive at OILS a. m. and will de-\npart at $50 a. m. No. 8, west\nbound, will arrive at $40 p. m. and\nwill depart at 6 p. m.\n\n\nA feature of the new time card\nIs the addition of another passen-\nger train on the S. F. & N. This\ntrain will leave Spokane at 4:25\np. m. and will arrive at Spokane in\nthe morning at $50 This is ex-\npected to boom the summer bust\nness at Loon lake."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-06-09 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-09",
+    "date_end": "1903-06-09",
+    "report_year": 1903,
+    "source_file": "11_1903-06-09_p4_sn88085947_00211108538_1903060901_0049",
+    "archive_ref": "11_1903-06-09_p4_sn88085947_00211108538_1903060901_0049",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-06-09_p4_sn88085947_00211108538_1903060901_0049",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 132,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 471,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "3\n\n\nNudglng by recent occurrences there\nIAN now be little doubt about the in\n3entions and plans of Charles sweeny.\nthe millionstre mineownerr of this\ncity who is now In New York.\n\n\nII has been limited at various times\nthat he is to build smeiter and a\nrailroad to treat and transport his\nores from jhe Coepr d'Alepe mining\ndistrict. 1t Is now stated on good\nauthority that Mr.. Sweeny, instead of\nhaving railroad scheme under way.\nhas projSst fer more reaching than\neven smelter Or railroad would be\nend that this project is nothing more\nor less than the practical blanketing\nof the entire Occur d\"Alene country\nand the formation OF the greatest\nmining company In the west, II not in\nthe entire country.\n\n\nTo bear out this assertion the re-"
+    }
+  ]
+}

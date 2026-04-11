@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "FIGHT OVER\nMINERS CHARTER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-21",
+    "date_end": "1910-11-21",
+    "report_year": 1910,
+    "source_file": "22_1910-11-21_p1_sn88085947_00211108654_1910112101_0586",
+    "archive_ref": "22_1910-11-21_p1_sn88085947_00211108654_1910112101_0586",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1910-11-21_p1_sn88085947_00211108654_1910112101_0586",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 4.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation",
+          "american federation"
+        ],
+        "mining": [
+          "mine workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 78,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 65,
+            "in_headline": false
+          },
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 128,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine workers",
+            "weight": 2.0,
+            "offset": 376,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ST. LOUIS, Mo-, Nov. 21.-The\nquestion of granting charter to\nthe Western Federation of Miners\nwill come up this week before the\nAmerican Federation of Labor,\nwhich is in session here. The ma\nchinists are the principal oppon-\nents of the plan, as they declare\nthe Western Federation would\nmake the mining machinists subor-\ndinate to the miners.\n\n\nPresident Lewis of the United\nMine Workers of America is urg-\ning that the Western Federation be\ngiven a charter."
+    }
+  ]
+}

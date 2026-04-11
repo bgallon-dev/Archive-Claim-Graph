@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-02-05 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-05",
+    "date_end": "1907-02-05",
+    "report_year": 1907,
+    "source_file": "4_1907-02-05_p1_sn88085947_00211108575_1907020501_0332",
+    "archive_ref": "4_1907-02-05_p1_sn88085947_00211108575_1907020501_0332",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-02-05_p1_sn88085947_00211108575_1907020501_0332",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 306,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 179,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 1682,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Hall for employing cement workers.\nThe international alliance said id\nsubstance that it would do nothing,\nas the cement workers were affili.\nated with the International Build\ning Trades council and therefore\nnothing would be done that would\nbe of benefit to the cement workers\nin this or any other city.\n\n\nThe central body endorsed the ar\nbitration law now pending before\nthe state legislature. The bills pro-\nviding for damages in case of acct\ndents to employees Of railway and\ntraction lines, the payment of labor\nin lawful money or negotiable paper\ngood for its face value, and an act\nto compel aliens who have not de-\nclared their intention to become\ncitizens to pay tuition in the\nschools of S. per month. This last\nlaw, it was stated, was aimed at the\nJapanese and was introduced by\nHutchinson, of this county. The\nDdIDclS Sdlu tudJ d uuLlUSi VI uhiOh\nmen were patronizing the Mohler\nbarber college and that they expect\ned them to keep away from that\ninstitution in the future.\n\n\nE. A. Cooney, of the steam en-\ngineers, in short speech advocated\nthe raising of the dues paid by the\n\n\nunions into the central body. He\nsaid at the present time the or\nganization had barely enough\n\n\nmoney on hand to pay the actual\n\n\nrdunning expenses of the organiza-\nton and he advocated the raising\nOf a fund for eventualities in case\nOf trouble. He pointed out that the\n\n\ncentral body should have fund for\nthe purpose of securing legal adj\nvice when necessary or to aid the\nyoung and dependent unions when\nthey are involved in trouble and\nneed financial assistance.\n\n\nThe troubles of the street car\nmen was referred to the executive\ncommittee for whatever action\n\n\nmight be necessary in case strike\ntook place before another meeting\n\n\nof the central body."
+    }
+  ]
+}

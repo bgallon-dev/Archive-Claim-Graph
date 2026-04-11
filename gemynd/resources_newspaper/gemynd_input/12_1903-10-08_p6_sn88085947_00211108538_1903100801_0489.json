@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "A MAKER OF SPOKANE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-08",
+    "date_end": "1903-10-08",
+    "report_year": 1903,
+    "source_file": "12_1903-10-08_p6_sn88085947_00211108538_1903100801_0489",
+    "archive_ref": "12_1903-10-08_p6_sn88085947_00211108538_1903100801_0489",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1903-10-08_p6_sn88085947_00211108538_1903100801_0489",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 190,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 979,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In reviewing the commercial progress\nof the city of Spokane it becomes the\nevident duty of the writer to cease, for\na time, the contemplation of splendors\nwrought in the wilderness by the hand\nof men, and to turn from the consider\nalton of sordid achievements to pay a\ntribute to the pioneer history-maker\nwho first blazed the trail to this west\nern Eldorado, and whose brave deeds\nof the early days will outlive time it.\nself. There dwells in Spokane a pleas\nant, silver-haired gentleman who has\nspent quarter of century in the city\nand who in spite of his years is still\na potent factor in the great business\nenterprises of the west He was one\nof the makers of the state constitution.\nane one of the makers of Spokane, and\nfor that matter of several other cities\nin the vicinity. This vigorous captain\nof industry has lent a hand to every\ncivic and business enterprise of any i'm\nportance that has been projected since\nhe first cast his lot with the few pio-\nneers encamped at Spokane Falls. He\nhas seen the rise of Spokane from the"
+    }
+  ]
+}

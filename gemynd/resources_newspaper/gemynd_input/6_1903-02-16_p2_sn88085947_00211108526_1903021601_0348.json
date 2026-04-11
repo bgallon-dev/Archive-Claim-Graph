@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "hOMESEEKERS' RATES\n\nWent into Eject Yesterday and an\nUnprecedented Rush Of Immi-\n\n\ngrants II Expected.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-16",
+    "date_end": "1903-02-16",
+    "report_year": 1903,
+    "source_file": "6_1903-02-16_p2_sn88085947_00211108526_1903021601_0348",
+    "archive_ref": "6_1903-02-16_p2_sn88085947_00211108526_1903021601_0348",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-02-16_p2_sn88085947_00211108526_1903021601_0348",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 143,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 437,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The homeseekers' rates on the va\nrious railroads went into effect yes\nterday. According to advices receiv-\ned in local railroad offices an I'M\nprecedented rush of immigrants will\nbe made to this section this summer.\n1t Is reported that several trainloads\nof people have been gathered through\nout the middle west who started as\nsoon as the rates went into effect.\n\n\nThe rates to prospective settlers\nwill be the same as last year. On\nthe Northern Pacific and Great North\nern the rate from st. Paul to Spokane\nis $3.50 and 326 to the coast. From\nChicago the rate is IS more.\n\n\nOn the Burlington and Union Pa\ncific the rate Is the same as the\nabove from Kansas City and Omaha.\nFrom st. Louis the fare is $3.50\nmore. These immigrant rates will be\nin effect until the last of April."
+    }
+  ]
+}

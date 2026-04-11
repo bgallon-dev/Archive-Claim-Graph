@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FEDERAL CONTRACTORS\n\n\nCAUSE UNION TROUBL E",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-06",
+    "date_end": "1908-01-06",
+    "report_year": 1908,
+    "source_file": "3_1908-01-06_p1_sn88085947_00211108587_1908010601_0084",
+    "archive_ref": "3_1908-01-06_p1_sn88085947_00211108587_1908010601_0084",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-01-06_p1_sn88085947_00211108587_1908010601_0084",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 198,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 252,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to the statement Of\nMatthew Dow, head of the Seattle\ncontracting firm of Dow, & Co., the\nwhole trouble in that city with\nbuilding trades unions has been\ncaused by McGrath & Duhamel,\ncontractors on the federal building\nthere. They started the open shop\nand 1t was forced on many con-\ntractors who were willing to abide\nby their union agreements. Dow\nsays his firm will keep faith with\nthe unions.\n\n\nThis situation will appeal to Spo-\nkane laboring men, as they have\nmade unsuccessful efforts to have\nthe contractor on the Spokane fed\neral building employ local labor un-\nder guarantee to protect him from\ndelay by strikes or dissension.\n\n\nFrom this it would appear that\nthe federal buildings erected out\nof the peoples money are really\ndesigned as monuments to the\npolicy of contractors who prefer to\nemploy the floating element rather\nthan the solid taxpaying citizen of\nthe communities in which the\nbuildings are erected. They mean\nmerely that so many non-citizens\nwere given the work of building\nthem, while the citizens found work\nat some other occupation in order\nto raise money to help pay the con-\ntractor his profit on the work."
+    }
+  ]
+}

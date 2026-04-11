@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOT SCRAP IN\n\n\nCITY COUNCIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-12",
+    "date_end": "1908-08-12",
+    "report_year": 1908,
+    "source_file": "7_1908-08-12_p4_sn88085947_00211108587_1908081201_0840",
+    "archive_ref": "7_1908-08-12_p4_sn88085947_00211108587_1908081201_0840",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-08-12_p4_sn88085947_00211108587_1908081201_0840",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 374,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 15,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A conflict on the floor of the city\ncouncil last night between Council\nman Schiller and Contractor Lii\nlienthal was the bitterest clash\nseen there in many months.\n\n\nSchiller, who got up the remon-\nstrances against paving First av. in\nBrownies addition with oileroid,\nLillienthals patent paving material,\ngot the floor and made strong\ntalk, attacking the material as I'M\nsanitary and uncertain. He said\nthat the property owners did not\nwant an experimental paving in the\nmost beautiful part of the city. He\nasked that the assessment rolls\nprepared be not confirmed.\n\n\nLillienthal then got the floor.\nDuring Mr.. Schiller's talk he stated\nthat Lillienthal had agreed to\nsmear\" asphalt over the oileroid\nif the property owners desired This\ncaused Lillienthal to get personal\nHe said that Schiller talked of\nsmearing asphalt as though talking\nOf smearing labels on whiskey bot\nties. Schiller is in the liquor bust\nness. He further stated that he\nwould agree to cover his pavement\nwith asphalt if anyone who knew\nanything about paving was not sat\nisfied with the durability, ETC., and\nnot a man who knew only about\nselling wines, whiskeys and cigars\n\n\nSchiller demanded that Lillien-\nthai either leave the floor or refrain\nfrom personalities. And if the\npresident don't make him stop it,\"\nhe said, \"Ill go over there and\nslap his face\n\n\nLillienthal replied: The whis-\nkey dealer isn't man enough TO slap\nmy face. | dare him to come over\nhere and see what I'll do to him.\"\n\n\nPresident Phillips ordered LII\nlienthal off the floor\n\n\nSchiller demanded the floor and\nlaunched into a direct attack. He\nsaid Lillienthal had lied to prop\nerty owners when he first got up\nhis petition.\n\n\nII demand\" began Lillienthal\nagain, and President Phillips COM\nmanded, Shut up\" Lillienthal\nshut up.\n\n\nJust where Phillips gets his par\nliamentary rules is mystery.\nSchiller's motion that oileroid as\nsessment rolls be not confirmed\nwas then put on Lamberts second.\nSchiller and Lambert voted for it\nand Funk and Dalke voted against\nit.\n\n\nMotion carries\" said Phillips.\nThere were couple of grunts\nvoted on each side, but they were\nequally divided.\n\n\nAfter the meeting Lillienthal\nstated that despite Schiller's oppo-\nsition he would lay oileroid paving\nin this town."
+    }
+  ]
+}

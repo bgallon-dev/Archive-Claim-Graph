@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-03-27 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-27",
+    "date_end": "1909-03-27",
+    "report_year": 1909,
+    "source_file": "8_1909-03-27_p2_sn88085947_00211108599_1909032701_0943",
+    "archive_ref": "8_1909-03-27_p2_sn88085947_00211108599_1909032701_0943",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-03-27_p2_sn88085947_00211108599_1909032701_0943",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation",
+          "carey act",
+          "irrigation"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 119,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "carey act",
+            "weight": 2.5,
+            "offset": 416,
+            "in_headline": false
+          },
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 447,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 33,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SALEM, Ore, March 27.-Work\non an irrigation project embracing\nfrom 10000 to $4,000 acres Of land,\nsome with IA miles of Baker City,\nwill be started Immediately. For\nweeks the state engineers office\nhas been working secretly on\nplans. The land board asked the\ngovernment to withdraw the tract\nfrom entry so 1t would be avail\nable. This is already done. 1t is\nnot decided whether the tract will\nbe reclaimed under the Carey act\nor by the government reclamation\nservice.\n\n\nThe tract is oen of the most val\nliable in eastern Oregon. The prof.\nect will reclaim a large tract now\npractically arid. It lies in the\nlower Powder valley, townships z\nand s, ranges Al and AZ."
+    }
+  ]
+}

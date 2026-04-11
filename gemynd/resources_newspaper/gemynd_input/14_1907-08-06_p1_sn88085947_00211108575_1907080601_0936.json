@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NO PRECEDENT\nON EARTH\n\nw. W. p. co. PAID TAXES ON is\nMILES OF RAILROAD THAT\nEXISTED ONLY IN GENERAL\nMANAGERS IMAGINATION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-06",
+    "date_end": "1907-08-06",
+    "report_year": 1907,
+    "source_file": "14_1907-08-06_p1_sn88085947_00211108575_1907080601_0936",
+    "archive_ref": "14_1907-08-06_p1_sn88085947_00211108575_1907080601_0936",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1907-08-06_p1_sn88085947_00211108575_1907080601_0936",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 213,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 34,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The valuation of the Washington\n\n\nWater Power streetcar lines will be\n\n\njust 16 miles short this year OF\n\n\nwhat it was last, and the county shy\n\n\nthat much taxes. The company has\nnot torn up that much track MOI\nhas 1t been able to induce the as\nSCISSOR to overlook it.\n\n\nIt's on General Manager Hunting\nton, who is affidavit man\" when il\ncomes to enumerating the w. w\n\n\nP. taxable property. Last year\n\n\nland this Is 1 Of the weird and\nwondrous incident In corporation\n\n\nhistory, Mr.. Huntington made oath\nthat the company owned 16 more\n\n\nmiles of line than it had laid. He\nsignified willingness to pay taxes\n\n\non that stretch Of imaginary rail\n\n\nroad, and naturally the county col\n\n\nlected.\n\n\nThe mistake was not discovered\n\n\nuntil after the county board OF\n\n\nequalization had completed its\n\n\nwork and then it was too late fol\n\n\neven the w. w. P. to do anything\nAnd the county was ahead a few\n\n\nhundred, maybe, on the deal. OF\ncourse the company might have\n\n\nmade it up some way, might have\nheld it out of Manager Huntington\nsalary, but that part of the story is\nmystery.\n\n\nThis is mighty hard to believe\nbut it is claimed to be a matter OF\nrecord at the courthouse."
+    }
+  ]
+}

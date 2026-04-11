@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "Orchestra Cancels\n\n\nConcert at Cheney",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "26_1910-05-01_p14_sn88085947_00211108630_1910050101_0457",
+    "archive_ref": "26_1910-05-01_p14_sn88085947_00211108630_1910050101_0457",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "26_1910-05-01_p14_sn88085947_00211108630_1910050101_0457",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 3.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 5.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "education": [
+          "normal school",
+          "cheney normal"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 71,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 106,
+            "in_headline": false
+          },
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 31,
+            "in_headline": true
+          }
+        ],
+        "education": [
+          {
+            "term": "normal school",
+            "weight": 2.5,
+            "offset": 113,
+            "in_headline": false
+          },
+          {
+            "term": "cheney normal",
+            "weight": 3.0,
+            "offset": 106,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane Symphony orchestra\nwill give it's final concert of the\nseason Thursday evening, May 5,\nat the Cheney normal school.\n\n\nThe concert was to have been\ngiven here on May 8, but has been\ncancelled by the management of\nthe orchestra. The organization has\nlabored for months to gain a foot\nhold in Spokane, but lack of finan-\ncial means has resulted in the can\ncollation. of the May concert"
+    }
+  ]
+}

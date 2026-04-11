@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-02-12 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-12",
+    "date_end": "1910-02-12",
+    "report_year": 1910,
+    "source_file": "10_1910-02-12_p7_sn88085947_00211108629_1910021201_0487",
+    "archive_ref": "10_1910-02-12_p7_sn88085947_00211108629_1910021201_0487",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1910-02-12_p7_sn88085947_00211108629_1910021201_0487",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "sportsmen",
+          "sportsman"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 469,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "sportsmen",
+            "weight": 1.0,
+            "offset": 738,
+            "in_headline": false
+          },
+          {
+            "term": "sportsman",
+            "weight": 1.0,
+            "offset": 249,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Where are the myriads of wild\nduck which Is or 20 years ago dark\nened the sky in migratory flight?\nTens of thousands have gone to\nthe bag Of the market hunter-the\nfellow who slaughters birds at rest\nfrom sneak boat; other thousands\nhave gone to the sportsman's ~\ngauge-sportsman il he followed\nthe code in getting his bag.\nBut great as has been the slaugh-\nter, 1t has not thinned the flocks\nsufficiently to account for the dis\nappearance of the lordly canvas\nback, the toothsome mallard, or\nthat aerial lightning express, the\nblue wing teal.\n\n\nIn many sections that mud wal\nlowing water hog. the carp, has\ndone more to chase away the duck\nthan all the powder that has been\nburned.\n\n\nThe greatest crime on the calen-\ndar against American sportsmen\nwas the introduction of the carp\ninto our fresh water bodies. | think\nthis pest was introduced at the time\nof the worlds fair, in 1898. They\nmay have made their appearance\nprior to this, but my information is\nthat some weisenheimer thought it\nfine to show the carp, with other\nthings, when we were honoring\nChris Columb\n\n\nAll have to say with respect to\nthis individual Is that l don't wish\nhim any more harm than to be turn\ned loose in a camp of duck hunters\nand fishermen some dismal after\nnoon. If you ever cast a fly OF\nartificial bait, or crouched in\nblind you know what this implies.\n\n\nAll the way from the breeding\nground, in the north, to the waters\nin the south. the way of old was\ndotted with wild rice. and the duck\nfed as they flew, with never\nthought of hunger. But then came\nthe carp and bingo went the rice\nand with it the duck.\n\n\nThe carp, wallowing in the mud,\ntoday, wherever the carp roots, not\na spear Of wild rice grows.\n\n\nEfforts to propagate rice are be-\ning made by sportsmen in local.\nties where carp is not.\n1t Is to these men l give this in\nformation on growing rice, for l\nknow it will be appreciated.\n\n\nWild rice will grow in fresh\nwater south of So degrees north\nlatitude. The difficulty to over\ncome is poor termination. If per-\nmitted to dry, the seed will not ger\ninmate.\n\n\n1t is best to SOW in the spring.\nMud bottom is necessary and the\nwater must not flow too swiftly.\nnor must it be stagnant.\n\n\nSeed must be gathered as soon\nas mature and shipped in burlap\nsacks to cold storage rooms. The\nshortest possible time must elapse\nbetween harvesting the seed and\nstoring it.\n\n\nWhen received at the storage\nplant. while fresh and before fer\nmentation, it must be put into\nbuckets, open barrels or watts, COW\ncred with fresh water and immedi-"
+    }
+  ]
+}

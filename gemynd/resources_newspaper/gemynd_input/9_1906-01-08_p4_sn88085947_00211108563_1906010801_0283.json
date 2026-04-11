@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TWO NEW LOCAL\n\n\nCORPORATIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-08",
+    "date_end": "1906-01-08",
+    "report_year": 1906,
+    "source_file": "9_1906-01-08_p4_sn88085947_00211108563_1906010801_0283",
+    "archive_ref": "9_1906-01-08_p4_sn88085947_00211108563_1906010801_0283",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-01-08_p4_sn88085947_00211108563_1906010801_0283",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 76,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 118,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Articles Of incorporation were\nfiled today with the county auditor\nannouncing the formation of the\nSix Mile Hydraulic Placer Mining\n,ompany, with capital stock of\nS1,000,000, and G. M. Delameter,\nB. ]. Weeks and Alfred j. Carr as\ntrustees.\n\n\nThe Spokane and New York Land\ncompany has also been Incorporate\ned. Papers filed indicate a capital\nstock of 100000, and John Sargin-\nson, j. H. Tilsley and M. H. White\nhouse as incorporators and trust\naes."
+    }
+  ]
+}

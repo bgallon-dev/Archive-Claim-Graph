@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LAW\n\n\nOPPOSED\n\nSpokane Labor Takes Ac.\nton Against Price Tags\n\n\nfor Injuries.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-16",
+    "date_end": "1909-02-16",
+    "report_year": 1909,
+    "source_file": "3_1909-02-16_p1_sn88085947_00211108599_1909021601_0684",
+    "archive_ref": "3_1909-02-16_p1_sn88085947_00211108599_1909021601_0684",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-02-16_p1_sn88085947_00211108599_1909021601_0684",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 114,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 596,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A resolution emphatically oppos.\ning Senator Graves ~employers'\nminimum liability bill was adopted\nat a meeting of the Central Labor\ncouncil last night and c. r. Case,\npresident-elect of the State Fed\nGrafton of Labor, who has the in\nterests Of organized labor in\ncharge at Olympia, will be urged\nto an effort to kill the bill.\n\n\nThe resolution was unanimously\nadopted, as the general feeling\namong the labor unions of the\ncity is that no bill of this kind\nshould be passed to set out just\nhow much damage should be\nawarded by the courts to a man\nwho has been disabled by accident.\n\n\nThe woman's suffrage amend\nment was endorsed and resolu-"
+    }
+  ]
+}

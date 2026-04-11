@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-04-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-20",
+    "date_end": "1906-04-20",
+    "report_year": 1906,
+    "source_file": "1_1906-04-20_p1_sn88085947_00211108563_1906042001_0634",
+    "archive_ref": "1_1906-04-20_p1_sn88085947_00211108563_1906042001_0634",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-04-20_p1_sn88085947_00211108563_1906042001_0634",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "chamber of commerce"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 154,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 680,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 488,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 122,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "garding additional patrol men at\nr. Culbertson. B. G.. Ew-\ning. M. B. Connolly.\n\n\nCommittee Of 10 for the further\nance of relief-Chas. Hebberd, l..\nG. Monroe. Rem Rice, L. M. Dav-\nexport, David Brown, E. l.. Powell.\nT. S, Griffith, r. B. Patterson, d.\nw. Twohy, N. w. Durham.\n\n\nAuditing committee-Alfred Cool\nidge, r. d. Miller, F. Lewis Clark.\n\n\nCommittee on resolutions-Judge\nCullen, Mayor Daggett, F. e. Good\nall.\n\n\nPursuant to request made by\nmembers appointed for the purpose\nby the chamber Of commerce, May\nor Daggett ordered that 10 special\npolicemen be appointed to patrol\nthe business section Of the city at\nnight.\n\n\nA can was issued today by Mayor\nDaggeu asking for the city council\nto meet at o'clock tonight In a\nspecial session for the purpose OF\nappropriating $4,000 for the relie\nof San Francisco.\nFollowing is the official call TO\nthe meeting;\n\n\nApril Goth, 1906.\n\n\nHonorable President and Men"
+    }
+  ]
+}

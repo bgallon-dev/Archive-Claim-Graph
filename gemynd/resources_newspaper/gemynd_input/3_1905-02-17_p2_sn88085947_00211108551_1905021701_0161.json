@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILLARD STATUE\n\n\nIs ACCEPTED",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-17",
+    "date_end": "1905-02-17",
+    "report_year": 1905,
+    "source_file": "3_1905-02-17_p2_sn88085947_00211108551_1905021701_0161",
+    "archive_ref": "3_1905-02-17_p2_sn88085947_00211108551_1905021701_0161",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1905-02-17_p2_sn88085947_00211108551_1905021701_0161",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 337,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 447,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, Feb. IL. - The\nsnow- white marble statue of Miss\nFrances E. Willard, conspicuous as\na score or more of images Of noted\nmen, was unveiled in Statuary hall\nof the capitol this afternoon with\nexercises Of a highly interesting and\nimpressive character. The statue is\na gift from the state of Illinois, but\nits formal acceptance today was made\nthe occasion for loving tribute from\nthe women of the entire country to\nthe memory Of the great temperance\nleader.\n\n\nThe exercises were conducted I'M\nder the auspices of the Woman's\nChristian Temperance Union Of the\nDistrict of Columbia. The national\nofficers Of the organization, a number\nOf the state presidents and many\nleading workers from various parts\nOf the country were in attendance.\nThe exercises were attended also by\nthe members of congress in a body\nand addresses eulogizing the life,\ncharacter and work Of Miss Willard\nwere delivered by several Of the rep\nresentatives from Illinois. At the\nconclusion of the exercises 1000\nschool children filed through Statuary\nhall and each placed a white carna-\nton at the base of the statue.\n\n\nThe statue, which is of Carrara\nmarble, is the work of Miss Helen\nFarnsworth Mears of Wisconsin. 1t\nrepresents the famous temperance\nleader standing in modern dress by\nreading desk as though about to\naddress an audience In her left hand\nare a few leaves Of manuscript and\nher right arm rests easily on the\ndesk. At her feet on the pedestal\nare carved these words from one of\nher addresses:\n\n\n\"Ah it is women who have given\nthe costliest hostages to fortune. Out\ninto the battle of life they have sent\ntheir best beloved, with fearful odds\nagainst them. Oh, by the dangers\nthey have dared; by the hours of\npatient watching over beds where\nhelpless children lay; by the incense\nof ten thousand prayers waited from\ntheir gentle lips to heaven, l charge\nyou to give them power to protect\nalong life's treacherous highways\nthose whom they have so loved\""
+    }
+  ]
+}

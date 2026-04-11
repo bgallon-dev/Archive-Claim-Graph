@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "SUBMIT REPORT\n\n\nON GRADE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-22",
+    "date_end": "1908-05-22",
+    "report_year": 1908,
+    "source_file": "2_1908-05-22_p2_sn88085947_00211108587_1908052201_0555",
+    "archive_ref": "2_1908-05-22_p2_sn88085947_00211108587_1908052201_0555",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1908-05-22_p2_sn88085947_00211108587_1908052201_0555",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 89,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 246,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 114,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The report of the municipal rail\nway commission is now in the\nhands of Mayor Moore and at the\nnext meeting of the city council\nwill be submitted.\n\n\nThe committee expresses belief\nin the practicability of the Ralston\nscheme, which is for a common\nright Of way and a tunnel through\nCannon hill, but says that it will\nprobably take years to accomplish\nthis. 1t speaks sarcastically of the\nselfish interests OF the railroads in\nnot replying definitely on the sub\nject. 1t SAYS that the city has the"
+    }
+  ]
+}

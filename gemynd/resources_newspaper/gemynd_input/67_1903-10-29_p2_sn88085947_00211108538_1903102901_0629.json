@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "title": "Medical Lake\n\nRemedies\n\n\nNatures Cure",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-29",
+    "date_end": "1903-10-29",
+    "report_year": 1903,
+    "source_file": "67_1903-10-29_p2_sn88085947_00211108538_1903102901_0629",
+    "archive_ref": "67_1903-10-29_p2_sn88085947_00211108538_1903102901_0629",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "67_1903-10-29_p2_sn88085947_00211108538_1903102901_0629",
+      "composite_score": 11.25,
+      "domain_scores": {
+        "turnbull_prehistory": 4.5,
+        "iww_labor": 0.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "indigenous": [
+          "colville"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.5,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903,
+      "word_count": 175,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 593,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 176,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 521,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "indigenous",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Medical Lake Remedies are a posi-\ntive cure for rheumatism. stomach\ntroubles, skin diseases and eczema.\nNo remedies In this market are 30\nwe'll known as these. l.. Dollar. 504\nRiverside avenue, Spokane. says:\nThere is no question as to the cura-\ntive properties of your natural RENE\ndies as recommended. I have tried\nthe Medical Lake cure for rheuma-\ntism and was entirely cures.\"\n\n\nNelson Clark, an old resident,\nstates that his daughter was entirely\ncured of rheumatism. after the best\nphysicians could give but little relief,\nby taking the treatment at Medical\nLake.\n\n\n]. L. Kratzer, 01212 Colville street,\nSpokane, says he was greatly bene-\nflied in a case OF inflammatory rheu-\nmatism by the use of Medical Lake\ntreatment. They have performed the\ncures and there can be many testi-\nmonials furnished from we'll known\npeople In Spokane and vicinity.\n\n\nMedical Lake Salts.\n\n\nMedical Lake Tablets.\n\n\nMedical Lake Ointment.\n\n\nMedical Lake Plasters.\n\n\nMedical Lake Soap.\n\n\nFor sale by all druggists.\n\n\nManufactured by Medical Lake\nSalts Manufacturing Co.. Medical\nLake. and Spokane, Wash."
+    }
+  ]
+}

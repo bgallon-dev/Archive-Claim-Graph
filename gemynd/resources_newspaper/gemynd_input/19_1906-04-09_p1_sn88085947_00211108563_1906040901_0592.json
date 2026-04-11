@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "L BORER JOHN MCGOWAN\nFALLS FROM NEW RAILWAY\nBRIDGE AND Is SWEPT OUT\nOF SIGHT TOWARD THE\nTREACHEROUS RAPIDS AND\nLOWER FALLS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-09",
+    "date_end": "1906-04-09",
+    "report_year": 1906,
+    "source_file": "19_1906-04-09_p1_sn88085947_00211108563_1906040901_0592",
+    "archive_ref": "19_1906-04-09_p1_sn88085947_00211108563_1906040901_0592",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1906-04-09_p1_sn88085947_00211108563_1906040901_0592",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 93,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 205,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "John MCGOWAN, a laborer, who\nhas been doing grading work for\nErickson & Peterson at Riparia, on\nthe new branch line of the o. R. &\n\n\nN. between Riparia and Lewiston,\nIdaho, stumbled while crossing the\nnew Spokane & Inland railway\nbridge near Olive street this morn\ning and was precipitated headlong\ninto the river and almost immedi-\nately washed out of sight and into\nthe rapids. He had not time to call\nfor help before the strong current\nhad him within it's grasp and was\nwhirling him on to sure death. His"
+    }
+  ]
+}

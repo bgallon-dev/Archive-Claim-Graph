@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "CENTRAL\n\n\n| A B 0\nFAV0RS\n\nENDORSES INITIATIVE\nMOVEMENT FOR NEW\n\n\nORDINANCE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-23",
+    "date_end": "1909-11-23",
+    "report_year": 1909,
+    "source_file": "9_1909-11-23_p1_sn88085947_00211108617_1909112301_0144",
+    "archive_ref": "9_1909-11-23_p1_sn88085947_00211108617_1909112301_0144",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-11-23_p1_sn88085947_00211108617_1909112301_0144",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech",
+          "industrial workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 152,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 230,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 181,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 134,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BY unanimous vote of the Cen\ntrial Labor union last night It was\naereeo to support the initiative\nmovement looking to the adoption\nOf street speaking ordinance\nthat will settle the free speech\ncontroversy between the city and\nthe Industrial Workers OF the\nWorlG.\n\n\nThe petitions are being printed\nthis afternoon aud will be placed\nin general circulation tonight. The\nnames of members of the different\nunions willing to take out thn pc\ntitions have been secured AMI\nthere will be an effort made to\nget the necessary 20 per cent of\nthe voters without unnecessary\ndelay.\n\n\nThe proposed ordinance, which\ngives the right to speak on the\nstreet under police regulations,\nwas Endorsed. as fair and reason\nable by the representatives of the\ndifferent unions present at. the\nmeeting of the Central body last\nnight. Fred II. Moore, the attor-\nney who framed the ordinance,\nwas present and explained its\nmeaning."
+    }
+  ]
+}

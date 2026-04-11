@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-02-06 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-06",
+    "date_end": "1904-02-06",
+    "report_year": 1904,
+    "source_file": "18_1904-02-06_p2_sn88085947_00211108538_1904020601_0981",
+    "archive_ref": "18_1904-02-06_p2_sn88085947_00211108538_1904020601_0981",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1904-02-06_p2_sn88085947_00211108538_1904020601_0981",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "bunker hill"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 50,
+      "match_details": {
+        "mining": [
+          {
+            "term": "bunker hill",
+            "weight": 2.0,
+            "offset": 262,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "KELLOGG, Idaho, Feb. 6.-Mrs.\nPhil O'Rourke died here yesterday.\nThere was no more highly respected\nor better known lady in Occur d'Alene\ncounty and her death will be generally\nregretted. The deceased was the wife\nof Phil O'Rourke, one of the discover\ners of the Bunker Hill and Sullivan\nmine"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-10 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-10",
+    "date_end": "1903-02-10",
+    "report_year": 1903,
+    "source_file": "10_1903-02-10_p3_sn88085947_00211108526_1903021001_0329",
+    "archive_ref": "10_1903-02-10_p3_sn88085947_00211108526_1903021001_0329",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1903-02-10_p3_sn88085947_00211108526_1903021001_0329",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 111,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 499,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The fathers union held a social\nsession last night at Central Labor\nhall. The electrical workers and\nstonemasons. who were sitting in reg\nular session. were invited to attend.\nand the boys\" say that a more en-\njoyable time was never experienced\namong union men. The program con-\nsisted of songs and instrumental mu-\nsic. Many brief addresses were de-\nlivered ON the progress of labor\nunionism in Spokane, the principal\norator of the evening being r. S.\nPotts. the popular financial secretary\nof the trades council The fathers\nunion is in flourshing condition,\nand with the opening of spring the\nmembers expect to receive a raise in\nthe wage scale."
+    }
+  ]
+}

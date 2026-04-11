@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOBOES\n\nsUPERINTENDEN BEAMER Is\nSUES ORDERS TO TRAINMEN\nTO PREVENT KNIGHTS OF THE\nROAD TRAVELLING BY THE BOX\nCAR, BLIND BAGGAGE AND\nBRAKEBEAM RoUTEs.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-29",
+    "date_end": "1904-02-29",
+    "report_year": 1904,
+    "source_file": "9_1904-02-29_p4_sn88085947_00211108538_1904022901_1059",
+    "archive_ref": "9_1904-02-29_p4_sn88085947_00211108538_1904022901_1059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-02-29_p4_sn88085947_00211108538_1904022901_1059",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 2.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 295,
+      "match_details": {
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 26,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The cheerful and careless hobo has\nalready started on his semi-annual\nmigratons and to date several of them\nhave rushed the season and started\nto migrate before the warm rays of\nthe sun penetrate their hides. Super\nintendent Beamer is also out early with\ninstructions as to how to catch the hobo\nmapping and stop his free use of the\nbox car for his Pullman sleeper and\nday coach. In orders issued to train\nmen today he says that whenever any\nhoboes take to travelling via the freight\nline they must be ordered off the\ntrain and put off where force is nee\nessary. WWherever tramps are found\non train, their number, their des-\ntination and where taken on must be\nreported to headquarters.\n\n\nTrainmen Eave Harvest.\n\n\nDuring the summer season trainmen\nhave a rich harvest from the money\ncollected from tramps who load them\nselves onto the trains. Many crews\nleave convenient freight car unlock\ned This is used as trap for Mr.\nTramp who stealthily climbs into the\ncar and curls up in one corner on a\nsheet of newspaper or bandanna hand\nkerchief. This is done not exactly FOL\ncleanliness but as a menss of protection\nfrom the dust which is an unmistak\nable sign to a policeman that the man\nhas come over the hobo route, and re-\nsuits in his being ordered from the\ncity or 70 the chain gang.\n\n\nNot all who travel by the box cal\nline are tramps. Many hard-workinl\nmen who do not care to pay three cents\na mile had rather put up with the dis\ncomorts of a hard-foored box car, with\ntheir arm for a. pillow, and pay the\nbrakeman at the rate of one cent &\nmile OF even a half cent."
+    }
+  ]
+}

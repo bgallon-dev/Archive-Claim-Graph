@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-08-17 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-17",
+    "date_end": "1909-08-17",
+    "report_year": 1909,
+    "source_file": "8_1909-08-17_p9_sn88085947_00211108605_1909081701_0670",
+    "archive_ref": "8_1909-08-17_p9_sn88085947_00211108605_1909081701_0670",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-08-17_p9_sn88085947_00211108605_1909081701_0670",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 141,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 99,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 63,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There was a test of veracity be-\ntween members of the board Of\npublic works, in the meeting of the\ncity council last night for the con-\nsideration of the water question.\n\n\nA communication from the board\nto the city council urging the adop-\nton of the day labor plan said that\n1t was the Unanimous opinion\" of\nthe board that 1t should be done\nthat way, and estimated that the\nequipment necessary could be\npurchased for $3731.\n\n\nCouncilman Dalke was a little\nskeptical and asked Secretary ]. T.\nO'Brien of the board If all of the\nmembers Of the board had voted\nfor the adoption of the commune\ncation. O'Brien said they had.\n\n\nAsked where the board had Sc\ncured its figures as to the cost OF\nthe equipment. Mr.. O'Brien said\nfrom the city engineer and q con-\ntractor."
+    }
+  ]
+}

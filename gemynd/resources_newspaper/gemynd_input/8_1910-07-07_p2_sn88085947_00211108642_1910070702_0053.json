@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RAILROAD WORK TO\n\n\nBEGIN IN SIX WEEKS\n\nBETWEEN 5000 AND 10000 MEN TO BE EMPLOYED\nIN CITY LIMITS ON MILWAUKEE, AND\n\n\nNORTH COAST LINES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-07",
+    "date_end": "1910-07-07",
+    "report_year": 1910,
+    "source_file": "8_1910-07-07_p2_sn88085947_00211108642_1910070702_0053",
+    "archive_ref": "8_1910-07-07_p2_sn88085947_00211108642_1910070702_0053",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "8_1910-07-07_p2_sn88085947_00211108642_1910070702_0053",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "milwaukee road"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 239,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "milwaukee road",
+            "weight": 2.0,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Between 5000 and 10000 men will\nbe employed by the North Coast\nand Milwaukee roads as soon as\nconstruction is begun within the\ncity limits, and from present indi-\ncations this work will be begun\nwithin a month or six weeks. THE\nNorth Coast is the farther ahead\nwith its plans and will probably be\nin the city some little time ahead\nof the Milwaukee.\n\n\nOne of the first items of expendi\nture will be $3.50 600 for street i'm\nprovements, which will include the\nopening up, grading and paving of\nstreets which will be turned over\nto the city to take the place of\nthose which the corporation will\nvacate to the railroad.\n\n\nAll that the North Coast is wait\ning for now is an ordinance which\nwill include the vacation of certain\nstreets in the site desired for divis-\nion shops. President Strahorn says\nthat he will so ahead with the work\nas soon as this ordinance is passed.\nAll building obstructing the right of\nway of the North Coast have been\ndisposed of, with the exception of a\nvery few cases, which will be set.\ntied within the next few days.\n\n\nThe Milwaukee, according to Her.\nbert Witherspoon, assistant to\nJames Walsh. local representative\nof the road, will not begin work for\nseveral weeks yet within the city\nlimits. The construction of the rail\nroad bridge over the Spokane river\nand the condemnation of the OBJ"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WANT CONTRACT\n\n\nKEPT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-04",
+    "date_end": "1906-12-04",
+    "report_year": 1906,
+    "source_file": "6_1906-12-04_p1_sn88085947_00211108575_1906120401_0118",
+    "archive_ref": "6_1906-12-04_p1_sn88085947_00211108575_1906120401_0118",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1906-12-04_p1_sn88085947_00211108575_1906120401_0118",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 197,
+      "match_details": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 520,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Several unions interested in the\nbuilding Of the Home Telephone\nlines in this city met Sunday and\nagreed to place the Home company\nand the Empire Electric Construc-\nton Co. on the unfair list until\nthe concern kept its agreement to\nemploy union men at union wages\nIn its construction work. They al\nso resolved to refuse to permit\nmembers to patronize any company\nthat put Home telephone in its\nplace Of business.\n\n\nA committee representing these\nunion waited upon the central body\nlast night and asked that the board\nOF public works compel the Home\npeople to submit all their plans for\nconduits and other work to the\nboard before commencing work In\ncompliance with the city ordk\nnances. The central body complied\nwith the request and It's commit\ntee was informed today that the\ncompany had already been asked to\nsubmit It's plans TO the board.\n\n\n1t Is believed that the trouble\nbetween the unions and the Home\nTelephone Co. will be settled at az,\nearly date. A settlement has. it Ia\nreported, been made in Portland\nand ether cities. In Denver the\ncompany posted Il $4,000 bond to\nkeep Its compact with the unions,"
+    }
+  ]
+}

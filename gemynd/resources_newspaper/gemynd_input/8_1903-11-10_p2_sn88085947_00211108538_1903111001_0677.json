@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Changers at Play.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-10",
+    "date_end": "1903-11-10",
+    "report_year": 1903,
+    "source_file": "8_1903-11-10_p2_sn88085947_00211108538_1903111001_0677",
+    "archive_ref": "8_1903-11-10_p2_sn88085947_00211108538_1903111001_0677",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-11-10_p2_sn88085947_00211108538_1903111001_0677",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 61,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 261,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ROCHESTER,, N. Y, Nov. 1O.-Del-\negates from Wisconsin,, Washington,\nVermont. Pennsylvania, Oregon. New\nJersey. Missouri, Michigan. Kansas,\nIndiana, Illinois, Colorado and a num-\nDer of other states are here for the\nthirty-seventh annual meeting of the\nNational Grange, Patrons of Illus\nbandry. The gathering will be for\nmally opened tonight in Fitzhugh hall\nwith Grand Master Aaron Jones of\nIndiana presiding."
+    }
+  ]
+}

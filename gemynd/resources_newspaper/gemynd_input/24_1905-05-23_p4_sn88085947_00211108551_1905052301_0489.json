@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-05-23 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-23",
+    "date_end": "1905-05-23",
+    "report_year": 1905,
+    "source_file": "24_1905-05-23_p4_sn88085947_00211108551_1905052301_0489",
+    "archive_ref": "24_1905-05-23_p4_sn88085947_00211108551_1905052301_0489",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1905-05-23_p4_sn88085947_00211108551_1905052301_0489",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "labor trouble"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 77,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "labor trouble",
+            "weight": 2.0,
+            "offset": 354,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the conditions existing in Spokane to\nthe next meeting of the federation.\nand it was suggested that charges be\nfiled against the typographical union\nat the next convention of the Ameri-\ncan Federation of Labor for the part\nit has taken in the local labor diff\nficulty. Action of this kind will prob\nably be considered by the local as\nsembly that Spokane labor troubles\nmay be brought to the attention OF\norganized labor throughout the coun-\n\n\n"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GAS PLANT IS SOLD AND \\\n\n\nnew COMPANY FORMED",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-09",
+    "date_end": "1903-06-09",
+    "report_year": 1903,
+    "source_file": "11_1903-06-09_p1_sn88085947_00211108538_1903060901_0046",
+    "archive_ref": "11_1903-06-09_p1_sn88085947_00211108538_1903060901_0046",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-06-09_p1_sn88085947_00211108538_1903060901_0046",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 162,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane Falls Gaslisht COM\npany was sold at auction at IL\no'clock this morning for the sum of\n100000. The purchase was made in\nthe name Of Charles S. Reeves OF Ia\ncoma, who Immediately filed the re-\nQuired certified check for $4,000 with\nw. A. Aldrich. secretary of the COM\npany. His was the only bid. The\ncheck is drawn on the Bank of Mon\ntreal. Mr., Reeves Represents the\nPhiladelphia syndicate for whom\nIsaac w. Anderson has been acting.\n\n\nBefore the sale took place and i'm.\nm4diately after the reading of the\nnotice. Frank Post, attorney for\nCharles Theis. entered a protest on\nbehalf Of his client, stating that an\naction was now pending in the SUI\nperior court to prevent the sale.\n\n\nHe further stated that in the pub\nlished notice the date was set as May\n8. and that the only notice given Of\ntoday's sale had been few lines In\nan afternoon paper yesterday and this"
+    }
+  ]
+}

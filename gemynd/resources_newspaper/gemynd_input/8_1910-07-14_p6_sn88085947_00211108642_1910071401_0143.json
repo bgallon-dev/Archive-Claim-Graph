@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "STOCK MARKET",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-14",
+    "date_end": "1910-07-14",
+    "report_year": 1910,
+    "source_file": "8_1910-07-14_p6_sn88085947_00211108642_1910071401_0143",
+    "archive_ref": "8_1910-07-14_p6_sn88085947_00211108642_1910071401_0143",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-07-14_p6_sn88085947_00211108642_1910071401_0143",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "great northern",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 180,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 220,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 444,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 220,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "FURNISHED by Walter a. Nichols &\n\n\nCompany\n\n\nNEW YORK, July 14-According\nto the understanding of the railroad\nofficials here, the decision reached by\nthe Interstate Commerce Commission\nto suspend The operation of higher\nfreight rates in this particular case\ndoes not apply to the advances which\nwere to be issued by the western\nroads. From the information receiV-\ned from Washington it appears that\nsuch roads as the St Paul, Northern\nPacific, Great Northern, Chicago q\nNorthwestern, Union Pacific South\nern Pacific, Atchison and Denver &\nRio Grande will not be affected by\nthis particular order. The decision\nhowever, will affect all the eastern\ntrunk lines and the roads embraced\nin the central traffic association. The\nroads. it is said, filed their increased\nrates with the understanding that\nthey would be held up pending inves-\ntigation by the committee in the case\nof western roads. However, no such\nunderstanding existed. All of the\ntrunk line and railroads between the\nAtlantic coast and the Missouri river\nare concerned in the suspension of\nfreight rates by the Interstate Com\nmerce Commission today."
+    }
+  ]
+}

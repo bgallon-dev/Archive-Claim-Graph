@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "pliance with the law and the regu-",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-28",
+    "date_end": "1908-09-28",
+    "report_year": 1908,
+    "source_file": "1_1908-09-28_p7_sn88085947_00211108587_1908092801_1083",
+    "archive_ref": "1_1908-09-28_p7_sn88085947_00211108587_1908092801_1083",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-09-28_p7_sn88085947_00211108587_1908092801_1083",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 5.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation",
+          "indian reservation",
+          "tribal"
+        ],
+        "railroads": [
+          "right of way"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 275,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 373,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 380,
+            "in_headline": false
+          },
+          {
+            "term": "tribal",
+            "weight": 1.5,
+            "offset": 598,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 349,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "pliance with the law and the regu-\nlations the department of the in\nterror permitted the Standard Oil\npipe line company (the Prairie Oil\n& Gas Coz and the various rival\npipe line companies, such as the\nOklahoma National Gas Co., the\nDense Portland Cement Co. the\nTexas & Gulf Pipe Co. and others,\non the same terms and under the\nsame conditions the right of way\nacross the Indian reservation.\n\n\n\"The permit of the national gov\neminent as set forth in the tele-\ngram of Secretary of the Interior\nGarfield to Governor Haskell of\nApril 90 last was merely to cross\nor use the restricted allotments\nand tribal property of the Indians;\nit had nothing to do with the Ques-\nton of compliance with the laws of\nthe state of Oklahoma and con-\nferred no privilege to cross terri.\ntory in Oklahoma outside of these\nreservations. Governor Haskell\nrefuses to permit any proceedings\nto be taken against the Standard\nOil Co, although this company de.\nclines to obey the law of Oklahoma.\nHe claims that the Standard Oils\nrights were superior to the require\nments of the Oklahoma constitu-\nton. for which he was himself\nmainly responsible; he took the\ndecision of this question away\nfrom the courts and against the\nopinion of his attorney general he\ndecided it in favor of the Standard\nOil corporation.\n\n\nYou have uttered no word Of\ncondemnation of Haskellism, as we\nthus see it. That you consciously\nsought to bring it about do not\nbelieve. That it was the natural\nresult of the effort to apply in\npractice your teachings | have no\nquestion. Yours truly. Theodore\nRoosevelt\""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "P[AN STATE GRAND AND\n\n\nDIRECT LEGISLATIVE MEETINGS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-01",
+    "date_end": "1910-08-01",
+    "report_year": 1910,
+    "source_file": "19_1910-08-01_p11_sn88085947_00211108642_1910080101_0343",
+    "archive_ref": "19_1910-08-01_p11_sn88085947_00211108642_1910080101_0343",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1910-08-01_p11_sn88085947_00211108642_1910080101_0343",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 84,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Plans are being arranged by the\nState Grange and the Direct Legis-\nlatlon league for two big public\nmeetings, one in Seattle and one in\nSpokane. on peoples rule, at which\nUnited States Senator Jonathan\nBourne, Jr.. will be the principal\nspeaker. These meetings art to\ntake place some time in the middle\nof August, on the return of Senator\nBourne from the east, and have\nbeen planned by the Grange to\nmark the opening of their summer\nand fall campaign for direct legis-"
+    }
+  ]
+}

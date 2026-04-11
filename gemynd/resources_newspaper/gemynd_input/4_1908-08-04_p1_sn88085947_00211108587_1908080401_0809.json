@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "CITY BEAUTIFUL NOW\n\n\nTHE CITY b0UNT|FUL",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-04",
+    "date_end": "1908-08-04",
+    "report_year": 1908,
+    "source_file": "4_1908-08-04_p1_sn88085947_00211108587_1908080401_0809",
+    "archive_ref": "4_1908-08-04_p1_sn88085947_00211108587_1908080401_0809",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-08-04_p1_sn88085947_00211108587_1908080401_0809",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 267,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1534,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 1047,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 1503,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "terday sat among the bundles of\nclothing repairing and patching the\nwomen's and children's goods.\n\n\nThe report yesterday that fire.\narms were needed in Fernie for\nfear Of depredations by Slavonians,\nwas altogether uncalled for, as w.\nd. Finley ascertained on his ar\nrival within the fire zone. The\nSlavs and in fact foreigners of all\ndescriptions worked shoulder to\nshoulder with the Canadians and\nAmericans assisting the wounded\nand taking care of exposed prop\nerty.\n\n\nAll day long Mr., Dreher has been\nIn receipt of kilograms from the\nstriker people thanking the people\nof Spokane for their prompt and\nready answer to the call for help.\nSpokane was the only point from\nwhich aid could be sent for the\nfirst \"a hours and the people here\nresponded with their customary\nenergy and sympathy.\n\n\nConsiderable credit is due to\nActing Mayor Joe Phillips, who\nhustled about among the council\nmen and was authorized to go to\nany needed expense. The first day\nof disaster was Sunday and most\npeople were away. Phillips. how\never, with Pres. Goodall Of the\nchamber of commerce, got into\ncommunication with merchants and\ngot carload Of goods of as soon\nas possible. The councilmen will\nmake an appropriation to cover\nwhat expense was undertaken. 1t\nwill not amount to more than 5000\nor $500, which will be taken out\nof the general fund.\n\n\nPres. Goodall of the chamber OF\ncommerce did transfers duty\nmuch of yesterday, personally as\nsisting in loading wagons and\nhandling the reins In driving the\ngoods down to the relief train at\nthe o. r. & N. depot."
+    }
+  ]
+}

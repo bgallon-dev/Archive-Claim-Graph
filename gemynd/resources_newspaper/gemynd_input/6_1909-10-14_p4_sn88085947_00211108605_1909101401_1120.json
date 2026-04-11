@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "A DUTCH IMMIGRANT FAMILY ON THE HUNTLEY PROJECT\n- NOTE THE CHIf.DRE MS WOODEN SHOES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-14",
+    "date_end": "1909-10-14",
+    "report_year": 1909,
+    "source_file": "6_1909-10-14_p4_sn88085947_00211108605_1909101401_1120",
+    "archive_ref": "6_1909-10-14_p4_sn88085947_00211108605_1909101401_1120",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-10-14_p4_sn88085947_00211108605_1909101401_1120",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 228,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 270,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "are trying to hold down both\nclaims. He has to live here and\nshe 60 miles away. But they visit\nback and forth. and they will have\ntwo farms instead of one.\n\n\nTHAT prosperous place over\nthere is the home of old Sol Smith.\nHe came from Missouri, but had so\nlittle idea Of irrigation farming that\nhe supposed the government wat\ncred his crops for him. He came\nto the office of the supervisor and\nsaid he supposed that all he had to\ndo was to plant, and let the gov\neminent do the rest He is doing\nfine.\n\n\nThis place-you see 1t is one Of\nthe most prosperous We have seen\nbelongs to- a Norwegian from st.\nPaul He came last year. but had\nhard luck. So he wrote back to the\ngirl in. st. Paul to whom he was\nengaged, saying things had all gone\nbadly and they would have to post\npone their wedding another year.\nTo his surprise he received tele-\ngram saying: If you ever need\nme IL is now. Meet me at the 9:15\ntrain She is doing half the work,\nand they are apparently as happy\nas any two people in the United\nStates.\n\n\nHere is the school teachers\nfarm. He worbks II after hours. You\nsee he has put in a little of every\nthing you can think of."
+    }
+  ]
+}

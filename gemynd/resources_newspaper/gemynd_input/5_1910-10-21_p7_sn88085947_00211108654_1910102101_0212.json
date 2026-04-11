@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SUPREME COURT IS UNMAsKEO\n\ncontirued From Page One.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-21",
+    "date_end": "1910-10-21",
+    "report_year": 1910,
+    "source_file": "5_1910-10-21_p7_sn88085947_00211108654_1910102101_0212",
+    "archive_ref": "5_1910-10-21_p7_sn88085947_00211108654_1910102101_0212",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-10-21_p7_sn88085947_00211108654_1910102101_0212",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 477,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1080,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "executive officers and Of nullIfyInq\nthe laws passed by legislatures.\nAnd until those courts can be rem\ndered responsive to the will Of the\npeople they will continue the last\nstubborn bulwark Of privilege,\ncounteractine our victories FOR pop\nuIar government and making q\nbowling farce Of our pretended rep\nresentative institution.\n\n\nFacts Kept From People.\n\n\nFol. five years last past the\nWashington supreme court has\nbeen an object of suspicion. For\ntwo years last past It has been the\ncenter of a cyclone of stories of\nscandal and corruption. Whether\nthere is much or little truth in\nthese stories the people of the\nstate have not been permitted Of\nficially to determine. Time after\ntime these efforts have been fus-\ntrated.. Time after time the long\narm OF some mighty unseen power\nhas appeared to stretch, out of the\na6arkness and suppress. the inves-\ntigation.\n\n\nw Athih WV yCdIo hICAUCl VI\nthe court resigned under the accu-\nsation of having accepted corpora\nton money. 1t was afterwards dis\nclosed that an opinion handed\ndown by him had been written by\nan attorney for the Great Northern\nrailroad. Within a year a former\nchief justice was prosecuted for\nembezzlement but the alleged vic\ntim of his populations refused to\nappear against him. 1t is even\nclaimed that the money he was\ncharged with having embezzled\nwas used to corrupt the court.\n\n\nAnd yet the law that these men\nwrote, while they were on the\nbench, Is still the law Of Washing\nton, even to the opinion written by\nthe Great Northern attorney. Lit\ntie of it has been reversed, none\nOf it openly repudiated.\n\n\nAnd we are told that this court\ncan do no wrong.\n\n\n1t has been charged that In one\ncase $4,000 and in another case\n$4,000 were paid for decisions by\nthe supreme court in favor of a\npowerful public service corpora\nton. 1t has been charged that a\nseries Of decisions were rendered,\nfor mysterious reasons, in favor of\nanother powerful corporate inter-\nest, decisions which were without\nsound basis in either law or equity.\nIn another case q man claiming to\nhave pull with the court offered\nlitigant favorable decision for\n$4,000, the decision being after\nwards delivered. 1t is charged\nthat two men were elevated to the\nbench for the express purpose of\nreversing an established principle\nof law, reversal designed to en-\nnance the profits of great en-\nploying corporations.\n\n\nThe Great Difficulty.\n\n\nThe fundamental difficulty lies\nin the fact that the court Is not\nreadily responsive to the will of\nthe people. II the people would\ncontrol their judges the people\nmust themselves select those\njudges. II the people would make\ntheir control 1Psir judges COM\npIete the peol must possess\nthemselves of the power to remove\ntheir judges. This Is fundamental.\n\n\nLaw MutiIated.\n\n\nThree years ago the Washington"
+    }
+  ]
+}

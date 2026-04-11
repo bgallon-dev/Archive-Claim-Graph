@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-04-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-01",
+    "date_end": "1904-04-01",
+    "report_year": 1904,
+    "source_file": "21_1904-04-01_p1_sn88085947_00211108538_1904040101_1168",
+    "archive_ref": "21_1904-04-01_p1_sn88085947_00211108538_1904040101_1168",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1904-04-01_p1_sn88085947_00211108538_1904040101_1168",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 2.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "relief",
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 380,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1144,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 164,
+            "in_headline": false
+          },
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 459,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The sprinkling season opens in Spo.\nkane today and will continus to Octo-\nDer i. The water proposition remains\nthe same as it did last year with little\nprospect of relief for the people.\n\n\nCommissioner Weymouth is Of the\nopinion that if water meters were in\nstalled in every home in Spokane and\nq special rate made for the water used\non lawns the strained condition would\nbe removed.\n\n\nFrom figures obtained from the city\nengineer and members of the board Of\npublic works yesterday, it was learned\nthat to install &-inch meter it would\ncost S23 for the meter alone and from\n\"a to IS to put it in. A smaller meter\nwould not answer, but would give cons\nslant trouble.\n\n\n1t was estimated that IL would re-\nquire between 5000 and 10000 meters\nto supply the homes of Spokane. At\nthe lowest estimate, then, il would re-\nquire an expenditure of $2l6 600 on the\npart of the city at the expense Of tho\ntaxpayers to carry out this risky exper-\niment. 1t would be impossible for the\ncity to carry out the measure without\nan enormous appropriation, requiring\nan additional tax levy, which Spokane\nis in no humor to endure.\n\n\nSoheming to Raise Funds.\n\n\nThe city council already has sent\nrequest to the city treasurer and city\ncomptroller to devise some means BY\nwhich enough funds can be raised to\nextend the water mains which were\nordered built last fall 1t is expected\nthat some conclusion will be reached\ntoday by Comptroller Daggett and City\nTreasurer Eggleston.\n\n\nCity Engineer Gill said yesterday that\nfor s2l5, 1000 a new force main could be\nbrought from the pumping station; and\nfor $4,000 new pump, capable OF\npumping 10000, 600 gallons per day,\ncould be placed in the station. Mr..\nGill, however, is strongly in favor OF\nthe two 1000, OO0-gallon tanks, one for\neach side of the river. These, Accord\ning to Mr.. Gill, will cost only 10000.\n\n\nweymouth Stands Atoms.\n\n\nCommissioner Weymouth seems to\nbe the only member Of the board Of\npublic works in favor of the meter\nproposition. Other members expressed\nthemselves in favor of hiring several\ninspectors to watch the amount Of\nwater used and to see that sprinkline\nwas not done out of hours."
+    }
+  ]
+}

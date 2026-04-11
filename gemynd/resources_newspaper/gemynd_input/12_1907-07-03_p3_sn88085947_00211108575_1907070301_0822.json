@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-07-03 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-03",
+    "date_end": "1907-07-03",
+    "report_year": 1907,
+    "source_file": "12_1907-07-03_p3_sn88085947_00211108575_1907070301_0822",
+    "archive_ref": "12_1907-07-03_p3_sn88085947_00211108575_1907070301_0822",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-07-03_p3_sn88085947_00211108575_1907070301_0822",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "tribal"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 208,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "tribal",
+            "weight": 1.5,
+            "offset": 534,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "which Bixby and his commission\nworked. The farther the work pro-\nceded the bigger the Job got. II\nfinally resolved itself into . sort OF\nprobate court, in which the COM\nmission. as court, judicially de-\ntermined how many Indians were to\nshare in the Indian estate, and what\nparticular portion each was entitled\nto by virtue of possession and i'm\nprovements.\n\n\nAt one time the commission had\n600 men and over 100 teams at\nwork.\n\n\nThen rolls OF the Indians had to\nbe made. Neither the government\nnor the tribes had authentic rolls.\nThe tribal rolls had been brazenly\npadded with straw names in order\nto draw Indian money. Tams took\nout the dummies.\n\n\nMany Indians would take to the\nbrush as soon as a government\nparty came into the neighborhood.\nTen years of persistent effort has\nluiiSu w SCI 'hC uuuVS Vi SOult VI\nthese Indians.\n\n\nAdded to this difficulty in get\nting the Indians to enroll was the\npersistent efforts OF other claimants\nwho were not entitled to get on\nthe rolls so they could get lands.\nThere were 100000 applications for\ncitizenship, and out of that number\n100000 were finally admitted.\n\n\nA great force of law clerks had\nto be maintained constantly to han"
+    }
+  ]
+}

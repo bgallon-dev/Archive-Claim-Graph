@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "WATER HIGH AND SWIFT AND\nLOGS IN RIVER MAY SWEEP\nOUT ALL OTHER CROSSINGS\nIF THEY BREAK LOOSE\nFROM BOOMS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-03-02",
+    "date_end": "1907-03-02",
+    "report_year": 1907,
+    "source_file": "8_1907-03-02_p1_sn88085947_00211108575_1907030201_0420",
+    "archive_ref": "8_1907-03-02_p1_sn88085947_00211108575_1907030201_0420",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-03-02_p1_sn88085947_00211108575_1907030201_0420",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 402,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1152,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 1362,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t seems to be a foregone con-\nclusion now that the piers for the\nWashington and Howard St.\nbridges will not be built for an\nother year. Since the delay\ncaused by the inactivity of the city\ncouncil, which did not pass the or\ndinance authorizing this work I'M\ntil Feb. 26, the water has risen at\nan alarming rate until now there\nIs a depth of IA feet at Washington\nst. and the current has reached 80\nfeet per second. Should the work\nstart now, the falseworll would\ncontract the current to such a de-\ngree that it would be almost a\nphysical impossibility to withstand\nit. This would greatly endanger\nthe lives of workmen, as well as\nmake imminent the destruction OF\nthe entire bridge.\n\n\nBesides the danger from the cur\nrent at that point, the river Is\nnow full of a boom of logs at the\nMcGoldrick plant. Everything pos.\nsible is being done to fasten and\nhold the boom until it can be\nhandled by the mill. Should the\ncurrent get much swifter this\nboom may give away and the prob\nabilities in that case are that ev-\ncry bridge between there and the\nfalls would be smashed.\n\n\n1t is understood that the Coates\nWallace Engineering Co., of Chi\ncago, which the city council has\nauthorized to supply an engineer\nto supervise the work by day la\nDor, will send an expert post haste\nto report on conditions here. Mr..\nBiers, one of their experts, is now\nengaged at Portland, Ore, and in\norder to save time he will prob\nably be order to Spokane at once.\n\n\nj. b. Straus, the expert who re-\nported on the bridges here some\ntime ago, and who promised to\nforward report when he got back\nto Chicago, has as yet turned In no\nreport, and Commissioner w. T.\nRoy, who is at the head of the\nbridge department, is unable to ges\ncommunication from him.\n\n\nHis verbal report while here\nwas that practically every bridge\nin the city was frail, worn out, or\ndefective, the least defective of all\nbeing the Monroe St bridge, which\nhas all along been considered the\nweakest structure in the city,\n\n\n1t has been minated that Mr..\nSirius was instructed to hold up the\nreport. as 1t was of such disturb\ning nature that the general public\nwould be afraid to cross any of the\nbridges."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "'pORTERS MAY\n} ORGANIZE AN\n\n\n!, INTERNATIONAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-16",
+    "date_end": "1906-01-16",
+    "report_year": 1906,
+    "source_file": "2_1906-01-16_p2_sn88085947_00211108563_1906011601_0309",
+    "archive_ref": "2_1906-01-16_p2_sn88085947_00211108563_1906011601_0309",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-01-16_p2_sn88085947_00211108563_1906011601_0309",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 132,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 170,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Porters local union 1852 held\ntheir installation of officers at the\nCook hall on Howard street last\nTuesday evening. The local porters\nare working under charter from\nthe American Federation of Labor\nand have been asked by that organ\nization to assist in organizing an\ninternational porters' union. The\nporters are giving the matter due\nconsideration and may decide to\naccede to the request of the A. F.\nof L., and it Is not improbable that\nin the near future Spokane will be\nthe headquarters of the porters'\ninternational union.\n\n\nThe following officers were in\nstalled: j. c. Lawler, president;\nVIM. Lynch, vice president; F.\nSmith, secretary; George Parker,\ntreasurer; H. Colby, guide; c. Mar\ntin, sergeant at arms. The reports\nof officers showed the union to be\nin good shape financially."
+    }
+  ]
+}

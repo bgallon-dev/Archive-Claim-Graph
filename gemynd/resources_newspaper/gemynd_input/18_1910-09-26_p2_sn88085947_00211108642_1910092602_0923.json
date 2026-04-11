@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-09-26 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-26",
+    "date_end": "1910-09-26",
+    "report_year": 1910,
+    "source_file": "18_1910-09-26_p2_sn88085947_00211108642_1910092602_0923",
+    "archive_ref": "18_1910-09-26_p2_sn88085947_00211108642_1910092602_0923",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "18_1910-09-26_p2_sn88085947_00211108642_1910092602_0923",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 148,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 168,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Forty-five little cherubs without\nq place to care for them and pro-\ntect them from the elements and\ncold chills of winter, is the prob\nlem which is now confronting the\nWoman's club in regard to the\nChildren's Day Nursery.\n\n\nThere have been so many hard\nworking mothers, who have\nbrought their children to the nur-\nsery to be cared for while they toll\nday in and day out, that the pres\nent home will no longer accommo-\ndate the little ones and the women\nof the club have been forced to\nhunt new quarters.\n\n\n1--WE have searched diligently for\nq convenient home of seven or\neight rooms\" said Mrs. c. w. De-\nming, who has been appointed to\nhead the committee to secure a\nnew building, \"but our efforts have\nbeen fruitless. We have found\nsatisfactory places and we have the\nmoney to afford them, but the"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "TO TRY REED ON\n\n\nTWO CHARGES",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-16",
+    "date_end": "1909-12-16",
+    "report_year": 1909,
+    "source_file": "11_1909-12-16_p2_sn88085947_00211108617_1909121601_0371",
+    "archive_ref": "11_1909-12-16_p2_sn88085947_00211108617_1909121601_0371",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-12-16_p2_sn88085947_00211108617_1909121601_0371",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 81,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 409,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 84,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Frank Reed, |. w. w. leader, is\nto be tried in Justice Suckers\ncourt on two charges-conspiracy\nand flag dissertation. Changes of\nvenue were made this morning\ntransferring the cases from the jur-\nisdiction of the police court.\n\n\nChief of Police Sullivan swore to\nthe complaint charging Reed with\nconspiracy, while Captain of Detec-\ntives Burns charged Reed with des-\necrating the Stars and Stripes.\n\n\nReed was arrested in the |. w.\nw. hall for speaking disrespectfully\nof the American flag."
+    }
+  ]
+}

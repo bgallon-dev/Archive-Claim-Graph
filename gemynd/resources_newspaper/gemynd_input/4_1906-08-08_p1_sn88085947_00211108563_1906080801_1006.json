@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MAY CELEBRATE\nAt COEUR D\n\n\nALENE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-08",
+    "date_end": "1906-08-08",
+    "report_year": 1906,
+    "source_file": "4_1906-08-08_p1_sn88085947_00211108563_1906080801_1006",
+    "archive_ref": "4_1906-08-08_p1_sn88085947_00211108563_1906080801_1006",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1906-08-08_p1_sn88085947_00211108563_1906080801_1006",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 252,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 91,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is strong sentiment\namong local union men to go to\nOccur d'Alene on Labor day, using\nNorthern Pacific to transport the\ncrowds to that place. A 60 cent\nfare for the round trip can be Sc\ncured for that day, which Is 40\ncents less tnan on the electric line.\nThis sentiment has been greatly\nstrengthened by the refusal of the\nTraction company to provide suit\nable grounds for athletic exercises\nand games at Mantle park.\n\n\nThe mayor agreed to permit the\nuse of portion OF Mantle lying\nback of the dancing pavilion for\nathletic sports at Mantle, but after\nconsidering the matter the Trac-\nton people do not feel that they\ncan shoulder the expense necessary\nto put the grounds in proper shape\nand build a grandstand and bleach\ners. The decision of the Traction\ncompany will prove a disappoint-\nment to local unions that had\nhoped to have the grounds In\nshape on Labor day.\n\n\nThe Painters union has issued\na challenge to play ball or pull a\ntug Of war with members of any\nlocal union. The painters are ready\nto back their athletic ability with\ntheir money and rival team can\nmake some money maybe provid-\ning 1t can win, both events are\nsch eduled for Labor day. Anyone\nwho may feel like tackllng the\npainters can address George G.\nCody, Central Labor hall.\n\n\nThe speakers on Labor day will\nbe Mayor Floyd Daggett and form\ner Lieutenant Governor Coats of\nIdaho, who has recently taken up"
+    }
+  ]
+}

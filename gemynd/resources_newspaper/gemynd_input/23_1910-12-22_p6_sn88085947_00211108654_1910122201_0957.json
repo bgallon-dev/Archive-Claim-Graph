@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOLIDAY DANCES ARE NUN.\n\n\nEROUS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-22",
+    "date_end": "1910-12-22",
+    "report_year": 1910,
+    "source_file": "23_1910-12-22_p6_sn88085947_00211108654_1910122201_0957",
+    "archive_ref": "23_1910-12-22_p6_sn88085947_00211108654_1910122201_0957",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1910-12-22_p6_sn88085947_00211108654_1910122201_0957",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 337,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 212,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "FHOltOAY DANCES AXE NUM-\n\n\nEROUs.\nOne of the many dances planned\nTor the holidays that will be an\nevent of note is the high school\nalumni dance to be given Tuesday\nevening, January 3, in the ball\nroom of the new Woman's club on\nNinth avenue and Walnut street\nThe committee on arrangements is\nClayton Evanson, Wayne Butter\nbaugh. Clair Daniels, Ralph White\nand Clay Strong. Patronesses for\nthe event will be Miss Wright, Miss\nS.egler, Miss Palmer and Miss\nKayne, all members of the high\nschool faculty.\n\n\nMonday evening, December 26.\nthe Chanticler club, composed of\nmembers and alumni of the high\nschool, will dance in Masonic tenn\npie, and Thursday evening, De.\ncember 20, the Billikens, another\nhigh school club, will hold a dane\ning party in the same hall. A fea-\nture OF this event will be the sing\ning of numbers by the Billiken\nquartet.\n\n\nWoMAN's BOOK CLUB HELD\n\n\nCHRISTMAS PARTY.\n\n\nThe Christmas meeting of the\nWoman's Book club was held yes\nterday afternoon at the home of\nMrs. L. B. Gates, 622 Augusta ave-\nnue.. An extensive and delightful\nprogram was rendered by the club\nmembers and gifts were brought\nand a box made up for the Old\nLadies' home.\n\n\n& 4 q\n\n\nWILL HOLD FIRST MEETING\n\n\nOF YEAR.\n\n\nMembers of the Mantle Boule-\nward club will hold their first meet\ning of the year on New Years ave\nat the home of Mr.. and Mrs. Cliff\nton Darling. 1916 Mantle boulevard.\nCards will furnish the form of en-\ntertainment. This is to be the first\nmeeting of series that will con-\ntine throughout the season.\n\n\n= 4 4\n\n\nELECT OFFICERS OF MASONIC\n\n\nLODGE.\n\n\nAt the meeting of Spokane coun-\nGil, No. 4, Royal and Select Mas\ntiers of the Ancient Masons, last\nnight in the Masonic temple, Ed.\nward j. VOss was elected thrice\nillustrious grand master and James\nw. Bowen, right illustrious master.\nJudge Henry l.. KEENAN, was select\ned nv tho members &C troocuro,.\nand Harry Rush as recorder."
+    }
+  ]
+}

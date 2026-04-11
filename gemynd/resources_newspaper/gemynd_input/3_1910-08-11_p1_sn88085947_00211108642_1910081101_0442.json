@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "No CASE:\nAGAINST\n\n\nUNION MEN\n\nPolice Activity Against Or\nganized Labor Shown\n\n\nUp.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-11",
+    "date_end": "1910-08-11",
+    "report_year": 1910,
+    "source_file": "3_1910-08-11_p1_sn88085947_00211108642_1910081101_0442",
+    "archive_ref": "3_1910-08-11_p1_sn88085947_00211108642_1910081101_0442",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-08-11_p1_sn88085947_00211108642_1910081101_0442",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "arrested",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 203,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 760,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 570,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 155,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There were some things of in.\nterest brought to the surface in the\nhearing in Justice Hyde's court\nthis morning in the cases of the\nthree union machinists arrested d\nfor alleged beating up of two\nstrikebreakers, employed at the\nUnion Iron works.\n\n\nFirst, it appears that Chief of\nPolice Sullivan and Prosecuting\nAttorney Fred c. Pugh, on com\nplant of Manager Fitzpatrick of\nthe Union Iron works. caused war\nrants to be issued for e. J. Gra-\nham and Tom Steinbach. union\nmachnists, when they had no evi-\ndence against them. Graham and\nSteinbach were confined in the city\nJail for nearly seven hours, after\nthey walked into the police station\nand gave themselves up. on learn\ning that warrants were out for\nthem. They We're charged with\nbeating one Halverson, a strike\nbreaker. This morning, in Justice\nHyde's court, the two men were\ndismissed and the case dropped\nwithout asking question. This\ncase illustrates how much the city\nadministration and the prosecuting\nattorneys office loves organized la\nDor.\n\n\nThe reason that Graham and\nSteinbach were wanted is because\nthey were on the executive com\nmittee of the striking machinists\nThey said at the time of their ar\n\n\nContinued on Page Two."
+    }
+  ]
+}

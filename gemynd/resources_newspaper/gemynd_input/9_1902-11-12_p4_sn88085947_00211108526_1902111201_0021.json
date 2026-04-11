@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "WILL START\n\nWooden Mill to be Operated\n\n\nin Old Water Works.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-12",
+    "date_end": "1902-11-12",
+    "report_year": 1902,
+    "source_file": "9_1902-11-12_p4_sn88085947_00211108526_1902111201_0021",
+    "archive_ref": "9_1902-11-12_p4_sn88085947_00211108526_1902111201_0021",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1902-11-12_p4_sn88085947_00211108526_1902111201_0021",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "chamber of commerce"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 129,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 45,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 358,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Through the efforts of the com\nmittee of the chamber Of commerce\na number of local capitalists have\nbeen interested and sufficient stock\nhas been sold to assure Spokane\none of the largest wooden mills in\nthe northwest\n\n\nThe mill, which is to occupy the\nold water works building, at the\nfoot of Mill St, will be under the\nmanagement of J. K. Wilbur Of\nUnion, Ore.\n\n\n1t is the purpose of the compa,ny\nto install three separate sets of ma\nchinery, with a total capacity of\n$4,000 pounds per year if worked\n10 hours per day.\n\n\nThe mill will provide local mar\nket for the greater part of the raw\nmaterial produced in eastern Wash\nington and northwestern Idaho,\nthus benefiting not only Spokane\nbut the surrounding country."
+    }
+  ]
+}

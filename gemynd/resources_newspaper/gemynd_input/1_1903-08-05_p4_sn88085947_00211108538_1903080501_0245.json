@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "LIQUOR men TRIUMPH\nIN THE CITY COUNCIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-05",
+    "date_end": "1903-08-05",
+    "report_year": 1903,
+    "source_file": "1_1903-08-05_p4_sn88085947_00211108538_1903080501_0245",
+    "archive_ref": "1_1903-08-05_p4_sn88085947_00211108538_1903080501_0245",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1903-08-05_p4_sn88085947_00211108538_1903080501_0245",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 179,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1028,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 26,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "police department endorsement,\nshowed a new side to his get up last\nnight when he said the license COM\nmitttee of this council was not gov\nerned by any resolution that passed\nthe preceding council. The remark\nfollowed query by Councilman\nPratt as to whether or not the license\ncommittee has required applicants\nfor licenses TO present recommenda-\ntions from the police department,\npursuant to a resolution offered by\nhim and adopted by the council pre-\nceding the present council. 1t devel-\noped that the license committee has\nrequired no such Recommendation.\n\n\nIn all likelihood new ordinance\nwill be drafted by Mr.. Pratt requir-\nIng the removal Of boxes from all\nsaloons. This is in strict conformity\nwith the reform plank in the repub-\nlican platform on which Mayor Boyd\nwas elected. The republican party\nhas always taken much pride In liv-\ning up to it's party pledges, and there\nIs no doubt that such an ordinance\nwill meet the happy and consistent\nsupport of Mayor Boyd and of the\nfour republicans who are members\nof the city council."
+    }
+  ]
+}

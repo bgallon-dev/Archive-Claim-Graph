@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "LOADED\nFOR SALOON\n\n\nFIGHT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-23",
+    "date_end": "1906-08-23",
+    "report_year": 1906,
+    "source_file": "3_1906-08-23_p3_sn88085947_00211108563_1906082301_1064",
+    "archive_ref": "3_1906-08-23_p3_sn88085947_00211108563_1906082301_1064",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-08-23_p3_sn88085947_00211108563_1906082301_1064",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 370,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 1635,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 409,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The reason given by officers Of\nthe Retail Liquor Dealers associa-\nton for opposing the referendum\nordinance now before the city\ncouncil is that a special election\nmight be demanded by those op-\nposed to the granting of a saloon\nlicense in some particular place.\nThe referendum advocates point\nout that opponents of the law fail\nto realize that 10 per cent Of the\nvoters would have to sign a petit\nton to the city council before they\ncould demand the attention of that\nbody, and that whenever a petit\nton with that percentage of voters\npetitions the council at the pres\nent time they can, under ordinary\ncircumstances, command consider\nalton.\n\n\nAS a matter of fact there is moth\n| ing in the ordinance that is I'M\njust or unfair to anyone, it is\nurged, and the opposition is be-\nlieved to come solely from those\ninterests that seek to secure and\ncontrol public patronage and spe-\n| cial favors. The officers of the\n| referendum league are also con-\nvinced that the big corpora tions\nwhich have grown fat and power\nfull on public patronage have lined\nup with the other interests that\nare opposing the ordinance. To\nsecure the support of some of the\nlocal liquor dealers who could not\ndiscover anything in the new Or\ndinance directed against the sa.\nloon interests Jack Wilmot and\nother members of the association\nhave circulated the report, it is\nclaimed, that the referendum\nmovement has been stared by the\nadvocates Of Sunday closing. The\nfact is that there is not today a\nlocal clergyman a member of the\nSpokane County Referendum lea.\nque. having been originally organ\nlied by members of the local\nunions upon lines laid down by the\nAmerican Federation of Labor and\nthe local movement is a part of\nthe big campaign now being in.\naugurated by labor throughout the\ncountry. Members of the league\nare somewhat gratified in the con.\nviction that they have compelled\na roll call and lining up Of all\nthose interests that have hereto\nfore controlled elections and who\nnow realize that if the reforms ad.\nvocated by the local league sue\ncoed their old game of political\ngraft Is gone."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABOR DELEGATES\n\n\nRETURN FROM SEATTLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-12",
+    "date_end": "1903-01-12",
+    "report_year": 1903,
+    "source_file": "13_1903-01-12_p4_sn88085947_00211108526_1903011201_0234",
+    "archive_ref": "13_1903-01-12_p4_sn88085947_00211108526_1903011201_0234",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1903-01-12_p4_sn88085947_00211108526_1903011201_0234",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 108,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Z. E. Quinn, who was appointed\nby the trades council to attend the\nWashington State Federation of La\nDor convention at Seattle, returned\nhome today, and he expresses him\nself as elsted over the victory achiev-\ned by the Spokane delegation in Sc\ncuring the next convention for this\ncity despite the desperate fight made\nagainst them by Everett and Aber-\ndeem.\n\n\nMany resolutions of Importance\nwere passed\" said Mr.. Quinn. \"One,\nthe principal one in my estimation,\nwas that favoring the organization\nof the public school teachers into\nunion, which Should come under the\njurisdiction of the Federation of La\nDor. At the present time the reputa-"
+    }
+  ]
+}

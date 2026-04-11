@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "VI. W.P. HAS DELAYED\n\n\nBRIDGE WORK TILL FALL",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-27",
+    "date_end": "1907-07-27",
+    "report_year": 1907,
+    "source_file": "10_1907-07-27_p1_sn88085947_00211108575_1907072701_0904",
+    "archive_ref": "10_1907-07-27_p1_sn88085947_00211108575_1907072701_0904",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-07-27_p1_sn88085947_00211108575_1907072701_0904",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 231,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 512,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 443,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The bridge gang that is to con-\nstruct the piers for the north chan\nmel bridge at Howard st. has COM\npleted the building of heavy\nbarge which will be used to carry\nthe cables and sounding apparatus.\n1t is stated that frost will be on the\nground before the piers are COM\npleted. It begins to look now as\nII the actual construction of the\nnew concrete bridges at Howard st.\nwill be delayed until fall on ac-\ncount Of the dilatory tactics of the\ncity council evidently following out\nthe dictatiOn Of the Washington\nWater Power Co.\n\n\nThis company has entered objec-\nton after objection, seemingly for\nNO other reason than to delay the\nwork. First 1t must have its own\nengineer inspect the plans. This\nengineer could not report until the\nreturn from somewhere of d. l..\nHuntington; then the bridge wasn't\nplanned just right and new plans\nwere asked for. Then the COM\npany wants another imported and\nexpensive engineer to revise the\nplans and act as consulting en-\ngineer. And the council stood for\nall that.\n\n\nHere the matter is tied up. The\nWashington Water Power Co., per-\nhaps, in the far distant future, will\nreport to the council that its en-\ngineer is to be had from somewhere\nor other. Until 1t does, 1t is doubt\ned II the actual bridge construction\nwill be commenced."
+    }
+  ]
+}

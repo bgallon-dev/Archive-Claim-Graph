@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "title": ".B|GPOW wow At\nMEDICAL LAKE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-24",
+    "date_end": "1910-06-24",
+    "report_year": 1910,
+    "source_file": "2_1910-06-24_p10_sn88085947_00211108630_1910062401_1131",
+    "archive_ref": "2_1910-06-24_p10_sn88085947_00211108630_1910062401_1131",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-06-24_p10_sn88085947_00211108630_1910062401_1131",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 4.5,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "indigenous": [
+          "spokane tribe"
+        ],
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 139,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 172,
+            "in_headline": false
+          },
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 15,
+            "in_headline": true
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "spokane tribe",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 368,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane tribe No. 9 and Iroqueis\ntribe No. n Of the Improved Order\nof Red Men have joined forces for\nthe observance of the Fourth OF\nJuly, and will hold the big pow WOW\nat Medical Lake. The joint commit.\ntee having the celebration in charge\nis now working out the final details\nof transportation, tents, fireworks,\netc, and will have the cooperation\nof the Washington Water Power\nCo., which will have a sufficient\nnumber of trains to accommodate\nthe early and late crowds.\n\n\nMany events will be staged on\nand around the lake, from the ma\ntional game to races for men,\nwomen, children, horses and boats.\nIn the ball game, team composed\nof members of Spokane tribe No. 9\nvii again meet their adversaries\nfrom Iroquois tribe, which latter\nwill attempt to redeem their droop-\ning feathers."
+    }
+  ]
+}

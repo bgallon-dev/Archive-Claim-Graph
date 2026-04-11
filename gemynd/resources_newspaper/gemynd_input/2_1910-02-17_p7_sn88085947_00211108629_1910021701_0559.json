@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Othello a Farming Center Now",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-17",
+    "date_end": "1910-02-17",
+    "report_year": 1910,
+    "source_file": "2_1910-02-17_p7_sn88085947_00211108629_1910021701_0559",
+    "archive_ref": "2_1910-02-17_p7_sn88085947_00211108629_1910021701_0559",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-02-17_p7_sn88085947_00211108629_1910021701_0559",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 120,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 244,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "AS farming center, OTHELLO, even\nnow, when less than year old city, is an\nambitious rival of North Yakima. The best\nauthorities upon trade and transportation\nunhesitatingly assert that OTHELLO will\nbe the recognized farming center of the\ngreat Inland Empire of Eastern Washing\nton within the next few years. It will be,\nthey say, the center of all the other farm\ning centers. 1t will be the middle of three\ngreat cities of the State of Washington,\nfrom west to east. OTHELLO is midway\nbetween. Seattle and Tacoma and Spokane\n1t is the one common point at the crossing\nof the great farming valleys of Eastern\nWashington one Of which extends east and\nwest; the other north and south."
+    }
+  ]
+}

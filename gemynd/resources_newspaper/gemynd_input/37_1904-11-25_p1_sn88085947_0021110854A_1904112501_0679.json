@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "VALENTINE\n\n\nON TRIAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-25",
+    "date_end": "1904-11-25",
+    "report_year": 1904,
+    "source_file": "37_1904-11-25_p1_sn88085947_0021110854A_1904112501_0679",
+    "archive_ref": "37_1904-11-25_p1_sn88085947_0021110854A_1904112501_0679",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "37_1904-11-25_p1_sn88085947_0021110854A_1904112501_0679",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "conspiracy"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 63,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 181,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 364,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "CINCINNATI, O., Nov. 25.-The\ncase of Joseph Valentine, president\nOF the molders' union, who was ar\nrested for alleged connection with the\nmurder and dynamiting plots follow\ning the strike of the molders of the\nEureka foundry, was called in the po-\nlice court today and hearing set for\nDecember 2S. Valentines attorney\ndeclared the labor leader was the\nvictim Of a conspiracy."
+    }
+  ]
+}

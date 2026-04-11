@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STEINER\n\n\nCOMBINE",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-27",
+    "date_end": "1904-02-27",
+    "report_year": 1904,
+    "source_file": "5_1904-02-27_p4_sn88085947_00211108538_1904022701_1055",
+    "archive_ref": "5_1904-02-27_p4_sn88085947_00211108538_1904022701_1055",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-02-27_p4_sn88085947_00211108538_1904022701_1055",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 326,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1364,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the large sidewheeler of the St. Joe\nTransportation company, which is the\nauxiliary of the Occur d'Alene & Spo-\nkane electric line, the Colfax and the\nSpokane. All of these boats except\nthe one belonging to the st. Joe did\na large business last summer. The St\nJoe company's boat was not com.\npleted until the fall, but it is one OF\nthe largest on the lake and the owners\nhad planned for it to do much of the\nbusiness of the lake and river.\n\n\nCaptain of the Spokane, the well\nknown lake pilot, is in the city to-\nday. Said the captain:\n\n\n81 do not look for the transportation\nbusiness to get its full swing until\nabout June, but the outlook for the\ncoming summer from a business stand :\npoint is exceptionally bright. The\nbuilding of the new electric line will\ngreatly add to the business of Occur\nd'Alene city, Idaho, and of course\nwhen things are lively there it helps\nour business. l don't know what !\nshall do in case sell my boat\"\n\n\ni HS captain Will udIuly leave tHc\nlake. 1t is anticipated the big COM\npany will employ the present skip\npers in running the business.\n\n\nLake Attractions.\n\n\nGeneral Manager Belts of the Occur\nd'Alene & Spokane Electric line says\nit will be early in the summer before\nthe trains will make the run from\nthis city to Occur d'Alene in one hour\nas the track will hardly be in shape\nand properly ballasted until then. The\nWashington Water Power company is\nabout ready to put in the sub-electri-\ncal stations necessary to give the in\ncreased power to make such a run. 1t\nis not determined just yet what special\nattractions will be provided by the\ncompany for the summer travel. 1t is\nsaid park will be fixed with dane\ning pavilion and music of several sorts\nand the resort made ideal in every\nway for the summer excursionist."
+    }
+  ]
+}

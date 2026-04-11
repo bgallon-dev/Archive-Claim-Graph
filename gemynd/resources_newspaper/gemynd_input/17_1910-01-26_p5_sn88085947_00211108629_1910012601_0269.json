@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Tomorrow",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-26",
+    "date_end": "1910-01-26",
+    "report_year": 1910,
+    "source_file": "17_1910-01-26_p5_sn88085947_00211108629_1910012601_0269",
+    "archive_ref": "17_1910-01-26_p5_sn88085947_00211108629_1910012601_0269",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1910-01-26_p5_sn88085947_00211108629_1910012601_0269",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 312,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1352,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An interesting affair Of the week\nwill be the midwinter social to be\ngiven tomorrow by the Spokane\nCounty Pioneer society at the I'M\nperial cafeteria in the Columbia\nbuilding. Two members, Mrs. Rob\nert Farley and Mrs. w. c. Grany,\nhave the arrangements in charge,\nand most enjoyable musical and\nsocial time is expected.\n\n\nMembers eligible to the society\nmust have resided in this city prior\nto November, 1884.\n\n\nz 4 4\n\n\nThe Masonic temple will be the\nscene of an eventful affair tOmor-\nrow evening when the Scotch peo-\npie of the city will assemble to-\ngether and celebrate the birthday\nanniversary of ''Bobbie\" Burns, the\ngreat Scotch poet.\n\n\nThe social function is to be given\nunder the auspices of the st. An\ndrew society and plans are being\nmade to make the affair memoir\nable one.\n\n\nAn elaborate dinner will be\nserved at $50 o'clock and will be\nfollowed by a social evening, when\nthe guests will sing Scotch songs\nand indulge in a general merry\nmaking.\n\n\nMrs. David r. Mcclure and Mrs.\nConrad Bluhm have been among\nthe hostesses of the week who have\nentertained at number of pretty\naffairs. Tomorrow afternoon they\nwill entertain at the third of their\nseries of parties, when they will be\nhostesses at thimble bee at the\nMcclure home on Augusta avenue.\nAbout so guests have been included\non the invitation list.\n\n\nThe needIework department of\nthe Woman's club will meet tomor-\nrow morning at 8 a. m. at the home\nOF the instructor. Mrs. w. w. Nc\nCreary. 1924 Ninth avenue.\n\n\nMrs. A. p. Fassett will act as\nchairman at the meeting of the par.\nliamentary law class tomorrow at\nlas o'clock at the chamber of c6m-\nmerce.\n\n\nThe elocution department will\nmeet the same day at the chamber\nor commerce. Mrs. Pauline Dunstan\nBelden. teacher and Mrs. Jennie\nJones. chairman"
+    }
+  ]
+}

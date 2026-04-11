@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "N. r. AGREES TO\nLeave BROWNE\n\n\nStreet OPEN",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-28",
+    "date_end": "1908-01-28",
+    "report_year": 1908,
+    "source_file": "1_1908-01-28_p1_sn88085947_00211108587_1908012801_0160",
+    "archive_ref": "1_1908-01-28_p1_sn88085947_00211108587_1908012801_0160",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-01-28_p1_sn88085947_00211108587_1908012801_0160",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 172,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The grade separation ordinance\nof the Northern Pacific railway\nas submitted to the council today\nprovides that Browne st. shall be\nleft open. This is contrary to the\noft-repeated declaration of E. j.\nCannon, division counsel, who said\nthat unless his company was allow\ned to close Browne st. the tracks\nwould remain as they now are un-\ntil the crack of doom.\n\n\nIn detail the plans provide for a\ndepression making the floor of the\nsubway correspondent to city plans\nwith a grade of five feet in 100 to\nthe north and south A roadway\nof 40 feet is provided, with one\nsidewalk and head room of II feet.\n\n\n1t is not expected that the or\ndinance will be given much con-\nsidesation tonight but that it will\nbe referred for discussion to the\ncommittee of the whole. From ut\nterances of Mayor Moore and a\nnumber of councilmen it is believed\nthat in opening Browne st. the\ngreatest obstacle to the passage of\nthe grade separation plans has\nbeen eliminated."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SECOND BIG FARMERS =\n\n\nRALLY ON SATURDAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-28",
+    "date_end": "1909-09-28",
+    "report_year": 1909,
+    "source_file": "2_1909-09-28_p6_sn88085947_00211108605_1909092801_0996",
+    "archive_ref": "2_1909-09-28_p6_sn88085947_00211108605_1909092801_0996",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-09-28_p6_sn88085947_00211108605_1909092801_0996",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 224,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 528,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The second rally of Spokane\ncounty farmers in support of the\ngrand jury investigation of county\naffairs will be held at the court\nhouse next Saturday, beginning at\n10 a. m.\n\n\nPosters in red ink have been\nhung at various points throughout\nthe county urging the farmers to\ncome out, and good attendance\nis expected because of the fact that\nthe bulk of the harvest rush is\nnow over. A delegation is coming\nfrom Green Bluff with the farm\ners' band of that section.\n\n\nAn invitation has been sent to\nJ. B. Kegley, master of the state\ngrange, to be on hand and address\nthe meeting. The making of ar\nrangements is in charge of a com.\nmittee appointed at the last grand\njury rally, of which R. B. Martin\nof Opportunity is the chairman.\n\n\nThe presbytery of the Presby-\nterrain church, which will be in\nsession here next Saturday, will be\nasked to adjourn in order to at\ntend the meeting, as the Presby\nterian ministers of the city have\nevinced a disposition to back the\nprobe of county affairs.\n\n\nAt it's last meeting the minis\nterial association of Spokane adopt\ned a resolution thanking R. B. Mar\ntin for the work he had done in\nbehalf of the county investigation.\n\n\nAt the coming meeting steps\nwill be taken to form an organiza-"
+    }
+  ]
+}

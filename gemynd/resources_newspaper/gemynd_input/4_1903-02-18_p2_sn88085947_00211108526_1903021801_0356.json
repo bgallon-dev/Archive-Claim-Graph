@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Brief Bits Of News.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-18",
+    "date_end": "1903-02-18",
+    "report_year": 1903,
+    "source_file": "4_1903-02-18_p2_sn88085947_00211108526_1903021801_0356",
+    "archive_ref": "4_1903-02-18_p2_sn88085947_00211108526_1903021801_0356",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-02-18_p2_sn88085947_00211108526_1903021801_0356",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 157,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 289,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Ping Cling. the 17-year-old Chinese\nboy who was held on the charge of\nbeing an illegal resident of this coun-\ntry. was yesterday discharged by\nUnited States Commissioner Mar\nshall.\n\n\nAll the details have now been COM\npleted for the erection of the Pan\nhandle Smelling & Refining company s\nsmelter at Standpoint, idaho. Plans\nare being drawn and the work of ex-\neavating will soon begin.\n\n\nMembers Of the Woman's Exchange\nmet at the parish house of All Saints\ncathedral yesterday and decided to\ncarry out the plan of selling the prop\nerty. The proceeds will be devoted to\nthe welfare of the MONDAY Rest.\n\n\nThe county commissioners yester-\nday afternoon awarded the contract\nof staining and vanishing the wood\nwork and kalsomining the walls OF\nthe offices of the courthouse to Har.\nvey & Carpentar. Two bids were\noffered by the firm, but 1t has not yet\nbeen decided which bid will be agreed\nupon."
+    }
+  ]
+}

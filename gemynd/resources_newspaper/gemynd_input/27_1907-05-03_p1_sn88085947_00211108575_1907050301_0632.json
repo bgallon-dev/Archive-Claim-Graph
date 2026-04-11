@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "INLAND SPEND S MONEY",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-03",
+    "date_end": "1907-05-03",
+    "report_year": 1907,
+    "source_file": "27_1907-05-03_p1_sn88085947_00211108575_1907050301_0632",
+    "archive_ref": "27_1907-05-03_p1_sn88085947_00211108575_1907050301_0632",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1907-05-03_p1_sn88085947_00211108575_1907050301_0632",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 73,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Inland Empire system is\nbuilding new depot at Hayden\nLake. 1t is modelled on the Swiss\nstyle and will cost $4,000. The\ncompany is also laying 1000 feet\nof siding near Ross. An order OF\n10 city street cars is expected\nshortly and trains of cars each\ncarrying chair cars will probably\nbe delivered next week. The COM\npany is preparing for big summer\ntravel as we'll as greatly increased\ncity traffic."
+    }
+  ]
+}

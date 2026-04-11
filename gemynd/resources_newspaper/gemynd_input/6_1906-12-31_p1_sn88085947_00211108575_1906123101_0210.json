@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TAKE BAN OFF CHINESE TO\n\n\nBUST LAUNDRY TRUST",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-31",
+    "date_end": "1906-12-31",
+    "report_year": 1906,
+    "source_file": "6_1906-12-31_p1_sn88085947_00211108575_1906123101_0210",
+    "archive_ref": "6_1906-12-31_p1_sn88085947_00211108575_1906123101_0210",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1906-12-31_p1_sn88085947_00211108575_1906123101_0210",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 159,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 762,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to local labor leaders\na Laundry Workers union will be\norganized in this city in the near\nfuture or Chinese laundries will re-\nceive the encouragement of organ\nlied labor as against the laundry\ntrust. 1t is we'll known that to or\nganized labor belongs the credit\nfor the Punishment of the Chinese\nlaundries from the Western cities.\nAS an example it is shown that a\nfew years ago Butte had only one\nwhite laundry and that was not a\npaying proposition. The owners\ncontributed largely to the expense\nOf the campaign inaugurated in\nthat city for the closing of the\nChinese laundries. In compare\nlively short time white laundries\nhad replaced the Chinese.\n\n\nSpokane union men say that\nthey can do great amount Of\ndamage to the local trust by remov-\ning the boycott from Chinese.\n\n\nThere is also possibility that\nsome local restaurant and hotel\nproprietors and the union people\nmay be successful in starting an"
+    }
+  ]
+}

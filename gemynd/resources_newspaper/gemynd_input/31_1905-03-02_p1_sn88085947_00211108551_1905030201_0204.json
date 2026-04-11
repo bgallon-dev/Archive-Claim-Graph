@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-03-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-02",
+    "date_end": "1905-03-02",
+    "report_year": 1905,
+    "source_file": "31_1905-03-02_p1_sn88085947_00211108551_1905030201_0204",
+    "archive_ref": "31_1905-03-02_p1_sn88085947_00211108551_1905030201_0204",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "31_1905-03-02_p1_sn88085947_00211108551_1905030201_0204",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 90,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 100,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(Soripps News Association.)\n\n\nOLYMPIA, Wash, March 2.--The\nlegislature has not and will not pass\nan irrigation bill that will benefit\neastern Washington. The United\nStates government will receive no as\nsistance from the state government.\n\n\nOn the subject of irrigation the\nTacoma platform said:\n\n\nI'VE FAVOR THE ENACTMENT\nOF SUCH LAWS AS MAY BE\nNECESSARY TO SECURE THE\nEARLY COMPLETION OF IRRIGA-\nTON PROJECTS IN EASTERN\nWASHINGTON BY THE UNITED\nSTATES GOVERNMENT\"\n\n\nThe kind of law necessary to in\ngovernment irrigation projects was\ndrawn last fall by the Mcbride irri-"
+    }
+  ]
+}

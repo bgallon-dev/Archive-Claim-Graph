@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "EXPECT RATE\nCASE RULING\n\n\nIN FEW DAYS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-13",
+    "date_end": "1908-10-13",
+    "report_year": 1908,
+    "source_file": "9_1908-10-13_p8_sn88085947_00211108587_1908101301_1188",
+    "archive_ref": "9_1908-10-13_p8_sn88085947_00211108587_1908101301_1188",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-10-13_p8_sn88085947_00211108587_1908101301_1188",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 211,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 466,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The announcement that Spo-\nkane's fight against unjust dis\nelimination of railroads on freight\nrates has been successful is conf\nIDENTIFY expected within few days\nby the large business interests.\n\n\nThe fight before the interstate\ncommerce commission was one of\nthe hardest which. any city made\nbefore the commission. The rail\nroads massed their best legal tai\nent against Attorney H. NJ Ste\nphens, who represented Spokane.\nFrank McCune, formerly rate\nclerk with the Northern Pacific.\nwas Spokane's star witness. Nc\nCune's fUnections with railroads\nfor years. put him in possession of\nvaluable information which was\nused as evidence to show the dis\nelimination against this city.\n\n\nMcCune subsequently had trou-\nBILE with the officers of the chamber\nof commerce and resigned a posi-\nton which had been guaranteed\nhim for life. Lately he brought\nsuit against the chamber of com\nmerce, including among his claims\n$4,000 paid to Attorney Stephens\nfor legal services. H ealleged that\nas the director of the ,city's case\nhe was entitled to the money.\n\n\n1t has been about year since\nthe rate hearing and the decision\nhas been held up for political rea\nsons along with a lot of others.\n\n\nPresent rates given Spokane\namount to the rate to the coast\nplus the rate back."
+    }
+  ]
+}

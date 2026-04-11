@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Plenty OF COAL\n\n\nBUT FEW CARS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-10",
+    "date_end": "1906-11-10",
+    "report_year": 1906,
+    "source_file": "11_1906-11-10_p1_sn88085947_00211108575_1906111001_0034",
+    "archive_ref": "11_1906-11-10_p1_sn88085947_00211108575_1906111001_0034",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-11-10_p1_sn88085947_00211108575_1906111001_0034",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 242,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1011,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ": Wyoming mines shipping 125\ncars Of coal east daily.\n\n\nSame mines could ship so car\nloads west daily-but they can't\nget the cars.\n\n\nOnly STRAY\" cars on the Union\nPacific are loaded for western ship\nment.\n\n\nInvestigation of Spokane dealer\nbears out contention that country\nis suffering results of frenzied\nfinance In railroading.\n\n\nThese are the conclusions of Mel\nson Martin, manager of the Rock\nSprings Coal & Wood Co., who re.\nturned from a trip to the Wyom-\ning coal mines last night. Mr..\nMartin said the Wyoming coal\nfields are loading 1875 cars daily,\nbut all for eastern markets. He is\nconvinced that the prevailing short.\nage of coal in this country is due\nentirely to lack of cars and that\nTie ChOltS VI I1lll dIu nal iIiidli\nto initiate dividends is responsible\nfor this scarcity of rolling stock.\nThe roads will not spend money\nenough for sufficient new equip.\nment.\n\n\nAll the coal that is shipped west\nfrom the Wyoming mines comes in\ncars that belong to other roads,\n\"strays\" they are called. If a\nNorthern Pacific car happens into\nthe region 1t is loaded with coal\nand sent west, but none Of the\ncars belonging to the Union Pa.\nctic are used for shipping coal\nwest. Mr.. Martin saId that they\nwere loading five cars at the Mon.\narch mines when he was there,\nand that he secured all the cars\nfor Spokane. He also said that"
+    }
+  ]
+}

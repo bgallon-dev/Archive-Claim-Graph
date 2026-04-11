@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Rates Will Be Cheap.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-01-13",
+    "date_end": "1904-01-13",
+    "report_year": 1904,
+    "source_file": "13_1904-01-13_p1_sn88085947_00211108538_1904011301_0896",
+    "archive_ref": "13_1904-01-13_p1_sn88085947_00211108538_1904011301_0896",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1904-01-13_p1_sn88085947_00211108538_1904011301_0896",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 96,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 118,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Some rather gratifying informa-\nton has leaked out today which. how\never. has not been confirmed. 1t is\nsaid that the Northern Pacific will\ncompete for the passenger business\nto Occur d'Alene City with the new\nelectric line and meet their cut in\nthe rate and charge 81 straight for\nthe round trip there and return, This\nwas the old special Sunday excursion\nrate which has been in effect on the\nsteam line heretofore. With such a\ncheap rate on both the lines there\nshould be every opportunity for the\naccommodation of the travelling pub\nlie"
+    }
+  ]
+}

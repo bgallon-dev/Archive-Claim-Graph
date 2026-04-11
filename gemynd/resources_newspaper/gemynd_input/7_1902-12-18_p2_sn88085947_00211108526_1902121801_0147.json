@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "title": "RAILROADS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-18",
+    "date_end": "1902-12-18",
+    "report_year": 1902,
+    "source_file": "7_1902-12-18_p2_sn88085947_00211108526_1902121801_0147",
+    "archive_ref": "7_1902-12-18_p2_sn88085947_00211108526_1902121801_0147",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1902-12-18_p2_sn88085947_00211108526_1902121801_0147",
+      "composite_score": 12.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern",
+          "freight rate"
+        ],
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "G. II. Glenn, travelling freight and\npassenger agent of the Colorado Mid\nland, is in the city. y\n\n\nr.. n. Kollock, district freight and\npassenger agent of the Pennsylvania\nlines, is in the city from Portland.\n\n\nHeavy SHOWS in the Rockies caused\ndelay at Browning, Mont. of the\nGreat Northern Westbound his morn\ning.\n\n\n1t is persistently rumored that\nJames j. Hill will retire from the\nmanagement of the Great Northern\nto give his undivided attention to the\nNorthern Securities company.\n\n\nThe Great Northern brought in two\ncarloads of men from Grand Forks,\nb. c., today. The men have been\nemployed on the two-mile extension\nwhich is building to the CRANKY\nsmelter.\n\n\nTomorrow morning will occur the\nfuneral of Michael Lane, the aged\nrailroad man who was killed by a\nswitch engine while he was cleaning\n\n\nwitches at the Northern Pacific\nyards last Tuesday.\n\n\nThe Northern Pacific is taking eX-\ntreme measures for the protection\nof pcrishable freight in transit\nacross the Rocky mountains. The\ncars are to be Heated and when not\nin motion they must be housed.\n\n\nThe California Short Line Railroad\ncompany has been incorporated with\ncapitalization of $3.50, 900. 1t is\nproposed to build a line from Alamo\nGordo to Dcming 20 connect the Rock\nIsland with the Southern Pacific\nA gigantic mud slide at Tonga, q\nsmall station in the Cascades, delay\ned No. 4. the Great Northern east\nbound. last night and it reached Spo'\n\n\nkane II hours behind time this morn\n/ ing. No damage was done to cars OF\npassengers.\n\n\nThe peaceful denizcns Of the tow\n\n\nof Columbus, Orce are puz2ling then\nheads over the appearance of II sur\nVeyOrs. 1t was neither denied Oh\n\n\naffirmed that they are working fol\nthe Northern Pacific. The survey\n\n\nseems to parallel the line of The\n\n\nrailroad that is being constructed t\n/ Goldendale by Portland capitalists.\n\n\nThe Pacif( Coast Lumber Manu-\n/ facturers' association and Washing\n/ ton Red Cedar Single Manufactur\ncrs' association have instructed nj\n/ mill men of the state to begin action\nagainst the St. Paul-ChiCagO lines tt\nlCOmDel the roads to refund the diff\n\n\nference between the rates charged\n4 Washington lumbermen and eastern\n! lumber and single manufacturers. Il\n| is estimated that between 100000\nand $4,000 is involved in the suits\n! At conference of Hartman\n| freight agents held in New York il\n| develops that the Hartman people\nhave been stirring up rebellion\nIagainst the roads controlled by thu\n| Northern Securities company. Ship\n| eprs of the northwest are organizing\nto protest against the increase il\n! freight rates as planned by Hill. Hi:\n\n\nrates of 40 cents per hundred Offered\nto the government for army proven\nder between Chicago ana Manila II\n/ the attempt to take the business from\nsan Francisco proves that existing\n! freight rates are too high."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MOVEMENT ON FOOT DESIGN\nED TO PROVIDE MEANS FOR\nDIRECT ACTION ON ISSUES\nUPON WHICH CITY OF.\nFlCtALS ARE ELECTED.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-24",
+    "date_end": "1907-08-24",
+    "report_year": 1907,
+    "source_file": "8_1907-08-24_p1_sn88085947_00211108575_1907082401_1002",
+    "archive_ref": "8_1907-08-24_p1_sn88085947_00211108575_1907082401_1002",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-08-24_p1_sn88085947_00211108575_1907082401_1002",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 307,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 98,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Divide the First, Fourth and\nFifth wards, thus giving the city\ns wards instead of 5.\n\n\nRevise the city charter, making\nthe patchwork\" modern and up\nto-date.\n\n\nA movement to bring about these\nnecessary improvements in the mu-\nnicipal affairs is being advocated\nand is meeting with considerable\napproval.\n\n\nThe arguments advanced for d.\nv{ding the aforementioned wards\nate numerous and convincing. 1t\nis contended that the wards are\naltogether too big for council.\nmen to look after.\n\n\nThere are differences in opinion,\nand certain amount OF contention.\nin some Of the wards which would\nbe. done away with could the war.\nring sections each secure represen-\ntation in the council.\n\n\nThe increased number Of council\nmen from 10, as at present consti-\ntuted, to 16 under the new order of\nthings, would serve to make 1t more\ndifficult for the corporations and\nthose interests which are always\nseeking special legislation and ia.\nvors from the municipality, to cor\nner the councilmen. 1t would be\nmore expensive.\n\n\nThe Daggett administration was\nantagonistic to any increase in the\nnumber OF councilmen. 1t was\neasier to run the city government\nalong machine lines, while 1t was\nonly necessary to have votes than\n1t would be II 8 were necessary. 1t\nIs believed that the present coun-\nGil would agree to division OF the\nwards and grant to the people\nlarger representation than now OBJ\ntains.\n\n\nThe arguments advanced for a\nrevision OF the charter are almost\ntoo numerous to mention. The\nfact that mayor, under the pres\nent arrangement, is not responsible\nfor the city government, Is one of\nthe many. Another Is that man\nelected to carry out certain policies\nhas to sit around for an entire year\nbefore taking office, only to find,\nupon taking his place in the coun-\nGil chamber, that the issues he was"
+    }
+  ]
+}

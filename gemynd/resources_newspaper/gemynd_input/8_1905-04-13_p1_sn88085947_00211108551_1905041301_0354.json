@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOULD FURNISH\nPRIVATE TRAIN\n\n\nf0l Till COURT",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-13",
+    "date_end": "1905-04-13",
+    "report_year": 1905,
+    "source_file": "8_1905-04-13_p1_sn88085947_00211108551_1905041301_0354",
+    "archive_ref": "8_1905-04-13_p1_sn88085947_00211108551_1905041301_0354",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1905-04-13_p1_sn88085947_00211108551_1905041301_0354",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 96,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A novel proposition was made by\nthe Great Northern Railway COM\npany's attorneys in Judge Poindex-\nter's court this morning.\n\n\n1t was in the trial of the cases Of\nA. M. Aiken and Charles E. Solomon\nagainst the railroad company, in\nwhich the plaintiffs are suing for\ndamages to their land.\n\n\nThe railroad attorneys offered this\nmorning to provide a special train\nfor the use of the judge and jury\nto convey them to the land near Mi\nIan to survey the property claimed\nto have been damaged.\n\n\nJudge Poindexter took the PROPOSE\nton under advisement."
+    }
+  ]
+}

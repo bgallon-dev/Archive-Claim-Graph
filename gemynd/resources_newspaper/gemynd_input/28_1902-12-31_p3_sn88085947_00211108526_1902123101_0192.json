@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABOR NEWS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-31",
+    "date_end": "1902-12-31",
+    "report_year": 1902,
+    "source_file": "28_1902-12-31_p3_sn88085947_00211108526_1902123101_0192",
+    "archive_ref": "28_1902-12-31_p3_sn88085947_00211108526_1902123101_0192",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1902-12-31_p3_sn88085947_00211108526_1902123101_0192",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 50,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The trades council held its regular\nmeeting last night. There was quite\na large attendance owing to the ques-\nton which came up for discussion.\nThe Musicians union reported that\nthe Stockholm was employing unfair\nmusicians, and the arbitration COM\nmittee was instructed to interview\nMr.. Pearson on the subject."
+    }
+  ]
+}

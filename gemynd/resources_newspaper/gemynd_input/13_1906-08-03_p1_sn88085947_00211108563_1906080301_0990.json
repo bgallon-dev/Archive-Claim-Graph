@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-08-03 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-03",
+    "date_end": "1906-08-03",
+    "report_year": 1906,
+    "source_file": "13_1906-08-03_p1_sn88085947_00211108563_1906080301_0990",
+    "archive_ref": "13_1906-08-03_p1_sn88085947_00211108563_1906080301_0990",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1906-08-03_p1_sn88085947_00211108563_1906080301_0990",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 103,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 46,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Whether the city Of Spokane or\nthe Washington Water Power COM\npany must pay personal injury\nclaims in the event of judgment be-\ning secured because Of the Howard\nstreet bridge collapse is coming up\nfor settlement.\n\n\nJohn H. Beers, who was injured\nin the collapse of the bridge, has\nfiled a suit against the city for $780,\n900. He says he was struck on the\nknee by falling timber and is ad-\nvised by doctors that it will cripple\nhim for life.\n\n\nCorporation Counsel Geraghty\nwhen notified Of the fact said that\nBeers attorneys probably would\ngive their reasons for bringing the"
+    }
+  ]
+}

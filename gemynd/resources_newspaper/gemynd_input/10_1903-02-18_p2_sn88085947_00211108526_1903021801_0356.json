@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-18 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-18",
+    "date_end": "1903-02-18",
+    "report_year": 1903,
+    "source_file": "10_1903-02-18_p2_sn88085947_00211108526_1903021801_0356",
+    "archive_ref": "10_1903-02-18_p2_sn88085947_00211108526_1903021801_0356",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1903-02-18_p2_sn88085947_00211108526_1903021801_0356",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 67,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 260,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The members of the American La\nDor union in Spokane are anxiously\nlooking forward to the return OF Or\nganizer Fl. l.. Hughes. During Mr..\nHughes absence the work Of the or\nganization has been considerably neg\nlected and one union has withdrawn\nin favor of the American Federation\nOf labor. This would not have hap\npened, union men say, had Mr.\nHughes been in the city."
+    }
+  ]
+}

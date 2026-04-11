@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-09-05 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-05",
+    "date_end": "1910-09-05",
+    "report_year": 1910,
+    "source_file": "34_1910-09-05_p8_sn88085947_00211108642_1910090501_0695",
+    "archive_ref": "34_1910-09-05_p8_sn88085947_00211108642_1910090501_0695",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "34_1910-09-05_p8_sn88085947_00211108642_1910090501_0695",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "spokane falls",
+          "chamber of commerce"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 395,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 234,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 619,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 847,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 121,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 2054,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\" LEA III charge.\n\n\nA meeting of the newspaper men\nhas been called for Wednesday af-\nternoon at the assembly room of\nthe chamber of commerce to ar\nrange for the entertainment of the\nvisiting correspondents who will\ncome to report the Dry Farming\ncongress. tt\n\n\nThere is some feeling of resent\nment against the new rule of the\nY. M. c. A. prohibiting smoking in\nthe building. Six have resigned\nand four others threaten to walk\nout\n\n\nThe law school Of the Spokane\ncollege will open tonight.\n\n\nDR.. J. G. GundIach, a war vet\neran, is confined to his home with\nstroke of paralysis.\n\n\nMrs. Frank SoIlars, held in the\ncounty Jail for shooting at her hus-\nband, who has sued her for a di-\nvOrce, has been released on her\nown recognizance, at the request of\nJail Matron Warn.\n\n\nD. GoIdstein, who charges negli-\ngence causing a gas explosion, has\nsued the Spokane Falls Gas Co, for\n$4,000 damages.\n\n\nMrs. Christian Dale was injured\nin the wreck at Gibbs a year ago,\nand recovered judgment against\nthe Inland for $500. Judge Hinkle\nhas now cut the verdict to $500,\nwhich the plaintiff must accept or\ntake a new trial.\n\n\nTen vags were rounded up yes.\nterday by the police.\n\n\nCarl johnson, a fisherman, 80,\nELF First avenue, was drowned in\nClear Lake under peculiar circum-\nstances yesterday morning.\n\n\nDetectives are searching for n.\nII. Dennison, Standpoint, Idaho, who\nhas been missing for ten days and\nmay have committed suicide.\n\n\nWhile feeding threshinq ma.\nchine near Rosalia yesterday, Mack\nShields, So, was caught in the belt\nand seriously but not fatally in\njured.\n\n\nMedals have arrived in Spokane\nfrom Washington for those who\nqualified in the militia marksmen\ncontests in 1909.\n\n\nCharles jackson, colored, E10t7\nFirst avenue, is locked up ON a\ncharge of beating his white wife\nduring row Saturday night.\n\n\nFred Aren't, SO, from Buffalo, ~.\nY, died at the emergency hospital\nyesterday as the result of a sud\nden hemorrhage.\n\n\nCharles J. Johnson, \"a, told the\npolice a spectacular story early\nSunday morning of how he had\nkilled his brother near Portland,\nOre, five years ago to get the lin\nsurance money. Since then he has\ndenied all recollection of his cDn-\nfession and Chief Sullivan believes\nthe man may be laboring under a\nmental delusion, suffering from a\nrolioinnc mania"
+    }
+  ]
+}

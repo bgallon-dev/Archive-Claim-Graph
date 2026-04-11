@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "IS\nUp To CITY\n\n\nCOUNCIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-14",
+    "date_end": "1906-08-14",
+    "report_year": 1906,
+    "source_file": "1_1906-08-14_p1_sn88085947_00211108563_1906081401_1026",
+    "archive_ref": "1_1906-08-14_p1_sn88085947_00211108563_1906081401_1026",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-08-14_p1_sn88085947_00211108563_1906081401_1026",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 153,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 189,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane County Referendum\nleague will have introduced into\nthe city council this evening an\nordinance which, II passed, will\ngive the voters of the city the priv\nilege of voting on all public utility\nfranchises. As the recent demo-\ncratic convention went on record\nas being in favor of the initiative\nand referendum and the present\ncity administration Is democratic,\nreferendum advocates think there\nis every reason to believe the or\ndinance will pass. Councilmen\nPratt and Laumer are in favor Of\nit. both being members of the local\nreferendum league.\n\n\nThe proposed ordinance provides\nthat public utility franchises shall\nbe submitted to vote on petition Of\n10 per cent Of registered voters and\ngranted or rejected as dictated by\nthe majority voting.\n\n\nInstructions to public officials\nare also provided for on petition Of\nIs per cent Of voters and prece-\ndence over all other business Is\nasked for direct initiative petition."
+    }
+  ]
+}

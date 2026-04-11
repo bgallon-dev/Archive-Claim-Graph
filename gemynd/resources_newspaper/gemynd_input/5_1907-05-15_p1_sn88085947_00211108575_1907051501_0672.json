@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-15 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-15",
+    "date_end": "1907-05-15",
+    "report_year": 1907,
+    "source_file": "5_1907-05-15_p1_sn88085947_00211108575_1907051501_0672",
+    "archive_ref": "5_1907-05-15_p1_sn88085947_00211108575_1907051501_0672",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-05-15_p1_sn88085947_00211108575_1907051501_0672",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ],
+        "agriculture": [
+          "hay"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 421,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 145,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 818,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, May Ex-senator w.\ni. Borah has got omre to think\nabout than anybody. He has a large\nlaw practice, is special counsel for\nthe state in the Haywood case,\ncounsel for the defendants in some\nland fraud cases set for trial in the\nnorthern part of the state this\nmonth, and, 1t has been reported, a\ngrand jury has voted an indictment\nagainst him on account of some al\nlegged government land irregulari-\nties.\n\n\nNo official announcement of such\nan indictment has been made, but\n>Borah, the United States district at\ntorney and the federal judge have\nrecently visited the president for\nthe discussion Of that subject.\n\n\nCharges were made at the White\nHouse that the district attorney did\nnot like Borah and nd promoted in\ndictment proceedings against him\nas a favor to the Western Fedora\nton of Miners, of which w. ID. Hay\nwood is secretary. That charge has\nnot taken root hereabouts and prob\nably not at Washington.\n\n\nWithal he's not prey to worry.\nA call at his office disclosed him in\na room lined from floor to ceiling\nwith law books, shaping up authori-\nties for the Haywood case. When |\nasked him as to the status of the\ntrial he said:\n\n\n1T is not possible to forecast\nwith any certainty the length of the\ntrial, but In the absence of the I'M\nexpected | should consider 1t a fair\nguess that the end will be reached\nin the first week of July.\n\n\nyou are going to hear wonder\nfull story when the jury is finally Sc\ncured\" continued the senator. II\nlooked it over again last night, and\n1t is beyond anything | ever read.\nThe matters involved are suggestive\nof the work of the Molly Maguires,\nbut their methods, like other things\nIn the world, have been subject to\nevolution, and here we have their\nlatest development. have never\nsaid that the men under arrest COM\nmitted these offenses; that is mat\nter for the jury to determine. All\nthat ! say Is that somebody did\ncommit them. and that the dis\nclosure will startle the entire coun-\ntry\n\n\nWith regard to the charges\nagainst him Borah has said that he\nwould be ready to meet any indict-\nment against him 30 minutes after\n1t was reported. He will probably\ntry to secure postponement of the\nland fraud cases in northern Idaho\nIf that is not done his clients will\nhave to get other counsel. With\nhim the big issue is the Haywood\ncase."
+    }
+  ]
+}

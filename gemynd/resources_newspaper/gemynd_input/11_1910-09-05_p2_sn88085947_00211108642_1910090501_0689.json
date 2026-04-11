@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-09-05 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-05",
+    "date_end": "1910-09-05",
+    "report_year": 1910,
+    "source_file": "11_1910-09-05_p2_sn88085947_00211108642_1910090501_0689",
+    "archive_ref": "11_1910-09-05_p2_sn88085947_00211108642_1910090501_0689",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-09-05_p2_sn88085947_00211108642_1910090501_0689",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 97,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 87,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One of the most interesting fea-\nlures of the Labor day parade was\nthe float for equal suffrage, turned\nor by the Spokane Equal Suffrage\nal ociation. 1t depicted women\neHnained to criminals and idiots, and\nwas quite forcible in the lesson\nthat it impaired.\n\n\nSeated on the float were num-\nDer of women engaged in different\noccupations who were chained to a\nfelon in a cell in front and to a\nlunatic in a cell on the rear. The\ndifferent parts in the tableau were\nborne by Mrs. May Arkwright Hut\nton, impersonating the woman tax"
+    }
+  ]
+}

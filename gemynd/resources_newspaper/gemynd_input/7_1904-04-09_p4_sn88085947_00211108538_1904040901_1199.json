@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "Local Briefs.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-09",
+    "date_end": "1904-04-09",
+    "report_year": 1904,
+    "source_file": "7_1904-04-09_p4_sn88085947_00211108538_1904040901_1199",
+    "archive_ref": "7_1904-04-09_p4_sn88085947_00211108538_1904040901_1199",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-04-09_p4_sn88085947_00211108538_1904040901_1199",
+      "composite_score": 11.05,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 5.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation",
+          "colville",
+          "indian agent"
+        ],
+        "railroads": [
+          "depot",
+          "great northern"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904,
+      "word_count": 487,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 2585,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 2594,
+            "in_headline": false
+          },
+          {
+            "term": "indian agent",
+            "weight": 2.5,
+            "offset": 2565,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1444,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1459,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 960,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "R. B. Corcoran of Harrison, Idaho,\nis at the Grand.\n\n\nGet it at Watson's Drug Store.\n\n\nA. M. jenkins, prominent at St.\nMaries, Idaho, is at the Grand.\n\n\nPearl soap is white as snow ard as\nlarge as any yellow laundry soap 1t\ncosts the same-5 cents per cake.\n\n\nGenevieve Carney and Eliza Sexton\nof Granite, Idaho. are at the Victoria.\n\n\nDuffy's 10-acre tracts on the Little\nSpokane will be advanced after\nApril 10.\n\n\nA. V. Chamberlin, mayor of Occur\nd Alene, was in the city few hours\ntoday.\n\n\nThat sore spot is always reached by\nan Onion and Belladonna Plaster.\nGet one this week as a trial for 15c\nat Red Cross pharmacy. O601 Mon\nroe street.\n\n\nMembers of the Pacific Hardware &\nNail association are meeting at the\nHotel Spokane this morning. There are\nrepresentatives from Portland, Taco\nma and Seattle.\n\n\nFoley's Honey and Tar contains no\nopiates, and will not constipate like\nnearly all other cough medicines. Re-\nfuse substitutes. Sold by Chas. Nc\nNab, 402 Riverside avenue.\n\n\nMasons of Boise have purchased a\n$4,000 building site and will build a\nthree-story or four-story temple l05x\n122 feet, commencing work probably\nthis summer.\n\n\nFoleys Kidney Cure makes kidneys\nand bladder right. Don't delay taking\nSold by Chas. McNab, 402 Riverside\navenue.\n\n\nr. R. Maitland of Vancouver. b. c.\nreported to the police this morning\nthat dress suit case containing black\nPrince Albert coat, a silk hat and some\nletters had been stolen from him at\nthe Great Northern depot.\n\n\nFoley's Kidney Cure If taken in\ntime affords security from all kidney\nand bladder diseases. Sold by Chas.\nMcNab, 4o2 Riverside avenue\n\n\nMrs. Victoria Bertha Bousquet died\nat her home at 2402 Altamont street\nin Liberty park. Friday evening. She\nwas % years old and leaves husband\nand an infant child. The funeral SER\nvices will be held Sunday morning and\nthe interment will be at Inglewood\ncemetery, beyond Union park.\nThe surest and safest remedy for\nkidney and bladder diseases is Foley\nKidney Cure Sold by Chas. McNab.\n402 Riverside avenue.\n\n\nRev. w. M. Jones, pastor of the\nUnitarian church, will deliver an adj\ndress at the temple of mental science,\n8l4k Riverside avenue, Pacific halD\nSunday evening. His subject is \"The\nRight and Wrong Of Believing\" A\npiano solo, 1.-The Shepherds Dream,\nwill be rendered by Miss Lily Bruce\nLyness.\n\n\nMold and shape your affairs so\nthat you can deposit at least small\nsum in the savings bank every Satur-\nday night between the hours of \\\nand o'clock This will soon become\nto you an easy and agreeable task.\nSpokane & Eastern Trust company.\n\n\nA. M. Anderson, Indian agent of\nthe Colville reservation, is at the\nGrand. He refuses to have any inter-\nview regarding the charges said to be\nmade against his administration of In\ndian affairs. He curtly told the re-\nporter that there was nothing to be\ngiven out\""
+    }
+  ]
+}

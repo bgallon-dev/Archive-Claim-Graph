@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL NOT DAR[\nMont RUNS",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-15",
+    "date_end": "1904-03-15",
+    "report_year": 1904,
+    "source_file": "4_1904-03-15_p1_sn88085947_00211108538_1904031501_1108",
+    "archive_ref": "4_1904-03-15_p1_sn88085947_00211108538_1904031501_1108",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1904-03-15_p1_sn88085947_00211108538_1904031501_1108",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 150,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 35,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "After a long siege of disaster the\nNorthern Pacific finally announces\nthat II can now run trains safely\nover the Clearwater branch. The last\ntwo weeks have been for the line a\nhistory of wrecks. washouts ana\nslides. Yesterday morning the first\ntrain in week was run over the\nbranch to Sites. The announcement\nwas greeted with joy by the travelling\npublic held up at Lewiston. Idaho.\n\n\n1t is probable that until the season\nwhen slides are likely to occur the\ntrains will be run up the branch in\nthe morning and back in the after\nnoon. making the whole trip by day.\nlight. No attention will be paid to\nany connection with the Spokane\ntrains until the dangers have been\neliminated. The best service possible\nis planned.\n\n\nThere Is a congested condition of\nfreight along the line. This freight\nis now being run into Lewiston as\nfast as possible."
+    }
+  ]
+}

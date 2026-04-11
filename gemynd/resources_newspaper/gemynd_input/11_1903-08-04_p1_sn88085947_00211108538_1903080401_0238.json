@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Officials Invited\n\n\nto Attend Carnival.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-04",
+    "date_end": "1903-08-04",
+    "report_year": 1903,
+    "source_file": "11_1903-08-04_p1_sn88085947_00211108538_1903080401_0238",
+    "archive_ref": "11_1903-08-04_p1_sn88085947_00211108538_1903080401_0238",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-08-04_p1_sn88085947_00211108538_1903080401_0238",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 115,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 40,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Secretary It. 8. Heskett of the\nSpokane trades council has sent an\nInvitation to the mayor and city\ncouncil to take part in the forth\ncoming labor carnival on three diff\nferent occasions.\n\n\nThe presence OF the officials is\nhrst desired on Monday, August ~,\nthe opening day Of the carnival, in\nthe parade. Next they are asked to\nbe present at the coronation of the\nqueen Of the carnival on August 25,\nand the mayor Is asked to present\nthe keys Of the city to the queen.\nLastly the presence OF the officials\n10 desired on the seth for the parade\nOF that day, when the governor and\nhis stan are to be present."
+    }
+  ]
+}

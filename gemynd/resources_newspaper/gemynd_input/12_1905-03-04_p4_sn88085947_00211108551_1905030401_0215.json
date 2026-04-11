@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "INDIANS GET MONEY.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-04",
+    "date_end": "1905-03-04",
+    "report_year": 1905,
+    "source_file": "12_1905-03-04_p4_sn88085947_00211108551_1905030401_0215",
+    "archive_ref": "12_1905-03-04_p4_sn88085947_00211108551_1905030401_0215",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-03-04_p4_sn88085947_00211108551_1905030401_0215",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation",
+          "colville"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 101,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 49,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 531,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The proposed appropriation of\n$1,50O,000 for the Colville Indians\nfailed to pass congress. This is a\ngreat disappointment to many people\nin Spokane and vicinity.\n\n\ncongressman Jones and Cushman\nhave been given positive assurances\nthat the item viii be included in the\nappropriation bill a the next session\nof congress, which begins next De-\ncember.\n\n\nReports from Washington are to\nthe effect that Secretary Hitchcock\nof the interior department has been\non both. sides of the proposition to\nthrow open 100000 acres of the\nColville reservation for settlement.\nAssurances are now given, however,\nthat the land will be open in 1906."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-02-08 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-02-08",
+    "date_end": "1906-02-08",
+    "report_year": 1906,
+    "source_file": "12_1906-02-08_p4_sn88085947_00211108563_1906020801_0391",
+    "archive_ref": "12_1906-02-08_p4_sn88085947_00211108563_1906020801_0391",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1906-02-08_p4_sn88085947_00211108563_1906020801_0391",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "land grant"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 179,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "land grant",
+            "weight": 2.0,
+            "offset": 850,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The estimated cost of the rail-\nroad to the builders was $780,\n000 The company issued bonds\nfor 81 100000; preferred stock\n(outstanding), 100000; common\nstock (outstanding), $S,0OO,0OO. OF\ncourse the public bought these Sc\ncurities. The result was, in other\nwords, that the railroad company\ngot it's railroad for Tess than moth\ning\" and then sold to the public up\non this property the total face val\nlie of which was stock watered to\nsome $15,0 100000 in excess of what\nthe road cost to build. The MT\nresult of this operation was some\nthing like $25,000,000 \"velvet\" in\nthe pockets of those associated in\nthe deal, and those millions came\nfrom the pockets of the govern\nment and the investing public.\nH. A. Taylor, who is assistant\nUnited States treasurer, as the re-\nsuit of Spooner's long friendship\n\n\nwas timber agent at Hudson at the\ntime Of the land grants. The esti-\nmates here given do not take into\nconsideration the vast fortunes\nthat were made in the lumber in.\ndustry from those lands at that\ntime."
+    }
+  ]
+}

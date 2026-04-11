@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Figures LChich Jh0W LDh1t II Railroad\nCommission Working for Coast ./obb.\ners Can do to LDh0lesdle Gr0cers ofthe\nCITY Burdened LL,ith Durhun1isn7.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-24",
+    "date_end": "1905-02-24",
+    "report_year": 1905,
+    "source_file": "3_1905-02-24_p1_sn88085947_00211108551_1905022401_0184",
+    "archive_ref": "3_1905-02-24_p1_sn88085947_00211108551_1905022401_0184",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1905-02-24_p1_sn88085947_00211108551_1905022401_0184",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 231,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 1015,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The class rate, carload. is Is cents,\nless than carloads, 50 cents, or a\ndifferential Of cents.\n\n\nYet on this commodity rate from\nOmaha, whence the larger bulk Of\nsyrup comes, lie 65 cents to Spokane\nand 66 cents to Seattle and Portland.\n\n\nDried fruits, in carloads, Seattle to\nSpokane, takes q rate Of rs cents as\ng. commodity and 95 cents in less\nthan carloads, giving a differential Of\n20 cents. The class rate, carload. is\nSO cents, less than carloads. IS cents.\nor differentfal Of 10 cents.\n\n\nIt Is the differential in the COM\nmodify rate which gives the Spokane\nwholesale grocer a chance to compete\nwith his coast competitor. Buying\nin carload lots he saves the difference\nbetween the carload and less than\ncarload rate to Spokane, while the\nPortland and Seattle jobber, shipping\n: In less than carloads to customers in\nSpokane territory, must pay the\nhigher rate.\n\n\nThe differential existing in the\nclass rate in may cases is not suf-\nficient as between carloads and less\nthan carloads to margin a profit.\nA railroad commission tinkering\nwith these commodity rates need not\n\n\ngo outside of it's legal rights to re-\nadjust these rates and destroy or\nmodify the commodity differential\nand restore, to degree, the class\ndifferential, which would give the full\nadvantage to the coast grocer.\n1t is danger that need not be\nguessed at."
+    }
+  ]
+}

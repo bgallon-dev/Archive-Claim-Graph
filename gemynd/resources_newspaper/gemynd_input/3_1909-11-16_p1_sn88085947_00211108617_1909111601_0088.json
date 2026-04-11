@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "INITIATIVE MOVEMENT GAINS STRENGTH\n\nSTORES ARE ROBBED BY YOUTHS\n\nCITIZENS Want THE\n\n\nSEATTLE ORDINANCE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-16",
+    "date_end": "1909-11-16",
+    "report_year": 1909,
+    "source_file": "3_1909-11-16_p1_sn88085947_00211108617_1909111601_0088",
+    "archive_ref": "3_1909-11-16_p1_sn88085947_00211108617_1909111601_0088",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-11-16_p1_sn88085947_00211108617_1909111601_0088",
+      "composite_score": 15.12,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech",
+          "i. w. w."
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 197,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 196,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 71,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 594,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 538,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "with the unanimous approval of all\npresent. Sympathy with the issue\nOF free speech, involved in the pres\nent fight, was expressed, even\nthough some Of the speakers did\nnot fully coincide with the I. w. w.\non other things.\n\n\nThe st0nemasons, at their meet.\ning last night, discussed the free\nspeech fight and unanimously\nagreed to. support on ordinance cal\nculated to settle the controversy.\n\n\nWherever one goes among the\nwage earners he finds q feeling\nfor the solution of the controversy\nby forcing the city officials--the\nmayor and the city council, to\nadopt an ordinance that will per-\ninit street speaking under police reg\nulatiOn.\n\n\nThe proposed ordinance does not\npermit the abuse OF the right to the\nextent of interfering with public\ntraffic, as a separate ordinance\ncovers that point. Neither does Il\npermit addresses that incite riot,\nas that is also governed by a sep.\narate statute. The only thing a.\nsured under the proposed Ordi.\nnance Is the right Of the individual\nTO express himself to his fellow\ncitizens on the public highway, 60\nlong as he does not thereby in\nfringe on the rights OF his rieighbor\nto use the same."
+    }
+  ]
+}

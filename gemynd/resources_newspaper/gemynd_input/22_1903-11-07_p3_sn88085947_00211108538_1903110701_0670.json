@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CARRIE NATION UPON\n\n\nSTAGE AS AN ACTRESS",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-07",
+    "date_end": "1903-11-07",
+    "report_year": 1903,
+    "source_file": "22_1903-11-07_p3_sn88085947_00211108538_1903110701_0670",
+    "archive_ref": "22_1903-11-07_p3_sn88085947_00211108538_1903110701_0670",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1903-11-07_p3_sn88085947_00211108538_1903110701_0670",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 53,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 265,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "NEW YORK. Nov. 7.--Over In Jer-\nsey, in the little town of Perth AM\nare to make their stage debut tonight.\nThe mehonored Ten Nights in a\nBarroom\" has been chosen as the We\nhicle which is to carry Carrie to\nfame and fortune and Incidentally\ngive aid to the cause of temperance."
+    }
+  ]
+}

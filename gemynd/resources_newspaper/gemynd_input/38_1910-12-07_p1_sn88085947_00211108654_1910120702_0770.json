@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "INTERESTING FACTS ABOUT WOMAN SUFFRAGE BY NOTED\n\n\ns",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-07",
+    "date_end": "1910-12-07",
+    "report_year": 1910,
+    "source_file": "38_1910-12-07_p1_sn88085947_00211108654_1910120702_0770",
+    "archive_ref": "38_1910-12-07_p1_sn88085947_00211108654_1910120702_0770",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "38_1910-12-07_p1_sn88085947_00211108654_1910120702_0770",
+      "composite_score": 18.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 13.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 84,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 24,
+            "in_headline": true
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 30,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "|~n,e>r IS ONLY ONE WAN FoR I'VE\n.,n.irM TO DO ANo THAT IS, pCNHn Wac\ny wofssm y Nm ~ N 7AE NECK EVERY v'r'.\n~. -v'eonr IN The HoosE!ho hh\"\ncay cay sN ssa,I SLEEP AND II roox NV NV,\nDOS o.\", ..n -r,s1 : DAYS AFTrR ooR\nAosos~o ..oos, 70 FIND THAT oo1\nAo1xs ~nxT a k.nx OATH ta<h '.o~nS,' .x<n.T\n.IaHny ~ n,,ssANp Gsts b1EAkfNS'\n\n\ns.n s,eap a sk,lLET AROUND H'e\n\n\naNk ur oorsNT eNvAE TAE\n\n\nncnn,E BE FORE AE EAVS:"
+    }
+  ]
+}

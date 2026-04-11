@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-08-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-25",
+    "date_end": "1906-08-25",
+    "report_year": 1906,
+    "source_file": "15_1906-08-25_p1_sn88085947_00211108563_1906082501_1070",
+    "archive_ref": "15_1906-08-25_p1_sn88085947_00211108563_1906082501_1070",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1906-08-25_p1_sn88085947_00211108563_1906082501_1070",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 444,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 11,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 275,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 972,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Washington Water Power company\nshall not pay but half the expense\nof rebuilding the collapsed Howard\nspan-the bridge 1t warranted to\nkeep safe and sound--because they\n\n\nmade an agreement with the com.\npany, or the company made an\nagreement with them, to that ef-\nfeet.\n\n\nThe city council passed a resolu.\nton ordering the board Of public\nworks to collect all the expense\nfrom the Washington Water Power\ncompany.\n\n\nWhat influence has the company\nused on Roy ard ONO so effectively\nas to cause them to disobey the\norders of the city council?\nAnd what's the mayor doing all\nthis time. He knows what's going\n\n\non. He's supreme in city political\n\n\naffairs. He names all the men for\n\n\ntheir jobs. names the commission\n\n\ners, the members of the water de-\npartment, the health department.\n\n\nand all o.her departments. He's on\n\n\nthe tnside to the negotiations be.\ntween the commissioners and the\n! Washington Water Power company,\nyet he allows the company to han.\ndie his board of public works in\n\n\nsuch way they seem to hold of.\nfee mera'y as the company's board\n\n\nof control on public salary.\nIs the mayors administration\ngetting 10 be as rotten as some of\n\n\nits successors?\n\n\n1t has become question Of\n\n\nwhether the city council is running\n\n\nthe city or whether it Is the board\n\n\nof public works. Is a resolution of\n\n\nthe city council worth anything?\n\n\n1t don't seem to have been in this\n| case.\n\n\nBut Joseph Phillips, councilman\nfrom the Fifth ward, says:\n\n\n\"The board Of public works gets\n\n\nits instructions from the legisla-\n\n\ntive body of the city and the Pratt\nresolution instructed the board to\n\n\ncollect all of the expense Of that\nspan from the company. II the\n\n\nmembers Of the board don't adhere\n\n\nto those instructions they should\n| be thrown ont of their Jobs. A\n\n\ntwo-thirds vote of the council can\n\n\ndo this without the mayors help.\nThe trouble is the members of the\nboard think themselves secure.\n\n\nBacked by the mayor they think\n\n\nthey can do as they please. The\n\n\nmayor got upon the floor of the\n\n\ncouncil chant ers twice already and\n\n\ntried to tell the council what to do.\nI'll tell the p'embers of the board\n\n\nor the mayor to their faces that\n\n\nthy're not right. The mayor has\nnot brains enough to run a wheel\nbarrow straight\"\n\n\nCaptain Join Gray. councilman\nfrom the Second ward, says:\nTHE Washington Water Power\ncompany must pay all the expense\n'of the fixing up of the bridge It\n\n\nknocked down. The Pratt resolu-\nton hollis good. 1t looks to me\nlike this board is getting too friend.\nly with the company\""
+    }
+  ]
+}

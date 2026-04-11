@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "title": "OF WHEAT\n\n\n.P|LFER|NG",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-01",
+    "date_end": "1910-11-01",
+    "report_year": 1910,
+    "source_file": "7_1910-11-01_p2_sn88085947_00211108654_1910110101_0329",
+    "archive_ref": "7_1910-11-01_p2_sn88085947_00211108654_1910110101_0329",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-11-01_p2_sn88085947_00211108654_1910110101_0329",
+      "composite_score": 12.74,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 3.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested",
+          "jail"
+        ],
+        "agriculture": [
+          "wheat"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 111,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 337,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 302,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 142,
+            "in_headline": false
+          },
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 3,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 11,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "PENDLETON, Ore, Nov. L.\nLocal officers and Northern Pacific\ndetectives have unearthed what ap-\npears to have been a systematic\narrangement of wheat pilfering\nfrom grain warehouses at Helix and\nVan Sycle, in this country.\n\n\nRoy Blake, an employee of the\nPuget Sound Warehouse company\nat Helix, has been arrested and is\nheld in the county Jail in default of\nbonds. Other employees of the same\ncompany. of the Farmers Mutual\nat Helix and at Van Sycle are being\nsought in Portland and at other\nplaces In the northwest. .A.y\n1t seems that, to avoid suspicion,\nthe grain was stolen in small guam\ntitles, five to ten sacks at a time."
+    }
+  ]
+}

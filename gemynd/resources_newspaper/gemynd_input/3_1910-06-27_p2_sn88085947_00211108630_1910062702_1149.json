@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "PERMITS FOR\n\n\nSTREET SPEAKING",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-27",
+    "date_end": "1910-06-27",
+    "report_year": 1910,
+    "source_file": "3_1910-06-27_p2_sn88085947_00211108630_1910062702_1149",
+    "archive_ref": "3_1910-06-27_p2_sn88085947_00211108630_1910062702_1149",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-06-27_p2_sn88085947_00211108630_1910062702_1149",
+      "composite_score": 21.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 15.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "i. w. w.",
+          "industrial workers",
+          "street speaking"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 123,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 33,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 490,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 215,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 14,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Permits were issued today to the\nIndustrial Workers of the World to\nhold a street meeting this after\nnoon at 2:30 and tonight at 8\no'clock on Stevens street north of\nFront. These permits were grant\ned under the new street speaking\nordnance and will be asked for\ndaily.\n\n\nProne avenue for two or three\nblocks was alive with oratory Sat\nurday and Sunday nights, as the\ndifferent organizations granted\nspeaking permits held forth. Some\nattributed the victory for free\nspeech to God, while the I. w. W.\nthought the result was attained by\nagitation and Imprisonment, rather\nthan by divine intervention. The\n|. w. w. made the meetings Satur-\nday an occasion for Qualification. A\nphoto of the first meeting was\ntaken."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ULT|mATUM\n\n\nTO UNION",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-18",
+    "date_end": "1906-10-18",
+    "report_year": 1906,
+    "source_file": "30_1906-10-18_p1_sn88085947_00211108563_1906101801_1256",
+    "archive_ref": "30_1906-10-18_p1_sn88085947_00211108563_1906101801_1256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1906-10-18_p1_sn88085947_00211108563_1906101801_1256",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 51,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 324,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "NSCTlppS News AssOClatfOn.)\n\n\nPORTLAND, Oct. 1S.-Grain i'm\nporters state that if arbitration is\nnot agreed upon at this afternoons\nmeeting with striking waterfront\nemployees they will endeavor, with\nthe cooperation of the Citizens al\nlance, to bring about a general\nlockout of unionists in this city and\nestablish universal open shop."
+    }
+  ]
+}

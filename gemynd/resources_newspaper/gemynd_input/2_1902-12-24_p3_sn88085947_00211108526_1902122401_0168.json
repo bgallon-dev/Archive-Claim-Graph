@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NEW CANADIAN ROAD\n\n\nHAS INCORPORATE TED",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-24",
+    "date_end": "1902-12-24",
+    "report_year": 1902,
+    "source_file": "2_1902-12-24_p3_sn88085947_00211108526_1902122401_0168",
+    "archive_ref": "2_1902-12-24_p3_sn88085947_00211108526_1902122401_0168",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1902-12-24_p3_sn88085947_00211108526_1902122401_0168",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 153,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 362,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "road and that the work will begin\nearly in the spring. It's construction\nWill probably cost not far from\n100000. D. G. Corbin. who will be\npresident of the company, will also\nhave tho active business manage\nmcnt. lie is now in the east. it is\nsaid in the interest of the new pro-\nJcct. Mr.. Corbn built the first road\ninto the Occur d'Alcnes and later\nbuilt tn\" Spokane Falls a Northern\nand IL thoroughly acquainted with\nevery detail of the work.\n\n\nSenator Turner will be general\ncounsel for the new road. 1t is also\nasserted that he is chief legal adviser\nfor the Canadian Pacific in this sec\nton of the United States.\n\n\n1t is asserted by those supposed to\nknow that when the new road is com\npletod the Canadian Pacific will make\nSpokane the distributing point for all\nof this section and will. therefore.\ngive this city terminal rates."
+    }
+  ]
+}

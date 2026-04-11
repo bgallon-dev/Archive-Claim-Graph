@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "the ROOSEVELT\n\n\nADMINISTRATION",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-05",
+    "date_end": "1909-03-05",
+    "report_year": 1909,
+    "source_file": "23_1909-03-05_p1_sn88085947_00211108599_1909030501_0790",
+    "archive_ref": "23_1909-03-05_p1_sn88085947_00211108599_1909030501_0790",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1909-03-05_p1_sn88085947_00211108599_1909030501_0790",
+      "composite_score": 12.74,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 1.5,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "open shop"
+        ],
+        "indigenous": [
+          "treaty"
+        ],
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 250,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 232,
+            "in_headline": false
+          },
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 1190,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "treaty",
+            "weight": 1.5,
+            "offset": 8,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 414,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "= Peace treaty between Russia\n. and Japan.\n\n\n. Nobel prize awarded to\n= Roosevelt and by him turned\n= over to trustees to be held in\n. perpetuity and devoted to\n. the cause of Industrial peace\n= in the United States.\n\n\n. Anthracite strike settled.\nq Rate law passed.\n\n\nq Pure food law secured form\n\"a reluctant congress. This\n. law had been killed by hostile\n. interests in congress every\n. year for II years.\n\n\n. Reclamation law secured.\n. Since then $30,000,000 has\n= been expended.\n\n\n. Bureau of corporations Sc\n= cured in spite of the famous\n= kilograms from Rockefeller\n. ordering senate to kill 1t.\n= Conservation. policy inang-\nq urated by famous east room\nq conference of governors.\n= Panama canal bill secured\nq from congress.\n\n\nq Panama republic organized\n. and rights Of old company\n= acquired.\n\n\n= Publicity of campaign ex-\n. penditures inaugurated in\nq presidential elections.\n. Government appeal secured\n= in criminal cases before fed\n. eral courts.\n\n\n= Reciprocity with Cuba car\nq ried out as a Mckinley herit\n. age.\n\n\n= Cuban republic launched as\n. Independent nation. Interven-\n= ton and again launched.\n. Protection of American for\nq ests made effective.\n\n\ny Principle of open shop\" APP\n= piled in government printing\n= office and other government\n= factories.\n\n\n. Eight hour day applied in\n. government industries.\nq Trade treaties negotiated\n. with Germany, France, etc.\nq Several arbitration treaties\n= negotiated."
+    }
+  ]
+}

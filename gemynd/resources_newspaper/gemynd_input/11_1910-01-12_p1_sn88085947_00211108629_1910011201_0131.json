@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "title": "I CLASH IN\n\n\nCOUNCIL\n\nY. w. c. A. TRIES TO CAPTURE\nPOLICE MATRoN ADVOCATED\nBY WOMAN'S CLUB.\n\nCOUNCIL IS WITH CLUB",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-12",
+    "date_end": "1910-01-12",
+    "report_year": 1910,
+    "source_file": "11_1910-01-12_p1_sn88085947_00211108629_1910011201_0131",
+    "archive_ref": "11_1910-01-12_p1_sn88085947_00211108629_1910011201_0131",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-01-12_p1_sn88085947_00211108629_1910011201_0131",
+      "composite_score": 13.65,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.5,
+        "womens_civic": 6.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ],
+        "education": [
+          "school board"
+        ],
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 340,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 586,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 226,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 1161,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 88,
+            "in_headline": false
+          },
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 79,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "education",
+        "iww_labor",
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The effort of the Young Women's\nChristian association to step into\nfight started by the Woman's club\nand capture the police matron the\nclub had been advocating for some\ntime was rebuked by the represen-\ntatives present at the city council\nlast night. The Y. w. c. A. wanted\nto do the work at sos per month,\nbut the Woman's club leaders said\nthey wanted the city to make it's\nown selection and fix the pay.\n\n\nThe council authorized the en-\nployment of one police matron at\nthis time, the question of compen-\nsation to be left with the police\ndepartment.\n\n\nConditions in the Spokane city\njail and the handling of women\nprisoners was scored more than\nonce, and at least three references\nwere made to the case of Agnes\nFair, the l. w. w. girl, who claimed\nthat one of the officers attempted\nto outrage her while confined with\nin a, cell in the city prison. 1t was\nthis charge of the Fair girl that led\nthe women to take action in the\nmatter.\n\n\nThe result of a ballot taken in\ndifferent churches and schools was\nread. showing 1929 votes in favor\nof the proposition OF the employ\nment of police matron.\nMrs. II. Nj. Prayer, recently a\ncandidate for membership on the\nschool board. made an effective\nplea for a police matron. She said\nthat if the city used as diligent\nefforts to keep women out of the\njailk that it does to paddock them\nIn When once they land there that\nbetter results for the city at large\ncould be obtained.\n\n\nAnother woman speaker demand.\ned the appointment of police\nmatron in the name of common\ndecency. She spoke of the war on\nthe white slave traffic, and said\nthat 1t took more than policemen\nWith \"lot of fine necks\" to cope\nwith the question.\n\n\nSbme of the councilmen wanted\nto fefer and postpone after the\nusual manner, but Councilman\nDalke came to the aid Of the wo-\nmen, and the thing then went\nthrough with whirl."
+    }
+  ]
+}

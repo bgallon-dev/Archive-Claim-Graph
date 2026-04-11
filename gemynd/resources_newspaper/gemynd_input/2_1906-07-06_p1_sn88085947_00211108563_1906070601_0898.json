@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "CAN THE council\n\n\nTAKE THIS DOSE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-06",
+    "date_end": "1906-07-06",
+    "report_year": 1906,
+    "source_file": "2_1906-07-06_p1_sn88085947_00211108563_1906070601_0898",
+    "archive_ref": "2_1906-07-06_p1_sn88085947_00211108563_1906070601_0898",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-07-06_p1_sn88085947_00211108563_1906070601_0898",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 143,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 617,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 461,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "AS predicted in this paper\nCharles S. Bihler has been handed\nmost of the blame for the Howard\nstreet disaster.\n\n\nMr.. Bihler is now in New Haven,\nConn.\n\n\nIn the committees report the\nfact that Bihler acted soley in\ncapacity of the Washington Water\nPower company employee and agent\nhas no bearing on the case. This\nis the one case where the principal\ncannot be held by the acts of his\nauthorized representative.\n\n\nFor the reason. 1t is argued, that\nthe board Of public works failed to\nsee that the work was properly\ndone.\n\n\nIn other words it is guilty Of put.\nting its faith in the following\npromise\n\n\n\"The Washington Water Power\ncompany has entered into contract\nwith Bennett & Bihler, and the\nPuget Sound Bridge & Dredging\ncompany, to make the necessary\nrequirements, extensions, additions\nand repairs to make said bridges"
+    }
+  ]
+}

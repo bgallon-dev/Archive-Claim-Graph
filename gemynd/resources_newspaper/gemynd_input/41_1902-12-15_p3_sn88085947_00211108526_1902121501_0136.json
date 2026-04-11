@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1902-12-15 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-15",
+    "date_end": "1902-12-15",
+    "report_year": 1902,
+    "source_file": "41_1902-12-15_p3_sn88085947_00211108526_1902121501_0136",
+    "archive_ref": "41_1902-12-15_p3_sn88085947_00211108526_1902121501_0136",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "41_1902-12-15_p3_sn88085947_00211108526_1902121501_0136",
+      "composite_score": 10.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 3.0,
+        "railroads": 4.5,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate",
+          "wheat"
+        ],
+        "railroads": [
+          "freight rate",
+          "depot",
+          "northern pacific"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902,
+      "word_count": 502,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 1345,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1417,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 104,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 121,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1417,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 1046,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\nMost of the subcontracts are now\nlet.\n\n\nContractor George S. Deits is\nbuilding a brick addition to the\nNorthern Pacific depot, which will\nprobably be completed early in\nFebruary. It's dimensions are 50x40\nfeet. The lunch counter will be\nremoved from it's present location\nin the waiting room and fitted up\nin the new building.\n\n\nThe statement is made by coal\ndealers that the Southern Pacific\nhas decided to change from oil to\ncoal on all of it's coast branches\nnow using oil. Orders for 10000\ntons month have been placed for\nCarbonate coal. 1t is said that oil\nburns and warps the locomotive\nboilers so that they leak.\n\n\nThe Baltimore & Ohio has COM\npleted the installation of block sig\nnails on the main line between Bal\ntimore and Pittsburg. The signal\nstations are located at uniform\ndistance of 1000 feet apart in the\nthickly settled districts. This will\ngreatly facilitate the movement of\ntraffic. as the company will not\nonly be able to handle more trains,\nbut will be able to maintain faster\nsch edples and make better time.\n\n\nPortland, Ore - The Northern\nPacific will establish a grain port\nat some point on the north bank\nof the Columbia in opposition to\nAstoria. The Oregon Railway &\nNavigation company will run its\ngrain trains to the mouth of the\nColumbia on the south bank and\nsound cities will lose the export\ngrain trade.\n\n\nThe wheat trains will be run\nthrough Portland without stopping\nCommon point freight rates will be\nextended to the new ports.\n\n\nThe Northern Pacific officials\nhave not kept their intentions Sc\ncret and engineers have for some\ntime been engaged in making ex\ntensions of the system to the lower\nColumbia.\n\n\nLocal railway men are much in\nterested in the general movement\nfor an increase in wages among\nwestern railway employees.\n\n\nIndications are that this move\nment is rapidly approaching a cri\nsis, as representatives of four OF\nthe largest employees organizations\nare in conference over the subject\nin Chicago.\n\n\nThe organizations represented\nare: brotherhood of Railroad\nTrainmen, with a membership Of\ngo 900; the Brotherhood of Locomo\ntive Firemen, with membership o.\n$4,000: the Brotherhood of Locomo\ntive Engineers, with a membership\nof Al ,000 and the Order of Railway\nConductors, with membership O\n$4,000.\n\n\n1t is understood that an increase\nof II per cent has been decided\nupon by members of the committee\nTHE employees of the roads which\nhave voluntarily advanced thu\nwages of their employees are no\nrepresented. The employees repre-\nlsented are mainly from those roads\n(which have their terminals in ST\nPaul, Minneapolis, st. Louis, Kan\nsas City, Indianapolis and Omaha\nAmong the roads thus intereste'\ninclude the Northern Pacific, Grea\nNorthern. Chicago, Milwaukee 4\nST. Paul, the Chicago Il Northwest\nern, Wisconsin Central. lllinoi\nCentral and several others.\n\n\nIL the railroads do not make tn\nRequired advances, a convention\nrepresenting 100000 men will b\ncalled for January in st. Loui\nand general federation OF all raj\niway employees formed."
+    }
+  ]
+}

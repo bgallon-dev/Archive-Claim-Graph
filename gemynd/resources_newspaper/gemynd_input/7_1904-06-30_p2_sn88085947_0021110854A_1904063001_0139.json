@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOMEN WERE\n\n\nMISTREATfD",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-06-30",
+    "date_end": "1904-06-30",
+    "report_year": 1904,
+    "source_file": "7_1904-06-30_p2_sn88085947_0021110854A_1904063001_0139",
+    "archive_ref": "7_1904-06-30_p2_sn88085947_0021110854A_1904063001_0139",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-06-30_p2_sn88085947_0021110854A_1904063001_0139",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 152,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 453,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BUTTE, Mont, June Strickland\nRobertson, formerly editor of the Tel\nluride Examiner, in an interview to the\nButte News on the Colorado situation\ntoday said:\n\n\n\"You ask particularly if it be true\nthat women and children have been\nmaltreated. In answer will say that\nthere are many besides myself who\nwill make affidavit to scores of in\ndividual cases Of, not maltreatment,\nbut of actual cruelty at the hands of\nthe agents of the Citizens Alliance\nand the Mine Owners association.\n\n\n\"These acts comprise everything in\nthe catalogue, from open insult, offered\non the street by imported thugs and\ndetectives of the Alliance and associa-\nton, to attempted rape by brutes from\nSherman Bells militia. have seen\nlife made such a hell for the wives\nOf deported miners, that they were\nforced to take q snow-covered trail,\nID miles long. over the mountains to\nthe nearest point Of succor and az\nsistanoe.\""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-05-10 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-10",
+    "date_end": "1909-05-10",
+    "report_year": 1909,
+    "source_file": "7_1909-05-10_p6_sn88085947_00211108599_1909051001_1229",
+    "archive_ref": "7_1909-05-10_p6_sn88085947_00211108599_1909051001_1229",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-05-10_p6_sn88085947_00211108599_1909051001_1229",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 100,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 196,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "has been given it's final coat of col\nor, with the exception of the main\ngovernment building, which will be\nthe last one to be finished and oc-\ncupied previous to the opening day,\nJune l, and the exposition city new\npresents a beautiful picture.\n\n\nThe old ivory blends perfectly\nwith the natural background of fir\nforest and green waters of the\nlakes and bay.\n\n\nThe wild game preserve of the\nexposition, embracing 10 acres OF\nwoods in its natural state, will\nhouse specimens of the fauna OF\nthe entire Pacific coast and Alas\nka. The collection Of the Alaska"
+    }
+  ]
+}

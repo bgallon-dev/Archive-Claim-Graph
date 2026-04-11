@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "INLAND EMPIRE\nIN FINE SHAPE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-21",
+    "date_end": "1907-10-21",
+    "report_year": 1907,
+    "source_file": "3_1907-10-21_p4_sn88085947_00211108575_1907102101_1183",
+    "archive_ref": "3_1907-10-21_p4_sn88085947_00211108575_1907102101_1183",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-10-21_p4_sn88085947_00211108575_1907102101_1183",
+      "composite_score": 10.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 245,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1110,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 160,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1110,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "e. d. Sanders, of the firm of\nPowell Sanders, returned home\nfrom a business trip through the\nWalla Walla country. Regarding\nconditions among the farmers OF\nthe Inland Empire Mr.. Sanders said\nthey were never better. The yield\nof grain has been enormous and the\nhigh prices for foodstuffs insures\nyear of unexampled prosperity in\nthe rural districts. He says con-\ndition in Spokane are normal and\ncollections were never better. The\nclosing of the Butte savings bank\nwill be to an extent bad thing for\nthis part of the country, but con-\nditions will soon become more set\nTiled and no serious results are ex-\nypected.\n\n\n1.-THE Inland Empire\" said Mr..\nSanders, was never in better\nshape to weather a financial storm,\nand personally do not believe the\npresent Wall st. crisis will have\nany detrimental effect on the Pa\ncific Northwest. In the end, good\nwill result from the water SqueeZ-\ning process stocks are now passing\nthrough, and a great business re-\nvival on sound principles will sure\nly result.\n\n\nThe financial furry will, l am\nafraid, have one bad effect on Spo-\nkane. | don't believe we will get\nbetter freight rates through ia\nvorable decision by the interstate\ncommerce commission. as further\ncontraction of receipts by the rail\nroads would have the effect of in\ncreasing the depression of stocks\nand for that reason | expect we\nwill be deprived of much needed\nreform in freight rates for this\nsection\""
+    }
+  ]
+}

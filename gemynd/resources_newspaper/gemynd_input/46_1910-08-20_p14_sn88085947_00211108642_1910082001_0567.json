@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "title": "CITY Ne We\n\n\n~ IN BR ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-20",
+    "date_end": "1910-08-20",
+    "report_year": 1910,
+    "source_file": "46_1910-08-20_p14_sn88085947_00211108642_1910082001_0567",
+    "archive_ref": "46_1910-08-20_p14_sn88085947_00211108642_1910082001_0567",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "46_1910-08-20_p14_sn88085947_00211108642_1910082001_0567",
+      "composite_score": 15.47,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 1.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "iww_labor": [
+          "jail",
+          "arrested"
+        ],
+        "indigenous": [
+          "colville"
+        ],
+        "railroads": [
+          "great northern",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 608,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 3217,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 661,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1099,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 1801,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 3352,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 3333,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I'LL III W III\n~ IN BRIEF VI\n\n\nRegistration yesterday totaIed\n200, bringing the number above the\n5000 mark.\n\n\nThe body of an unknown man\nwas found floating in the log boom\nof the Phoenix Lumber Co. yester-\nday.\n\n\nA blanket ordinance suggesting\nthe compromising of a dozen or so\ndamage claims against the city was\nfiled with the city clerk yesterday.\n\n\nAt the junction of Euclid avenue\nand the G. n. tracks two masked\nthugs last night robbed r. A. Hol-\nlinger, w. w. P. conductor, of $15\nIN silver.\n\n\nCouncilman Cartwright says he\nwon't vote to pay $4,000 for\nwooden wornout water mains in\nSouth Side Cable addition.\n\n\nEdward Lenser, 223 Second ave-\nnue., is in jail and his wife in the\nhospital. The wife's face was cut\nin scrap and the police are inves-\ntigating.\n\n\nSeveral thousand partly burned\nvolumes damaged in the Graham\nfire were incinerated yesterday at\nthe city's crematory.\n\n\nWith bills alleged to be unpaid,\nand furniture ditto, N. B. Walton,\npresident of Inland Advertising\nagency, is missing, and sought by\ncreditors.\n\n\nJim Danford, age rs, cook, and\nGeorge Myers, age 30. blacksmith,\narrested last night for robbing an\nunknown man, are believed to be\ndesperate yeggmen.\n\n\nLieutenant Colonel Lea Febiger,\nnow at Manila, formerly in COM\nmand at Fort Wright, is first on the\nlist of lieutenant colonies in the\nline of promotion and is expected to\nbe placed at the head of regi-\nment soon.\n\n\nEdna, aqed seven months, dauqh.\nter of Charles ]. Kumbrae, Els\nCora avenue, died last night.\n\n\nMrs. l.. Barnes, arraigned In the\npolice court on charge of vag.\nrancy. the second charge of the\nkind preferred against her in a\nweek, was given another chance to\nmend her ways. The woman's hus\nband is in Walla Walla and her chill\ndren are in charge of the juvenile\ncourt.\n\n\n\"Big Louie\" and Mary Thomas\nColville Indians, were married by\nFather Coldia of Gonzaga college.\n\n\nThe body Of. William Miller, age\nSc, 02525 Pittsburg street. was\nshipped today to Portland fol\nburial.\n\n\nHenry D. SchjolI has brought suit\nagainst the Union Health and Acct\ndent Co. on a policy which, 1t il\nclaimed, has matured and the com\npany has refused to pay.\n\n\nMrs. Hannah M. Roberts, E53;\nBridgeport avenue, was buried this\nmorning at Paramount cemetery\nafter funeral services conducted by\nthe Rev. A. N. Smith.\n\n\nBecause the place was >unde\nlease at the time to the Hand EN-\npire Pet Stock and Poultry assOcia\nton, the Spokane Turnverein ha!\nmade answer that it is not liable\nfor damages claimed by Mrs. Effit\nSpear, who fell and hurt herself\nwhile attending the chicken show\nthere last winter. She asks SIS, 500\ndamages and was once awarded\nthis amount by default, through thu\nfailure of the Turnverein to lool\nafter its rights. In that case new\ntrial was granted.\n\n\n/ II. W. Jost, age 81, III for tWt\nweeks, died yesterday at st. Luke'i\nhospital. He was a painter and for\nmerly resided at Thornton, Wash.\n\n\nThe Aanti-SaIoon league has con\ncluded to mail the salOonmen's pa\nper, the Royal Arch Journal. to al\npreachers as good campaign dope.\n\n\nSuits to collect $500 wer.\nfiled in the superior court by thu\nFarmers and Mechanics bank. J\nw. Fry, w. Scheck and r. Hack\nlander are named as defendants.\n\n\nOwing to the interstate fair ane\nthe Dry Farming congress being\nheld the same week an unusually\nfine display of agricultural products\nis looked for. The Great Northern\nand Northern Pacific railroads are\nextensively advertising the event:\nalong their liens and urging the\nfarmers to compete for the prizes."
+    }
+  ]
+}

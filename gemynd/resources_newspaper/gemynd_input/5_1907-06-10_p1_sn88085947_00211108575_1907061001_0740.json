@@ -1,0 +1,114 @@
+{
+  "metadata": {
+    "title": "ALL GIVE ORCHARD THE lie\n\nAdams and Others Named 40 AccompIIcoe\n\n\nDeclare He Testimony False.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-10",
+    "date_end": "1907-06-10",
+    "report_year": 1907,
+    "source_file": "5_1907-06-10_p1_sn88085947_00211108575_1907061001_0740",
+    "archive_ref": "5_1907-06-10_p1_sn88085947_00211108575_1907061001_0740",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-06-10_p1_sn88085947_00211108575_1907061001_0740",
+      "composite_score": 10.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 3.5,
+        "railroads": 0.5,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ],
+        "agriculture": [
+          "orchard",
+          "hay"
+        ],
+        "railroads": [
+          "depot"
+        ],
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 457,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 2241,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 958,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 569,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 9,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 342,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I He admitted knowing Jim War\nford, now in the penitentiary, who\nwas formerly mine owners gun\nman at Cripple Creek. Asked II he\nknew mine owners, managers, dep\nuty sheriffs and militia officers he\n\n\nsaid he mex a number of them, but\n\n\nswore he did not convey any In\n\n\nformation to any of them regarding\nthe plan to blow up the Indepen.\ndence depot and said he did NOT\n\n\nknow chat a military company was\n\n\non guard there. They had been or\ndered to be under arms at the mine\nthat night, hours before the ex.\nplosion, because they had been told\nsomething was coming on\" u\nOrchard did not know where he\n\n\nmet Adams on the day OF the explo-\nsion. He denied that he had been\ncautioned not to fix either time or\nplace. He said Hawley and McPar-\nland simply told him to go ahead |\nand tell the truth. This caused a |\nlaugh in the courtroom, which was !,\nquickly suppressed.\nUP to the time of the depot excl\nplosion Orchard said he had re-\nceived s735 from Meyer and Hay\nwood He denied receiving letters /\nfrom Superintendent Bangs Of tho\nPinkerton agency, or VIM. Pinker-\nton, of Chicago, telling him what\n\n\ncourse to pursue and what would\n\n\nbe done for him after the trial.\nRichardson devoted nearly three\nquarters of his questioning to\n\n\nmoney Orchard said he got, but the\nwitness memory on this point was\nhaZy as to amounts or dates. Rich\n\n\nardson got another laugh from the\n\n\ncrowd by asking why witness used\n| the word assassination when speak.\ning Of killing, demanding If 1t came\n\n\nfrom association with MCFARLAND.\nOrchard said no; he had learned\n\n\nthe meaning of the word since he\n\n\nhad been in the penitentiary.\nHe declared he didn't plan to ex-\nplode the powder at Independence\n| before the train arrived, but when\nasked IL he did not actually do So\nsaid he didn't want to injure any\nrailroad men, so he exploded 1t\nwhen he saw the headlight coming.\n1t is apparent that Richardson Ia\ntrying to show the blowing up OF\n/ the depot was not intended to kill\n\n\nany one, but was a plot to blow up\n\n\na deserted place and give an excuse\n\n\nfor keeping militia In the district.\n\n\nWitness insisted he never knew\n\n\nthere were nonunion men in the\n\n\ndepot about the time of the explo-\n\n\nsion. Afterward he went to Denver\n\n\nand told Simpkins about 1t.\n\n\nHaywood and Pettibone came up.\n\n\nhe said, and the matter was dis\n\n\ncussed. They said 1t was good\n\n\njob, Orchard testified.\n\n\nJames Hirwin, now acting secres\n\n\ntary of the union, was also there,\n\n\nbut left before he talked about the\ncrime."
+    }
+  ]
+}

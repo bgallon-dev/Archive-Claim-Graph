@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Assessor Stewart States His Contentious\nIFS to Liability of Local Vews Fran\nchise to Pay Just Share of Taxes Is\nUpheld--Rdilrodd Ddludtions Greatly\nIncreased.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-22",
+    "date_end": "1906-01-22",
+    "report_year": 1906,
+    "source_file": "2_1906-01-22_p1_sn88085947_00211108563_1906012201_0328",
+    "archive_ref": "2_1906-01-22_p1_sn88085947_00211108563_1906012201_0328",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-01-22_p1_sn88085947_00211108563_1906012201_0328",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 132,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 251,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to the schedule of the\ntax commission timber lands are\nto be increased to such an extent\nthat the total revenue in all coun-\nties of the state will be advanced\nfrom 10 to IL millions.\n\n\nWith reference to assessments Of\ntelephone, telegraph, electric light.\nwater and gas companies, the sew\neral assessors arc expected as soon\nas possible to estimate valuations\nfor the several counties and turn\nin the figures TO the tax commits\nsion. Such reports will then be\ncollated and from the aggregate\nwill be produced a fixed plan for\nassessment of those properties\nnamed which will be forwarded\nback to the several assessors as\ngeneral scheme for the taxation of\nthe utilities mentioned.\n\n\nRegarding the assessment of\nrailroad properties, the action TAX\nen- at Olympia presages heavier"
+    }
+  ]
+}

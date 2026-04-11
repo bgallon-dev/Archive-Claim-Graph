@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "INDIAN WAR BREAKS\n\n\nLOOSE IN HOTEL",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-03",
+    "date_end": "1908-08-03",
+    "report_year": 1908,
+    "source_file": "3_1908-08-03_p1_sn88085947_00211108587_1908080301_0805",
+    "archive_ref": "3_1908-08-03_p1_sn88085947_00211108587_1908080301_0805",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-08-03_p1_sn88085947_00211108587_1908080301_0805",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 7.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian war",
+          "reservation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 114,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 161,
+            "in_headline": false
+          },
+          {
+            "term": "indian war",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A regular old fashioned Injun\nwar broke out last night in the Lo-\ngan hotel when Sam Silas, the\nproud possessor Of star of police\nauthority on the Occur d'Alene\nreservation, broke into room in.\nhabitated by another Injun named\nWilliams with his lady sQuaw and\nbegan to slash at him. Then Lo-\nmas, third member of the tribe,\nbutted in and when Patrolman\nPhelan rushed to the front with re-\nInducements Williams and Tomas\nwere astride of Silas prepared,\nseemingly. to scalp him. The\nbunch were taken to the city bas-\ntile to sober up.\n\n\nJust previous to this affair, John\nGray (not the councilman) was\npinched for selling liquor to the\nIndians."
+    }
+  ]
+}

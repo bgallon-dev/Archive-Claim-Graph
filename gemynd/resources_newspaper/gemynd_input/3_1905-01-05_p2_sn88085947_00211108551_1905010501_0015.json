@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "BUSINESS MEN ON\n\n\nJAUNT TO WENATCHEE",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-05",
+    "date_end": "1905-01-05",
+    "report_year": 1905,
+    "source_file": "3_1905-01-05_p2_sn88085947_00211108551_1905010501_0015",
+    "archive_ref": "3_1905-01-05_p2_sn88085947_00211108551_1905010501_0015",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1905-01-05_p2_sn88085947_00211108551_1905010501_0015",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 159,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 242,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 648,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A delegation of rs business men\nof Spokane left last night in a spe-\ncial Pullman car to attend the state\nhorticultural convention at We\nnatchee.\n\n\nAmong the delegates was L. Nc\nLean, formerly of Wenatchee, who is\nlargely interested in a new irrigation\nproject in the Methow region. The\ngentlemen who accompanied Mr. Nc\nLean will spend few days investi-\neating the project and If the prelimi-\nnary surveys show the present esti-\nmates to be correct, Mr.. Mclean is\nassured that plenty of money will be\nforthcoming from Spokane capital\nlists to carry the scheme through.\n\n\nBesides Mr.. Mclean, the delegates\nincluded F. <. Goodall, president of\nthe chamber of commerce.; A. l..\nWhite. ]. Grier Long, w. w. Green\nwood, A. w .Hadley, Phil T. Becher,\nColonel p Nolan, Cyrus Happy, C. H.\nKnapp, M. B. Garrett, J. d. Johnson,\nC. E. Beetle, M. S. Russi and A. c..\nEdwards.\n\n\nLarge banners on the Pullman con-"
+    }
+  ]
+}

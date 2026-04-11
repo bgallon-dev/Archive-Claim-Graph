@@ -19,6 +19,7 @@ from gemynd.core.graph.cypher import (
     MULTI_ENTITY_CLAIMS_QUERY,
     PROVENANCE_CHAIN_QUERY,
     TEMPORAL_CLAIMS_QUERY,
+    build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
 
@@ -50,8 +51,12 @@ class InMemoryQueryExecutor:
             self._anchor_temporal_cypher: str | None = build_temporal_with_anchor_query(
                 anchor_entity_type, anchor_relation
             )
+            self._anchor_document_cypher: str | None = build_document_anchor_query(
+                anchor_entity_type, anchor_relation
+            )
         else:
             self._anchor_temporal_cypher = None
+            self._anchor_document_cypher = None
 
     # ── public interface ────────────────────────────────────────────────────
 
@@ -69,6 +74,11 @@ class InMemoryQueryExecutor:
             and cypher is self._anchor_temporal_cypher
         ):
             return self._temporal_with_anchor(p)
+        if (
+            self._anchor_document_cypher is not None
+            and cypher is self._anchor_document_cypher
+        ):
+            return self._document_anchored(p)
         if cypher is MULTI_ENTITY_CLAIMS_QUERY:
             return self._multi_entity(p)
         if cypher is CLAIM_TYPE_SCOPED_QUERY:
@@ -196,6 +206,50 @@ class InMemoryQueryExecutor:
                 (r.get("y") or {}).get("year") or 0,
                 (r.get("c") or {}).get("extraction_confidence", 0.0),
             )
+        )
+        return rows[:limit]
+
+    def _document_anchored(self, p: dict) -> list[dict]:
+        anchor_id = p["anchor_id"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+        year_min = p.get("year_min")
+        year_max = p.get("year_max")
+        claim_types = p.get("claim_types")
+        limit = p.get("limit", 20)
+
+        anchor_rel = self._anchor_relation
+        anchor_label = self._anchor_entity_type
+
+        valid = set(self._valid_docs(institution_ids, permitted_levels))
+        anchor_docs: set[str] = set()
+        for sl, si, rt, el, ei, _ in self._w.rel_store:
+            if (
+                rt == anchor_rel
+                and el == anchor_label
+                and ei == anchor_id
+                and si in valid
+            ):
+                anchor_docs.add(si)
+
+        rows: list[dict] = []
+        for doc_id in anchor_docs:
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id, claim_types):
+                row = self._build_row(doc_id, claim_id, anchor_rel)
+                year = (row.get("y") or {}).get("year")
+                if year is not None:
+                    if year_min is not None and year < year_min:
+                        continue
+                    if year_max is not None and year > year_max:
+                        continue
+                rows.append(row)
+
+        rows.sort(
+            key=lambda r: (r.get("c") or {}).get("extraction_confidence", 0.0),
+            reverse=True,
         )
         return rows[:limit]
 

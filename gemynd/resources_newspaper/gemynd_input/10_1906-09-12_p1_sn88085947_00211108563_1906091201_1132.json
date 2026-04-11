@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-09-12 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-12",
+    "date_end": "1906-09-12",
+    "report_year": 1906,
+    "source_file": "10_1906-09-12_p1_sn88085947_00211108563_1906091201_1132",
+    "archive_ref": "10_1906-09-12_p1_sn88085947_00211108563_1906091201_1132",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1906-09-12_p1_sn88085947_00211108563_1906091201_1132",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 102,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 87,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The following letter is being\nmailed to all state legislative can\ndidates by the State grange from\nthe headquarters at Pullman:\n\n\nMr.. candidate\nfor the state legislature,\n\n\nDear Sir: At the eighteenth an\nnual session of the Washington\nState grange, patrons of husbandry,\nheld at Spokane, the members took\nstrong grounds for the suppression\nof the saloon and pool room at or\nwithin five miles of the state COL\nlege at Pullman, Wash. Upon the\nmade by members\nof the faculty and residents of the\nvicinity and in line with the best\nthought Of educators everywhere,\nthat the educational period of the"
+    }
+  ]
+}

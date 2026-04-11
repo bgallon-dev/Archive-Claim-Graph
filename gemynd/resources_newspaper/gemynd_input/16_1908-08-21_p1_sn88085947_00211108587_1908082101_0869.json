@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-08-21 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-21",
+    "date_end": "1908-08-21",
+    "report_year": 1908,
+    "source_file": "16_1908-08-21_p1_sn88085947_00211108587_1908082101_0869",
+    "archive_ref": "16_1908-08-21_p1_sn88085947_00211108587_1908082101_0869",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1908-08-21_p1_sn88085947_00211108587_1908082101_0869",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 333,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 1218,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "an employment liability law and a\nn eight hour law for miners.\n\n\nAdditional regulation is needle\nd for the. protection of lives OF\ntrainmen and the travelling public.\n\n\nalso believe that a law should\nbe passed requiring that unifor\nm method OF providing ready\nmeans of escape from possible fir\nfor the occupants Of all hotels\nand lodging houses in this state 8\nhould be adopted\"\n\n\nThe thunder roared and the\nlightning flashed for an hour or so\nlast night and as a result only a\nsmall crowd heard Gov. Mead and\nCongressman Jones at the labor\ntemple carnival. Mayor Moore in\ntroduced Gov. Mead as a man who\nhad made good In the governors\nchair and the governor devoted his\naddress largely to administration\nmatters. especial interest to citi-\nzens generally.\n\n\nHe outlined the history of union\nism as one of the remarkable and\nbeneficial developments Of the past\n80 years. AS the surest and safety\nremedies for differences between\nlabor and capital he advocated ar\nbitration.\n\n\nIn recapitulating his administra-\nton Gov. Mead said that all the\ndemands of the republican plat\nforms of 1904 and 1906 had been\ncarried into effect and important\nlegislation enacted not embodied In\nthe platform, among the latter be-\ning the railroad commission, for\nwhich the platform failed to de-\nclare. The governor, previous to\nelection, had declared his purpose\nto sign such bill II it were pass\ned. He mentioned the fact that\nwhile the legislature was debating\nthe bill, Henry Mcbride made no\neffort to aid, although he had made\nhis fight for the nomination on his\nprofessed allegiance to the rail-\nroad commission issue. Frank T.\nPost and other Mcbride commits\nsion men were also absent. The\ngovernor outlined the work Of the\ncommission he appointed and de-\n. clared 1t the equal of any In the\n, country. Jesse Jones, member\nOf organized labor, Is now one OF\nthe commission.\n\n\nIn regard to theh opposition OF\nlumber interests Gov. Mead said"
+    }
+  ]
+}

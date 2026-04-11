@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "BOYCOTT FOR\nSTORE OWNER\n\nOBJECT TO HIS BUILDING A\nSHACK IN A GOOD NEiGHBoR-\nHOOC--3oo SIGN.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-13",
+    "date_end": "1910-04-13",
+    "report_year": 1910,
+    "source_file": "11_1910-04-13_p10_sn88085947_00211108630_1910041301_0197",
+    "archive_ref": "11_1910-04-13_p10_sn88085947_00211108630_1910041301_0197",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-04-13_p10_sn88085947_00211108630_1910041301_0197",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 4.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "spokane_development": [
+          "building permit"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 131,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 571,
+            "in_headline": false
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "building permit",
+            "weight": 1.0,
+            "offset": 2,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A building permit issued for\nsmall one story store house to be\nbuilt on the northeast corner Of\nIndiana and Dakota has aroused\na storm of protest from the people\nliving in that vicinity. 1t is a nice\nresidence district and the neigl\ning property owners are Ubfo-Y\nto the character of the building 10\nbe erected, claiming that it will be\na shack and an eye sore to the\nneighborhood.\n\n\nA petition has been circulated,\naverring that the intention of the\nsigners not to patronize the store\nif it is built. 1t is said that 800 have\nalready signed the I'VE will not\npatronize\" boycott agreement. but\nthe owner of the lot has hauled the\nlumber to the corner and seems\ndetermined to go ahead in spite OK\nthe protest."
+    }
+  ]
+}

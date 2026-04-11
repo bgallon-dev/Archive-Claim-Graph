@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "RAILU1AT NEUC.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-11",
+    "date_end": "1902-12-11",
+    "report_year": 1902,
+    "source_file": "7_1902-12-11_p3_sn88085947_00211108526_1902121101_0123",
+    "archive_ref": "7_1902-12-11_p3_sn88085947_00211108526_1902121101_0123",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1902-12-11_p3_sn88085947_00211108526_1902121101_0123",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 1.5,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern",
+          "freight rate"
+        ],
+        "spokane_development": [
+          "spokane falls"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Kettle Valley line is in a\nprosperous condition and has pur-\nchased 40 new ore cars.\n\n\nThe Northern Pacific surveyors\nare now camped at Lyle, on the\nbank of the Columbia river.\n\n\nSuperintendent Forest of the\nSpokane Falls & NORTHERN has\nstarted on a tour.of inspection.\nThe yards on the Great North\nern popularity known as \"termi-\nnails\" will hereafter be known as\ndelta\"\n\n\nGeneral Western Agent f. w.\nVaughan of the Great Northern ex-\npress, with headquarters In this\ncity. has resigned.\n\n\nIra b. Richards fills the vacancy\ncaused by the promotion Of Train\nmaster Abee of the Tacoma division\nof the Northern Pacific.\n\n\nThirty-fve principal shippers Of\nthe Pacific coast lumber and shin\ngiles have formed headquarters\nat Winona, Mimi. for the purpose\nof scrutinizing freight rates.\n\n\nJ. C. Stuart, general superintend-\nent Of the Baltimore 4 Ohio, has\nresigned and will retire from rail-\nway service for the present. This\nwill cause many changes on the\nb. q O. system.\n\n\nThe Snake River Valley Railway\ncompany. a new corporation, is the\nresult of friendly agreement be-\ntween the o. II. g. N. and the\nNorthern Pacific. The Snake Valley\nroad will handle the traffic for both\nlines between Lewiston and RI\nparia.\n\n\nThe United Brotherhood of Rail.\nway Employees have purchased a"
+    }
+  ]
+}

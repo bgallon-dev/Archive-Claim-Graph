@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FUEL FAMINE.\n\nLocal Dealers Ask Large Sums in\n\n\nAdvance for Wood.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-15",
+    "date_end": "1902-11-15",
+    "report_year": 1902,
+    "source_file": "16_1902-11-15_p3_sn88085947_00211108526_1902111501_0032",
+    "archive_ref": "16_1902-11-15_p3_sn88085947_00211108526_1902111501_0032",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1902-11-15_p3_sn88085947_00211108526_1902111501_0032",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 219,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1053,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nA fuel famine has struck Spokane\nand many blocks, private dwellings,\nand even hospitals are running on\nshort rations.\n\n\nLocal wood dealers have in many\ncases demanded and received ad-\nvance payment of two-thirds of the\nvalue of the wood, often amounting\nmanagers of the business blocks.\n\n\nThe cause of the present dearth\nof fuel is largely due to difficulty\nin securing cars for transportation,\nthe greater part of the supply of\nmost of the dealers being out of the\ncity.\n\n\n1t is an absolute fact that wood\nhas been hauled into the city on\nwagons from points % miles dis\ntant.\n\n\nA local hospital, which had con-\ntracted for many cords, was mott\nfed last week that unforeseen diff\ntiCulties prevented the fulfillment\nof the contract by the dealer and\nfor several days it's wood has been\nsupplied only through the kindness\nof another dealer.\n\n\nMost of the wood handled by To-\ncal wood dealers is received from\nLoon Lake, Deer Park, Standpoint\nand other points equally as distant,\nit being shipped in over the Spo-\nkane Falls & Northern railway and\nthe Northern Pacific, and it is al\nmost impossible to obtain wood on\nshort notice.\n\n\nThe consumption of wood in Spo-\nkane is estimated at the present\ntime to be considerably over 125\ncords per day."
+    }
+  ]
+}

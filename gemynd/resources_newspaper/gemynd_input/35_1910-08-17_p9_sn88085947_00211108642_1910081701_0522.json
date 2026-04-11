@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Corporation Counsel r. B. Nor",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-17",
+    "date_end": "1910-08-17",
+    "report_year": 1910,
+    "source_file": "35_1910-08-17_p9_sn88085947_00211108642_1910081701_0522",
+    "archive_ref": "35_1910-08-17_p9_sn88085947_00211108642_1910081701_0522",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "35_1910-08-17_p9_sn88085947_00211108642_1910081701_0522",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 52,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 141,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Corporation Counsel F. B. Nor\nrill rendered a report to the council\nYesterday that the city can con\ndenim property claimed by the\nWashington Water Power company\nin order to open Lincoln street,\nBridge avenue to Broadway. Prop\nerty owners on the north side have\npetiti0ned for the street to be\nopened."
+    }
+  ]
+}

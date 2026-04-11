@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "-IMAX in SULLIVAN TRIAL; SENSATION\n\nHERE'S LUCK TO\n\n\nOUR new CITIZENS!",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-11",
+    "date_end": "1910-11-11",
+    "report_year": 1910,
+    "source_file": "1_1910-11-11_p1_sn88085947_00211108654_1910111101_0464",
+    "archive_ref": "1_1910-11-11_p1_sn88085947_00211108654_1910111101_0464",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-11-11_p1_sn88085947_00211108654_1910111101_0464",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 293,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 365,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Within comparatively few days of thousands\nof in this state, many of whom really seri\nousy thought Of the NATTER will be just able to\ntheir wills at the polls are the\n\n\nThe Spokane Press desires to be the FIRST of the\npapers of Spokane to congratulate the their\ngreat opportunity, and wish them just great\nThe Press thinks it knows why the amendment granting\nequal suffrage carried 1t passed primarily because\nthe men of this state of Washington had become\nvinced that in justice to the women they should be given\nthe chance many of them desired With the slow but\nsteady growth of the feeling of equality between\nand woman, and the death of the idea T. the Middle Ages\nthat woman but man IS servant the belief has become\nand fixed that is fully capable of help\ning in the government of the nation\n\n\nSo Washington have given their sisters the chance\nto make good In the parlance of the day. Its strictly\nup to them. \"Mere man. is going to sort of lay back\nand see how the work out their problem. Prob\nably their first opportunity will be at the special election\nthe adoption of the commission form of charter and\nthen the spring city election There hundreds of\nen- in this city who do not to vote now who do not\nthink it is woman's province to mix in politics. The\nfuture of women in politics will depend wholly upon the\nintelligence of the present enthusiasts and workers.\n\n\nAS for The Press it is glad they have been given the\nchance and it hopes and expects that they will win\nHere's the best of luck to the voters of the state\nof Washington-our citizens, if you pleased"
+    }
+  ]
+}

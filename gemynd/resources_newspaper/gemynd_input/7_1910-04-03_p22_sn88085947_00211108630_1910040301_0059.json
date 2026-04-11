@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-03 — pp22",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-03",
+    "date_end": "1910-04-03",
+    "report_year": 1910,
+    "source_file": "7_1910-04-03_p22_sn88085947_00211108630_1910040301_0059",
+    "archive_ref": "7_1910-04-03_p22_sn88085947_00211108630_1910040301_0059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-04-03_p22_sn88085947_00211108630_1910040301_0059",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 375,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 508,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor of The Press: l desire to\nreply to DIR. Mark A. Mathews's Of\nSeattle attack on women in your\nissue of April 1st. He says: \"Suf-\nfrage agitators are female freaks\nsuffering from male-itis,\" which he\ninterprets as \"desire-itis.'\n\n\nOF all the accounts that have\nreached me of tomfoolery stunts\nperformed by foolish freaks on All\nFools Day. the msouni ranting of\nthe long-haired spectacular preach\ner from the sound city is the worst.\nHad ! not previously heard some\nthing of the opinions on the wom-\nans suffrage question of this indi-\nvidual, who claims to be pastor of\none of the largest Protestant\nchurches in the United States,\nwould think he was suffering from\nNOTCRlTIS. by his attempt to per-\npetrate this April Fools joke.\n\n\n! was once told when in Seattle\nthat | should 90 to hear Or. Mat\nthews, he was ae good as circus.\n| replied that had been reared ac-\ncordine to Episcopalan methods\nand believed in the eternal fitness\"\nof things; that | preferred my re-\nligious devotion conducted decently\nand in order; also that | preferred\nto witness circus performances in\nq tent with proper Accompaniment.\n\n\nDR.. MATTHEWS NOT REAL\n\n\nMAN?\n\n\nDr. Mathews says women are\nsuffering from male-itis and a de\nsire to be and do as men do\" God\nforbid. Intellectual, womanly wo-\nmen, such as you will find among\nthe advocates of woman's suffrage,\nhave no desire to be as some men\nare. but wish to help real men with\ntheir vote to make this old world\na better place in which to live. Pre-\nvailing conditions prove that men\nare unable to cope with the stu\n/. alton alone. Realizing their impo-\ntency, they are going to place the\nballot in the hands of the wives,\nmothers, sisters and daughters of\nthe nation to aid them in the pro-\nlection of the race.\n\n\nThe doctor says the ballot is not\na right but a privilege conferred;\nthat it has always been restricted\nand always will be- The only re-\nstrictions placed upon the ballot\nare those of criminals. idiots, pau\npers and American women. \"Oh.\nthe pity Of it, that self respecting,\nself supporting. taXpaying women\nmust submit to the humiliation OF"
+    }
+  ]
+}

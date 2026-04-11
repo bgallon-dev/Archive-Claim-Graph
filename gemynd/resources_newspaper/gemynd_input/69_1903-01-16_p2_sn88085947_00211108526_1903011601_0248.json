@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-01-16 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-16",
+    "date_end": "1903-01-16",
+    "report_year": 1903,
+    "source_file": "69_1903-01-16_p2_sn88085947_00211108526_1903011601_0248",
+    "archive_ref": "69_1903-01-16_p2_sn88085947_00211108526_1903011601_0248",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "69_1903-01-16_p2_sn88085947_00211108526_1903011601_0248",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 108,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 18,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Federation OF Woman's Clubs\nheld an interesting session this after\nnoon in the Fraternal brotherhood\nhall. Mrs. Phil Il. Becher presided\nand the program was in charge of\n\n\nthe North Side Current Events club.\n\n\nRoss Park Twentieth Century, club\n\n\nand the Woman's Exchange club.\n\n\nThe federation is making an effort\nto secure the passage of two bills\nof Importance, one for manual train\ning in the public schools of the state\nand the other to preserve the scenic\nbeauties of the state from DETACHMENT\nby advertising or otherwise.\n\n\nA literary and musical program\n| was given, the literary end of 1t be\n| Ing selections from Tennyson."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "title": "BARROW PLEADS FOR\n' THE LIFE OF HAYWOOD\n\nCALLS HAWLEY A LIAR AND\nFiERCELY SCORES ORCH.\nARDS TESTIMONY AND\nCHARACTER.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-24",
+    "date_end": "1907-07-24",
+    "report_year": 1907,
+    "source_file": "22_1907-07-24_p1_sn88085947_00211108575_1907072401_0892",
+    "archive_ref": "22_1907-07-24_p1_sn88085947_00211108575_1907072401_0892",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1907-07-24_p1_sn88085947_00211108575_1907072401_0892",
+      "composite_score": 12.35,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 6.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ],
+        "agriculture": [
+          "orchard",
+          "hay"
+        ],
+        "mining": [
+          "bunker hill"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 541,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 497,
+            "in_headline": false
+          },
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 32,
+            "in_headline": true
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 228,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 1790,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "bunker hill",
+            "weight": 2.0,
+            "offset": 2887,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, July 24.-\"We will have\nto leave to you, eventually, the in\nterests Of these defendants, and 1t\nrests with you to see that every\nargument made against this man\nand his fellows rests absolutely on\nsound evidence. 1t is not Hay\nwoods fate that is In the balance;\n1t is the fate of great worldwide\nmovement and we must ask you to\ncarefully examine every bit Of evil\ndence when you make up your\nminds\"\n\n\nIn these words Attorney Darrow\nthis morning began his supreme Eff\nfort to save the life of Haywood\nand his colleagues. Continuing, he\nsaid:\n\n\nFor more than a year and half\nthis community has been poisoned\nby the lies Of the newspapers,\nwhich engendered hatred and\ncreated sentiment against this de-\nPENDANT. This jury has been fed\nupon such stories and naturally\nmust be hostile, but we believe you\nwill give this man fair treatment\nand weigh carefully all evidence\nagainst him.\n\n\n\"Why, gentlemen, nowhere in the\ncivilized world would any lawyer\nattempt to try case on such\nweak evidence as has been intro\nduced in this case were he not re-\nlying upon hostile sentiments.\n\n\nHaywood Is charged with the\nmurder Of Steunenberg. He wasn't\nIn the state when that crime was\ncommitted. There might be some\nmember of this jury who would\nhesitate to take this mans life on\nOrchards perjured word, but who\nmight have a lurking suspicion\nthat Haywood knew something\nabout it and want to send him to\nthe penitentiary.\n\n\nDon't do that. Haywood Is not\na coward. Don't you be the cow\nard. II he is guilty, hang him by\nthe neck until dead, but If he is in.\nnocent, release him. Don't, for\nGods sake, compromise\"\n\n\nbarrow bitterly attacked Haw-\nlay, intimating that he believed\nhim insane. He declared Hawley\nlied when he said there was enough\nevidence in the case to hang Hay\nwood IL the evidence of Orchard\nwe're left out entirely.\n\n\nHe also declared Hawley lied\nlabor unions. .,\n\n\nHaywood's invalid wife, sitting in\npillow lined chair by his side,\nwatched Darrow's every gesture\nwith bright eyes, seemingly forget.\nting her ailments in the struggle\nfor her husbands life, Only once\ndid she betray emotion, and that\nwas when Darrow declared Hay\nwood would not finch, but would\nstand with the rope around his\nneck fearlessly as he ever faced\nany situation that arose in his\npast\n\n\n\"Hawley said everybody lied but\nOrchard. and he insisted all other\nwitnesses were perjurers.\" con-\ntinued Darrow. 81 think he is suf-\nfering from Orcharditis. He, the\nfriend OF labor! God forbid! He,\nthe hired man of the state and\nwants to hang another scalp, that\nof BIZ Haywood, on his belt, to\nhonor his declining years\" OAR\nrow defended the testimony of\nDavis and Easterly.\n\n\nRemember one thing\" he said,\n\"Davis was safe In Nevada, but he\nread Orchards damnable story and\nso came over and placed his neck\nin the moose and gave the another\nend tot Hawley. to say Orchard\nlied. don't care whether Davis\nwas at the Bunker Hill mill or not\nThere is not of you IL men who\nwould refuse to take the hand of\nDavis, and you would all refuse to"
+    }
+  ]
+}

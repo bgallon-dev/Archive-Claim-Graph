@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-08-06 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-06",
+    "date_end": "1906-08-06",
+    "report_year": 1906,
+    "source_file": "3_1906-08-06_p1_sn88085947_00211108563_1906080601_0998",
+    "archive_ref": "3_1906-08-06_p1_sn88085947_00211108563_1906080601_0998",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-08-06_p1_sn88085947_00211108563_1906080601_0998",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 350,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 755,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 1253,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In addition to Instances cited IN\nThe Press some time ago comes\na report from Pullman of COM\nplants by laborers hired in Spo-\nkane by employment agencies and\nsent here for work which was not\nawaiting them. These laborers pay\n81 for their excited jobs and once\naway from Spokane don't consider\nit worth while to come back for\nthe money when the Job is not\nthere.\n\n\n1t is claimed this sort Of graft is\nyielding rich harvest for the en-\nployment agents. Chief Of Police\nWaller is appealed to every day\nby alleged victims of the game. All\nemployment agents are under bond\nto do business properly, and if\nsome of the men bilked would re-\nturn and bring the matter into the\ncourts something might be adj\nministered to the agents in the way\nof punishment.\n\n\nThe Inland Empire Employment\nagency is the one complained of in\nthe Pullman case.\n\n\nHardly had Chief Waller reach.\ned his office this morning when\nRobert Movie met him with a COM\nplant for himself and two COM\npanions who said they had been\nbuncoed by the Macho Employ\nment company Of 214 Stevens st.\nMovie said that he and his two\ncompanions had been sent to Spra-\nque, Wash. on payment by each\nOf $3.50 The Macho agency guar\nanteed them work which was to be\nsupplied by Pettijohn & Darnell,\nsad to be real estate men there.\n\n\nBut there was no work.\" said\nMovie. Those fellows when l got\nthere told me to hang around\nawhile. We hung around all day\nSaturday and then we were told\nthat probably the farmer was not\ngoing to hire us, but that If we\nwould wait some other farmer\nmight want US. was out $40 on\nthe trip besides the fee of $40\nCRATER from me by the Macho\nagents.\"\n\n\nNo sooner finished with Movie\nthan the chief turned to the morn\ning's mail and the first letter open\ned was more about the grating\noperations of Spokane employment\nagents. All the time a dark scowl\nwas masking the chiefs face. Fol-"
+    }
+  ]
+}

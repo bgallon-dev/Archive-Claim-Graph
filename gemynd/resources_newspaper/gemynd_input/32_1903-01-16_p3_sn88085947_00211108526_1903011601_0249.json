@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FIGHT PLUMBING TRUST.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-16",
+    "date_end": "1903-01-16",
+    "report_year": 1903,
+    "source_file": "32_1903-01-16_p3_sn88085947_00211108526_1903011601_0249",
+    "archive_ref": "32_1903-01-16_p3_sn88085947_00211108526_1903011601_0249",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1903-01-16_p3_sn88085947_00211108526_1903011601_0249",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 211,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1008,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"A suit which laboring men and\nParticularly members of labor unions\nwill watch with interest has been\ncommenced In the superior court.\nThe suit is entitled Maxwell & Hol-\nlingsbury VS.. Edward Evans ct al,\nand Is but another chapter in an af-\nfair which led Charles Gaebler to\nbring suit against the same parties a\nshort time ago.\n\n\nGaebler was n member of the Spo-\nkane Master Plumbers association\nand was in the employ of Maxwell &\nHollingsbury. For some cause Gaeb-\nTer was blacklisted by the associa-\nton and his employers were com\nPEELED to discharge him. For this\nblacklisting Gaebler brought suit for\ndamages against the members of the\nassociation.\n\n\nLater 1t was alleged that Maxwell\n4 Hollingsbury gave information to\nGaebler of the doings of tho associa-\nton and they We're compelled to\nwithdraw from the association, their\nnames were placed on the blacklist\nand dealers In plumbers supplies In\nthe city were notified not to sell them\ngoods.\n\n\nThis suit IL brought for the pur-\npose of securing an injunction re-\nstraining the Master Plumbers asso-\ncitation from keeping the name OF the\nplaintiffs on the blacklist and to COM\npei II to rescind the order prohibiting\ndealers in plumbers supplies selling\ngoods to plaintiffs. 90."
+    }
+  ]
+}

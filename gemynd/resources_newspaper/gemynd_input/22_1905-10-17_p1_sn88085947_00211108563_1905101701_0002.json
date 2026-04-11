@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "BRIDGE FIGHT NOW UP\n\n\nTO ENGINEER M'INTYlE",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-17",
+    "date_end": "1905-10-17",
+    "report_year": 1905,
+    "source_file": "22_1905-10-17_p1_sn88085947_00211108563_1905101701_0002",
+    "archive_ref": "22_1905-10-17_p1_sn88085947_00211108563_1905101701_0002",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1905-10-17_p1_sn88085947_00211108563_1905101701_0002",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 81,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 112,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city councilmanic committee\nbefore which the Howard street\ntrolley line was threshed over by\nthe Washington Water Power COM\npany and Traction company vo-\ntaries last night stood pat\"\n\n\nAttorney Frank Graves presented\nthe offer of the Traction company\nFOR the use of one track on the\nHoward street bridge, raising it to\n$4,000 and intimated before clos\nIng that this offer might be in\ncreased materially. The Washing\nton Water Power company, through\nIts attorney, y. M. Stephens. op-"
+    }
+  ]
+}

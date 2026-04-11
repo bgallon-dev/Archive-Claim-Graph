@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-08-12 — pp12",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-12",
+    "date_end": "1910-08-12",
+    "report_year": 1910,
+    "source_file": "23_1910-08-12_p12_sn88085947_00211108642_1910081201_0467",
+    "archive_ref": "23_1910-08-12_p12_sn88085947_00211108642_1910081201_0467",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1910-08-12_p12_sn88085947_00211108642_1910081201_0467",
+      "composite_score": 13.65,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 5.5,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "agriculture": [
+          "grange",
+          "orchard",
+          "wheat harvest",
+          "wheat"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 378,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 1224,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 2109,
+            "in_headline": false
+          },
+          {
+            "term": "wheat harvest",
+            "weight": 1.5,
+            "offset": 2109,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 1545,
+            "in_headline": false
+          },
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 1530,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 413,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "City Engineer Mccartney has\n| set in operation steam drill to\nexpedite the blasting work for\npiers and abutments of the Mon\nroe street bridge.\n\n\nNearly 5000 voters have regis\ntered so far.\n\n\nMany prominent Masons were\npresent at the trial of Thomas\nPerrot charged with selling fake\nMasonic degrees, which was con\ntinued in the police court yester\nday. and will probably be conclud-\ned today.\n\n\nThe members of the city council\nheld brief meeting last night, but\ntook no action on the city hall site\nquestion.\n\n\nr. 3. Irwin, of Cleveland, who is\ntotally blind, is in the city trying\nto interest people in better legis-\nlation for the blind of the state.\n\n\nA. G. Bourret, reported as miss\ning from his hotel by his fiancee,\nMiss Anna Good of Standpoint,\nhas returned to his sweetheart.\n\n\nNo telegraph or telephone\nfranks will be legal after August\nII, except those issued to certain\nprescribed persons, chiefly officers\nof telegraph, telephone and cable\ncompanies.\n\n\nCharged with deserving his wife\nin Enaville. Idaho, Stanley John\nson. alias T. w Jones. was ar\nrested at the Spokane hotel last\nnight by Sergeant Warner.\n\n\nThe police are looking for two\nmen, DR.\" Carl Wittenberg and\nCharles Whitson. who, allege citi-\nzens of Medical Lake, have been\nilltreating a young woman, Miss\nEthelyn Thomas. of st. Paul. The\ntrio have been staying at Medical\nLake together for the past fort\nnight, but it is believed that they\nare now in Spokane.\n\n\nMrs. M. J. Reynolds, equal suf-\nfrage speaker, has the following\nengagements: Tonight in the\ngrange hall at Orchard avenue:\nSaturday afternoon at the good\ngovernment rally at Mantle park;\nSunday morning at, IL, at the res\ncue mission; Sunday night, in the\nChristian church at Medical Lake\nMonday evening, In the Baptist\nchurch at I.atah; Thursday even\ning, in the Christian church at\nPullman Saturday evening, Aug\nust 90, Congregations church,\nFive Mile prairie,\n\n\nCarl S. Evans and George G.\nCody have formed a partnership\nas commercial printers and opened\nup a shop at Thirteenth and Chest\nnut streets in Peaceful valley.\n! Word from Paiouse Is to the ef-\nfeet that the wheat harvest is\ncoming on fine and that the crop\nof fall wheat will average close to"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\auth\router.py
+# hypothesis_version: 6.151.9
+
+[201, 204, 303, 400, 401, 403, 404, 3600, '/', '/auth/login', '/login', '/logout', '/me', '/setup', '/users', '://', 'COOKIE_SECURE', 'USERS_DB', 'User not found.', 'access_token', 'admin', 'archivist', 'auth', 'data/users.db', 'email', 'email_prefill', 'error', 'false', 'institution_id', 'is_api_client', 'jinja2', 'login.html', 'next', 'readonly', 'request', 'role', 'setup.html', 'setup_done.html', 'shared_templates', 'strict', 'templates', 'true', 'user_id', 'utf-8']

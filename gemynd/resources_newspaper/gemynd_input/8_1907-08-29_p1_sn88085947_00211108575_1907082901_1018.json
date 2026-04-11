@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-29 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-29",
+    "date_end": "1907-08-29",
+    "report_year": 1907,
+    "source_file": "8_1907-08-29_p1_sn88085947_00211108575_1907082901_1018",
+    "archive_ref": "8_1907-08-29_p1_sn88085947_00211108575_1907082901_1018",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-08-29_p1_sn88085947_00211108575_1907082901_1018",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 279,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 292,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"The arc lighting contract ex.\npires in days. The company will\ngive or weeks in which to re-\nnew 1t, and then ample notice be.\nfore any notice of any discontin'\nuance or change in price\"\n\n\nSuch was the ultimatum issued\nto the city this morning by Supt\nID. l.. Huntington, of the Wash.\nfngton Water Power Co. The coun-\nGil committee - Pratt. Phillips\nBrown and Dalke-the board OF\nworks and Corporation Counsel\nHamblen, met representatives of\nthe power and light monopoly in\nthe commissioners rooms, where a\nsession lasting all morning failed\nto reach any definite conclusion.\n\n\nThe city representatives were\nperfectly frank and stated that a\ncontract Of less duration than the\nold one was desired because the\ncity eventually would have light.\ning plant Of it's own or competition\nwould be afforded.\n\n\nCouncilman N. s. Pratt broke the\nHcWo W oupls Wy io\nmarking, There is sentiment of\nmunicipal ownership in the air\"\n\n\nThen Huntington said he would\nbe equally frank and stated that\nthe company, not knowing how long\n1t was to retain the lighting bust\nness, would make no other than a\nyear contract at $48 light, or,\n# desired as Councilman Joe Phil\nlips asked, 8 year contract at Sc\nper month, but only for lights now\ninstalled, and no further installa,\ntions.\n\n\nCouncilman Pratt asked for a\ngraduated price from 1 to 5 years,\nand was backed up by Councilman\nRobert l.. Dalke. This was refused\n\n\nThen Councilman Brown said the\ncity might buy the lights and\nwires, were it to do its own light\ning. This made no impression and\ncalled for plying glance from\nHuntington. who said no PROPOSE"
+    }
+  ]
+}

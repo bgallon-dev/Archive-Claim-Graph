@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "LABOR MYST|F|ED BY\n. PRESIDENTS MESSAGE\n\nTaft's Enemies Declare the Latest\n\n\nUtterance Aids Their Fight.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-04-28",
+    "date_end": "1908-04-28",
+    "report_year": 1908,
+    "source_file": "1_1908-04-28_p1_sn88085947_00211108587_1908042801_0470",
+    "archive_ref": "1_1908-04-28_p1_sn88085947_00211108587_1908042801_0470",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-04-28_p1_sn88085947_00211108587_1908042801_0470",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 360,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 2131,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 1936,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "power to make these Investigations\nand decisions in regard to these\ncombinations. The president scoli-\ned congress sharply for their fail\nure to attack the subject of the\nregulation Of interstate matters in\neffective fashion, designating legis'\nlation on this subject as occasion\nal\" and inadequate.\n\n\nHe declared the issuance of Sc\ncurities of any combination doing\ninterstate business should be UNI\nder government supervision.\n\n\nBOSTON, April 2S-In making\nreference to scandal in collision in\nbidding by certain contractors on\nsupplies in Boston the president\nstirred up. a hornets nest. Con-\ntractors declare that he has done\nthem injustice. President Smith, of\nthe Smjth-Lowell Co., denied that\nhis company has been made to act\nas a scapegoat for the higher ups\nOther contractors also ienounce\nthe president for using their\nnames.\n\n\nThe president in supporting his\nargument for trust regulation sub\nmitted extracts from the report of\nNathan Mathews to the Boston\ncouncil showing that the American\nBridge Co. and others had entered\ninto an agreement that practically\neliminated bidding on steel work in\nNew England and made all such\ntransactions fraudulent.\n\n\nThe house could not consider the\nmessage on account of the red tape\nnow governing that body, and the\nsenate postponed consideration OF\nthe matter until today. 1t is UNI\nlikely that any change will be eff\nfected, as congress has mapped out\nthe program of just what it does\nnot intend to do and will in all\nprobability follow it to the adjourn\nment.\n\n\nThe president states that the en-\nployers' liability bin recently pass\ned falls short of what it should be,\nbut regards 1t as a step forward.\nHe hopes it will be the stepping\nstone for legislation guaranteeing\nreimbursement for injuries of all\nclasses Of employees in public\nservice.\n\n\nThe president rehearses his\nprevious requests for legislation\nhe has championed, among them\nbeing the postals saving banks and\nfinancial relief He renews and\nemphasizes his recommendations\nfor measures on behalf of labor,\nand warns congress against closing\nit's ears to the demand of public\nopinion for restrictions on the\npower of injunction. The same at\ntitude is taken on government con-\ntroll of COrpOratiOns."
+    }
+  ]
+}

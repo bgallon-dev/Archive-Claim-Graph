@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "A FINISH\nFIGHT WITH\n\n\nv, v. P",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-21",
+    "date_end": "1906-08-21",
+    "report_year": 1906,
+    "source_file": "6_1906-08-21_p2_sn88085947_00211108563_1906082101_1055",
+    "archive_ref": "6_1906-08-21_p2_sn88085947_00211108563_1906082101_1055",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1906-08-21_p2_sn88085947_00211108563_1906082101_1055",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 169,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The hopes Of some OF the more\noptimistic members of the local\nelectrical workers union that the\nWashington Water Power company\nwould come to terms with their\nstriking employees seems to have\ngone glimmering. Among those\nwho have known the policy and the\nviniictiveness Of the local monop-\noily there has never been a doubt\nbut that they would continue the\nfight for low wages and long hours.\nThe strikers are in a position to\ncontinue the fight Indefinitely on\naccount OF the fact that they are\na., employed by other companies.\n\n\nII seems strange to union men\n\n\ntina. the Traction company and all\nthe contractors in the city can af-\nford ~ pay the electrical workers\ndecent wages while the Washing\nton Water Power company refuses\n- Go the same. The officers of\nThe company are outspoken in\nfavor 81 cheap wages and cheap\nlabor. Local union men say that\nthe monopoly should confine its\nbusiness enterprises to the south\ne-n states, where negro labor can\nDe secured."
+    }
+  ]
+}

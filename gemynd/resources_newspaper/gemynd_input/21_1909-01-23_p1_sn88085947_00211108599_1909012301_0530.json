@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BOMB GRAzEO\n\n\nHUCK'S HEAD\n\nIT WAS FULL OF ASHES AND\nMADE A NOISE LIKE MORE\nWAR ON THE EMPLOYMENT\nAGENTS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-23",
+    "date_end": "1909-01-23",
+    "report_year": 1909,
+    "source_file": "21_1909-01-23_p1_sn88085947_00211108599_1909012301_0530",
+    "archive_ref": "21_1909-01-23_p1_sn88085947_00211108599_1909012301_0530",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1909-01-23_p1_sn88085947_00211108599_1909012301_0530",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 190,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 848,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Was this deliberate attempt on\nthe part of some vengeful individ-\nual with malice toward employ\nment agents, to assassinate c. u.\nHuck, or was it just a mere acct\ndent for which no one has offered\nan apology?\n\n\nWhile standing in front of the\ndoor of the Carr employment\nbureau in the basement of the\nbuilding, at Front and Stevens, S.\nu. Huck. clerk of the agency, mar\nrowly escaped death or injury from\nheavy box, filed with ashes and\ncinders that fioated down from a\nwindow four stories above Huck' S\npnsuspecting head.\n\n\nThe box missed him by a few\ninches and went to splinters as it\nstruck the concrete.\n\n\nHuck was unable to locate the\n|party who had heaved the heavy\nmissile over the window sill many\nfeet above, where reside folks who\nare making war on employment\nagents and break up their furni-\nture.\n\n\nMr.. Huck has been clerk in the\nCarr employment agency for sew\neral months and is generally well\nliked by the patrons of the Office.\nConsequently, he is at loss to\nknow why an attempt would be\nmade to do him harm."
+    }
+  ]
+}

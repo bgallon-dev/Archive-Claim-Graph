@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-26 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-26",
+    "date_end": "1910-03-26",
+    "report_year": 1910,
+    "source_file": "1_1910-03-26_p3_sn88085947_00211108629_1910032601_1111",
+    "archive_ref": "1_1910-03-26_p3_sn88085947_00211108629_1910032601_1111",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-03-26_p3_sn88085947_00211108629_1910032601_1111",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 182,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 73,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 157,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "supports this company AM Ulvoo\nII its STREETS\n\n\n$50 we all looked over ~\nstrike breakers. We sent son6 G\nthem away. One Of them Who CIR\nried gun was sent to jail for ~\ndays\"\n\n\nIn Philadelphia revolvers were\ngiven to strike breakers by tho\ncompany and city officials and\nwere used In killing citizens.\n\n\n1.-THE company couldn't afford to\nlose $50 a day ON each car. It\nhad no right to stop Its cars or to\nget into any argument with its\nmen that would force II to stop its\ncars. That was the position ! took.\n\n\n\"All the company officials could\ndo was to come together with the\nmen, and within Sc hours after\nthe strike began it was over. And\nwhile the arbitration was under\nway, rules were made whereby In\nthe future, whenever there Is any\ntrouble between the company and\nmen, arbitration must be agreed\nto by both parties.\n\n\nThat's all there was to It,\"\n\n\nMadden is SO years old. He's\na democratic mayor or a repub-\nlican town, and Is serving his sec\nond term."
+    }
+  ]
+}

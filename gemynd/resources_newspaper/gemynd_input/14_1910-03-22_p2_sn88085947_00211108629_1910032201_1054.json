@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "IN\nF|REMEN'S\n\n\nSTRUGGLE\n\n1T is EXPECTED COMPROMISE\nWILL BE REACHED WITH\n\n\nOUT A STRIKE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-22",
+    "date_end": "1910-03-22",
+    "report_year": 1910,
+    "source_file": "14_1910-03-22_p2_sn88085947_00211108629_1910032201_1054",
+    "archive_ref": "14_1910-03-22_p2_sn88085947_00211108629_1910032201_1054",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1910-03-22_p2_sn88085947_00211108629_1910032201_1054",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "railroads": [
+          "oregon railroad",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 202,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 287,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 80,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1094,
+            "in_headline": false
+          },
+          {
+            "term": "oregon railroad",
+            "weight": 2.0,
+            "offset": 1190,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire)\n\n\nCHICAGO, March 22.-The\nBrotherhood of Firemen and En-.\nginemen and the railroad general\nmanagers committee today are\nconsidering a compromise measure\nsubmitted to them by Labor Com\nmissioner NeiII. The railway man.\nayers announced that they do not\nexpect strike of their firemen.\nDecision by both sides today prob\nably will definitely determine the\nmatter.\n\n\nw. S. Carter, president of the\nBrothe rhood, was in session with\ncommittee of that organization.\nChairman Nixon of the managers\nheld a conference with the mem\nbers of his committee.\n\n\nThe far reaching effects of a\nfiremen's strike is shown by the\nfollowing outline OF the situation\ngiven by prominent railway Off\ncial here:\n\n\nNumber of railroads affected, 40.\n\n\nMileage approximately, 100000.\n\n\nNuHlpel VI Iueu lHiilculdtcly dl-\nfected, $4,000.\n\n\nMonthly pay of men immediate\nly affected, $1,600,000.\n\n\nEmployees affected Firemen,\nwipers and all yardmen.\nPrincipal railroads affected\nSanta Fe, Northwestern, Chicago\nG. Alton, Burlington, Chicago &\nMilwaukee & St. Paul, Rock\nIsland, Colorado & Southern\nGreat Northern, Illinois Central\nMissouri, Kansas & Texas, North\nern Pacific, Oregon Short Line\nOregon Railroad & Navigation\nFrisco, Union Pacific and al\nsouthern lines.\n\n\nPoints in dispute: General wage\nincrease averaging IL IL per cent"
+    }
+  ]
+}

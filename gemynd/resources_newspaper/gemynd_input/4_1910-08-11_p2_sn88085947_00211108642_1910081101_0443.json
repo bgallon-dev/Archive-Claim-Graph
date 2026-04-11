@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-08-11 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-11",
+    "date_end": "1910-08-11",
+    "report_year": 1910,
+    "source_file": "4_1910-08-11_p2_sn88085947_00211108642_1910081101_0443",
+    "archive_ref": "4_1910-08-11_p2_sn88085947_00211108642_1910081101_0443",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-08-11_p2_sn88085947_00211108642_1910081101_0443",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 311,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 162,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An enthusiastic meeting of the\njoint committee from the Central\nLabor council and the Township\nGood Government club was held\nlast night in the rooms of the\nEqual Suffrage association.\n\n\nIn the words of the chairman,\nr. B. Martin, the general feeling\nof the committee was that Thank\nGod, the day of deliverance from\nring domination is at last at\nhand\"\n\n\nCandidates were considered and\nthe list of primary preferences\ncompleted with one or two excep-\ntons. This list will include both\nrepublicans and democrats.\n\n\nFor such offices as no satisfac-\ntory candidates have applied other\nmaterial will be sought and COM\nmittee to complete the list and in\nduce the right kind of men to run\nwas named.\n\n\n1t was agreed that the good gov\neminent rally Saturday afternoon\nat 2 o'clock at Mantle Park should\nbe made big affair. Farmers are\ncoming in from every corner OF\nSpokane county, and as Saturday\nafternoon Is a holiday a large rep.\nresentation of the forces of or\nganized labor Is expected.\nHarry A. Jarvis, president of the\nCenaral Labor council, has been\nasked to preside. The committee\non speakers was authorized to in\nvite r. B. Martin and George l.\nReed to speak on behalf of the\nfarmers, d. G. Coates and A. w\n| SwensOn on behalf Of labor ant\nMrs. Minnie J. Reynolds on behalf\nof the cause of equal suffrage\nJudge Poindexter was also invited\nto be present.\n\n\n| A committee on arrangement:\nconsisting of Mrs. Hutton, w. J\n| Coates and r. b. Martin was ap\npointed to look after further de\ntails of the meeting. Frank Goult\nof the cooks and walters is thu\ngeneral secretary OF the Joint com\nmittee.\n\n\n| The Spokane County Township\nand Good Government club ha\nbeen asked to meet in the assem-\nbly, room of the chamber at 10 a"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "WATER FLOWS N\n\n\nnew CITY MAINS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-12",
+    "date_end": "1910-10-12",
+    "report_year": 1910,
+    "source_file": "3_1910-10-12_p1_sn88085947_00211108654_1910101202_0100",
+    "archive_ref": "3_1910-10-12_p1_sn88085947_00211108654_1910101202_0100",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-10-12_p1_sn88085947_00211108654_1910101202_0100",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "orchard"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 179,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 367,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 208,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Cold. clear, pure city water 10 10.\nday flowing from the mains Of the\npeople in q portion Of the Cannon.\ndale dIstrict, recently redeemed\nfrom the oppression Of the Jones\nwater autoeracy, by the grace Of\nthe city council, and a. result OF\nthe fight The Press has conducted\nagainst the Jones system.\n\n\nIn two or three weeks more, II\ngood weather prevails, Cannondale,\nOrchard Heights and all of the\nnortheast section of the city for.\nmerly supplied by the Jones water\nsystem. will enjoy the blessing OF\npure city water, served through\nsteel mains, laid and owned by the\npeople.\n\n\nThere will be no more petty tyr\namy by the Jones water monopoly\nthat has retarded the DEVELOPMENT\nOF that section OF the city for the\nlast two or three years. Cannon.\ndale will be included within the\nbeneficient zone supplied by the\nwater system Of the city of Spo-\nkane. and incidentally will enjoy\nbetter and cheaper service, with\nout the petty exactions that have\nhitherto prevailed.\n\n\nA crew of 80 men In at work law"
+    }
+  ]
+}

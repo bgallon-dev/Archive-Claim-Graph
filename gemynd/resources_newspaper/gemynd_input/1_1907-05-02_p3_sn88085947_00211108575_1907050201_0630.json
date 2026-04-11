@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-02 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-02",
+    "date_end": "1907-05-02",
+    "report_year": 1907,
+    "source_file": "1_1907-05-02_p3_sn88085947_00211108575_1907050201_0630",
+    "archive_ref": "1_1907-05-02_p3_sn88085947_00211108575_1907050201_0630",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-05-02_p3_sn88085947_00211108575_1907050201_0630",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 310,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 897,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "For the past three or four years\nthe morning paper of this city has\nstudiously endeavored to make the\npeople of this community believe\nthat those in charge of the govern\nment of Spokane have been guilty\nof misuse of public funds. extrava\n\n\ngance and dishonesty. Many right\neous citizens, believing that no\npaper would publish accusations of\nthis character without foundation,\nwere lead to believe that this was\nthe case. 1t succeeded finally in\narousing such sentiment that\na grand jury was called by the SUI\nperior court of this county for the\npurpose of investigating the CON\nduct of city and county affairs.\nThat grand jury convened July IS,\n1905, pursuant to the call. At that\ntime Mayor Daggett had been in\nOffice about two months, and, with\nthe exception of those two months\nhad been city comptroller of the\ncity OF Spokane for the preceding\nfour years, and as such. in accord\nance with the city charter, he~exer-\ncised general supervision over the\nfinancial affairs of the city. c. Her\nbert Moore was foreman of that\ngrand jury. Any persons possess\ning Information in regard to any\nmisconduct of city affairs were, by\nthe process of the courts, brought\nbefore the grand jury, and exam\nined under oath. Upon completing\nthorough and searching investig-\nalton, Herbert Moore and his jury.\nWe're compelled to embody in their\nreport to Hon. Miles PoindeXtsr.\njudge of the superior court, the fof>\nlowing statement: q\n\n\nIn the investigation of the af,\nfairs of the city of Spokane, the\njury find that the Offices of treas.\nnrer, clerk and comptroller to be\nwe'll and efficiently administered 4\n\n\nMr.. Moore. himself, in a subse4\nquent interview published in the\nSpokesman Review, September H.,\n1903. admitted that he had been mis-.\nled. In regard to the charges of\ngraft and extravaganza in the con"
+    }
+  ]
+}

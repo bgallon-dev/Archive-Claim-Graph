@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PAR A DALTON'S",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-25",
+    "date_end": "1910-08-25",
+    "report_year": 1910,
+    "source_file": "41_1910-08-25_p5_sn88085947_00211108642_1910082501_0596",
+    "archive_ref": "41_1910-08-25_p5_sn88085947_00211108642_1910082501_0596",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "41_1910-08-25_p5_sn88085947_00211108642_1910082501_0596",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 145,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 457,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "social",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Ladies' Aid society of the Corbin\nPark Congregational church this\nafternoon at her home, 623 Euclid\navenue.\n\n\n& & 4\nENTERTAINs FOR COLLEGE\n\n\nCHUM.\n\n\nA color note of lavender was pre-\ndominentn at the pretty bridge\nluncheon given yesterday afternoon\nby Miss Doris Dow in honor of Miss\nEdna Roberts, who was her college\nchum at Smith. Covers were laid\nfor IL.\n\n\nCLUB WOMEN TO MEET.\nA meeting will be held this after\nnoon by the representatives of the\nvarious women's clubs of the city\nat the Y. w. c. A. They will make\nfinal arrangements and appoint\ncommittees to take charge of the\nprogram for Woman's day, October\n4, at the Interstate fair.\n\n\n& 4 &\nWILL VISIT At FISH LAKE.\nMrs. r. b. Ennis will leave Mon\nday for a weeks visit with her son,\nE. R. Ennis. and family at Fish\nlake."
+    }
+  ]
+}

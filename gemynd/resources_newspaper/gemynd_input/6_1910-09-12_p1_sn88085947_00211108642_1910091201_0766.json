@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "7 KILLED\nNEAR G. n.\n\n\nTUNNEL\n\nAnother Fatal Accident at\nScene of Great Snow\n\n\nslide.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-12",
+    "date_end": "1910-09-12",
+    "report_year": 1910,
+    "source_file": "6_1910-09-12_p1_sn88085947_00211108642_1910091201_0766",
+    "archive_ref": "6_1910-09-12_p1_sn88085947_00211108642_1910091201_0766",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1910-09-12_p1_sn88085947_00211108642_1910091201_0766",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 128,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 111,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "10Y OHltcu HTcSS Leased WiTc)\n\n\nSEATTLE, Wash, Sept. 1.-TWO\nmen were killed near the Yelling\nton tunnel on the Great Northern\nrailroad today when fifteen heavily\nladen freight cars broke away from\nthe hauling locomotive and dashed\ndown the steep incline toward See\nmic Hot Springs. where scores lost\ntheir lives in the snow slides last\nwinter.\n\n\nWilliam Richardson. 65 years old,\na track walker, saw the ears com\ning and in attempting to get out\nof their way, he stumbled and fell\n10 the bottom of the incline hun\ndreds of feet below. Nearly every\nbone in his body was broken aud he\ndied in a few minutes. The cars\ncrashed into a cabin near the tracks\nand killed William Johnson, the oc-\ncupant of the building."
+    }
+  ]
+}

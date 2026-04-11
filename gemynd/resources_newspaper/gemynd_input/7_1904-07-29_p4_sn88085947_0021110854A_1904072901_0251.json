@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "MORE CHANGES\n\n\nIN FREIGHT RATES",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-07-29",
+    "date_end": "1904-07-29",
+    "report_year": 1904,
+    "source_file": "7_1904-07-29_p4_sn88085947_0021110854A_1904072901_0251",
+    "archive_ref": "7_1904-07-29_p4_sn88085947_0021110854A_1904072901_0251",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-07-29_p4_sn88085947_0021110854A_1904072901_0251",
+      "composite_score": 14.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904,
+      "word_count": 118,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 18,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 18,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "CHICAGO, July EFT is the pre-\nvailing opinion that the recent\nchange in rates and basing centers on\nthe part of the northern lines, where\nby the rates from Chicago and the\nmiddle west were shifted for the ben\neft of the manufacturers east of this\ncity, will be duplicated by the roads\noperating from Chicago to the Paci-\nfic coast.\n\n\n1t now develops that other trans\ncontinental lines have been impor-\ntuned by trans Missouri river retail\ners and jobbers to reduce freight\nrates generally from points east of\nChicago and change the basing rate\nto New York. This would mean a\ngeneral change in rates from points\neast of the Missouri river to Pacific\ncoast territory."
+    }
+  ]
+}

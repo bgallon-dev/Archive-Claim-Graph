@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE MEN ON\n\n\nSTATE COMMISSION",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-09",
+    "date_end": "1910-02-09",
+    "report_year": 1910,
+    "source_file": "1_1910-02-09_p10_sn88085947_00211108629_1910020901_0452",
+    "archive_ref": "1_1910-02-09_p10_sn88085947_00211108629_1910020901_0452",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-02-09_p10_sn88085947_00211108629_1910020901_0452",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 175,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 560,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "10y United Press Leased Wire)\n\n\nOLYMPIA, Feb. 9.-The cover\nnor has just appointed a commits\nsion consisting OF Charles p. Lund\nof Spokane, l.. o. Meigs of North\nYakima, speaker of the house of\nthe last legislatures; Carroll b.\nGraves, attorney of Seattle; j. D.\nBlackwell, civil engineer of Seat\ntie, and Prof c. l.. Waller, dean OF\nthe faculty of the state college at\nPullman. The purpose Of the COM\nmission is set forth in the follow\ning letters:\n\n\nRealizing the necessity for bet\nter laws for system of state con-\ntroll Of our water courses, water\nways and water powers, l inclose\nyou herewith commission ap-\npointing you to take up this work\nfor the public good, that you may\ngather data and information and\nhave bill prepared ready to sub\nNIT to the twelfth session of the\nlegislature. You are doubtless\naware that there is no authorize\nton of law or appropriation made\nto cover the expenses of this COM\nmission, and the work must be en-\ntirely voluntary on your part\""
+    }
+  ]
+}

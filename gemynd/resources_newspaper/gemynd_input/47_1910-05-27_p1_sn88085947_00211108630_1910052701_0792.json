@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRAIN DISPATCHINC\n\n\n( BY PHONE BEGINS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-27",
+    "date_end": "1910-05-27",
+    "report_year": 1910,
+    "source_file": "47_1910-05-27_p1_sn88085947_00211108630_1910052701_0792",
+    "archive_ref": "47_1910-05-27_p1_sn88085947_00211108630_1910052701_0792",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "47_1910-05-27_p1_sn88085947_00211108630_1910052701_0792",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 93,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 55,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire)\n\n\nWENATCHEE, May 27.-The\nGreat Northern railway this\nmorning began the use OF teIe-\nphones for train dispatchine\nbetween the sound and Spo-\nkane, marking the beginning\nOF the end of the telegrapher\non Hill roads. The phones cut\nIn this morning are those be-\ntween Spokane and Lesven-\nworth. The phone system be-\ntween Spokane and Troy,\nMont, will be ready inside of\nq week. When these are In\nuse, the Great Northern will\nhave about 2200 miles Of track\nover which the telephone has\nreplaced the telegraph."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "FRED MARVIN\nIS SHIPPING\n\n\nLITERATURE",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-16",
+    "date_end": "1904-05-16",
+    "report_year": 1904,
+    "source_file": "10_1904-05-16_p1_sn88085947_00211108538_1904051601_1320",
+    "archive_ref": "10_1904-05-16_p1_sn88085947_00211108538_1904051601_1320",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1904-05-16_p1_sn88085947_00211108538_1904051601_1320",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 94,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 414,
+            "in_headline": false
+          },
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 76,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Frederic r. Marvin, press agent of\nthe state of Washington at the st.\nLouis exposition, is In the city today\nLouis. He has finished shipping the\nlast of the exhibits of the state and\nis now preparing for shipment the\nfolders illustrative of the state which\nhave been printed in Spokane. The\nissue will be 100000 copies. with the\nprivilege of more if they are needed.\nBesides these the city of Spokane,\nthrough the chamber of commerce,\nhas an issue of $4,000 Of the folder\nwhich has been published for the In\nland Empire."
+    }
+  ]
+}

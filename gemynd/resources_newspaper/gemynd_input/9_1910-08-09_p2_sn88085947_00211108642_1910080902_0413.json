@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "G Q N I'll u f D\n\n\nr o G.\nP A G F. 0 N E\n\nLOCAL LABOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-09",
+    "date_end": "1910-08-09",
+    "report_year": 1910,
+    "source_file": "9_1910-08-09_p2_sn88085947_00211108642_1910080902_0413",
+    "archive_ref": "9_1910-08-09_p2_sn88085947_00211108642_1910080902_0413",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "9_1910-08-09_p2_sn88085947_00211108642_1910080902_0413",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 156,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 21,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 514,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ward to any of their strike-breakers\nthat would help to convict any\nstriker that might joint in an as\nsault on the nonunion men. An\nother shop is said to have offered\n$3.50 to one of the strike-breakers\nif he would go out and get ebaten\nup by the strikers.\n\n\nT. H. Steinbach, one of the three\nunion men under arrest, could not\nbe identified by A. II. Halvorsen,\nwhen the latter was taken by a\npoliceman to the union machinists\nhall to see if he could find the\nman who struck him. Yet Stein\nbach was soon afterward arrested\non warrant sworn out by Maan-\nger Fitzpatrick of the Union Iron\nWorks. The trial of Steinbach, E.\nj. Graham and r. d. Wyant, union\nmen. charged with whipping strike\nbre,txers will come up Thursday\nmorning bfeore Justice Hyde. The\nmen have secured bonds and re-\ntanned Attorney Z. o. Conner to\nlook after their interests."
+    }
+  ]
+}

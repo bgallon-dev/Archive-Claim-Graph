@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT TIME HAVE TO VOTE,\nYELL AND SMOKE CIGARETS?'\n\n\nSAYS ACTRESS MAY ROBSON",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-14",
+    "date_end": "1910-05-14",
+    "report_year": 1910,
+    "source_file": "3_1910-05-14_p8_sn88085947_00211108630_1910051401_0639",
+    "archive_ref": "3_1910-05-14_p8_sn88085947_00211108630_1910051401_0639",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-05-14_p8_sn88085947_00211108630_1910051401_0639",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 168,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 162,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "May Robson. the we'll known\nactress. in an interview, says that\nshe does not want to waste her\nvaluable time voting.\n\n\nplease write me down as OPP\nposed to equal suffrage for women\"\nshe said, land make the opposed\nas large and emphatic as you con-\nveniently can. consider my time\nfar too valuable to waste in political\nsquabbles. The Lord gave women\nwork that. to my mind. is far more\nimportant than running petty polit-\nical affairs. We have all We can\ndo to bring up and take care of the\nmen. 1t is a big task and the woman\nwho does it right has her hands full\nfor this lifetime at any rate. To\nrear a man and make him fair and\nsquare, and a gentleman, is no\nsmall achievement.\n\n\nWhat time have l to vote, yell\nand smoke cigarets? l suppose you\nnotice l don't even put the cigaret\nto my lips in the play? The wine.\nWhy, bless you, the wine is cold\ntea\""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COLUMBIA E. RED MOUNTAIN\n\n\nRAILWAY COMPANY",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-04",
+    "date_end": "1907-11-04",
+    "report_year": 1907,
+    "source_file": "4_1907-11-04_p3_sn88085947_00211108575_1907110401_1218",
+    "archive_ref": "4_1907-11-04_p3_sn88085947_00211108575_1907110401_1218",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-11-04_p3_sn88085947_00211108575_1907110401_1218",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 155,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 542,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Notice of Stockholders Meeting.\nSPOKANE, WASH, OCT. 81, 1907.\n\n\nThe annual meeting of the\nstockholders of the Columbia G.\nRed Mountain Railway Company\nwill be held at the Office of the said\ncompany in the City OF Spokane,\nWashington on the 18th day Of\nNovember, 1907. at 1880 a. m, for\nthe purpose of electing trustees\nand for the transaction Of such\nother business as may be brought\nbefore said meeting\n\n\nAmong the business to be trans\nacted at said meeting will be con.\nsideration of and action upon a\nproposition to sell and convey to\nthe Great Northern Railway Com.\npany all Of the railways and prop\ncritics Of every name and nature\nowned by the Columbia & Red\nMountain Railway Company.\n\n\nThe stock transfer books will be\nclosed at $3.50 o'clock p. m. on\nThursday, Oct. 81, 1907, and re-\nmain closed until 10 a. M. Nov.\nII, 1907.\n\n\nw. H. FORTIER, Secretary."
+    }
+  ]
+}

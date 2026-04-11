@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "THE TRIAL OF S. T.\n\n\nCRANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-13",
+    "date_end": "1909-12-13",
+    "report_year": 1909,
+    "source_file": "11_1909-12-13_p2_sn88085947_00211108617_1909121302_0331",
+    "archive_ref": "11_1909-12-13_p2_sn88085947_00211108617_1909121302_0331",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "11_1909-12-13_p2_sn88085947_00211108617_1909121302_0331",
+      "composite_score": 14.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 10.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "disorderly conduct",
+          "industrial workers",
+          "arrested",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 240,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 854,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 17,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 897,
+            "in_headline": false
+          },
+          {
+            "term": "disorderly conduct",
+            "weight": 1.5,
+            "offset": 178,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1212,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Samuel T. Crane, I. w. w. attor-\nney, was placed on trial this morn\ning in Judge ]. D. Hinkle's depart\nment of the superior court, the case\nbeing an appeal from a conviction\nfor disorderly conduct secured in\nthe police court\n\n\nThe morning session was devoted\nto the selection of q jury. Crane APP\npearing in his own behalf. and As\nsistant Corporation >Counsels Sar-'\ngent and Blair for the city. The\nfollowing were accepted as Jurors:\nc. c. Fishback, VIM. Elmquist, VIM.\nBennett, ]. S. Inkster, John Woe\nhill. c. e. Fay, John A. Bauer, A. B.\nBartlett, G. e. Lawrence, A. e.\nBeaughan, A. c. Hembling and F.\nII. Berry.\n\n\nWhen Attorney Crane asked\nthose of the venire to stand up who\nwere preJudiced against the l. w.\nW., three of the twelve rose to\ntheir. feet. In examining the tales\nmen, Crane questioned them along\nthe line of their feeling towards\nthe Industrial Workers, their. .atti-,\ntude on free speech, whether they\ninherited wealth or accumulated it\nas a worker. Such questions as,\nyou are not in sympathy with\nthis muzzling of free speech, are\nyou?\" or do you think it good\npolicy to prosecute every little\nthing?\" were objected to, of course,\nbut they show the nature of the ex-\nanimation.\n\n\nCrane was arrested for address\ning crowd of I. w. WIS from his\noffice window in the second story\nof the Columbia building. y"
+    }
+  ]
+}

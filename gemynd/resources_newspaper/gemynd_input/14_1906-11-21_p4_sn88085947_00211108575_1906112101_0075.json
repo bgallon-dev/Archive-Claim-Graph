@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FREIGHT SERVICE\n\n\nOPENED",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-21",
+    "date_end": "1906-11-21",
+    "report_year": 1906,
+    "source_file": "14_1906-11-21_p4_sn88085947_00211108575_1906112101_0075",
+    "archive_ref": "14_1906-11-21_p4_sn88085947_00211108575_1906112101_0075",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1906-11-21_p4_sn88085947_00211108575_1906112101_0075",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 117,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 592,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Freight service for less than car\nload lots was installed by the Spo-\nkane & Inland road today between\nSpokane and stations on the Wav-\nerly branch. A stretch of \"a miles\nof territory tributary to Spokane is\nthus thrown open to small ship\npers. Coming into Spokane the\nfreight will leave Waverly at 10\na. m. and reach this city at $3.50.\nOutbound freight will leave here\nat 2 p. m.\n\n\nThe company yesterday received\ntwo Of the six 400 horsepower\nfreight motors ordered for the\nWaverly service. Each motor will\npull two freight cars. Six fine new\npassenger coaches were also de-\nlivered to the Spokane & Inland\nyesterday. Each will seat So pas\nsengers."
+    }
+  ]
+}

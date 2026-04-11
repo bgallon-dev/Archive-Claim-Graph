@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "LIKE\n\n\nNINE STRIKE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-25",
+    "date_end": "1910-03-25",
+    "report_year": 1910,
+    "source_file": "17_1910-03-25_p1_sn88085947_00211108629_1910032502_1091",
+    "archive_ref": "17_1910-03-25_p1_sn88085947_00211108629_1910032502_1091",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "17_1910-03-25_p1_sn88085947_00211108629_1910032502_1091",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "mining": [
+          "mine workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 90,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 344,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 12,
+            "in_headline": true
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine workers",
+            "weight": 2.0,
+            "offset": 119,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire)\nCINCINNATI, O., March 25.-FoI-\n\n\nlowing the failure of special CON-\nmittee of the United Mine Workers\nOf America to reach an agreement\n\n\nwith the mine operators in connec-\n\n\nton with a new wage scale it is\n\n\nexpected here today that the miners\n\n\nwill call an extra convention imme-\n\n\ndiately and vote to declare a strike.\n\n\nShould the strike be called, the min\n\n\ners would probably go out April 1,\nas the present contract between the\noperators and the miners will ex-\npire at that time."
+    }
+  ]
+}

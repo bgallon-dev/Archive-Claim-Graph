@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HAVE SOCIALISTS\nRIGHT TO MEET\n\n\nIN STREETS?",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-10",
+    "date_end": "1906-10-10",
+    "report_year": 1906,
+    "source_file": "8_1906-10-10_p3_sn88085947_00211108563_1906101001_1230",
+    "archive_ref": "8_1906-10-10_p3_sn88085947_00211108563_1906101001_1230",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1906-10-10_p3_sn88085947_00211108563_1906101001_1230",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 160,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 210,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE, Wash, Oct. 1870\ncialists all over the United States\nare watching with interest mo-\nmentous clash between socialists\nOF this city and the authorities over\nthe right Of the former to use the\nstreets for free speech.\n\n\nWholesale arrests have been\nmade, much agitation has been\naroused and the socialists will\ncarry the legal question to the SUI\npreme court.\n\n\nA test case will settle the point\nthat has been raised at one time\nor another in nearly every city in\nthe country.\n\n\nMany prominent men have been\nconverted to socialism through the\nstrife, and Rev. w. D. Simonds,\npastor of the Boylston avenue Uni\ntartan church, has taken the\nstump in favor of the socialists.\n\n\nOpen warfare was brought about\nwhen the police raided a meeting\nseveral evenings ago, arresting\nspeakers. Each deposited 500 for\nhis appearance in court to answer\nto the charge of constructing the\nsidewalks by speaking or dirorderly\nconduct\"\n\n\nThe socialists take the position"
+    }
+  ]
+}

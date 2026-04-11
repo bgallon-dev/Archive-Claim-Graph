@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "NORTHSIDE DEMANDS\nRELIEF FROM CITY\n\nEither Furnish Water or Quit Collecting Pay\n\n\nfor Empty Mains and No Service.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-10",
+    "date_end": "1909-06-10",
+    "report_year": 1909,
+    "source_file": "6_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+    "archive_ref": "6_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 170,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 14,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 18,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The mayor and city council are\ngoing to hear officially from the\nnorthside on the water question.\nThe following plain statement Is\nbeing circulated as petition and\nthe number of signatures 1t will\nhave may awaken at least rip\npie Of interest in a body that has\navoided every means within its\npower to improve the water sys-\ntenn In the past two years. Here\nis the petition:\n\n\nITO the Honorable Mayor and\nExecutive Body Of the City of Spo-\nkane: Owing to the fact that we,\nthe undersigned citizens of Allen\ndale, Monroe Park and Pine Grove\nTerrace additions, lying north on\nthe hill between Washington and\nJefferson streets, have been en-\ntirely without water for a number\nof days from 8 a. m. until as late\nas 9 and 10 p. m, not even hav-\ning water to drink or cook with.\nIn one instance we are informed\nOf one family under quarantine not\nhaving a drink for a number OF\nhouse. having suffered greatly from\nthe effects."
+    }
+  ]
+}

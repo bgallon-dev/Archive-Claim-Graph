@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-10-17 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-17",
+    "date_end": "1908-10-17",
+    "report_year": 1908,
+    "source_file": "3_1908-10-17_p8_sn88085947_00211108587_1908101701_1220",
+    "archive_ref": "3_1908-10-17_p8_sn88085947_00211108587_1908101701_1220",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-10-17_p8_sn88085947_00211108587_1908101701_1220",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 222,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 127,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 185,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "in the streets. If the people fail to\nget any of these things they know\nwhom to blame. There is no shift\ning responsibility to city council\nwhich would not furnish money; to\na bora dof public works which are\ncomposed of X, Y and q; to an\nalderman in an allan ward; to a\nmayor who did not mind the criti-\ncism; to a political machine which\ncontrolled nominations; to the boss\nwho ran the political machine; to\nthe respectable citizen who bribed\nthe boss; to the corporation which\nemployed the eminent citizen; to\nthe stockholders of the corporation,\nand, finally, to the widows and\norphans who would lose their hard\nearned dividends if the corporation\nwere interfered with in any way.\nUnder the commission form of gov\neminent this old familiar rigama.\nrole is done away with, and the\npeople deal with five count EN-!\n81 live men who are paid to de spe-\ncific things, and who can be kicked\nout if they fail to make good\n\n\nIf that is not democratic\" gov\neminent, with a small 3D.\" then\nby all means let us go on encourag\ning futility and dishonesty in pub\n| lie life; let us nurture aldermen\nand bosses until our cities fall in\n\n\nruins and there are no public prop\n\n\ncritics worth the saving.\n\n\n(Concluded.)"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-06-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-25",
+    "date_end": "1909-06-25",
+    "report_year": 1909,
+    "source_file": "30_1909-06-25_p1_sn88085947_00211108605_1909062501_0264",
+    "archive_ref": "30_1909-06-25_p1_sn88085947_00211108605_1909062501_0264",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1909-06-25_p1_sn88085947_00211108605_1909062501_0264",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 57,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 99,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cigaret and the chain gang in reso-\nlutions unanimously passed, the\nWashington State Federation of\nWomen's Clubs closed its session\nlast night. A protest was made\nagainst the practice of working\nmen In chain gangs in streets and\nagainst combining men and women\nin stockades without a division.\nWalla Walla was selected as the\nnext convention place."
+    }
+  ]
+}

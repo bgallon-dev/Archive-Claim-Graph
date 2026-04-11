@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "# MRS. HAY WANTS SUFFRAGE\n\n\nGOVERNOR WILL VOTE FOR It",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-05",
+    "date_end": "1910-04-05",
+    "report_year": 1910,
+    "source_file": "10_1910-04-05_p1_sn88085947_00211108630_1910040502_0072",
+    "archive_ref": "10_1910-04-05_p1_sn88085947_00211108630_1910040502_0072",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "10_1910-04-05_p1_sn88085947_00211108630_1910040502_0072",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 6.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 151,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 7,
+            "in_headline": true
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 17,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "about the senatorial fight\" And\nthe insurgents and Uncle Joe Can\nnon. he wouldn't talk about them\n\n\n1T is going to be bitter fight.\nand since\" he continued, as he\nstood up. threw back his head and\nassumed an air as II suffocated\nwith Importance. they didn't see\nfit to allow me to appoint senator\nI refuse to get into the, fight. This\nmomentary arrogant air wasn't\ncharacteristic of the governor.\nshould say not. He was Just MAX\ning fun. And in a few minutes\nmore he was talking and laughing\nIn further discussion.\n\n\nThere will doubtless be some\nthings brought to light this month\nwhen report Is made public In\nregard to the graft investigation at\nOlympia. The papers and reports\nare at present at my office at the\ncapitol\" said the governor. II have\nuntil April Is to make them public.\n! think 1t will have done some\ngood\""
+    }
+  ]
+}

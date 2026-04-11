@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-10-14 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-14",
+    "date_end": "1904-10-14",
+    "report_year": 1904,
+    "source_file": "13_1904-10-14_p3_sn88085947_0021110854A_1904101401_0526",
+    "archive_ref": "13_1904-10-14_p3_sn88085947_0021110854A_1904101401_0526",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1904-10-14_p3_sn88085947_0021110854A_1904101401_0526",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 201,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 157,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "date line--\"The generally accepted\nopinion Is that Stevenson is endeavor-\ning to break into the ranks Of the\nWhitman county delegation for votes\nagainst the railroad commission bill.\n'The effort of Stevenson to\nbreak into Whitman county is sur\nprising to politicians here because Of\nthe strong platform which the Whit\nman county republicans adopted on\n\n\nthe commission question.\nThe attempt of Stevenson to secure\nvotes In Whitman county is looked\nupon as an indication that the claim\nof the railroads that they control the\nsenate is hot air and that they are\nreally frightened over the prospect of\na break in King county,\"\n\n\nDecember \"a, 1902, under Seattle\ndate line-\"But the Ankeny has been\nmanaged with such consummate skill\nand astuteness by George Stevenson,\nthe o. r. & N. lobbyist\"\n\n\nJanuary 2, 1908, in local columns\nThe governors fight has apparently\n| accomplished one thing already 1t\nIs given out that George ii. Stevenson\n\n\nthe big chief of the railroad lobby,\n\n\nhas decided not to go to Olympia at\nALL\"\n\n\nJanuary 16, 1903.-Local columns\nmake reference to the fact that in the\ncity are railroad lobbyists of high\nand low degree\" the names of George\nII. Stevenson and Ex-Congressman w"
+    }
+  ]
+}

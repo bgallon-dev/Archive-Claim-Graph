@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G. n. To MAKE\n\n\nSETTLEMENTS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-14",
+    "date_end": "1907-08-14",
+    "report_year": 1907,
+    "source_file": "4_1907-08-14_p1_sn88085947_00211108575_1907081401_0964",
+    "archive_ref": "4_1907-08-14_p1_sn88085947_00211108575_1907081401_0964",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-08-14_p1_sn88085947_00211108575_1907081401_0964",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 253,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 29,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Within the next few days the\nGreat Northern Railroad Co. will\nbegin settlement of damages in.\nCured in the Milan wreck. More\nthan 25 people were injured more\nor less seriously and 1t is estimated\nby local attorneys who already are\nbeginning to prepare lawsuits, that\nit will cost the company thousands\nof dollars.\n\n\nDivision Counsel Murray is\nawaiting word from st. Paul offic.\nials before taking up claims. This\nIs expected soon. 1t is customary\nfor officials to give their attorneys\nthe privilege Of using certain\namount of money in making hasty\nsettlements and getting the com\npany released.\n\n\nOF the Is injured taken to the\nhospital the day of the wreck 8\nwere released yesterday, their in\njuries not being serious enough to\nconfine them. Reports from the\nhospital today are that the others\nare doing as we'll as could be ex\npected, but none will be released\nfor a few days.\n\n\nConductor Charles Hollings\nworth. the worst hurt, is fast i'm\nproving. He Is now able to see\nclearly. When seen yesterday his\neyes were badly injured and almost\nclosed. His broken shoulder has\nbeen attended to and is on the\nmend.\n\n\nYesterdays investigation of the\nwreck by State Commissioners\nFairchild and Jones amounted to a\npleasant little trip to Milan at the\ncOmpany's expense with company\nofficials and attorneys along. H. e\nOwen and w. A. Barr, who were In\nthe wreck, represented the public\nThey both testified to the bad con\ndition Of the track and were brow"
+    }
+  ]
+}

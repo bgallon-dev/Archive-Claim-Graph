@@ -1,0 +1,134 @@
+{
+  "metadata": {
+    "title": "Local Briefs.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-04",
+    "date_end": "1903-11-04",
+    "report_year": 1903,
+    "source_file": "11_1903-11-04_p4_sn88085947_00211108538_1903110401_0659",
+    "archive_ref": "11_1903-11-04_p4_sn88085947_00211108538_1903110401_0659",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-11-04_p4_sn88085947_00211108538_1903110401_0659",
+      "composite_score": 16.1,
+      "domain_scores": {
+        "turnbull_prehistory": 2.5,
+        "iww_labor": 1.5,
+        "indigenous": 2.5,
+        "agriculture": 3.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney",
+          "medical lake"
+        ],
+        "iww_labor": [
+          "strike",
+          "jail"
+        ],
+        "indigenous": [
+          "indian reservation"
+        ],
+        "agriculture": [
+          "land office",
+          "wheat"
+        ],
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1903,
+      "word_count": 660,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 1972,
+            "in_headline": false
+          },
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 2763,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 603,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1133,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 50,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 783,
+            "in_headline": false
+          },
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 2911,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 2098,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "iww_labor",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Major A. NJ. Anderson of the Col\nvile and Spokane Indian reservations,\nis in the city at present.\n\n\nThe county commissioners yester-\nday voted $40 a month for six months\nfor Captain McClelland's Ondawa Inn.\n\n\nA government civil service eXami-\nnation for teachers in the Philippines\nis scheduled for this city Novem-\nDer PTS\n\n\npies and cakes. If so. use Gold\nDrop flour. Every sack guaranteed.\n\n\nA cottage prayer meeting will be\nheld tonight by the jefferson street\nMethodists at the home of w. +.\nHeller. 1898 Dean avenue.\n\n\nOfficers of the Potlatcch Lumber\ncompany say that they are satisfied\nwith the strike in the Palouse. as\nthey do not care about logging at\npresent.\n\n\nDR.. c. NJ. Baskins of Wilbur is in\nthe city on professional business TO-\nday.\n\n\nw. Fl. Babcock. Walla Walla\nwheat king, Is in Spokane today.\n\n\nThe Club Cafe always in tile lead.\nOur 25c merchants lunch with beer\nor'wine from 1870 to 2 p m. as good\nas ever Headquarters for steaks,\nchops. etc. l. Chilberg. manager\n\n\nCounty Treasurer Mudgett leaves\ntonight to deliver the $4,000 worth\nof county bonds issued in refundment\nof an equal amount of courthouse and\nJail bonds. His destination is Chi\ncago, where he will receive the old\nbonds and about $1,000 premium. The\ncommissioners yesterday appropri-\nated $3.50 for his expenses.\n\n\nPeter Limacker and Miss Emma r.\nRohrer were married yesterday in\nSpokane. going Immediately to their\nranch for wedding dinner\n\n\nr. NJ. Turner has sold his grocery\nbusiness at the corner of Broadway\nand Monroe to w. d. Kip.\n\n\nHarry T. Roberts, aged Is years.\ndied of pulmonary tuberculosis at his\nhome, 2203 Mallon avenue, last night,\nFuneral services will be held in Grace\nBaptist church tomorrow at p. m.\n\n\nEasy Work Soap-The largest cake\non the market for cents. No fancy\nwrapper-all soap.\n\n\nRev. NJ. Davis of Harrison, Idaho,\nand Miss Nellie +. Pugh were mar\nried at the home of the bride, 1920\nCollege avenue.\n\n\n+. w. Barrough, an inmate of the\nstate hospital at Medical Lake, died\nyesterday and the remains were ship\nped to today to Ellensburg. He was\n10 years of age.\n\n\nGeorge Weir, the Northern Pacific\nauditor who died at Tacoma. will be\nburied tomorrow.\n\n\nBen Franklin, the philosopher, said:\n\"a penny saved is a penny earned\"\nOne dollar deposited each week in\nthe savings bank department of the\nSpokane & Eastern Trust company\nwill in one year amount to $527S;\nin five. s2S6.11; in ten, s634SS; in\ntwenty, S157S33; in thirty, s29SO.21;\nin forty, s5D6334 January April.\nJuly and October are the interest\nperiods.\n\n\nRex. L. Ridpath of this city and\nMrs. katherine SPEEDING were recent\n~ IldlIitu AT bolIdS.\n\n\nTrunks of all styles from Sc and\nup. We also repair trunks and grips.\nSpokane Trunk Fact. S1OG Howard.\n\n\na. L. Ames and Miss Aleath WeIch\nof Cheney were married in this city\non Monday\n\n\nOur prescription department merits\nyour confidence. Watson Drug Co,\n\n\nAI,,g\nlister Ludden of the local land Office,\ndied yesterday afternoon at the fam\nlily residence after a long illness Of\nconsumption. Funeral tomorrow\nafternoon from the residence.\n\n\nIf You want 10 nuy or rent sewing\nmachine, see US. We handle all makes\nand don't care which you want. East\nman-James company, Inc, 1888 River\nside.\n\n\n1t is understood that there will be\nno reduction of the running force\non the Northern Pacific.\n\n\nNo doctor like the right doctor and\nno drug store like the right drug store\nwhen you are sick. The Red Cross\nPharmacy is the one. Telephone Main\n5l4.\n\n\nFriday evening, the 18th inst, is\nthe time set for the Woman's Hospi-\ntai corps dance In the dining rooms\nof the Hotel Spokane, kindly donated\nfor the charity by Proprietor Nor\nman.\n\n\nMr.. and Mrs. A. h. Campbell and\nMr.. and Mrs. Patrick Clark and\ndaughter have engaged passage on\nthe Augusta Victoria for February\nIN contemplation Of a trip 20 the\nMediterranean."
+    }
+  ]
+}

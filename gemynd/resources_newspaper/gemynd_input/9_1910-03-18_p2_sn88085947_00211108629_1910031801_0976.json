@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TO IRRIGATE 16, 900\n\n\nMORE ACRES SOON",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-18",
+    "date_end": "1910-03-18",
+    "report_year": 1910,
+    "source_file": "9_1910-03-18_p2_sn88085947_00211108629_1910031801_0976",
+    "archive_ref": "9_1910-03-18_p2_sn88085947_00211108629_1910031801_0976",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1910-03-18_p2_sn88085947_00211108629_1910031801_0976",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 110,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 52,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "r. J. O'Brien, secretary and\nmanager of the Hanford Irrigation\n& Power company. is authority for\nthe statement that construction\nwork will begin this year on the\nHanford high line and the Coyote\ncanals, supplementing the present\nlow line canal, designed to irri-\ngate 10000 acres of land southeast\nOF Spokane. The new canals. by\nwhich it Is expected to furnish\nwater for more than 100000 acres,\nwill extend the project from a\npoint near Priest Rapids nearly so\nmiles down the Columbia river.\nTwo hundred and fifty thousand\ndollars will be expended on the\nwork during 1910 and the work Will\nbe pushed with even more yigor\nIn 1911"
+    }
+  ]
+}

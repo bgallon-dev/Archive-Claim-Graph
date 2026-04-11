@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-02",
+    "date_end": "1907-08-02",
+    "report_year": 1907,
+    "source_file": "16_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+    "archive_ref": "16_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 100,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 411,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "smediately, and there he has been\never since, with the exception of\nwhat time he was able to be in\ncourt, few hours every day.\n\n\nHis advice was a tower of\nstrength to the defense, yet he\nnnodestly said to me on a number\nOf occasions:\n\n\nfAll l hope is that I will be able\ntot make l suggestion that will\nhelp Bill\"\n\n\nWhen the final arguments in the\ncase had begun Murphy COM\nmenced to fail.\n\n\nWhen the jury gave Haywood his\nfreedom Sunday morning, Murphy\nwas in a comatose condition in his\nhospital bed.\n\n\nImmediately after reaching home"
+    }
+  ]
+}

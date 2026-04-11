@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WIDOW SUES\n\n\nFOR $4,000",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-19",
+    "date_end": "1907-09-19",
+    "report_year": 1907,
+    "source_file": "18_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+    "archive_ref": "18_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 83,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 143,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Thirty thousand dollars damages\nfor the death of her husband Is\nasked by Maria Hill in complaint\nfiled In the superior court today\nagainst the Spokane & inland EN-\npire Railway Co. 1t Is alleged that\nJohn Hini, having purchased a\nticket in Occur d'Alene for Spo-\nkane. attempted to allght from the\ntrain when 1t stopped at Main av.\nWhile he was yet In the act OF\nalight.ns the train started and he\nwac thrown to the pavement and\nsustained fatal injuries."
+    }
+  ]
+}

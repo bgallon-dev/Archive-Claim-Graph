@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NEW\n\n\nSCHOOL LAW",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-09",
+    "date_end": "1907-04-09",
+    "report_year": 1907,
+    "source_file": "6_1907-04-09_p4_sn88085947_00211108575_1907040901_0551",
+    "archive_ref": "6_1907-04-09_p4_sn88085947_00211108575_1907040901_0551",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1907-04-09_p4_sn88085947_00211108575_1907040901_0551",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 214,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 494,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "r. B. Bryan, superintendent of\npublic instruction, has issued cir\ncular to county school superinten-\ndents, calling especial attention to\nchanges in schoo! laws made by the\nlast legislature with reference to\nteachers certificate regulations.\nBriefly, the laws now provide that\nany holder of first grade certifi-\ncate who has taught not less than\n80 months. SO of them in this state,\nshall be granted permanent first\ngrade certificate on presenting salts\nfactory evidence and application to\nthe county superintendent. Exam\nnations for life diplomas and GER\ntificates are to be held in May and\nAugust of each year in counties des-\nignated by the state Office. School\nboard examination meetings in June\nare abolished. After May all APP\nplicants for first grade certificates\nmust qualify in physicai geography\nin addition to present branches.\nHolders of second grade certificates\nmay be granted first grades if per-\ncentages in 9 previous examinations\nhave not fallen below 90 and does\nnot fall below the minimum in the\nsucceeding examination on addi-\ntional subjects. Applicants for first\ngrade certificates ave exempt from\nexamination on subjects in which\nthey have stood 80 per cent. Credits\non the May or previous eXamina-\ntons cannot be taken advantage of,\nhowever, as the law does not go\ninto effect until June."
+    }
+  ]
+}

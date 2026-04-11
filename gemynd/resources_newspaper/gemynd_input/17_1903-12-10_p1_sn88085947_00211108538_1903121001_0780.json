@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-12-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-12-10",
+    "date_end": "1903-12-10",
+    "report_year": 1903,
+    "source_file": "17_1903-12-10_p1_sn88085947_00211108538_1903121001_0780",
+    "archive_ref": "17_1903-12-10_p1_sn88085947_00211108538_1903121001_0780",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-12-10_p1_sn88085947_00211108538_1903121001_0780",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 147,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 293,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The use Of apprentices shall not be\nprohibited.\n\n\nThe foreman shall be the agent Of\nthe employer.\n\n\nAL workmen are at liberty to work\nfor whomsoever they see fit.\n\n\nAL employers are at liberty to en-\nploy and discharge whomsoever they\nsee At.\n\n\nThe last clause IL a plain declara-\nton for the open shop. Union men\nhave always contested that sue\ncessful movement to establish the\nopen shop meant the end Of organised\nlabor. For this reason It is predicted\nthat the new association will have the\nantagonism Of the unions from the\nvery outset. Toresseing the probable\nain, of the new association, the Amer\nlean Federation Of Labor, assembled\nin annual convention in Boston last\nmonth, gave extended attention to the\nopen shop issue and formulated a re-\nport strongly opposing it. The action\nOf the two organizations, one repre-\nsenting three-fourths of the organized"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "OPPOSES TRACK\n\n\nUNDER ARCH",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-24",
+    "date_end": "1908-10-24",
+    "report_year": 1908,
+    "source_file": "6_1908-10-24_p2_sn88085947_00211108587_1908102401_1262",
+    "archive_ref": "6_1908-10-24_p2_sn88085947_00211108587_1908102401_1262",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-10-24_p2_sn88085947_00211108587_1908102401_1262",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 262,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1390,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "What further plans the North\nCoast railrod people have in mind\nhave not been given to city officials\nwho were informed of the terminal\nplans, and in consequence there is\nan amount of conjecture in the air\nwhich has connected the North\nCoast with every transcontinental\nline aspiring for northwest bust\nness. Mayor Moore this morning\nexpressed himself pleased that the\ncompany plans to expend such a\nlarge sum of money on a terminal\nsite, but still opposes allowing it\nto run it's tracks under the main\narch of the proposed new Monroe\nstreet bridge. What we want\nthem to do\" said the mayor this\nmorning, lis to cross the river\n| north of the main arch. A string\nof tracks under the arch to my\nmind would mar the beauty of the\nstructure\"\n\n\nCity Engineer Ralston today said\nthat he has no further information\non the North Coast plans than\nthose already made public. In re\ngard to the line under the big arch\nhe expressed the opinion that there\nis a possibility of the engineers de\nvising a means whereby the arch\n| would not be used.\n\n\nRegarding terminal plans, Robert\ne. Strahorn, president of the NORTH\nCoast, yesterday stated that there\nwas no certainty of the company\nclosing Wall street He refuses t.\n\n\ndivulge any further plans of the\n\n\ncompany, or whether the line will\n\n\ncontinue east through the city. II,\n\n\nsays, however, that there are NJ\n\n\nbusiness relations with his line ant\nthe Inland Empire system, and tina\nthe North Coast will not use tn\n\n\nproposed Graves tunnel."
+    }
+  ]
+}

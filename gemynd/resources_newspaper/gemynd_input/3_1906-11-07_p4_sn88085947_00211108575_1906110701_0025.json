@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "DENIES CHARGE\n\n\nOf FRAUD",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-07",
+    "date_end": "1906-11-07",
+    "report_year": 1906,
+    "source_file": "3_1906-11-07_p4_sn88085947_00211108575_1906110701_0025",
+    "archive_ref": "3_1906-11-07_p4_sn88085947_00211108575_1906110701_0025",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-11-07_p4_sn88085947_00211108575_1906110701_0025",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 152,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 42,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In answer to the suit brought\nagainst the Northern Pacific by\nJoseph Boyd to recover $75,529.57\nthe defendant corporation has en-\n\n\ntered specific denial to all allega\ntons of fraud. Action was begun to\nrecover on a judgment against the\nOccur d'Alene Railroad & Naviga.\nton Co., and a fraudulent transfer\nof the stock of this company from\nID. c. Corbin to the Northern Pa\ncific was alleged in the complaint\nby which the Northern Pacific was\nbrought into the action. That the\nroad was sold to the defendant for\nless than it's value, and excess\nstock used in payment, is also de-\nMED. A claim is set UP that Boyd\nis barred from action against the\nNorthern Pacific by reason of fail\nure to enforce collection of his\njudgment against the property in\nwhen the suit was ter.\nminated. The case has been sre-\nmoved to the U. S, circuit court."
+    }
+  ]
+}

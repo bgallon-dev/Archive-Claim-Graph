@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "free SPEECH\n\n\n4 FIGHT GROWS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-11",
+    "date_end": "1909-11-11",
+    "report_year": 1909,
+    "source_file": "11_1909-11-11_p1_sn88085947_00211108617_1909111101_0050",
+    "archive_ref": "11_1909-11-11_p1_sn88085947_00211108617_1909111101_0050",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-11-11_p1_sn88085947_00211108617_1909111101_0050",
+      "composite_score": 14.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 10.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "industrial workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 117,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 350,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "paper published at irard, Kan, and\nedited by Fred ID. Warren, a man\nunder sentence for publishing rad\nical matter that was said TO be in\nviolation Of the postal regulations,\nwill issue special number devoted\nto the Spokane situation. The pa\nper Is said to have two million\nreaders scattered throughout the\ncountry.\n\n\nThe national headquarters of the\nIndustrial Workers Of the World at\nChicago has entered the fight and\nwill probably come here to take\npersonal charge of the situation.\n\n\nThe big press associations have\ntaken hold of the agitation, and\nSpokane is now daily held up to\nthe gaze of the entire country.\n\n\nThere is no telling where or\nwhen the agitation will end."
+    }
+  ]
+}

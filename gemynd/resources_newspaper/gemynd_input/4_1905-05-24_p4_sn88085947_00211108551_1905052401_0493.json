@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "BY r. W. WEBSTER,",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-24",
+    "date_end": "1905-05-24",
+    "report_year": 1905,
+    "source_file": "4_1905-05-24_p4_sn88085947_00211108551_1905052401_0493",
+    "archive_ref": "4_1905-05-24_p4_sn88085947_00211108551_1905052401_0493",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-05-24_p4_sn88085947_00211108551_1905052401_0493",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 255,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 437,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 961,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Government Expert in Charge of Hes\n\n\nsian Fly Investigation.\n\n\nThere is a disastrous outbreak OF\nHessian fly now in progress in eS-\nIRENE western Kentucky and Tennes-\nsee. In North Dakota a similar DIS\nastrous attack is being overcome by\na minute parasite which was found\nin that state last year, BY arunclal\nrearjngs, carried on during the past\nwinter. we have been able to deter\nmine the presence of millions or\nthese parasites in the wheat stubble\nof last year, and we also know that\nthey have not yet left their winter\nquarters. Half a ton of this infested\nstubble has been dispatched from\nNorth Dakota to the ravaged district\nof Kentucky and Tennessee with the\nhone that these minute parasites VIII\nbecome established there this spring\nand attack the young of the Hessian\nfv. Bv this means the department\nhopes to be able TO reduce the pest\nand the probabilities of further dis\nastrous ravages next fall in the\nstricken territory, which will offer\nfurther relief another year\n\n\nThe United States department Of\nagriculture is al present making\nstrenuous efforts to aid the American\nwheat grower in a practical manner\nin reducing the annual losses due to\nattacks of the Hessian fly.\n\n\nIT has long been known that mod\nerately late sowing in the fall is a\npractical preventive measure. But\nhow late IT is necessary TO SOW in\nautumn to bring about the desired\nresults has yet to be determined. We\nknow that this date varies greatly\nwith latitude and meteorological con-"
+    }
+  ]
+}

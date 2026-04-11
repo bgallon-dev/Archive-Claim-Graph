@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "G Q N TIN u E D\n\n\nr o\nP A @ E. O N F.\n\nSTATE OPENS in\n\n\nFLYNN TRIAL :, :",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-11",
+    "date_end": "1910-02-11",
+    "report_year": 1910,
+    "source_file": "11_1910-02-11_p2_sn88085947_00211108629_1910021101_0468",
+    "archive_ref": "11_1910-02-11_p2_sn88085947_00211108629_1910021101_0468",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-02-11_p2_sn88085947_00211108629_1910021101_0468",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 1.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "iww_labor": [
+          "i. w. w.",
+          "jail"
+        ],
+        "agriculture": [
+          "fruit grower"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 288,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 1398,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 874,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 292,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "fruit grower",
+            "weight": 1.5,
+            "offset": 1458,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "of men and funds to aid iii the\nfight. He also said that some Of the\nleaders, after their arrest, had ad-\nmitted that the Spokane fight was\npart of campaign conducted from\nthe national headquarters, in which\nthe plan was to overwhelm the Spo-\nkane city authorities with men will\ning to go to Jail until the ordinance\nagainst public assemblage on. the\nstreets was either amended or re-\npealed.\n\n\nOne of the jurors in the case,\nWilliam Bass, is colored man. the\nfirst that in years has sat in a jury\nin the Spokane. superior court In\nthe trial of white defendant for a\nserious criminal offense. \"a By a\nstrange coincidence, the Industrial\nWorkers Of the World invites the\ncolored man to membership on an\nequal footing.\n\n\nThe trial of the case may con-\nsumo two weeks. Attorney Moore\nis being assisted in the case by\nThomas ]. Symmes, sent by the ma\ntional headquarters of the I. w. w.\nat Chicago. Prosecutor Pugh is be-\ning assisted by John E. Blair, first\nassistant corporation counsel. Po-\nlice Chief Sullivan and Chief of De-\ntectives Burns are appearing as the\ncomplaining witnesses for the state.\n\n\nThe jury in the case was selected\nbefore the adjournment of court\nlast evening and is composed Of\nA. A. Kienholz, teacher, Spokane;\nj. HUMPHREYS, farmer, Spokane\nBridge; William Bass, colored.\nstone mason, Lidgerwood; ]. L..\nFord, broker. Spokane: William\nCosselman. farmer. three miles\nsouth of Cheney; William Johnson,\nfarmer. d street: George T. Mosier\nfruit grower; Mount Carlton: c. r.\nGawthorp, Spokane news dealer;\nw. J. Grogan. farmer, Cheney:\nGeorge R. Cheney, carpenter. SIT\nQueen street; George Hendrickson,\na farmer, Peone Prairie: r. ]. Hor-\nrigan, barber, w Riverside."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Report Circulated That\nUnions Charged Farmers\n\n\nWith Gouging Public.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-20",
+    "date_end": "1910-03-20",
+    "report_year": 1910,
+    "source_file": "15_1910-03-20_p23_sn88085947_00211108629_1910032001_1033",
+    "archive_ref": "15_1910-03-20_p23_sn88085947_00211108629_1910032001_1033",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1910-03-20_p23_sn88085947_00211108629_1910032001_1033",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 59,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One feature that the so called\nmeat boycott brought out, and\nwhich was pretty generally over\nlooked in the shuttle, was that the\nfarmers in many of the states who\napparently have few newspapers to\ndefend their interests are highly In\ncensed at the charge that they are\nresponsible for high prices. They\nclaim that with the increased cost"
+    }
+  ]
+}

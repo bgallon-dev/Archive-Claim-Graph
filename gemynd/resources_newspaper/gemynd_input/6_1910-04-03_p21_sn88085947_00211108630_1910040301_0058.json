@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-03 — pp21",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-03",
+    "date_end": "1910-04-03",
+    "report_year": 1910,
+    "source_file": "6_1910-04-03_p21_sn88085947_00211108630_1910040301_0058",
+    "archive_ref": "6_1910-04-03_p21_sn88085947_00211108630_1910040301_0058",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1910-04-03_p21_sn88085947_00211108630_1910040301_0058",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 327,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 65,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 180,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "First announcement of another\nS150,000 office building for North\nMonroe street, to be located on the\nsouthwest corner of Maxwell ave-\nniue. was made yesterday by j. w.\nGreene. the real estate man and\ncapitalist, who, more than anyone\nelse in Spokane, has been a consist\nent booster for many years of that\npart of the city north of the river.\n\n\nThis time Mr.. Greene, who has\nalready invested several hundred\nthousands of dollars in apartment\nhouses and office structures on the\nnorth side, will build a strictly mod\nern steel frame building, resting on\nconcrete piers. 1t will be five Stor-\nles high, the ground floor to be de-\nvoted to stores and the upper stor-\nles to offices, 10 on floor Plans\nfor the building will be completed\nat the office of Cutter & Malmgren,\narchitects, by May /. and work will\nprobably be started, says Mr..\nGreene, shortly afterward.\n\n\nThe Monroe office building, being\nerected on the southwest corner of\nMonroe street and Indiana avenue\nby Mr. Greene, is now almost fin\nished, the interior finishing being\npractically all that remains. This\nbuilding is costing Mr.. Greene\nabout $4,000, or $4,000 more than\nhe originally intended to put into\nthe4 structure. 1t is the second\nmonument Mr.. Greene has built to\nhis faith in the future of the north\nside. He sold his apartment house,\nerected not long ago, recently.\n\n\nTO BE SPLENDID, MODERN\n\n\nSTRUCTURE.\n\n\nThe Greene building\" as the\nnew office structure now being\nplanned will be called, will be Of\nbrick, faced on the exterior Of the\nfirst story with terra Gotta and with\nsimilar trimmings over windows\nand elsewhere on the outside.\nThere will be two large stores\nfronting on North Monroe street.\nThe building will extend 100 feet on\nMonroe street and the stores will\nbe about 10 feet wide. There will\nbe II feet frontage on Maxwell ave-\nnue.. Costing $4,000 more than Mr..\nGreehe's building now under con-"
+    }
+  ]
+}

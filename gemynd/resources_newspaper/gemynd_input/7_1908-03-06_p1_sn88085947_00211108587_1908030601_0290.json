@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CANNON WILL SUBMIT\n\n\nmo JOKER\" ORDINANCE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-03-06",
+    "date_end": "1908-03-06",
+    "report_year": 1908,
+    "source_file": "7_1908-03-06_p1_sn88085947_00211108587_1908030601_0290",
+    "archive_ref": "7_1908-03-06_p1_sn88085947_00211108587_1908030601_0290",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-03-06_p1_sn88085947_00211108587_1908030601_0290",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 236,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The council will hear some more\nabout Northern Pacific grade separ-\nalton this evening when the ordi-\nnance asked by the railroad will\nbe taken up section by section.\n\n\nJudge Turner will be on hand\nagain and this time will have more\nindividual support behind him than\non the last occasion. He will be\ndouble-shotted for the fight against\nthe company's plan.\n\n\nf. j. Cannon, n. p. cousel, will\nalso be there ana Cannon has a\nproposition it will be hard to gel\naround. In about II places in the\nordinance relating to the grade he\nis inserting special provision that\nall the tracks are to be elevated\nand every paragraph so altered VIII\nalso contain the provision there\nshall be no joker\n\n\nThis is to get around final objec-\nton entered that the company pro-\nposed to elevate part of its tracks\nand leave the others at level, which\nwould be a poor remedy for present\nconditions.\n\n\nIn regard to clause insisted up\non by The Press that none but\nwhite labor be employed on the\nwork in this city MIR. Cannon says\nit has always been the policy OF the\ncompany to employ white men on\nsuch work when possible aud that\nit would be imperative on the con-\ncrete and other skilled portions as\nAsiatics are not competent. III\nthere Is white labor available he be\nlieves no other class will be EN-"
+    }
+  ]
+}

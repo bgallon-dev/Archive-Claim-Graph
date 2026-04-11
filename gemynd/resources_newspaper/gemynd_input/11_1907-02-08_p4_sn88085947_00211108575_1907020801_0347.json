@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT The READERS THINK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-08",
+    "date_end": "1907-02-08",
+    "report_year": 1907,
+    "source_file": "11_1907-02-08_p4_sn88085947_00211108575_1907020801_0347",
+    "archive_ref": "11_1907-02-08_p4_sn88085947_00211108575_1907020801_0347",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1907-02-08_p4_sn88085947_00211108575_1907020801_0347",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 216,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 94,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor Press-Please permit me\nword in regard to the safety Of\nthe public\" that the Washington\nWater Power Co. prates about. By\nstanding at some of the railroad\ncrossings when a Washington\nWater Power car is crossing and\nnoting how long it takes the car to\ncross the tracks, especially when\nthere is snow or mud on the rails,\nthe public will readily understand\nhow to account for the accidents\nthat happen at the railroad cross\nings. 1t is like taking a dive into\neternity\" to make one of these\ntrips. The reason for this is the\ncheese pairing policy of the COM\npany in buying small, light cars\nwith weak motors, all the power\nof which is needed to make the\nspeed under favorable conditions.\nCompare them with the cars of the\nTraction Co. and you will notice\nthat the latter cars have power\nenough to give them momentum\nsufficient to take them across the\nrailroad tracks in case a trolley\ncomes off, or progress is impeded\nby snow or mud on the tracks.\n\n\n1t Is a rare thing to hear Of a\nwreck on the Traction lines. They\nemploy experienced men.\n\n\nThe w. w. p. Co. is proud of its\nmen, service and equipment. But\nwhat has 1t got to be proud Of? Is"
+    }
+  ]
+}

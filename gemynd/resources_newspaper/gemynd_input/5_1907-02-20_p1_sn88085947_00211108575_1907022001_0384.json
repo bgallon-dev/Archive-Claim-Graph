@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RAILROADS IN\n\n\nMORE TROUBLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-20",
+    "date_end": "1907-02-20",
+    "report_year": 1907,
+    "source_file": "5_1907-02-20_p1_sn88085947_00211108575_1907022001_0384",
+    "archive_ref": "5_1907-02-20_p1_sn88085947_00211108575_1907022001_0384",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-02-20_p1_sn88085947_00211108575_1907022001_0384",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 203,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 704,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "All trains on the main line of the\no. r. & n. are this morning an\nnulled as the result of Monday\nnights Chinook wind and yester-\ndays rising temperature. The\ngreatest trouble is reported in\nHays canyon. Pendleton is entire\nly cut off from traffic and many of\nthe streets are under water. The\nUmatilla river has swollen till it is\nnearly as high as it was at any time\nlast week, when it reached the\nhigh water mark. All the new\nroadbed of the 0. r. & n. at\nHavana has been destroyed by the\noverflow of Wild Horse creek.\n\n\nNo traffic on the Northern Paci-\nfic can proceed further west on the\nmain line than Ritzville, as a\nwashout has occurred near that\nplace. Trains from this line are\nbeing run over the Great Northern\nline west today. No washouts are\nyet reported on the Great Northern\ntoday. No. l from the east is seven\nhours late, while trains coming in\nfrom the west are only about an\nhour behind time. Heavy trains of\nfreight have been pulled over this\nroad for the past few days, and 1t\nIs reported that nearly all that had\nbeen delayed have been released."
+    }
+  ]
+}

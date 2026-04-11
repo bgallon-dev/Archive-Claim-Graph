@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SWARMlNG IN TO FILE THEIR\nCLUTCHES ON WORKING\nMEN BEFORE PROPOSED\nREGULATIONS BECOME EF-\nFECTiVE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-15",
+    "date_end": "1909-02-15",
+    "report_year": 1909,
+    "source_file": "8_1909-02-15_p1_sn88085947_00211108599_1909021501_0676",
+    "archive_ref": "8_1909-02-15_p1_sn88085947_00211108599_1909021501_0676",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-02-15_p1_sn88085947_00211108599_1909021501_0676",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 258,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 884,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The probability Of the passage\nof the Cotterill bill regulating loan\nsharks has caused haste among\nthose engaged in the business in\nSpokane to get their assignments\nof wages filed with employers be-\nfore the bill is passed\n\n\nThe extent to which these\nsharks operate in Spokane is\nshown by the fact that 10 agencies\nhave thrived in the business of\nmaking salary loans at an an\nnounced rate of interest of 10 per\ncent per month, but those who\nhave had occasion to patronize\nthese institutions say that often\ntimes the rate is nearer % per\ncent per month.\n\n\nThe loan shark makes his plan\nof doing business appear innocent\nenough on first inquiry, but once\nthe borrower gets into the clutches\nof the loan shark 1t may take\ndeath or an appeal to the bank\nruptcy court to secure his release.\n\n\nIn the three months ending\nJanuary 81, 20 salary assignments\nhave been made by employees of\nthe Great Northern railway, most\nly to the salary loan sharks. Since\nFebruary |, Is of these assign\nments have been filed, which indi-\nGates big increase in the filings\nfor fear of the operation of the\nCotterill bill.\n\n\nThis measure requires the sigma.\nture of employers to be made to\nall salary assignments under $500,\nand also requires the wife of the\nparty making the assignment of\nwages to sign the same where the\namount Is under $500. Such as\nsignment must be filed within a\nfew days days after being made,\nwhereas at the present time the"
+    }
+  ]
+}

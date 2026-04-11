@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "COSTS AS MUCH TO SHIP AS TO buy",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-30",
+    "date_end": "1909-09-30",
+    "report_year": 1909,
+    "source_file": "9_1909-09-30_p2_sn88085947_00211108605_1909093001_1010",
+    "archive_ref": "9_1909-09-30_p2_sn88085947_00211108605_1909093001_1010",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-09-30_p2_sn88085947_00211108605_1909093001_1010",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "rate case",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 96,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 16,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 16,
+            "in_headline": false
+          },
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 270,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Present Spokane freight rates\nfrequently compel the payment by\nthe merchants of charges that\namount to as much as the goods\nshipped are worth. This was\nshown in several instances before\nCharles E. Prouty of the interstate\ncommerce commission, hearing the\nfamous Spokane rate case here to-\nday.\n\n\n1t is being repeatedly shown\nthat the rates are higher to Spo-\nkane than to the coast on many\ncommodities in which there is no\ncompetition by water Coast rates\nare already being granted on few\nof these by the railway companies,\nbut most of the controversies will"
+    }
+  ]
+}

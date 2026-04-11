@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "city council, Mr.. Robertson said:",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-26",
+    "date_end": "1910-10-26",
+    "report_year": 1910,
+    "source_file": "47_1910-10-26_p2_sn88085947_00211108654_1910102601_0261",
+    "archive_ref": "47_1910-10-26_p2_sn88085947_00211108654_1910102601_0261",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "47_1910-10-26_p2_sn88085947_00211108654_1910102601_0261",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 315,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "city council, Mr.. Robertson said:\n\n\n\"After the decision of the court\none would have thought that Mayor\nPratt would await the decision OF\nthe city council. Instead of that he\ncaused copy of the charges to be\nfiled with the board of police com.\nmissioners, which is now attempt.\ning to try them, without the testi\nmony Of the plaintiff being heard\n| have never seen an act SO fla.\ngrant and in such open violation OF\nthe law. There is no politics in\nthis thing. 1 don't care whether\nMayor Pratt is democrat or re-\npublican, this matter should be In\nvestigated on it's merits and the\ntruth heard. l appear here for j\nH. Elliott, an honest and just old\nman, defender of the Union, and\nmember of the G. A. R., who has\nfiled these charges. There are nc\ngamblers, saloonmen or bad women\nbehind this case, and when it is\nheard we want priests and preach\ners, and all other citizens, to be\npresent. We want only justice and\nthe fair name of the city of Spo\nkane cleansed of the stain that has\nbeen applied to it through the &C\ntons set forth in these charges. Nc\nsubordinate board ought to have\nthe right to forestall justice in this\ncase\"\n\n\nThe board of police commission\ners was ordered to make no find\nings in it's present inquiry unit\nafter the city council acted, and Il\nwas further ordered to see tina\nJohn T. Sullivan was on hand wher\nthe official trial is called.\n\n\nAt the outset there was talk Of ar\nearly date for trial of the Sullivan\ncharges, and Councilman Lamber\nintroduced a resolution setting the\nhearing for October 81. On account\nof the absence from the city of the\nsewer, water and light committed\nabout this time it was agreed to Sc\nthe date for a week later."
+    }
+  ]
+}

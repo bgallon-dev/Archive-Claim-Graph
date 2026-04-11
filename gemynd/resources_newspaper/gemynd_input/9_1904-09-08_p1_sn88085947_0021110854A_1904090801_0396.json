@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "SCALpERS ORDINANCE\n\n\nMay BE KILLED",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-09-08",
+    "date_end": "1904-09-08",
+    "report_year": 1904,
+    "source_file": "9_1904-09-08_p1_sn88085947_0021110854A_1904090801_0396",
+    "archive_ref": "9_1904-09-08_p1_sn88085947_0021110854A_1904090801_0396",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-09-08_p1_sn88085947_0021110854A_1904090801_0396",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 162,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 54,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 850,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A. Ottinger and c. Twitchell, tick\nct brokers, of 612 Riverside avenue.\nagainst the city of Spokane and Le-\nroy Waller, chief of police, is a case\nthat is being argued at some length\ntoday in Judge Kennans court. Alex\nNJ. Winston, representing the plain\ntins, laid great stress upon the point\nof license raised in the city ordi-\nnance covering the question. lie con-\ntented that a private citizen was en-\ntitled to sell railroad tickets as were\nrailroad agents. They are brokers\nin each sense. Winston claimed IS\nlicense would be a fair tax and that\nrailroad agents should also share\ntherein. lie quoted at length upon\nthe supreme courts decision in sew\neral states as being unconstitutional\nand In his opinion the ordinance could\nnot stand.\n\n\n1t is claimed by the plaintiffs that\nthe scalpers ordinance was deal\nput up by the railroads and that the\ncity council went a step further in\nthe latter's good graces and caused"
+    }
+  ]
+}

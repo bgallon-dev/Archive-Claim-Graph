@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "OFFICE\n\n\nOF PRESIDENT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-03",
+    "date_end": "1906-10-03",
+    "report_year": 1906,
+    "source_file": "16_1906-10-03_p1_sn88085947_00211108563_1906100301_1204",
+    "archive_ref": "16_1906-10-03_p1_sn88085947_00211108563_1906100301_1204",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1906-10-03_p1_sn88085947_00211108563_1906100301_1204",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 100,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 478,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tScrlppS news ASSOclat1On.)\n\n\nCHICAGO, Oct. 3.-The Indus.\ntrial Workers of the world abolish.\ned the office Of president today.\nw. E. Trautman was nominated\nsecretary and treasurer. NJ H.\nHaggerty of Butte Is one OF the\nnominees for assistant. Vincent 81\nJohn, Colorado, was elected chair.\nman. Other nominees will be re.\nferred to a referendum vote.\n\n\nThe craftsmanship of a conven.\nton will be the executive office.\n\n\nThe organization received g\nheavy blow yesterday when the\nWestern Federation of Miners bolt.\ned the convention. The trouble\narose over socialism. The miners\nannounce that they will organize\nunder another name."
+    }
+  ]
+}

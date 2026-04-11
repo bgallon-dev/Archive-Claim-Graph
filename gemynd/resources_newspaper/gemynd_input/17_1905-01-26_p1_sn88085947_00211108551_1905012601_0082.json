@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-01-26 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-26",
+    "date_end": "1905-01-26",
+    "report_year": 1905,
+    "source_file": "17_1905-01-26_p1_sn88085947_00211108551_1905012601_0082",
+    "archive_ref": "17_1905-01-26_p1_sn88085947_00211108551_1905012601_0082",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1905-01-26_p1_sn88085947_00211108551_1905012601_0082",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 240,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1022,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "through the concern, but refused to\nto charge the higher prices of the\ntrust\n\n\nYou can not join the Laundry\nWorkers union unless you agree to\nmaintain the scale Of prices for work\ndone. Our constitution provides for\njust prices and we will not allow a\nviolation of the constitution said\nSecretary Hotter, who was backed up\nby three other members of the union.\n\n\nIl want to come into your union.\nBut I will not agree to charge the\nassociation prices. l will not allow\nthe union to say what prices / shall\ncharge for the work.\" said Manager\nLadely. This is just a move of the\nassociation 1aundries to use the union\nto drive out the c. O. D., because it\nis an Independent laundry and won't\ncharge trust prices, or join the trust\"\n\n\nmo, it isn't\" insisted Secretary\nHotter.\n\n\nII say it is. won't allow my\ndrivers to join If you try to force\nthem to charge trust prices. We are\nmaking a profit on the lower prices\nand won't join the trust. I'll have\nmy drivers join the Transfers union\nand I'll get your union boycotted in\nthe trades council\"\n\n\nThen it's going to be fight. The\nunion will fight you to the end\n\n\n\"Why I'll organize another union\nhere and buck the trust with it. You\nI'll take it up with the trades coun-\nGil\"\n\n\nWith these defiances the meeting\nbroke up and the war started."
+    }
+  ]
+}

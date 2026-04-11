@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "G O N TIN u E D\n.F r o -\n\n\nP A G f Q N f\n\nWEBSTER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-16",
+    "date_end": "1910-07-16",
+    "report_year": 1910,
+    "source_file": "3_1910-07-16_p2_sn88085947_00211108642_1910071601_0165",
+    "archive_ref": "3_1910-07-16_p2_sn88085947_00211108642_1910071601_0165",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-07-16_p2_sn88085947_00211108642_1910071601_0165",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "conspiracy"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 313,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 982,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 275,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the further fact that the unions\ncirculated cards giving the names\nof the fair houses and urging all\nfriends of labor to patronize them,\ndid not constitute facts sufficient\nto warrant the issue of an injunc-\nton against the strikers.\nThe plaintiffs charged the exist\nence of conspiracy among the de-\nPENDANTS to ruin the business of\nthe plaintiffs, but the court held\nthat the evidence wholly failed to\nsupport the conspiracy charge. The\nonly acts, the court held, that the\nplaintiffs established, were the dis\ntribution of the cards and the fact\nthat one union girl had talked to a\nnonunion girl, in a peaceable and\norderly manner. The court then\ndenied the application for an in\njunction against the culinary work\ners.\n\n\nIn passing on the case, Judge\nWebster said. among other things:\n\"The rules of law as they relate to\nstrikes are well established in this\ncountry and practically have been\nsettled. These rules are not hard\nto apply to this case.\n\n\n\"The right of the workers to\nstrike is conceded, also the right by\npeaceful and lawful means to per-\nsuade others to do the same.\nStrikers have no right, however to\nresort to threats, intimidation or\nviolence In seeking others to unite\nforces with them. Any attempt at\nforce, intimidation or oppression to\ncoerce others into practices against\ntheir free will is in violation Of the\nlaw.\n\n\n''In the present case tibet COM\nplant Is good but the evidence to\nsupport the allegations is lacking.\nIn the case of the Model bakery\nthe evidence shows that the two\ngirls met and had a friendly talk.\nOne tried by fair and lawful means\nto get the other to see things as\nshe did. When she failed the girl\napproached was permitted to go her\nway and was not moltested. There\nis no violation of law in this Incl\ndent\""
+    }
+  ]
+}

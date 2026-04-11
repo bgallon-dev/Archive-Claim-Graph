@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Business Chances.\nA Genuine Bargain",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-09",
+    "date_end": "1910-03-09",
+    "report_year": 1910,
+    "source_file": "55_1910-03-09_p6_sn88085947_00211108629_1910030901_0842",
+    "archive_ref": "55_1910-03-09_p6_sn88085947_00211108629_1910030901_0842",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "55_1910-03-09_p6_sn88085947_00211108629_1910030901_0842",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "orchard",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 230,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 744,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 89,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "as acres, ~ mile from Excelsior on\nPalouse electric line; 10 acres\nin cultivation and in orchard; :\nother 10 acres fine orchard\nIs. land ready for cultivation.\n4 acres of choice year old orchard\nand IL acres fine 1 year old\norchard. Orchard consists of\nzoo fine cherry trees, $50 pear\ntrees. and balance fine variety\nof winter apples. Improve\nments consist of 4-room\ncommon house and a good\ncommon barn, 2 good wells\nand pump. Raw land in this\nnelghborhobd sells for from\n$3.50 to $3.50 per acre; i'm\nproved land sells from $3.50\nplace is only 1925 per acre.\nMust have at least $500 cash.\nVIII give possession or will\ntake care of place for coming\nyear without cost to pur-\nchaser 1t will pay you to in\nvestigate this place\n\n\n100 acres of fine wheat land. 1a mile\nto station, on North Bank\nrailroad; 1876 acres good\nwheat land; 100 acres for crop\nthis year, fair house and barn\nand good spring. Price $25\nper acre. Easy terms.\n\n\n$40 acres fine wheat land. close to\nWashtucna; 800 acres under\ncultivation and in crop for\nthis year. Some improve\nthe best kind of wheat land !;\nland is rented for this year\nand purchaser will get one\nthird of crop. Price $50 per\nacre; easy terms.\n\n\nDave E. Zent & Co.\n6l0 Paulsen Bldg. Phone Main 4325"
+    }
+  ]
+}

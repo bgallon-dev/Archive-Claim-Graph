@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FIGHT SEATTLE\n\n\nBATTLE OVER",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-15",
+    "date_end": "1909-07-15",
+    "report_year": 1909,
+    "source_file": "1_1909-07-15_p8_sn88085947_00211108605_1909071501_0419",
+    "archive_ref": "1_1909-07-15_p8_sn88085947_00211108605_1909071501_0419",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-07-15_p8_sn88085947_00211108605_1909071501_0419",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 316,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 405,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane equal suffragists,\nwho fought at the Seattle conven-\nton as the Old Guard fought at\nWaterloo, gathered in the chamber\nof commerce assembly room last\nnight and got lot of fun as well\nas further determination out of re-\ncounting the memorable engage\nment.\n\n\nThe net result was reaffirmation\nof the decision to reorganize and\n60 back into the fray stronger\nthan ever for the success of the\nequal suffrage amendment to the\nstate constitution at the next cleo\nton. Mrs. Hutton announced that\nII had been definitely decided to\nhold the October reorganization\nconvention in Spokane instead of\nWalla Walla.\n\n\nID. c. Coates, \"the man of the\nhour\" in the Seattle battle, retold\nthe story of the way Mrs. De Woes\nstrategy worked out against Spo-\nkane and how she herself was\nhurled from the saddle by the ma\n= tional officers. A funny feature re-\nlated was how the Spokane forces\nforaged on the enemy by eating\nthe Seattle delegates lunches,\nwhich were left in the room where\nthe Spokane cohorts were locked\nuntil resolution could be put\nthrough unseating them.\n\n\nThe most interesting address\nwas made by Mother\" Wilson, the\naged and bent little laundry work\ning woman who is deyoting her eff\nforts as she earns her own living\nTO the welfare of the girls she\nworks with. She was a delegate\n10 the convention and told the sur\nfragists she talked with there\nabout the working girls and how\nmuch they need all the help that\ncan be given to better their cond-\nton.\n\n\nThe plan for suffrage rally at\nLiberty Lake Sunday was outlined\nlast night. The suffrage headquar-\ntiers there Is called Camp Equality,\nand members of the clubs and\nfriends of the cause will be well\ncoined. Anyone unfriendly to the\ncause may come and be shown the\nerror OF his ways if he cares to."
+    }
+  ]
+}

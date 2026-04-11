@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Is A HAT WORTH MORE THAN A MAN?",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-15",
+    "date_end": "1908-02-15",
+    "report_year": 1908,
+    "source_file": "2_1908-02-15_p2_sn88085947_00211108587_1908021501_0225",
+    "archive_ref": "2_1908-02-15_p2_sn88085947_00211108587_1908021501_0225",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1908-02-15_p2_sn88085947_00211108587_1908021501_0225",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 380,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 1337,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "maker of hats in Danbury, Conn, whose hats were\nboycotted by labor union, has decision from the\nsupreme court permitting him to the union and its\nmembers for three times the amount of the loss they\ncaused him.\n\n\nThis is under the Sherman antitrust law which was\npassed to worry the trust octopus. Perhaps the lawmak\nimagined that it would swing around and hit\nlabor union and then again perhaps the trust lawyers in\nthe lobby and committee knew how the thing would\nwork.\n\n\nThe supreme court justices, however, rare legal\ndentists Sometimes law is brought to them which has\nteeth at all and they fit it out with fine set Of false\nteeth, while another law, which has double set of teeth\nall round with tusks at each corner gets most of them\nnicely pulled\n\n\nIn this the sacred hat trade had been attacked and\nthe lower courts decided that the law could not protect it.\nThe supreme court at once however, that hats form\ned of the pillars of society,\" and their protection\nimperative.\n\n\nAnother that of an engineer discharged by\nrailroad because he a union The Erdman law\nprovided that the railroad company could be fined for\ndoing this 1t fined by lower court but the supreme\ncourt pulled all the teeth out of this law in short order\nunion man is merely human being, and not hat, and\nthe corporations may discharge him and blacklist him and\nboycott hat You can blacklist a man, but you can't\nblacklist hat.\n\n\nWhen you put your derby hat made in Danbury,\nConn., handle gently because it is holy emblem of the\nrights of property The rights of hats, according to the\ncourts higher than the rights of man. There has\nbeen such significant verdict since the bred Scott de-\ncision, which declared that human being, when he\nblack, was as much property walking stick That\ndecision caused the civil\n\n\nThis decision should not war, but it should\nbring about revolution in constitutional methods\nThe constitution has not been amended for more than 80\nyears and it should be amended If congress is not\nto be put above the court the people should be put above\nthe court and should be able decide constitutional CUES\nlions finally by referendum vote"
+    }
+  ]
+}

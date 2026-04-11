@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "UNION DEPOT\n\n\nMEETING HELD",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-20",
+    "date_end": "1909-09-20",
+    "report_year": 1909,
+    "source_file": "1_1909-09-20_p2_sn88085947_00211108605_1909092001_0918",
+    "archive_ref": "1_1909-09-20_p2_sn88085947_00211108605_1909092001_0918",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-09-20_p2_sn88085947_00211108605_1909092001_0918",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 144,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 120,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The committee of councilmen\nand citizens appointed to see what\ncan be done in the matter of pro-\ncuring union passenger depot\nheld its first meeting at 1870 this\nafternoon at the council chamber.\n\n\nThe meeting was convened on\nthe call of the committee chairman,\nCouncilman Peter Nelson, for the\npurpose of organizing and discuss\ning the preliminary steps. Later\nhearings will be held at which the\nrepresentatives of the different\nrailroads will be asked to be pres\nent, when the real problem sur\nrounding the establishment of a\nunion depot will be gone into.\n\n\nThe special committee consists\nof Councilmen Nelson of the Fifth\nward, Councilman Schiller of the\nThird, Councilman Funk of the\nFirst, Councilman Mohr of the\nFourth and Councilman Gray Of the\nSecond, Frank r. Post, J. j.\nBrowne, r. B. Patterson, l.. M. Day.\nexport and Fred E. Baldwin."
+    }
+  ]
+}

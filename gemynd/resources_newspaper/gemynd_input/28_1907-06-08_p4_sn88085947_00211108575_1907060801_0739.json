@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HARTMAN FIGHTS RATE LAW",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-08",
+    "date_end": "1907-06-08",
+    "report_year": 1907,
+    "source_file": "28_1907-06-08_p4_sn88085947_00211108575_1907060801_0739",
+    "archive_ref": "28_1907-06-08_p4_sn88085947_00211108575_1907060801_0739",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1907-06-08_p4_sn88085947_00211108575_1907060801_0739",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 59,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 69,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE, June Son an order\nissued by Federal Judge Hanford\nthe state railroad commission and\nAttorney General Atkinson have\nbeen cited to appear in court June\nIL and show cause why they should\nnot be enjoined from enforcing the\nnew rate laws.\n\n\nThe order was issued OH applica-\nton of the o. r. & N. road, Har-\nriman line."
+    }
+  ]
+}

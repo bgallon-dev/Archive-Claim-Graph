@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "and Crafts of\nWon1an's Club To\n\n\nGlue Card Party",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-30",
+    "date_end": "1910-01-30",
+    "report_year": 1910,
+    "source_file": "3_1910-01-30_p12_sn88085947_00211108629_1910013001_0310",
+    "archive_ref": "3_1910-01-30_p12_sn88085947_00211108629_1910013001_0310",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-01-30_p12_sn88085947_00211108629_1910013001_0310",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 172,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 600,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The members of the Arts and\nCrafts department of the Woman's\nclub are preparing for a very en-\njoyable evening February 7, in the\nassembly room of the chamber of\ncommerce. Both whist and five\nhundred will be played, and four\nbeautiful prizes for the occasion are\nbeing painted by some of the artists\nof the department. The score cards\nare being painted by members of\nthe department. A well selected\nmusical program will be rendered\nwhile lunch is served.\n\n\nThis card party is given for the\npurpose of furnishing a studio with\na kiln for burning china, and sup\nplies, in order that the members of\nthe Woman's club may study arts\nand crafts with but little cost to\nindividuals. Mrs. j, X. Cassn is\nvice chairman of the department\nand Mrs. O. b. Settlers and Mrs j.\nJ. Marischal committee on arrange\nmentS. ~\"\n\n\nThe china painting class has an\nenrolment of so members; the wa\nter color class, 26, and the needle\nwork class has an enrolment OF 10."
+    }
+  ]
+}

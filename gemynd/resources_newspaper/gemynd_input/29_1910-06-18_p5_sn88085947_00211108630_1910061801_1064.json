@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "president of the woman's Mission",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-18",
+    "date_end": "1910-06-18",
+    "report_year": 1910,
+    "source_file": "29_1910-06-18_p5_sn88085947_00211108630_1910061801_1064",
+    "archive_ref": "29_1910-06-18_p5_sn88085947_00211108630_1910061801_1064",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "29_1910-06-18_p5_sn88085947_00211108630_1910061801_1064",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 520,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 340,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "president of the Woman's Mission\nairy circle of the First Baptist\nchurch at a meeting held this week\nwith Mrs. o. l.. Mailman. The\nother officers were as follows:\nMrs. w. P. Lauder, vice president;\nMrs. A. c. Ellis, secretary; Mrs.\nR. M. Marshall, treasurer.\n\n\n& E &\n\n\nSUFFRAGISTS TO MEET.\nAll persons interested in the\nmovement OF woman's suffrage are\nrequested to meet with Mrs. M.\nj. Reynolds Monday afternoon at\np. IN. at the home of Mrs. Phoebe\nCox, 223 South Lincoln street.\n& & &\n\n\nPIANO RECITAL.\n\n\nMiss Louise Fisher will present\na number of her best pupils in a\nrecital to be given Tuesday even\ning at the Vincent Methodist\nchurch.\n\n\n& Z Z\n\n\nCLUB TO HAVE PICNIC.\n\n\nThe West Grove Priscilla club\nwill enjoy picnic at Natatorium\npark June %.\n\n\nMARRIED At SEATTLE.\nThe wedding of Miss Betty Will\nliams and Edward Breeze Zane of\nSpokane was solemnized Thursday\nevening at the home of the brides\nparents at Seattle.\n\n\nMrs. Paul Mandell Henry, sister\nof the bride, was matron of honor\nJack Dorm of Spokane attended\nthe groom. Little Jane Stimson\nwas flower girl.\n\n\nMr.. and Mrs. Zane will make\ntheir home in this city. Mr.. Zane\nis manager of the Mute G Keena\nAutomobile company of Spokane.\n\n\ni & &\n\n\nDINNER AT THE CHURCH.\n\n\nThe members of the mems club\nOf the Plymouth Congregational\nchurch entertained the ladies last\nevening at dinner served at the\nchurch. Following the dinner a\nsplendid program was rendered.\n\n\nZ & &\nCARD PARTY.\n\n\nThe Yeoman will give a card\nparty Monday evening at their hall.\n722 First avenue. All whist play.\ners are invited.\n\n\n& 4 &\n\n\nRECITAL ON MONDAY.\nFrederick Feilberg will present\nhis pupils in a recital to be given\nMonday evening, June 20, at the\nCentral Christian church.\n= & 4\n\n\nDR.. HERITAGE APPOINTED TO\nDIRECT CHOIR.\nAt a meeting OF the music COM\nmittee of the First Methodist\nchurch Tuesday evening DR.. r. A.\nHeritage was appointed as sue\ncessor to Mr.. Brueschweiller as di-\nrector of the choir.\nDR.. Heritage is now at the Cen\ntrail Christian church and it is not\ndecided whether or not he will\nleave.\n\n\n4 = 2\n\n\n3. Y. p. U. ELECTS OFFICERS.\nThe following officers were elect\ned for the ensuing year at meet\ning of the b. Y. p. U. held yes\nterday in the First Baptist church:\nPresident, c. II. Hart, Hillyard\nBaptist church: secretary, Lillian\nPierce, Union Park Baptist church;\ntreasurer. Lillian Wallace, Union\nPark Baptist church.; vice presi-\ndents. William Barnett, Spokane\nassociation; L. J. Neidert. Palouse\nassociation; Grace Paris, Big Bend\nassociation; Ralph Clark. Camas\nPrairie association; Lottie Long,\nMount Pleasant association; the\nselection of vice president for\nthe Columbia association was left\nto the executive committee.\n\n\nFred Morrison. acting pastor of\nthe Gordon Park Baptist church\nand Lillian Wallace of the Union\nPark Baptist church were chosen\nto represent the Eastern Washing\nton and Northern Idaho unions at\nthe national convention of the b.\nY. p. U. to be held July 6 to 8 in\n[ cluSiyp at Sarafnpa NJ V"
+    }
+  ]
+}

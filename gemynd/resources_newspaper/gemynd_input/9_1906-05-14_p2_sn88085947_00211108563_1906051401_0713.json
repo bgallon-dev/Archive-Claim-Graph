@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOMEN GLAD\n\n\nTO BE HOME",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-14",
+    "date_end": "1906-05-14",
+    "report_year": 1906,
+    "source_file": "9_1906-05-14_p2_sn88085947_00211108563_1906051401_0713",
+    "archive_ref": "9_1906-05-14_p2_sn88085947_00211108563_1906051401_0713",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-05-14_p2_sn88085947_00211108563_1906051401_0713",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 87,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 84,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane club women who have\nreturned from the convention Of the\nState Federation of Women's clubs\nat Port Townsend bring tales OF\nthe poor accommodations at tina,\nplace. The women state that they\nwere nearly starved and that the\nlodgings they were provided with\nwere disgraceful.\n\n\nSpokane will have the next con\nvention of the State Federation\nThis city was represented at Port\nTownsend by IS delegates from IL\nclubs.\n\n\nOne of the features of the conven\nton was the \"Parsifal\" lecture by\nMiss Julia E. Schelling."
+    }
+  ]
+}

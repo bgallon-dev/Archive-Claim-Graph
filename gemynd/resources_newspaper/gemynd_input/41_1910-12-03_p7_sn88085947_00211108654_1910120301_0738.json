@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ENJOY DANCING EVENT At\n\n\nFORT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-03",
+    "date_end": "1910-12-03",
+    "report_year": 1910,
+    "source_file": "41_1910-12-03_p7_sn88085947_00211108654_1910120301_0738",
+    "archive_ref": "41_1910-12-03_p7_sn88085947_00211108654_1910120301_0738",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "41_1910-12-03_p7_sn88085947_00211108654_1910120301_0738",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 313,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 837,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ENJOY DANCING EVENT At\nFORT.\n\n\nOne of the very pleasant affairs\nOf the season was the dance given\nby the officers of Fort George\nWright and their wives in the gar\nrison gymnasium last evening.\nAbout rs were present, and a num-\nDer of society folk from the city\njourneyed out for the event. Holt\nday decoration was the theme in\nthe gymnasium and patriotic ef-\nfeet was lent by draped American\nflags. About Is were present and\ngreatly enjoyed the event.\n\n\nHOLD BAZAAR FOR CHARITY\nMembers of the Hebrew Ladies'\nBenevolent society are planning\nfor charity bazaar to be held in\na storeroom at 427 First avenue on\nMonday. Stores of the city are do\nmating articles for sale and many\nbooths will be attractively set up\nand decorated for the TRACTION OF\nthe visitors. Mrs. L. Dollar has\ncharge of the arrangements with\nthe help of a committee.\n\n\nWOMAN'S CLUB PLANS\n\n\nTWO EVENTS IN NEW HOME\n\n\nOn Monday afternoon from 2 un-\ntil 5 o'clock the Woman's club will\nhold a house warming and recep-\nton in their new clubhouse on\nNinth and Walnut, at which time\nmembers of 20 other woman's clubs\nof the city will be invited to in.\nspect the appointments of the club\nheadquarters.\n\n\nTuesday evening the members of\nthe club will entertain their hus-\nbands at a musicale and reception\nat which time the Rev. Bruce\nBrown will lecture on \"Woman's\nWork\"\nNEXT MEETING OF sCHU.\n\n\nBERTS ON MONDAY\n\n\nMembers of the Schubert club\nwho gave their first concert last\nevening. will meet in the Lillian\nCourtney Snow hall, Hotel Tour\naine, on Monday. Pr\n\n\nThe charity vaudeville to be held\nthis evening in the Auditorium will\nbe participated in by many we'll\nknown society folk. Younger men,\nbers of the society set are working\nto make it large success and from\npresent indications will succeed."
+    }
+  ]
+}

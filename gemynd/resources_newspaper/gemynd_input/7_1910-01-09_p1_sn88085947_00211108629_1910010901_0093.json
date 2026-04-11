@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "PRISONER\n\n\nCAPTURED\n\nI. w. w. Chased for Nins\nMiles on Cross Ties W\n\n\nOfficer Edwardson.\n\nTOOK FRENCH LEAVE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-09",
+    "date_end": "1910-01-09",
+    "report_year": 1910,
+    "source_file": "7_1910-01-09_p1_sn88085947_00211108629_1910010901_0093",
+    "archive_ref": "7_1910-01-09_p1_sn88085947_00211108629_1910010901_0093",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-01-09_p1_sn88085947_00211108629_1910010901_0093",
+      "composite_score": 14.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 10.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy",
+          "i. w. w.",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 139,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 166,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 175,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 24,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "After a whirlwind escape frorn\nthe county authorities yesterday\nn6rning at 10 o'clock, John Pans\nner, one OF the !. w. W. men cen.\nfenced to six months In the county\njail for conspiracy, crossed The foGo\nbridge below Natatoriusm park an1\ntravelled down the Great Northepu\ntracks, only to be recapturod ~\nofficer Edward EdWardson eariX\nyesterday evening. s\n\n\nPanzner was about nine miIen\nout of the city when he was taken\nin custody by the officer who God\nhit the ties\" for that diatanco r.\npursuit Of the fugitive. Tho i N q\nw. man 4 again prisomeF ~\ncounty JAIL IS: NJ & & ! y\n\n\nTwo shots were fired ol1 =\nner BIZ Deputy Sheriff Mox :\nson yesterday morning 1 Wh&o\nprisoner. who had been emil\non the snow shovelinn# hrin\nmade his encApe."
+    }
+  ]
+}

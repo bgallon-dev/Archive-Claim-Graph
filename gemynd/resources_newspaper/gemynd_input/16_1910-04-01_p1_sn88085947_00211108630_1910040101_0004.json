@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FIRST TO FILE ON ).\n\n\nTHE INDIAN LANDS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-01",
+    "date_end": "1910-04-01",
+    "report_year": 1910,
+    "source_file": "16_1910-04-01_p1_sn88085947_00211108630_1910040101_0004",
+    "archive_ref": "16_1910-04-01_p1_sn88085947_00211108630_1910040101_0004",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-04-01_p1_sn88085947_00211108630_1910040101_0004",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 7.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian land"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 54,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian land",
+            "weight": 2.5,
+            "offset": 26,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Miss Mable d. McNickle Of Chi\ncago and Fay J. Shoddy OF Miller,\ns. D., were he first two persons to\nfile on the Spokane Indian reserva-\ntiOn.\n\n\nMiss McNickle was given No. /,\nas Allen Newton OF Helena. Mont,\ndid not appear to file on his claim.\nThe ground is located along the"
+    }
+  ]
+}

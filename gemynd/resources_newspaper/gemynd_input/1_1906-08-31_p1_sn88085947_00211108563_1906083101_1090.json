@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WON'T Even\n\n\nBE NEIcHB0RS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-31",
+    "date_end": "1906-08-31",
+    "report_year": 1906,
+    "source_file": "1_1906-08-31_p1_sn88085947_00211108563_1906083101_1090",
+    "archive_ref": "1_1906-08-31_p1_sn88085947_00211108563_1906083101_1090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-08-31_p1_sn88085947_00211108563_1906083101_1090",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 131,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 49,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An extreme example of dislike\nfor the Washington Water Power\ncompany from an organized labor\nstandpoint was shown today when\nnumber of employees of contractor\nUse refused to work along side of\nmen employed by the company. Mr..\nUse Is engaged in excavating for\nfoundation on East Sprague\nstreet and the Washington Water\nPower company needed the dirt for\ngrading purposes. The company\nagreed to haul away the dirt If\npermitted to do so and this propo.\nsition was accepted by Use. How\never. when the men employed by\nthe Washington Water Power peo-\npie started work in the same ex.\ncavation with the union men in\nthe employ of the contractor trou.\nBile ensued, the unionists wanting\nto quit. Just how the trouble will\nbe ended has not been settled."
+    }
+  ]
+}

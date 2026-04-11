@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "title": "FLYNN TRIAL\n\n\nBEGINS IN\n\n\nTHE COURT\nMOTION FOR CHANGE OF\nvENUEE BECAUSE OF\n\n\nPREJUDICE DENIED.\nHINDLEY'S AFFIDAVIT\nQUESTIONS AS TO THEIR PRE-\nJUDGES TOWARD WON.\n\n\nANS CAUSE BARRED.\n\nHINDLEY'S AFFIDAVIT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-09",
+    "date_end": "1910-02-09",
+    "report_year": 1910,
+    "source_file": "5_1910-02-09_p2_sn88085947_00211108629_1910020901_0444",
+    "archive_ref": "5_1910-02-09_p2_sn88085947_00211108629_1910020901_0444",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-02-09_p2_sn88085947_00211108629_1910020901_0444",
+      "composite_score": 18.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 13.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech",
+          "conspiracy",
+          "arrested",
+          "free speech fight",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 385,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 1206,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 1215,
+            "in_headline": false
+          },
+          {
+            "term": "free speech fight",
+            "weight": 3.0,
+            "offset": 1215,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 244,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 189,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 210,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With a refusal to grant a change\nOF venue, asked for on the ground\nof alleged prejudice, the trial Of\nElizabeth GurIey Flynn, the young\nwoman leader of the Industrial\nWorkers of the World, arrested for\nalleged conspiracy in connection\nwith the street speaking fight, was\nbegun before Judge Henry L. Ken\nnan and jury in the criminal de-\npartment of the superior court this\nmorning.\n\n\nOnly four veniremen were exam\nned this morning and two of these\nwere excused. It will take all day\nto get jury and probably week\nto try the case.\n\n\nA spirited fight ensued over the\neffort to secure change of venue\nby Miss Flynn. She alleged that\nbecause of hostile police action and\nnewspaper criticism a public preju-\ndice existed here, and for this rea-\nson she wanted the case sent to a\ncourt where these conditions were\nnot to be found.\n\n\nThe state denied the existence of\nthis prejudice, and for proof, among\nother things presented an affidavit\nfrom the Rev. w. J. Hindley to the\neffect that he thought no prejudice\nexisted and that the young woman\ndefendant could get square deal\nIn opposition to this affidavit of\nRev. Hindley it was shown that he\ngave out an interview only a few\ndays ago in which he denounced\nthe I. w. w. free speech fight and\npraised the police as the champions\nof all that was good and holy.\n\n\nIn the examination of the venire\nmen all reference to their views OF\nprejudices toward socialism or in\ndustrial unionism were barred. The\ndefense wanted to go into this in\norder to bar from jury duty men\nthat might be prejudiced against\n| the defendant because she was en-\ngagged in this work.\n\n\nThe courtroom was crowded dur\n| ing the hearing this morning and a\n| record-breaking attendance is look.\n| ed for all week. Prosecutor Pugh\nis in personal charge of the case\n| and Fred Moore and Thomas J\nSymmes of Chicago are looking\nafter the interests of Miss Flynn.\n81 am not afraid\" said Miss\nFlynn after the morning session\nclosed. 81 am ready to go to prison\n| if the court DEGREES that | have\ncommitted conspiracy. think\ncan establish my innocence of this\ncharge to the satisfaction Of all fair\n\n\nminded men,\""
+    }
+  ]
+}

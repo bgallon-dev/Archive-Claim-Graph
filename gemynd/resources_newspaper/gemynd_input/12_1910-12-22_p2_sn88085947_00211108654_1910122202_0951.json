@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "LABOR AIDS FIGHT r5r\n\n\nON CONTEMPT LAW",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-22",
+    "date_end": "1910-12-22",
+    "report_year": 1910,
+    "source_file": "12_1910-12-22_p2_sn88085947_00211108654_1910122202_0951",
+    "archive_ref": "12_1910-12-22_p2_sn88085947_00211108654_1910122202_0951",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "12_1910-12-22_p2_sn88085947_00211108654_1910122202_0951",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 68,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 216,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 324,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(ey United Press Leased Wire)\n\n\nSEATTLE, Dec. 22.-Union la.\nDor will take up the fight on the\ncontempt law and the writ of in.\njunction, both of which are now re-\nceiving heated criticism following\nthe sentencing to Jail Of two edit\nors of the Seattle Star for con-\ntempt as a result of the Stars at.\ntack on the use of the Injunction.\n\n\nResolutions were introduced in"
+    }
+  ]
+}

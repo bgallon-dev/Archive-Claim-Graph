@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "JURY TO FIX PRICE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-15",
+    "date_end": "1906-10-15",
+    "report_year": 1906,
+    "source_file": "34_1906-10-15_p1_sn88085947_00211108563_1906101501_1244",
+    "archive_ref": "34_1906-10-15_p1_sn88085947_00211108563_1906101501_1244",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "34_1906-10-15_p1_sn88085947_00211108563_1906101501_1244",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 57,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 199,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Judge Huneke this morning or\ndered a jury to consider the amount\nof damages due from the Silver\nLake Water company to Charles\nStoll for the privilege of using 10\nacres of land on his property for\nan irrigation ditch, Stoll refused to\nallow the company to carry a ditch\nover his land the company con-\ndemned."
+    }
+  ]
+}

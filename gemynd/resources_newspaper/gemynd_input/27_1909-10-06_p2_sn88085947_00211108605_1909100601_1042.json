@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "GRIEVANCES\n\n\nSUBMITTED",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-06",
+    "date_end": "1909-10-06",
+    "report_year": 1909,
+    "source_file": "27_1909-10-06_p2_sn88085947_00211108605_1909100601_1042",
+    "archive_ref": "27_1909-10-06_p2_sn88085947_00211108605_1909100601_1042",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1909-10-06_p2_sn88085947_00211108605_1909100601_1042",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "rate case",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 55,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 35,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 35,
+            "in_headline": false
+          },
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "All of Spokane's grievances in\nthe freight rate case have been laid\nbefore the interstate commerce\ncommission and the commission ad-\njourned here yesterday evening to\nmeet in Seattle tomorrow. Attor\n\n\nney H. M. Stephens, representing\nSpokane's interests in the big fight\nfor lower rates, has been given un-\ntil November 1 to file written"
+    }
+  ]
+}

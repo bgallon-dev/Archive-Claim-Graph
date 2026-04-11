@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "GRADE SEPARATION FIGHT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-07",
+    "date_end": "1910-01-07",
+    "report_year": 1910,
+    "source_file": "31_1910-01-07_p2_sn88085947_00211108629_1910010701_0068",
+    "archive_ref": "31_1910-01-07_p2_sn88085947_00211108629_1910010701_0068",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "31_1910-01-07_p2_sn88085947_00211108629_1910010701_0068",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 64,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 293,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 122,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The question Of grade separation\nat Sheridan street and Front ave-\nnue. created a lively discussion in\nthe meeting of the city council as a\ncommittee Of the whole last night.\nA number of property owners liv-\ning along the school section and in\nthe Spokane valley, also the attor-\nneys for the Inland Empire system\nasked that the council grant the\ngrade cnOaratinp"
+    }
+  ]
+}

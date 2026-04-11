@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-02 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-02",
+    "date_end": "1907-08-02",
+    "report_year": 1907,
+    "source_file": "8_1907-08-02_p2_sn88085947_00211108575_1907080201_0925",
+    "archive_ref": "8_1907-08-02_p2_sn88085947_00211108575_1907080201_0925",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-08-02_p2_sn88085947_00211108575_1907080201_0925",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 336,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 58,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The continued efforts of the cap\nitalist press to convict Haywood,\nacquitted, his colleagues still to be\ntried, and the miners organization\nfurnishes all the proof needed to\nreveal the hypocrisy of assertions\nfrom such sources of a proper re-\ngard for law and a verdict legally\nrendered.\n\n\nBaffled in an attempt to convict\nHaywood regardless of lack of evil\ndence they have apparently begun\ncampaign designed to make Ger\ntain the conviction Of Meyer For\nPettibone, or both, and to burden\nHaywood's reputation hereafter\nwith an assumption Of guilt that a\nlevel-headed jury could not justify.\n\n\nNo more Incorporate utterances\nwere made in behalf of Haywood\nand his companions than were\nmade against them, and the prose.\ncution's arraignment of the ac-\ncused before the jury was no less\nvindictive and partisan than the\nargument of the defense. Sweep\ning all this aside, the jury accepted\nthe claims of the defense and that\nought to settle this particular\ncase.\n\n\nBut the newspaper trial is being\npursued with vigor still on both\nsides. In fact, many publications\noverstepped the bonds of courtesy\nand consideration due the court by\nindulging in editorial comment\nwhile the trial was in progress.\nNow the bitterness is to be care\nfully preserved and fostered until\npossibly the country will eXpe\nrience another upheaval and the\nwhole process will be gone over\nagain with increased vindictive-\nness.\n\n\nFor this the capitalist press will\nbear the bulk of blame, because it\nis now making studious effort to\ncontravert the verdict of the jury\nto suit the demands Of mercenary\nnewspaper arrangements. In that\nevent the latter would be the first\nto lift their hands in holy horror\nand call the loudest on the courts\nto undo the work they themselves\nwere largely responsible for.\n\n\nThe Press condemns ill-timed\nand un-American statements from\nwhatever source. but in justice to\nthe acquitted and to the men still\nto be tried, newspaper comment\nthat the Spokesman-Review has\nsomehow overlooked, will be pre-\nscented in these columns."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CASE\nIS SOON TO\n\n\nbEOEC|DED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-22",
+    "date_end": "1910-03-22",
+    "report_year": 1910,
+    "source_file": "8_1910-03-22_p1_sn88085947_00211108629_1910032201_1053",
+    "archive_ref": "8_1910-03-22_p1_sn88085947_00211108629_1910032201_1053",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-03-22_p1_sn88085947_00211108629_1910032201_1053",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "rate case"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 106,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 387,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A telegram has been received\nby A. M. Doland, chairman of\nthe interstate commerce COM\nmittee of the cham\nber of commerce, from J. 3.\nCampbell, secretary of the Mer-\nchants association, now in\nWashington, D. c., on the\n\"short haul, long haul\" bill, in\nwhich he says that he has inter-\nviewed the members of the in\nterstate commerce commission\nand that they have told him\nthat the Spokane rate case will\nbe finally passed upon before\nthe adjournment of the COM\nmission for the summer vaca-\nton, June is.\n\n\nThis places the final decis-\nion Of this famous case less\nthan 90 days distant."
+    }
+  ]
+}

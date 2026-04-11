@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "lnjunctions Viii Be Main\n\n\nQuestion at Labor Congress\n\nPlans 70 Absolve Labor Unions From Sherman Anti Trust\n\n\nLaw Will Also be Leading Subject Before Annual\n\n\nConvention Next Week of American Federation Of\nLabor.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-11",
+    "date_end": "1910-11-11",
+    "report_year": 1910,
+    "source_file": "5_1910-11-11_p15_sn88085947_00211108654_1910111101_0478",
+    "archive_ref": "5_1910-11-11_p15_sn88085947_00211108654_1910111101_0478",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-11-11_p15_sn88085947_00211108654_1910111101_0478",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "boycott",
+          "injunction",
+          "american federation"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 193,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 760,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 382,
+            "in_headline": false
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 770,
+            "in_headline": false
+          },
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 184,
+            "in_headline": true
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 1074,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cured a temporary postponement.\n\n\nThe principal reason given for\nthe delay was that there were two\nvacancies on the supreme bench,\nand it was believed that with a\nfull bench the chances of the labor\nside to win would be greatly i'm\nproved. But the real reason is\nthat the labor officials have been\npledging candidates for congress\nto vote for a bill that will pull the\nteeth of the injunction buzz saw,\nand lived upon the hope that the\nsupreme court would follow the\nelection returns and reverse the\nfindings of the lower court in the\nGompers- Mitchell case.\n\n\n1t was also hoped to secure the\nelection this week of sufficient\nmembers to congress who will\nvote to amend the Sherman anti\ntrust law to absolve trade unions\nfrom damage suits when they de-\nsire to strike or boycott. 1t can\nnot be definitely known for some\nweeks yet whether the labor peo-\npie will have sufficient support in\nthe new congress to secure the de-\nsired legislation, and therefore\nextensive preparations will be\nmade to lay siege to the Washing\nton statesmen during the coming\nyear or two to obtain relief."
+    }
+  ]
+}

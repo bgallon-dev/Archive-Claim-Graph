@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BUNCH OF FOREST\n\n\nFIRE SUITS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-18",
+    "date_end": "1909-03-18",
+    "report_year": 1909,
+    "source_file": "11_1909-03-18_p1_sn88085947_00211108599_1909031801_0878",
+    "archive_ref": "11_1909-03-18_p1_sn88085947_00211108599_1909031801_0878",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-03-18_p1_sn88085947_00211108599_1909031801_0878",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 98,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 47,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The trial of the first of 10 suits\nagainst the Northern Pacific rail-\nway for aggregate damages amount\ning to nearly $4,000, was called to-\nday in Judge Sullivan's court.\n\n\nThe cases grow out of the forest\nfires at Ponderay, Idaho. last Au-\ngust, which it is alleged were start\ned through fires lighted by men\nemployed in clearing ground by the\nrailroad.\n\n\nThe first case called was that OF\nc. F. Ewing & Co. for damages in\nexcess of $1,000. Eighty-seven\nwitnesses have been called and the\ntrial will consume seven or eight\ndays, 1t is thought."
+    }
+  ]
+}

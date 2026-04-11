@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-08 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-08",
+    "date_end": "1909-12-08",
+    "report_year": 1909,
+    "source_file": "3_1909-12-08_p3_sn88085947_00211108617_1909120801_0282",
+    "archive_ref": "3_1909-12-08_p3_sn88085947_00211108617_1909120801_0282",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-12-08_p3_sn88085947_00211108617_1909120801_0282",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 150,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 702,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "eral court, nine of the number be.\ning from Spokane\n\n\nSpokane aerie No. 2, Fraternal\nOrder of Eagles, last night elected\nthe following officers for the ensu\ning year: Worthy president, Judge\nj. Stanley Webster; vice president\nM. M. Richardson; chaplain, A. W.\nNeimeyer; secretary, l.. j. Hender.\nshot; treasurer, H. F. Sorg; inside\nguard, H. E. Stage; outside guard\nc. X. Thornton; trustees, H. N\nOerter, E. H. Shaw, Judge E. H.\nSullivan; physician, DR.. w. G.\nWebb.\n\n\nThe EIks tonight will initiate a\nclass of IL members and the degree\nwork will be followed by banquet\nand musical entertainment.\n\n\nA canvass for a fund Of $4,000\nto be used in the erection of a new\nclub building has been begun by\nthe Woman's club. Teh building\nwill be located convenient to the\nbusiness district, but the site has\nnot yet been selected. The club has\n$4,000 in cash."
+    }
+  ]
+}

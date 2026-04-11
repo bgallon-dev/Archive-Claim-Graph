@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "FREE CATTLE RANCHES",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-06-25",
+    "date_end": "1904-06-25",
+    "report_year": 1904,
+    "source_file": "18_1904-06-25_p1_sn88085947_0021110854A_1904062501_0122",
+    "archive_ref": "18_1904-06-25_p1_sn88085947_0021110854A_1904062501_0122",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1904-06-25_p1_sn88085947_0021110854A_1904062501_0122",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 101,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 160,
+            "in_headline": false
+          },
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 5,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OMAHA, Neb,, June 25.-Any citi-\nzen Of the United States who is the\nhead OF n family and does not own\nmore than 100 acres of land now has\na chance to acquire a cattle ranch In\nNebraska for nothing. Under the Kim\nkaid bill. which passed the last con-\ngress and becomes operative tomor-\nrow. s.s44.7b7 acres. most of which\ncomprise as fine grazing land as there\nIs In the world, will be open to tho\npublic as homesteads.\n\n\nI The lands affected by the Kinkaid\nbill hte been open for homesteading\nIn lots of leo acres each. for many"
+    }
+  ]
+}

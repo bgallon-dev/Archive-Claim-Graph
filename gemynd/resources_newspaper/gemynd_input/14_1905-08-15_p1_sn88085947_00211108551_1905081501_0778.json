@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "RAILROAD\nD[F|[5\n\n\nCIT |",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-08-15",
+    "date_end": "1905-08-15",
+    "report_year": 1905,
+    "source_file": "14_1905-08-15_p1_sn88085947_00211108551_1905081501_0778",
+    "archive_ref": "14_1905-08-15_p1_sn88085947_00211108551_1905081501_0778",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1905-08-15_p1_sn88085947_00211108551_1905081501_0778",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 355,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1683,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1398,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In spite of the opposition to its\nproposed subway schemes, the North\nern Pacific Railway company has\nstarted to carry out its original plan\nof raising it's tracks and making the\ncity build subways throughout the\ncity.\n\n\nFor several days gangs of work.\nmen have been employed on the right\nof way of the road at Madclia street\nin tine eastern part of town, where\npiles for widening the road to the\nextent of IL tracks are now being\ndriven. City officials say this means\nbut one thing-that the Northern Pa\ncific intends to go ahead with it's\noriginal plan.\n\n\nIn view of the present unsettled\ncondition of affairs, the action of\nthe road is looked upon as nervy, and\nthat the officials of the road have\nno fear of losing in their fight\n\n\nCity Engineer Mcintyre says in\ncase the company should be COM\nPEELED to lower it's tracks through\nthe city 1t would lose al 1.-The work\n1t is now pushing so rapidly.\n\n\n\"The company could easily change\nIts plans as far as the Sprague ave-\nnue. subway is concerned\" said Mr.\nMcintyre, were It forced to keep the\ntracks at the presnt level. But the\npresent work would cause 1t much\ntrouble If 1t were forced to lower\nthe tracks. as many of the citizens\nwould like to have 1t do\"\n\n\nThe present state of affairs is puz-\ncling many of the city officials. While\nthe railroad is preparing to raise its\ntracks the city Is going ahead with\nthe Browne street crossing.\n\n\nThe city council and board of pub\nlie works will meet at the chamber\nof commerce this afternoon to dis\ncuss the matter. 1t is expected some\nof the railroad officials will be pres\nent\n\n\nDuring the meeting this afternoon\nthe report of the chamber of COM\nmerce committee on the matter of the\nNorthern Pacific subway was read\nThe committee recommended that ii\nwould be better to have the city enei-\nnecr and one other engineer draw\nplans to be submitted in case the\nplans of the railway company are not\nsatisfactory.\n\n\nw. B. Roberts was present and"
+    }
+  ]
+}

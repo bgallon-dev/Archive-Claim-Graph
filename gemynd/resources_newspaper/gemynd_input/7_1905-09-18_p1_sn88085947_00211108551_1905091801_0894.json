@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-09-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-18",
+    "date_end": "1905-09-18",
+    "report_year": 1905,
+    "source_file": "7_1905-09-18_p1_sn88085947_00211108551_1905091801_0894",
+    "archive_ref": "7_1905-09-18_p1_sn88085947_00211108551_1905091801_0894",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-09-18_p1_sn88085947_00211108551_1905091801_0894",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 175,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 238,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cent toward repairing the old or\nbuilding new bridge?\n\n\nCity Engineer Mcintyre says now\nthat the old bridge can not be re-\npaired and that a new one is neces-\nsary.\n\n\nWhy did not the city officials\nknow this when they gave the\nWashington Water Power company\na franchise over this bridge and\nprovide specifically for new one ?\nThat, the taxpayer has a right to\nknow.\n\n\nInstead they granted franchise\nproviding only for repairing an old\nstructure at the expense of the\ncompany getting it. That company\nis now claiming it should not pay\nfor a new bridge, if the city engi-\nneer says the old one is unfit for\nuse for street car purposes.\n\n\nThe conclusion of this company\nis not logical one. If the old\nbridge can not be repaired for\nstreet car purposes, it follows most\nlogically that that company should\nbuild a new one.\n\n\nIi the city grants one cent of\nthe peoples money to the Wash\nington Water Power company for\na new bridge, it is case of grab"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Notes Of the Mines.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-11",
+    "date_end": "1903-03-11",
+    "report_year": 1903,
+    "source_file": "5_1903-03-11_p4_sn88085947_00211108526_1903031101_0430",
+    "archive_ref": "5_1903-03-11_p4_sn88085947_00211108526_1903031101_0430",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-03-11_p4_sn88085947_00211108526_1903031101_0430",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mining camp",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 161,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mining camp",
+            "weight": 1.5,
+            "offset": 417,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 239,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "gold brick, worth about $500,\nhas been turned out by the Wilcox\nmines stamp mill.\n\n\nRecent shipments from Santlon\nwere as follows: Stranger, 20 tons\nRuth, 20 tons; SLOGAN Star, 1875 tons.\n\n\nAccording to ]. NJ. Harris, a car\nload of SLOGAN ore was formerly\nworth $4,000. Now it is worth only\n$4,000.\n\n\n1t was stated today by E. F. Tell\ning of Fort Steele that there is pend\ning a 100000 mining deal in the\ngold quartz mining camp Of Wild\nHorse Creek.\n\n\nReports from Fort Steele. B. c.,\nsay that there Is no doubt that the\nst. Eugene mine will be in operation\nby the first of May If the price of\nlead goes little higher.\n\n\nA trial shipment of about 20 tons\nOf Ethel ore from the Lardeau was\nrecently made to the Trail and realiz-\ned Sis a ton for lead and silver The\nore averages about 400 ounces silver\nand 81 in gold to the ton."
+    }
+  ]
+}

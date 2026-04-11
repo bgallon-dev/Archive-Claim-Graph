@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BY William Francis Guion.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-24",
+    "date_end": "1905-02-24",
+    "report_year": 1905,
+    "source_file": "44_1905-02-24_p1_sn88085947_00211108551_1905022401_0184",
+    "archive_ref": "44_1905-02-24_p1_sn88085947_00211108551_1905022401_0184",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "44_1905-02-24_p1_sn88085947_00211108551_1905022401_0184",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 671,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1774,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In his efforts to whip the devil\naround the stump, Mr.. Durham this\nmorning tells you, tentatively, that\nonly FIVE Spokane shippers could be\nfound to oppose the railroad COM\nmission bill. This because, yester-\nday, I mentioned the names Of Ave\nstrong houses which signed the tele-\ngraphic protest against the passage\nOf the bill.\n\n\nMr.. Durham would have you believe\nthat only five shippers oppose the\nbill.\n\n\nBut let me tell you something Mr..\nDurham dare not contradict\n\n\nThere are SO jobbers and manufac-\nturers who are members of the Spo-\nkane Shippers association. At the\nlast meeting of the association every\nmember, but one, voted against the\nproposition to support the commits\nsion bill.\n\n\nThose shippers did not sign the\ntelegram, did not Withhold their sig\nnatures because they favored a COM\nmission bill. They declined to sign\nUCtduSe thCy pan VI\ncampaign against the commission bill\n\"a plan which the Spokesman Re-\nview speedily betrayed to the coast\nshippers.\n\n\nMr. Durham dare not direct his ac-\ncusations against the businesses men\nof Spokane who are battling for the\npreservation of their investments.\nInstead he creates a boyle railroad\nmachine which he tells you is re-\nsponsible for the protests made\nagainst his dream born political\nhobby.\n\n\nBut you must expect a mass Of\nmisrepresentation in the frantic sup\nham is not man big enough and\nbroad enough to admit his mistake\npublicly. He has pursued his crea-\ntion go long without public opposition\nthat he will stoop to anything that\nis likely to prevent fair and impair\ntial criticism.\n\n\nIn selecting the rates yesterday to\nindicate the position in which the\nSpokane shippers are placed, l had\ntwo sets Of quotations to choose\nfrom. One lot of quotations was from\nthe o. r. n N. The. second was from\nthe Great Northern rate sheets.\n\n\nThe o. r. 81 N. quotations were\nchosen because they were lower. They\ngive the coast shipped distributing\nrate back to Spokane territory of\n$1.1B, this being based on the Mis-\nsouri, river rates.\n\n\n1t is used by shippers to enforce\nthe argument that the o. r. & N. will\nreduce the rates back from the coast.\n\n\nThe Great Northern rate sheets\nshow first class rate from the east\nto Spokane of $415. They show, too,\na first class terminal rate from the\nsame eastern points to coast points\nof $2.67. They show these distribute\ning rates from Portland and Seattle\n70 Spokane:\n\n\nFirst class, $1.4S; second, $1.3S;\nthird. 95c; fourth, SIC; fifth, 75c.\n\n\nEven the railroads will admit that\nthese rates. in existence for the past\nIs years, are too high. They will tell\nyou, as will the coast shippers, that\nthe first move made by the latter will\nbe to apply for reduction Of these\nrates-a reduction already quoted by\nthe o. r. e. NJ, through a different\ntariff combination.\n\n\nBut. so far, 1t is not the probable\nreduction of coast distributing rates\nwhich have attempted to show.\n\n\n1T is THE RAISING OF SPO-\nKANE DISTRIBUTING RATES\nWHICH IS TO BE FEARED AS IN\nEvITABLE.\n\n\nIn the mass Of letters and commu-\nnications received since the initial\npublication of these articles punctur-\ning the bubble of Durhamism, have\nbeen asked frequently where the far\nmer of eastern Washington will be\nbenefited, or injured, by a railroad\ncommission bill. Also numerous\nqueries have been sent tending to\nshow that the wholesale grocer, the\nfarmers chief concern, after his\ncrops are sold. will be the worst suf-\nerer under coast ridden commission.\n\n\n1t will be the farmer and the grocer\nI shall touch upon In this installment.\n\n\nPrimarily the farmer can expect\nvery little benefit from railroad\ncommission, even though that COM\nmission would work wholly for the\neastern portion Of the state-which It\nwill not do.\n\n\nBY action of the legislature in past\nyears the farmer today Is getting\nabout as low rate on his grain as\nhe may expect for years to come.\n\n\nIn the early days 1t cost the farmer"
+    }
+  ]
+}

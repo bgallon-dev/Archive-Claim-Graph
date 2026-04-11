@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-09 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-09",
+    "date_end": "1909-11-09",
+    "report_year": 1909,
+    "source_file": "18_1909-11-09_p7_sn88085947_00211108617_1909110901_0040",
+    "archive_ref": "18_1909-11-09_p7_sn88085947_00211108617_1909110901_0040",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1909-11-09_p7_sn88085947_00211108617_1909110901_0040",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 60,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 80,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mrs. Mary Harris Armor, known\nas the Georgia Whirlwind,\" is the\nmost successful temperance crusa-\nder of the day. Never was there a\nwoman in the cause who could so\nsway an audience as she does. She\nis president of the w. c. T. U. of\nGeorgia, but she is well known in\nthe work all over the United\nStates."
+    }
+  ]
+}

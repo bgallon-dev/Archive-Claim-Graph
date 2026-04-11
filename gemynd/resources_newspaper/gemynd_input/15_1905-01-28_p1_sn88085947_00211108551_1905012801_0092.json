@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "REAL ESTATE MEN AFTER\n\n\nSACRED HEART HOSPITAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-28",
+    "date_end": "1905-01-28",
+    "report_year": 1905,
+    "source_file": "15_1905-01-28_p1_sn88085947_00211108551_1905012801_0092",
+    "archive_ref": "15_1905-01-28_p1_sn88085947_00211108551_1905012801_0092",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1905-01-28_p1_sn88085947_00211108551_1905012801_0092",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 102,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 8,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Several real estate men of the city\nhave recently been making frantic\nefforts to secure options for the pur-\nchase of the property occupied by the\nSacred Heart hospital. 1t is generally\nbelieved that this valuable parcel Of\nland is desired by the railroads.\n\n\nThe news leaked out yesterday that\na syndicate has been formed to ac-\nquire this property. 1t would make\nfine terminal for ID. c. Corbin's new\nroad, and the companies belonging to\nthe Jay p. Graves system are In need\nof just such land as this.\n\n\nThere are indications that the Cor\nbin and Graves interests have been"
+    }
+  ]
+}

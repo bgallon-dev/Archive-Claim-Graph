@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-09-09 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-09-09",
+    "date_end": "1904-09-09",
+    "report_year": 1904,
+    "source_file": "1_1904-09-09_p1_sn88085947_0021110854A_1904090901_0400",
+    "archive_ref": "1_1904-09-09_p1_sn88085947_0021110854A_1904090901_0400",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1904-09-09_p1_sn88085947_0021110854A_1904090901_0400",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 198,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 478,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 1151,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Maxwell avenue property owners\nwere before the board Of public\nworks this morning to protest against\nthe offer OF the Washington Water\nPower company to restore the Max\nwe'll avenue grade providing the city\nwould stand half of the expense OF\nraising the tracks and replacing the\ngrade.\n\n\nTo so cheeky proposition as that\nadvanced by Mr.. Richards and Mr..\nHuntington the property owners\nTREMENDOUSLY protest. They declare\nthe street was in perfect condition\nuntil the Washington Water Power\ncompany tore 1t up. cut ravines\nThrough the center, defaced the con-\ntour and destroyed what was regard\nI'd as a pretty driveway.\n\n\nCommissioner Handley strongly\nsupports the property owners in their\nprotest and refuses to consider the\nproposition Of forcing the city to\nbay for half the damage done by the\nbtreet car autocrats.\n\n\n.The Washington Water Power\ncompany\" said Mr.. Handley, has a\n\n\nfranchise worth a million and a half\n\n\nmd they got 1t for $4,000. It's queer\n\n\nhat company cannot repair their\nIwn mistakes without asking the city\n\n\no help out on the expense. The\n\n\ntrset was cut down without author\n~ and In violation Of the order of\n\n\nhe board Of public works. Now the"
+    }
+  ]
+}

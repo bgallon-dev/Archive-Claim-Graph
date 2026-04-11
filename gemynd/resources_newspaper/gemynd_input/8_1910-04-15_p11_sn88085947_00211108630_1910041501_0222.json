@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-15 — pp11",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-15",
+    "date_end": "1910-04-15",
+    "report_year": 1910,
+    "source_file": "8_1910-04-15_p11_sn88085947_00211108630_1910041501_0222",
+    "archive_ref": "8_1910-04-15_p11_sn88085947_00211108630_1910041501_0222",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-04-15_p11_sn88085947_00211108630_1910041501_0222",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 91,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "trusts, and being subjected to dam\nage suits; to restrict the writ OF\ninjunction in controversies between\ncapital and labor; to extend the\neight-hour law to all government\ncontract work; to regulate prison\ncontract labor, limit woman and\nchild labor, etc.\n\n\n1t is likely arrangements will be\nmade that in the event congress\nfails to grant the above reforms an\nIndependent political party will be\nlaunched to enter the campaign of\n1912.\n\n\nThe farmers are pounding at the\ndoors Of congress for laws to pro-\nhibit gambling in the peoples me-"
+    }
+  ]
+}

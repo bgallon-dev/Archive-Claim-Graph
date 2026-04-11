@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": ".DOLANO\nIS ASKED\n\n\nQUERIES\nDETERMINED STAND FOR\nRATES MADE ~ COM.\n\n\nMlTTEE.\nANSWER TO LETTERS\nHOW ABOUT YOUR REDUCTIONS\nIN FREIGHT RATES ON\n\n\nDRUGS, Mr.. DoLAND.\n\nANSWER TO LETTERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-03",
+    "date_end": "1910-04-03",
+    "report_year": 1910,
+    "source_file": "33_1910-04-03_p1_sn88085947_00211108630_1910040301_0038",
+    "archive_ref": "33_1910-04-03_p1_sn88085947_00211108630_1910040301_0038",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "33_1910-04-03_p1_sn88085947_00211108630_1910040301_0038",
+      "composite_score": 20.16,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 597,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 3280,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 123,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 3280,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 123,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nWith smash and bang which\nwill echo and echo about the city,\nand set the railroads to figuring\nhard again, the men holdino out\nfor terminal rates In the Mliwaulsee\nand North Coast franchises re-en-\ntered the lists against the men\nworking for the entrance cf the\nroads without terminal rates.\n\n\nSome very pointed and pertinent\nquestions are asked 4. ~. ooland,\none Of the biggest and eldest lob\nbers, and the whole si4uatlon 10\nlined up from the viewpoint 81 the\nfiehters for terminal rates. Fol-\ntowing are the rather sensationai\nletters:\n\n\nSPOKANE, April 2.--Mr. A. w.\nDoland-Dear Sir: Since you are\nchairman Of the citizens commit\ntee and are taking an active part In\nasking the council to recede from\nits position on the terminal rate\nand common user clauses, and you\nso frequently refer to- the promi-\nnent part you have taken in the\nfight for terminal rates before the\ninterstate commerce commission,\nWe desire to ask you the following\nquestions: 49,,\n\n\n/. Did not, in January. 1905, the\nHartman lines, at your request and\nsolicitation, reduce the rate on\ndrugs from $2.12 per hundred to\n$3.50?\n\n\n2. Did not this reduction by the\nHartman lines force the Hill lines\nto make similar reduction In your\nfavor?\n\n\n8. Does not this prove that one\nrailroad can itself grant reduced\nrates and force other roads to meet\nthat reduction?\n\n\n4. Have you not since that time\ngiven the Hartman lines by far the\ngreatest portion Of your freight\nshipments?\n\n\ns. Have you not frequently\nstated that J. c. Stubbs, traffic d.\nrector of the Hartman system,\ngave you his personal assurance\nthat you would be protected In\nyour rates and territory at all\ntimes.\n\n\n6. What would be the effect\nupon that agreement for you to\ncome out openly in support of the\nterminal rate provision in the\nprovision in the franchise?\n\n\nZ. Is it not true that, by reason OF\nthe existing schedule Of rates on\ndrugs your position Is more advan-\ntageous than that of any other job\nber in this city?\n\n\ns. Do not your travelling men. by\nreason Of your favored position, OBJ\ntain orders from cities further dis\ntant than those of any other Spo-\nkane jobber?\n\n\n9. Is 1t not true that the COM\nmunity of interest between the\nNorth Coast. Chicago, Milwaukee &\nst. Paul and Hartman systems Ia\nvery close?\n\n\n10. Is there any truth In the ru-\nNOR that the North Coast railroad\nis to become part and parcel OF the\nHartman system?\nPEOPLES TERMINAL RATE\nCOMMITTEE.\n\n\nBY B. l.. Gordon, Chairman.\n\n\nAnswer to open letter Of Mr.. A.\nw. Doland. president of the \"citi-\nzens' committee\" cometimes called\nrailroad committee\" addressed 10\nthe union wage earners OF Spo-\nkane\"\n\n\nTo the Public: The advocates OF\nthe railroad plan have but two ar\nguments in favor Of permitting the\nrailroads to do what they desire to\ndo. regardless of the rights OF the\npeople. One of them is that the\nword of the railroad officials must\nbe accepted as conclusive upon\neverything concerning which those\nofficials speak and the other Ia the\nexpenditure of some money In this\ncommunity.\n\n\n1t must be apparent to everyone\nthat the amount OF money which\nthe railroads can or will spend IN\nthe construction Of their road In ]\nthe county of Spokane Is a mere !\nbagatelle. compared to what the\nrailroads propose to exact from the\npeople Of this county In excessive\nfreight rates. The railroads expect\nto take out many dollars for every\n\n\ncnpttnuaa m, pane EIsvan"
+    }
+  ]
+}

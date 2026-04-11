@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "ORY FARMING C0NQUERNG DR0UTH TO REDUCE COST OF LIVING\n\nOfficial of Dry Farming Con-\ngress Tells of the Scope\nand Significance of the\nACKNOWLEDGEMENTS How\nIt Has Benefited Farmers\nthe World Over.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-02",
+    "date_end": "1910-08-02",
+    "report_year": 1910,
+    "source_file": "5_1910-08-02_p4_sn88085947_00211108642_1910080201_0351",
+    "archive_ref": "5_1910-08-02_p4_sn88085947_00211108642_1910080201_0351",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-08-02_p4_sn88085947_00211108642_1910080201_0351",
+      "composite_score": 13.65,
+      "domain_scores": {
+        "turnbull_prehistory": 6.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 215,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 13,
+            "in_headline": false
+          },
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 67,
+            "in_headline": true
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 363,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Secretary Of Dry Farming Congress\nAS the invasion of civilization\nhas driven the old frontier of the\nwest backward and still backward\nuntil it has disappearde in the\nwaves of the Pacific, so is the dry\nfarming movement, so called, fast\ndriving the drouth area and the\nonce existent, but somewhat mag\nmary alkali plains from the Amer\nlean map.\n\n\nFifteen years ago irrigation was\nlooked upon as theory scarcely\n\n\nto be considered a commercial pos\nsibility. The signing of $4,000, 900\n\n\nbond law by the president of the\n\n\nUnited States recently, definitely\nproved what has in the intervening\n\n\nyears been worked out by the irri-\ngationistS-not only the CONNER\n\n\ncial possibilities, but the absolute\n\n\nnecessity of irrigation as a CONNER\ncial asset in the west.\n\n\nFive years ago dry farming, then\nbut little understood, although in\ntruth as old as the mountain ranges\nof the glorious west, was derisively\nreceived by all classes as being\nland agents myth created as a\nmeans of disposing of the acreage\nincluded in the so called desert dis\ntricts west of the eastern Colorado\nline.\n\n\nToday the Dry Farming congress\nstands pre-eminent among agricul-\ntural and civic development Organi-\ncations in the world. Through it's\ninfluence agricultural colleges have\nadded dry farming departments,\nfield men and demonstration farms"
+    }
+  ]
+}

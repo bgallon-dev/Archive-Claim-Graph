@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "ONLY NONUNlON\n\n\nMAN PUNCHED",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-27",
+    "date_end": "1907-11-27",
+    "report_year": 1907,
+    "source_file": "25_1907-11-27_p1_sn88085947_00211108575_1907112701_1296",
+    "archive_ref": "25_1907-11-27_p1_sn88085947_00211108575_1907112701_1296",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1907-11-27_p1_sn88085947_00211108575_1907112701_1296",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 103,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 383,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 530,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Charles w. Cloves, Associated\nPress operator at the Chronicle, got\nthe worst of it in scrap with\nGeorge Welch at the entrance to\nthe Review building last night.\nWEIGH is a union operator and\nseemed to disapprove of Gloves,\nwho is the only nonunion operator\nand strikebreaker now working be-\ntween Salt Lake and Bellingham\nCloves took the chronicle place\nwhich was made vacant by the\nstrike. This position is one of the\nfew that has not been refllled by a\nunion man. Cloves was hit sever.\nal times in the melee. He will have\nWelch arrested if the latter can be\nfound."
+    }
+  ]
+}

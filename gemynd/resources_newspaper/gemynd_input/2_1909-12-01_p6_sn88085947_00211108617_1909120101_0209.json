@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LIVELYLOCAL\n\n\nLABOR NEWS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-01",
+    "date_end": "1909-12-01",
+    "report_year": 1909,
+    "source_file": "2_1909-12-01_p6_sn88085947_00211108617_1909120101_0209",
+    "archive_ref": "2_1909-12-01_p6_sn88085947_00211108617_1909120101_0209",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-12-01_p6_sn88085947_00211108617_1909120101_0209",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 196,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 336,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At least a dozen unions now\nmeeting in places scattered in var.\nious sections of the city will likely\nmake their headquarters on the\nthird floor of the Pantages theater\nbuilding. ]. f. Eastman, an enter\nprising plumber, has secured a\nthree year lease on this hall. 1t has\nalready been chosen as a meeting\nplace for the revived building\ntrades council, and it is Mr.. Bash\nmans intention to try to induce\npractically every union in the build\ning trades to rent the hall for their\nparticular weekly or semi-monthly\nbusiness meetings.\n\n\nA great revival in unionism is on\nin Spokane. After lying dormant\nfor months. that part of organized\nlabor's work dependent upon the\nunited efforts of the business\nagents of the various unions is to\nbe on in full force once again. Reg\nular morning meetings of business\nagents are to be held again within\na short time. Spokane union men\nfeel that considerable benefit has\nbeen foregone and more than a\nlittle has been lost to them in the\nlast few months by the business\nagents failure to meet daily to dis\ncuss matters arising in the various\norganizations affiliated with the"
+    }
+  ]
+}

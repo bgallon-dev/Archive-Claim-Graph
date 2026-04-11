@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "Oily NEW g\n\n\nYIN BRI ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-08",
+    "date_end": "1910-01-08",
+    "report_year": 1910,
+    "source_file": "16_1910-01-08_p3_sn88085947_00211108629_1910010801_0081",
+    "archive_ref": "16_1910-01-08_p3_sn88085947_00211108629_1910010801_0081",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-01-08_p3_sn88085947_00211108629_1910010801_0081",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 2.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "agriculture": [
+          "irrigation"
+        ],
+        "railroads": [
+          "rate case"
+        ],
+        "spokane_development": [
+          "chamber of commerce",
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 591,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1573,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 2283,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 901,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 469,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 1097,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Their Humane society has con.\ncluds4 not to sell it's old site at\nBroadway and Wall street, for\nWHICH an offer of $4,000 was\nmades and work on the new hu-\n\n\nmaneivbarns was begun yesterday.\nTher buildings will cost $500.\nDetective John S. Delaney Of the\nCrest Northern yesterday after\nnoon underwent an operation for\nappendicitis.\n\n\nAl Y. Rankin, former night clerk\nat the Empire, has succeeded H. B.\nHudgin, who has taken the man.\nagement of the new Standard hotel\non Riverside avenue between\nWashington and Bernard. w. S.\nFreeman, formerly bookkeeper at\nDayenport's, will be the new night\nclerk at the Empire.\n\n\nThe humane society during the\npast year captured over 1000 I'M\nlicensed dogs, of which 1885 were\nkilled. The humber redeemed was\n575, sales were made of 164 and six\nwere given away.\n\n\nJ. n. Kane, the rate expert re-\nGently employed by the chamber\nof commerce, predicts a decision of\nthe rate case the latter part of the\npresent month or during the early\npart of February.\n\n\nThe annual meeting of the Spo-\nkane Building & Loan society will\nbe held tonight in the assembly\nroom of the chamber of commerce.\nThe association has declared\ntotal dividend for 1909 of Sla per\ncent\n\n\nDr.. T. c. Barnhart, county health\nofficer, reports AZ cases quaran-\ntined in December. The expenses\nof the office amounted to $SO.65,\nmost of which went to outside\ndeputies.\n\n\nDischarging his attorney, Fred\nH. Moore, Joe A. buddy, the I. w.\nw. leader, was tried before Justice\nStOcker yesterday afternoon and\nwas sentenced to 60 days on the\nrock pile. buddy decided after 30\ndays in Jail that he might as well\nbe serving a sentence as waiting\nfor trial.\n\n\nJohn G. r. Hieber and wife, own\ners of the Carlyle hotel building,\nwithdrew their suit against George\nF. Carr and wife, the proprietors of\nthe building, yesterday, and the\nhotel is to remain under the pres\nent management. Suit was insti-\ntuted to secure possession of the\nproperty for the back rent.\n\n\nAccording to the report Of County\nPhysician w. @. Webb, filed yester-\nday with the county commissioners,\n400 charity calls were made during\nDecember. including calls to the\ncounty Jail, hospitals and homes of\na few patients. In addition to the\n500 salary of the officer, the ex-\npenses of his office amounted to\n$2s2.S5.\n\n\nThe PaIouse Irrigation & Power\ncompany, Alp First avenue, will\nopen offices in number of the\nlarger cities in the central states.\nGeorge s. Brooke of the Fidelity\nbank has been appointed a men,\nDer of the library board by Mayor\nPratt. He succeeds the Rev. Dean\nLockwood, who moved to North\nYakima. s. 'nr\nMrs. Rachel Newman and her\nson, Jesse Newman, will erect a\n\n\nthree story. $4,000 brick and terra\nGotta building on the south side\nof First avenue, between Madison\nand Jefferson streets.\n\n\nRev. D. s. Sharpe, pastor Of the\nThird United Presbyterian church.\n\n\nhas been called to Lawrence, Kan.\nto attend the funeral of his sister\nand her infant child, who were\n\n\nburned to death.\n\n\nThe county commissioners have\nruled that the Spokane & Eastern\n\n\nTrust company is entitled to no re-\nduction in it's assessment of $780,\n600 for taxation for 1910. The\ncompany claimed that there was. an\nerror on the part of the assessor\nin making out the assessment, due\nto his misunderstanding as to the\nsurplus.\n\n\nW. J. Herwig, who looked after\nthe affairs of the Anti-Saloon\nleague in eastern Washington, has\n~ n MY A rYYr"
+    }
+  ]
+}

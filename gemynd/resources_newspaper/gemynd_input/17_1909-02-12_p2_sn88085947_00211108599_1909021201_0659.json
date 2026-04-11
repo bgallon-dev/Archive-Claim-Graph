@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FOR GENERAL\nELECTION OF\n\n\n\nCOUNC|lMEN",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-12",
+    "date_end": "1909-02-12",
+    "report_year": 1909,
+    "source_file": "17_1909-02-12_p2_sn88085947_00211108599_1909021201_0659",
+    "archive_ref": "17_1909-02-12_p2_sn88085947_00211108599_1909021201_0659",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1909-02-12_p2_sn88085947_00211108599_1909021201_0659",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 290,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 386,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "While the members of the COM\nmittee of the charter revision COM\nmission to which was referred the\nDes Moines plan of city govern\nment believe it would be advisable\nto adopt this plan in Spokane at\nthis time. vet they have concluded,\nafter comforting with other men,\nbeers of the commission. not to push\nthe idea at the present but permit\nthe commission to continue with\nrevision of the city charter in the\noriginal manner.\n\n\nThe question of the adoption of\nthe BEST Moines plan can not be\nfully settled until after the legisla-\nture has passed on the measure\nsent up by Spokane calling for non\npartisan city primaries. Lawyers\nsay that the state law on primary\nelections will have to be changed\nbefore nonpartisan city govern\nment plan will hold\n\n\nA majority of the committee on\nthe election of councilmen at large,\nMessrs. Walker and Vincent, have\nagreed to report in favor of the\nadoption of this idea The other\nmember of the committe, Council\nman Jacob Schiller, says he is TAX\ning no part in the deliberations of\nthe charter revision commission,\nand has no views on the question\nof electing councilmen at large.\nThis considered to mean that he is\nagainst it, as Schiller has said in\nthe past that the present city char\nter ought to be consigned to the\nflames and one like that of Des\nMoines adopted. 1t is said that\nCouncilman Fred Baldwin is now\nfavorably impressed with the idea\nof electing councilmen at large.\n\n\nThe committee on more power\nfor the mayor will report favora-\nbly,, but an adverse report is said\nto be coming on the matter of the\ncreation of a nonpartisan water\ncommission like the park board."
+    }
+  ]
+}

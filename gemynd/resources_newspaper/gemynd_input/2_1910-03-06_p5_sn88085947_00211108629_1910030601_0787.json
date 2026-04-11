@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "NATIONAL FEED &\n\n\nMILL co. BUILDING\nProperty Occupied by Pres\nent Site Bought by Mil\n\n\nWaukee Road.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-06",
+    "date_end": "1910-03-06",
+    "report_year": 1910,
+    "source_file": "2_1910-03-06_p5_sn88085947_00211108629_1910030601_0787",
+    "archive_ref": "2_1910-03-06_p5_sn88085947_00211108629_1910030601_0787",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-03-06_p5_sn88085947_00211108629_1910030601_0787",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 217,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 977,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A warehouse and feed milling\nplant, being constructed at Perry\nand Riverside avenue by the Ma\ntional Feed & Mill company, with\nplant now at Sheridan and Front,\nis one of the latest additions to the\nindustrial section of Union Park.\nw. A. Stroud, a corpentering con-\ntractor from Davenport, Wash. is\nin charge of the work and is rush\ning the building to completion in\norder that the company may occu-\nply it before the first of April.\n\n\nThe building, which is of wooden\nstructure, with one story and a\nbasement, is of peculiar dimen-\nsions. having frantage of 80 feet\non Perry street, $50 feet in length\non the south side, fronting River\nside avenue, 81 feet across the west\nend and 100 feet along the north\nend, where it abuts on the North.\nern Pacific railway.\n\n\nProperty on which the National\nFeed and Mill company's present\nestablishment stands has been pur-\nchased by. the Chicago, Milwaukee\n& st. Paul Railway company. and\nthe old building is to be torn down\nto clear the right of way immedi-\nately after April /. The ground oc-\ncupied by the new building is own\ned by C. B. Dennis, and it is stated\nthat the National Feed and Mill\ncompany has procured 10 year\nlease on it."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HILL ASKS\nUNCLE SAM\n\n\nFOR COAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-05",
+    "date_end": "1905-05-05",
+    "report_year": 1905,
+    "source_file": "30_1905-05-05_p1_sn88085947_00211108551_1905050501_0430",
+    "archive_ref": "30_1905-05-05_p1_sn88085947_00211108551_1905050501_0430",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1905-05-05_p1_sn88085947_00211108551_1905050501_0430",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 62,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 100,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, May Sowing to\na shortage of coal in the far east,\ndue to the war, President Hill of the\nGreat Northern has requested the\nnavy departments permission to pur-\nchase from the American naval sup\nply in the orient enough to supply the\nsteamship Minnesota on her return\ntrip to the Pacific coast. 1t is said\nhis request will be granted."
+    }
+  ]
+}

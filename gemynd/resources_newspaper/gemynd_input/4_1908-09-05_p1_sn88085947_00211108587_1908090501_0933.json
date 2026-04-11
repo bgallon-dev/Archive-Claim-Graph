@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RECORD WRONG\n\n\nON DICK\"",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-05",
+    "date_end": "1908-09-05",
+    "report_year": 1908,
+    "source_file": "4_1908-09-05_p1_sn88085947_00211108587_1908090501_0933",
+    "archive_ref": "4_1908-09-05_p1_sn88085947_00211108587_1908090501_0933",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-09-05_p1_sn88085947_00211108587_1908090501_0933",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 318,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1032,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "r. A. Hutchinson, Fighting Dick\"\nas he is known among his friends,\nreturned to the city last night aft\nerr so mile ride through the coun-\ntry districts in which time he\nspoke to over 200 voters.\n\n\nHe feels confident of the out\ncome and says he has every rea-\nson to feel confident that he will\nbe selected by the people of the\nFourth senatorial district to be the\ncandidate on the republican ticket\nin the November election.\n\n\nMr.. Hutchinson's attention was\ncalled to campaign document is\nsued by his opponent, Senator w.\nd. Scott, in which it is stated that\nMr., Hutchinson voted against the\neight hour bill in the legislative\nsession of 1891. This Mr.. Hutchin-\nson states is not true, although\nthe record does show that he voted\nagainst the bill. He says that he\nvoted against recommitting the\nbill, but did vote for it's passage.\n\n\nIn this statement he Is support\ned by a number of local trade\nunionists, notably c. B. Nash, now\nsuperintendent of the Shaw Borden\nCo. printing department, who was\nat that time a delegate to the\ntrades council in this city.\n\n\nThe records of the local trades\ncouncil show that Mr.. Hutchinson\nwas endorsed by that body for his\nservices to labor and the people in\ngeneral during theNsession OF 1891.\nHe was also endorsed by the In\ndustrial legion for the office OF\nUnited States senator in recogni-\nton of his public services and SYM\npathy with the masses. Mr., Hutch\ninson further stated that he is in\nevery respect a self made man and\nwas for years a miner and mem\nDer of the union al Newcastle,\nKing county, and served as secre-\ntary of the union for some time.\nUnder these circumstances\" he\nsays, ''it is unlikely that | would\nvote against any law having for its\nobject the betterment of the work\ning class\""
+    }
+  ]
+}

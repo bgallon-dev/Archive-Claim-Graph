@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "VAST SCOPE OF THE WORK\nUNDERTAKEN BY THE\n\n\nGOVERNMENT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-16",
+    "date_end": "1906-04-16",
+    "report_year": 1906,
+    "source_file": "1_1906-04-16_p4_sn88085947_00211108563_1906041601_0621",
+    "archive_ref": "1_1906-04-16_p4_sn88085947_00211108563_1906041601_0621",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-04-16_p4_sn88085947_00211108563_1906041601_0621",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 160,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 171,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, d. c., April 1&-\nMany persons will be surprised to\nlearn that before the government\nturned stone an area equal to the\nstate of Massachusetts had, by pri-\nvate irrigation enterprises, been\nwrested from the unwatered and\nvalueless wastes of the west. Now\ncomes the United States govern\nment to lend hand and push for\nward the task of retaining the\ndesert places.\n\n\nThe secretary Of the interior es-\nInmates the reclaimable area of the\nGreat American Desert at 100000\nacres, of which area the present\nprojects involve less than 1-25th. 1t\nis the guess of experts that the\ngovernment will soon be retaining\nthe desert at the rate Of 1,000,0OO\n| acres a year. At the end of the\nyear 1925, for instance, not less\nthan 100000 acres will certainly\nhave been reclaimed and put under\ncultivation. The money spent in\n\n\nretaining land must, under the\nlaw, be repaid by settlers in annual\npayments extending over a period"
+    }
+  ]
+}

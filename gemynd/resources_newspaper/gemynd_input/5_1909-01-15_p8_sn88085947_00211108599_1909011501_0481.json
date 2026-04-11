@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ".sUFfRAC|STSON\n\n\nFIRING LINE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-15",
+    "date_end": "1909-01-15",
+    "report_year": 1909,
+    "source_file": "5_1909-01-15_p8_sn88085947_00211108599_1909011501_0481",
+    "archive_ref": "5_1909-01-15_p8_sn88085947_00211108599_1909011501_0481",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-01-15_p8_sn88085947_00211108599_1909011501_0481",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 197,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 28,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OLYMPIA. Jan. 15.-The equal\nsuffrage lobby, with the state presi-\ndent, Mrs. DeVoe, at its head, has\nits plan of campaign for the ses-\nsion mapped eout. The suffragists\nwill attack the legislature on three\nsides, and hopes to win some\nthing.\n\n\nThe first effort viii be an at\ntempt to get the legislature to sub\nnit the question of an amendment\nof the constitution to the people,\nwhereby the right of suffrage will\nbe granted to all persons, irrespec-\ntive of Sex. To secure the submits\nsion of this amendment it will re-\nquire two thirds vote.\n\n\nIf they do not meet with success\nalong these lines they will try to\nget the right to vote for presiden-\ntial electors. A majority vote of\nboth houses is enough to carry\nthis.\n\n\nIf the legislature turns a deaf\near to this proposal demand will\nbe made for the right of women\nto vote at the primary elections.\nShould this point be carried, the\nsuffragists feel that in a short time\nthey would have everything they\nwanted, as it would be a simple\nmatter for them to have men elect\ned favorable to the cause of woman\nsuffrage."
+    }
+  ]
+}

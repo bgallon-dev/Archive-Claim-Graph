@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COUNTRY / SETTING\n\n\nMASS Of FLAMES\n\nTerritory Between Rathdrum and\nSpirit Lake Lafad Of Tragic\n\n\nGloom Today.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-22",
+    "date_end": "1910-08-22",
+    "report_year": 1910,
+    "source_file": "3_1910-08-22_p1_sn88085947_00211108642_1910082201_0568",
+    "archive_ref": "3_1910-08-22_p1_sn88085947_00211108642_1910082201_0568",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-08-22_p1_sn88085947_00211108642_1910082201_0568",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 359,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 137,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Preas Leased Wire.)\nRATHDRUM. Idaho, Aug. 22.--\nCut off from the. outer world by\n\n\ncomplete and overwhelming de.\nstruction of Northern Pacific rail.\nroad bridges, unable to reach sur.\nrounding towns by telephone or\n\n\ntelegraph, with Athol, Granite, Sew\nerns, Drywood and other small\ntowns reported DESTROYED and doz-\nems of ranches an1 buildings In\n\n\nashes. the entire intervening coun.\ntry between Rathdrum and Spirit\nLake, apparently a seething, wind\nswept furnace: the situation here\n\n\nhas assumed tragic aspect and\nwhile his town itself Is in no inn\nmediate danger a pail OF gloom\nmore nlack and heavy thaTathe sin.\nisterfcinder-laden clouds of smoke,\niobsfuring the sun, shroads the\ntown\n\n\nSince distress calls we're re-\nceited from many surrounding\ntowans Saturday night and frenzied\nvoices excitedly declared that\n\n\nAthol and other towns could got\n\n\nlast an hour longer. wires have\n\n\nbeen down in all directions and a\n\n\ndozen villages os completely\nisolated from communication with\nthe outer world as though the tele-\n\n\nphone and telegraph never had\n\n\nbeen invented\n\n\nBefore the wires snapped Satur-\n\n\nday night. Granite, Idaho, reported\nthat the flames completely sur\n\n\nrounded the town. Five buildings\nin Athol had been destroyed and\nthe rest were bound to 60 at the\nlast report; and Severns, seeming\nly the center of the seething mass\nof flames, is total loss. Ranches\nbetween here and Spirit Lake have\nbeen entirely consumed and the\ndamage between here and Sand\npoint has been heavy.\n\n\nThe CoEbin ranch, at last re-\nports, was in serious danger and\n\n\nBayview, near Athol. is said to\nhave been burned Towards Rim\nRock a terrible fire was leaping\nover its course Of death and devas-\ntationy Sunday and the town of Dry\nWood was threatened. The Mad\nison mill. near Dry Wood, was re-\nduced to ashes. Great damage was\ndone at Echo beach. on Fish lake,\n| and j. w. Smith, the county as\nssessor. has lost vast quantity of\n\n\nstanding timber.\n\n\nNorthern Pacific ties between\n\n\nRathdrum and Spokane have been\nburned and twisted, smoke-grimed\n\n\nrails are resting upon the roadbed,\nwith no support other than gravel\n\n\nand earth.\n\n\nEvery bodied man in Rath-"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "REBATE BATTLE ON TODAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-07",
+    "date_end": "1908-01-07",
+    "report_year": 1908,
+    "source_file": "31_1908-01-07_p1_sn88085947_00211108587_1908010701_0088",
+    "archive_ref": "31_1908-01-07_p1_sn88085947_00211108587_1908010701_0088",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "31_1908-01-07_p1_sn88085947_00211108587_1908010701_0088",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 54,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "effort to interpret the rebate laws.\nThe Great Northern is vitality inter-\nested and Standard Oil and other\ncorporations are concerned.\n\n\nThe corporations contend that a,\nclause in the Hepburn act releases\nthem from any penalties that might\ngrow out Of violation of the Elkins\nlaw. The government fights this\nreading Of the phrase."
+    }
+  ]
+}

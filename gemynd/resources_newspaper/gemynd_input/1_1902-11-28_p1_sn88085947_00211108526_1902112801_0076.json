@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1902-11-28 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-28",
+    "date_end": "1902-11-28",
+    "report_year": 1902,
+    "source_file": "1_1902-11-28_p1_sn88085947_00211108526_1902112801_0076",
+    "archive_ref": "1_1902-11-28_p1_sn88085947_00211108526_1902112801_0076",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1902-11-28_p1_sn88085947_00211108526_1902112801_0076",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 147,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 254,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 269,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tracks, in which transfers of pass.\nenger trains are accomplished in a\nfashion.\n\n\nLong delays are very unpleasant\nin an out Of the way place like the\no. r. & N. junction and, as the\ntracks are now arranged, the o. r.\n& N. trains could come direct to\nthe Great Northern depot without\nany additional trackage or expense.\n\n\nThis matter Is one that is inter-\nesting the various hotels and cab\nlines, as a move of this kind would\ntend to centralize business in way\nthat would be great saving to the\ncity transportation companies.\n\n\nNothing in the way of a denial or\nconfirmation could be had from the\nlocal offices Of the lines mentioned.\n\n\nThere would be no necessity, it is\nurged. for any expense in making\nthis change. as all needed switches\nare already in place at the present\njunction Of the two roads."
+    }
+  ]
+}

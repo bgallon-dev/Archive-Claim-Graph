@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-27 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-27",
+    "date_end": "1909-11-27",
+    "report_year": 1909,
+    "source_file": "3_1909-11-27_p6_sn88085947_00211108617_1909112701_0183",
+    "archive_ref": "3_1909-11-27_p6_sn88085947_00211108617_1909112701_0183",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-11-27_p6_sn88085947_00211108617_1909112701_0183",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 5.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "free speech fight"
+        ],
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 345,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 76,
+            "in_headline": false
+          },
+          {
+            "term": "free speech fight",
+            "weight": 3.0,
+            "offset": 76,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 651,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "! To the Editor of The Press:\n\n\nhave been an interested spectator\n\n\nof this free speech fight from the\n\n\nbeginning and have an observation\n| or two to express on this day of\nthanksgiving. / have noted the\nbrutalities of some of the police,\nthe apathy of the general public,\nand the malicious and distorted ac-\ncounts of the whole affair that have\nbeen given. to the public in the\nReview and the Chronicle. Note\nin last Sundays Review under the\ncaption. why Spokane Should be\nThankful\" Prominent Citizens See\nNumerous Spiritual and Mental\nBlessings to Call Forth Gratitude\nNext Thursday\" THE General Up\nlift Movement has put it's Benedic-\nton Upon the Inland Empire\"\n\n\nThere is much rejoicing among\nthese prominent citizens\" over ma\nterial prosperity. l searched earn\nestly for one breath of a broad,\ncosmic spirit; one suggestion of a\nsocial consciousness which recog-\nnized the poor and lowly, over all\nthe world, as well as the prosper\nGus and well fed. True, some senti-\nmental clap trap was INDUCED in,\nsuch as noble sentiment\" \"univer-\nsal peace\" principles of free man.\nhood\" charity and Kindness\" and\nall the while these prominent citi-\nzens,\" who are evidently suffering\nfrom \"the illusion of the near\"\nseem not to realize that here in our\ncity over 300 men are imprisoned,\nsuffering from slow starvation, sick\nand manned by brutal handling of\nthe police. Where, oh where is the\ngeneral uplift movement\" I have\nno patience with the inane utter\nances of the minister who pretends\nto be follower of the lowly Naza-\nrene and yet rejoices and thanks\nGod for city government which\n\"has an arm long enough to reach\nout and throttle\" minister\npreaching long drawn out sermons\non Love Thy Neighbor\" and THE\nGeneral Uplift Movement\" l am\nexasperated at the comfortable\nthoughts of these well-fed men, at\ntheir Indifference to human suffer\ning in their midst, at their high\nsounding, empty phrases and lack\nof clear thinking.\n\n\nOn the evening of the day the\nfirst six installments of l. w. W.."
+    }
+  ]
+}

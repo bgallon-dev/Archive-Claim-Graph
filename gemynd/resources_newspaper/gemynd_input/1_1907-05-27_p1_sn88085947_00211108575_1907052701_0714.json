@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "NEW BRIDGE ON\n\n\nSTEVENS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-27",
+    "date_end": "1907-05-27",
+    "report_year": 1907,
+    "source_file": "1_1907-05-27_p1_sn88085947_00211108575_1907052701_0714",
+    "archive_ref": "1_1907-05-27_p1_sn88085947_00211108575_1907052701_0714",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-05-27_p1_sn88085947_00211108575_1907052701_0714",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 188,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 140,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 155,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 332,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Operations have commenced on\nthe new Stevens st. bridge across\nthe Spokane river. When COM\npleted it will add another crossing\nby which the Great Northern depot\nmay be reached. The steel being\nused Is that which was bought for\nthe Havermale st. bridge, since\nknocked down by high water. The\ncouncil recently authorized the\nboard of public works to go ahead\nand put the steel in place on Ste\nvents st. After it was bought and\nlaid down on the ground for the\npurpose of bridging the river at\nHavermale ST., the proposition to\nbuild only one span on Howard st.\nof reinforced concrete and elimi-\nnate the Tavermale bridge came up.\n\n\nThe Washington st. bridge is\nclosed to any but foot traffic on ac-\ncount of high water making this\ncrossing dangerous to life. Street\ncars now stop at either end and\ntransfer passengers. No teams are\nallowed to cross. This necessitated\nthem going around on either How\nard or Division streets.\n\n\nThe Havermale bridge was pur-\nchased last fall and left on the cars\nuntil the city had an $500 demur-\nrage bill to pay."
+    }
+  ]
+}

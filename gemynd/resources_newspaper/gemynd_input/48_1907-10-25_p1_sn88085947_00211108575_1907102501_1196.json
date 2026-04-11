@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STEVE ADAMS TRIAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-25",
+    "date_end": "1907-10-25",
+    "report_year": 1907,
+    "source_file": "48_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+    "archive_ref": "48_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "48_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 54,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "RATHDRUM, Oct. 25.-Pres\nMeyer. of the Western Federation\nof Miners, is here to remain dur\ning the trial of Steve Adams. The\ncase is to be called today if Oar\nrow arrives in time. 1t was post\nponed from yesterday to await his\narrival The selection of the jury\nmay exhaust the present panel."
+    }
+  ]
+}

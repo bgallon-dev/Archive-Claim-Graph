@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "1000 Immigrants\n\n\nHead for Spokane,",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-09",
+    "date_end": "1903-04-09",
+    "report_year": 1903,
+    "source_file": "4_1903-04-09_p3_sn88085947_00211108526_1903040901_0529",
+    "archive_ref": "4_1903-04-09_p3_sn88085947_00211108526_1903040901_0529",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-04-09_p3_sn88085947_00211108526_1903040901_0529",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 131,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 113,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Fully 1000 immigrants leave the\nTwin Cities today for the Inland EN-\npire. Most OF this number will come\nvia the Northern Pacific and Great\nNorthern lines. although consider\nable number of these will come In as\nfar as this city over the Burlington\nfrom points In Kansas, Missouri and\nNebraska. -\n\n\n1t is estimated by railroad men that\nthe movement for the next two weeks\nwill exceed all previous ones. All\ntrains coming west will be In two SEQ\ntions and II IL believed that extra\ntrains will have to be put on to ac-\ncommodate the travel. Many of those\nwho will come west today are people\nfrom the old country and many have\nalready been into these parts and Sc\nlected the points whore they wish\nto settle."
+    }
+  ]
+}

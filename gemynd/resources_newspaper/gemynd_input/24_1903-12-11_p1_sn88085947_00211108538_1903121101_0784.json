@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "ARBITRATION\n\n\nf|A1 RESULT\nNo More Buildings Until\nPresent Trouble Is\n\n\nSettled",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-12-11",
+    "date_end": "1903-12-11",
+    "report_year": 1903,
+    "source_file": "24_1903-12-11_p1_sn88085947_00211108538_1903121101_0784",
+    "archive_ref": "24_1903-12-11_p1_sn88085947_00211108538_1903121101_0784",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1903-12-11_p1_sn88085947_00211108538_1903121101_0784",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 314,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1475,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 33,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The third day of the sympathetic\nstrike is here ana so far as can be\nlearned not many of the buildings\nof the city have been forced to go\nwithout the necessary amount of Ia\nDor to keep the work moving alone.\nThe meeting of the federal union.\nwith a large attendance, last night\nthrows a different light upon one\nphase of the situation-no more new\nbuildings can be started by their aid\nuntil the strike is settled\n\n\nThere We're about 200 members of\nthe federal union present last night,\nbut that is very small attendance\nfor the consideration of so great a\nproblem, when it is stated the union\nis 500 strong.\n\n\nArbitration is now being talked of.\nand the matter has got along to such\nstage that it is very serious.\n\n\nThe master plumbers association\nheld meeting last night and the\nstrike from start to finish was re-\nviewed and the determination to hold\nout to the end again voiced by all\nthe members.\n\n\nThus far the strike has been con-\nQuoted in an orderly manner by the\nplumbers, there being only couple\nof cases of violence reported to the\npolice. Since then many more non\nunion men have been put to work in\nthe strikers places, but these have\nnot been molested.\n\n\n1t is not believed there will be any\nviolence shown since the building\ntrades have gone out in sympathy\nwith the plumbers. as arbitration has\nalready been talked of.\n\n\nAt the meeting of the painters\nunion last night at Labor hall it was\ndecided by a practically unanimous\nvote to withdraw from the building\ntrades council. The painters, how\never, decided to remain in the trades\ncouncil. There are over 100 members\nof the painters union and their with\ndrawal from the building trades is\nlooked upon as long step in the di-\nrection of settling the strike troubles."
+    }
+  ]
+}

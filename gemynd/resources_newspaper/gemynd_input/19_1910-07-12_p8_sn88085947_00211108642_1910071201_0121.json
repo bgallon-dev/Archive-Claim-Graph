@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-07-12 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-12",
+    "date_end": "1910-07-12",
+    "report_year": 1910,
+    "source_file": "19_1910-07-12_p8_sn88085947_00211108642_1910071201_0121",
+    "archive_ref": "19_1910-07-12_p8_sn88085947_00211108642_1910071201_0121",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1910-07-12_p8_sn88085947_00211108642_1910071201_0121",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 291,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 363,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "social",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "feature of the day will be a base\nball game between the young mems\nBible class and the class of bust\nness men.\n\n\nZ Z Z\n\n\nPICNIC At MANlTO.\nThe members and friends OF the\nCurcle No. of the ladies' aid of\nthe First Methodist Episcopal\nchurch will hold their annual picnic\nThursday evening, July IA, at Man.\nito park. A luncheon will be served\nat / o'clock.\n\n\n- 9\n\n\nSUFFRAGE MEETING.\nAttorney D. B. He'll and Mrs.\nPhilip P. Stafford will address the\nEqual Suffrage meeting to be held\nthis evening in the Chamber of\nCommerce. The musical numbers\nwill be given by Mrs. George Love-\nJOY as soloist and Miss Viola Kratz\nat the piano.\n\n\n4 & 4\nEMERALD CLUB WILL MEET.\nMrs. James F. Mama will be\nhostess tomorrow afternoon when\nshe will entertain the members Of\nthe Emerald club at her residence\non Sixth avenue.\n\n\n= & &\n\n\nLAWN FETE.\n\n\nThe home of Father De Kanter\nwill be the scene of a brilliant af-\nfair this evening when the men,\nbers and friends of the st. Joseph's\nAltar society will be entertained at\na lawn fete. A dainty luncheon\nwill be served\n\n\nWILL ENTERTAIN CLUB.\nMrs. ]. w. Woodruff will enter\ntain the members of the Progress\nsive Needlework club Friday after\nnoon at her home, E1204 Montgom-\ncry avenue.\n\n\nOCCUPYING SUMNER HOME.\nJ. F. Sexton and family are &C.\ncupying their summer home at\nLoon Lake.\n\n\n4 & i\n\n\nCIRCLES WILL MEET.\nCircle No. 1 of the First Metho-\ndist church will hold its regular\nbusiness meeting Thursday after\nnoon at 2:30 o'clock in Liberty\nPark. On the same afternoon cir\nGle No. 2 will meet with Mrs. Bum\nton at her home, 1929 Fourteenth\navenue."
+    }
+  ]
+}

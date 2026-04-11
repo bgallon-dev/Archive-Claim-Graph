@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOWMONOPOLYG GRIPS\nZ THE FUTURE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-07",
+    "date_end": "1908-09-07",
+    "report_year": 1908,
+    "source_file": "3_1908-09-07_p7_sn88085947_00211108587_1908090701_0947",
+    "archive_ref": "3_1908-09-07_p7_sn88085947_00211108587_1908090701_0947",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-09-07_p7_sn88085947_00211108587_1908090701_0947",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 391,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 2117,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I orchards, vineyards. factories end\n\n\ntowns, silent carriers of light and\npower-and therefore water--to tho\n\n\nwhole community.\n\n\nLet me explain. This garden liz\nall man-made. There is no rain-in\nthe season when rain is needed\n| and there Is no water from the\nrivers for hundreds Of the orchards\n\n\nwhich are now bearing crops. The\n! waters of Kings, Kaweah and Tu-\nlare rivers were long ago diverted\nfor the orchards farther up NE can\nyon. The water for these trees all\ncomes from wells-all is pumped.\nAnd the pumps are run by motors\ndriven by electric power sold by\nthis one concern whose wires and\npoles we Sc. Stop the electric flow\nand without some power to take\n\n\nits place. every ranch would be-\ncome a >desert waste.\n\n\nBut what business is this Of\nyours or mine ? Just this. The\npowe which feeds this valley is de.\n\n\nveloped in those regions of the\nearth which still belong to you and\nme. 1t comes from streams which\nno man owns-from the trickling\n| waters in the mountain tops which\nare the heritage of all. The motors\nwhich generate the electricity for\nall those pumps and lights are\ndriven by an energy which is still\na part of the lands and forests\n\n\nwhich have not passed to private\nownership. The federal govern\nment Is their trustee, and congress\n| is the chief agent to administer\nthe trust; congress and the federal\nexecutive departments, the presi-\ndent, the secretary of agriculture,\nthe chief of the forestry depart.\nment, and the secretary of the in\nterror.\n\n\nBut suppose congress betrays it's\ntrust? Congress has done it in\nmany luStduCCo. OuppOoc d COlllpld-\ncent senator slips through bill\nwhich gives perpetual ownership in\nsuch waters to the private corpor-\nalton? Whence is the appeal of the\norchardman who sees his streams\ndried up or his living taxed from\nunder his feet in extortionate rates\nfor power?\n\n\nTo you and me of the distant city\nand state. We are our brothers\nkeeper His only hope is in friend\nly interest and an honest admins\ntration of the government power\nwhich will step in between him and\nthe selfish corporation, insisting\nthat there be fair dealing be-\ntween him and the water power\nlandlord.\n\n\nIn this state nearly all the power\npropositions of this character have"
+    }
+  ]
+}

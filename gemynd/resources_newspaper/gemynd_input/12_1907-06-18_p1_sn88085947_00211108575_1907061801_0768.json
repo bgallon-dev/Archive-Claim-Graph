@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MUST PRESERVE\n\n\nPUBLIC LAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-18",
+    "date_end": "1907-06-18",
+    "report_year": 1907,
+    "source_file": "12_1907-06-18_p1_sn88085947_00211108575_1907061801_0768",
+    "archive_ref": "12_1907-06-18_p1_sn88085947_00211108575_1907061801_0768",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-06-18_p1_sn88085947_00211108575_1907061801_0768",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 201,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 1206,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(Scripps News Association.)\n\n\nDENVER, June 18.-The public\nland convention was opened this\nmorning by Governor Buchtell.\nEight hundred delegates from\nWashington, Nevada, North and\nSouth Dakota, Idaho, New Mexico\nArizona, Wyoming, Oklahoma and\nCalifornia were in attendance. Gar.\nfield, Pinchot, Ballinger and Newell,\nrepresenting the administration, ar.\nrived last night.\n\n\nGovernor Buchtell, in his ads\ndress, praised the policy of Roose-\nwelt He said:\n\n\nI'VE meet to discuss the relation\nof separate states to public land.\nWe must frame board program to\naim at the speedy development Of\nunoccupied lands. The east still\nthinks we have nothing but cow\nboys and Indians out west. People\nin the congested quarters should be\nencouraged to occupy tracts of pub\nlie lands\"\n\n\nChief Forester Pinchot expressed\nRoosevelt's conclusions on the TIM\nDer question. He said there Is still\na great supply of timber in sight,\nand Roosevelt believed the inter-\nests of the nation would be best\nconserved IL large tracts we're left\nin government control instead of in\nthe hands of rich men. He denied\nthat the president, in creating for.\nest reserves, increased the prices to\nthe consumer. and argued that the\nprotection of irrigation in the west\njustifies the forest policy."
+    }
+  ]
+}

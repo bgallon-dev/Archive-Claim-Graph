@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TYPOGRAPHICAL UNION\n\n\nELECTS OFFICERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-06-29",
+    "date_end": "1908-06-29",
+    "report_year": 1908,
+    "source_file": "7_1908-06-29_p3_sn88085947_00211108587_1908062901_0684",
+    "archive_ref": "7_1908-06-29_p3_sn88085947_00211108587_1908062901_0684",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-06-29_p3_sn88085947_00211108587_1908062901_0684",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 119,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 333,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane Typographical\nunion yesterday held the regular\nelection of officers, selecting the\nfollowing: President. w. d. Whea-\nton; vice president, w. H. Hooker;\nsecretary-treasurer. Sam Kennedy;\nsergeant at arms. Plea Shafer: ex-\necutive committee, B. F. Coffman,\nC. w. Garrison, A. w. Nolen, W..\ne. Camp; delegates to the allied\ntrades council, j r. Morford, N. j..\nLaumer. c. w. Garrison. w. D..\nWheaton and N. J. Laumer were\nelected delegates to the Central\nLabor union and two others will be\nappointed by the president\n\n\nA dispute with the Independent\nPrinting Co. came before the\nunion for further action and nego-\ntiation. Members of the union\nwere prohibited from working in\nthat Office until the affair Is settled."
+    }
+  ]
+}

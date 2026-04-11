@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Indians Can't Lease\n\n\nTheir ChIId's Land.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-15",
+    "date_end": "1903-07-15",
+    "report_year": 1903,
+    "source_file": "23_1903-07-15_p4_sn88085947_00211108538_1903071501_0173",
+    "archive_ref": "23_1903-07-15_p4_sn88085947_00211108538_1903071501_0173",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1903-07-15_p4_sn88085947_00211108538_1903071501_0173",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian land"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 63,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian land",
+            "weight": 2.5,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MESKOGEE, I. r., July 15.-By a\ndecision of the United States court\nhanded down today 100000 acres Of\nCreek Indian land leases are invali-\ndated, the court holding that the\nparent of an Indian has no right to\nlease the land of his minor children\nunless he has by due course of legal\nprocedure been made legal guardian.\nSuch cases are very rare."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "IMMENSE\nSEWERAGE\n\n\nSYSTEM\n\nPlanned for Fourth and\nFifth Wards at Base of\n\n\nthe North Hill.\n\nPLANS BEING DRAWN\n\nTrunk Sewer Proposed for\nArea Covering Two\n\n\nSquare Miles.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-20",
+    "date_end": "1910-01-20",
+    "report_year": 1910,
+    "source_file": "11_1910-01-20_p7_sn88085947_00211108629_1910012001_0205",
+    "archive_ref": "11_1910-01-20_p7_sn88085947_00211108629_1910012001_0205",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-01-20_p7_sn88085947_00211108629_1910012001_0205",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 257,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 663,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A gigantic sewer district, the\nlargest in the city, is contemplated\nin resolution ADOPTED by the city\ncouncil and now IN the hands of\nthe city engineer 1t consists of\nthe building of a trunk sewer\nthrough the Fourth and Fifth\nwards at the base of the north hill.\nThe plan is to make the trunk sew\ner large enough so that it will fur\nnish sanitary drainage for a dis\ntrict two miles square and storm\nwater drainage for the low ground\nat the base of the Lidgerwood and\nNorth Monroe hill.\n\n\n1t is proposed to have the sewer\nbegin near Division street and run\nwest through Corbin Park and pass\nthrough the trestle under the\nNorthwest boulevard line of the\nWashington Water Power COM\npany, on to the Spokane river. This\nis a natural water course and the\nsewer can be built there without\nany unnecessary expense as to rock\nwork or deep cuts. The area ar\nfected is so large that it is calcu-\nlated that the individual cost per\nlot will not be great.\n\n\nWhen the figures as to cost are\nobtained from the engineers office\nthe councilmen from the Fourth\nand Fifth wards will see how the\nproposition strikes the property\nowners interested.\n\n\nThere is no sewer system in the\nCorbin Park district or the terri\ntory intervening between Carlisle\navenue aud the north hill at the\npresent time. The proposed sewer\nwill afford an outlet for this re-\ngon, also for mile or more north\non the top of the hill."
+    }
+  ]
+}

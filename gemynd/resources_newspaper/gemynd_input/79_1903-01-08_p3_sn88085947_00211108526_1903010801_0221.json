@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-01-08 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-08",
+    "date_end": "1903-01-08",
+    "report_year": 1903,
+    "source_file": "79_1903-01-08_p3_sn88085947_00211108526_1903010801_0221",
+    "archive_ref": "79_1903-01-08_p3_sn88085947_00211108526_1903010801_0221",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "79_1903-01-08_p3_sn88085947_00211108526_1903010801_0221",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 56,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 268,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The building trades committee met\nlast night at Central Labor hall to\nconsider the deman OF the building\nlaborers for a raise in the wage scale,\nThe committee did not. as was ex-\npected. arrive at any definite decision,\nbut II is probable that they will\nrecommend the trades council to en-\ndorse the unions petition."
+    }
+  ]
+}

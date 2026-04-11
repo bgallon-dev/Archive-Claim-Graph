@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "is CITY GETTING\n\n\nA SQUARE DEAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-28",
+    "date_end": "1906-06-28",
+    "report_year": 1906,
+    "source_file": "11_1906-06-28_p4_sn88085947_00211108563_1906062801_0873",
+    "archive_ref": "11_1906-06-28_p4_sn88085947_00211108563_1906062801_0873",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-06-28_p4_sn88085947_00211108563_1906062801_0873",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 63,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 97,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 9,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the city council is greatly\ninfluenced by the local electric\npower monopoly, the Washington\nWater Power company, is indicated\nby the councils action yesterday in\nagreeing to the rebuilding of a\ntemporary bridge to take the place\nOf the collapsed Howard street\nstructure.\n\n\n1t is plain that the company had\nthe franchise worded exactly to\nsuit itself.\n\n\nNow after the company has"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TWO KILLED",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-10",
+    "date_end": "1907-04-10",
+    "report_year": 1907,
+    "source_file": "9_1907-04-10_p1_sn88085947_00211108575_1907041001_0552",
+    "archive_ref": "9_1907-04-10_p1_sn88085947_00211108575_1907041001_0552",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1907-04-10_p1_sn88085947_00211108575_1907041001_0552",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 97,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "J. w. Williamson, a motorman on\nthe Spokane & Inland, was electro\ncuted this morning at a gravel pit\nS miles south Of Spokane. The\nparagraph, q contrivance used out\nOf town instead Of the trolley polo,\nbecame deranged and he attempted\nto adjust it. He fell dead from the\nend door Of the car the instant he\ntouched the metal.\n\n\nAnother fatality occurred at the\ncame pit at II o'clock. Thomas\nHorton, q aborer in the steam\nshovel gang, who was struck upon\nthe head by the heavy dipper, died\non the way to the hospital."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOW FL PAS0 WON OUT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-22",
+    "date_end": "1903-09-22",
+    "report_year": 1903,
+    "source_file": "22_1903-09-22_p1_sn88085947_00211108538_1903092201_0408",
+    "archive_ref": "22_1903-09-22_p1_sn88085947_00211108538_1903092201_0408",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1903-09-22_p1_sn88085947_00211108538_1903092201_0408",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 82,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 111,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "W. l.. Benham. president Of the\nSpokane Valley Land s. Water COM\npany. who represented Spokane at the\nNational Irrigation congress. return.\ned from Utah yesterday evening. He\nsaid: Spokane would have had the\nnext convention but for the vote Of\nDelegate Donovan OF Montana. Wash\nington with the other northwestern\nstates went into caucus as against FL\nPaso. Portland, Boise and Spokane\nwere up for the honors. The fight\nsimmered down to Boise and Spo-\nkane. which were tied. and Donovan"
+    }
+  ]
+}

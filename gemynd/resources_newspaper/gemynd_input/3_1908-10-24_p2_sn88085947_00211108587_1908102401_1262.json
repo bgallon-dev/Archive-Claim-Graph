@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WEIGHT\nBITES COAL\nDEALERS\n\n\nNOW",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-24",
+    "date_end": "1908-10-24",
+    "report_year": 1908,
+    "source_file": "3_1908-10-24_p2_sn88085947_00211108587_1908102401_1262",
+    "archive_ref": "3_1908-10-24_p2_sn88085947_00211108587_1908102401_1262",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-10-24_p2_sn88085947_00211108587_1908102401_1262",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 396,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Coal dealers who about a year\nago looked on complacently while\nthe Great Northern caused the\nelimination from the weights and\nmeasures ordinance a clause pro-\nviding for the weighing of Ship\nments of coal on the cars, are pay\ning now for their inactivity.\n\n\nThe ordinance would have made\nit possible for the inspector OF\nweights and measures to weigh ev-\ncry carload of coal shipped to\nSpokane and in case of incorrect\nweight, prosecute the shippers.\n\n\nThere is not a carload of coal\nshipped to the city now which con-\ntains as much of the product as\nis indicated on the mine weight\ncertificate. Every car is from one\nto two tons short, and sometimes\nmore, but always ton or so. Coal\ndealers are forced to accept this\ncoal and pay for the weight indi-\nGated on the shipping receipt made\nout when the car is loaded at the\nmines. Just how the coal comes\nshort is a question.\n\n\nOn a question of the honesty of\nthe shippers it would appear, from\nthe knowledge the average coal\nconsumer has with corporations,\nthat the cars are shipped light. 1t\nis possible for the coal to be\nstolen enroute, also. Whichever is\nthe case, however, the coal deal\ners are in a measure getting a\ntaste of their own medicine and\ncan call to mind the time when\nthere was no inspection ordinance\nand they were at liberty to sell\nshort weight to the consumer, and\nvery often did.\n\n\nAt the time the ordinance was\nunder discussion in the city coun-\nGil Inspector A. E. Powell fought\nstrongly for its passage in the form\nwhich he submitted it. 1t provided\nfor weighing coal and measuring\nwood upon cars. 1t was this\nclause which the Great Northern\nattorney, Judge Gordon, fought\nsuccessfully by first gaining post\nponement of consideration of the\nordinance until he would have OPP\nportunity to consult officials of the\nroad and then pleading that the\ncompany would be put to great\ntrouble switching cars ordered\nweighed by the inspector from va\nrious places in the yards to the\nscales. Councilmen also took this\nview Of the matter and the or\ndinance minus the coal clause was\nfinally passed.\n\n\nUnder the city ordinance the\ndealer runs risks in making up the\nshortage on the local consumer\nAgainst the railroad they now have\nno recourse."
+    }
+  ]
+}

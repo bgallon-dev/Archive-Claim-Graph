@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1902-12-13 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-13",
+    "date_end": "1902-12-13",
+    "report_year": 1902,
+    "source_file": "16_1902-12-13_p1_sn88085947_00211108526_1902121301_0129",
+    "archive_ref": "16_1902-12-13_p1_sn88085947_00211108526_1902121301_0129",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1902-12-13_p1_sn88085947_00211108526_1902121301_0129",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 85,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 114,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The resumption OF WORN on thu\nTom Thumb mine In Republic. clos\ncd dowA awaiting the arrival of the\nrailway to the smelter, Is only .\nmatter Of few weeks. f-.\n\n\nThe ofacials Of the company say\nthat there Is nothing in the state\nment that the railway people are\ndelaying the building of the road\nand that the reason that the two\nshort miles Of track to the smelter\nIs not already laid is the heavl\nrock work necessary to get a good\nr0adbed."
+    }
+  ]
+}

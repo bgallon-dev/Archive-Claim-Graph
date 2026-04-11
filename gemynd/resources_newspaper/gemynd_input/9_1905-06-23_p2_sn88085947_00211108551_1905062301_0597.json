@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SUNDAY EXCURSION, ST. JOE",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-23",
+    "date_end": "1905-06-23",
+    "report_year": 1905,
+    "source_file": "9_1905-06-23_p2_sn88085947_00211108551_1905062301_0597",
+    "archive_ref": "9_1905-06-23_p2_sn88085947_00211108551_1905062301_0597",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1905-06-23_p2_sn88085947_00211108551_1905062301_0597",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 101,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Northern Pacific will continue\nthe Sunday excursions to st. Maries,\nFerreIls and st. Joe during the sum-\nmer. Train will leave Spokane n.\nm. for Occur d'Alene Steamer Cakes\nleaving there on arrival OF train for\na delightful ride across the lake and\nup the St Joe river arriving at Fer\nrell's about p. m, where stop OF\n80 minutes will be made for dinner,\nThose prcrerring to do so can take\nlunch baskets and eat lunch on the\nboat. Returning train Will arrive\nSpokane about 9 p. m. Fare for the\nround trip so.\n\n\n]. w. HILL, Gen. Agt."
+    }
+  ]
+}

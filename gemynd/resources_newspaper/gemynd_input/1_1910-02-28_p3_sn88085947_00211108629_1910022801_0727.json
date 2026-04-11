@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "'yOMAN'S CLUB.\nSTANDS PAT\n\n\nON MATR0N\n\nNO RECESSION OR SPLIT, SAYS\nTHE PRESIDENT, MRS.\n\n\nHOUSE..\n\nTAKE ACTION MARCH 9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-28",
+    "date_end": "1910-02-28",
+    "report_year": 1910,
+    "source_file": "1_1910-02-28_p3_sn88085947_00211108629_1910022801_0727",
+    "archive_ref": "1_1910-02-28_p3_sn88085947_00211108629_1910022801_0727",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-02-28_p3_sn88085947_00211108629_1910022801_0727",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 160,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 35,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There 10 no factionai fight in the\nWoman's club over the police ma\ntron; there is no effort to \"fire''\nany one, and neither is there any\nrecession on the part Of the club in\nthe matron fight.\n\n\nThese three points are fOrcibly\nbrought to the surface in state\nment issued today by Mrs. A. E.\nHouse, president of the WOman's\nclub. Mrs. House says there will\nbe no action on the matrOn matter\nuntil the social economic depart\nment of the club, which has the\nmatter in hand, holds it's regular\nmeeting, Wednesday, March 8. The\nstatement of Mrs. House follows:\n\n\nTo the Editor: So much has\nappeared in the press lately con-\ncorning the Woman's club that |\nam compelled, against my wish, to\nask for space in which to make a\nstatement of facts.\n\n\n1. There has been no official\nmeeting of the club or of its Off\nGals since the meeting of the city\ncouncil Wednesday."
+    }
+  ]
+}

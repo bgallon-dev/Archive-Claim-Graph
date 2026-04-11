@@ -1,0 +1,89 @@
+version: "1"
+
+# Maps query vocabulary keywords to claim_type lists for retrieval scoping.
+# Used by context_assembler to select retrieval strategy based on user query.
+#
+# When a user query contains one of these keywords, the retrieval layer
+# restricts its graph traversal to claims of the listed types.
+
+intent_to_claim_types:
+  # Railroad domain
+  railroad: [railroad_activity, freight_rate_dispute, depot_construction]
+  train: [railroad_activity, depot_construction, accident_disaster]
+  depot: [depot_construction, railroad_activity, civic_development]
+  freight: [freight_rate_dispute, railroad_activity, agricultural_condition]
+  northern pacific: [railroad_activity, freight_rate_dispute]
+  great northern: [railroad_activity, freight_rate_dispute]
+
+  # Labor domain
+  labor: [labor_action, free_speech_event, worker_condition, labor_legal_action]
+  iww: [labor_action, free_speech_event]
+  strike: [labor_action, mining_activity]
+  union: [labor_action, farm_organization, mining_activity]
+  free speech: [free_speech_event, labor_legal_action]
+  worker: [worker_condition, labor_action]
+  employment: [worker_condition, commercial_transaction]
+
+  # Indigenous domain
+  indian: [indigenous_policy]
+  tribal: [indigenous_policy]
+  reservation: [indigenous_policy, land_policy_action]
+  allotment: [indigenous_policy, land_policy_action]
+  treaty: [indigenous_policy]
+
+  # Agriculture domain
+  agriculture: [agricultural_condition, land_policy_action, farm_organization]
+  farming: [agricultural_condition, land_policy_action]
+  wheat: [agricultural_condition, commercial_transaction]
+  crop: [agricultural_condition]
+  irrigation: [land_policy_action, agricultural_condition, civic_development]
+  homestead: [land_policy_action, agricultural_condition]
+  drought: [agricultural_condition, depression_relief]
+  grange: [farm_organization, agricultural_condition]
+
+  # Turnbull pre-history domain
+  turnbull: [turnbull_prehistory]
+  refuge: [turnbull_prehistory]
+  waterfowl: [turnbull_prehistory]
+  drainage: [turnbull_prehistory, land_policy_action]
+  swamp: [turnbull_prehistory, land_policy_action]
+  wildlife: [turnbull_prehistory]
+
+  # Civic development domain
+  city: [civic_development, infrastructure_project, public_meeting]
+  municipal: [civic_development, infrastructure_project]
+  bridge: [infrastructure_project, civic_development]
+  street: [infrastructure_project, civic_development]
+  utility: [civic_development, infrastructure_project]
+  fire: [accident_disaster, civic_development]
+
+  # Mining domain
+  mining: [mining_activity, labor_action]
+  mine: [mining_activity, labor_action, accident_disaster]
+  smelter: [mining_activity, civic_development]
+  silver: [mining_activity, commercial_transaction]
+
+  # Depression era domain
+  depression: [depression_relief, agricultural_condition]
+  relief: [depression_relief]
+  ccc: [depression_relief, turnbull_prehistory]
+  wpa: [depression_relief, civic_development]
+  unemployment: [depression_relief, worker_condition]
+
+  # Education domain
+  school: [education_event, indigenous_policy]
+  normal school: [education_event]
+  teacher: [education_event]
+
+  # Women's civic life domain
+  suffrage: [womens_civic_action, election_event]
+  women: [womens_civic_action]
+  temperance: [womens_civic_action]
+  prohibition: [womens_civic_action, election_event]
+
+  # Structural types
+  election: [election_event, editorial_opinion]
+  court: [legal_notice, labor_legal_action, crime_report]
+  crime: [crime_report]
+  accident: [accident_disaster]
+  obituary: [person_profile]

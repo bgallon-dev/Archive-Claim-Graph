@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TEACHERS IN\n\n\nSESSION NOW",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-28",
+    "date_end": "1908-12-28",
+    "report_year": 1908,
+    "source_file": "3_1908-12-28_p2_sn88085947_00211108599_1908122801_0355",
+    "archive_ref": "3_1908-12-28_p2_sn88085947_00211108599_1908122801_0355",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-12-28_p2_sn88085947_00211108599_1908122801_0355",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 206,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 400,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Nearly 1000 teachers of north\neast Washington gathered in Spo-\nkane today to attend the joint in\nstitute to be held today and to-\nmorrow by Spokane, Stevens and\nLincoln counties and Spokane\ncity. At the close of the institute\nat, noon the teachers will remain\nto participate in the meetings of\nthe Washington State Teachers as\nISOLATION, which convenes tomor-\nrow afternoon for two days ses-\nsion.\n\n\nCounty Superintendent McFar-\nland called the joint institute to\norder at $3.50 this morning at the\nSouth Central high school and\nmade an address of welcome on\nbehalf of the four superintendent.\nHe spoke of Spokane as the great\nconvention city of the state and\nfelt that this city would give a\nproper account of itself in the en-\ntertainment of the teachers this\nweek.\n\n\nHe then yielded the gavel to\nCity Superintendent B. M. Watson,\nwho presided during the balance\nof the morning session. Miss Mar\ngaret Craig, superintendent of Lin\n= coin county, was in the chair this\nafternoon. The program was car\nYied out largely as previously out\nlined\n\n\nThere will be no session tonight.\n1t is probable that tomorrow's SEES\nsion of the state association will\nbe held at the First NJ E. church"
+    }
+  ]
+}

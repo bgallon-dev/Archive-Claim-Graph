@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ANOTHER MARBLE\n\n\nQUARRYING COMPANY",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-16",
+    "date_end": "1903-05-16",
+    "report_year": 1903,
+    "source_file": "15_1903-05-16_p3_sn88085947_00211108526_1903051601_0657",
+    "archive_ref": "15_1903-05-16_p3_sn88085947_00211108526_1903051601_0657",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-05-16_p3_sn88085947_00211108526_1903051601_0657",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 74,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 140,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ": another large marble quarrying\nand manufacturing company is about\nready to put in plant on Kettle river\nnear Bossburg on the Washington &\nGreat Northern railroad, according\nTO Fleetwood Ward, mining man.\nwith interests near Bossburg, who is\nnow in Spokane.\n\n\nMr.. Ward stated that the company\nis capitalized at $25O.0O0 and is pro-\nNOTED by the president Of the Ameri-\nGAN Marble Mems association, who\nYves In Des Moines. Ia. Said Ward:"
+    }
+  ]
+}

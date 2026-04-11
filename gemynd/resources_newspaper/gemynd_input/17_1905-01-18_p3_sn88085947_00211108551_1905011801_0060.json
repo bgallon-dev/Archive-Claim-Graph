@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "permanently open. 1t will be fur\nnished with Rhodes souvenirs.\n\n\n$4,000 FOR A NAME.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-18",
+    "date_end": "1905-01-18",
+    "report_year": 1905,
+    "source_file": "17_1905-01-18_p3_sn88085947_00211108551_1905011801_0060",
+    "archive_ref": "17_1905-01-18_p3_sn88085947_00211108551_1905011801_0060",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1905-01-18_p3_sn88085947_00211108551_1905011801_0060",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 70,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 11,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Tho Modern Irrigation and Land\nCo., are laying out large tract of\nland in ten acre tracts six miles east\nof Howard street. In the garden\nspot Of the Spokane valley which\nthey propose to irrigate from wells,\noperated by electricity. This tract\nis the cream of the Spokane valley.\nThe company is DESTROYS of an appro-\n\n\npirate name and will pay $40 for the\nname they adopt. Competition open"
+    }
+  ]
+}

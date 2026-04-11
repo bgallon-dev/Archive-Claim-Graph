@@ -14,7 +14,7 @@ from gemynd.shared.resource_loader import load_claim_relation_compatibility, loa
 
 if TYPE_CHECKING:
     from gemynd.ingest.extractors.mention_extractor import ResolutionContext
-    from gemynd.core.domain_config import DomainConfig
+    from gemynd.core.domain_config import CompositeDomainConfig, DomainConfig
 
 
 RESOLUTION_CONTRACT: dict[str, str] = {
@@ -108,7 +108,7 @@ class DictionaryFuzzyResolver:
         policy: ResolutionPolicy | None = None,
         supplementary_candidates: list[EntityRecord] | None = None,
         resources_dir: Path | None = None,
-        config: "DomainConfig | None" = None,
+        config: "DomainConfig | CompositeDomainConfig | None" = None,
     ) -> None:
         self._policy = policy or ResolutionPolicy()
         if config is not None and seed_entities is None:

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PRATT UPHOLDS BLAIR; NOW UP TO COUNCIL\n\nWILL CITY COUNCIL\n\n\nCAN ATTORNEY BLAIR",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-23",
+    "date_end": "1910-03-23",
+    "report_year": 1910,
+    "source_file": "23_1910-03-23_p1_sn88085947_00211108629_1910032301_1069",
+    "archive_ref": "23_1910-03-23_p1_sn88085947_00211108629_1910032301_1069",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1910-03-23_p1_sn88085947_00211108629_1910032301_1069",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 76,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 45,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ted 80 be added to the report of the\ncommittee. After this he conferred\nwith John Lee, the mayors secre-\ntary, and Ernest Sargent, former\nassistant city attorney.\n\n\nIn addition to the censure of\nBlair, the council ordered that\nBurcham be fired out of the office\nof the corporation counsel and that\non and after April / less pretentious\nquarters be used, at not to exceed\n$50 per month. The present rent is\nS125 per month."
+    }
+  ]
+}

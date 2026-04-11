@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SEE PLAN TO LAY\n\n\nBLAME ON LABOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-15",
+    "date_end": "1908-01-15",
+    "report_year": 1908,
+    "source_file": "4_1908-01-15_p1_sn88085947_00211108587_1908011501_0116",
+    "archive_ref": "4_1908-01-15_p1_sn88085947_00211108587_1908011501_0116",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-01-15_p1_sn88085947_00211108587_1908011501_0116",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 164,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 37,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In placing the Alaska-Yukon-\nPacific exposition on the unfair\nlist the federation of labor dele\ngates were influenced by the belief\nthat the exposition management\nwas deliberately forcing them to\nsuch action. A committee was APP\npointed to draft letter to the pub\nlie explaining the attitude of the\nunions toward the fair. II was\nstated there was reason to believe\nthat the financial conditions pre-\nvailing were such as to make 1t a\ndifficult matter for the fair to real\nlie on the lake front property the\nlast legislature agreed to sell to\ncreate a fund for the fair.\n\n\n1t is also the belief of many on\nthe coast that the United States\ngovernment would be slow to APP\npropriate money in view of the fail\nure of the jamestown exposition.\nUnder these circumstances the la\nDor men feel that they are being\nmade to bear the blame for the fall\nure Of the project to which they\noriginally subscribed money liber-\nally,"
+    }
+  ]
+}

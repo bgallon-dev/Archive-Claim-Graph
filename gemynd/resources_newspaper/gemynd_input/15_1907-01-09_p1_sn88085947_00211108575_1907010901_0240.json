@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "KNOCKS OUT CITY\nPARK PLAN\n\n\n=",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-09",
+    "date_end": "1907-01-09",
+    "report_year": 1907,
+    "source_file": "15_1907-01-09_p1_sn88085947_00211108575_1907010901_0240",
+    "archive_ref": "15_1907-01-09_p1_sn88085947_00211108575_1907010901_0240",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1907-01-09_p1_sn88085947_00211108575_1907010901_0240",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 80,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 242,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Corporation Counsel Geraghty\nholds the 10000 clubs city park\nplan illegal. He delivered this\nopinion at noon to a joint session\nOF the club and chamber of COM\nmerce directors at the Silver Grill.\n\n\nThe 10000 club proposes an\namendment to the city charter to\ntake the control Of the parks away\nfrom the city administration and\nput 1t into tho hands of a citizens\ncommission. The corporation\ncounsel told the gathering that the\nproposition in the form in which"
+    }
+  ]
+}

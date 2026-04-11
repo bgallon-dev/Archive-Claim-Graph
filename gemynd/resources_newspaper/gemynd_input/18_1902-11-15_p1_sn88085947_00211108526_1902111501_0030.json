@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SNItChmen Tell of Hardships in Con-\n\n\nneCtion With Their Work.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-15",
+    "date_end": "1902-11-15",
+    "report_year": 1902,
+    "source_file": "18_1902-11-15_p1_sn88085947_00211108526_1902111501_0030",
+    "archive_ref": "18_1902-11-15_p1_sn88085947_00211108526_1902111501_0030",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1902-11-15_p1_sn88085947_00211108526_1902111501_0030",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 96,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 310,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "men will concede remains a topic\nfor much consideration.\n\n\nHill and Morgan lines have al\nready made some concessions to\ntheir switchmen.\n\n\n1t has been impossible for the\nlines In the northwest to keep a\nswitchman any length Of time, there\nbeing better opportunities else.\nwhere, and \"they usually went\"\nsaid a Great Northern brakeman\nlast night.\n\n\n1.-THE duties assigned switchmen,'\nhe continued, \"are passed by unno\nticed by the general public. The\nlife of a switchman is one Of the\nmost, if not the most, dangerous\npositions in railroad life.\n\"The sWitChmen SDend the most"
+    }
+  ]
+}

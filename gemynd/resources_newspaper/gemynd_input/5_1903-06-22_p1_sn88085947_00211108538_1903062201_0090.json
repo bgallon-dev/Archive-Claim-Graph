@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SERIOUS ACCOUNT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-22",
+    "date_end": "1903-06-22",
+    "report_year": 1903,
+    "source_file": "5_1903-06-22_p1_sn88085947_00211108538_1903062201_0090",
+    "archive_ref": "5_1903-06-22_p1_sn88085947_00211108538_1903062201_0090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-06-22_p1_sn88085947_00211108538_1903062201_0090",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 204,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 952,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "On a cot in the second ward at\nSacred Heart hospital lies the only\nman who escaped with his life after\nriding with the runaway train the\nentire distance. c. Daniels Is his\nname and he claims to be an AL\ngerian. He is badly injured, being\nbruised and broken in a dozen places.\nIn broken English he told his story:\n\n\nII came in from Kalispell last\nnight. I passed coal to the fireman\non the engine TO pay my passage.\nWhen we got into Hillyard we switch\ned onto a sidetrack where there were\nmany coal cars. 1 lay down in a lum-\nDer car and went to sleep. Pretty\nsoon awoke and the train was going\nat full speed and I thought it had\nstarted into Spokane. wanted to\njump of at first, but the train was\ngoing too fast for me. Soon knew\nwhat was the matter as I could see\nno engine. Then the train struck\nsomething and broke in two and 1t\nbroke several times before it struck\nand was wrecked. After that l knew\nnothing\"\n\n\nFrank L. Gordon, claim agent for\nthe Great Northern railway, this\nmorning stated cause for the break\naway Of the cars as follows:"
+    }
+  ]
+}

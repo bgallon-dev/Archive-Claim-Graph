@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-01-06 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-01-06",
+    "date_end": "1904-01-06",
+    "report_year": 1904,
+    "source_file": "1_1904-01-06_p3_sn88085947_00211108538_1904010601_0874",
+    "archive_ref": "1_1904-01-06_p3_sn88085947_00211108538_1904010601_0874",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1904-01-06_p3_sn88085947_00211108538_1904010601_0874",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 349,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 270,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "slirted sister team, the knociabout\ncomedians and the airily-arrayed, mer-\n~ chorus girls in the spicy burletta\nhad worked assiduously to please the\nmany patrons, several of whom had\nbeen attracted to the place by the\nannouncement that the bill would be\nmarked by grand temperance finale.\n\n\nThe vaudeville performers were glad\nwhen the time came for them to take\nthe other side of the footights.\n\n\nTIL after performance started prompt\n~. the audience applauding the OK\nhorters and cheering the hymn sing\ning, all the time drinking beer and\nother liquor ut tables scattered through\nout the hall. Mrs. jain Bolton of\nthis city, who had charge of the per-\nTorrance, joined with her associates\nin singing the Battle Hymn of the\nRepublic\" and asked the audience 20\njoin in the chorus. This they did with\nvim, shouting the \"Glory, glory, halle\nlujah,\" in manner which showed that\nit was an old-timer to them.\n\n\nThe singing was followed by a revival\nspeech by Mrs. Bolton. She thunder\ned against saloons and other drinking\nplaces. The crowd cheered this and\nMrs. Bolton added that she was afraid\nof neither man nor the devil. This\nstatement indicated 20 strongly how\ngreat was the woman's bravery that it\nbrought more applause from the beer\ndrinkers and the women in the gal\nlery.\n\n\nMrs. Bolton then introduced her sis\nter, Mrs. l.. Palmer of Elgin, Pa, who\nled in a song service. made up of old\nfashioned revival hymns, in which most\nof those present joined heartily.\n\n\nAt the close of the performance one\nof the revivalists said: This is the\nway to get the men. am sure we\nhave driven home few nails at least -\n\n\nAsked after the show whether t\nwas true that the revivalists had about\nconverted him to the idea of perma-\nnently Transforming his music hall into\na church, Fenton said: Stranger things\nhave come to pass. have told these\npeople to go ahead and if they can\nturn any man or woman from drinking\nam glad of it, They can have my\nplace once week\""
+    }
+  ]
+}

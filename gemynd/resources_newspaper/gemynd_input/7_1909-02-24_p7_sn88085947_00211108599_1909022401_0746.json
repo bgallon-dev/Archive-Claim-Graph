@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PETITIONS LEFT\n\n\nWITH UNIONS\n\nMAN SELECTED TO CIRCULATE\nREFERENDUM REQUEST HAS\nCITY JOB, AND MAlONEY IS\nTOO BUSY.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-24",
+    "date_end": "1909-02-24",
+    "report_year": 1909,
+    "source_file": "7_1909-02-24_p7_sn88085947_00211108599_1909022401_0746",
+    "archive_ref": "7_1909-02-24_p7_sn88085947_00211108599_1909022401_0746",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-02-24_p7_sn88085947_00211108599_1909022401_0746",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 212,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 989,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t is up to each labor union in\nthe city to get its members to sign\nthe petition for the initiative and\nreferendum charter amendment In\norder to secure the endorsement\nof sufficient number of the voters\nbefore the next city election. This\nis the announcement made today\nby Thomas Maloney, chairman of\nthe legislative committee of the\nSpokane Central Labor union.\n\n\nMr.. Feeney, elected at the last\nmeeting of the Central Labor cOun-\nGil to take full charge of the circu-\nlation of the petitions, has been\ngiven job with the city as sewer\ninspector and has not sufficient\ntime to take up the matters en-\ntrusted to him. Mr.. Maloney is\nburied in other work, and states he\nhas come to the conclusion that\nthe best way to overcome the diff\nGuilty is to have a petition circu-\nlated among the members of each\nunion in the city and to pick up\nall the outside names possible.\n\n\nAbout 1900 voters must have\nsigned this petition before the\nregistration books are closed, else\nthe amendment to the city charter\nwill be lost. Mr.. Maloney stated\ntoday that he believed that if each\nunion would take hold of the cir.\nculation of the petitions in earnest\ntheir object can easily be realized."
+    }
+  ]
+}

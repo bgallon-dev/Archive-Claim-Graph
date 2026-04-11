@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TINE FOR LABOR AND\n\n\nFARMERS To UNITE\n\nBig Meeting Natures Plans For Ag-\n\n\ngressive, Independent Action.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-08",
+    "date_end": "1910-08-08",
+    "report_year": 1910,
+    "source_file": "21_1910-08-08_p2_sn88085947_00211108642_1910080802_0401",
+    "archive_ref": "21_1910-08-08_p2_sn88085947_00211108642_1910080802_0401",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "21_1910-08-08_p2_sn88085947_00211108642_1910080802_0401",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 100,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 140,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At meeting of the Joint com\nmittee of the Central Labor council\nand the farmers organization, held\nSaturday night in the rooms OF the\nEqual Suffrage association in the\nHutton building, it was agreed that\nthe time had come for the working\nmen OF the city and the farmers to\nunite for honest county govern\nment and the choice of good men\nfor the legislature.\n\n\nNames of the candidates who\nhave thus far filed were closely\nscanned, with a view OF separating\nthe sheep from the goats. After the\nnlings are finished. endorsements\nwill be entered and an effort made"
+    }
+  ]
+}

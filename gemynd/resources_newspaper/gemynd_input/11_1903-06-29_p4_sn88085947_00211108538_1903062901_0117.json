@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-06-29 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-29",
+    "date_end": "1903-06-29",
+    "report_year": 1903,
+    "source_file": "11_1903-06-29_p4_sn88085947_00211108538_1903062901_0117",
+    "archive_ref": "11_1903-06-29_p4_sn88085947_00211108538_1903062901_0117",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-06-29_p4_sn88085947_00211108538_1903062901_0117",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 246,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 52,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nNotice Of stockholders meeting Of\nThe Washington Water Power com\npany for the purpose of increasing it's\ncapital stock and considering a Ger.\ntain amendment to the articles of in\ncorporation and the bylaws Of, the\ncompany. !.\nNotice is hereby given that a\nstockholders meeting Of The WASH\nington Water Power company IL here\nby called and will be held at the Of\nAce Of said company In the Empire\nState building. corner of Riverside\navenue and Lincoln street, in the city\nand county Of Spokane. state Of\nWarrington. at the hour Of 2 p. M,\non the fourth day Of August, 1909,\nfor the purpose Of Increasing the cap\nital stock Of said company from two\nmillion six hundred thousand dollars\nto three million six hundred thousand\ndollars, and from twsnty-six thousand\nshares Of the par value Of ono hun\ndred dollars each to thirty-six thou\nsand shares Of the par value Of one\nhundred dollars each, ana for the\npurpose Of amending the articles Of\nincorporation and bylaws Of said\ncompany by increasing the number\nOf members Of the board Of trustees\nof said company from ten to eleven.\nSaid meeting II called and this no\ntics signed by = majority OF the\ntrustees Of said company.\n\n\nDated at Spokane, Washington, this\nsth day of June 1908.\n\n\nHENRY N. RICHARDG.\nJ. N. GLOVER,\n\n\nd. L. HUNTINGTON.\n\n\nTHOMAS @. THOMSON,\n\n\n). r. N. RiCHARDs,\n\n\na. B. CAMPBELL.\n\n\nTrustees .\n/ n. 4 DIEEcKER. Secretary."
+    }
+  ]
+}

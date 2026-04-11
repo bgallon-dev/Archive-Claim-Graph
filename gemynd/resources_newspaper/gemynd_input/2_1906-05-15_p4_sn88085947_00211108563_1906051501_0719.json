@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABORS' c. REALM",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-15",
+    "date_end": "1906-05-15",
+    "report_year": 1906,
+    "source_file": "2_1906-05-15_p4_sn88085947_00211108563_1906051501_0719",
+    "archive_ref": "2_1906-05-15_p4_sn88085947_00211108563_1906051501_0719",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-05-15_p4_sn88085947_00211108563_1906051501_0719",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 165,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 723,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "last night and all union men who\npatronize those lines when they\ncan just as easily take the Traction\nlines will be disciplined by their\nunions.\n\n\nThe central union did not stop\nwith the two lines of the company\nthat are paralleled by the Traction\ncompany, but also placed Natal tor\nium Park along with the lines of\nthe company on the unfair list.\n\n\n1t is the intention of the unions\nto picket these lines and the park,\nand as all the local unions have\nstringent laws it is expected that\nthe action of the central body viii\nhave the effect of keeping away\nconsiderable patronage which the\ncompany has enjoyed in the past.\n\n\n1t is also the intention of the\nunion men of the city to place\nevery line owned by the Washing\nton Water Power company that is\nparalleled in the future by the\nTraction company, on the unfair\nlist, and they say they will con-\ntinue the fight against the company\nindefinitely."
+    }
+  ]
+}

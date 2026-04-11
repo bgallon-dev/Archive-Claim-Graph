@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "THIRD WARD\nWILL LEAD\n\n\nIN PAVING",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-06",
+    "date_end": "1910-05-06",
+    "report_year": 1910,
+    "source_file": "1_1910-05-06_p10_sn88085947_00211108630_1910050601_0533",
+    "archive_ref": "1_1910-05-06_p10_sn88085947_00211108630_1910050601_0533",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-05-06_p10_sn88085947_00211108630_1910050601_0533",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 183,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 468,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 31,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "President E. V. Lambert of the\ncity council announced this morn\ning that the plans for paving the\nCannon Hill district will be pre-\nsented to the city council next\nTuesday night.\n\n\nThe plans are still in the hands\nof the city engineer, who has the\nwork about ready for the inspec-\nton of the city council. The area\nof the improvement is about one\nsquare mile and covers every street\nin the district between Fourth ave-\nnue. on the north and Tenth avenue\non the south, Monroe street on the\neast and Hangman creek on the\nwest. The character of the paving\nto be used is asphalt on the level\nstreets and brick and concrete on\nthe grades. The estimated cost is\n100000.\n\n\nWith the combined Brownies add\nition and Cannon Hill paving COM\npleted the Third Ward will have\ntaken a stride ahead of any other\nsection of the city in the matter of\npaving. These two jobs will joint\nly represent about $1,000,000, to be\ninvested in street paving in that\nsection of the city within the pres\nent year."
+    }
+  ]
+}

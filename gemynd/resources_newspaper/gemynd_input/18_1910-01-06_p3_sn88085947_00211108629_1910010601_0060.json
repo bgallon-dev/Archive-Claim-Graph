@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ARCADIA WINS\n\n\nTREE SUIT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-06",
+    "date_end": "1910-01-06",
+    "report_year": 1910,
+    "source_file": "18_1910-01-06_p3_sn88085947_00211108629_1910010601_0060",
+    "archive_ref": "18_1910-01-06_p3_sn88085947_00211108629_1910010601_0060",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-01-06_p3_sn88085947_00211108629_1910010601_0060",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 102,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 120,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A defective contract, in that no\nspecific time is set forth for the\nplanting Of trees On the tracts sold\nby the Arcadia Irrigation associa-\nton, caused the defeat of Thomp-\nson, one of the property owners, in\nJudge Hunekcs court this morn\ning.\n\n\nThis affects all owners of land in\nthe Arcadia company's tract near\nDeer Park. 1t has been two years\nsince many of them purchased the\nland, and the promised tree-plant-\ning has not taken place. So far as\nthe contract is concerned, two\nyears or 20 years more may elapse\nbefore the irrigation association\nmay plant the trees."
+    }
+  ]
+}

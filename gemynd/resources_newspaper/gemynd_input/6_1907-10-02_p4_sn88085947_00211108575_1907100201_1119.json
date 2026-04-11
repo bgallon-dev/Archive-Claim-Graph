@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-10-02 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-02",
+    "date_end": "1907-10-02",
+    "report_year": 1907,
+    "source_file": "6_1907-10-02_p4_sn88085947_00211108575_1907100201_1119",
+    "archive_ref": "6_1907-10-02_p4_sn88085947_00211108575_1907100201_1119",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1907-10-02_p4_sn88085947_00211108575_1907100201_1119",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "flathead",
+          "reservation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 135,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "flathead",
+            "weight": 1.5,
+            "offset": 774,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 389,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, D. c., Oct. q\nHo, We homeseekers, hike for the\nwest!\n\n\nUncle Sam is planning to distrib-\nute during the coming year nearly\n100000 acres of land to about 35,-\n600 people. How would you like\nto one of the number?\n\n\nThis will be the biggest distribu-\nton made by the United States\ngovernment since Oklahoma was\nopened for settlement. The land is\nlocated on eight different Indian\nreservation in four states. Nearly\nall of it is regarded as first class\nfor farming purposes.\n\n\nWhile the regulations for it's dis\nposal have so far been announced\nfor only one reservation, it has\nbeen decided to open all of the\ntracts by the lottery system. The\nreservations, with their acreage,\nfollow:\n\n\nLower Brule, South Dakota. S.\n$50 acres; Rosebud, South Dakota,\n$4,000 acres; Flathead. Montana,"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "\\. P. TRAIN\nMEN ARE\n\n\nSTILL OUT\n\nSOME RETURN TO WORK ON\n\n\nTHE GREAT NORTHERN.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-09",
+    "date_end": "1909-12-09",
+    "report_year": 1909,
+    "source_file": "1_1909-12-09_p1_sn88085947_00211108617_1909120901_0292",
+    "archive_ref": "1_1909-12-09_p1_sn88085947_00211108617_1909120901_0292",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-12-09_p1_sn88085947_00211108617_1909120901_0292",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 8.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "railroads": [
+          "great northern",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 291,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 796,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 110,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 198,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 62,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is nothing stirring among\nthe idle members of the Brother\nhood of Railroad Trainmen on the\nlines of the Northern Pacific this\nmorning, despite the fact that re-\nports from all up and down the\nGreat Northern have it that they\nare returning to work in masses\nthere. 1t is doubtful If they will\nreturn to work on the Northern\nPacific until settlement or COM\npromise of the troubles existing be-\ntween the officials of the road and\nthe SwitchrIen ems union has been eff\nfected.\n\n\nAt was reported yesterday, the\norder for the B. of r. T. men to re-\nturn to work under penalty of being\nexpelled from the organization only\napplies to roads on which their\nunion holds a majority over the\nstrikers. Members of the Switch\nmems union declare they cannot\ntell why the railroads think their\npart of the strike is practically at\nan end. for they have been given\nno late information of any attempt\n\n\n\n\n\nproffered advance of 2 cents an\nhour, which has been spurned.\n\n\nMuch discussion is heard among\nmembers of both the Switchmen's\nunion and the r. of II. II. over the\nreport that the railroads crippled\nby the strike are to hire strike\nbreakers at the Denver\" scale of\nwages.\n\n\nThis scale, the strikers declare,\nis 10 cents an hour in excess of the\nwages that were being paid to\nthem just before they began their\nstrike, and four cents an hour more\nthey they are now demanding.\n\n\nAll the railroads involved in the\nstrike are being crowded hard for\nservice by the merchants and ship\npers all over the country. Three\nthrough freight trains were run\nwest through Spokane over the\nNorthern Pacific last night and\none went east."
+    }
+  ]
+}

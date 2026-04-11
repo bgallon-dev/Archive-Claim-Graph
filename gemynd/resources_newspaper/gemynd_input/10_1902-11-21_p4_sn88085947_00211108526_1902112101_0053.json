@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MORE OUTPUT.\n\nAdvantage of New Methods\n\n\nat Wardner.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-21",
+    "date_end": "1902-11-21",
+    "report_year": 1902,
+    "source_file": "10_1902-11-21_p4_sn88085947_00211108526_1902112101_0053",
+    "archive_ref": "10_1902-11-21_p4_sn88085947_00211108526_1902112101_0053",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1902-11-21_p4_sn88085947_00211108526_1902112101_0053",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "bunker hill"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 103,
+      "match_details": {
+        "mining": [
+          {
+            "term": "bunker hill",
+            "weight": 2.0,
+            "offset": 230,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Frank Bradley, who has until re-\nGently been employed in the Bunker\nHill mine in Wardner, Idaho, is in\nthe city today.\n\n\nMr.. Bradley stated that there is\ngreat activity lately in that vicin-\nity.\n\n\nThe underground railway of the\nBunker Hill mine, which was com\npleted but a short time ago. said\nMr.. Bradley, is a great success. 1t\nnot only does away with the danger\nheretofore experienced of the cables\nbreaking and the heavy buckets\ncrashing into the business streets\nof the town. but it also promotes\nan increased output by 25 per cent\"\n\n\nMr.. Bradley will leave for Seattle\ntonight."
+    }
+  ]
+}

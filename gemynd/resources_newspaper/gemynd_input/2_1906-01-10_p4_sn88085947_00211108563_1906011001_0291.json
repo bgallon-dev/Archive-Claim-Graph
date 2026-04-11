@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABOR CONVENTION PASSED\n\n\nMANY VITAL RESOLUTIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-10",
+    "date_end": "1906-01-10",
+    "report_year": 1906,
+    "source_file": "2_1906-01-10_p4_sn88085947_00211108563_1906011001_0291",
+    "archive_ref": "2_1906-01-10_p4_sn88085947_00211108563_1906011001_0291",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-01-10_p4_sn88085947_00211108563_1906011001_0291",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 179,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 988,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "laws in the interest of the public\nhealth or morals.\n\n\n1.-THE Federation also protested\nagainst the proposed tariff reduc-\nton on Philippine products and re-\nquested Washington's senators and\nRepresentatives to vote against\nhouse bill No. 8.\n\n\nThe report of President Black\nman was a splendid piece Of work\nand contained many recommends\ntions, among which was one advo-\neating the election of union men to\nthe state and municipal govern\nments, and that union men take\nmore interest in politics as such.\nThis recommendation was unanim-\nously concurred in. The seating of\nfraternal delegates from the Farm\ners' Alliance and from the Minis\nterial association of Seattle marks\nan epoch in the labor movement of\nthe west, and both of these gentle\nmen in addresses in open meeting\nconfessed that they had in the con-\nvention received a liberal education\nalong trade union lines, and would\nforever be favorable to organized\nlabor, and would so report to their\nrespective associations. The State\nGrange also elected a delegate, but\nhe was detained by illness. The\nconvention elected President Black"
+    }
+  ]
+}

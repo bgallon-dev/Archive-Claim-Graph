@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-03-15 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-15",
+    "date_end": "1906-03-15",
+    "report_year": 1906,
+    "source_file": "14_1906-03-15_p1_sn88085947_00211108563_1906031501_0508",
+    "archive_ref": "14_1906-03-15_p1_sn88085947_00211108563_1906031501_0508",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1906-03-15_p1_sn88085947_00211108563_1906031501_0508",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 97,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 177,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "thority that the engineers Of the\nroad will begin the surveys Of the\nproposed route early this spring.\nThe route Is being kept a profound\nsecret because Of the rivalry with\nthe Great Northern. The Canadian\nPacific road controls the 500.\n\n\nWhile the route through Wash.\nington to the coast has not been\ndetermined on, 1t Is understood that\nthe road will continue straight to\nSeattle. The construction work on\nthe extension from Portal to Flax.\nton, N. D., will begin as soon as the\nweather permits. The surveys have\nbeen made and the route laid out."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CONTESTS CITY\nRIGHTS To\n\n\nSTREET",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-19",
+    "date_end": "1908-09-19",
+    "report_year": 1908,
+    "source_file": "9_1908-09-19_p1_sn88085947_00211108587_1908091901_1029",
+    "archive_ref": "9_1908-09-19_p1_sn88085947_00211108587_1908091901_1029",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-09-19_p1_sn88085947_00211108587_1908091901_1029",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 216,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 632,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The right of the city to enter\nupon and grade Scott street in\nHarrison & Townsend's addition is\nchallenged by r. l.. Webster, as\nagent for Sadie F. Webster, who\nsays the city holds no title to\nthe west half of Scott street be-\ntween Eighth avenue and the north\nline of Highland Park addition, one\nblock in length. Mr.. Webster says\nthe city must see him before pro-\nceeding with any improvement\nacross his ground.\n\n\nWebster's petition recites some\nhistory of early Spokane. He says\nhe bought the ground that he now\nowns on August 20, 1883, from Mil\nlard T. Harrison and l. c. Town\nsend, who had plated that addi-\nton to the town of Spokane Falls.\nThe deed given him, he argues,\ncovered the west half of Scott\nstreet, but seven years later, on\nJune Z, 1890, new and correct\ned\" plat of the addition was filed\nin which all of Scott street is dedi-\nGated to public use.\n\n\nHe says the amended plat con-\ntains no signature of the grantor,\nbut he presumes it was filed by\nHarrison and Townsend. He says\nthe amended plat is wrong in that\nit conveys to the public rights for\nwhich he holds under a prior deed.\nMr. Webster Is opposed to the i'm\nprovement."
+    }
+  ]
+}

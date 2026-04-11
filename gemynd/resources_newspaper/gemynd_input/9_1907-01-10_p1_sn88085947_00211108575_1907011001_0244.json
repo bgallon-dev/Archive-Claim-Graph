@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-01-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-10",
+    "date_end": "1907-01-10",
+    "report_year": 1907,
+    "source_file": "9_1907-01-10_p1_sn88085947_00211108575_1907011001_0244",
+    "archive_ref": "9_1907-01-10_p1_sn88085947_00211108575_1907011001_0244",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1907-01-10_p1_sn88085947_00211108575_1907011001_0244",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 513,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 2488,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 2594,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is possibility that the\nfight for control of the city park\nsystem may be the issue in the\ncoming municipal campaign. The\nproposed ordinance of the 100000\nclub has stirred up all manner of\nopposition and comment. This Or\ndinance proposes placing the man\nagement of the parks in the hands\nof board of 10 appointed by the\n10000 club, this boardto appoint\nsuccessors upon the expiration of\nterms of members.\n\n\nAttorney F. T. Post, on behalf Of\nthe club, takes the position that the\ncouncil was compelled to submit\nthe proposed amendment to the\ncharter to a vote of the people, as\n10 per cent of the voters at the last\nelection had signed a petition ask\ning that the council take such &C.\nton.\n\n\n1t is stated in political circles\nthat the democrats would welcome\na campaign in which the turning\nover of the parks to board as pro-\nposed would be the issue. They are\nconfident the public would not sus-\ntain law to take control of the\nparks out Of it's hands and placing\nthis power in the hands of board\nover which the public had absolute\nly no control.\n\n\nCity Attorney Geraghty in an in.\nterview today took issue with Mr..\nPost. He said\n\n\n\"Mr. Post lodges the real issue.\nHe does not say the amendment is\nlegal. AS lawyer he would not go\non record as saying that a charter\namendment OF this kind could en-\ndow the park board with corpor-\nate entity and confer on 1t power Of\neminent domain, as this amend\nment would do. In addition it at\ntempts to procribe procedure in\ncourts. What Mr.. Post means is\nthat regardless of whether the Or\ndinance is good or bad the coun-\nGil can be compelled by the asso-\nCitations behind it to submit 1t to\na vote of the people. | will do\nthese people the justice to assume\nthat they would not put the city,\nthrough pride of opinion, to the\nuseless expense of submitting the\nordinance to vote of the people,\nknowing that the proposed meas\nure is unconstitutional.\n\n\naside from the legal objections\nto the ordinance 1t goes on the as\nsumption that the people are too\nignorant to manage their own af-\nfairs and must be put under a\nguardianship of a self constituted,\nself perpetuating board This idea\nis contrary to the spirit of the\ntimes and an amendment of this\nkind is out of place when the peo-\npie are clamoring for a greater\nshare in their government and are\nadopting the direct primary and\ninitiative and referendum and de,\nmand the election of United States\nsenators by direct vote.\n\n\nThe general public does not\nrealize how easy it is to alter the\ncity charter and should consider\ncarefully every proposed amend\nment.\n\n\nPursuant to instructions from\nthe city council | will draft al\ninitiative and referendum ordin\nance that will permit the people Il\nnot only control the park system\nbut the entire city government al\nwe'll\"\n\n\n1t has been learned that the com"
+    }
+  ]
+}

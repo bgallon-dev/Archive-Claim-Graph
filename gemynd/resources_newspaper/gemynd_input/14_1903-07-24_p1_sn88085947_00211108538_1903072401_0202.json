@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CHICAGO CAPITAL IS IN\n\n\nIDAHO WATER SCHEME",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-24",
+    "date_end": "1903-07-24",
+    "report_year": 1903,
+    "source_file": "14_1903-07-24_p1_sn88085947_00211108538_1903072401_0202",
+    "archive_ref": "14_1903-07-24_p1_sn88085947_00211108538_1903072401_0202",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1903-07-24_p1_sn88085947_00211108538_1903072401_0202",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 115,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 354,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Registered at the Hotel Spokane is\nparty OF 10 Chicago capitalists in\nterested in Senator Fred Du Bots ir-\nrigation scheme--known as the Lew\niston- Waha Land, Water & Power\ncompany. They arrived in town this\nmorning and leave for Lewiston to-\nmorrow. where they will spend a\nweek examining the $4,000 acres Of\nland through which, the proposed ca\nnal and irrigation bitches are to be\nrun.\n\n\nInterested in the undertaking with\nMr.. Du Bots IL ]. G. Trainer. a pro-\nmoter and capitalist OF Chicago. who\n10 In charge Of the party consisting\nOf the following gentlemen: c. F.\nThomson, plano manufacturer; j.\nMilton Trainer. building contractor;\nSidney Adler. attorney; E. F. Dunn,"
+    }
+  ]
+}

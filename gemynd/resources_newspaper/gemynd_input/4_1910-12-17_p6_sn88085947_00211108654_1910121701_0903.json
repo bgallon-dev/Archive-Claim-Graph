@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "EMPLOYMENT\nSHARKS ARE\n\n\nBUSY",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-17",
+    "date_end": "1910-12-17",
+    "report_year": 1910,
+    "source_file": "4_1910-12-17_p6_sn88085947_00211108654_1910121701_0903",
+    "archive_ref": "4_1910-12-17_p6_sn88085947_00211108654_1910121701_0903",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-12-17_p6_sn88085947_00211108654_1910121701_0903",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 271,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 1188,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Now that the winter is here and\nwork has shut down all over the\ncity, the employment agencies\nwhich resort to grating the poor\nworking man out his last few dol.\nlars by selling him fake jobs, are\nin their element, and are doing a\nflourishing business.\n\n\nHardly a day passes but from 20\nto 80 unfortunates who have been\ngrated by the taking agencies call\nat the mayors office and show en-\nployment agency tickets upon\nwhich they have gone out of the\ncity to take jobs which either did\nnot exist or were not as repre-\nscented.\n\n\nA case in point is one where a\nnumber of men were sent out by\nthe All Nations Employment\nagency this week, to take jobs as\nsawyers in logging camp nearly\n100 miles from the city.\n\n\nThe men paid 81 each for their\njobs. They went to the place\nwhere they were to have gone to\nwork, but found that there was\nnothing doing for sawyers. They\nwere told that they could go to\nwork for a few days building\nroads, the hardest work around a\nlogging camp. They refused, how\never, as they were experienced\nsawyers, and had been specifically\nsent out to take sawyers' jobs.\n\n\nThe foreman on the work signed\ntheir tickets showing that he had\nnot hired them-but he enabled\nthe employment agency to escape\nrefunding their money by adding a\nnotation to the effect that he had\noffered the men jobs at road build\ning.\n\n\nSo when the men who had been\nbuncoed came back to town they\nwere given the laugh by the en-\nployment men."
+    }
+  ]
+}

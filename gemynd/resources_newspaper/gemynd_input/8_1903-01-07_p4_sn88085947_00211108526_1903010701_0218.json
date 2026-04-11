@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TO LOCATE HERE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-07",
+    "date_end": "1903-01-07",
+    "report_year": 1903,
+    "source_file": "8_1903-01-07_p4_sn88085947_00211108526_1903010701_0218",
+    "archive_ref": "8_1903-01-07_p4_sn88085947_00211108526_1903010701_0218",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-01-07_p4_sn88085947_00211108526_1903010701_0218",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 76,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 330,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Secretary Munroe of the Chamber\nof Commerce has received a letter\nletter from Dr. Giles G.. Moselcy Of\nRedlands, Cal. who asks as to the\ninducements the city would offer to\nthe manufacture Of hollow wooden\nware\n\n\nThe company looks to Spokane as\nthe center of the cedar and pine dis\ntrict. 1t would probably ask for\nsite along the water power.\n\n\nThe letter did not state the num-\nDer of men probably to be employed."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Washington Farmer — 1914-06-15 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1914-06-15",
+    "date_end": "1914-06-15",
+    "report_year": 1914,
+    "source_file": "12_1914-06-15_p4_sn98047755_00211107790_1914061501_1132",
+    "archive_ref": "12_1914-06-15_p4_sn98047755_00211107790_1914061501_1132",
+    "series": "Washington Farmer",
+    "language": "en",
+    "lccn": "sn98047755",
+    "newspaper_name": "Washington farmer. [volume] (Spokane, Wash.) 1914-1971",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1914-06-15_p4_sn98047755_00211107790_1914061501_1132",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grain elevator"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.2,
+      "tier": "background",
+      "year": 1914,
+      "word_count": 115,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grain elevator",
+            "weight": 2.0,
+            "offset": 21,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "| be embodied in the grain elevator to\nbe constructed in Seattle, SO far as\nthey are applicable to local condi-\nTONS A unique feature of the local\nhouse is that grain may be handled\nin both sack and bulk as may be re-\nquired, which will take care of the\nsituation during the period Of change\nbetween the sack and bulk method, or\nwill enable the continuance of the\npractice of shipping in sack where\nthe bulk methods are not practical.\n\n\nThe storage capacity of the elevator\nwill be Apr Ultimately 500, 600 bush\nels. The plans are so drawn, how\nply building additional storage bins\nover, that this may be doubled by sim"
+    }
+  ]
+}

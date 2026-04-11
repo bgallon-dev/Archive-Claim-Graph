@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AGAINST\n\n\nFRANCHISE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-16",
+    "date_end": "1910-11-16",
+    "report_year": 1910,
+    "source_file": "14_1910-11-16_p1_sn88085947_00211108654_1910111602_0524",
+    "archive_ref": "14_1910-11-16_p1_sn88085947_00211108654_1910111602_0524",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "14_1910-11-16_p1_sn88085947_00211108654_1910111602_0524",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 99,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 286,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "People Of Byrne's addition have\nentered protest against granting\nfranchise for \"Y\" track at the\npresent terminus of the Division\nstreet line, at Rowe avenue, unless\nthe company agrees to extend its\nline a half mile farther north, to\nByrne's addition.\n\n\n1t is proposed by the Washington\nWater Power Co. to locate \"Y\"\ntracks at the ends of all of it's lines\nin order to enable it to turn its\ncars. instead of reversing end for\nend as at present. When the \"Ys\"\nare installed it Is proposed to in\naugurate pay as you enter plan\nof collecting fares."
+    }
+  ]
+}

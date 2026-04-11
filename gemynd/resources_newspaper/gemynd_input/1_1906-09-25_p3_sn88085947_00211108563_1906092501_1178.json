@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "D0AK MAY HAVE\n\n\nFIGHT ON",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-25",
+    "date_end": "1906-09-25",
+    "report_year": 1906,
+    "source_file": "1_1906-09-25_p3_sn88085947_00211108563_1906092501_1178",
+    "archive_ref": "1_1906-09-25_p3_sn88085947_00211108563_1906092501_1178",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-09-25_p3_sn88085947_00211108563_1906092501_1178",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 177,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 441,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t is reported that Harry Baer\nand Dutch\" Jake, the reputed ten\nderloin bosses, are not quite sure\nthat they want Sheriff Doak re-\nelected. 1t looked as though Doak\nhad cinch vixen the republican\nconvention renominated him, but\nthere don't seen to be any great\nenthusiasm among republicans over\nhis reelection. The electrical work\ners have been complaining of the\nmanner in which he has treated\nthem during their trouble with the\nWashington Water Power COM\npany, and the support that they\nare receiving from the other unions\nwould indicate that they will be\nsuccessful in throwing a large\nnumber of votes to the candidates\nfor sheriff on other tickets.\n\n\nThe bosses are worried because\nthey always want to be on the side\nthat wins. They will, If some can\ndidate other then Doak is elected,\nImmediately burn red fire, buy a\nfew drinks and If possible impress\nthe man who is successful with the\nidea that they were with him from\nstart to finish. and that his cleo\nton was entirely due to their\neffoffrts."
+    }
+  ]
+}

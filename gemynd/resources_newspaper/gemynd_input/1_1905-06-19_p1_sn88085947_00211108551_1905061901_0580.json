@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "title": "Stencil From the Refuse Below Mon\nroe Street Bridge Annoys Residents\nof That Neighborhood and Peace\nfull Valley Is Up in Arms.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-19",
+    "date_end": "1905-06-19",
+    "report_year": 1905,
+    "source_file": "1_1905-06-19_p1_sn88085947_00211108551_1905061901_0580",
+    "archive_ref": "1_1905-06-19_p1_sn88085947_00211108551_1905061901_0580",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1905-06-19_p1_sn88085947_00211108551_1905061901_0580",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 325,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 378,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 162,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 131,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Once the burdened residents of Peaceful Valley\nappealing without recourse oS an abolition of unsani\ntary conditions\n\n\nThe board of public works is again refusing relief and\nthe board of health has declined to take action because Of\nthe municipal superiority of the board\n\n\nThe contention this time is that the street sweepngs\nand other refuse and filth deposited just below\nthe Monroe street bridge Main avenue.\n\n\nFrom that spot arises odors which smell up and down\nthe most expensive driveway the city has attempted\nto build.\n\n\nNothing more unsanary can be deposited aside from\nthe night SOIL yet the city commissioners declare they\nhave no other place to dump the filth\n\n\nAll OF the street sweepings formerly dumped\nthrough trap in the Monroe street bridge.\n\n\nObjections made to the dumping of the refuse in\nthis manner and the kick made strong that the\nboard of public works was forced to heed it.\n\n\nThen it that orders given Foreman Tllisch to\ncreate dump\n\n\n81 working under the orders of the board of public\nworks. said Foreman Tillisch today. ave must have\nplace to put the street sweepngs sheet iron slide\nhas been put in and all of the refuse is dumped that\nand run down to the river. If we abandon that dump\nhave other place to put the street sweepings'\n\n\nPeaceful Valley residents and those taxpayers using\nthe Main hill up and declare that the\nunsanary features Of the dump must be done away with\nThey claim there places along the river which could\nbe better used than the big fill below the bridge\n-2o strong the odors rising from the dump that\npeople prefer to climb around the hill from Riverside\nrather than the pathway down under the bridge.\n\n\nResidents of the Dodd block and roomers in the Mer-\nchants hotel complain of the odors in the evening.\n\n\nWith the wind in that direction it will be impossible\nto use the Masonic temple."
+    }
+  ]
+}

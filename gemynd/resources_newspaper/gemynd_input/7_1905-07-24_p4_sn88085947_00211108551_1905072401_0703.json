@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-07-24 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-24",
+    "date_end": "1905-07-24",
+    "report_year": 1905,
+    "source_file": "7_1905-07-24_p4_sn88085947_00211108551_1905072401_0703",
+    "archive_ref": "7_1905-07-24_p4_sn88085947_00211108551_1905072401_0703",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-07-24_p4_sn88085947_00211108551_1905072401_0703",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 238,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 788,
+            "in_headline": false
+          },
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 1018,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the washing machine.\n\n\nIn the home every convenience is\nprovided. Bathroom, hot and cold\nwater, and a hot water heating sys-\ntenn The two daughters and the\nmother do all the housework, yet in\nthe busy harvest season, with a\ndozen men to cook for, everything\nwas kept in good order with no APP\nparent effort\n\n\nIn the parlor is a piano, and games\nof various sorts which the hired men\nare urged to use each evening after\nthe days work is over, and which\nthey usually do. One of Mr.. Spence's\nprinciples Is that no man shall be\nkept on the place who is unfit for\nhis family to associate with. This\n| is a farm where orders prevails\neverywhere. The buildings are all IN\n| good repair, machinery is stored away\n! when not in use, everything is kept\nin tiptop condition all over the farm\nIn the wheat field the stacks of grain\nare placed so as to be in straight\nrows. This is also a farm of profits\nMr.. Spence'S share of the presen\n\n\nwheat crop will be about 10000 bush\nels. Beside this he raises and ha:\n\n\nfor sale so good cattle every year\nand 100 hogs. This season the gros'\n\n\nincome will not be far from $4,000\n\n\nana the net income about $500. Thu\n\n\nentire farm is valued at 100000, an'\n\n\nis the product of IS years of diligen\n\n\nand intelligent effort"
+    }
+  ]
+}

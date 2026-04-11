@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-08-18 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-18",
+    "date_end": "1903-08-18",
+    "report_year": 1903,
+    "source_file": "5_1903-08-18_p3_sn88085947_00211108538_1903081801_0288",
+    "archive_ref": "5_1903-08-18_p3_sn88085947_00211108538_1903081801_0288",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-08-18_p3_sn88085947_00211108538_1903081801_0288",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "gold mine",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 162,
+      "match_details": {
+        "mining": [
+          {
+            "term": "gold mine",
+            "weight": 1.5,
+            "offset": 567,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 491,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The lucky Jim property will\nchange hands shortly. An eastern\nsyndicate Is negotiating for its pur-\nchase. which Will involve cash con-\nsideration Of several thousand dol\nlars.\n\n\nA deal was contaminated by which\n=. o. Piper sold out his undivided\none-half interest in the Alice to a\nMinneapolis syndicase. The Alice\nJoins the Cromwell group. and IL on\nthat narvelOusiy rich vein. The ere\nIn ailver-lead and, ALSO carries high\ngold values.\n\n\nThe Silver Cup has zoo tons ready\nfor shipment and ore 10 being sent\nTO the sme1ter.\n\n\nIU2 1xvKB CAMP.\n\n\nAt che Calumet q b G. Gold Mines.\nIt., the vannsrs and pelton wheels\nare set up. and the rock crusher IL\nbeing put tn. The ore bins are TN\nished aad . telephone System = In\nstalled from mili 10 mine. At the\nmine good hsadway h being made\nIn the third and seventh tunnels. II\n10 expected 70 have the mill complet-\ncd by the goth instant.\n\n\n"
+    }
+  ]
+}

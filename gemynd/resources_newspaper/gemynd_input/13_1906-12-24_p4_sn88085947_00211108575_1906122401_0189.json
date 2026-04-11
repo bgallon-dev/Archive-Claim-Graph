@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WRECK ON 6. n,",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-24",
+    "date_end": "1906-12-24",
+    "report_year": 1906,
+    "source_file": "13_1906-12-24_p4_sn88085947_00211108575_1906122401_0189",
+    "archive_ref": "13_1906-12-24_p4_sn88085947_00211108575_1906122401_0189",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1906-12-24_p4_sn88085947_00211108575_1906122401_0189",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 63,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern was tied up\nfrom O'Clock yesterday morning\nuntil midnight by the derailing of\nIs cars of a west bound freight\ntrain at Edwald, Wash. A wrecker\nfrom Hillyard worked II hours be-\nfore clearing the track. No one was\ninjured. A shoo-fly track was\nbuilt around the place where the\nold one is torn up for more than\n1900 feet."
+    }
+  ]
+}

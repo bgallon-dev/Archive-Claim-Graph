@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "IS CITY\nCHARTER\n\n\nVIOLATED?\nO'Brien and Tuerke Serve\nFrom the Same\n\n\nWard.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-21",
+    "date_end": "1909-08-21",
+    "report_year": 1909,
+    "source_file": "5_1909-08-21_p1_sn88085947_00211108605_1909082101_0697",
+    "archive_ref": "5_1909-08-21_p1_sn88085947_00211108605_1909082101_0697",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-08-21_p1_sn88085947_00211108605_1909082101_0697",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 371,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 521,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 139,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Is there a violation of the city\ncharter in the fact that ]. T.\nO,Brien and Carl w. Tuerke, city\ncommissioners and members Of the\nboard of public works, are holding\noffice from the same ward?\n\n\n1t is charged by those that have\ngiven the matter some attention\nthat the charter Is being openly VIC\nlated and that subterfuge was\nused at the time Mr.. Tuerke was\nappointed a member of the board OF\nworks by Mayor Pratt, so as to give\nno cause for protest at that time.\n\n\nMr.. Tuerke denies that there Is\nany violation of the city charter In\nhis appointment and says that when\nhe was appointed he had on the adj\nvice of the corporation counsel fully\ncomplied with the law. He says the\ncharter does not cover the case of a\nman who is already in office.\n\n\nCharter amendment 72, section\n80, adopted at the city election last\nMay, provides:\n\n\nmot more than one of said city\ncommissioners shall be appointed\nfrom the same ward\n\n\nWhen the appointment Of Mr.\nTuerke as city commissioner was\nunder consideration he moved out\nof the First ward, If was announced\nby taking rooms at downtown\nlodging house Soon after his ap\npointment, Mr.. Tuerke again re\nturned to his old home, E2009 Sew\nenteenth avenue, where he has con\ntinued to live, with the exception Of\nthe few days that he occupied\nrooms downtown during the consid\nGRAFTON of his name as a member OF\nthe board of public works. His fam\nlily has resided there continuously\n\n\nCity Commissioner O'Brien re\nsides at S2026 Mantle Place, where\nhe has lived for some time.\n\n\nIn discussing the matter today\nYMr. Tuerke said: Yes, / am again\nliving in the First ward, along with\nCity Commissioner O'Brien. The\ncorporation counsel has ruled that\nwhen changed my residence at the\ntime of my appointment it complied\nwith the law, as the same refers\nonly to the appointment of mem,\nbers of the board.\n\n\n1T is nothing new for two mem.\nbers of the board of works to be\nfrom the same ward. This has oc.\nCURED in at least two instances be.\nfore, and no one has said anything\nabout it.\""
+    }
+  ]
+}

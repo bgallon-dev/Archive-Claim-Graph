@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOUSE GIVES\nIDEAS Of THE\n\n\nEWCHARTER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-20",
+    "date_end": "1910-09-20",
+    "report_year": 1910,
+    "source_file": "1_1910-09-20_p8_sn88085947_00211108642_1910092001_0867",
+    "archive_ref": "1_1910-09-20_p8_sn88085947_00211108642_1910092001_0867",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-09-20_p8_sn88085947_00211108642_1910092001_0867",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 199,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 80,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A. E. House, candidate for men,\nbership on the commission that is\nto revise the city charter, is a\nbeliever in a progressive form of\ngovernment. He resides at 11O6\nSpofford avenue and is a railway\npail clerk. Mr.. House says:\n\n\n~ am now and have been for\nseveral years in favor of the COM\nmission form of city government.\nBetter results should be had where\nauthority and responsibility are\ncentralized in a few able men.\n\n\n\"But of vastly greater import\nance than that responsibility be\nfixed in five commissioners Is that\nplain positive provisions should be\nIncorporated in our charter that\nshall forever keep the rens of pow\ner and final control in the hands\nof the people. BY this | mean that\na workable iniative referendum and\nrecall must be devised that will\napply quickly, cheaply, and effec-\nlively to all legislation and to the\ntenure of office of elective officials.\n\n\npositive safeguards should be\nthrown around the granting or re-\nnewing of franchises for publuic\nservice corporations.\n\n\n\"A merit system should be out\nlined that will require all appoint\ni've officials be selected with a\nview solely to their fitness for the\nwork to be done\""
+    }
+  ]
+}

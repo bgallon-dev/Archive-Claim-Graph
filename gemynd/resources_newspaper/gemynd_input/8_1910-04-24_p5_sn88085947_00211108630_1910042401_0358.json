@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-24 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-24",
+    "date_end": "1910-04-24",
+    "report_year": 1910,
+    "source_file": "8_1910-04-24_p5_sn88085947_00211108630_1910042401_0358",
+    "archive_ref": "8_1910-04-24_p5_sn88085947_00211108630_1910042401_0358",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-04-24_p5_sn88085947_00211108630_1910042401_0358",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 342,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 1337,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "m HE telephone bell rang and a\nIl line of eager faces crowded\n\n\nII about the rail. They were\ndirty faces, some of them, and some\nwere unshaven, but as whole they\nwere the faces of honest men. The\nInUn at the telephone said some\nthing about \"chopping wood\" and\n\"35 ce7ks an hour\" He turned to-\nward the line of men-some were\nmere boys-and a score of hands\nwere held up like SO many scholars\nin a school room anxious to answer\nquestion propounded by the\nteacher.\n\n\nYou'll do\" said the man behind\nthe counter, pointing to tall for\neigner, who grinned his apprecia-\nton. The others turned away to\nawait another telephone call. The\nlucky one gave his name, received\n~ Iof paper and was off in a\nhurry\n\n\nThe scene was at the Spokane\nfree employment bureau and it\nmight have been any hour of the\nday, for the same thing is enacted\nrepeatedly from opening till clos\ning time. The Jingle of the tele-\nphone bell is the signal to the score\nscriptiOns Who constantly wait\nor more~of men of all ages and de-\nabout the door and in the corridor\nof the city hall basement, ready to\nline up before the railing for the\njob which they know is to be had\nfrom the man at the other end of\nthe wire.\n\n\nSUPPLIES ASSORTED JOBS.\n\n\nM. r. Arant, manager of the bu-\nreau, supplies jobs-mostly odd\njobs of day or few hours-to\nabout so or 80 men a day. The\ncity free employment agency-it\ncharges the employer and employee\nnothing for it's services-supplies\nwork monthly to hundreds of work.\ning men who are for the time un-\nemployed, and is the means of set\nting many a \"down-and-outer\" on\nhis feet again. 1t supplies a class\nof assorted jobs which privately\noperated agencies can not, for the\nreason that it would not pay them\nto handle them.\n\n\nThe Spokane citizen with lawn\nto rake, wood to chop or coal to\nput in, as well as the business"
+    }
+  ]
+}

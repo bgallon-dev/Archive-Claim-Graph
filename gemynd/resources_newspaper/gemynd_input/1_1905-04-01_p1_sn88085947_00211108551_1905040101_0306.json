@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-04-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-01",
+    "date_end": "1905-04-01",
+    "report_year": 1905,
+    "source_file": "1_1905-04-01_p1_sn88085947_00211108551_1905040101_0306",
+    "archive_ref": "1_1905-04-01_p1_sn88085947_00211108551_1905040101_0306",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1905-04-01_p1_sn88085947_00211108551_1905040101_0306",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 286,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 420,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "are not in a fit shape to run their\ncars after they have been at work\nover 10 hours. Several of the acci-\ndents in the past have been due to the\nfact that men were sleepy and\ndrowsy from overwork.\n\n\nThe split run which we want is in\nforce on the lines of the Spokane\nTraction company. 1t Is also in force\nin Portland and on some of the runs\nin Seattle.\n\n\nTHE assertion has been made that\nthe employees of the Washington\nWater Power company are drawing\nfrom 20 to 80 cents an hour. AS a\nmatter of fact there are two men\ndrawing 80 cents an hour. Not moro\nthan seven are drawing over rs cents\nan hour. The most Of us are paid\nfrom 20 to 26 cents an hour\"\n\n\nThe men say they have been given\nto understand that unless they keep\ntheir mouths closed, they, too, will\nfeel the axe.\n\n\nThis plan of reprisals on the conn.,\npany's part has caused great indigna-\nton among the men, who are now\norganizing and intend to make more\ndemands.\n\n\nA committee of employees called at\nThe Press office today and said that\nwithin a few days request for an\nincrease in wages and shorter hours\nwill be made.\n\n\nThe committee requested that their\nnames be withheld for fear the pub\nLEGATION would result in more dis\ncharges.\n\n\nThe present scale of wages Is 20\ncents per hour for the hrst SIX\nmonths; 22 cents for the next year:\n20 cents for the next year; rs cents\nafter being in the employe of the\ncompany for five years; p cents after\n10 years service and 80 years after\nis years of continuous service."
+    }
+  ]
+}

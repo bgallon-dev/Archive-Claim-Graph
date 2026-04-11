@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "title": "UNION LABOR AND HAYWOOD.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-03",
+    "date_end": "1907-08-03",
+    "report_year": 1907,
+    "source_file": "7_1907-08-03_p2_sn88085947_00211108575_1907080301_0929",
+    "archive_ref": "7_1907-08-03_p2_sn88085947_00211108575_1907080301_0929",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-08-03_p2_sn88085947_00211108575_1907080301_0929",
+      "composite_score": 14.95,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood",
+          "western federation"
+        ],
+        "agriculture": [
+          "orchard"
+        ],
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 588,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 2017,
+            "in_headline": false
+          },
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 57,
+            "in_headline": false
+          },
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 16,
+            "in_headline": true
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 395,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 2068,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The country has been flooded with editorial uerances\nthe Haywood trial and doubtless its interest in the sub\njec is nearly if quite sureited with newspaper opin\nions the subject But here view that has not been\ngenerally touched\n\n\n1t has been a remarkable trial. 1t has gone for\nmonths. Nearly 200 witnesses called Its cost has\napproxmated 100000 In it's chief witness for the prose\ncution Harry Orchard it has produced human being\ndespcable that civilization shudders at his kinshp Its\ndark of hate and venom, moneyus and greed\nonly family Illuminated by all it's flood of evidence, out\npicture anything that the American bar has exper\nfenced.\n\n\nThe most subtle efforts have been made to compel the\nbelief that in this murder trial union labor hanging\nin the balance.\n\n\nWhat the facts?\n\n\nOut in Colorado as in many other places there are\nmetals in the earth God put those metals there for the\nof all men, that they might discover them them,\nenjoy them without hndrance just He gave to all\nwood and stone and the flowers and the sea-\n\n\nfew selfish men cannot buy up the air we breathe,\nthough that is given to all the world less than\nthe beautiful metals in the Colorado hills\n\n\nBut money-lust disagreed with God The few took\npossession of the free gift and said: No this is ours\nit is all ours.'\n\n\nmany had to live They dug the precious metals of\nthe hills and gave them to the few and the few turned\nthem into fine clothes and great marble houses and auto\nmobiles and jewels and Harvard and all the other\nthings that they wanted.\n\n\nBut did the few stop at this? No. 1t not enough\nthat they had made right of might that they had taken\nthe beautiful Free Godgven metals; but they stood\nthe with the singing whip of necessity and poverty\nand said: 'Work harder!'' And they beat them with\nthe whip.\n\n\nThe many were only human beings, with hearts and\npassions They knew they free men, for all that the\nfew said.\n\n\nAnd they revolted. It not mere disagreement\n1t was revolution; it war; it rebellion\n\n\nOut of this came the Western Federation Of Miners\nthe hand fighting the Mine Owners the other. One\nfought for economic freedomhe other for wealth Colo\nRADIO ran with blood When oppressed men fercely\naroused will always do terrible things, and there\nis lust like the lust for gold long series Of ourages\nand murders finally terminated in the killing of Gov.\nSteunenberg, and sleeping Justice awoke.\nThen Haywood offered scapegoat\n\n\nNo need to repeat the sickening story of this trial.\nspeak again of the stained hands of Harry Orchard who\naccordingto Counsel barrow, persuaded by Father\nKinks to lay his sins his Saviour and by Detective Nc\nPartland to lay them Meyer, Haywood and Petbone.\n\n\nIt ought not to be necessary that labor unions exist\nBut it necessary. 1t will be necessary long the\nfew, with wealth god, lash the bare backs of the\nand sponge up their blood to be minted into gold\n\n\nBut the labor unions have not been trial at Boise.\nAcqutal does not victory for union labor any\nthan condemnation could have meant defeat\n\n\nOrganized labor has been created for the protection of\nand principle it neither be put trial nor con-\ndemned acquitted until men put the right to economic\nliberty trial. condemn it, or believe it necessary to\nacquit it,\n\n\naner0n eEFc 4 nnCc Scott shot Duncan several times"
+    }
+  ]
+}

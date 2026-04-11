@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ".n0R[ f|0h[I\n4 FQR LIGHTING\n\nCity Fathers 10 Trouble\n] About Raising Hard\n\n\nIl Cash )",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-12",
+    "date_end": "1903-11-12",
+    "report_year": 1903,
+    "source_file": "6_1903-11-12_p1_sn88085947_00211108538_1903111201_0684",
+    "archive_ref": "6_1903-11-12_p1_sn88085947_00211108538_1903111201_0684",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-11-12_p1_sn88085947_00211108538_1903111201_0684",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 248,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 161,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "in the present month of financial\nstrenuosity at the city hall one of\nthe bills that the city fahers will\nhave to meet is the charge of $1112\ndae the Washington Water Power\ncompany for arc light service.\n\n\nZ This bill is no different from what\nIL has been for a long time past, but\nIL looks unusually large just at pres\ncnt. The only consolation the city\ndads can get from looking at the bill\nIs the realization that it is just half\nwhat the bill would have been had not\nthe lighting company reduced its\ncharge when the city threatened to\nput in it's own lighting plant Fur\nthermore. the charge. 81 per light\nper month is said to be as low as it\nIn in most cities.\n\n\nBut the chief reason for thought\nmlness in the matter is that the city\nmas authorized the establishment of\nNJ more lights during the coming\nmonth. five lights per ward, or an ad-\naftional cost per month of 500. With\nthe addition of these rs lights the\ntotal cost per month to the city will\nbe S1212. or $1l.544 per year.\n\n\nThe question at the city hall is,\n\"Where is the money coming from\n10 pay for these lights, and would it\naot bet better for the city to put in\nan extra wheel and motor at the up\nriver pumping station and manufac-\nture it's own lights for the city hall\nas well as for the streets?'"
+    }
+  ]
+}

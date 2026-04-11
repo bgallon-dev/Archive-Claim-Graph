@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-08-25 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-25",
+    "date_end": "1906-08-25",
+    "report_year": 1906,
+    "source_file": "2_1906-08-25_p4_sn88085947_00211108563_1906082501_1073",
+    "archive_ref": "2_1906-08-25_p4_sn88085947_00211108563_1906082501_1073",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-08-25_p4_sn88085947_00211108563_1906082501_1073",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 345,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 426,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 490,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In order to place before its read\ners the full import of the referen-\ndunn measure now before the city\ncouncil of Spokane, The Press here\nwith presents a draft of the pro-\nposed ordinance. A close perusal\nof it as plan that is commanding\nattention all over the United States\nwill be worth while whether or not\nthe reader is prepared to approve\nit.\n\n\nSec. I. That every ordinance\ngranting, amending or renewing a\nfranchise for public utility which\nshall have passed its third reading\nin the city council of said city shall,\nbefore final passage, lie on the\ntable 80 days. and if within that\ntime a petition signed by Is per\ncent of the registered voters of the\ncity be filed with the city clerk\nasking that such ordinance be SUBJ\nmitted to the vote of the qualified\nelectors of the city, it shall be so\nsubstituted at the next city election\nor, at the option of the applicant for\nsaid franchise, at special election\nto be called for that purpose, and\nIf majority of the votes of those\nvoting on the question shall favor\nit's passage it shall then be put up\non its final passage, but not other\nwise; provided, that in the event\nthat said applicant shall exercise\nhis option of requesting a special\nelection, then and in that case he\nshall at the time of making such\nrequest, deposit with the proper Of\nficer of the city the entire estimat-\ned cost Ito be estimated by the city\nclerk Of holding such election, but\nin the event of the said question\nbeing submitted at regular city\nelection it shall be so submitted\nwithout cost to the applicant.\n\n\nSec. 2. Every petition to the\ncity council proposing an instruc-\nton to public official and signed\nby at least Is per cent of the regis\ntered voters Of the city shall be\nreceived and referred to the com\nmittee of the whole council, testi-\nmony shall be taken and the meas\nure reported back together with\nsuch amendments, substitute or"
+    }
+  ]
+}

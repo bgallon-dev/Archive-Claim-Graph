@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BRAKEMAN MAY GET\n\n\nCARNEGIE MEDAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-20",
+    "date_end": "1909-11-20",
+    "report_year": 1909,
+    "source_file": "6_1909-11-20_p1_sn88085947_00211108617_1909112001_0128",
+    "archive_ref": "6_1909-11-20_p1_sn88085947_00211108617_1909112001_0128",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-11-20_p1_sn88085947_00211108617_1909112001_0128",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 208,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 56,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ". WENATCHEE, Nov. 90 =\n. Friends of Charles Deyo, a .\n. Great Northern railway brake .\n\n\nq man, are today talking steps =\n. TO bring his name before the =\n= Carnegie hero commission for =\n. his great exhibition of courage =\n= and nerve in preventing =\n\n\n. catastrophe of the rails Sun .\n\n\n= day evening. Deyo was rear .\n. brakeman on freight train .\n\n\n= which was pullrRg in on the .\n\n\n. switch at Dryden, near here, =\n= TO allow the Oriental Limited .\n. to pass. .\n. The freight was behind time =\n. and was running at such =\n. speed while going onto the .\n. siding that Deyo in jumping .\n. off TO close the switch was .\n= thrown down an embankment .\n= and one of his legs broken. .\n. Realizing that terrible =\n. wreck would be caused by the .\n. open switch, Deyo, suffering =\n. intense pain and in a half =\n= fainting condition, crawled. .\n= nearly 10 feet to the switch .\n. and closed il just In time to .\n= let the speeding limited pass .\n= safely by. ."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "INVESTIGATE GRAIN\n\n\nELEVATOR co. S",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-22",
+    "date_end": "1905-07-22",
+    "report_year": 1905,
+    "source_file": "13_1905-07-22_p2_sn88085947_00211108551_1905072201_0697",
+    "archive_ref": "13_1905-07-22_p2_sn88085947_00211108551_1905072201_0697",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1905-07-22_p2_sn88085947_00211108551_1905072201_0697",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grain elevator"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 81,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grain elevator",
+            "weight": 2.0,
+            "offset": 183,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ST. LOUIS, Mo, July 22.-The in\nterstate commerce commission today\nbegan an investigation here into the\nquestion of alleged allowances made\nbv railroads to companies or persons\nowning grain elevators or by such\ncompanies or persons owning ele-\nyators to shippers of grain. 1t Is\ncharged that these allowances fur-\npish one of the most fruitful sources\nof violation of the interstate COM\nmerce law, because they enable grain\nmerchants to make a profit over the\nactual cost of the elevation."
+    }
+  ]
+}

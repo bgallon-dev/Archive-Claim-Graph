@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "F0RPERMANENT\ni, AUDITORIUM",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-11",
+    "date_end": "1908-11-11",
+    "report_year": 1908,
+    "source_file": "3_1908-11-11_p7_sn88085947_00211108599_1908111101_0048",
+    "archive_ref": "3_1908-11-11_p7_sn88085947_00211108599_1908111101_0048",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-11-11_p7_sn88085947_00211108599_1908111101_0048",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 164,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 526,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city council last night au-\nthorized the board of works to\ngrant a permit for the wooden\nbuilding for the Billy Sunday tab\nernacle and apple show for 80 days.\nThe building will be. 14S $50. ad-\nJoining the armory on Second\navenue from Brown to Bernard.\n\n\nAlthough it is not, at present\nplanned to maintain the great\nwooden structure longer than aft\ner December, it will jim all likeli-\nhood be used for the national irri-\ncation congress next summer. In\nthis congress several thousand\nvisitors will participate and if the\nchamber of commerce undertakes\nan entertainment on its usual large\nscale it will need more room than\nthe armory affords. The Sunday\ntabernacle will accommodate 5000\npersons. Theh armory accommo-\ndations are less than half that\nnumber.\n\n\nThere is talk among business\nmen of securing a long lease on\nthe ground and wiving the build\ning a cement covering such as was\ndone with Davenport's and using\nit for permanent auditorium."
+    }
+  ]
+}

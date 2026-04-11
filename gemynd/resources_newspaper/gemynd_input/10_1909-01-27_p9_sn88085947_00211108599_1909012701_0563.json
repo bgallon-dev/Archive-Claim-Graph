@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SUES N. p. FOR FOREST FIRE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-27",
+    "date_end": "1909-01-27",
+    "report_year": 1909,
+    "source_file": "10_1909-01-27_p9_sn88085947_00211108599_1909012701_0563",
+    "archive_ref": "10_1909-01-27_p9_sn88085947_00211108599_1909012701_0563",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-01-27_p9_sn88085947_00211108599_1909012701_0563",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 57,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mrs. Rachel King of Kootenai\ncounty, Idaho, has fled suit against\nthe Great Northern railway for\n$4,000 damages by fire, alleged to\nhave originated from a spark from\none of The defendant company's\nengines. Mrs. Kings loss in white\npine timber, fence posts, cedar\npoles and cordwood will, she\nclaims. equal the amount claimed\nfrom the company"
+    }
+  ]
+}

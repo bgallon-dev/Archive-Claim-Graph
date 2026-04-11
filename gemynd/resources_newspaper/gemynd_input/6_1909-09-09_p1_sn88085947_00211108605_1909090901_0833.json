@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "MAY ADJUST\n\n\nTHE FRANKLIN\n\n\nSCHOOL DEAL\n\nSchool Board to Hold Out\n\n\nfor Full Value.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-09",
+    "date_end": "1909-09-09",
+    "report_year": 1909,
+    "source_file": "6_1909-09-09_p1_sn88085947_00211108605_1909090901_0833",
+    "archive_ref": "6_1909-09-09_p1_sn88085947_00211108605_1909090901_0833",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-09-09_p1_sn88085947_00211108605_1909090901_0833",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "school board"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 251,
+      "match_details": {
+        "education": [
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 292,
+            "in_headline": false
+          },
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 41,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There are indications today that\nthe controversy as to the value of\nthe Franklin school property,\nwhich is sought by the Milwaukee\nrailroad, will be adjusted in a man.\nner that will result In the people\ngetting all that the property is\nworth.\n\n\nz. Stewart, county treasurer and\nmember of the school board,\nsays that no notice of the Mil\nwaukee's condemnation suit has\nyet been filed on the board, and\nthat when notice is received the\nschool board will employ counsel\nand contend that the full value of\nthe ground be paid.\n\n\nr. ID. Sanders, the wholesale\ngrocer. who made the offer of\ns150,000 for the site, after the\nschool board had tentatively\nagreed to sell 1t to the Milwaukee\nfor 100000. said today:\n\n\nII understand that the officials\nof the Milwaukee have said that\nthey are willing to pay what the\nproperty Is worth, which Is all that\n/ am after. do not want the\nground. but rather than see the\nproperty Of the people sacrificed.\n| made the offer. l am glad to\nknow that the school board pro-\nposes to contest the condemnation\ncase in court and strive to secure\nthe full value of the property.\nThat is all that any citizen can\nask\"\n\n\nIt Is. understood that the school\nboard and the Milwaukee is trying\nto get together on basis of $780,\n900 for the ground and the value\nof the building. which is said to\nbe worth $4,000 to $4,000 alone\nfor the salvage involved."
+    }
+  ]
+}

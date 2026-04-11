@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL SUE FOR $4,000",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-25",
+    "date_end": "1907-10-25",
+    "report_year": 1907,
+    "source_file": "41_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+    "archive_ref": "41_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "41_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "fruit grower"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 53,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "fruit grower",
+            "weight": 1.5,
+            "offset": 272,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "TOPPENISH, Oct. ga $4,000\ndamage suit will result II refrigera-\ntor cars are not Immediately re-\nceived at Toppenish for the trans\nporation of the immense apple\ncrop now awaiting shipment from\nthis port, Fully 100 cars of apples\nare now in the warehouses here,\nand in the fruit growers hands\nawaiting shipment."
+    }
+  ]
+}

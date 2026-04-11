@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-01-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-14",
+    "date_end": "1907-01-14",
+    "report_year": 1907,
+    "source_file": "24_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+    "archive_ref": "24_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+      "composite_score": 10.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy"
+        ],
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "freight rate",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 486,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 2337,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 2380,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 106,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane's fight for reasonable\nfreight rates against the unjust dis\nordinations of the Northern Pa\ncific, Great Northern, Union Pacific\nand o. r. & N. system, in favor OF\ncoast points, began at 10 o'clock\nthis morning in Judge Remnants de-\npartment of the superior court.\n\n\nCommissioners Prouty and Lane,\nof the interstate commerce commits\nsion, presided.\n\n\nJust before the noon hour the city\nintroduced F. H. McEwen, former\nchief clerk and commercial agent\nof the Great Northern railway, who\nhad the effect Of a bomb thrown\ninto the camp Of the railroads\nThere followed a scurrying and\nwhispering among the attorneys OF\nthe latter, who evidently did not\ncount upon the city producing a\nwitness who has been so closely In\ntouch with the inner workings OF\nthe railroads. Until the morning\nsession closed at 1890 O'Clock Mr..\nMcEwen put in the time designating\nand explaining a voluminous set OF\nrates now in effect and explaining\nthe differentials whereby Spokane\nwas Disseminated against.\n\n\nThe hearing began with Commits.\nsioner Prouty's explanation that all\nproceedings were to be extremely\ninformal, as the commission only\nwanted to get at the facts as ex\npeditiously as possible.\n\n\nBrooks Adam, of Boston, made\nthe opening statement for the city\nin which he styled the railroads as\nthe most domineering Of all high\nways, with the power Of exactly\nfrom the public any money II\npleased, unless they were interfered\nwith by competition or the inter\nvention of the government. He\nstyled the railroads as public tax\ncollectors and said they stand in\nthe same position as a tax collector\nappropriating the public's money tc\ntheir own enterprises and thereby\nbecoming embeZzlers. They are\njustified in reserving a reasonable\namount Of money on their invest\nment as fund against deprecia\nton, but anything beyond that they\nare accountable for to the public\nin the relation of guardians. He re\nhearsed the history of railroad\nbuilding in the West and told how\nhe admired James j. Hill and the\nway he had established himself and\nhis interests. He said Hill hat\nagreed to give Spokane as good\nrates as any city in the West, and\nreceived in return great rights OF\nway and terminal sites so as tc\nmake Hill impregnable. Hill did not\ncarry out this contract. He found\nit more profitable to keep high\nrate and pocket the money.\n\n\nAdams told Of the conspiracy\nwhereby Hill got control of the\nNorthern Pacific and the Burlington\nand thereby became the absolute\nmonarch OF this section, skillfully\nfencing in Spokane. Hill took out\ns17,300.000 Of which he is account\nable for to the people.\n\n\nSpokane was absolutely in Hills\npower and there was no means OF\nresistance until the interstate com.\nmerce laws passed. Hill has exer.\ncised an absolute despotism here\nAdams begged the commissioners\nto do justice between Spokane and\nthose in power. He said the pres\n\n\nn -"
+    }
+  ]
+}

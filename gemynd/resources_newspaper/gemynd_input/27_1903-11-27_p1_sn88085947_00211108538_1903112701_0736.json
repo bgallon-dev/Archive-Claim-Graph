@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Startling Fact Regarding the\n! Northport Sme|ter Plan\n\n\nof Robbery",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-27",
+    "date_end": "1903-11-27",
+    "report_year": 1903,
+    "source_file": "27_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+    "archive_ref": "27_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 111,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 206,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "shift boss in the furnace rooms Of the\ninstitution, and was to secure the\nmatte. According to a mutual under\nstanding, according to the testimony of\nBartlett, Peel commenced the system\nattic robbing of the smelter and deliv-\n\n\ncred the copper bottom\" or matte at\nthe Bartlett residence. The product\nwas worth about $40 per pound and\nthey succeeded in, accumulating $50\npounds by the 18th of last January.\nBartlett and Peel packed the stuff in\na trunk and the witness attempted to\ntake it as baggage to refinery IN\nOakland, Cal, the latter part of JAN\nuary, but the agent at the station\nwould not accent it as baggage because"
+    }
+  ]
+}

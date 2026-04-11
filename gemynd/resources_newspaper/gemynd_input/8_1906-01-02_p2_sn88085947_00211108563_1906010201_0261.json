@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Local Brevities",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-02",
+    "date_end": "1906-01-02",
+    "report_year": 1906,
+    "source_file": "8_1906-01-02_p2_sn88085947_00211108563_1906010201_0261",
+    "archive_ref": "8_1906-01-02_p2_sn88085947_00211108563_1906010201_0261",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1906-01-02_p2_sn88085947_00211108563_1906010201_0261",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's christian"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 326,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's christian",
+            "weight": 2.0,
+            "offset": 56,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Morley has boosted Spokane for\nover Is years. $50\n\n\nThe Women's Christian Temper\nance Union will hold mass meet\ning Thursday to discuss Sunday\nclosing.\n\n\nw. A. Lothrop assumed the du-\nties of desk deputy under Sheriff\nDoak this morning.\n\n\nLadies play billiards and pool\nevery day and evening at Pfster\nbilliard parlor. ***\n\n\nThe General Transfers union,\nNo. 202, will give a smoker this\nevening at 615 Main avenue.\nSheriff Doak and Prosecuting At\ntorney Barnhart are at Foothill to\nday in attendance upon a justices\ncourt on public business.\nF. n. Muzzy drew down S. OF\ncounty money this morning in re-\nturn for five coyote scalps whose\nowners were killed at Newman\nLake.\n\n\nWANTED - Organizers for Mod\nern Woodmen of America, at once\ndon't lose any time. S. Wolff, dis\ntrict deputy, SO Howard street\n| -5**~\n\n\nThe West Hillside chapter of the\nFirst Presbyterian church will\nmeet Thursday afternoon at 2:3C\no'clock with Mrs. H. S. Kirkendall\nSIPS Adams street.\n\n\nNUTRITO, the Goth Century Ger.\ncal coffee, is made by union men\nAsk your grocer for it. Is and 25\ncents per package. **'\n\n\nThe Typographical union hello\ntheir regular monthly meeting last\nSunday, w. D. Wheaton was re\nelected president and John Ander\nson succeeded himself as secre\ntary.\n\n\nThe Mystic Shriners gave a New\nYears dance at the Masonic Tenn\npie last night, about 200 couples at\ntending. The committee included\ne. H. Hutchinson. potentate; H. A\nBronson and H. l.. Kimball.\n\n\nMiss La Dell Edgar, of Missouls\nis in the city visiting w. H. Fair\nweather and family. Miss Edgar\nlived in Spokane for some time\nbut moved to Montana about 6\nyear ago.\n\n\nNUTRITO, the goth Century Ger\ncal coffee, is made by union men\nAsk your grocer for it. Is and q\ncents per package. $50\n| J. H. Wilmot has objected to the\ncharge against the saloon keepers\nmade by DR.. Rasmus that the Firs"
+    }
+  ]
+}

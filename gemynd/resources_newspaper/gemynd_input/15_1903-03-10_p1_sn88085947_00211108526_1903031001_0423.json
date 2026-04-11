@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-10",
+    "date_end": "1903-03-10",
+    "report_year": 1903,
+    "source_file": "15_1903-03-10_p1_sn88085947_00211108526_1903031001_0423",
+    "archive_ref": "15_1903-03-10_p1_sn88085947_00211108526_1903031001_0423",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-03-10_p1_sn88085947_00211108526_1903031001_0423",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 390,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1059,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 723,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "firms threatened tile company with |\ndamage suits and gave his word of |\nhonor that if the men would return |\nto work. he would not hire any men |\nfor one week. while waiting reply |\nfrom Mr.. Hopper, and If Mr.. Hopper |\nhired any men, he. MIR. Aldrich. would |\nquite work with u.s.\nThis was tuesday night, the 12..l, |\nand we worked uni. Tuesday noon,\nAugust 10. Mr.. Aldrich said that we\ncould leave as soon as we pleased.\nSo We went During the week that\nMr. Aldrich was to hire no men he\nhired W. NJ. Atkinson. Jerry Benson\nand full crew of men. and as we\npassed out one gate they went in\nthe other.\n\n\nWe turned over the works in good\nshape TO Mr. Stout. and Mr.. Stout and\nMr.. Atkinson took our places; we had\n| them arrested for running the engine\nand boiler without license. They\n! pleaded guilty and were fined s25 and\ncosts.\n\n\nNow. to be fair with the gas COM\npany and fair with the trades unions\nand with the pubic and with our\nselves, we, the Gas Makers and Yard\n| mems union will pick one man. a\nbusiness man. a citizen of Spokane\noutside of the trades council or the\ntrades union, and the gas company\n| pick another, a business man outside\nof the gas company and citizen of\n| Spokane. and submit all of our evil\ndence to them and If they find we\nare to blame. then we shall disband\nas a union If they can not agree,\nthen a third man may he selected by\nthe trades council. business man and\na wholly uninterested party. II the\ndecision is against us. we will ac-\nknoledge ourselves beaten and will\ngive up the fight. and on the other\nhand If the decision is against the\ngas company then we are to go back\nto work as per contract.\n\n\nJOHN w. CARR,\n\n\nA. Il, DAVIS.\n\n\nJ. w. WADE.\n\n\nII. FREEMAN,\n\n\nL. II. WARREN\n\n\nWhen this statement was present\ned to Mr. Hopper this afternoon he\nsaid that he had nothing to say:\n\n\nYou may publish\" said he. that\nwe have no objection to anyone $\ncoming here to see us upon the CON\ntroversy, but further than that we\nare absolutely silent\""
+    }
+  ]
+}

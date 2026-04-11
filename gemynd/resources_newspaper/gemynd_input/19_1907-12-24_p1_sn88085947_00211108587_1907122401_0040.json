@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "URGE DIVISION\n\n\nST. V|AOUC1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-24",
+    "date_end": "1907-12-24",
+    "report_year": 1907,
+    "source_file": "19_1907-12-24_p1_sn88085947_00211108587_1907122401_0040",
+    "archive_ref": "19_1907-12-24_p1_sn88085947_00211108587_1907122401_0040",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1907-12-24_p1_sn88085947_00211108587_1907122401_0040",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 71,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 135,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The council last night instructed\nEngineer Mcintyre to submit any\nplans of a viaduct extending from\nthe Division st. bridge across the\nNorthern Pacific tracks which he\nmay have in his Office.\n\n\nThe NeighbOrhoOd club last night\npetitioned the council to get busy\non the PROJECT and protest life and\nlimb at the dangerous crossing at\nDivision and Sprague. The COM\nmunication contained the outline Of\nplan for reinforced concrete\nviaduct."
+    }
+  ]
+}

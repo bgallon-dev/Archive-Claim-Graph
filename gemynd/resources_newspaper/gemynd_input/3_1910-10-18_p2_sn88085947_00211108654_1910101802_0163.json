@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G O N TIN u E d\nb q\n\n\nP A G E Q N Z\n\nWHAT MERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-18",
+    "date_end": "1910-10-18",
+    "report_year": 1910,
+    "source_file": "3_1910-10-18_p2_sn88085947_00211108654_1910101802_0163",
+    "archive_ref": "3_1910-10-18_p2_sn88085947_00211108654_1910101802_0163",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-10-18_p2_sn88085947_00211108654_1910101802_0163",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 417,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 391,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "give them a chance\" was the pre-\nvailing general expression.\n\n\nMrs. May Arkwright Hutton, suf-\nfraget leader, says there is no doubt\nbut her cause will be victorious\nand she has canvassed the state,\nand knows the situation thoroughly.\n\n\nA canvass Of people on Riverside\navenue this morning resulted in\nabout half and half vote on the\nquestion Of the state constitutional\namendment for equal suffrage. The\nquestions aroused a good deal of\namusement at some times and a\ngood study of human nature could\nbe made from the effect that the\nquestion caused on the faces of the\nones Intercepted. On some, the\nquestion caused a flicker of amuse-\nment.\n\n\n\"GUESS IT'S ALL RIGHT\"\n\n\n\"Am l in favor of it? Well, I\nguess it's all right. Wife's getting\npretty old now. anyway, so l guess\n1t won't hurt her any, and If the\nwomen want to vote. let 'em vote\"\nSome shook their heads with a\nsmile and passed on without saying\na word, while others paused to de-\nliver lecture on the advantages or\ndisadvantages of the question.\nAm l in favor of woman suf-\n\n\nfrage?\" repeated one man. \"Well.\n\n\n| guess it's all right. I'm a good\n\n\ndeal like the man who said, If the\n\n\nwomen want to suffer, let 'em suf-\n| fer\"\n\n\nMy wife runs things to suit her\n\n\nself now, anyway, so guess it\n\n\nwon't hurt me any to have her\nVOTE\" said one philosophically.\nAm l goin' to vote for woman\nsuffrage?\" said one individual ag-\ngressively. \"See here, young fella,\n\n\nyou ought o. know better than that.\n\n\nWhat do you think l am anyway ?\"\nand he passed on in disgust.\n\n\nBEEN DIVORCED ONCE\"\nMix\" replied another. Been d.\nvorced once\"\n\n\n\"Going to vote for the suffrage\nprogram next month\";\" was asked\nOf seedy looking individual.\nwell, now. I'll tell you,\" he\ndrawled. Il haven't thought about\n/ 1t much yet. You see, Maria's got\nan idea In her head that she would\nlike to trot daown toawn and vote\nlike a man, and / don't know but\nwhat it's all right\" Evidently the\ncountry districts have been invaded\nas well as the city.\n\n\nIt'll take you just about two Sec\nonds to find out where / stand on\nthat question:\" said another. I've\nlived In two states where they have\n\" ana I've seen e3l6dr{ VI $50.\nRADIO the better clyss of women do\nnote at all. ! held police Office I'm\nCripple Greek for thraA years and"
+    }
+  ]
+}

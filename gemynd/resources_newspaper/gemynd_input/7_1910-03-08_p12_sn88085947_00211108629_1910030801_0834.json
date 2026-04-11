@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "CITY NEWS\n~ IN BRIE ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-08",
+    "date_end": "1910-03-08",
+    "report_year": 1910,
+    "source_file": "7_1910-03-08_p12_sn88085947_00211108629_1910030801_0834",
+    "archive_ref": "7_1910-03-08_p12_sn88085947_00211108629_1910030801_0834",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-03-08_p12_sn88085947_00211108629_1910030801_0834",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "building permit",
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 563,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 2613,
+            "in_headline": false
+          },
+          {
+            "term": "building permit",
+            "weight": 1.0,
+            "offset": 529,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mission services Will be held\nnext Sunday in the Ondawa Inn,\nwhich has been purchased by the\nNorth Coast railroad as part of\nthe union station site. The place\nwas closed last week.\n\n\nAttorney n. M. Stephens has\nabout concluded the negotiations\nfor the sale of the northeast cor\nner of Second avenue and Stew\nems, owned by him, to J. H. Spear,\nfor 100000. The ground fronts\n10 feet on Second avenue and 142\non Stevens and is improved with\na three story brick building occu-\npied by the Waverly hotel\n\n\nP. r. Pyman mas taken out a\nbuilding permit for a $4,000 brick\nbuilding on Short avenue near\nBernard street.\n\n\nAnnouncement Is made that the\nWestern Union has adopted the\nnew rule of accepting night mes\nsages or letters, as they are call\ned, of so words or under at the\nsame rate as day messages.\nAt a meeting Of prominent men,\nbers of the 10000 club yesterday\nafternoon, it was decided to try\nto enlist the efforts of congress\nmen west of the Mississippi river\nin bringing about the passage of\nthe bill providing for the increase\n| in pay of rural mail carriers to 500.\nThe bin also includes a provision\nfor $3.50 extra for every mile over\n\"a in the route and a subtraction\nof $3.50 for every mile under that\nnumber.\n\n\nJohn Anderson, accused of abus-\n! ing his wife, was given the severest\npenalty the law could enforce, in\nthe police court yesterday after.\nnoon by Judge Mann. Anderson is\nsaid to have attempted to assault\n| his wife. while he was in drunken\nrage, She ran from him and in so\ndoing fell in front of a street car\nand broke her leg.\n\n\nFrank and Madge King, who ran\na matrimonial confidence bureau at\n/ the AVOndale court, were fined $50\neach in the police court yesterday\nby Justice Mann. The Kings had\nsucceeded in playing cupid quite\n\nextensively.\n\n\nThe Spokane women who won\ngold and bronze medals at the dis\nplay in the Woman's building al\nthe Alaska-YukOn-Pacific eXpOsi\n/ ton at Seattle last summer, have\njust received their medals. The\nwomen of this county carried away\n4 good per cent of the prizes fol\ntheir clever work. The gold med\nais have not as yet arrived.\n\n\nThe North Central high school\nstudents are rapidly gaining a rep\nutation as debaters. April Is the\nNorth Central school will debate\nwith the Occur d'Alene high school\nand on March % will debate\nagainst the Hillyard high school.\n\n\nThe mayor yesterday made the\n\n\nstatement that he will submit the\n1 draft of q commission form of gov\n\n\neminent prepared by the charter\n\n\nrevision committee to the city\n\n\ncouncil at its regular meeting two\n\n\nweeks from tonight.\n\n\nIn a report to the mayor on the\nreason for the collapse of the\nMonroe street bridge bridge, City\n\n\nEngineer Ralston blames it on the\n\n\nsliding earth fill at the south end\n\n\nof the bridge. lie says the over\n/ loading of the bridge with new\n\n\nsteel was not the cause, as there\n\n\nwas only % pounds to the square\n\n\nfoot when the bridge fell, as\n\n\nagainst 40 pounds at one time. Yer\n\n\nin prior statement Engineer Raj\nston said that he had known the\nbridge was unsafe for many\n\n\nmonths and that it was barely\nchanging by it's bootheels.\""
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "BOOSTS SPOKANE\n\n\nVALUATION",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-31",
+    "date_end": "1907-12-31",
+    "report_year": 1907,
+    "source_file": "16_1907-12-31_p4_sn88085947_00211108587_1907123101_0067",
+    "archive_ref": "16_1907-12-31_p4_sn88085947_00211108587_1907123101_0067",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1907-12-31_p4_sn88085947_00211108587_1907123101_0067",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 61,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 39,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 92,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to testimony given the\nstate railroad commission at Olym-\npia by Walker l.. Bean, real estate\nexpert, the commission had ap-\npraised O. R. & n property in Spo-\nkane at one ninth of its real value.\nThe 140 acres of railroad property\nin this city was valued at $394,S76\n\n\nBean fixed the actual value Of\nthis property at $2,610,368."
+    }
+  ]
+}

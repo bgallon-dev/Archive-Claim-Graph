@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "WILL 6ART[hD[R} HELD\nBREWERS AID DRIVERS\nIhey Say Brewery Workers Did not He[n\nIhem Last Summer in Their Fight Against\nCertain SaIoonS---Sm GalIand Drives a\nDelivery Wagon.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-04",
+    "date_end": "1904-05-04",
+    "report_year": 1904,
+    "source_file": "7_1904-05-04_p1_sn88085947_00211108538_1904050401_1280",
+    "archive_ref": "7_1904-05-04_p1_sn88085947_00211108538_1904050401_1280",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-05-04_p1_sn88085947_00211108538_1904050401_1280",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 248,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 125,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 1426,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The striking brewers, bottlers and\ndrivers, employed by the Spokane\nBrewing u Mailing company, to the\nnumber of p, asked the trades council\nlast night to assist them in their fight\nagainst the big brewing firm and de-\nclare 1t unfair to union labor. After\na heated debate, the matter was post\nponed tor definite action until tonight.\nIn the meantime the committee ap-\npointed last is confering with n\ncommittee of brewery owners looking\ntoward an amicable settlement of diff\nticultes. This committee will report\nto the trades council at the adjourned\nmeeting held tonight.\n\n\nThe strikers have asked the bartend-\ners to walk out in every saloon where\nthe beer made by the Spokane Brewing\n4 Mailing company is used. They\nhardly expect this last request to be\ncomplied with. A prominent member\nof the bartenders' union said today\nthat the bartenders would hardly take\nup the fight in the interests of the\nbrewery employees for two reasons:\nFirst. II is not a question of wages;\nand second, when the bartenders were\nfighting the Statue and Carson saloons\non the north side and other places last\nsummer, the union brewery drivers\nstill continued to haul these places\nunion made beer. Consequently there\nwas generated much i'll will between\nthe two organizations, which has con\ntinued to exist ever since that time.\n\n\nMight Lose Their Jobs.\n\n\nThere are over 200 union bartenders\nin the city. Many of these realize\nthat going ont on strike will cost them"
+    }
+  ]
+}

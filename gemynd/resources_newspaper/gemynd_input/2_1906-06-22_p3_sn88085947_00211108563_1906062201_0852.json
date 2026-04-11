@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UNION MEN NOTICE\n\n\nMARKED Difference",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-22",
+    "date_end": "1906-06-22",
+    "report_year": 1906,
+    "source_file": "2_1906-06-22_p3_sn88085947_00211108563_1906062201_0852",
+    "archive_ref": "2_1906-06-22_p3_sn88085947_00211108563_1906062201_0852",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-06-22_p3_sn88085947_00211108563_1906062201_0852",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 184,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 209,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane union men are comment\ning on the difference in the treat\nment accorded the manufacturers\nassociation at the Waldorf-Astoria\nin New York recently, and that\nhanded out to the executive COM\nmittee of the American Federation\nof Labor by Speaker Cannon and\nother prominent men of both par\nties. Every union in the country\nhas been notified of the almost\ncontentious manner in which\nlabor's bill of grievances was list\nened to by the powers that be n\nthe national capital. In marked\ncontrast. it is argued, was the ban\nquet given by the manufacturers\nassociation, which was addressed\nby the following we'll known men:\nSecretary of War Taft, Jonathan p.\nDolllver, President Charles w.\nEliot of Harvard university, Grover\nCleveland. Charles E. Hughes, Jo-\nseph G. Cannon. Senator w. Bailey.\nGovernor Frank w. Higgins. ex-\nGovernor Frank S. Black, General\nFrederick d, Grant, Rear Admiral\nCoghlan, Justice David ]. Brewer,\nArchbishop Ireland and Andrew\nCarnegie.\n\n\nAnd union men generally feel\ncertain that the manufacturers as\nISOLATION was formed for the pur-\npose of wiping organized labor of\nthe face of the earth"
+    }
+  ]
+}

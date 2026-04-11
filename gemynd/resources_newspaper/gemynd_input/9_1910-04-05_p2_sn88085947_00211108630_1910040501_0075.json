@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRANSFERS AND\nFEDERAL MEN\n\n\nINCLUDED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-05",
+    "date_end": "1910-04-05",
+    "report_year": 1910,
+    "source_file": "9_1910-04-05_p2_sn88085947_00211108630_1910040501_0075",
+    "archive_ref": "9_1910-04-05_p2_sn88085947_00211108630_1910040501_0075",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1910-04-05_p2_sn88085947_00211108630_1910040501_0075",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 252,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1066,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Recognition has been accorded\nthe two federal unions and the\nteamsters by the North Coast rail-\nway in the erection Of the termin.\nais in this city, in the event that\nthe franchise is passed and the\nroad admitted.\n\n\nIn the first proposition submitted\nto organized labor by Mr.. Strahorn\nthese unions were omitted, and a\nloud kick went up from this quar-\nter. Mr.. Strahorn was appealed to\nand made reply in the following\nmanner:\n\n\nSPOKANE, Wash, April l.,\n1910.-Messrs Chavez and Cliff,\nBusiness Agents Federal Unions\nNo. 1922 and No. 1924, City.\n\n\nGentlemen: Pursuant to your\nrequest for statement Of the posi-\nton of the North Coast Railroad\ncompany in regard to the recogni-\nton of your unions in work to be\ndone in this city, l beg to advise\nthat in the wrecking of all build\nings done by the North Coast Rail-\nroad company and in all excavating\nfor buildings constructed by the\ncompany within the city of Spo-\nknae, the North Coast Railroad\ncompany will at all times recognize\nthe jurisdiction of the building\ntrades unions affiliated with the\nSpokane Building Trades council,\nthe Team Owners union, the\nTransfers union, and the Federal\nunion No. 1924 and Federal union\nNo. 1922.\n\n\n81 thought that my previous state\nments had made my position clear\nupon the question of union labor,\nbut l am glad of this opportunity\nto express myself in regard to the\nunions in which you are specially\ninterested. Yours very truly, Rob-\nert e. StrahOrn.'"
+    }
+  ]
+}

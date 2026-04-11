@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "DRY FARMING MEN\nTO Be GUESTS OF\n\n\nWAVERLy FARMERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-20",
+    "date_end": "1910-02-20",
+    "report_year": 1910,
+    "source_file": "7_1910-02-20_p18_sn88085947_00211108629_1910022001_0608",
+    "archive_ref": "7_1910-02-20_p18_sn88085947_00211108629_1910022001_0608",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-02-20_p18_sn88085947_00211108629_1910022001_0608",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 6.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 253,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 46,
+            "in_headline": false
+          },
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 1392,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ", John T. Burns, secretary-treas-\nurer of the dry farming congress,\nand R. w. Thatcher, director of\nagriculture of Washington Agricul-\ntural college and member OF the\nboard of governors of the dry farm\ning congress, will be guests at the\nFarmers Union, No. 55, at Waverly.\nnext Thursday at special meet\ning, banquet and farmers lnstl-\ntute, arrangements for which are\nbeing made by A. D. Thayer, mayor\nof Waverly and member of the\nWashington board of control OF the\ncongress.\n\n\nThe Farmers Union will meet at\n10 o'clock in the morning for\ntwo hours session. At 2 o'clock\nin the afternoon dinner will be\nserved, at which Mr.. Burns and\nProfessor Thatcher will be the\nguests of honor The dinner Will\nbe followed with an institute ses-\nsion.\n\n\nMr.. Burns will speak on the dry\nfarming congress and It's work, lay\ning special stress on the Importance\nand significance of the fifth annual\nsession, which will be held here the\nsecond week in October. Professor\nThatcher will discuss conservation\nproblems and dry farming methods.\n\n\nThis is the first of series OF\nmeetings to be held in various parts\nof the state for the purpose OF\nbringing the dry farming congress\nand it's work directly to the atten-\nton of the farmers of this state.\nMayor Thayer says the farmers In\nthat vicinity were deeply Interested\nin the work and were planning for\nliberal representation in the Inter\nnational Dry Farming exposition, to\ntake place here IN connection with\nthe fifth congress."
+    }
+  ]
+}

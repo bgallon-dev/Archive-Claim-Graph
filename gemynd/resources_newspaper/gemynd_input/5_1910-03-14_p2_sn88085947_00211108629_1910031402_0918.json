@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "g Q N N u E D\n\n\nr o M\np A @ E Q N f\n\nTESTIMONY CAN NOT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-14",
+    "date_end": "1910-03-14",
+    "report_year": 1910,
+    "source_file": "5_1910-03-14_p2_sn88085947_00211108629_1910031402_0918",
+    "archive_ref": "5_1910-03-14_p2_sn88085947_00211108629_1910031402_0918",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1910-03-14_p2_sn88085947_00211108629_1910031402_0918",
+      "composite_score": 1.68,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 323,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 772,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1597,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "with 1t, and unless good faith is\n\n\nshown by the committee, the mayor\nand the council in allowing the com.\n\n\nmittee to be increased to five, and\nallowing it to work in secret, its\n\n\nreport will gain no value from\n\n\ncooperation of the only people in\ntown who have been doing any\nworth while investigation.\nAnd other means of securing the\ntruth, and of informing the public,\n\n\nwill be adopted by the three organ,\n\n\niZations.\n\n\nThe reply to the. committee. fol-\nlows:\n\n\nSPOKANE, March 14-Members\nof the Committee on Investigation\nof Conditions at the City Hall-Gen-\ntlemen The undersigned having\nreceived letter of notification that\nyour committee will meet Monday\nMarch IA. at 7:30 p. M, for the pur-\npose of hearing charges and evil\ndence concerning conditions at the\ncity Jail, and extending an invita-\nton to us to appear at such meet\ning. wish to say in reply to such\ninvitation that while we have not\nmade any charges against the po-\nlice department, yet can present\nwitnesses and statements relative\nto past conditions in the city jail.\nThis evidence, however, can only\nbe presented before your commit\ntee in secret session and under such\nconditions as will give absolute pro-\nlection to every witness whom we\nmay present. $3.50. ...- ;..--\n\n\nIf the sessions at which such evil\ndence and witnesses are to be pre-\nscented are held openly and with\nknowledge of the police department\nas to time and place of such meet\nings, the witnesses will not appear\nfor fear of intimidation and perse-\ncution uDon the part of said police\ndepartment. .........\n\n\nNow that an investigation is de-\nsired by the city council. we will\ngladly cooperate in your work by\npresenting the evidence and wit\nnesses on the subject of your inves-\ntigation. but only under the condi-\ntons stipulated above Respect\nfully yours. Laura NJ. House, May A.\nHutton. Karl Riedelsberger, Mrs.\nPhilip P. Stafford."
+    }
+  ]
+}

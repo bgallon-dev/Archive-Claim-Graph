@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COMMISSION Law\n\n\nMEANS DEATH",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-22",
+    "date_end": "1905-02-22",
+    "report_year": 1905,
+    "source_file": "27_1905-02-22_p4_sn88085947_00211108551_1905022201_0179",
+    "archive_ref": "27_1905-02-22_p4_sn88085947_00211108551_1905022201_0179",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1905-02-22_p4_sn88085947_00211108551_1905022201_0179",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 663,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 1070,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nYou must believe It, You must\nbelieve the facts and figures. some\nof which are given by men who at\nfirst supported the commission bill\nand who now-realizing the deadly\neffect--are desperately opposing it's\npassage.\n\n\nYou must believe these figures.\nwhich, until now. have been purposely\nwithheld for fear of shaping a wea-\npom to be used by the manufacturers\nand jobbers of Seattle and Portland.\nwho are now supporting that cam\npaign for a commission bill.\n\n\nWhen Senator Sam Piles visited\nSpokane he told the business men\nand politicians he met at luncheon\nthat they would not want the COM\nmission bill after they got it.\n\n\nAnd Spokane business men agreed\nwith him, but declared it was too\nlate to stem the tide of mistaken\npublic opinion famed to frenzy by\nNelson W. Durham.\n\n\nSenator Piles is from Seattle He\nknew what he was talking about.\n\n\nHE KNEW THAT THE COMMITS\nSION BILL WOULD DESTROY THE\nSPOKANE TRADE AND DIVERT IT\nTO SEATTLE AND PORTLAND!\n\n\nIn this first story / shall not bur-\nden you with figures, rates, or tech\nmeal classifications through which\nthe railroad commission will be able\n20 !, nd nd !, a\nbusiness now being done by Spokane\njobbers and manufacturers.\n\n\nBetter is it to show assertively\nthe danger that is threatened and\nthe generalization of the means\nwhereby Spokane wholesale business\nwill be curtailed to the point of ruin.\n\n\nAt the present time Spokane job\nbers are working within less than\nthat 100-mile radius asked for. In\na few instances goods of light ight\nare shipped beyond that limit. but\nheavy goods such as groceries, hard\nware. etc, can not be sent the longer\nhaul at rates which will meet the\nSeattle and Portland prices.\n\n\nAt the recent meeting of railroad\nmen and shippers in Portland the\nshippers asked the railroads for dis\ntributing rates to pass through Spo-\nkane and Spokane territory and to\nextend as far east as Havre, Mont,\nor half way 10 st. Paul. The rates\nasked for, if given, would permit the\ntidewater jobbers to compete with\nand. in many instances, undersell\nSpokane wholesalers in the very CEN\nter of Spokane territory.\n\n\nAt this time Spokane is working\nunder a rate system which. in some\ninstances is sufficient to enable them\nto compete in territory claimed by\nSeattle and Portland. 1t is fairly\nthe life of Spokane jobbing business\nthis rate allowance.\n\n\nIf railway commission is estab-\nlished, two of the commissioners will\nbe taken from the west side of the\nstate and one from Spokane.\n\n\nWhat will be the result?\n\n\nII is no time to mince matters\nSpokane, in instances, has been ia\nvored with rates. These rates, sub\njected to a commission, would be\nchanged. Two against one would be\nthe vote and all obstacles placed in\nthe way of coast business into east\nern Washington would be removed.\n\n\nThe commissioners for the coast\nwould say: These rates are illegal.\nThey must be readjusted.\"\n\n\nAnd they would be readjusted by\ncutting off the favors to the Spo-\nkane tobber and levelling the dis\ntributing rates to such a point that,\nfavored as the tidewater cities are\nby the terminal rates, they would\nbe enabled to Hndersell the Spokane\njohber and manufacturer.\n\n\nIf the Spokane jObber is undersold,\nhe loses the business. 1t doesn't take\nany close calculations to figure out\nhow much business any Spokane\nhouse can lose before being forced to\nclose, or to remove to some place\nwhere the cheaper rates can be OBJ\ntanned.\n\n\nThat is what is going to happen\nunder a railroad commission.\n\n\nTake the lumber business in Spo-\nkane. 1t is a we'll known fact that\nSpokane lumber cannot compete with\ncoast lumber except through the\nmedium of lower prices.\n\n\nThere is to be a coast lumberman\non the railroad commission accord\ning to the present plans.\n\n\nVIII the coast, or the Spokane.\nlumber interests, suffer when it\ncomes to a question of competition"
+    }
+  ]
+}

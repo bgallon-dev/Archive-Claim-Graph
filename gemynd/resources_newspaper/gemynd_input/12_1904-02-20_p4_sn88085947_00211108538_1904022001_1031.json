@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CITIZENS ALLIANCE, A SECRET\nORGANIZATION FORMED FOR\nPURPOSE OF DESTROYING\nUNIONISM.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-20",
+    "date_end": "1904-02-20",
+    "report_year": 1904,
+    "source_file": "12_1904-02-20_p4_sn88085947_00211108538_1904022001_1031",
+    "archive_ref": "12_1904-02-20_p4_sn88085947_00211108538_1904022001_1031",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1904-02-20_p4_sn88085947_00211108538_1904022001_1031",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 107,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 638,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, Feb. 2O.-Reports\nof activity on the part of the Parry\nmovement and the Citizens alliance\nagainst labor unions reach the Amer\nlean Federation of Labor headquarters\nfrom various parts of the country.\nThey are not such as to cause alarm.\n\n\nPeculiar conditions in Colorado have\nserved to give the Citizens alliance\ntemporarily, at least, strong standing\nin that state, and present conditions\nare not encouraging to organized labor.\nIn other parts of the country these\nanti-union crusades have had no\nserious effect.\n\n\nA feature of the hostile anti-labor-\nunion movements, taken in connection\nwith their violent denuncation of the\nboycott. is the. fact that these crusa-"
+    }
+  ]
+}

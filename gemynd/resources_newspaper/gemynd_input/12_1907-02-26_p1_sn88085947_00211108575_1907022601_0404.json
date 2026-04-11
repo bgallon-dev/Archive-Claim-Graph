@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-02-26 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-26",
+    "date_end": "1907-02-26",
+    "report_year": 1907,
+    "source_file": "12_1907-02-26_p1_sn88085947_00211108575_1907022601_0404",
+    "archive_ref": "12_1907-02-26_p1_sn88085947_00211108575_1907022601_0404",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-02-26_p1_sn88085947_00211108575_1907022601_0404",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 110,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 121,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "schedule No. 1 of the Great North.\nern was reported six hours late this\nmorning.\n\n\n1t is thought by the officials OF\nthe Northern Pacific that by the\nend of the next week most of the\ndelayed freight on both western\nand eastern sections of the system\nwill be distributed. Freight has\nbeen accommodating along this line\nsince the first trouble from wash\nouts until there were over 5000\nloads tied up west of the Cascades\nand between 5000 and 1000 loads\non eastern divisions. Several hun\ndred loads of freight have been tied\nup at Umatilla on the o. r. & N,\nbut they are nearly all moving now."
+    }
+  ]
+}

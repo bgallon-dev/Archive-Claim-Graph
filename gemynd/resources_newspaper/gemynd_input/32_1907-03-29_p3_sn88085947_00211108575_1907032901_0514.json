@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FARLEY FAV0RS\n\n\nBOTH PROPOSITIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-03-29",
+    "date_end": "1907-03-29",
+    "report_year": 1907,
+    "source_file": "32_1907-03-29_p3_sn88085947_00211108575_1907032901_0514",
+    "archive_ref": "32_1907-03-29_p3_sn88085947_00211108575_1907032901_0514",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1907-03-29_p3_sn88085947_00211108575_1907032901_0514",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 70,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 270,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Thomas Maloney received his\nfirst reply this morning to the\nquestions sent out yesterday on be-\nhalf of the Central Labor union to\nthe various candidates to ascertain\nhow they stood with reference to\ncity light plant and the insertion\nOF an arbitration agreement in all\npublic utility franchises in the fu-\nture. Bob\" Farley, city comp\ntroller answered promptly that he\nwas heartily in favor of both prop\nOsitiOns."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "FOR FREEDOM",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-02",
+    "date_end": "1910-05-02",
+    "report_year": 1910,
+    "source_file": "1_1910-05-02_p4_sn88085947_00211108630_1910050202_0467",
+    "archive_ref": "1_1910-05-02_p4_sn88085947_00211108630_1910050202_0467",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "1_1910-05-02_p4_sn88085947_00211108630_1910050202_0467",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat",
+          "cattle"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 387,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 661,
+            "in_headline": false
+          },
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 572,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 252,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The recommendations of the Ohio legislative commits\nSON. appointed to investigate the high cost of living,\nhave passed practically unnoticed, it's treatment of\neconomic and domestic subjects is Of the very highest\nImportance to the whole nation\n\n\nWhat relief is there finally in bowling about high\nCOSTS cold storage and combinations controlling prices\nOF foOdsuffs when conditions such set forth in\nthe two paragraphs following:\n\n\nl. The bureau of and labor reports that the\nvalue of foodsuff exported has fallen from 800 100000\nIN 1898 to 100000 the fiscal year Of 1910 cattle\nported in 1910 127 000 against $4,000 in 1904; lard\nin 1910 onehalf that in 1906; wheat third that of\n1902 onefifth that of 1900 meat and dairy prod\nIn short we are rapidly approaching time when we\nWILL NOT PRODUCE ENOUGH TO EAT, and that\nold theory about Uncle Sam feeding the world will be but\nhaZy dream.\n\n\n3 The Washington authorities put the immigration\nfor the fiscal year 1910 at 100000 The first nine\nmonths snow 667,949. Taking last month a sample,\nthere to $500 Germans, 81 0S6 Italians 1908\nPolish and 1906 Greeks mostly agricultural folk.\n\n\n1t is safe to say that 90 cent of these people\nwill be producers-that is, they will locate in the\ncities or mines, virtually BECOMING SLAVES IN ALL\n\n\nHere have threatened shortage in production and\nbig increases in producing consumers 1t is plainly\nthe burning of the economic candle at both ends to say\nnothing OF the great national moral issues involved\n\n\nThe Ohio statesmen referred to suggest remedies They\nwould have the state maintain agricultural schools and\nexperimental farms in each county\n\n\nThey would have labor bureau to furnish aborers to\nfarmers\n\n\nThey would have the moral physical and domestic adj\nvanrages of country life taught in all the public schools\n\n\nThey would push to the front everything having ten\ndency to ATTRACT THE YOUNG MEN OF THE\nCOUNTRY TO THE FARMS instead of to the city.\n\n\nWe venture to say that very few thinking patriots\nand it's highest ideals depend upon serious, powerful\nmovement along the lines indicated by these Ohio investi\ngators\n\n\nWe have got to have more teaching and practcing of\nfreedom. larger percentage of people INDEPEN-\nDENT OF THE FOOD TRUST, THE TRANSPORTA-\nIION POOL AND THE COLD STORAGE PLANT."
+    }
+  ]
+}

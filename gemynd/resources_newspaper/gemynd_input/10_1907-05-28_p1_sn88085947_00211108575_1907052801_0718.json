@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MAYOR MOORE WELCOMES\nIII DELEGATES, AND WITH MEN.\n1TloN OF CLEANER SPOKANE,\n\n\nAND CONVENTION GOES TO\n\n\nWORK.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-28",
+    "date_end": "1907-05-28",
+    "report_year": 1907,
+    "source_file": "10_1907-05-28_p1_sn88085947_00211108575_1907052801_0718",
+    "archive_ref": "10_1907-05-28_p1_sn88085947_00211108575_1907052801_0718",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-05-28_p1_sn88085947_00211108575_1907052801_0718",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 326,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 234,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I'VE had cleaning day and bon\nhres In this city some days ago,\nand since election we have had an\nother cleaning, but not the bonfires\nyet\" stated Mayor Moore in an\naddress OF welcome this morning to\nthe Washington State Federation of\nWomen's Clubs, now In annual con-\nvention at Masonic temple. The\nmayors address was short and to\nthe point. ell thanked the women\ngenerally for the gerat assistance\nthey lent to his election. He was\ngreat favorite with the ladies this\nmorning. -\n\n\nThe meeting was called to order\nat $3.50 o'clock, following the regis\ntering of more than $50 women,\ndelegates and visitors. Just at\nnoon trainload more arrived from\nSeattle and Tacoma, swelling the\nattendance to more than 800. Fol-\nlowing the hymn, ..'Blest Be the Tie\nThat Binds\" Res. w. ]. Hindley\ndelivered the inHpcation.\n\n\nMrs. Sarah aPlatt Decker, the\nnational president, delivered an elo-\nquent address on the work of the\nclubs. Mrs. M. A. Phelps spoke on\nDaughters Of the American Revo-\nluton\" Mrs. s. X. Green followed\nwith Daughters of Revolution\" :\nA piano solo by Miss Jessie Pat\nton OF the Ladies' Musical club of\nNorth Yakima was the next num-\nDer.\n\n\nFollowing Mayor Moore's short\ntalk, Mrs. H. w. Allen, who seems\nto be a strong choice as the next\npresident of the organization, de.\nlivered the address of welcome on\nbehalf of the Spokane women. In\nresponse Mrs. w. p. Harper of Sc\nattic spoke.\n\n\nA double quartet. \"The Spring\"\nfurnished some excellent music. fol-\nlowing roll call in the afternoon.\nThe rest of the session was given\nover to reports Of committees and\ndiscussion.\n\n\nThe president of the state feder-\nalton, Miss S. M. Lombard, will\ndeliver her annual address this eve\nming. Mrs. Evelyn Chantler will\nrender her report as general feder-\nalton secretary.\n\n\nThis evening the Wagner club\nwill give recital at the high school\nfor the benefit of the clubs."
+    }
+  ]
+}

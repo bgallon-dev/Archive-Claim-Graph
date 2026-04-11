@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "TO CONSIDER\nROAD BONDS\n\n\nAt MEETING\n\nOne Weeks Delay in Gather\ning by Good Roads\n\n\nAssociation.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-09",
+    "date_end": "1910-01-09",
+    "report_year": 1910,
+    "source_file": "4_1910-01-09_p13_sn88085947_00211108629_1910010901_0105",
+    "archive_ref": "4_1910-01-09_p13_sn88085947_00211108629_1910010901_0105",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-01-09_p13_sn88085947_00211108629_1910010901_0105",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 211,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 463,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 100,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The meeting Of the Good Roads\nAssociation, which was to have been\nheld in the Assembly rooms of the\nChamber of Commerce on Monday\nnight, January 10, has been post.\nponed to Tuesday, January 10. A\ntelegram received this morning by\n}. A. Perry, secretary Of the spo-\nkane County Good Roads Associa-\nton, from L. Frank Brown, an.\nnounces the inability Of the speak.\ners to attend the meeting at that\ntime.\n\n\nMr.. Brown advises that on Tues\nday, January 10, Governor Hay\nand Sam Hill, both prominent In\nthe good roads movement in thi9\nstate, will attend the meeting ana\nhave something of interest to say\nAS the matter of bonding the coupr\nties will be one of the chief feat\nures of the open discussion it Is en-\npected that the meeting will be one\nof exceptional interest.\n\n\nSecretary Perry said today that\nthose who had received invitationa\nwould appreciate the added interest,\"\nwhich the presence of the governor\nand Sam Hill would add to tho\nmeeting and while the county as\nISOLATION regretted the necessity Of\npostponement, the general publi9\nand those interested in the move\nment would profit by the change\nand would appreciate the added I'M\nterest given by the presence o4\nsuch prominent men."
+    }
+  ]
+}

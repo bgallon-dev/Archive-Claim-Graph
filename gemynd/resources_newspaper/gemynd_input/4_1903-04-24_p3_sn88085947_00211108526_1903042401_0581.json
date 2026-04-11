@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-24 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-24",
+    "date_end": "1903-04-24",
+    "report_year": 1903,
+    "source_file": "4_1903-04-24_p3_sn88085947_00211108526_1903042401_0581",
+    "archive_ref": "4_1903-04-24_p3_sn88085947_00211108526_1903042401_0581",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-04-24_p3_sn88085947_00211108526_1903042401_0581",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 222,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 26,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\n1--WE have 20 miles Of irrigation\nditch already dug, and this will pro-\nvide water for several thousand acres\nof land. More bitches are to be dug\nas the public demand. Fish lake,\nthe source of our water supply. is\n30 miles east Of here in Idaho and Is\nample to supply the needs of the en-\ntire valley.\n\n\nIl am astonished that so few peo-\npie as yet understand the Importance\nOf this Irrigation project to Spokane.\nFor instance, we will be able to sup\nply water for the irrigation Of $4,000\nacres of land in the valley. Poorly\nirrigated 10 acres should provide a\ngood living for the average family.\nSmaller tracts will doubtless be\ntaken near the city as the years go\nby and the merits of the scheme are\nbetter understood. From these figures\n1t will be seen the valley will support\nvast population; and, in reality, is\nmore important than the combined\nmanufacturing interests of the city.\nThe wealth to be taken from the\nvalley Is so great that it would be\nhard for the average mind to compre.\nbend its total.\n\n\n''Our plan Is undoubtedly proving\na success, and we look for q steady\nincrease in business from now on\nespecially after the new street car\nline is built up the valley to Occur\nd'Alene City\""
+    }
+  ]
+}

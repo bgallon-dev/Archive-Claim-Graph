@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "THE\nC0UC|LME:N\n\n\nFAVOR It",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-22",
+    "date_end": "1910-07-22",
+    "report_year": 1910,
+    "source_file": "7_1910-07-22_p1_sn88085947_00211108642_1910072202_0216",
+    "archive_ref": "7_1910-07-22_p1_sn88085947_00211108642_1910072202_0216",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-07-22_p1_sn88085947_00211108642_1910072202_0216",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 316,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 68,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 641,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There Is a strong probability that\nthe remainder OF the work on the\nMonroe street bridge will be done\nby contract instead Of day labor, as\nthere 10 a we'll defined feeling at the\ncity hall, particularly among the\ncouncilmen, that he disaster yester-\nday was due to the error in judg-\nment in having the dismantiing and\nconstruction done by day labor in.\nstead Of contract.\n\n\nVIII any change be made in your\nplans, as far as doing the work by\nday labor is concerned?\" City En-\ngineer MacCartney was asked this\nmorning.\n\n\nThere will be no change\" was\nhis reply, until receive some or\nder to that effect\"\n\n\nThe question will come up before\nthe city council at the meeting\nnext Tuesday night. and there ac-\ntion Of some sort will be taken.\n\n\nCouncilmen Gray, Nelson, Lam\nbert, Mohr and Cartwright are in\nfavor Of doing the work by contract.\nCouncilman Shaefer favors day\nwork because of the city's expert\nence in other projects done by con-\ntract, for example. the Sprague ave\nnue. fill and the reservoir.\n\n\nCouncilman Gray said this morn.\ning that he had been in favor OF\ncontract work from the start and\nthis only reinforced his early opin\nion, Councilman Nelson favored\nthe putting in of the abutments b,\nday labor and the completion of tn,\nwork, after 1t had reached higl\nwater level, by contract. Mohr sal,\nthis morning that it Is not fair I,\n\n\nexpect city engineer to be so veI\n\n\nsatile as to be equal in capability I,\nsuch specialists as bridge builders\n| street constructors and sewer en-\ngineers. Mohr explicitly states thai\nhe does not censure MacCartncy\nbut that he believes reconstruc.\ntion of the city engineers depart\nment, putting one man at the head\nof each department. and making the\ncity engineer advisory and active\nhead of the wholen umber, would\nbe advisable."
+    }
+  ]
+}

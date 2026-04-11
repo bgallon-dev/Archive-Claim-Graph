@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SEATTLE SOCIALISTS\n\n\nALSO HAVE TROUBLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-10",
+    "date_end": "1907-09-10",
+    "report_year": 1907,
+    "source_file": "14_1907-09-10_p2_sn88085947_00211108575_1907091001_1059",
+    "archive_ref": "14_1907-09-10_p2_sn88085947_00211108575_1907091001_1059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1907-09-10_p2_sn88085947_00211108575_1907091001_1059",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 107,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 140,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The socialists are having their\ntroubles in seattle as well as Spo-\nkane. Claiming that the constitu-\ntional rights of peaceful meeting\nand free speech is violated by the\npolice department in breaking up\nthe street meeting of socialists In\nPike place, Sept. A. and in arrest\ning J. b. Osborne, the blind social\nist speaker, the state executive\ncommittee of the socialist party\nhas declared its intention of max\ning the case test one in the\ncourts.\n\n\nChief Wappenstein says that nc\nmatter what steps the socialists\ntake. he will not permit them to\nspeak on the streets while the au\nfhority is vested in him."
+    }
+  ]
+}

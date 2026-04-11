@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-09 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-09",
+    "date_end": "1903-04-09",
+    "report_year": 1903,
+    "source_file": "2_1903-04-09_p3_sn88085947_00211108526_1903040901_0529",
+    "archive_ref": "2_1903-04-09_p3_sn88085947_00211108526_1903040901_0529",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-04-09_p3_sn88085947_00211108526_1903040901_0529",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 178,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 116,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 50,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Last week the Rossland mines\nshipped 7179 tons of ore. Thus far\nthis year 90.046 tons have been\nshipped.\n\n\nValuable placer claims were recent\nly found on the Fraser river. The\namount cleaned UP Is said to DO from\nSIS to $40 a day.\n\n\nThe Iron Mask has proved itself\nto be an excellent mine. The report\nfrom the management says: Sixty\nfive hundred tons of high grade ore\nIL in sight with a gross value of\n5000, 900\"\n\n\nThe tunnel on the Blue Jay Is now\ndriven about 100 feet. 1t Is expected\nthat the ledge will be struck with\nanother 30 feet of work. The prop\nsrty Is under the management of Ed\nwards & Morrison.\n\n\nJay p. Graves states that the ex-\nperiments on the concentration OF\nore from the RoclSland are very sue\ncassful. This mine is situated In the\nneiRhborhood of Lake SLOGAN and is\none of the Red Mountain gold copper\nproperties. The owners are Jay p.\nGraves and Frank Watson OF Spo-\nkane and w. w. Spinks of Vermont,\nd. G."
+    }
+  ]
+}

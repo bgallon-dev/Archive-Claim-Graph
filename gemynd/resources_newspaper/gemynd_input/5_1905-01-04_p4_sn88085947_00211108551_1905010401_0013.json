@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SEWER CONSTRUCTION\n\n\nA MENACE TO LIVES",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-04",
+    "date_end": "1905-01-04",
+    "report_year": 1905,
+    "source_file": "5_1905-01-04_p4_sn88085947_00211108551_1905010401_0013",
+    "archive_ref": "5_1905-01-04_p4_sn88085947_00211108551_1905010401_0013",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1905-01-04_p4_sn88085947_00211108551_1905010401_0013",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 185,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 640,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "of gravel prevent a passage of teams\nin meeting.\n\n\nThe danger to pedestrians in IL is\ncrossing is great. Cars from both\ndirections line up and are blocked by\nfreight trains. Teams congregate so\nthickly that it is impossible to break\nthrough the mass.\n\n\nThe mud is six inches deep at a\npoint where the street cars take on\npassengers, who are forced to wade.\n\n\nAnother danger is the noise created\nby the switching of engines prevent\ning pedestrians hearing approaching\nwagons\n\n\nEvery hour in the day men, wom-\nen- and children are seen fleeing for\ntheir lives through mire and slush to\nescape the trains, street cars, teams\nand wheelmen. The Northern Pacific\nfiagman seems powerless to keep the\ncrossing clear.\n\n\nIf something is not done soon,\ndamage suit against the city will be\nthe result, as accidents are sure to\nfollow if the street is allowed to\nremain in it's present condition.\n\n\nWhen Commissioner HandIey was\nnotified and asked to remedy the\nmatter he said the work was let on\ncontract to Peter Costello and that\nhe had nothing to say about it.\n"
+    }
+  ]
+}

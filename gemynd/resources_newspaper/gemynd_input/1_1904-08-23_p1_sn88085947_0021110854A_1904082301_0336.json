@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "WHAT WILL THE\n\n\nCITY COUNCIL DO?",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-23",
+    "date_end": "1904-08-23",
+    "report_year": 1904,
+    "source_file": "1_1904-08-23_p1_sn88085947_0021110854A_1904082301_0336",
+    "archive_ref": "1_1904-08-23_p1_sn88085947_0021110854A_1904082301_0336",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1904-08-23_p1_sn88085947_0021110854A_1904082301_0336",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 174,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 49,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 16,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Three big propositions are to come\nup before the city council tonight\nthe water question, the purchase of\nfire steamers and the franchise over\nthe new Hangman creek bridge.\n\n\nEngineer Tannatt is expected to\nmake his proposition to the special\ncommittee this afternoon in order TO\nplace 1t before the city council. Just\nwhat the offer will be is still a Sc\ncret.\n\n\nWhen Councilmen Lindsey date of\nthe board of equalizatiOn) and Bald\nwin opposed the employment of En-\ngineer Tannatt as constructing engi-\nneer the fight by the Gill faction\nstarted. 1t was held that City Engi-\nneer Gill was the proper man to su-\npervise the construction of the pro-\nposed reservoir From political\nstandpoint it was necessary that Gill\nhave control.\n\n\nThe city engineer and his friends\nwon the first fight and the offer of\nEngineer Tannatt to go to work for\nthe city at $3.50 month was turned\ndown.\n\n\nThen came the proposition to have\nMr.. Tannatt pass on the plans for the\nnew reservoir and assist in bringing"
+    }
+  ]
+}

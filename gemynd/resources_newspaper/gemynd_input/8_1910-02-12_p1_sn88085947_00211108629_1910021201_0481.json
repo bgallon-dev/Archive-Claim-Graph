@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "WILL IRRICATE\n\n\n100000 ACRES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-12",
+    "date_end": "1910-02-12",
+    "report_year": 1910,
+    "source_file": "8_1910-02-12_p1_sn88085947_00211108629_1910021201_0481",
+    "archive_ref": "8_1910-02-12_p1_sn88085947_00211108629_1910021201_0481",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-02-12_p1_sn88085947_00211108629_1910021201_0481",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 4.5,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "agriculture": [
+          "carey act",
+          "land office"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 101,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 461,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "carey act",
+            "weight": 2.5,
+            "offset": 307,
+            "in_headline": false
+          },
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 229,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Real estate men interested in\nNorth Yakima fruit lands are re-\n1oicing over the prospect of the\ngovernment backing an enterprise\nto irrigate 100000 acres OF dry land,\njust taken off the list of lands eligi-\nBILE for entry by the land office.\nThe move to have this land wat\ncred by private capital under the\nCarey act has been in progress for\nsome time, but the government had\nbeen slow In giving 1t support. The\nnotice to take the land off the list\nOf eligible homestead sites was\nissued yesterday. The land lies In\nYakima. Kittitas and Benton coun.\nties."
+    }
+  ]
+}

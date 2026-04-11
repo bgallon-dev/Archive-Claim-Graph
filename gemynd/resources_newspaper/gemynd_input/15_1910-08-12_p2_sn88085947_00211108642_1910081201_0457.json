@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "| N l. A N D\nEMPIRE\nNEWS NOTES\n\nCOEUR D'ALENE BOOMING.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-12",
+    "date_end": "1910-08-12",
+    "report_year": 1910,
+    "source_file": "15_1910-08-12_p2_sn88085947_00211108642_1910081201_0457",
+    "archive_ref": "15_1910-08-12_p2_sn88085947_00211108642_1910081201_0457",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1910-08-12_p2_sn88085947_00211108642_1910081201_0457",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 4.5,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "coeur d'alene"
+        ],
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 94,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "coeur d'alene",
+            "weight": 1.5,
+            "offset": 32,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 471,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SoCOn - ALGNE oOOMIN0.\n12.-This town Is enjoying build.\ning boom at present and the com.\ning year promises to be one of the\nbusiest in the history of the town.\nNearly a million dollars are to be\nspent this fall and winter In i'm\nprOvementS.\n\n\nThe principal Of these and the\namount to be expended on each\nare: Street grading. S150,000; fed\neral building, 100000; high\nschool, $4,000; Masonic temple,\n$4,000; Milwaukee terminal, $780,\n600; water works, $4,000; Corbon\nroad depot, $10O,000; Presbyterian\nchurch improvements. $4,000; 20\nnew residences at $4,000 each,\n10000."
+    }
+  ]
+}

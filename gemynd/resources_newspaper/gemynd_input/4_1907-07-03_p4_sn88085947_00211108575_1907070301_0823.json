@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-07-03 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-03",
+    "date_end": "1907-07-03",
+    "report_year": 1907,
+    "source_file": "4_1907-07-03_p4_sn88085947_00211108575_1907070301_0823",
+    "archive_ref": "4_1907-07-03_p4_sn88085947_00211108575_1907070301_0823",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-07-03_p4_sn88085947_00211108575_1907070301_0823",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 343,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 71,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, July 3.-The pos\nsible unconstitutionality of the arid\nland reclamation act, as indicated in\na part of the decision by the United\nStates supreme court in the case of\nthe state of Kansas VS.. the state of\nColorado, will not cause any change\nat this time in the plans of the\nUnited States reclamation service.\n\n\n1t is authoritatively announced\npresent exactly as in the past 4\nyears, even though a test case has\nbeen started in Washington state.\n\n\nThe reclamation service has been\nadvised by the department of JUS\ntice Brewer in that case are entirely\noicta. They were not necessary to\nthe decision of the case, and are\ntherefore not regarded as binding\nAll that the court decided In that\ncase, according to the lawyers, is\nthat no state has exclusive right to\ncontrol waters which enter another\nstate, and that the federal courts\nviii administer an equitable divi-\nsion of waters between states.\n\n\nAfter deciding the point involved,\nJustice Brewer went out of the way\nto reply to an argument which had\nbeen made by Solicitor General\nHoyt, who had asked leave to enter\nthe case to speak for the the inter-\nests of the federal reclamation\nworks. Gen. Hoyt had argued that\nthe federal government was superior\nIn all cases where the states had not\ntaken jurisdiction over the water. In\ndenying this doctrine, Justice Blew\nerr called attention to the fact that\nthe general government has only\nsuch powers as are delegated to it\nby the states. After raising the\nquestion whether the power to re-\nclaim arid lands is one of the pow\ners delegated, he said:\n\n\n1T is enough to say that no one\nof them (the enumerated powers\ngranted the federal government (by\nany implication refers to the recla-\nnation of arid lands\"\n\n\nAfter discussing the grant of pow\ners by implication, he concluded on\nthat point;\n\n\n1T is still true that no independ-\nent and unmentioned power passes\nto the national government or can\nrightfully be exercised by congress\"\n\n\nReferring to the contention that"
+    }
+  ]
+}

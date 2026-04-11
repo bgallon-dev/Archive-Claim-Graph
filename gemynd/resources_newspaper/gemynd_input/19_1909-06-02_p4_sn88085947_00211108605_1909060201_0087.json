@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Woman's Corner\n\nVial Wo1r,e1>\nAreDoni>6",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-02",
+    "date_end": "1909-06-02",
+    "report_year": 1909,
+    "source_file": "19_1909-06-02_p4_sn88085947_00211108605_1909060201_0087",
+    "archive_ref": "19_1909-06-02_p4_sn88085947_00211108605_1909060201_0087",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1909-06-02_p4_sn88085947_00211108605_1909060201_0087",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 189,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 1005,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "women in trousers now are fire.\nquently seen on the streets In\nParis. This is said to be one man.\nHesitation of the suffraget move\nment. Nine. Dieulafoy, wife Of a\nwe'll known archaeologist, was the\nfirst to appear in public in mascu-\nline attire.\n\n\nQueen Alexandra all her life has\npiled the knitting needles. All the\nchildren of the kaiser have been\ntaught a trade; in the Danish court\nwhen Alexandra was a girl, the\nsame practical rule was observed.\n1t was the pleasure of Alexandra\nto become an expert knitter OF\nstockings, and even now she knits\nsteadily.\n\n\nDR.. Mary Gordon, inspector of\nprisons in London, is one of the\nyoungest and prettiest of suffragets\nand her pictures are eagerly sought\nby British editors. Now, in Eng\nland, any person is free to prohibit\nthe printing of a personal photo\ngraph, and DR.. Gordon refuses to\npermit the printing of her picture\nuntil she has read the suffragist\narticle that is intended to 60 with\nit. If the article impresses her as\nfair and favorable to equal suffrage\nshe consents to the use of her pho\ntograph."
+    }
+  ]
+}

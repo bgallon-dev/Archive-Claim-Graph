@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "CITY NEW 6\n\n\nYIN BRIEFO",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-02",
+    "date_end": "1910-02-02",
+    "report_year": 1910,
+    "source_file": "17_1910-02-02_p3_sn88085947_00211108629_1910020201_0345",
+    "archive_ref": "17_1910-02-02_p3_sn88085947_00211108629_1910020201_0345",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1910-02-02_p3_sn88085947_00211108629_1910020201_0345",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 1.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "vagrancy",
+          "jail"
+        ],
+        "agriculture": [
+          "orchard"
+        ],
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 672,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "vagrancy",
+            "weight": 1.5,
+            "offset": 1796,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1764,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 2018,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 3313,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 317,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "company, WIN Offices on the sec\nond floor of the Eagle block. has\nincreased its capital stock from\n100000 to 100000. T. S. Lane\npresident of the Interstate Consoli\ndated Telephone company, has beer\nelected member of the board OF\ndirectors.\n\n\nr. D. Miller, representing NORTH\nSide property owners, has petition\ned the chamber of commerce to use\nits influence in securing some aiC\nin abating the impossible condition\nof Division street between the Spo\nkane river and Boone avenue\nNumerous appeals to the street de\npartment and city officials have\nteen fruitless of results, the peti\ntoner recites.\n\n\nThe Orient Mystery Gold Mining\ncompany has incorporated with q\ncapital stock of $1,500,0DO, and tho\ndirectors are J. S. Payne, g. w\nLansing, H. e. w. Wadsworth an;\ne. J. Merlin.\n\n\nThe Spokane chamber Of com\nmerce has indorsed the effort OF\nWhitman college to have the gov\neminent deed over the grounds OF\nold Fort Walla Walla to the col\nlege. The fort will be abandoned\nsoon. The school agrees to edu\ncate free all of the Indians of Idaho\nand Washington eligible to admis\nsion to the college.\n\n\nThe postoffice department has\nwritten here stating that it is i'm\npossible to grant the rural mai\ncarriers of Idaho and Washington\nan increase of pay for the reason\nthat the rural free delivery service\nlast year ran over $27,000,0O0 be\nhind.\n\n\nWith a capitalization of $4,000,\n600 the Mammoth Lode Mining &\nMilling company was incorporated\nhere yesterday. DeLain c. Hoff\nman, Il. j. Demarest, J. l.. Tanner\nand r. A. Jones are the directors.\n\n\nw. F. Pryor, a constant police of\nfender, was sentenced to thirty\nGays on the city rock pile by Jus\ntice Mann.\n\n\nHaze Wagner, a young woman\nwho told the police that she lived\nat home once in while, was sen\nfenced to 30 days in Jail after an\nswering charge OF vagrancy. Haze\nIs said to be a frequenter of public\ndances.\n\n\nMajor George Bell of the inspec\nton division of the army, is at For\nWright looking over the condition\nof the men and government prop\nerty.\n\n\nThe Spokane Valley Orchard ane\nLand company, composed of Spo\nkane and New York men, has beer\nincorporated with a capital stock o.\n| 100000. J. r. Gemmill and Franr\nCowan of New York, +. ID. Aller\nand A. T. Herrick of Spokane anC\nGerry e. Browne of Spokane Bridge\nare the incorporators.\n\n\nGeorge Febieer Of last year.\nSouth Central high school class has\nsucceeded in passing the final eX\nanimation for admission to Wes\nPoint. He is a son OF Colonel Les\nFebiger of the Third infantry, for\nmerly In command at Fort Wright\n\n\nBethany Presbyterian church hal\nbeen incorporated. George J\nBishop, L. r. Kinsley, II. Petty\nRoderick Mckay and J. II. McPher\nson are the trustees.\n\n\nWenatchee will open its new $50,\n600 chamber of commerce building\nFebruary IL. The Spokane cham\nDer of commerce will probably sent\na special train and arrangements\nare now In the hands of Secretar!\nl.. G. Monroe.\n\n\nHiIIyard people yesterday for\nwarded their petition to the post\noffice department asking that tn,\nbilliard office be made an indie\npendent station of the Spokane of\nflee. The petition carried tn,\nnames Of GA people.\n\n\nThe BanerLIndsey company o\nSpokane has incorporated for $50,\n600. G. X. Lindsey. A. l.. Morri.\nand f. j. Baner are the trustees.\n\n\nA deal Is on between the Mil\nwaukee and the. Hill interests To-\nthe use of the Inland Empire tracks\nbetween Rosalia and Spokane b!\nthe Milwaukee until its loop int,\nSpokane from Plummer, Idaho. Il\ncompleted. The Milwaukee, 1t 4\nsaid. can compel this Joint use o\nthe tracks by aid OF the interstate\ncommerce commission, but prefer\nto secure II by friendly negotia\ntons. The deal is said TO hing\nover the objection of the Hill pee\npie to the Milwaukee running\ntime freight service over the Ir\nland line. which 1t is claimed woul\ndemoralixo the Inland service. Tn"
+    }
+  ]
+}

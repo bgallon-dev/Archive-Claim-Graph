@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-16 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-16",
+    "date_end": "1910-05-16",
+    "report_year": 1910,
+    "source_file": "3_1910-05-16_p9_sn88085947_00211108630_1910051601_0655",
+    "archive_ref": "3_1910-05-16_p9_sn88085947_00211108630_1910051601_0655",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-05-16_p9_sn88085947_00211108630_1910051601_0655",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 2.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 268,
+      "match_details": {
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 855,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "To the Editor of the Press: The\npresent trouble between the rest\naurant keepers and their employees\nbeing Of some interest to the pub\nlie, l would like to present our side\nOf the question. Several years ago\nthe bosses put in their first kick\nagainst raising the girls wages.\nbut a few months ago they went\nafter the miscellaneous help and\nwanted us to throw them out of the\nunion. and said they would never\nrecognize them as union men. We\nrefused their offers and ignored\ntheir threats, and the dishwashers\nwon, though we have never been\nable to protect them without an\nopen rupture. Now this last de-\nfeat seems to hurt them. A dish\nwasher gets SLAP per day of twelve\nhours. seven days a week. Is that\nunreasonable? or course, he is\nOverworked and underpaid, and\ndoesn't last long, generally speak\ning; and If he takes layoff he\nis called a loafer and a hobo.\n\n\nne OOSSeS lOTCeu tnelr contract\non us and gave us but a short time\nto consider it. Almost every as\nISOLATION house began to hire their\nhelp from the employment offices.\nwhere men had to pay big fees for\njobs they could not fill. Their con\ntract reads that all help must come\nthrough the union office when pos\nsible. They have hung up rules on\nthe walls that are an insult to\nevery employee. They have ig-\nnOred us on every occasion and\nhave violated their contract by\nworking our girls and boys twelve\nhours instead of ten and eleven, as\nper contract.\n\n\nWhen they opened their employ."
+    }
+  ]
+}

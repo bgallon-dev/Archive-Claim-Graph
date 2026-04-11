@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "jim HILL s PROMISES\n\n\nTHE USUAL WARM AIR\n\nCONTINUED from page one.)",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-10",
+    "date_end": "1909-06-10",
+    "report_year": 1909,
+    "source_file": "10_1909-06-10_p8_sn88085947_00211108605_1909061001_0151",
+    "archive_ref": "10_1909-06-10_p8_sn88085947_00211108605_1909061001_0151",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-06-10_p8_sn88085947_00211108605_1909061001_0151",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 285,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1142,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the railroad that led to the rumors\nof Gordons shortage becoming pub\nlie and resulted in the resignation\nof Judge Root and the indictment\nof Gordon on eight counts by the\nSpokane county grand jury.\n\n\nIn view of these things not a\ngreat deal of faith was placed in\nJames ]. Hills assurance to the\ngrand jury that he would see that\nthe documents wanted were sent\nto Spokane. And the announce\nment that the papers would not be\nsent did not create a great deal of\nsurprise.\n\n\nTHE refusal of the Great North\nern to send the papers wante in\nthe Gordon cases will in no way\ninterfere with the prosecution of\nthese indictments, said Fred c.\nPugh, prosecuting attorney, toay.\nI'VE have sufficient evidence, we\nbelieve, to secure the conviction\nof Gordon without the desired ex-\nhibits, but with them there would\nhave been no question as to his\nconviction.\n\n\nJames j. Hill made the grand\njury fair promise to send the\npapers, and while l had some\ndoubts as to the probability OF\ntheir being sent, / was interested\nto know just what excuse would\nbe employed in case of a refusal\nto comply with the promise. The\nstatement that the official papers\nof the Great Northern are never\nallowed to leave the state of Min\nnesota is fiction, pure and simple.\n\n\nI'VE are not yet through with\nthe Hill family, and will sec that\nLouis w. Hill stays away from the\nstate of Washington or submit to\nan examination by the Spokane\ncounty grand jury\"\n\n\nMeanwhile Jim Hill had a chance\nto tell what q good citizen he is\nIn a way that secured it publica.\ntion all over the country."
+    }
+  ]
+}

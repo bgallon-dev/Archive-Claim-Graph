@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "OBSERVATION-DISCLOSURES",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-14",
+    "date_end": "1906-04-14",
+    "report_year": 1906,
+    "source_file": "50_1906-04-14_p1_sn88085947_00211108563_1906041401_0614",
+    "archive_ref": "50_1906-04-14_p1_sn88085947_00211108563_1906041401_0614",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "50_1906-04-14_p1_sn88085947_00211108563_1906041401_0614",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 85,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 2,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "o Great Northern train, known Q\n\n\nQ as the Oriental Limited, which Q\nQ left Spokane this morning, was 9\n9 derailed few miles west Of 9\nQ Adrian. The tender of the en-. o\n. CINE and four cars are reported o\nQ off the track. No one was Q\nQ injured, say the officials of the Q\n9 company In this city. Further .\no particulars can not be obtained Q\nQ at this time. o\n9 q\n10000 80 o. a %"
+    }
+  ]
+}

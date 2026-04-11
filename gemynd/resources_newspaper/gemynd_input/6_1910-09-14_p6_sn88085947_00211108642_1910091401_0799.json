@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-09-14 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-14",
+    "date_end": "1910-09-14",
+    "report_year": 1910,
+    "source_file": "6_1910-09-14_p6_sn88085947_00211108642_1910091401_0799",
+    "archive_ref": "6_1910-09-14_p6_sn88085947_00211108642_1910091401_0799",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1910-09-14_p6_sn88085947_00211108642_1910091401_0799",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 94,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 420,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "article vi. to the state constitution\nto be. voted on at the mex general\nelection. Nov. s, granting women\nthe right of the ballot. Each candi.\ndate who responds to the invitation\nwill be given five minutes to voice\nhis sentiments, or their written\nviews will be read.\n\n\nThe Rev. Herbert S. Bigelow viii\naddress the meeting. which will be\ngin promptly at o'clock.\n\n\nMiss Fay Morvillius will give the\ninitial try-out of a suffrage song\nwords by May Arkwright Hutton\nto be sung to the tune of Put or\nYour Old GRAY Bonnet\""
+    }
+  ]
+}

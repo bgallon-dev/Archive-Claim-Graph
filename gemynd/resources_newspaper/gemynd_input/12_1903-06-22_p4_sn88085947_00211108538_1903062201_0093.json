@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-06-22 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-22",
+    "date_end": "1903-06-22",
+    "report_year": 1903,
+    "source_file": "12_1903-06-22_p4_sn88085947_00211108538_1903062201_0093",
+    "archive_ref": "12_1903-06-22_p4_sn88085947_00211108538_1903062201_0093",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1903-06-22_p4_sn88085947_00211108538_1903062201_0093",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 108,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 404,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 168,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Leavenworth on the west, making\nSpokane the headquarters and calling\n1t the Spokane division.\n\n\n1t was thought there would then\nnot be room for the headquarters of\nthe Spokane Falls & Northern here,\nbut on afterthought, when both Cen\neral Manager Ward and Mr. Slade had\ntaken trip of inspection to North\nport and returned to ST. Paul it was\ndecided no change would be made but\nroom would be found in the depot\nhere and the business from that line\nwill be handled from this city as in\nthe past.\n\n\nAlthough officials here know who\nwill get the appointment of superin-\ntendent of the new Spokane division"
+    }
+  ]
+}

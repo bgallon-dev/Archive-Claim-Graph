@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "COAST POSTSEASON IS\n\n\nDECLARED NOT OFFICIAL\n\nBUSY WITH PROHIBITION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-28",
+    "date_end": "1910-10-28",
+    "report_year": 1910,
+    "source_file": "13_1910-10-28_p1_sn88085947_00211108654_1910102802_0284",
+    "archive_ref": "13_1910-10-28_p1_sn88085947_00211108654_1910102802_0284",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "13_1910-10-28_p1_sn88085947_00211108654_1910102802_0284",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 4.5
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "statehood"
+        ],
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 69,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "statehood",
+            "weight": 2.5,
+            "offset": 273,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 108,
+            "in_headline": false
+          },
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 55,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "PHOENIX, Ariz.. Oct. 2S.--The\nconstitutional convention today was\noccupied with hearing the claims\nof rival prohibition and liquor lob\nbies, both OF which are opposing\nthe separate submission of the pro-\nhibition question to the voters of\nArizona following the granting of\nstatehood. Both factions urge that\npropositions they have offered be\nincorporated as basic parts Of the\nconstitution that will be submit\nted to President Taft and congress."
+    }
+  ]
+}

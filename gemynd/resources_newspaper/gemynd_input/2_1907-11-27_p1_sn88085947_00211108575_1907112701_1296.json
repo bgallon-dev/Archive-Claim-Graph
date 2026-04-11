@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WITHOUT\n\n\nBARROW\n\nSELECTION OF JURORS TO TRY\nGEORGE PETTlBONE CON-\nMENCED AT BOISE THIS\n\n\nMORNING IN SPITE OF ABB\nSENCE OF CHIEF COUNSEL.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-27",
+    "date_end": "1907-11-27",
+    "report_year": 1907,
+    "source_file": "2_1907-11-27_p1_sn88085947_00211108575_1907112701_1296",
+    "archive_ref": "2_1907-11-27_p1_sn88085947_00211108575_1907112701_1296",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-11-27_p1_sn88085947_00211108575_1907112701_1296",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 201,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 752,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, Nov. 27.-The examina-\ntion of talesmen IN the trial of\nGeorge A. Pettibone, charged with\ncompletely In the murder of Ex-\nGov. 'Stuenenberg, was begun in\nthe district court here at 10 O'Clock\nthis morning. James H. Hawley\nchief counsel for the state. ar\nrived on time hut Darrow was not\nyet present.\n\n\nc. c. Cavenaugh. partner of Sen\nBorah, was entered as associate\ncounsel for the state. barrow was\nreported on the way from Spokane\n\n\nEarly in the examination of tales.\nmen 1t became evident that diff.\nGuilty will be experienced in obtain.\ning a jury, The first four exam.\nined, r. f. Lamb, G. W. Mitchell\nF. M. Blair, ]. S. ID. Manville, all\nfarmers, were excused because of\nobjection to capital punishment or\nopinion formed at hearings of the\nHaywood trial.\n\n\nThe state passed w. H. Gebberd\nfor cause. He is a farmer.\n\n\nThe state challenged Henry Con\nrad for congratulating Haywood on\nthe verdict in that trial. Alex Hof\nfeger was accepted by the state\nHe is a French civil war veteran\nwho never reads the papers. Jesse\nSailor was challenged by the state\nfor bias. Frank Gardner was per\nemptorially challenged by the de.\ntense."
+    }
+  ]
+}

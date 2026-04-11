@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "new RATES ON\n\n\nLUMBER",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-17",
+    "date_end": "1904-05-17",
+    "report_year": 1904,
+    "source_file": "2_1904-05-17_p1_sn88085947_00211108538_1904051701_1324",
+    "archive_ref": "2_1904-05-17_p1_sn88085947_00211108538_1904051701_1324",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-05-17_p1_sn88085947_00211108538_1904051701_1324",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 254,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Northern Pacific announces q\nnew rate on lumber, shingles and poles\nfrom Spokane territory to certain Col\norado points. The lumber rate is 80\ncents to Burlington, Vona, Seibert,\nFlagler, Arriba, Bovina and Genoa,\nand 40 cents to Limon. The rate for\ntelegraph and telephone poles, which\ncan be shipped on single car is the\nsame as the lumber rate and the rate\nfor poles which are so long as to re-\nquire two cars is from 2 to 5 cents\nhigher. The single rate is 10 cents\nhigher than the lumber rate.\n\n\nwEsrPo1T EXCURSION.\n\n\nThe Northern Pacific has put. on a\n$50 excursion round trip rate from this\nsection to Westport on Gray's harbor,\nWash. The rate is one which applies\nat any time from the present date\nand ticket is good to return any time\nprior to September 80.\n\n\nWestport and other Pacific coast\nbeach points are becoming popular and\nthe Northern Pacific is making this\nexcursion rate in response to the in\nrceasing popularity of this resort. A\n$40 rate, similar to the Westport rate,\nalso is made by this road to Long\nBeach, nlwaco and other points in the\nsouthwestern part of the state.\n\n\nFOR YELLowsToNE PARK.\n\n\nThe Northern Pacific has put on\nthrough Pullman ear from Portland\nto the Yellowstone national park,\nwith goes through Spokane on number\nQ at 1928 in the morning, reaching\nLivingstone at a. m, where it is\nsent on to the park without requir-\ning passengers to arise at the early\nmorning hour."
+    }
+  ]
+}

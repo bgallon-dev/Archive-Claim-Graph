@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Convention of Working Peo-\n\n\npie Meets in Arizona to\nPlan Campaign to Control\nConstitutional Convention\nProvisions They Want\nin the Fundamental Law.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-21",
+    "date_end": "1910-07-21",
+    "report_year": 1910,
+    "source_file": "4_1910-07-21_p6_sn88085947_00211108642_1910072101_0211",
+    "archive_ref": "4_1910-07-21_p6_sn88085947_00211108642_1910072101_0211",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-07-21_p6_sn88085947_00211108642_1910072101_0211",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 244,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 695,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "PHOENIX, Ariz., July 21.-To\nrule state in this age of judge\nrule, you must write it's constitu-\nton.\n\n\nThe working people want to rule\nthis new state. Gathering in con-\nference here July II on call of Bis\nbee local LOG of the Western FEEDER\nalton of Miners, they have launched\ncampaign to elect a majority of\ntheir number as delegates to the\ncoming constitutional convention.\nThey hope their representatives\nwill outnumber the Santa Fe, South\nern Pacific and other corporation\nlawyers, and secure for the new\nstate of Arizona the most liberal\nconstitution in the union.\n\n\nHere are some of the startling\nthings mentioned as possible pro-\nvisions of the state constitutions:\n\n\nUniversal and equal suffrage for\nall men and women; amendment of\nthe constitution to be by majority\nvote of the people, on the initiative\nof either the legislature or the peo-\nPile; legislature to consist of but\none house; property to be taxed at\nit's full value; state to have power\nto take over property at its as\nsessed valuation; state to have\nright to engage in business; state\nto have right to seize property of\nany person, partnership, firm, COM\npany or corporation which violates\nthe law; law to be declared uncon-\nstitutional only by vote of the peo-\npie; state to defray expenses of de-.\nTense as well as prosecution; aboli-\nton of fee system in courts! short\nterms for judges; six months resi-\ndence necessary to qualify citizen"
+    }
+  ]
+}

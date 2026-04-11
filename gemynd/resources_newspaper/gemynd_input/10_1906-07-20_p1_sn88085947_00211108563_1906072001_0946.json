@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-07-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-20",
+    "date_end": "1906-07-20",
+    "report_year": 1906,
+    "source_file": "10_1906-07-20_p1_sn88085947_00211108563_1906072001_0946",
+    "archive_ref": "10_1906-07-20_p1_sn88085947_00211108563_1906072001_0946",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1906-07-20_p1_sn88085947_00211108563_1906072001_0946",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 107,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 194,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A pettion is being circulated\nand literally signed asking the\nboard of police commissioners to\nrevoke the commission of Special\nPoliceman McKernan. McKernan\nhas been employed by the Washing\nton Water Power company as\nspoher and detective for several\nyears and has made himself parti-\ncularly obnoxious to union men\nduring the present trouble between\nthe company and the linemen. 1t\nis supposed that McKernan has\nonly obeyed orders of his superiors,\nbut It is claimed that he has on\nevery occasion possible attempted\nto create trouble with the strlk-\ners, His action last Saturday in\nabusing without any justification,\n1t is claimed, two of the linemen,"
+    }
+  ]
+}

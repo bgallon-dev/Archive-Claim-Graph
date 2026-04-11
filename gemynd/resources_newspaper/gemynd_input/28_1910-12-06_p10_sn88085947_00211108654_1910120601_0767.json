@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NEWS FOR WOMEN READERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-06",
+    "date_end": "1910-12-06",
+    "report_year": 1910,
+    "source_file": "28_1910-12-06_p10_sn88085947_00211108654_1910120601_0767",
+    "archive_ref": "28_1910-12-06_p10_sn88085947_00211108654_1910120601_0767",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1910-12-06_p10_sn88085947_00211108654_1910120601_0767",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 435,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 921,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "= - Q\n\n\nSocial news is a daily feature OF\nThe Press. Any one wishing to in\nsert such news should send 1t adj\ndressed to the society editor. or phone\nbefore 10 q. m.\n\n\nTHEATRICAL MEN TO DANCE.\n\n\nMembers of the Theatrical Me-\nchanic's association are, making ar\nrangements for midnight matinee\nand dance, to be given, IL possible,\nin the new theater, January 2.\nThere are $50 members of the as\nISOLATION in this city, and it is ex-\npected that a full number of men,\nbers and guests will be present.\nArrangements have been made to\nreproduce the best acts on all\nlocal stages that week at the event.\nand one ticket will admit to both\ndance and vaudeville.\n\n\nWOMEN INSPECT NEW CLUB\n\n\nHOME WITH DELIGHT.\nThe new home of the Woman's\nclub on Ninth and Walnut was\nopen. to inspection yesterday, and\nfully $50 women from the differ\nent clubs of the city were there to\ncomment rapturously upon the ap-\npointments of Spokane's first\nwoman's club house. Downtown\nfirms were very generous in their\naid, number contributing articles\nof furniture, ETC., and the result is\nan exceedingly attractive and well\nappointed club cottage. There is a\nminiature stage for elocution and\nlecture entertainments, and the\nbasement is fitted up as kitchen\nand dining room.\n\n\nX. OF c. OFFICERS ELECTED.\n\n\nOfficers for the coming year\nwere elected at the meeting of the\nSpokane council No. 6S3, Knights\nof Columbus, last night. F. J..\nDorsey was elected grand knight\nand Lester P. Edge deputy grand\nknight. E. j. Kane was chosen\nfinancial and J. T. Skerrett record\ning secretary and Guy nj. Coffey,\ntreasurer.\n\n\n4 & q\n\n\nBAZAAR PLANS BEING CON-\n\n\nPLETED.\n\n\nThe Christmas bazaar to be\ngiven by the Ladies' Benevolent\nsociety, beginning Monday, is to be\none of the largest affairs Of its ma\nture given this season. Everything\nimaginable, from gents furnish\nings to lemonade and peanuts will\nbe displayed to the best advantage\nand the booths will be beautifully\ndecorated and attractively fur\nnished.\n\n\nPLAN BRIDGE PARTY IN NEW\nHOME,\n\n\nMembers of the Woman's club\nwill play at bridge in their new\nhome Thursday evening. Hand\npainted sketches of the. home will\nbe used as souvenir score cards.\nA musical program will proceed the\ncard games.\n\n\nK. OF P.'S WILL CELEBRATE\n\n\nNINETEENTH Anniversary.\n\n\nThe Knights of Pythias will cele-\nbrate the nineteenth anniversary\nof their founding on Thursday. A\nprogram followed with a dance, in\nGLIDING old-fashioned steps, will be\ngiven in the Pacific hall. Tonight\nthe sisters will entertain at one of\ntheir dances.\n\n\nZ Z ="
+    }
+  ]
+}

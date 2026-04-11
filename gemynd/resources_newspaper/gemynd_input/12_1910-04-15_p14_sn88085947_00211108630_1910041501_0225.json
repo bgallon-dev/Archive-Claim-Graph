@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "KISSING THE PRESIDENT\n\n\nBAD FOR SUFFRAGETTES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-15",
+    "date_end": "1910-04-15",
+    "report_year": 1910,
+    "source_file": "12_1910-04-15_p14_sn88085947_00211108630_1910041501_0225",
+    "archive_ref": "12_1910-04-15_p14_sn88085947_00211108630_1910041501_0225",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1910-04-15_p14_sn88085947_00211108630_1910041501_0225",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 111,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The mark of disfavor greeted\nthe president when he declared\nthat if suffrage should be granted\nit would be exercised by the least\ndesirable element. Taft declared\nthat not all women were interestd\nin the movement and not all of\nthem desired the ballot.\n\n\nThen the kissing started and it\ntook some minutes for the presid-\ning officer, Mrs. Rachel Foster\nAvery, to restore order so that the\naddress might continue,\n\n\nAlthough the hall was Quoted\nand the president finished his ad-\ndress, the affair has left an unfav-\norable impression. 1t is expected\nthat the delegates themselves will\ntake official notice of it and that\nthey will decry the occurrence."
+    }
+  ]
+}

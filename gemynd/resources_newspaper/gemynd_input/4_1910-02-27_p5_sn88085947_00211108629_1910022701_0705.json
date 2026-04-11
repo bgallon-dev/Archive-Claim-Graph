@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "What CITY COUNCIL HAS DONE IN\n\n\nTWO MONTHS POLITICAL F|DDL|NC\n\nTHAT WAGE ORDINANCE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-27",
+    "date_end": "1910-02-27",
+    "report_year": 1910,
+    "source_file": "4_1910-02-27_p5_sn88085947_00211108629_1910022701_0705",
+    "archive_ref": "4_1910-02-27_p5_sn88085947_00211108629_1910022701_0705",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-02-27_p5_sn88085947_00211108629_1910022701_0705",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 190,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 16,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 5,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "DECEMBER 1, the city council\ndirected the corporation counsel to\ndraft an ordinance granting an in\ncrease of rs cents per day to COM\nmon laborers and SO cents per day\n10 teamsters.\n\n\nDECEMBER Is, rejected the\nwage petition and countermanded\nThe order of December 1.\n\n\nDECEMBER 81, jumped the fence\nagain and gave second order to cor\nporation counsel to draft an ordi-\nnance increasing the wages.\n\n\nJANUARY 10, evidently under\nthe influence of boss men with\nmoney, killed the second order OF\nDecember 81.\n\n\nJANUARY IA, with plenty of evil\ndence of cold feet\" the council\nthrew the whole troublesome mat\nter into the hands Of the mayor for\nhis Recommendation\"\n\n\nFEBRUARY 20, on recommends\nton of Mayor Pratt and faced by a\ncounter petition by many influen-\ntial business men, council again\nadopted resolutions favoring wage\nscale and for the third time direct\ned that an ordinance granting same\nbe drafted.\n\n\nFEBRUARY \"a, for some reason\nnot altogether clear, council leaped\nback across the moneyed side Of\nthe political fence and for the third\ntime killed the order for the pro-\nposed increased wage scale ordi-\nnance."
+    }
+  ]
+}

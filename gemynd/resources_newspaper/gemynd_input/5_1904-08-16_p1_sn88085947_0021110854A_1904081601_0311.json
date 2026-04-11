@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "ONE HUNDRED AND FIFTY THOUSAND DOLLAR FIRE\n\n\nIS THE RESULT OF FOSSIL in CHARGE OF WATER DEPARTMENT",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-16",
+    "date_end": "1904-08-16",
+    "report_year": 1904,
+    "source_file": "5_1904-08-16_p1_sn88085947_0021110854A_1904081601_0311",
+    "archive_ref": "5_1904-08-16_p1_sn88085947_0021110854A_1904081601_0311",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-08-16_p1_sn88085947_0021110854A_1904081601_0311",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 343,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 691,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 871,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Once more the property owners and\nbusiness men of Spokane were COM\nPEELED to stand idly by and witness\nthe spectacle of $150,000 worth Of\nstock and property go up in smoke\nwhile the hard working, exhausted\nfire department were making her.\nculean efforts to secure supply of\nwater sufficient to prevent a wide\nspread conflagration. That the de-\npartment, with the use Of three fire\nsteamers, finally succeeded in get\nting pressure sufficient to prevent the\nspread Of fierce flames through the\ndowntown business district Is due to\nthe firemen and their leaders and not\nto the handling Of the water works\nsystem.\n\n\nAt 4:40 o'clock this morning an\nalarm Of fire was turned in from\nthe passenger depot Of the Occur\nd'Alene Traction company, at Sprague\navenue and Washington street, over\nthe telephone, to the effect that the\nsmokehouse Of the Cold Storage mar\nket, 315 to 317 Riverside avenue, was\nburning.\n\n\nThe alarm was turned in by tho\nengineer running the ice machine at\nthe cold storage plant, who left his\npost and ran to the depot to get\ntelephone connection, although there\nwas a telephone in the market.\n\n\nAssistant Fire Chief Joyce respond\ned with No. and No. companies\nand found the smokehouse, to the\nrear Of the building, near Sprague\navenue, a mass sof flames\n\n\nNo water.\n\n\nThree lines of hose were laid at\nonce by the firemen, but the water\npressure was so low that it was found\nimpossible to make any headway\nagainst the rapidly spreading flames.\n\n\nAssistant Chief Joyce grasped the\nsituation and at once turned in a gen\neral and special alarm, to which all\nof the steamers and fire companies\nand Chief Myers responded.\n\n\nMore lines were laid from the hy-\ndrants, but these also were almost\nuseless owing to no pressure. Then\nthe big steamer from central sta\ntion and the two smaller steamers\narrived.\n\n\nThe water was shut off until three\nleads could be connected with the big\nsteamer and two each with the small\ner steamers. From that time on,"
+    }
+  ]
+}

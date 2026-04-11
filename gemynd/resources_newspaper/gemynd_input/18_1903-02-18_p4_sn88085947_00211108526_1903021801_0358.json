@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-18 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-18",
+    "date_end": "1903-02-18",
+    "report_year": 1903,
+    "source_file": "18_1903-02-18_p4_sn88085947_00211108526_1903021801_0358",
+    "archive_ref": "18_1903-02-18_p4_sn88085947_00211108526_1903021801_0358",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1903-02-18_p4_sn88085947_00211108526_1903021801_0358",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 73,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 18,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 165,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "lection, says the American Federation\nof Labor has been the source of much\nfinancial assistance to its western\nbodies in time of trouble. He cites\nthe Occur d'Alene strike of 1898, when\nthe federation donated $4,000 to the\nminers union, although not AFFILIATED\nwith 1t.\n\n\n1t was also owing to the efforts Of\nthe executive board of this organiza-\nton that a committee was appointed\nto investigate the inhumanities Of the\nbull PEN\""
+    }
+  ]
+}

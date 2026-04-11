@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "HUNDREDS FIGHTING\n\n\nFIERCE FOREST FIRES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-15",
+    "date_end": "1910-07-15",
+    "report_year": 1910,
+    "source_file": "2_1910-07-15_p8_sn88085947_00211108642_1910071501_0157",
+    "archive_ref": "2_1910-07-15_p8_sn88085947_00211108642_1910071501_0157",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-07-15_p8_sn88085947_00211108642_1910071501_0157",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 0.0,
+        "indigenous": 6.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "pine creek"
+        ],
+        "indigenous": [
+          "reservation",
+          "colville",
+          "flathead",
+          "indian reservation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 252,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "pine creek",
+            "weight": 2.0,
+            "offset": 245,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 579,
+            "in_headline": false
+          },
+          {
+            "term": "flathead",
+            "weight": 1.5,
+            "offset": 667,
+            "in_headline": false
+          },
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 676,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 683,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "al forest reserve, seven big fires\nare playing havoc with some of\nthe finest pine in the state.\n\n\nBig Creek, Idaho, is the scene of\nthe worst fire. Another almost as\nextensive is burning at Nelson Sid\ning on the Occur d'Alene river Dud-\nley and Pine Creek districts like\nwise are fighting fires. North of\nHarrison on Carlin bay a valuable\ntract of timber was destroyed. This\nfire is one of the few under control.\nAt Spirit Lake, Idaho, four square\nmiles of brush and timber are re-\nported to have been burned. An\nother destructive blaze is giving\ntrouble at Loon Lake and in the\nColville valley.\n\n\nIn Montana three distinct fires\nare playing havoc with timber on\nthe Flathead Indian reservation.\n| The government has empowered\n| the agent to spend sufficient sum\nof money to prevent spread of the\n| flames.\n\n\nFires are also doing much dam\nage near Libby, Mont. ST. Regis\nand Whitefish. Mont. The blaze at\nSt. Regis already has cleared path\na mile and a quarter wide. The\ntimber in that district is dry on\naccount of extended drouth and is\nproving excellent finder to keep the\nblaze going furiously.\n\n\nThree hundred men are attempt\ning to hold the forest fire in the\nKootenai national reserve in check\nThe flames continue to spread\n\n\nhowever, and a call for additional\nhelp has been made.\n\n\n| According to report reaching\nhere today, four new fires sprung\nup in the Western Park in Montana\n\n\nduring the night."
+    }
+  ]
+}

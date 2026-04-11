@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Club Calenoar",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-27",
+    "date_end": "1910-03-27",
+    "report_year": 1910,
+    "source_file": "35_1910-03-27_p14_sn88085947_00211108629_1910032701_1136",
+    "archive_ref": "35_1910-03-27_p14_sn88085947_00211108629_1910032701_1136",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "35_1910-03-27_p14_sn88085947_00211108629_1910032701_1136",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 398,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1185,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nThe Nature Study club will meet\nTuesday, April ~, with Mrs. A. J.\nAlbring at her home, 1920 Mallon\navenue.\n\n\nThe members of the Woman's\nBook club will be guests Wcdnes-\nday afternoon of Mrs. J. G.. Finley\nat her home, 02427 Lancaster\nstreet.\n\n\nMrs. Lydia Campbell will be\nhostess Wednesday afternoon,\nwhen she will entertain the mem\nbers of the East End book club at\nher residence on Third avenue and\nLatah street. Mrs. w. X. Smith\nand Mrs. Amelia McCroskie will\nhave charge of the program.\nThe Jonquil club will meet Tues\n| day, April 5, at the home of Mrs.\nT. w. Pynn, E401 Indiana avenue.\nThe members of the d. A. r. will\nbe entertained Thursday at the\nhome of Mrs. NJ. A. Phelps on Sec\nond avenue. Tho affair will be in\nform of a silver tea given for the\nbenefit of the moving and presorva-\nton of the old Cowley schoolhouse.\n\n\nq =\nThe Mount Carlton club will\n| a. II. Arbuckle, at the home of\nMrs. Milton st. Clair. S235 Stone\nstreet.\n\n\nMrs. J. G. Kendall will entertain\nthe Mantle card club tomorrow at\nher home in Mantle place.\n\n\n= 4 =\n\n\nThe members of the Delft Iota\nChi will be guests of Mrs. Lamont\nBarnes Tuesday afternoon. April 5.\nat her apartments in the San\nMarco.\n\n\nWOMAN'S CLUB CALENDAR\n\n\nMONDAY. March 2e-Music at tho\nlibrary at 2:30 p. m. Miss May Car\nolyn Williams, chairman. Profess\nsor Woodward will have charge OF\nthe choruses.\n\n\nTuesday, Ma Oh 20 - Junior\nFrench class me It's 1T the Palace\nstore from 2:35 to 1913. Professor\nlie Gras, teacher. Miss Wetherill.\nchairman.\n\n\nWednesday, March 30-The mil\nlinery classes meet at the Palace\nstore from 10 to IL a. m. Mrs. Ely,\nteacher. Miss Harry Jarvis, chair\nman.\n\n\nThursday, March 31-Elocuton\ndepartment at the library from 4\nto S p. m. Mrs. Belden, teacher.\nMiss Jennie Jones. chairman.\n\n\nFriday, April Junior German\nat the Palace from Las to 2:45.\nMrs. Prayer, teacher. Senior French\nat the Palace from 2:45 to 3:45.\n| Professor lie Gras, teacher. Senior\nGerman from to 5 p. m. at the\nsame place. Mrs. Prayer. teacher\n\n\nSaturday, April China painting\nat the studio of the teacher. Mrs.\nM. Shide, 1920 First avenue, from\n| to > p. IN.\n\n\nMonday, April 1.-The Woman's\nclub will hold its annual election of\nofficers."
+    }
+  ]
+}

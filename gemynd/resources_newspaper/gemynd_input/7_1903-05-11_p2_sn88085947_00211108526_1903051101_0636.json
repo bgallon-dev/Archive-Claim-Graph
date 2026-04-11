@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-05-11 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-11",
+    "date_end": "1903-05-11",
+    "report_year": 1903,
+    "source_file": "7_1903-05-11_p2_sn88085947_00211108526_1903051101_0636",
+    "archive_ref": "7_1903-05-11_p2_sn88085947_00211108526_1903051101_0636",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1903-05-11_p2_sn88085947_00211108526_1903051101_0636",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 248,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 126,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 837,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 38,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Bids will be received by the board\nof public works until noon May 81.\n1903, for the construction of the\nsouth approach OF the Monroe street\nbridge. In accordance with the plans\nand specifications approved by the\ncouncil February II. 1908. and on file\nIn this office.\n\n\nProposals to be made In duplicate.\none copy addressed to the mayor, tho\nother, with a certified check for not\nless than 10 per cent or the amount\nboard. The successful bidder will be\nrequired to furnish guarantee COM\npany's bond of an amount equal to\nthe amount of the contract. also such\nother bonds as the laws of the state\nOF Washington requires.\n\n\nSeparate bids will be received, at\nthe same time for the construction\nOf piers and abuttment walls under\nthe south approach of the Monroe\nstreet bridge. in accordance with tho\nplans and specifications adopted by\nthe city council on February H. 1908.\nand on file In this office These bids\nto be made In duplicate. one addressed\nto the mayor and the other with GER\ncent of the amount OF the bid. to the\nsecretary OF the board. Bonds Will\nbe required for this work under the\nsame conditions as specified for the\nbridge approach. The attention of\nbidders Is called tn Ordinance No.\nA103t. passed February 10. 1901. re-\nlating to contracts. The board re-\nserves the right to reject any and\nall bids. Proposals publicly opened\nat 2 o'clock same date.\n\n\nL. b. HANDLEY. Secretary."
+    }
+  ]
+}

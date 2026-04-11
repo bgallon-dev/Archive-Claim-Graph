@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "IT\nBIG FINANCIAL PROPOSITION",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-19",
+    "date_end": "1910-05-19",
+    "report_year": 1910,
+    "source_file": "5_1910-05-19_p6_sn88085947_00211108630_1910051902_0691",
+    "archive_ref": "5_1910-05-19_p6_sn88085947_00211108630_1910051902_0691",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1910-05-19_p6_sn88085947_00211108630_1910051902_0691",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 83,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 308,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Union Trust Co. of Spokane\nhas been made trustee and fiscal\nagent for the Lewiston Clarkson I'm\nprovement Co, which has conveyed\nto the Spokane corporation property\nestimated to be worth $2,500,000 as\nsurety for the issuance of 100000\nworth of bonds. The property con\nsists of light and power plants, an\nirrigation project and big bridge.\nThe Union Trust Co. will handle the\nsale of the bonds. The Lewiston\nCharleston company is one of the\nSpencer-Trask promotions of New\nYork city."
+    }
+  ]
+}

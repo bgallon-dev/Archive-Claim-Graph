@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-02",
+    "date_end": "1903-03-02",
+    "report_year": 1903,
+    "source_file": "17_1903-03-02_p1_sn88085947_00211108526_1903030201_0395",
+    "archive_ref": "17_1903-03-02_p1_sn88085947_00211108526_1903030201_0395",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-03-02_p1_sn88085947_00211108526_1903030201_0395",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 100,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 299,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "a woman does. 1t stands to reason\nthen. that one woman can do far\nmore for the cause of the label than\n20 men, and consequently they should\nbe taught to ask the clerks who wait\non them for goods bearing the label.\n1t Is foolish to throw all the blame\non the merchant for the sale OF goods\nthat are 'scab' made.\n\n\n'The merchant sells the article for\nwhich he Is asked. and IL every union\nwoman in Spokane would ask for the\nlabel 1t would not be long before a\nnon-union made article would be hard\n\n\nto find\""
+    }
+  ]
+}

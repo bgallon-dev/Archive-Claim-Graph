@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "R.C. JudsOn'\n\n\nGood Work",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-01-23",
+    "date_end": "1904-01-23",
+    "report_year": 1904,
+    "source_file": "11_1904-01-23_p1_sn88085947_00211108538_1904012301_0932",
+    "archive_ref": "11_1904-01-23_p1_sn88085947_00211108538_1904012301_0932",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1904-01-23_p1_sn88085947_00211108538_1904012301_0932",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle",
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 128,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 201,
+            "in_headline": false
+          },
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 150,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "II. c. Judson, industrial agent OF the\nOregon Railway & Navigation company\nhas issued book telling of his expert\nments and observations with grasses,\nalfalfa, corn ON summer fallow, sales\nof pure-bred cattle by the National\nHereford ASSOCIATION and the Short\nHorn association. The information in\nthe book is very interesting and rep\nresents much research and labor on\nthe part of Mr.. Judson. Prominent\nstockmen and farmers are quoted and\ngive their experiences in different\nlines. The book is to be placed in the\nhands of all farmers and others in\ntereSted, who live along the line Of the\nq. II. & n, or anyone in fact who is\ninterested in these experiments of the\ncompany. Agents will be glad to fur\nnish these books on application."
+    }
+  ]
+}

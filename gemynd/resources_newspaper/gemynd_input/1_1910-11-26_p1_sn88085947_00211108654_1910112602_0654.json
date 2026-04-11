@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "GRAND JURY\n\n\nIS DEMANDED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-26",
+    "date_end": "1910-11-26",
+    "report_year": 1910,
+    "source_file": "1_1910-11-26_p1_sn88085947_00211108654_1910112602_0654",
+    "archive_ref": "1_1910-11-26_p1_sn88085947_00211108654_1910112602_0654",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "1_1910-11-26_p1_sn88085947_00211108654_1910112602_0654",
+      "composite_score": 2.52,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 253,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 853,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 703,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "To the Honorable D. Hnkie, Judge Of\nWilliam A. Huneke Judge Of No. q Henry\nJudge Of Department No. 8; e. H. Sullivan\nNo. and Stanley Webster Judge Of Department No.\nstung all Of the Superior judges Of Spokane county:\n\n\nCome the undersigned o0anxd labor\nand and behalf thereof we'll for the and wsfare\nOF all OF the citizens Of this city hereby respectfully\npetition the above entitled\ngrand uyto investigate the matter Of official which\nthe undersgned petitioners believe 10 exist which\ndemands such Investigation.\nWe further respectfully petition\npshsd that fearless special be appointed\nthe present and incoming prosecuting attorney making\nvestipatlon\nThat petitioners respectfully\ncesdngs before the City Council flied Of the application\nheretoore made for believe\nconditions to prevail shown the records and will\nand be shown BY further evidence to strike blow public\nhonesty and deeeney and to unusty\nlie SPOKANE CENTRAL LAsoR COUNCIL.\n\n\ney J. r. MoRFoRD. SECRETARY\n\n\nn. A. JARVIS, President.\n\n\nTo the Honorable j. D. HinIe Judge Of\nliam A. Huneke Judge OF Department e. Henry\nJudge Of Department No. 8; E. H. Sullivan\nA. Stanley Webster Department eonstutnn\nComes E. \" lambert president Of the council\ncity OF bshaf Of the members\nrespectfully the judges the Court\nWashington, consIdsr\nproceedings herewith submitted and make\ngrand Of citizens Spokane matters\nreport proceedings City upon\ncharges y. Elliott John 7. Sullivan\nchief Of police Of said record s attached to\npart Of this application.\n\n\nDated Spokane Wash, this 2srd day o. November 1910\n\n\nz. v. LAMBERT."
+    }
+  ]
+}

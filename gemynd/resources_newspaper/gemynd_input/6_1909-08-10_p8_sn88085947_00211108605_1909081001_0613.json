@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "POWER TRUST WAS\n\n\nPINNED FOR GRAB",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-10",
+    "date_end": "1909-08-10",
+    "report_year": 1909,
+    "source_file": "6_1909-08-10_p8_sn88085947_00211108605_1909081001_0613",
+    "archive_ref": "6_1909-08-10_p8_sn88085947_00211108605_1909081001_0613",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-08-10_p8_sn88085947_00211108605_1909081001_0613",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 102,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 159,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "But it was too late-the trust\nhad had warning and had had time.\nThe power sites, scores of them,\nwere grabbed\n\n\nRight here it might be well to re-\nmark that a water power site has\nto be mighty small one not to be\nworth a million dollars.\n\n\nA political explosion will come\nwith the public knowledge that it\nwas after President Taft had or\ndered Ballinger to withdraw GER\ntain Montana lands, which he had\nquietly recpened a few weeks be-\nfore, that Amalgamated Copper Co..\nowned by Senator Guggenheim and\nbrothers, together with the General\nElectric Co., had swallowed thou"
+    }
+  ]
+}

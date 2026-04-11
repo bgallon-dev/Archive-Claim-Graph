@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NO BETTER FREIGHT\n\n\nRATES ON MILWAUKEE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-21",
+    "date_end": "1909-06-21",
+    "report_year": 1909,
+    "source_file": "10_1909-06-21_p3_sn88085947_00211108605_1909062101_0232",
+    "archive_ref": "10_1909-06-21_p3_sn88085947_00211108605_1909062101_0232",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-06-21_p3_sn88085947_00211108605_1909062101_0232",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 88,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 242,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t has been said that the Mil\nwaukee & Puget Sound railroad is\nremaining outside the Western\nFreight association. While this\nmay be true, still the first publica-\nton of their rates seems to indi-\ncate an agreement with the North\nern Pacicc, Great Northern and\nUnion Pacifc, as the rates are\nidentically the same.\n\n\nConnection with Spokane is ad-\nvertised by way of Plummer. Ida,\nand the o. r. & N. The first joint\nfreight tariff schedule has a folder\nmap of the road and features Spo."
+    }
+  ]
+}

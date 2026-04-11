@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-10-08 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-08",
+    "date_end": "1909-10-08",
+    "report_year": 1909,
+    "source_file": "16_1909-10-08_p1_sn88085947_00211108605_1909100801_1059",
+    "archive_ref": "16_1909-10-08_p1_sn88085947_00211108605_1909100801_1059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1909-10-08_p1_sn88085947_00211108605_1909100801_1059",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 79,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 8,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Had the Inland Empire Railway\nsystem been content with the YER\ndict of $4s76 recovered last June\nby the four orphaned children of\nJohn Hills, lineman killed in the\ncompany's service, 1t would have\nsaved money.\n\n\nA new trial was granted the com.\npany on technicality, and in the\nsecond trial. which was concluded\nthis morning In Judge .Huneke's\ncourt, another verdict has been re.\nturned for the plaintiffs, this time\nfor $4,000.\n\n\nJohn Hills was killed at Spokane"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "ORDINANCE NO. A1soI.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-28",
+    "date_end": "1903-10-28",
+    "report_year": 1903,
+    "source_file": "4_1903-10-28_p2_sn88085947_00211108538_1903102801_0621",
+    "archive_ref": "4_1903-10-28_p2_sn88085947_00211108538_1903102801_0621",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-10-28_p2_sn88085947_00211108538_1903102801_0621",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 558,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 72,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 709,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 455,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An ordinance for the Improvement\n\n\nof Indiana avenue from center line\n| Monroe street to center line OF\n\n\nCedar street by curbins and side\nwalking the same and Tor tine\npayment of the cost thereof. Great\ning an assessment district and pro-\nviding for the levy and collection of\nspecial assessments on the property\nfor the said improvement. and for the\n\n\nissuing of bonds and the payment\nthereof.\n\n\nWhereas. a petition was duly pre-\nsented to the board Of public works\nfor the improvement Of Indiana\nns the By suron ns ss na bosrs a\npublic works having ascertained that\nthe signers OF said petition are the\nowners Of at least one-half of the\nproperty subject to contribute to\nsuch Improvement. and having made\ncity council on the fifteenth day\nof September, 1903, and II appearing\nto the city council that said report\ncontains statement of the assessed\ntheir judgment should be assessed for\nsuch improvement, according to the\nlast assessment thereof. a statement\nof the area and correct valuation of\nthe property owned by the parties\nsigning the petition, and the estimat-\ned cost OF such Improvement and\nhaving In such report set forth the\nreasons for their recommendations\nwith respect to the granting or re-\nfus ing the prayer of said petition,\nessary to enable the council to act\nintelligently on said petition, and\nhaving recommended that the prayer\nof said petition be granted. and said\nboard having with their said report\nfiled with the city council the plans\nand specifications for such improve\nment; and 1t appearing to the city\ncouncil from said report that public\nconveniences requires the improve\nment Of said street as Is petitioned\nfor, and in accordance with the plans\nand specifications of said board of\npublic works; now. therefore,\n\n\nThe city of Spokane does orda In\nas follows:\n\n\nSection l. That Indiana avenue. In\nthe city Of Spokane, from the center\nline Of Monroe street to the center\nline of Cedar street shall be i'm\nproved by ourbing and sidewalking\nthe same, in all respects in accord\nance with the plans and specifications\ntherefor.\n\n\nSection 2. That the cost and ex-\npense of said improvement shall be\nborne by the property included in\ncreated to the extent OF the benefits\nreceived by said property from said\nImprovement. to be determined as\nhereinafter provided; and by the city\nof Spokane for the difference. If any\nthere be, between the actual cost\nand expense thereof. and the total\namount of the benefits received by\nsaid property. And said city shall\nnot be liable in any manner for any\nportion of the costs and expense Of\nsaid improvement. other than that\nportion herein designated to be borne\nby it.\n\n\nSection 8. The assessment district,\nfor the purpose of levying and col\nlecting special assessments to the ex-\ntent of the benefits received by the\nproperty therein to pay the costs and\nexpenses of the aforesaid improve\nments as above provided, is hereby\ncreated and established to consist of\nall the lots and parcels of land on\neach sfde of Indiana avenue, except\nthat occupied by cross streets and\nalleys from the center line of Monroe\nstreet to the center line of Cedar\nstreet.\n\n\nSaid assessment shall be known as\nIndiana avenue Improvement Dis\ntrict. Number Three. which Is more\nparticularly described as follows:"
+    }
+  ]
+}

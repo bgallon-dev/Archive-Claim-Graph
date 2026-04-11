@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-17 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-17",
+    "date_end": "1903-09-17",
+    "report_year": 1903,
+    "source_file": "10_1903-09-17_p1_sn88085947_00211108538_1903091701_0392",
+    "archive_ref": "10_1903-09-17_p1_sn88085947_00211108538_1903091701_0392",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1903-09-17_p1_sn88085947_00211108538_1903091701_0392",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 107,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 47,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OGDEN. Utah, Sept. 1.-THE first\nspeaker at the irrigation congress to-\nday was Senator Francis q. New\niands Of Nevada, who delivered IN\neloquent address on state co-opera-\nton with national irrigation. Score\ntary of Agriculture James Wilson\nspoke on the work OF the department\nOf Agriculture regarding irrigation.\nHe was received with rounds OF ap-\nplause.\n\n\nHe explained at length the vast\namount of experimental work the\ngovernment is doing in all parts Of\nthe United States. and especially in\nthe west. for the purpose Of discov-\nering the best fruits. grains, ETC.,\nadapted to the various climates, SO\nthat the best results can be accom-"
+    }
+  ]
+}

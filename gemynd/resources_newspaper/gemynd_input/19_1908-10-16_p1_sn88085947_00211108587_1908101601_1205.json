@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Big Improvement Free\nOf Expense to\n\n\nthe City.\n\n\ny\nRalston and Railroad\nEngineers Working\non Plans.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-16",
+    "date_end": "1908-10-16",
+    "report_year": 1908,
+    "source_file": "19_1908-10-16_p1_sn88085947_00211108587_1908101601_1205",
+    "archive_ref": "19_1908-10-16_p1_sn88085947_00211108587_1908101601_1205",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1908-10-16_p1_sn88085947_00211108587_1908101601_1205",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 584,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 362,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Plans for steel viaducts over the\nrailroad TRACKS on Washington and\nDivision streets, which will cost\napproximately s1,00O,000, are now\nbeing drawn by City Engineer\nRalston with the assistance Of\nrailroad engineers.\n\n\nThe viaducts are not to cost the\ncity cent, 1t is stated. The rail-\nroads which will share the expense\nof the Washington street project\nare the Great Northern, o. r. q:\nNJ, Washington C Idaho, Spokane\nInternational and the Traction\ncompany. The same steam lines\nwill share In the expense of the\nDivision street viaduct. The w.\nw. p, which uses the street for\nstreetcars, will share this cost.\n\n\nCity Engineer Ralston's activity\nis caused by urgent request of the\nrailroads, which have evidenced\na desire, through representatives\nsent to councilmen and the engi-\nneed, to get the work started as\nsoon as possible, or at least to\nhave plans made so as to take the\n\n\nmatter up with one another. 1t has\ntacitly been agreed, it is under\n\n\nstood. that the city will not be\n| asked to pay cent. The only ex-\n\n\npense to which the city will be-\nput is the engineers time and ex-\npense in drawing the plans.\nThe reason for using steel In\nstead of concrete is explained by\nMr.. Ralston, who says that the\ncost of concrete viaducts would be\nsomething enormous by reason of\nthe fact that 1t is of greater ex-\npense to handle concrete for small,\nnarrow piers than for massive\nones. The undertaking would be\ndelicate and tedious, thus entailing\ngreat expense. In verification OF\nthis statement Mr.. Ralston refers\nto the building of viaduct in\nRichmond, Va, which cost $50 a\ncubic yard.\n\n\nThe steel plans call for viaduct\non Washington street connecting\n\n\nwith the present one over the\n\n\nGreat Northern. 1t would pass\n\n\ncompletely over the Washington\nstreet concrete bridge, which\n\n\nwould then be used chiefly for foot\n\n\ntraffic and for teams going to and\nfrom the warehouses. The north\nend would be at some point near\n\n\nCataldo avenue.\n\n\nAn entirely different proposition\nis confronted on Division street. It\n\n\nwould be necessary to raise the\n\n\nnorth end of the bridge to slightly\n| more than level. At present 1t\n| dips to the north. This raise would\n| be sufficient to gain a desired ele-\n\n\nwalton to meet the requirements\n\n\nof clearance over the first tracks:\n\n\nthen it would pass over the other\n\n\ntracks on a level and dip to Boone.\n\n\nFor the accommodation of teams\n\n\nand pedestrians. arms would be\n\n\nrun from the viaduct down to the\n| level of the tracks so that teams\n\n\ncould approach the warehouses and\npedestrians go to the depots.\nII has generally been understood\nthat the city would be required to\n\n\nstand a portion of the expense of\nthese structures, but Mr.. Ralston\nstates that Interested councilman\nhave informed him that the city\nwill not be asked to pay cent and\n\n\nthat. the railroads demand via0ucts\n\n\nat this time for their own con-\n| yenience.\n\n\nThe 100000 bridge bond issue\n\n\nwas calculated to include whatever\n\n\nthe city's share In the viaducts\n\n\nwould be, but 1t seems now that\n\n\nsuci. deductions were hasty, as the\n\n\nrailroads must construct viaducts\n\n\nut their own expense entirely and\nare prepared 60 proceed with the\n! work.\n\n\nMr.. RAiston Is unable at this\n, time 70 make an estimate on the\n\n\ncost. hut the magnitude Of tho\nwork assures an expenditure Of\nI possibly si,0o0.0oo. including the\n! yiadncts and necessary other I'm.\n\n\n.s.hs.l, ,,,,at fs,fls&,s"
+    }
+  ]
+}

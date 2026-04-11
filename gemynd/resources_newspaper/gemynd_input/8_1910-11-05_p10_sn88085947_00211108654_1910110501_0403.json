@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CONE OUT IN\n\n\nTHE. Open!\n-t--a I'LL ~s.- I'LL",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-05",
+    "date_end": "1910-11-05",
+    "report_year": 1910,
+    "source_file": "8_1910-11-05_p10_sn88085947_00211108654_1910110501_0403",
+    "archive_ref": "8_1910-11-05_p10_sn88085947_00211108654_1910110501_0403",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-11-05_p10_sn88085947_00211108654_1910110501_0403",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 77,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 425,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor Of The Press: II answer\ntransferance of thir energies to\nto inquiry as to what our league\nthinks of the advisory ballot mark\ned against the amendment to ar\nticle six (VD, will say. we have no\nfault to find. with anyone who dis\nagrees with us on this question. -\n\n\n/. The Washington Political Equal\nity League have been sending out\nliterature, amendment cards, even\nusing billboards calling the voters\nattention to the suffrage amend"
+    }
+  ]
+}

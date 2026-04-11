@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HORN, SLADE\n\n\nAnd KENNEDY\n\n\nMay MOVE UP",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-11-16",
+    "date_end": "1905-11-16",
+    "report_year": 1905,
+    "source_file": "16_1905-11-16_p1_sn88085947_00211108563_1905111601_0106",
+    "archive_ref": "16_1905-11-16_p1_sn88085947_00211108563_1905111601_0106",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1905-11-16_p1_sn88085947_00211108563_1905111601_0106",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 80,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 344,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "II is reported that H. ]. Horn,\ngeneral manager of the Northern\nPacific Is making his last trip over\nthe road before being transferred\nto an eastern system. j. ]. Hill,\n1t is said, has made arrangements\nwith Mr.. Horn to place him in\ncharge of an eastern road. H. A.\nKennedy, formerly of Spokane, will\nprobably be general superintendent\nof The Great Northern to fill the\nplace of George T. Slade, who Is\nsla ted to take Horns place."
+    }
+  ]
+}

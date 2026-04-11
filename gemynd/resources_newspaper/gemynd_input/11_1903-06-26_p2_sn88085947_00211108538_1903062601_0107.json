@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-06-26 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-26",
+    "date_end": "1903-06-26",
+    "report_year": 1903,
+    "source_file": "11_1903-06-26_p2_sn88085947_00211108538_1903062601_0107",
+    "archive_ref": "11_1903-06-26_p2_sn88085947_00211108538_1903062601_0107",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-06-26_p2_sn88085947_00211108538_1903062601_0107",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 177,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 530,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"Phat we made is raform. Give US\nbig punches av raform an we'll be\nTheir foinest city in the NORTHWEST.\nWit them gamblers goin' t\" Panama\nan Borneo and Poortlan' an tn ither\nisland possessions. and we an Woydt\nin charge TIL town has mighty good\nchanel t. be saved\"\n\n\nSuch was the soliloquy of Police\nSergeant John Sullivan as he and\nChief Woydt were ending one of their\nconferences for the moral improve\nment of Spokane and it's citizens\nplan that had already resolved it\nself into a decision to engage John\nG. Woolley the famous temperance\nlecturer to deliver addresses just\nprior to arresting the natives for\nblowing strong breaths in the direc-\nton Of the city hall.\n\n\nYou're right, John\" chimed in the\nchief as he smoked up again.\n\n\nNow. chief, I perpose fer t give\ntn people two chancts fer t quit\ntheir evil ways as soon as Woolley\ncomes. First, Woolley will address,\nthe mulchitude in open matin'. This.\nsicon, Woolley shall adriss thin agin\nand then me an you shall swoop"
+    }
+  ]
+}

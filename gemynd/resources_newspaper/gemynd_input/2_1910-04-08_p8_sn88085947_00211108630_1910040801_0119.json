@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-08 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-08",
+    "date_end": "1910-04-08",
+    "report_year": 1910,
+    "source_file": "2_1910-04-08_p8_sn88085947_00211108630_1910040801_0119",
+    "archive_ref": "2_1910-04-08_p8_sn88085947_00211108630_1910040801_0119",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-04-08_p8_sn88085947_00211108630_1910040801_0119",
+      "composite_score": 2.52,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 412,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 199,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 503,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor The Spokane Press:-I\nsee by a recent issue of your paper\nthat the police department has be-\ngun to cure an evil that has exist\ned in Spokane for some time, es-\npecially since the switchmen' s\nstrike, by arresting conductors of\nfreight trains for blocking the\nstreet crossings. And if the pres\nent system is worked out 1t won't\nbe but short time until train\ncrews bringing in late or overdue\ntrains will find themselves subject\nto arrest for failure to make the\ntime. In making this ordinance\nthe city council certainly has\nshown themselves to be the 49,\ncarat set of Yaller Hammers that\nthey are. Why don't they try and\nfind out the cause of these condi-\ntons before they try to take $40\nor SIS away from some poor devil\nwho has a family and no doubt is\ntrying to do his best with what he\nhas to do with. The Northern Pa\ncific has about one mile of track\nbetween Division street and Sew.\nenth avenue, and there is not a\nstreet crossing in this territory\nthat the freight conductor don't\nrealize is an important one. And\n/ want the city council to know\nthat the freight conductor has the\ninterest of the public at heart-a\ngreat deal more at heart than any\nof the officials have down at the\ncity hall.\n\n\nThe mo. Pac\" don't care. They\nhave done their part. They have\nnotified the employees to open UP\ntheir trains when they hold g\ncrossing five minutes. And when\na freight train stops it is impos\nsible to cut the crossings in Il\nminutes. The best way to cure\na disease is to get at the cause. A\nwestbound train gets orders al\nDivision street to run to Seventh\navenue and probably meet one OF\ntwo trains on the way. Well, prob\nably one of these trains will stall\non the hill west of Spokane and\nhave to double in. The westbounG\nman with his SO or 60 cars has\nyour city tied up or blocked. And\non the other hand the train dis\npatcher at Pasco will turn a trair\nloose at Wins, the first station\nwest of Spokane, into Spokane\nwhen he don't know nor care what\nkind of blockade may exist or\nthe double track.\n\n\nBut don't fail to pinch the con\nductor, for he has not enough\nmoney to take a change of venue\neven. Don't pinch Jim Hill be"
+    }
+  ]
+}

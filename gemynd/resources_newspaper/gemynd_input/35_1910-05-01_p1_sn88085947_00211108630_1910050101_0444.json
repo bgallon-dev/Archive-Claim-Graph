@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "35_1910-05-01_p1_sn88085947_00211108630_1910050101_0444",
+    "archive_ref": "35_1910-05-01_p1_sn88085947_00211108630_1910050101_0444",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "35_1910-05-01_p1_sn88085947_00211108630_1910050101_0444",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 162,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 519,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "m HE oldest photograph of Spo-\n\n\nkane extant, antedating any\n\n\n- picture of the city hitherto\nbrought to light, was identified re-\nGently by oldtimers following its\nbeing brought to one of the public\nschools of the city by pupil in\nan \"early history of Spokane\" class.\nThe photograph was believed to\nhave been a view of Riverside ave-\nnue., but turned out to be one Of\nHoward street, looking south from\nthe corner of Front avenue and\nHoward street. 1t is probably one\nof the most valuable relics of the\npioneer days of Spokane Falls in\nexistence.\n\n\nThe photograph, which is repro\nduced herewith, was brought to\nschool by a pupil, Ellen Mason, in\nthe class of Miss Galley at the\nHamilton school. She said the\nhad been given to her\nbrother and it was not then be-\nlieved to have any great value.\n\n\nTaken in the winter or spring\nsometime between 1881 and 1888, it\nshows Howard street covered with"
+    }
+  ]
+}

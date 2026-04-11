@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-03-16 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-03-16",
+    "date_end": "1908-03-16",
+    "report_year": 1908,
+    "source_file": "2_1908-03-16_p3_sn88085947_00211108587_1908031601_0324",
+    "archive_ref": "2_1908-03-16_p3_sn88085947_00211108587_1908031601_0324",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1908-03-16_p3_sn88085947_00211108587_1908031601_0324",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "disorderly conduct",
+          "vagrancy",
+          "jail"
+        ],
+        "spokane_development": [
+          "real estate"
+        ],
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 375,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "vagrancy",
+            "weight": 1.5,
+            "offset": 1290,
+            "in_headline": false
+          },
+          {
+            "term": "disorderly conduct",
+            "weight": 1.5,
+            "offset": 1141,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1877,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 2095,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 1811,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Special Correspondence to The Press\n\n\nBIRMINGHAM, Ala, March TO-\n\"Set 'em up again.\" passed from\nthe Birmingham vocabulary New\nYears eve. That was the eventful\never when Gambrinus and Bacchus\nmounted the water wagon, gloomily\ncertain the sun would not shine\nagain. But somehow B'ham, as\nsign painters have 1t, continues to\nbe fine town. The people show\nthe spirit of energy and enterprise\nthat marks the live. hustling cities\nof the country. They are busy\nbuilding up city that, according\nto John w. Gates, Is to have 1,000,-\n900 population in 1925.\n\n\nCounty local option placed the\nlid on Birmingham's 1875 saloons.\nThe city voted wet by 1926 major\nity, but Greater Birmingham went\ndry, and the majority against the\nsaloons in the entire county was\n$500.\n\n\nA striking decrease in the num-\nDer of arrests, particularly those\ncommonly charged to liquor, has\nfollowed the closing of the saloons.\nPolice Judge N. Is. Feagin found.\nwhen he balanced his books at the\nend Of January, that he had passed\nupon 504 cases as compared with\n779 In January Of last year. Ar\nrests for drunkenness had dropped\nfrom TIA In January, 1907, to 33 in\n1908; for disorderly conduct the de-\ncrease was from 80 to Sc; wife\nbeating decreased 70 per cent; as\nsault with intent to commit MUIR\nder %; burglary 33, and vagrancy\n40 per cent.\n\n\nTwo days before the close of\nFebruary. Judge Feagin cast up his\nbooks again and discovered that,\ncompared with last year, arrests\nfor intoxlcation fell from 151 to 81\ncases; wife beating from Is to 5;\ndisorderly conduct from sc to 80;\nassault and battery So to 20; gam\nbling from SO to SO, and assault\nwith intent to commit murder from\nthree to none.\n\n\nThe decrease in percentage of\neight most common police court\ncrimes was Al per cent in January\nand SO per cent in February.\n\n\nJudge Feagin says prohibition Is\nsuccess.\n\n\nSheriff Higdon reports that the\naverage Jail population during the\nlast six months Of 1907 was 300.\nThis year the average has been\n100.\n\n\n81 will lose 10000 by the change\nthis year.\" he says, \"but l favor\nthe closed saloon\"\n\n\nMembers of the commercial club,\nreal estate and business men,"
+    }
+  ]
+}

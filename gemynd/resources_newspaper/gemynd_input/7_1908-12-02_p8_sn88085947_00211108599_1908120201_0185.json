@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MILLIONS FOR\n\n\nIMPROVEMENTS\n\nLOAN OF $15,00o,O00 AUTHOR\nlied, OF WHICH $1,000, 900\nWILL BE AVAILABLE DUR.\nING THE COMING YEAR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-02",
+    "date_end": "1908-12-02",
+    "report_year": 1908,
+    "source_file": "7_1908-12-02_p8_sn88085947_00211108599_1908120201_0185",
+    "archive_ref": "7_1908-12-02_p8_sn88085947_00211108599_1908120201_0185",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-12-02_p8_sn88085947_00211108599_1908120201_0185",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 99,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 166,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A bond issue of $1S000,0O0 to be\nused for additions and extensions\nduring the next few years, was\nvoted yesterday at a meeting of\nthe stockholders of the Washing\nton Water Power Co., at which 20\nper cent of the stock was repre-\nscented. 1t was arranged for Lee\nHigginson & Co., and Moffitt &\nWhite, brokers, of New York, to\nhandle the bond issue.\n\n\nAn issue of 100000 of the\nbonds will be available for use in\n1909. In addition $1,000,00O OF\nnew stock will be issued, making\nthe capitalization of the company\n100000. This will make $1,000."
+    }
+  ]
+}

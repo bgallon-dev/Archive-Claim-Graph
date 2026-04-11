@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TREND OF TESTIMONY SHOWS\nTHAT CITY FOREMAN HAS\nBEEN ELECTED SCAPEGOAT\nFOR THE HOWARD STREET\nBRIDGE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-29",
+    "date_end": "1906-06-29",
+    "report_year": 1906,
+    "source_file": "2_1906-06-29_p1_sn88085947_00211108563_1906062901_0874",
+    "archive_ref": "2_1906-06-29_p1_sn88085947_00211108563_1906062901_0874",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-06-29_p1_sn88085947_00211108563_1906062901_0874",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 260,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 138,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Before the investigating commit\ntee yesterday F. P. Weymouth,\nchairman of the board Of public\nworks, said that at the time the\nWashington Water Power company\nwas allowed to commence the re-\nconstruction of the Howard street\nbridge, a part of which fell last\nSunday evening, he was aware that\nthe bridge had served its time and\nthat 1t had gone beyond the years\nwhen experts On bridges say 1t is\nsafe.\n\n\nProbing into the question of who\nis responsible for the collapse of\nthe structure was continued today,\nthe individual members of the COM\nmission working quietly and indus\ntriously on their own response\nbility.\n\n\nThere seems to be a disposition\non the part Of Weymouth and City\nEngineer Mcintyre to make a\nscapegoat out OF John J. McCor-\nmick, foreman of the bridge crews\nof the city, who recently resigned\nwhen Weymouth took him to task\nfor talking too much\"\n\n\nThey say that in the capacity Of\nforeman Mccormick should have\nreported on the condition of city\nbridges.\n\n\nMccormick admits that he made\nreports on bridges, not in the line\nof his duties, but as cautions, in\norder to save the city from acct\ndent.\n\n\nAnother point disclosed at the\nsession yesterday was that En-\nginee Rihler of the Washington\nWater Power company turned in no\nreport Of the extent of his plans\nin the reconstruction of the bridge.\n\n\nThis matter particularly will be\ninvestigated, to see what actual re-\nconstruction was done and whether\n1t was sufficient to clear the Wash\nington Water Power company from\nblame."
+    }
+  ]
+}

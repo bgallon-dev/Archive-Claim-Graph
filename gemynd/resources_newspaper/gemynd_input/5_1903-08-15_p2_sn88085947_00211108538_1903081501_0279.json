@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-08-15 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-15",
+    "date_end": "1903-08-15",
+    "report_year": 1903,
+    "source_file": "5_1903-08-15_p2_sn88085947_00211108538_1903081501_0279",
+    "archive_ref": "5_1903-08-15_p2_sn88085947_00211108538_1903081501_0279",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-08-15_p2_sn88085947_00211108538_1903081501_0279",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 64,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 86,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "First ward people are anxiously\nwatching what they believe IL to be\nan attempt by the Northern Pacific\nRailroad company to lay more tracks\nat the sprague avenue and Division\nstreet junction.\n\n\nDIR. Pittwood. the dentist. appeared\nat the city hall on July and filed\na request for new plat showing\nthe extent of strip of land that\nwould be required In changing the"
+    }
+  ]
+}

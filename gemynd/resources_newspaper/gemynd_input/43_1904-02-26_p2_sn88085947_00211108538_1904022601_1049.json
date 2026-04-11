@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-02-26 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-26",
+    "date_end": "1904-02-26",
+    "report_year": 1904,
+    "source_file": "43_1904-02-26_p2_sn88085947_00211108538_1904022601_1049",
+    "archive_ref": "43_1904-02-26_p2_sn88085947_00211108538_1904022601_1049",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "43_1904-02-26_p2_sn88085947_00211108538_1904022601_1049",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 1295,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 96,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 833,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 522,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ORDNANCE NO. Al552.\nAn ordinance for the improvement Of\nJackson avenue, from the center\nline Of Monroe street to the center\nline of Mill street. by grading.\nparking and sidewalkins the Same\nand for the payment of the cost\nthereof. creating an assessment dis\ntrict and providing for the levy and\ncollection of special assessments on\nthe property In said assessment dis\ntrict to pay for the said Improve\nment. and for the issuing Of bonds\nand the payment thereof.\n\n\nWhereas, A petition was duly pre-\nscented to the board Of public works\nfor the Improvement Of Jackson.\n| avenue by grading. parking and\nsidewalking the same. and the board\n\n\nOF public works having ascer;\n\n\npetition are the owners Of at\nleast one-half Of the property sub\n| ject to contribute to such improve\n| ment. and having made its report on\n| said petition to the city council on\n\n\nthe 10Th day of January, 1904. and it\n\n\nsaid report contains q statement Of\n\n\nthe assessed valuation Of the prop\n\n\nerty which In their judgment should\n\n\nbe assessed for such improvement.\n\n\naccording to the last assessment\n\n\nthereof. statement Of the area and\n\n\nowned by the parties signing the petit\n| ton, and the estimated cost Of such\n| improvement, and having in such re-\nport set forth the reasons for their\n\n\nrecommendations with respect to the\n\n\ngranting or refusing the prayer of\n\n\nsaid petition. and a statement of all\nthe facts necessary to enable the\n\n\ncouncil to act intelligently on said\n| petition. and having recommended\n| that the prayer of said petition be\norr tA6 nd 49, 1, Hal\ntheir said report filed with the city\ncouncil the plans and specifications\n| for such Improvement; and it ap-\n\n\npearing to the city council from said\n| report that public conveniences re-\nquires the Improvement Of said street\nas Is petitioned for. and in accord\nance with the plans and specifications\n\n\nOf said board Of public works; now.\n\n\nThe City of Spokane does ordain as\n| follows:\n\n\nSection 1. That Jackson avenue. in\n\n\nthe city of Spokane, from the center\n| line of Monroe street to the center\nline of Mill street, shall be improved\nby grading. parking and sidewalking\nthe same. in all respects in accordance\nwith the plans and specifications\nSec. 2. That the cost and expense\nof said improvement shall be borne\nby the property included in the as\n| sessment district hereinafter created\nto the extent of the benefits received\nby said property from said improve\n| ment. to be determined as hereinafter\nprovided; and by the city Of Spokane\n| for the difference If any there be,\nbetween thu actual cost and expense\n| thereof and the total amount of the\n| benefits received by said property.\n| And said city shall not be liable in\n| any manner for any portion of the\n| costs and expense or said improve\n| ment. other than that portion herein\ndesignated to be borne by it,\n\n\nSec. 3. The assessment district for\nthe purpose of levying and collecting\n| special assessments to the extent of\n| the benefits received by the property\ntherein to pay the costs and expenses\n| of the aforesaid Improvement as\n| above provided, Is hereby created and\n\n\nestablished to consist of all the lots\n| and parcels of land on each side of\n\n\nJackson avenue except that occupied\n\n\nby cross streets and alleys from the\n\n\ncenter line of Monroe street to the\n\n\ncenter line of Mill street.\n\n\nSaid assessment district shall be\n\n\nment District Number One\" which is\n\n\nmore particularly described as fol-\n| lows:\n\n\n! Lots 8. .. 10, II. ~. 10 and IA in\n\n\nblock s; lots 7. 8. 9. 10. IL and IL In\n\n\nblock s.; lots 7. 8, g., 10. Il and y\n| L q, T.\n\n\nblock 10; lots !. q\" 8. 4. s and in\n\n\nblock II; lots 1, 2. 3. 4, s. 6 and 7 in\n\n\nblock ~; all in Humans Addition to\n| Spokane.\n\n\n| Sec. 4. Special assessments pay\n\n\nable in five equal annual installments\n\n\nshall be assessed to and levied upon\n| the lots and parcels of land in the\n\n\nassessment district above described.\n\n\nin the manner provided by the charter\n\n\nOf the city of Spokane and Ordinance\n\n\nNo. A10SS. passed September 10. 1901.\nSuch assessments shall be made and\n\n\nall things pertaining thereto done\n\n\nin accordance with the provisions of\n| said charter and said ordinance and\n! said assessments. when the same\n| shall have been confirmed by the city\n\n\ncouncil, and shall be a lien on the\nproperty in said assessment district.\n| and payment thereof may be enforced\n! in the manner provided by law\nSec. 5. There is hereby created\nfund to be known as Jackson Ave\n\n\nnue. Improvement Fund. District\npaid the aforesaid assessments as\n| and when directed by ordinance con-\n| firming said assessments and the as\nsessment roll therefor. and said fund\n| is created for the purpose Of redeem\n| ing the bonds issued in payment of\nthe cost and expense of said i'm\nprovement. as hereinafter provided.\nand from which shall be paid said\nbonds to the extent thereof, and in\n| no event shall the city of Spokane\n\n\nbe liable for the payment of said\nbonds or any part thereof.\nSec. 8. For the purpose Of making\npayment for the cost and expense of\nsaid improvement there shall be is\nsued by the city of Spokane its ne\ngotiable coupon bonds. as provided\nstate of Washington. entitled An act\nauthorizing the issuance and sale of\nbonds by cities. to pay for local i'm\nprovements. providing for the pay\n\n\nment thereof. and declaring an emer-\n\n\ngency.\" approved March IA. 1899.\ndate. bearing interest at the rate of\nsix per cent per annum, payable an\nnually. which bonds shall be styled\nSpecial Improvement Bonds. jack\n\n\nSON Avenue. Improvement District\nNumber One; provided. the city Of\nSpokane reserves the right to call\n\n\nand pay any of said bonds. according\nto their numerical order as provided\nIn the act above referred to. when\never there shall be sufficient money\ndesignated to pay any Of said bonds.\nSaid bonds shall be issued in an az\ngregate amount equal to the total\n\n\namount of special assessments.\nlevied as herein provided. and shall\n\n\nbe Of the denomination of 5000 each,\n\n\n\n\n\nsum less than 5000 AS may be neces-\nsary to make the issue correspond\nwith the total amount of special as\nsessments, levied as herein provided.\nand provided also that the first of\nsaid bonds may be for an amount\nequal to the amount of cash on hand\n| in the fund from which the Same\nare payable as herein provided, at the\n| time of the Issuance Of the same.\nThe difference between the total\n| amount of special assessments. levied\nas herein provided, and the actual\n\n\ncost and expense of said improve\n| ment shall be paid by the city of\n| Spokane. as provided In Ordinance\n\n\nNo. A10S8, above referred to.\n\n\n| Sec. 7. Said improvement shall be\nmade under the supervision of the\n| board Of public works. which Is here\n| by authorized to receive bids for\nmaking the same and to enter into\n| such contract or contracts as may\n\n\nbe necessary to have said improve\nment completed as soon as may be\n\n\nconsistent with the proper procedure\n| The contract for said improvement\nshall provide that the same shall be\n\n\ncompleted in all things in accordance\n| with the plans and specifications for\nsaid Improvement. herein referred to,\n\n\nand shall also provide that the CON\ntractor making the same shall accept\nthe bonds herein provided for at par\n\n\nand accrued interest in payment of\nI"
+    }
+  ]
+}

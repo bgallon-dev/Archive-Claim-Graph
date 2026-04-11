@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-12-25 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-25",
+    "date_end": "1907-12-25",
+    "report_year": 1907,
+    "source_file": "2_1907-12-25_p4_sn88085947_00211108587_1907122501_0047",
+    "archive_ref": "2_1907-12-25_p4_sn88085947_00211108587_1907122501_0047",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-12-25_p4_sn88085947_00211108587_1907122501_0047",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "agriculture": [
+          "hay"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 194,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 1083,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 172,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1T. the miners made serious objec.\nton to the timbering of the mines\non the grounds that they were not\nsafe.\n\n\nNumbers Of the Goldfield mines\nhave been leased; the leasers hay.\ning time limit, worked on royal.\nty and ran with as small expense\nas possible.\n\n\nThis Is the reason offered in sew.\neral instances for numbers of un.\ntimbered shafts and galleries,\nwhere the miners positively refused\nto work after serious cavern re-\nsulting in a number OF deaths\nAdded to this there were frequent\nprotests from the men who worked\nthe mines, because of the danger.\nGus manipulation of the cross-heads\nof guide bars used in hosting ma\nchinery.\n\n\nThe cross-heads are constructed\nof wood. In a wet mine they. fire.\nquently swell and in several cases\nhave been known to stick in the\nguide near the surface, and the\nminer, helpless to stop the cage,\nhas been lowered to the bottom,\nhanging against the sides of the\nshaft in deadly peril every moment.\nAll these and many other things\nwere the preliminaries to the out\nbreak when the financial stringency\nand the scrip issue came and start\ned the strike."
+    }
+  ]
+}

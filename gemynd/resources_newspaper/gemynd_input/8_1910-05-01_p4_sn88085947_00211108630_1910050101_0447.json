@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-01 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "8_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+    "archive_ref": "8_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 171,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 33,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The most valuable feature of the\nDry Farming congress is the per-\nsistent endeavors of it's officials to\nmake the deliberations of immedi-\nate use to the average farmer the\nworld over.\n\n\nThe new and old settlers in the\ndry farming area of the northwest\nern states, who would be most ben\nGifted by it's teachings, will not, as\na class, be at the fifth sessions in\nSpokane the first week in October.\nyet | believe the congress primarily\nexists for the benefit of dry land\nfarmers in all countries under the\nsun.\n\n\nThe farmers are obtaining infor-\nnation regarding methods and prac-\ntees through the extension work\noriginated by John 7. Burns, secre-\ntary of the congress, from whose\noffice in Spokane the dry farming\nbulletins are sent to where they\nwill do the most good.\n\n\nIn the next place, the dry farm\ners are reached more effectively\nby local leadership. In every COM\nmunity the progressive farmers\nare missionaries In better farming\nII is of the utmost Importance that"
+    }
+  ]
+}

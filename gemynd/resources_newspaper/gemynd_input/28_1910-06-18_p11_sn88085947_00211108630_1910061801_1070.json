@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-06-18 — pp11",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-18",
+    "date_end": "1910-06-18",
+    "report_year": 1910,
+    "source_file": "28_1910-06-18_p11_sn88085947_00211108630_1910061801_1070",
+    "archive_ref": "28_1910-06-18_p11_sn88085947_00211108630_1910061801_1070",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1910-06-18_p11_sn88085947_00211108630_1910061801_1070",
+      "composite_score": 13.65,
+      "domain_scores": {
+        "turnbull_prehistory": 2.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 1.5,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "turnbull"
+        ],
+        "agriculture": [
+          "orchard"
+        ],
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 535,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "turnbull",
+            "weight": 2.5,
+            "offset": 937,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 998,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1561,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 349,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 2700,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "court holds that voter has no right\nto remove his name from a referen-\nDUN petition after the total number\nof signers has been calculated by\nthe proper authority.\n\n\nc. L. Graves, chief deputy in the\ncounty engineers office, has an\nnounced his candidacy for the Of\nflee.\n\n\nJudge Dunn, at Occur d'AIene, has\nentered an order permitting the\nWashington Water Power Co. to re-\ntain it's bear trap dam at Post Falls\nuntil the case is decided in the SUI\npreme court of Idaho. This means\nthat he water power of the city of\nSpokane will not be interfered with\nduring the coming summer.\n\n\nr. E. Strahorn's offer to pay\n$352,O0 for the city hall property in\ncase of receiving franchise for\nthe North Coast railway has been\nordered spread of record by the city\ncouncil\n\n\nMonday morning at 10 will be\nheld the funeral services of Win\nfield S. Gibson, the old soldier\nwhose dead body was found near\nthe foothills recently. The services\nwill be at the Turnbull chapel, in\ncharge of Reno post, G. A. r. Bur\nial at Orchard prairie.\n\n\nEarl G. Constantine, teacher at\nthe South Central high school, has\naccepted a place with the Trustee\nCo. Constantine was an active fig\nure in the campaign for the $1,000\n900 issue of park bonds.\n\n\nNine delegates from the Spokane\nAd Mems club will go to San Fran\ncisco next week to boost for Spo-\nkane as the place of meeting for the\nPacific Coast AID Mems association\nin 1911. A rousing meeting of the\nSpokane club was held last night, at\n\n\nwhich 1t was voted that the dele\ncation proceed to Frisco with full\ncomplement of booster dope for the\nInland Empire. r. e. Bigelow of\n| Spokane is president of the coast\nassociation.\nJoseph o. Hollis, age ~, died\nfrom the shock following an opera\nton at the Sacred Heart hospital\nYesterday afternoon. He is sur\nvived by two sons and there daugh.\ntiers.\n\n\nA hot fight is pending in the city\n\n\ncouncil over the operation on the\nstreets of news carts by newsboys\nJohn w. Graham & Co. have remon\nstrated against permitting the carts\n\n\nto run.\n\n\nManagers of the Wilson campaign\ndeny that they have planned tc\ncommit the republican county con\n| vention to a west side man for\nUnited States senator. D. T. Han\n\n\nsays that the administration may\n\n\nbe Endorsed, but that he does not\nknow of the move against Poindex\nter. However, the Poindexter mer\n\n\nhave been aroused and will fight\n\n\nthe proposed resolution to a finish\n| if it is introduced.\n\n\nThe ElIers piano house Is moving\n| to 416 Sprague avenue, which it will\noccupy during the progress of worl\non its new building at Post and\n| Sprague. A. II. Eilers is here from\nPortland, completing the \"details\nfor the commencement of work OF\nthe new building.\n\n\nJacob Schiller, at the meeting o.\n\n\nthe city council last night, denied\nthat he had connected the purchase\nof a new automobile by Councilman\nLambert with the passage of the\nrailway Franchise. 1t was charged\n\n\nthat Schiller had made the state\nment at meeting of the Peoples\nTerminal Rate committee on Thurs"
+    }
+  ]
+}

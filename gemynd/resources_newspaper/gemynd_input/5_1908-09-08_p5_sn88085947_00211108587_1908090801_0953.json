@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-09-08 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-08",
+    "date_end": "1908-09-08",
+    "report_year": 1908,
+    "source_file": "5_1908-09-08_p5_sn88085947_00211108587_1908090801_0953",
+    "archive_ref": "5_1908-09-08_p5_sn88085947_00211108587_1908090801_0953",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-09-08_p5_sn88085947_00211108587_1908090801_0953",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 183,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 97,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "will still have the lobby, but 1t will\nbe a real lobby. The state central\ncommittee of the Equal Suffrage\nleague, of which Mrs. Helen A.\nMoore is chairman, is preparing a\nsystematic campaign. Wives of\ndemocrats will handle the demo.\nGratis in the state legislature and\nwives of republicans will look after\nthe republican members. Literature\nwill be dispensed and modern cam\npaign methods will be adopted.\n\n\nEvery morning the members OF\nthe state legislature will be asked\nover the breakfast cup, What are\nyou going to do about it?\"\n\n\nThe officers of the Equal Suffrage\nleague of California are Mrs. Mary\nSperry. president; Mrs. Lillian Har-\nris Coffin, vice president; Mrs. Ella\nMitchell, treasurer; Mrs. Nellie\nScoville, corresponding secretary.\nMrs. Theodore Pinther, ST., of\nSan Francisco has embroidered a\nbeautiful banner in colored silk\nand the suffragettes will march un-\nder this in the demonstrations.\nMrs. Theodore Pinther, jr., pretty\nlittle lady who looks as though she\nwould fit better in picture of a\ntea party than in a political con-\nvention. carries the banner. She,\ntoo. is an ardent suffragette."
+    }
+  ]
+}

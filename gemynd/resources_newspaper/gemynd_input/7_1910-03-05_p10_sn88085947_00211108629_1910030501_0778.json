@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "NEWS\n\n\n\" IN BRIEF ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-05",
+    "date_end": "1910-03-05",
+    "report_year": 1910,
+    "source_file": "7_1910-03-05_p10_sn88085947_00211108629_1910030501_0778",
+    "archive_ref": "7_1910-03-05_p10_sn88085947_00211108629_1910030501_0778",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-03-05_p10_sn88085947_00211108629_1910030501_0778",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ],
+        "spokane_development": [
+          "city council",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 500,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 2212,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1808,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1198,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 681,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 2377,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Traffic on the main line of the\nn. p. in Montana was blocked all of\nyesterday by the derailing of the\nPacific Coast express at Eddy yes\nterday morning~due to soft grade.\nThe track was cleared at 10 o'clock\nlast night. The baggage car was\nburned and four cars were derailed.\nNo one was seriously hurt.\n\n\nContinued interviews with men,\nbers of the Spokane Merchants as\nISOLATION shows that the majority\nare in favor of admitting the North\nCoast and Milwaukee without any\nrestriction as to terminal rates in\nthe franchise. A small minority of\nthe membership favor inserting the\nrate provision.\n\n\nCouncilman e. v. Lambert will\nintroduce the following resolutions\nat the meeting of the city council\nnext Tuesday night: For figures on\na reinforced concrete bridge to re-\nplace the high trestle at Sixth ave-\nnue.; for providing for a fill at the\neast end of the same bridge in order\nto reduce the total length of the\nproposed new bridge; for city\nchemist at $175 per month to test\npaving materials, as recommended\nby the Brownies addition property\nowners: requiring paving compan-\nles that have installed paving I'M\nder old contracts to make repairs\non defects in the work at once, and\nfor requiring the Great Northern to\ninstall a viaduct at Seventh avenue\nacross Hangman creek.\n\n\nThe Shuberts have dropped out Of\nthe new theater on Front avenue,\nbeing built under the direction of\nCharles Muehlman, and a contract\nhas been closed with William Nor\nris for opening a high class vaude-\nvile house there. The corporation\nerecting the building has been reor-\nganized as the American Building\nCo. The steel framework of the\nbuilding had been erected when\nwork ceased. Construction will now\nbe rushed until the building is fin\nally completed\n\n\nn. Nels Thompson, who for many\nyears has been foreman of section\n\"a of the Northern Pacific yards in\nSpokane. will be buried from Mis-\nsoula today. Mr.. Thompson was in\ncharge of a gang of laborers at\nMace when the snow slides took\nplace in which he lost his wife. He\nleaves a wife and three children,\nwho reside at E422 Fourth.\n\n\nBecause he visited the home of a\nfriend who was i'll with smallpox, D.\nRalsandall, who has himself re-\nGently recovered from the same all\nment. was arrested by Health In\nspector Heath yesterday afternoon,\ncharged with violating the health\nordinance by breaking a quarantine\n\n\nAt booster meeting to be held\nat the chamber of commerce next\nThursday evening, the matter of\nadopting the newly proposed by\nlaws, suggested by the special re-\nvision committee, will be consid-\ncred. There will be, in addition,\nspeeches by prominent members of\nthe chamber on subjects that are\nnow of vital interest to this city.\n\n\nJ. S. Gillespie, who took supplies\nto Colfax in behalf of the local\nchamber of commerce, telegraphed\nat o'clock last night that he had\nreached the center of disaster, and\nneeded more provisions, which will\nbe sent Immediately."
+    }
+  ]
+}

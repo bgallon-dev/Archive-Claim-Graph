@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "SPLIT UP AT GOLDFIELD",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-10",
+    "date_end": "1907-04-10",
+    "report_year": 1907,
+    "source_file": "12_1907-04-10_p4_sn88085947_00211108575_1907041001_0555",
+    "archive_ref": "12_1907-04-10_p4_sn88085947_00211108575_1907041001_0555",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-04-10_p4_sn88085947_00211108575_1907041001_0555",
+      "composite_score": 9.75,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 5.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "industrial workers",
+          "western federation"
+        ],
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 81,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 129,
+            "in_headline": false
+          },
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 397,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "GOLDFIELD, April 10.--An eff\nfort of the mine owners last night\nto bind the union miners not to\ntake sympathetic action with the\nIndustrial Workers of the World\ncaused a split. The miners indi-\nGated that they would separate\ntheir organization from the Indus\ntrials but would not agree to with\nhold support from them. The own\ners wanted all mine troubles\nhandled exclusively under the laws\nof the Western Federation of\nMiners. They declare they Will\nstand by this requirement."
+    }
+  ]
+}

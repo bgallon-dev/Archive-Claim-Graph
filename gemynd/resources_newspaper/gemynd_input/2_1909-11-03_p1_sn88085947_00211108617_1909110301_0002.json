@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-03 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-03",
+    "date_end": "1909-11-03",
+    "report_year": 1909,
+    "source_file": "2_1909-11-03_p1_sn88085947_00211108617_1909110301_0002",
+    "archive_ref": "2_1909-11-03_p1_sn88085947_00211108617_1909110301_0002",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-11-03_p1_sn88085947_00211108617_1909110301_0002",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 203,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 185,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 741,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A startling move to overturn the\nplans of water extensions prepared\nby the late water commissioner,\nArvid ReuterdahI, approved by Pro-\nfessor William n. Burr, and order\ned built by the city council, has\ndeveloped at the city hall, in the\nexecutive department of the city,\npresided over by Mayor Pratt.\n\n\nThe further fact developed today\nthat since the removal of Reuter-\ndahl as water commissioner, the\nmayor has fallen in line with the\nnew water move at the chamber\nof commerce and appointed the\nnew water commissioner, F. p.\nWeymouth, a member of this COM\nmittee, to act in conjunction with\nthe mayor and three members of\nthe chamber to again settle the\nwater question\"\n\n\nIn a communication filed at the\ncity clerks office by the board\nof public works the first move is\nmade in the direction of eliminat-\ning the reservoir planned for the\nsoutheast hill section of the city.\n\n\nThe communication is in the ma\nture of ain apology to the city coun-\nell for the continued delay in start\ning the work of building the reser-\nvoir, a suggestion that the reser-\nvoir does not go to the root of the\nwater question, and that II q reser-"
+    }
+  ]
+}

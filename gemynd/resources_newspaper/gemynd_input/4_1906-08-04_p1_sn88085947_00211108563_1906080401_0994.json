@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "electrical WORKERS\n\n\n10 CONTINUE FIGHT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-04",
+    "date_end": "1906-08-04",
+    "report_year": 1906,
+    "source_file": "4_1906-08-04_p1_sn88085947_00211108563_1906080401_0994",
+    "archive_ref": "4_1906-08-04_p1_sn88085947_00211108563_1906080401_0994",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1906-08-04_p1_sn88085947_00211108563_1906080401_0994",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 138,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 759,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The electrical workers profess to\nbe greatly pleased with the support\ngiven them by all classes in their\nfight with the Washington Water\nPower company. They claim that\nthe company only operated four ex-\nira cars to Natatorium park last\nSunday and point to this fact as\nproof mat the ban on that place is\nbecoming more effective. They ex-\npect to continue the fight until the\ncompany sees that it is to their\nadvantage to permit their employees\nto organize for mutual benefit and\nprotection. At the last meeting of\nthe Central Labor union the strik-\ners said that they had every rea-\nson to feel satisfied with the prog\nress made up to date and that\nthere was absolutely no disposition\nmanifest to discontinue their eff\nforts to obtain fair treatment from\nthe Water Power people."
+    }
+  ]
+}

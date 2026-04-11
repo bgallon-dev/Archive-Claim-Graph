@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "TheMurkets\n\nLocal Markets.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-27",
+    "date_end": "1903-10-27",
+    "report_year": 1903,
+    "source_file": "15_1903-10-27_p8_sn88085947_00211108538_1903102701_0619",
+    "archive_ref": "15_1903-10-27_p8_sn88085947_00211108538_1903102701_0619",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-10-27_p8_sn88085947_00211108538_1903102701_0619",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 131,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 406,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 641,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Vegetables - Potatoes, 50Q65c a\nsack; dry onions, per lb.. 1c.\n\n\nEggs and poultry-Ranch egga\nfresh. per case. $4,000; ranch but\nter, per h., 1501Sc; choice dressed\npoultry, per h., 13c; alive, per h., 1Oc\nalive, per h., 10c.\n\n\nLivestockCowns on foot, 2hc;\ndressed, 5@51ac; steers on foot, az C;\ndressed, 6 &c; sheep on foot, 2k q &c;\ndressed, 6hc; hogs, on foot. &c;\ndressed, SIC; calves, dressed. S@9c.\n\n\nWheat-The price paid farmers by\nlocal country warehousemen is G4c\nfor club and CSC for bluestem at the\nwest end of the Central Washington\nrailroad and l cent more per bushel\non the main transcontinental lines.\n\n\nGrain and feed-Timothy hay, sic\nper ton; grain hay s14 per ton; oat\nhay, s14 per ton; barley, 90@95c per\ncwt.; oats, 81 per cwt."
+    }
+  ]
+}

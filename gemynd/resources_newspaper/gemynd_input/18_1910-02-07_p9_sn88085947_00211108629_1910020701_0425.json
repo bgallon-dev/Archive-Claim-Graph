@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-02-07 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-07",
+    "date_end": "1910-02-07",
+    "report_year": 1910,
+    "source_file": "18_1910-02-07_p9_sn88085947_00211108629_1910020701_0425",
+    "archive_ref": "18_1910-02-07_p9_sn88085947_00211108629_1910020701_0425",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-02-07_p9_sn88085947_00211108629_1910020701_0425",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail",
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 146,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 527,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 321,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "This at 81 days a month for from\nonly four to six months a year\nover in Elwood, Ind. it's 10 weeks\nin two years-makes good. steady\nclerking job look attractive in COM\nparisOn.\n\n\n1.-The lowest workers in our part\nof the mills get about $2.25 a day.\nThey work for the same time that\nwe do\"\n\n\nJudge w. e. Porter granted the\ninjunction to keep strikers from in\nterfering with strikebreakers.\nThere has been no violence, so an\ninjunction against interference by\nword of mouth had to be issued.\n\n\nIn December q strikers were\nsent to Jail in contempt of court for\nwalking the streets near the mills.\nWhile in Jail they appointed court\nof their own. When any one of their\nnumber committed any offense\nagainst the rules of the Jail, they\ntried him and sentenced him to soil.\ntary confinement in his cell."
+    }
+  ]
+}

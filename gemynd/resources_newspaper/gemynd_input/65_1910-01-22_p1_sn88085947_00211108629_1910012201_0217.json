@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-01-22 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-22",
+    "date_end": "1910-01-22",
+    "report_year": 1910,
+    "source_file": "65_1910-01-22_p1_sn88085947_00211108629_1910012201_0217",
+    "archive_ref": "65_1910-01-22_p1_sn88085947_00211108629_1910012201_0217",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "65_1910-01-22_p1_sn88085947_00211108629_1910012201_0217",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 7.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "industrial workers",
+          "conspiracy",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 312,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 478,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 743,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 373,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 280,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t took exactly ten minutes\nhardly time enough to select a\nforeman, write the names of the\nprisoners on slip of paper, and\ntake one vote-for jury in Jus.\ntice George w. Stocker's court.\nroom this morning to return yer.\ndict of guilty against the six |. w.\nw. leaders on trial for conspiracy\nsentencing them to the maximum\npenalty of six months imprison.\nment in the county jail\n\n\nImmediately after the reading OF\nthe verdict Attorneys Fred H\nMoore and Thomas J. Symmes, for\nthe Industrial Workers, announced\nthat an appeal will be taken to the\nsuperior court.\n\n\nThe defense failed to introduce\nany evidence this morning other\nthan the placing of Assistant Cor,\nporation Counsel John e. Blair on\nthe stand to testify as to the rul-\nings on the street speaking ordi.\nnances by Police Judge Mann The\ndefense was limited to arguments\nby counsel, both attacking the val\nidity of the street speaking ordi\nnance as being unconstitutional\nand declaring that the |. w. w. s\nwere merely carrying on an agita-\nton to have the obnoxious law re-\npealed and could not be classed as\nconspirators.\n\n\nDeputy Prosecutor Kizer, who,\nwith Mr.. Blair, handled the states\ncase, attacked the |. w. w. in\nscathing language, denouncing the\norganization that has cost the city\nand county over $4,000 through\ntheir efforts to break the law.\n\n\nMIGHT HAVE GIVEN GREATER\n\n\nPUNISHMENT.\n\n\nBefore retiring to the jury room\none of the jurymen asked the court\nif a fine could be levied in addi-\nton to a jail sentence. This ques-\nton, following a statement by\nDeputy Prosecutor Kizer that\nwhile six months is the maximum\npenalty in the justice court. the\npunishment is much greater in a\nhigher court, probably means that\nthe jurors had determined their ac-\nton before leaving the courtroom\nand were desirous of increasing\nthe sentence."
+    }
+  ]
+}

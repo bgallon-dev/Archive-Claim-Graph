@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-06-09 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-09",
+    "date_end": "1905-06-09",
+    "report_year": 1905,
+    "source_file": "3_1905-06-09_p3_sn88085947_00211108551_1905060901_0550",
+    "archive_ref": "3_1905-06-09_p3_sn88085947_00211108551_1905060901_0550",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1905-06-09_p3_sn88085947_00211108551_1905060901_0550",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 362,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 938,
+            "in_headline": false
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 949,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "according to the Herricks and Tafts\nreveh discussion\" of such plans\nshould be repressed by \"self-re-\nspectaing, stable government\" Roose-\nwelt ought to turn a volley Of intunc-\nt1ons from his capon-lined Taft upon\nthis meeting, for it is not only going\nto discuss government and ask for\nthings beneficial to the most intelli-\ngent body of laborers in the land, but\n1T is even going to discuss the sub\nject of amalgamating with the Ameri-\ncan Federation of Labor, on the clear\nly avowed ground that 1.-The organiza-\nton should make itself felt in poll\ntics\"\n\n\nThis last is most pernicious. One\ncan almost already see the acres of\ngoose pimples of horror breaking out\nover the bodies of ex-Judges Taft,\nHerrick and others.\n\n\nDown with public ownership, for\nthe people will make themselves felt\nin politics! The unions will vot solid\nly on some issue Of interest to them!\n\n\nViolence and lawlessness are never\njustifiable. But l believe that strike\nand boycott, legitimately conducted.\nare justifiable. / see them everywhere\nresorted to. in one form or another,\nby merchants and manufacturers who\nwould scorn to join a trades union\nand who would laugh at the idea that\ntheir tricks of the trade\" boycotts\nand determinations were as repre-\nhensible as any resorted to by organ\nlied labor.\n\n\nThe picture of Debs in convict\ngarb. painted by this same Taft. who\nhas his eyes on the presidency. in\nfunctions against union talking.\nwhistling, making Of faces, or any\nthing else asked by corporations of\nprejudiced If not corrupt courts,\ntroops at beck and call of private\nconcerns, the organization Of an army\nof low-down but high paid worthless\nscamps as professional strike break\ners have taken from unionism all\nthere was of efficacy or legitimacy in\nstrike or boycott.\n\n\nIn Gods name, what other recourse\nthan to make themselves felt in poll\ntics have the unions, or the people at\nlarge?\n\n\n1t is we'll that letter carriers or\nganize. 1t is well that employees un-\nder public ownership organize. For\npolitics? Yes, for political strength\nand solidity in behalf of the rights of\ncommon humanity and in behalf Of\nthe right."
+    }
+  ]
+}

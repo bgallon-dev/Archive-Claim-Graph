@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-02-13 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-13",
+    "date_end": "1907-02-13",
+    "report_year": 1907,
+    "source_file": "16_1907-02-13_p4_sn88085947_00211108575_1907021301_0363",
+    "archive_ref": "16_1907-02-13_p4_sn88085947_00211108575_1907021301_0363",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1907-02-13_p4_sn88085947_00211108575_1907021301_0363",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 223,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Western Federation of Miners, OF\nwhich the accused is a member,\nand endeavored to pursuade him to\ntestify against the officers of that\norganization. At Wallace Suther-\nland refused defendant privilege OF\nconsulting with counsel, but ar\nranged a secret meeting with De-\ntective MCFARLAND, then in the en-\nplov of the prosecution. Adams al\nleges he was an unwilling party to\nthis meeting, fixed for the purpose\nof entrapping him into damaging\nadmissions to be used as testimony.\n\n\nAs a sheriff is ineligible for re-\nelection in Idaho, it is charged that\nBailey was elected on the express\nunderstanding that Sutherland, as\nhis deputy, should have full charge\nof the Adams case in the interests\nof the prosecution. If Sutherland\nis allowed to handle the venire, it\nis urged, only enemies of the West\nern Federation of Miners will be Sc\ncured for the jury.\n\n\nThe statement of Attorney\nKnight, for the prosecution, that\nthe federation is expanding large\nsums of money to defeat the ends\nof justice in defending Adams fail\ned of proof when John Hendrick-\nson, former president of the local\nminers union, was placed on the\nstand. Hendrickson denied that\nany extra assessment had been\nmade to meet the expense of de-\nTending the case.\n\n\nClarence barrow, of Chicago, has\narrived to take charge of the de-\nTense."
+    }
+  ]
+}

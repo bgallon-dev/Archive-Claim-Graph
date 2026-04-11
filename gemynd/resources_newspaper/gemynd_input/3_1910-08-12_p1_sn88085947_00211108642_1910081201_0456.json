@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WALLACE IN\nDANGER Of\n\n\nBURNING\n\nOne Hundred Families Pack\nUp Belongings-Appeal\n\n\nfor Help to Spokane.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-12",
+    "date_end": "1910-08-12",
+    "report_year": 1910,
+    "source_file": "3_1910-08-12_p1_sn88085947_00211108642_1910081201_0456",
+    "archive_ref": "3_1910-08-12_p1_sn88085947_00211108642_1910081201_0456",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-08-12_p1_sn88085947_00211108642_1910081201_0456",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 269,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 801,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire.)\n\n\nWALLACE, Idaho, Aug. 12-one\nhundred families Of Wallace THE\nmorning are apcking up their be-\nlongings and will leave for Spokane\nand other outside points to escape\nthe dangers Of tho forest fires\nwhich are raging near, threatening\nto wipe out portion Of the city.\n\n\nWith dense smoke enveloping\nthe city. making 1t impossible to\nsee a distance Of 200 yards, and\nwith burning embers falling. car\nried by the wind from the burning\narea. Wallace is in immediate dan\nger of destruction.\n\n\nEverywhere men and women are\nrunning about using every safe\nguard to protect their property\nfrom the fire demon. while the city\nfire department stands ready to\nmay be started.\n\n\nShould the wind become stronger\nit is believed that nothing can\nsave the city. Forest fires raging\nin the Placer creek district, five\nmiles from Wallace, have de-\nstroyed property, including COM\npressor buildings, boiler plants,\nblacksmith shops and cabins\nowned by the Wentworth Clothing\ncompany Of Spokane, the Vienna\nInternational Mining company, the\nArctic Mining company, the Snug\ngler Mining company and the Col\nden Star company.\n\n\nOn account of the dense smoke\nand falling burning embers, 1t is\nimpossible for the owners of the\nproperties to get into the camp\nand make an estimate of the\namount of damages.\n\n\nAn appeal has been sent to\nSpokane for 100 men to aid in\nfighting the flames, also the gov\nernment has been asked to send q\nsquadron of troops from Fort\nGeorge Wright. At the present\ntime there are only so men in the\nvicinity of Wallace fighting the\nflames."
+    }
+  ]
+}

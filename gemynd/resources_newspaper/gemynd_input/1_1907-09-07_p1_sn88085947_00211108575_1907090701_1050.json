@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-09-07 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-07",
+    "date_end": "1907-09-07",
+    "report_year": 1907,
+    "source_file": "1_1907-09-07_p1_sn88085947_00211108575_1907090701_1050",
+    "archive_ref": "1_1907-09-07_p1_sn88085947_00211108575_1907090701_1050",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-09-07_p1_sn88085947_00211108575_1907090701_1050",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 184,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The state railway commission, in\nIts finding on the Milan wreck.\ncondemns the Great Northern Rail-\nroad Co. for using defective and\ndangerous track not only at Milan,\nhut at other points in the state.\n\n\nd-here is nothing very startling\n&bout the decision. 1t is as easy an\noutlet as the company could expect\neven from It's friends, considering\nthe policy of criminal neglect that\nhas been followed by the railroads\nIn this state for years. The public\nia assured by the state officials that\nthe company is doing all it can to\nremedy the defects. The company\nusually does all 1t can right after a\nwreck has made repairs impera-\ntive. But not otherwise.\n\n\nNeither is there any suggestion\nof punishment or measures to COM\npei the company to offer the public\nsafe travel in future. The state Is\napparently helpless as far as cor\nreceive measures are concerned,\nwhich is nothing strange In view OF\nthe fact that railroad lobbyists have\nruled the state for years and\ncreated the state commission.\n\n\nOne of the discouraging features\nof the investigation was the testi-"
+    }
+  ]
+}

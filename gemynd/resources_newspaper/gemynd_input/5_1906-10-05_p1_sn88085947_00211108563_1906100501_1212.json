@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-05 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-05",
+    "date_end": "1906-10-05",
+    "report_year": 1906,
+    "source_file": "5_1906-10-05_p1_sn88085947_00211108563_1906100501_1212",
+    "archive_ref": "5_1906-10-05_p1_sn88085947_00211108563_1906100501_1212",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-10-05_p1_sn88085947_00211108563_1906100501_1212",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 254,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 263,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 62,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The committe Of the whole, the\norganization name by which the\ncity councilmen chose to be known\nwhen \"judiciously\" bordering any\nquestion, still persists in leaving\nburied the question of who pays\nfor the rebuilt span on Howard\nstreet, the city or the Washington\nWater Power company that knock\ned it down.\n\n\nCouncilmen give as excuse an\noverwhelming lot of other business\nwhich must first be transacted.\nThis statement is peculiar to say\nthe least. Others matters of less\nImportance and minor interest they\nhandle in hurry. They have had\nburied the bridge question for\nmonths.\n\n\nCouncilman Fred Baldwin, asked\nwhe nthe council would dig the\nmatter up, replied: 81 don't know\nwhen we will reach that. We have\na stack of stuff that long first\"\n\n\nWhen he said that long\" Mr..\nBaldwin extended his arms like he\nwas trying to hug an overgrown\nlady.\n\n\nThe fact of the matter Is the\ncouncilmen can take the Howard\nstreet bridge question up at the\nnext meeting if they so choose.\n\n\nInquiry at the city hall shows\nthe city is footing the bills for the\nwork as they are presented.\n\n\nThe initiative and referendum or\ndinance introduced weeks ago by\nCouncilman Pratt is another meas\nure that has slumped into the pit.\nNotwithstanding the fact that the\ndemocratic party all over the state\nhas Endorsed the referendum and\nmade It an issue in this campaign\nthe democratic administration Of\nSpokane stands afar off and per-\nsumably thanks the Lord that it\nis not as other men."
+    }
+  ]
+}

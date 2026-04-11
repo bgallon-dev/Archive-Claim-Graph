@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-07-17 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-07-17",
+    "date_end": "1908-07-17",
+    "report_year": 1908,
+    "source_file": "86_1908-07-17_p3_sn88085947_00211108587_1908071701_0751",
+    "archive_ref": "86_1908-07-17_p3_sn88085947_00211108587_1908071701_0751",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "86_1908-07-17_p3_sn88085947_00211108587_1908071701_0751",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 3.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake",
+          "homestead"
+        ],
+        "indigenous": [
+          "reservation"
+        ],
+        "railroads": [
+          "depot"
+        ],
+        "depression_era": [
+          "transient"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.5,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 534,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 957,
+            "in_headline": false
+          },
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 1965,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 2067,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 218,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "transient",
+            "weight": 1.5,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "depression_era",
+        "indigenous",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "lar or transient roomers; cory.\nquiet and respectable: secluded\nbut close In; only ~ blocks from\nRiverside Az: rear entrances from\nPost st.: hot water Ill the ames\nmoderate prices.\n\n\nHOTEL DEMPSEY\nONE BLOCK FROM @. N. DEPOT.\nNICE ROOMS. soc TO S1.50.\n\n\nPHONE IN EACH ROOM\n\n\nTRANSMITS.\n\n\nLARGE OFFICE III\n\n\nc. C. DEMPSEY. PROP.\n\n\nHOTEL RICHTER\nOne half block north Of the Mon\nroe street bridge. 0606la Monroe.\nEverything strictly modern. New\nbuilding. new furniture. Elegant\nplace for city roomers. Transients\nspeciality Hot and cold water In\nevery room. Rates reasonable.\nPhone, Maxwell 1541.\n\n\nFOR RENT.\nFurnished rooms for light house\nkeeping. GOT w. Third.\nFor rent, 4 room new modern\nhouse. full basement, E1317\nMarietta; SIT per month, including\nwater. Apply next door north.\nFor rent-Madison han. Mali.\nson st. Phone 200.\n\n\nFOR SALE\nAcre tract, with improvements.\nnear Spokane college, Mantle\npark: $1,000.\n\n\nTen acre tract. seven miles from\nSpokane; Medical Lake line:\n$1,400.\n\n\nThese propositions will make\nany purchaser independent for life\nwithin year or two from now.\nSULLIVAN INVESTMENT co,\nPhone 2433. II Bernard ST.\n\n\nIT'S THE vALuEsl\n\n\nSeven-room modern house; IN\nmile circle; one block from car:\nnorthwest part Of city; $4,000;\nterms.\n\n\nTHOMPSON-GILLIS INV. CO.,\nSo Wash. ST.. ground floor Hutton\nBlk. Phone 1880. Open evenings.\nLots. Lots. Lots. 500. 500. 800.\nEast Spokane, the manufacturing\ndistrict between 0. r. & N. and N.\np. r. R.; 81 cash, balance 81 week;\nno interest; no taxes. Sparks Bros,\n14-10 Bernard st.\n\n\nHELP WANTED MALE\nWanted for Army-Abfe-Dodied nm.\nmarried men between ages Of 81\nand 35; citizens of United States,\nof good character and temperate\nhabits, who can speak, read and\nwrite English. For information APP\nply to Recruiting Oficer, 1854\nHoward ST.. Spokane. Wash.\nWanted-A partner in the real\nestate business; references re-\nCURED. Address Miss r.. Press.\nWe buy your secondhand bicycles.\nCalifornia Cycle, Riverside.\n\n\nHOMESTEAD\nHalf million acres of land soon to\nbe opened near Spokane. News\nand authentic map just out.\nRESERVATION INFORMATION\n\n\nAGENCY,\n220 WALL ST. SPOKANE, WASH\ncooper & Co., collections. 40 Co\nIumbia bulldog. Phone 93S2.\nCHOICE CANNON HILL LOTS\nReasonable. and monthly pay.\nments. Also choice lots in other\nlocalities.\n\n\nGRAY & MccuNE CO.\nPhone 800. First Ave. and Wall\nSpokane Trunk Factory-Trunks.\ntravelling bags and leather goods.\nStore 9 Stevens st. Phone 3248.\n\n\nGEORGE A. WEDoWooD\nExpress. Transfer and Storage\nOffice 915 Bridge. Phone Max. 2542.\nPine wood. $500. Sparks Bros.\nii and 16 Bernard st. Phone\n1947.\n\n\nThe place to eat and get your\nmoneys worth. Peacock restau-\nrant, 1O1 DIVISION st.\n\n\nHoRsESHoElNc\nCharles Staley, Pacific avenue and\nBernard street. 1926\nSpokane Artificial Limb House.\nlegs, arms. trusses, braces. made\nand repaired. Sherwood bldg.\n\n\n\nStrayed 800 men from Queen\nRestaurant and Coffee House.\n337 Front. Reward.\nChubb prints business or calling\ncards cheapest. Fone 9349. s\nand s Golden Gate block. .S24 River.\nside.\n\n\nAny face blemssh removed without\npain or seal: guaranteed. The\nDerma Inst. 824 Riverside av.\nHAVE YOUR SHOES REPAIRED\n\n\nIN THE NEW WAY\nWomen's hall soies sewcd for 500\nMems half soies sewed for. :. ESQ\nPhone 1885 and we will call for\nand deliver your repairing.\n\n\nLIE CLAIRE SHOE CO.\n\n\nQo3 RfuArsid>"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-16 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-16",
+    "date_end": "1910-05-16",
+    "report_year": 1910,
+    "source_file": "16_1910-05-16_p10_sn88085947_00211108630_1910051601_0656",
+    "archive_ref": "16_1910-05-16_p10_sn88085947_00211108630_1910051601_0656",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-05-16_p10_sn88085947_00211108630_1910051601_0656",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 79,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 42,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Federation of Farmers Warehous.\nes Of the Inland Empire. About\none hundred representatives met at\n8 O'Clock this morning at the cham.\nDer of commerce assembly room.\n\n\nAttorney AdoI phi Munter address.\ned the Mems Sunday club at ST.\nPaul's Maptist church taking for\nhis subject: The Condition and\nFuture of the Negro\" About 100\ncOlored people attended.\n\n\nThe Royal Neighbors will give\nanother of their enjoyable whist\nparties at the upper Pacific halls\nThursday evening of this week"
+    }
+  ]
+}

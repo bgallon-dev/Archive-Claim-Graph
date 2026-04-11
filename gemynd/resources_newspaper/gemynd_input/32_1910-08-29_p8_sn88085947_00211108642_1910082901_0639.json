@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "H>>>> q q . . q . = Z\nINTERSTATE Earring\n\n\nHERE SEPTEMBER\n\nUNITED Press Leased Wire)",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-29",
+    "date_end": "1910-08-29",
+    "report_year": 1910,
+    "source_file": "32_1910-08-29_p8_sn88085947_00211108642_1910082901_0639",
+    "archive_ref": "32_1910-08-29_p8_sn88085947_00211108642_1910082901_0639",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1910-08-29_p8_sn88085947_00211108642_1910082901_0639",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "rate case"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 88,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 368,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Omitted Press Leased Wire)\n\n\nNEW YORK, Aug. 29.-D. o.\n\n\nIves and several other repre- 4\n} senatives of eastern CONNER 4\n} cial organizations will attend 4\nthe interstate commerce hear 4\ning to begin in Spokane. 4\nWash, on September 13. Tes- 4\ntimony will be taken at the\nhearings in spite of the pro- 4\ntests of Spokane shippers 4\nagainst what is known as the\nSpokane rate case decision.\n} & q q . q q q q q a q q a a 4"
+    }
+  ]
+}

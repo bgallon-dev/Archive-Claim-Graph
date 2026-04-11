@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BOTTLE YOUR INTERSTATE\n\n\nCOMMERCE COMMISSION",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-12",
+    "date_end": "1908-12-12",
+    "report_year": 1908,
+    "source_file": "30_1908-12-12_p5_sn88085947_00211108599_1908121201_0254",
+    "archive_ref": "30_1908-12-12_p5_sn88085947_00211108599_1908121201_0254",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1908-12-12_p5_sn88085947_00211108599_1908121201_0254",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 716,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1074,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "init US to hold the business that Is\ngoing to the other fellow.\n\n\n\"Unless you do, your Pacific COM\nmerce will soon become q memory.\nYou people on the coast win get no\nHye transcontinental railways\"\nJames ]. Hill, oracle of the rails,\nmouthpfece of the barons Of the\nsteel ribbed commercial highways,\nof whom 1t Is said ''he annexed\nmore territory with a coupling pin\nthan Julius Caesar did with a\nsword\" has delivered an ultimatum\nto the American people.\n\n\nIt is short. crisp, clothed with\nthe finality which distinguishes all\nthat \"Jim\" Hill says, and is not\nunlike the startling warning of Har-\nfiman delivered at the recent\nTrans-Mississippi congress in San\nFrancisco.\n\n\nHill, In the presence of an inter.\nviewer is shrewd, a careful chooser\nof words. Yet he talks straight\nfrom the shoulder.\n\n\nHis remarkable ultimatum came,\nlike the crack of whip at the very\nclose of a remarkable statement,\nsecured by representative of The\nPress while Hill was In Seattle on\na hurried business trip\n\n\n1t is a rea! live question:\" Hill\nbegan, whether it would not be\nadvisable for the Great Northern\nrailroad to make its terminal at\nVancouver, r c., rather than on\nthe American side, in view of the\nadverse ruling of the interstate\ncommerce commission respecting\nthe advance publication of the rates\nTor railway haulage Of export bust\nness, as well as in view of the I'M\nsatisfactory character of the United\nStates navigation laws.\n\n\nwhat l say regarding our own\nsteamships applies to other Ameri-\ncan vessels engaged in the oriental\ntrade. The present handicap. from\n1.-THE two causes have mentioned, Is\nltoo great for us to compete on even\nterms with our rivals\"\n\n\nThere was a tinge of sarcasm in\nhhe next words.\n\n\n\"The British vessels carry their\nown flag Ours carry the Japanese\nor any other we can get that will\ncarry our exports at reasonable\nrates. Once in while we, in the\nUnited States. build vessel, but\nthe fact is we have all but forgot\nten what 1t Is to own ship\"\nHill paused a moment, then:\n81 would like to. wipe out all the\ncustoms houses between the United\nStates and Canada\" he declared\nemphatically. II think 1t would be\nfor the welfare of the people of\nboth countries. 1t would certainly\nbe advantageous. There is no more\nreason for these trade barriers be-\ntween Canada and the United\nStates than there would be for tar\ndff walls between the states of the\nunion.\n\n\n'Under present conditions l do\nnot know Of any place in this coun-\ntry east of Chicago and north of\nthe Ohio river where railroad\ncould be built that would pay one\nper cent on the investment.\n\n\n\"The Milwaukee & st. Paul is\nTo\nglad they are here. But when that\nenterprise Is finished / do not\nknow, north of the Platte river,\nwhere there Is room for another\nrailroad. or reason for one.\n\n\n\"All the riches of the world come\nfrom four sources; the sea, the\nfarm, the forest and the mine. Be-\nyond all is the fertility of the soil.\nOur crop last year was worth more\nthan the combined trade OF\nEurope.\n\n\nNext to the cultivation of the\nsoil itself. in the amount of money\ninvested and in the Importance to\nthe people, is the railway property\nof the country. 1t is on a different\nbasis, because of the attitude of the\npeople. fro many other property.\n\n\nwhen you have invested your\nmoney In railway you have un-\ndertaken an obligation to serve the\npublic: you have taken business\nrisk that Is greater than the risk\nof any other business In the world.\nII you do not move your trains reg\nularly so as to accommodate the\nbusiness the courts win appoint a\nreceiver and will issue receivers\ncertificates to an extent that will\nwipe out your business.\n\n\n81 mention this to show that\nthere is nothing guaranteed. Some\ntimes you are told what appliances\nto use and what not to use; whom\nyou. can hire and when you can\ndischarge him, and 1t has been at\nleast limited what you should pay\nhim.\n\n\n\"The only privilege that Is left IS\nfor the railroad to pay the bills.\n\n\nRemember, you can not injure\n.s..,. a.."
+    }
+  ]
+}

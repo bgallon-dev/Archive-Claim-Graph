@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "MAY Be FREIGHT RATE\n\n\nWAR TO COEuR O'ALENE",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-27",
+    "date_end": "1903-11-27",
+    "report_year": 1903,
+    "source_file": "17_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+    "archive_ref": "17_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-11-27_p1_sn88085947_00211108538_1903112701_0736",
+      "composite_score": 16.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 8.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1903,
+      "word_count": 98,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 16,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 7,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 383,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 16,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 7,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The question of freight rates between\nSpokane and Occur d'Alene city is re-\n\n\nceiving considerable discussion among\nshippers generally. They welcome the\ncompetition between the Northern Pa\ncifc and the new electric railway, and\na feeling prevails that it will result\n\n\nfor their benefit The electric railway\npeople seem to be determined TO cut\nthe rate under that now imposed by\nthe Northern Pacific This is now\n20 cents per 100 and to 8 cents in\ncarloads, and for lumber cents. The\nNorthern Pacific feels this rate is about\nas low as they can go, and as there"
+    }
+  ]
+}

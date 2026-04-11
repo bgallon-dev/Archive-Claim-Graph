@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "WONDERING HOW\n\n\nIt ALL HAPPENED\n\nCan't Just \"Savvy\" Some of Cham\nDer of Commerce Election\n\n\nFeatures.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-05",
+    "date_end": "1910-01-05",
+    "report_year": 1910,
+    "source_file": "4_1910-01-05_p2_sn88085947_00211108629_1910010501_0051",
+    "archive_ref": "4_1910-01-05_p2_sn88085947_00211108629_1910010501_0051",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-01-05_p2_sn88085947_00211108629_1910010501_0051",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "chamber of commerce",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 215,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 913,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 811,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There are some men around the\ntown today who are still trying to\nfigure out just how certain things\nand election Of the Chamber of\nCommerce last night, and why it\nhappened\" just so. Had those\nwith the greatest interests at stake\nconsulted a trance medium before\ngathering about the long, crowded\ntables Of steaming viands they\ncould not have pulled the strings\nto better advantage In getting just\nabout what they desired.\n\n\nOF course no one should be SO un-\njust as to even intimate that the\nthing was \"fixed\" beforehand and\nto queens taste, though it would\nnot require the perceptiveness of\nq Sherlock Holmes to figure out\nwho are the Queens\" in this par\nticuIar case.\n\n\nA. M. Dewey, man who it is\ndeclared is much interested in\nrailroad projects through the Okla\nhogan country and with good\nsized interest in real estate, which\n1t is said can easily be benefited by\nthe aid of the influence of the\nboard of the Chamber of Commerce,\nmoved that a committee of three be\nappointed by the chair to nominate\nsufficient number of men to in\ncrease the membership of the board\nof trustees to 81.\n\n\nPROTEST IN VAIN.\n\n\nEvenson and Wright scrambled\nto their feet almost simultaneously\nto offer protest. Both insisted that"
+    }
+  ]
+}

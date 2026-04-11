@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-02-11 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-11",
+    "date_end": "1909-02-11",
+    "report_year": 1909,
+    "source_file": "6_1909-02-11_p7_sn88085947_00211108599_1909021101_0656",
+    "archive_ref": "6_1909-02-11_p7_sn88085947_00211108599_1909021101_0656",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-02-11_p7_sn88085947_00211108599_1909021101_0656",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 133,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 380,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "big surprise to the athletic world.\n\n\nThere will be international yacht\nraces, motor boat races. a roller\nskating tournament open to the\nwhole world, clog dancing cham\npionships and practically every\nform OF athletic contest known to\nthe calendar of sports.\n\n\nCapt. William Inglis. manager of\nthe Seattle Athletic club. who went\nto New York and secure dthe A. A.\nU. games for the exposition, has\nbeen elected one of the vice presi-\ndents of the Amateur Athletic\nunion. and is In charge of arrange\nments for the carnival.\n\n\nAn immense stadium Is now be-\ning erected on the exposition\ngrounds at cost of $4,000, In\nwhich all the field athetlics will be\nheld. The drills. Journeys aud con.\ntests between uniformed compan-\nles and organizations will also be\nheld In the stadium"
+    }
+  ]
+}

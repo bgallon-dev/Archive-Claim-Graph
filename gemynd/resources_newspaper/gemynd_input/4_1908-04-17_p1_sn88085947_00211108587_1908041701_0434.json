@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRACTION CD.\n\n\nIS STUBBORN\n\nDECLINES TO MAKE WRITTEN\nAGREEMENT ON BRIDGE\nCOST-ONE BILL TO BE\nCOLLECTED FROM w. W..\np. c.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-04-17",
+    "date_end": "1908-04-17",
+    "report_year": 1908,
+    "source_file": "4_1908-04-17_p1_sn88085947_00211108587_1908041701_0434",
+    "archive_ref": "4_1908-04-17_p1_sn88085947_00211108587_1908041701_0434",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-04-17_p1_sn88085947_00211108587_1908041701_0434",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 257,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 370,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Why has not the Traction Co.\nput into writing it's offer to pay its\nproportionate share of the cost of\nthe new concrete bridge on Wash\nington St?\n\n\nSeveral months ago the council\nappointed committee composed\nof Mayor Moore, Commissioner\nONO, Pres. Pratt and Councilmen\nPhillips, Baldwin and Gray as a\ncommittee to put the streetcar\ncompanies on record.\n\n\nThe Washington Water Power\nCo. put into writing an agreement\nto pay it's proportionate Share of\nthe cost of the proposed new How\nard st. bridges. But the best the\ncommittee has gotten from the\nTraction people is that it wants\nthe city to give it credit for what\never it pays on the Washington st.\nbridge on the proposed viaduct\nwhich is to extend from the bridge\nto the hill and passing over the\nSpokane International, Great\nNorthern and O. r. & N. lines.\n\n\nThe committee asked the Trac-\nton people for an agreement to pay\nits share Of the bridge cost.\n\n\nNotwithstanding the fact that\nthe w. w. p. has given its written\nagreement for a share of the cost\non the Howard st. bridges, its sim\ncerity is doubtful, owing to its ac-\ntons with regard to the cost of\nthe temporary bridge on Howard\nst. which replaces the structure\nthat one of it's cars knocked down.\n1t was determined that the COM\npany's share of the temporary\nbridge was $1,700. Payment was\nrefused.\n\n\nThe board of works has put the\nmatter into the hands of the cor\nporation counsel for collection\nthrough the courts."
+    }
+  ]
+}

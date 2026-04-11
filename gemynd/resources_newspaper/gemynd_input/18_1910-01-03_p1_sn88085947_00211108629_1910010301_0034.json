@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ".WHY.D|D\nc. \\. LOSE\n:$300,000?\nClerks Called on Carpet in\n\n\nMinneapolis.\nSPOKANE CLERKS\n\n\nARE THERE\nBig Sensation Over Annual\nTheft of Railroads\n\n\nMoney.\n\nClerks Called on Carpet in\n\n\nMinneapolis.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-03",
+    "date_end": "1910-01-03",
+    "report_year": 1910,
+    "source_file": "18_1910-01-03_p1_sn88085947_00211108629_1910010301_0034",
+    "archive_ref": "18_1910-01-03_p1_sn88085947_00211108629_1910010301_0034",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-01-03_p1_sn88085947_00211108629_1910010301_0034",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 169,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 94,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wtre)\n\n\nMINNEAPOLIS, Jan. 3.-Chief\nclerks of several divisions of the\nGreat Northern railway are on the\ncarpet here today in an investiga-\ntiOn of the recently discovered\nfrauds, by means of which the, rail-\nroad is said to have been defrauded\nout Of 100000 annually for several\nyears.\n\n\nClerks from Great Falls and\nHavre, Mont, and Everett, Seattle\nand Spokane were called to go over\nthe records of their offices with\ntheir superiors. Speaking of the\nofficials who are being investi-\ngated, President Louis Hill said:\n\n\nTHE investigation does not mean\nthat all the officials called to Min\nneapolis are implicated or even sus-\npected. They may not be to blame\nfor these things, or even connected\nwith them in any way. They have\nbeen called here to go over the de-\ntails of their offices with u.s.\"\n\n\nThe rip pass frauds are said to\nhave been made possible through\nthe connivance of railroad officials\nwith employment agents, who\ntransported large numbers of la\nbOrers."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "WASHINGTON STREET PUT\nOUT OF BUSINESS AND\nWATCHMEN ARE PLACED TO\nGUARD OTHERS CONDEMNED\nBy FORSYTH.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-09",
+    "date_end": "1906-07-09",
+    "report_year": 1906,
+    "source_file": "7_1906-07-09_p1_sn88085947_00211108563_1906070901_0906",
+    "archive_ref": "7_1906-07-09_p1_sn88085947_00211108563_1906070901_0906",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1906-07-09_p1_sn88085947_00211108563_1906070901_0906",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 106,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 544,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 136,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Following the advice of G. T. For\nsyth, the bridge expert who in\nspected several bridges for the in\nvestigation committee, the board\nof public works today closed the\nWashington street bridge, traversed\nby the Spokane Traction company,\nand the Howard street bridges with\nthe exception of No. 1, where a\nWaterman has been stationed with\norders to not allow and heavy loads\nto pass over 1t.\n\n\nA Waterman has also been\nplaced at the Mission street and\nSixth avenue bridges with like in\nstructions.\n\n\nThe lower Hangman creek bridge\nleading off West Riverside avenue\nhas been ordered torn down. In\nthis connection Commissioner Roy\nsaid:"
+    }
+  ]
+}

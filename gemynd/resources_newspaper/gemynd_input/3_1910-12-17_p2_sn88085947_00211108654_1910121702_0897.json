@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G O Min u E d\nr o\n\n\np A G F. O N F.\n\nTO PRISON",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-17",
+    "date_end": "1910-12-17",
+    "report_year": 1910,
+    "source_file": "3_1910-12-17_p2_sn88085947_00211108654_1910121702_0897",
+    "archive_ref": "3_1910-12-17_p2_sn88085947_00211108654_1910121702_0897",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-12-17_p2_sn88085947_00211108654_1910121702_0897",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 233,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 149,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "finally procured temporary re-\nstraining orders from Judge Gill\nliam's court enjoining the people\nfrom refusing to leave cars on not\npaying fares.\n\n\nINJUNCTION AIDED DOLLARS\"\n\n\nThe Seattle Star criticised the\ncourt for this action, stating that\nwhenever \"men clashed with dol\nlars\" the usual practice was for\ncourts to aid collars\" with the\ninjunction. The citations for con-\ntempt of court followed, the court\nholding that inasmuch as the in\nfunctions had not been made per-\nmanent, the Duwamish cases were\npending and were not, under the\nlaw, permitted to be criticised un-\ntil closed.\n\n\nDuring the interval between the\ncitation of the editors and their\ntrial yesterday, The Star continued\ndaily, it's attacks on the use of the\ninjunction. Regarding the con-\ntempt of court charge The Star ar\ngued that only contempt shown in\nopen court should be punished, that\nno court should punish a newspa-\nper for publication of the truth, and\nthat II the articles were not true\nthe court already had remedy at\nhand in the libel and criminal laws.\n\n\nThe cases against the editors and\nThe Star were all appealed. The\nStar editors say the cases will be\ncarried to the highest court posi-\nBILE in an endeavor to bring the\nuse of the injunction and contempt\nof court into judicial disrepute, and\ndeclare that The Star will not\ncease its criticisms Of the meas,\nures."
+    }
+  ]
+}

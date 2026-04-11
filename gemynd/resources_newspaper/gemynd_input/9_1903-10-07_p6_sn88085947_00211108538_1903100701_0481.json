@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "GUARANTEE.\n\nThe Spokane Electric q\n\n\nMassage Institute,\n\n\n823 SECOND AVENUE.\n]. =. WEBSTER, Secretary and Treas.\n\nSPECIAL NOTICE.\nNotice Of School District Bond\n\n\nElection",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-07",
+    "date_end": "1903-10-07",
+    "report_year": 1903,
+    "source_file": "9_1903-10-07_p6_sn88085947_00211108538_1903100701_0481",
+    "archive_ref": "9_1903-10-07_p6_sn88085947_00211108538_1903100701_0481",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-10-07_p6_sn88085947_00211108538_1903100701_0481",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "school district"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 207,
+      "match_details": {
+        "education": [
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 242,
+            "in_headline": false
+          },
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 140,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "GleCtlOu.\n\n\nNotice is hereby given that a spe\ncial election will be held in school\ndistrict No. 81, Spokane county, state\nof Washington, on the 10th day Of\nOctober, 1908, for the purpose of de\ntermining whether or not the diree-\ntors of said school district shall Dor\nrow money and issue bonds of the\ndistrict in the sum of four hundred\nthousand dollars ($4OO,000) for the\npurpose of purchasing sites and\nerecting school buildings. Said bonds\nif issued shall bear interest not to\nexceed four and one-half per centum\nper annum, payable semi-annually;\nand bonds to be payable in twenty\nCOZ years from date thereof\n\n\nThe election will be by ballot. Those\nin favor of the issuing of bonds as\nabove specified will vote, Bonds, yes;'\nthose opposed, Bonds, no.\n\n\nThe polls will be open from O'Clock\np. m. to 7 o'clock p. m.\n\n\nThe polling places will be as follows:\nWard /, building E2l7 Third avenue\n\n\nWard q High school.\n\n\nWard 3, Washington school.\nWard 4, Bancroft school.\n\n\nWard 8, Webster school.\n\n\nBisbee precinct, First avenue anf\nHaven street, Bankson Bros Office.\n\n\nBY order of the board of directors,\n\n\nDated this 10th day of September\n1903. f. A. THOMAS,\nSecretary of the Board of Directors"
+    }
+  ]
+}

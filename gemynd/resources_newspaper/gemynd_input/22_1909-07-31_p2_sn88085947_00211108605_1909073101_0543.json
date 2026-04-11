@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "REAL ESTATE\n\n\nMEN KICKING",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-31",
+    "date_end": "1909-07-31",
+    "report_year": 1909,
+    "source_file": "22_1909-07-31_p2_sn88085947_00211108605_1909073101_0543",
+    "archive_ref": "22_1909-07-31_p2_sn88085947_00211108605_1909073101_0543",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1909-07-31_p2_sn88085947_00211108605_1909073101_0543",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 93,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Real estate dealers are uniting\nto combat Mayor Pratt's opposi-\nton to the city buying water main\nextensions for new additions, ex-\npressed through the vetoing of\nsuch an ordinance yesterday. A\nnumber of them came to the city\nhall today to demonstrate, but the\nmayor was out with the Governor\nJohnson party and will not be\nback on the job until Monday. He\ntook some time to think over the\nordinance and as he is convinced\nthat the plan is wrong, 1t is not\nlikely that he will recede from his\nposition."
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\auth\jwt_utils.py
+# hypothesis_version: 6.151.9
+
+['24', 'HS256', 'JWT_EXPIRE_HOURS', 'JWT_SECRET_KEY', 'email', 'exp', 'iat', 'inst', 'leeway', 'role', 'sub', 'tkv', 'verify_exp', 'verify_iat', 'verify_nbf']

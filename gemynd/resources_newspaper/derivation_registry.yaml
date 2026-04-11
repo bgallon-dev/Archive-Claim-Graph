@@ -1,0 +1,237 @@
+version: "1"
+description: >
+  Spokane Regional Newspaper Corpus — Derivation Registry
+  
+  Maps each claim type to its observation_type, event_type, and
+  required/optional entity types for the graph derivation layer.
+  
+  Design rationale:
+    Unlike the Turnbull refuge domain (where most claims are ecological
+    observations that produce Observation nodes), the newspaper corpus is
+    primarily event-driven.  Most claim types produce Event nodes; only a
+    subset (agricultural conditions, mining activity, worker conditions)
+    produce Observation nodes for longitudinal tracking.
+  
+    observation_type: When non-null, build_observations() creates an
+      Observation node linked to the claim via Claim-[:SUPPORTS]->Observation.
+      Used for claims that describe measurable conditions over time.
+  
+    event_type: When non-null, build_events() creates an Event node
+      linked via Claim-[:TRIGGERED]->Event.  Used for claims that describe
+      discrete actions, incidents, or decisions.
+  
+    required_entities: Entity types that SHOULD be bound for a complete
+      derivation.  Missing required entities are logged as warnings but
+      do not block node creation.
+  
+    optional_entities: Entity types that enrich the derivation when
+      present but whose absence is expected and unremarked.
+
+entries:
+
+  # ════════════════════════════════════════════════════════════════════
+  # RAILROAD AND TRANSPORTATION
+  # ════════════════════════════════════════════════════════════════════
+
+  railroad_activity:
+    observation_type: null
+    event_type: TransportationEvent
+    required_entities: [Organization]
+    optional_entities: [Place, Person]
+
+  freight_rate_dispute:
+    observation_type: economic_condition
+    event_type: RegulatoryEvent
+    required_entities: [Organization]
+    optional_entities: [Place, Person]
+
+  depot_construction:
+    observation_type: null
+    event_type: InfrastructureEvent
+    required_entities: [Place]
+    optional_entities: [Organization, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # LABOR AND IWW
+  # ════════════════════════════════════════════════════════════════════
+
+  labor_action:
+    observation_type: null
+    event_type: LaborEvent
+    required_entities: [Organization]
+    optional_entities: [Place, Person]
+
+  free_speech_event:
+    observation_type: null
+    event_type: LaborEvent
+    required_entities: []
+    optional_entities: [Person, Organization, Place]
+
+  worker_condition:
+    observation_type: labor_condition
+    event_type: null
+    required_entities: []
+    optional_entities: [Organization, Place, Person]
+
+  labor_legal_action:
+    observation_type: null
+    event_type: LegalEvent
+    required_entities: [Person]
+    optional_entities: [Organization, Place]
+
+  # ════════════════════════════════════════════════════════════════════
+  # INDIGENOUS DISPOSSESSION
+  # ════════════════════════════════════════════════════════════════════
+
+  indigenous_policy:
+    observation_type: null
+    event_type: PolicyEvent
+    required_entities: []
+    optional_entities: [Organization, Place, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # AGRICULTURE AND LAND ECONOMY
+  # ════════════════════════════════════════════════════════════════════
+
+  agricultural_condition:
+    observation_type: agricultural_record
+    event_type: null
+    required_entities: []
+    optional_entities: [Place]
+
+  land_policy_action:
+    observation_type: null
+    event_type: PolicyEvent
+    required_entities: [Place]
+    optional_entities: [Person, Organization]
+
+  farm_organization:
+    observation_type: null
+    event_type: CivicEvent
+    required_entities: [Organization]
+    optional_entities: [Place, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # TURNBULL PRE-HISTORY
+  # ════════════════════════════════════════════════════════════════════
+
+  turnbull_prehistory:
+    observation_type: ecological_record
+    event_type: ConservationEvent
+    required_entities: []
+    optional_entities: [Place, Organization, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # SPOKANE DEVELOPMENT
+  # ════════════════════════════════════════════════════════════════════
+
+  civic_development:
+    observation_type: null
+    event_type: CivicEvent
+    required_entities: []
+    optional_entities: [Place, Organization, Person]
+
+  infrastructure_project:
+    observation_type: null
+    event_type: InfrastructureEvent
+    required_entities: [Place]
+    optional_entities: [Organization, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # MINING AND EXTRACTION
+  # ════════════════════════════════════════════════════════════════════
+
+  mining_activity:
+    observation_type: extraction_record
+    event_type: MiningEvent
+    required_entities: [Place]
+    optional_entities: [Organization, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # DEPRESSION ERA
+  # ════════════════════════════════════════════════════════════════════
+
+  depression_relief:
+    observation_type: economic_condition
+    event_type: PolicyEvent
+    required_entities: []
+    optional_entities: [Place, Organization, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # EDUCATION
+  # ════════════════════════════════════════════════════════════════════
+
+  education_event:
+    observation_type: null
+    event_type: CivicEvent
+    required_entities: []
+    optional_entities: [Place, Organization, Person]
+
+  # ════════════════════════════════════════════════════════════════════
+  # WOMEN'S CIVIC LIFE
+  # ════════════════════════════════════════════════════════════════════
+
+  womens_civic_action:
+    observation_type: null
+    event_type: CivicEvent
+    required_entities: []
+    optional_entities: [Organization, Person, Place]
+
+  # ════════════════════════════════════════════════════════════════════
+  # STRUCTURAL / CROSS-DOMAIN TYPES
+  # ════════════════════════════════════════════════════════════════════
+
+  legal_notice:
+    observation_type: null
+    event_type: LegalEvent
+    required_entities: []
+    optional_entities: [Person, Organization, Place]
+
+  editorial_opinion:
+    observation_type: null
+    event_type: null
+    required_entities: []
+    optional_entities: [Person, Organization]
+
+  public_meeting:
+    observation_type: null
+    event_type: CivicEvent
+    required_entities: []
+    optional_entities: [Organization, Place, Person]
+
+  election_event:
+    observation_type: null
+    event_type: ElectionEvent
+    required_entities: []
+    optional_entities: [Person, Organization, Place]
+
+  commercial_transaction:
+    observation_type: null
+    event_type: null
+    required_entities: []
+    optional_entities: [Person, Organization, Place]
+
+  accident_disaster:
+    observation_type: null
+    event_type: DisasterEvent
+    required_entities: [Place]
+    optional_entities: [Person, Organization]
+
+  crime_report:
+    observation_type: null
+    event_type: LegalEvent
+    required_entities: [Person]
+    optional_entities: [Place, Organization]
+
+  person_profile:
+    observation_type: null
+    event_type: null
+    required_entities: [Person]
+    optional_entities: [Place, Organization]
+
+  # Fallback — mirrors the Turnbull contract sentinel
+  unclassified_assertion:
+    observation_type: null
+    event_type: null
+    required_entities: []
+    optional_entities: []

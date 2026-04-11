@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G Q N TIN u E D\n\n\nr o\nP A @ E O N F.\n\nLABOR LEADER IS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-09",
+    "date_end": "1910-03-09",
+    "report_year": 1910,
+    "source_file": "4_1910-03-09_p2_sn88085947_00211108629_1910030901_0838",
+    "archive_ref": "4_1910-03-09_p2_sn88085947_00211108629_1910030901_0838",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-03-09_p2_sn88085947_00211108629_1910030901_0838",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 312,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1069,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and then disappeared within the\nanteroom, where already were de-\ntectives posted, at word of pro-\ntest from the president of the coun-\nell, to seize the speaker.\n\n\nT The program was carried out.\nWithin ten minutes after the coun-\nell convened, Mr.. Coates started to\nspeak. Councilman Schiller OBJ.\njected. The president ordered Mr..\nCoates to stop. Mr.. Coates being\nan American citizen, didn't stop,\nand two detectives grabbed him and\nthrew him into the anteroom, there\nby demonstrating the power of mat\nter over mind. ,\n\n\nBut labor didn't go home and Mr..\nCoates returned with. word that un.\nless a definite hearing was prom\nUsed by the council, that labor\nwould pack The city hall and wait\nall night if need be. At this ulti-\nmatum, remembering still how the\nmisses of the council hall crowd\nhad snarled in their ears, the coun-\nell decided that perhaps third of\nthe voters of Spokane did have\nsome few rights, and it was decided\nthat the special session tonight\nwould be devoted to the wage and\nmatron problems. The only differ\nence being that while labor and the\nwoman's club will be on hand to-\nnight and may get what they want,\nlabor has been convinced that the\nrecall is the only way to get clean\ngovernment in this city, and no fu-\nture action of the council Is going\nto change the idea of labor about\nthis.\n\n\nThere were more than the prom\nUsed 5000 men in the labor parade\nlast night. According to the best\nestimates there were nearly 5000\nbut at the least calculation a third\nof Spokane's voters last night\nmarched to the city hall, and saw\ncouncilmen insult their leaders,\ntheir cause and their plea for jus\ntice.\n\n\nAnd that, in the \"long rum\" is the\nbest thing that ever happened In\nSpokane for good government."
+    }
+  ]
+}

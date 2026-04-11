@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-11-17 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-17",
+    "date_end": "1910-11-17",
+    "report_year": 1910,
+    "source_file": "3_1910-11-17_p1_sn88085947_00211108654_1910111701_0540",
+    "archive_ref": "3_1910-11-17_p1_sn88085947_00211108654_1910111701_0540",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-11-17_p1_sn88085947_00211108654_1910111701_0540",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 213,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 138,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ST. LOUIS, No. Nov. 17---.\nCzarism is a term that has been\ncoined in labor lore that made its\nappearance in, a mysterious man.\nner in the American Federation of\nLabor convention today. Nobody\nknows where it came from or what\nit's exact mission is. A delegate\nfrom Waycross. Ga, is credited\nwith having declared that the pres\nent officers of the federation are\n\"czaristic\" and that Gompers is a\nJoe Cannon, in fact, because he ap-\npoints all committees and virtually\nnames the chairlnen thereof and\nappoints and directs the organizers\nand performs a few other stunts\nthat are calculated to give him a\nperpetual grip on the federation\nmachinery.\n\n\n1t must be admitted that the in\nsurgent sentiment in the political\nfield has made itself felt in the Ia\nDor movement and that there is a\nfeeling of opposition growing\namong the conservatives that may\ndevelop into a revolt similar to\nthat which split the G. o. P. wide\nopen recently.\n\n\nThe radicals always have been\nopposed to Gompers and his admin\nistration upon the ground of prin-\nciple. and they seem to be more\nlargely represented at this conven-\nton than at an yother heretofor.\nThe younger element is clamorous\nthat the principals be opposed for\nreelection. The delegates vino"
+    }
+  ]
+}

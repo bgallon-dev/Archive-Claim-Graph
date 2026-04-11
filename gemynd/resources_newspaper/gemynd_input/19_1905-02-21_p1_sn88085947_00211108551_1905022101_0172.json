@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "n. p. BUYS LOCOMOTIVES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-21",
+    "date_end": "1905-02-21",
+    "report_year": 1905,
+    "source_file": "19_1905-02-21_p1_sn88085947_00211108551_1905022101_0172",
+    "archive_ref": "19_1905-02-21_p1_sn88085947_00211108551_1905022101_0172",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1905-02-21_p1_sn88085947_00211108551_1905022101_0172",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 102,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 109,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Brooks works Of the American\nLocomotive company have recently\ncompleted 10 heavy freight engines\nfor the Northern Pacific.\n\n\nThe engines are of the \"Mikado\"\ntype. having four pairs of driving\nwheels coupled. and trailing truck,\nthe latter feature permitting the use\nof very large firebox, in this in\nstance 81 inches long and s feet s\ninches wide. These engines have\ncylinders \"a inches by 80 inches, and\nthe engines without tender weigh.\nin working order, 1870 tons. 1t 10\nexpected that some of these monster\nlocomotives will soon be working on\nthe Idaho division.\n\n\nCHARLES +. STEWART,\n\n\nE618 Third Avenue."
+    }
+  ]
+}

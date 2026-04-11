@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOW s40Q,000 WAS\nB! BOOSTED IQS7,300,000\n\nDON'T MISS READING THIS GAS sToRY-AN-\nOTHER HOT ONE w1LL BE PRINTED\n\n\nTOMORROW",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-09",
+    "date_end": "1910-12-09",
+    "report_year": 1910,
+    "source_file": "2_1910-12-09_p1_sn88085947_00211108654_1910120902_0796",
+    "archive_ref": "2_1910-12-09_p1_sn88085947_00211108654_1910120902_0796",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "2_1910-12-09_p1_sn88085947_00211108654_1910120902_0796",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 179,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 919,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The details Of how a 100000 GAS\nplant in Spokane was converted\ninto a corporation with capitalize.\nton and authorized bonded In.\ndebtedness Of $7,s00,000 is a story\nOf high finance, Of watered stock,\nOf juggled franchises, Of a ques.\ntionable court decision and OF a\nrobbery Of the gas-consuning pub.\nlie not excelied in the history OF\ngas promotions.\n\n\nEight years ago the Spokane Gas\nLight company was quiet, inof.\nfensive corporation, carrying on Its\nbusiness in an easy, everyday sort\nof manner. taking its profits at a\nstiff rate for the service rendered\nbut not otherwise imposing on the\ndear public in the way of taking\nits money for watered stock OF\nquestionable bond issues.\n\n\nEra of the Promoter.\n\n\nThen came the era OF the pro\nmoter. Tae first contingent to ar\nrive on the sceYe were the repre-\nsentatives of n. w. Halsey & Co\nand Cyrus Pierce 4 Co, who had\nacquired all but eight shares OF\nthe stock of the Spokane Falls\nGas Light Co. They wanted 3\nnew franchise in order to better"
+    }
+  ]
+}

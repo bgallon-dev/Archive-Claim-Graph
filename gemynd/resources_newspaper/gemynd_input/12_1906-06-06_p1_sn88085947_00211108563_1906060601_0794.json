@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "WOMAN SUFFRAGE\n\n\nCAME UP",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-06",
+    "date_end": "1906-06-06",
+    "report_year": 1906,
+    "source_file": "12_1906-06-06_p1_sn88085947_00211108563_1906060601_0794",
+    "archive_ref": "12_1906-06-06_p1_sn88085947_00211108563_1906060601_0794",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1906-06-06_p1_sn88085947_00211108563_1906060601_0794",
+      "composite_score": 16.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 16.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's suffrage",
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1906,
+      "word_count": 70,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's suffrage",
+            "weight": 2.5,
+            "offset": 177,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 185,
+            "in_headline": false
+          },
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": true
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ST. PAUL, June 6.-Mrs. Josiah\nEvans Cowles of Los Angeles will\nbe nominated treasurer of the\nWomen's Federation clubs at the\nelection tonight. Despite promises\nto the contrary, women's suffrage\ncame before the convention Incl\ndentally and it was applauded. A\ntelegram from Roosevelt was re-\nceived saying he approved the reso-\nluton of the women to save Cali\nfornia trees and would call it to\nthe attention of congress."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-14",
+    "date_end": "1903-02-14",
+    "report_year": 1903,
+    "source_file": "24_1903-02-14_p1_sn88085947_00211108526_1903021401_0343",
+    "archive_ref": "24_1903-02-14_p1_sn88085947_00211108526_1903021401_0343",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1903-02-14_p1_sn88085947_00211108526_1903021401_0343",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 58,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 206,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "achieved notoriety some time ago by\nhorsewhipping Mayor Parker.\n\n\nThe damage to plate glass amounts\nto nearly $4,000. Three of the lead\ning hotels were included In the\nsmashing. 1t develops that five other\ntemperance advocates agreed TO join\nIn the raid. which was to start stimuli\ntaneously In different sections of the\ncity, but the others weakened."
+    }
+  ]
+}

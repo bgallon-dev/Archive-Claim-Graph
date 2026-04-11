@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-28 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-28",
+    "date_end": "1903-04-28",
+    "report_year": 1903,
+    "source_file": "9_1903-04-28_p4_sn88085947_00211108526_1903042801_0594",
+    "archive_ref": "9_1903-04-28_p4_sn88085947_00211108526_1903042801_0594",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-04-28_p4_sn88085947_00211108526_1903042801_0594",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 138,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 329,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "month, when Mr.. Boyd, then council\nman, refused to sign his committees\nreport giving the printing to the pa\nper with the union label. Three times\nMr. Boyd refused to vote for the la\nbel. finally resigning his seat rather\nthan go on record. His action re-\nsuited i'm the following resolutions\nagainst him. still standing, by the\ntrades council:\n\n\nWhereas, 1t has been the object\nand aim of organized labor of Spo-\nkane to receive recognition from the\ncity administration in the way of\nthe advancement of the union label\nand the employment of union labor\non the public improvements of the\ncity. Therefore be it\n\n\nResolved. That we especially con-\ndenim the manner in which Colonel\nFrank Boyd lodged the issue and as\nsisted in. postponing the issue until\nafter his resignation had taken eff\nfeet\""
+    }
+  ]
+}

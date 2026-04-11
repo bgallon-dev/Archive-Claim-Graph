@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "DA|RY|NG IN\n\n\nThe PALOUSE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-27",
+    "date_end": "1910-02-27",
+    "report_year": 1910,
+    "source_file": "1_1910-02-27_p2_sn88085947_00211108629_1910022701_0702",
+    "archive_ref": "1_1910-02-27_p2_sn88085947_00211108629_1910022701_0702",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-02-27_p2_sn88085947_00211108629_1910022701_0702",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 128,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 700,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "w. B. Reinwald, city milk inspec-\ntor, sees in the summer fallow\nlands in the Palouse the future\nhope of an abundant milk supply\nfor Spokane.\n\n\nFor years the farmers of the\nPalouse have permitted their lands\nto lie fallow every other year with\nout producing anything.\n\n\nThrough the activity of Mr.. Rein\nwald three large ranchers were\ninduced to put in silos and plant\ncorn for fodder in the land previ-\nously intended for fallow. This\ncorn was placed in silage and has\nproved a great success in feeding\ndairy cows. The farmers that\nhave tried it have made money by\nsending the milk to Spokane. and\nothers will probably now follow\nthe lead.\n\n\nCow feed of this character costs\nonly a fraction of what alfalfa\ndoes."
+    }
+  ]
+}

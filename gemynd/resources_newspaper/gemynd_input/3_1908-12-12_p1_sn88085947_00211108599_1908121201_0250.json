@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MONEY AIDS\n\n\nIN OPERATION",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-12",
+    "date_end": "1908-12-12",
+    "report_year": 1908,
+    "source_file": "3_1908-12-12_p1_sn88085947_00211108599_1908121201_0250",
+    "archive_ref": "3_1908-12-12_p1_sn88085947_00211108599_1908121201_0250",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-12-12_p1_sn88085947_00211108599_1908121201_0250",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 312,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 752,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The street car companies are\ndoing business on money which\nbelongs to their employees. On\nthis sum, which 1t is said amounts\nto more. than $4,000, they do not\npay a cent Of interest or taxes\n\n\nEvery carman in the city is COM\nPEELED to deposit $25 with the COM\npany. Perhaps 1t is intended that\nthis deposit will assist in keeping\nthe street car men honest.\n\n\nThere are about 1000 of these\nemployees. A deposit from each one\nOF them, accumulated into a fund,\nIs cash showing enough for the\ncompanies to do million dollar\nbusiness. Fifty thousand dollars is\na whole lot of cash.\n\n\nAS an Illustration of the meth.\nDDS the companies adopt to extort\nthis deposit from the men Is a\nletter which one of them received\nyesterday from Superintendent\nFarr Of the Inland Empire system.\n\n\nThis employee was one of the few\nwho has worked for time with\nout the Formally of putting up\nhis $25. Superintendent Farr gave\nhim just \"a hours in which to de-\npost the money. The inference\nwas that unless by the end of that\ntime the money was up, the en-\nploye would lose his Job. and 1t\nwould be given to someone who\nwould put up the deposit.\n\n\nStreet car companies are not the\nonly ones who hold the public's\nmoney. 1t Is variously estimated\nthat the gas company holds more\nthan 100000 in deposits, and the\nw. w. p. about the same sum on\nlight deposits.\n\n\nThe latter companies claim 1t Is\nq precaution against anyone de-\nfrauding them out Of money ow-\n\n\n,ocdt there seems no possible\n\n\nM for the street car CON-\n\n\nis to extort $25 from each car\nNay pay little enough wages.\nand $25 will purchase a whole lot\nof family necessities. which are\nforegone by the heads Of families\non account of the extortion."
+    }
+  ]
+}

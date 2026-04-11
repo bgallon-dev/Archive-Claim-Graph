@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SCHOOL BOARD CARES 7\n\n\nFOR LINCOLN SCHOLARS",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-26",
+    "date_end": "1903-08-26",
+    "report_year": 1903,
+    "source_file": "2_1903-08-26_p4_sn88085947_00211108538_1903082601_0317",
+    "archive_ref": "2_1903-08-26_p4_sn88085947_00211108538_1903082601_0317",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-08-26_p4_sn88085947_00211108538_1903082601_0317",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "school board"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 215,
+      "match_details": {
+        "education": [
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "III: A, Miss Ida Mcguire; B, Miss\nBernice Conner.\n\n\nLutheran church-Grade w: A,\nMiss Blanche B. Howell; b, Miss Mat\ntie Dobbins.\n\n\nPine street mission-Grade \": \\,\nMiss Augusta Robbins.\n\n\nTurner hall-Mrs. Mary A. Monroe.\nprincipal. Grade VI: Miss Frances\nWeiserman. Grade VII: Miss Jennie\nMann. Grade VIII: Miss Gertrude\nWeiseman.\n\n\nThe board of education requested\nSuperintendent Tormey to prepare an\noutline of a commcrc;ai course for\nthe High school, which will be sub\nmitted next Monday evening, to en-\nbrace bookkeeping, typewriting, stem\nography and business methods. The\ncourse will be elective and will be\nready for pupils who prefer to enter\nbusiness directly rather than con-\ntinue on to college.\n\n\nThe damage to the Lincoln school\nby fire is estimated at $21, 400, COW\ncred by $4,000 insurance.\n\n\nMiss Date Rothrock was granted\nq years leave of absence. Miss Grace\nGrant Of Moscow was elected High\nschool librarian. F. II. Dewey was\nappointed Fields school janitor. j.\nA. Meyers transferred TO Holm1j\nschool, Miss Nell G. Wilson was\nelected to the waiting list.\n\n\n]. T. Huetter was allowed $5012\nAl h c ha I In\nschool, Rollins c. Lassett $4,000 for\nMckinley school work, Albert Held\ns642 for architect work on Lincoln\nschool, F. B. Wright & Co. s3S940\nfor painting schoof buildings."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "lNSINGER TALKS IN CHICAGO\n\n(By United Press Leased Wire)",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-09",
+    "date_end": "1910-06-09",
+    "report_year": 1910,
+    "source_file": "11_1910-06-09_p11_sn88085947_00211108630_1910060901_0942",
+    "archive_ref": "11_1910-06-09_p11_sn88085947_00211108630_1910060901_0942",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-06-09_p11_sn88085947_00211108630_1910060901_0942",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 55,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 176,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "CHICAGO, June 9.-R Insinger\nof Spokane, chairman of the board\nof governors of the National Irriga-\nton congress. addressing the Han\nnibal club, declared that in nine\nyears the reclamation act will have\nresulted in the reclamation of\n5000. 600 acres of land and the\ncompletion of IS reclamation prof\nGets now held in allegiance."
+    }
+  ]
+}

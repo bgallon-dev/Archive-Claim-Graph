@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "title": "PART OF AMENDMENTS\n\n\nTO CHARTER DEFEATED\n\nThose Calculated to Give to the Mayor Increased\nPower Are Voted Down by the\n\n\nCity Council.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-23",
+    "date_end": "1903-03-23",
+    "report_year": 1903,
+    "source_file": "17_1903-03-23_p3_sn88085947_00211108526_1903032301_0469",
+    "archive_ref": "17_1903-03-23_p3_sn88085947_00211108526_1903032301_0469",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-03-23_p3_sn88085947_00211108526_1903032301_0469",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 145,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 24,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 120,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 240,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "-f'n The members Of the city council\nsat on those charter amendments cal\nculated to enlarge the power of the\nmayor at its meeting Saturday night.\nThe amendments defeated were those\ncarrying the sections providing for\n\n\nreorganized board Of public works\nAnd fire board.\n\n\nNThe amendments approved and\nwhich will be submitted to vote of\nChe people on May arei\n\n\nIncreasing salaries of city officials\nAs follows: Mayor. from $500 to\n$500; comptroller $500 to $500;\ntreasurer, $500 to $500, and clerk,\n$1,000 to $500.\n\n\nIncreasing the tax levy which may\nbe made for park purposes from one\nhalf a mill to one mill.\n\n\nCutting out an inconsistent section\nof the charter which provides that\ncity officials shall hold office only one\nyear\n\n\nCutting out provision Of the char\nter providing that an independent\nboard of police, public works and fire\ncommissioners may be established"
+    }
+  ]
+}

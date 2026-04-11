@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SHOWS HOW\nTHEY VOTED",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-08",
+    "date_end": "1906-09-08",
+    "report_year": 1906,
+    "source_file": "6_1906-09-08_p3_sn88085947_00211108563_1906090801_1120",
+    "archive_ref": "6_1906-09-08_p3_sn88085947_00211108563_1906090801_1120",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1906-09-08_p3_sn88085947_00211108563_1906090801_1120",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 150,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 210,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The State Federation of Labor is\nsending to all affiliated unions a\ncompiled statement showing the\nvote of the members of the last\nWashington legislature on all bills\nin which labor was interested. On\nthe anti-boycott bill, considered the\nfairest test vote of the senate, the\nvote shows that Senators Bratt,\nGraves and Rasher voted against\nthe passage of the bill and with\nunions, while Senators Brown and\nHenry voted for the bill and in the\ninterests of the corporations. In\nthe house, Bourse, Hoch, Huxtable,\nLindsey and Scott voted with the\nworliingmen and against the bill,\nwhile Crane. Fancher, Lindsey, Rat\ncliffe and Doolittle voted for the\nbill. The real purpose Of the bill\nwas to prevent under penalties the\nplacing of any firm on the unfair\nlist by the unions. Organized labor\ntook the position that passage of\nthe measure would have constituted\nunfair discrimination against the\nunions."
+    }
+  ]
+}

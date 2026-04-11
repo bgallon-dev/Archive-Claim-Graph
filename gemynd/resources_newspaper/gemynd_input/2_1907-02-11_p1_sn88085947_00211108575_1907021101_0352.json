@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STILL ANOTHER\n\n\nSPECIAL ARREST",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-11",
+    "date_end": "1907-02-11",
+    "report_year": 1907,
+    "source_file": "2_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+    "archive_ref": "2_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 131,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 258,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "c. A. Gregory, Traction Co. car\nman, was ordered to leave his car\nat the Traction barns, Oliver and\nHamilton SITS, late last night and\naccompany w. w, p. Inspector Ru-\ndio to the police station. Gregory\nhad finished his run and was with\ncrowd that hollered \"scab\" at a\nw. w. p. car passing. Rudio came\nout with gun, and when Gregory\nmade his presence known ordered\nthe latter to climb on and go to\ntown. Gregory refused to leave un-\ntil he had turned his car in, and\nthen refused to ride with Rudio.\nAccompanied by about 20 fellow\nworkmen he walked down to the\nstation and was promptly released.\nThe police found nothing to hold\nhim on. The men obeyed the\nsummons only in respect to Rudio's\nstar,"
+    }
+  ]
+}

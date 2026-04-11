@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-07-15 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-15",
+    "date_end": "1907-07-15",
+    "report_year": 1907,
+    "source_file": "5_1907-07-15_p1_sn88085947_00211108575_1907071501_0860",
+    "archive_ref": "5_1907-07-15_p1_sn88085947_00211108575_1907071501_0860",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-07-15_p1_sn88085947_00211108575_1907071501_0860",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "mining": [
+          "bunker hill"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 206,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 26,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "bunker hill",
+            "weight": 2.0,
+            "offset": 586,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "agriculture",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, July 15.--When the Hay.\nwood trial reconvsned today Judge\nWood announced he had decided\nmot to permit Introduction of the\nsreport of probate court showing\nthat John d. Elliott, one OF the de-\n|fense's witnesses, had been an in\nmate of an insane asylum. He said\n\n\nElliott admitted the fact on the\n|stand. If the stated wanted to i'm.\n|peach him the state should then\n\n\nhave done so. AS 1t did not. FL\nliott's evidence must be weighed\n\n\nby the jury.\n\n\nWillis Dewey was recalled and\npositively identified big Bill\" Da-\nWis as member of the union who,\nhe said, led the attack on the\nBunker Hill mill. Lawrence Cub\ninsist, OF San Francisco, contra\ndicted several material facts in the\nBradley dispositions.\n\n\nG. f. Wayne, of Caldwell. who\nfound Steunenberg after the explo-\nsion. was recalled to testify that\n\n\nthe body was blown through the\n\n\ngate frcln the outside. This is in\ntended coincide with the showing\nthat when the Bradley explosion\ntook place he was blown outward,\nThe effect of giant powder explo-\nsion indicated lively contest be-\n\n\ntween the lawyers. but was end.\ned by the court excluding this evil\nidence. c. \\. Lampson, an expert\non gas, gave evidence that the"
+    }
+  ]
+}

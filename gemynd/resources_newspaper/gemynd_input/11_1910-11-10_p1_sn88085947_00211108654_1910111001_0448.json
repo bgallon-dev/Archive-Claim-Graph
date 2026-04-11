@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FIGHT IS\n\n\nCOMING\n\nWomen, Now Able to Vote,\nWill Be a Strong\n\n\nFactor.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-10",
+    "date_end": "1910-11-10",
+    "report_year": 1910,
+    "source_file": "11_1910-11-10_p1_sn88085947_00211108654_1910111001_0448",
+    "archive_ref": "11_1910-11-10_p1_sn88085947_00211108654_1910111001_0448",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-11-10_p1_sn88085947_00211108654_1910111001_0448",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 222,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 30,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the passage Of the woman\nsuffrage amendment by the electors\nOf the state Of Washington yester.\nday means the going \"dry\" Of spo.\nkane county next spring Is the\nprognosticatlon being doiefully\nmade by numerous we'll known Ga.\nloon keeparaf0e Spokane today.\n\n\nThese men base their forecast OF\ndisaster to the local saloon bust.\nness upon the well known antagon\nism of the women toward the liquor\ntraffic. and also upon the fact that\nthe Anti-Saloon league is known to\nbe agitating a special local option\nelection to be held not later than\nnext spring, and within the next 60\ndays, IL possible.\n\n\nWell\" said Larry O'Neill, one OF\nSpokane's best known saloon men\nphilosophically. in discussing the\nquestion this morning. Il see where\nwe fellows in the saloon business\nare up against it, now that the\nsWonaan suffrage amendment has\n6assed. When the \"drys\" hold their\nspecial election on the liquor bust.\nness next spring 1t will be the first\ntime the women have chance to\nvote, and they will turn out in full\nforce.\n\n\nTHAT means good night for the\nliquor business. But | don't know\nthat care very much. can tel\nyou that the saloon business Is -\nall that it is cracked up to be.a ]\nhave been in the business for q\n\n\nContinued o, paue Two."
+    }
+  ]
+}

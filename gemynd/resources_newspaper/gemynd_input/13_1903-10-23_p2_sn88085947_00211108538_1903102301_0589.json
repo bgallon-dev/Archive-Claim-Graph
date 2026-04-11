@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "TheMQrketS\n\nLocal Markets.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-23",
+    "date_end": "1903-10-23",
+    "report_year": 1903,
+    "source_file": "13_1903-10-23_p2_sn88085947_00211108538_1903102301_0589",
+    "archive_ref": "13_1903-10-23_p2_sn88085947_00211108538_1903102301_0589",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1903-10-23_p2_sn88085947_00211108538_1903102301_0589",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "livestock",
+          "hay",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 128,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 396,
+            "in_headline": false
+          },
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 221,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 632,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Vegetables-Potaoe 60@65c Q\nsack: dry onions. per lb.. 1c.\n\n\nEggs and poultry-Ranch eggs\nfresh, per case, sS.50@9; ranch but\nter, per lb.. 15@1Sc; scalded hers and\nlarge yellow chickens, per h., 13c;\nalive, per H., Zoe.\n\n\nLivestock-Cows IN foot. &c: dress\ned. 51a q &c: steers on foot, 31sc;\ndressed. 67&c; sheep, on foot. &C.\ndressed, 6hc; hogs, on foot, &C.\ndressed, SIC; calves, dressed. SQ9c.\nWheat-The price paid farmers by\nlocal country warehousemen is 64C\nfor club and csc for bluestem at the\nwest end of the Central Washington\nrailroad and / cent more per busheI\non the main transcontinental lines.\n| Grain and feed--Timothy hay, 81\nper tom grain hay, $14 per ton; oat\nhay, $14 per ton; barley. soc per cwt\noats, 81 per cWt."
+    }
+  ]
+}

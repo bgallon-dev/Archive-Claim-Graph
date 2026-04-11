@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "400 WOMEN FIGHTING FOR\n\n\nHENEY THROUGH The HOMES",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-13",
+    "date_end": "1909-10-13",
+    "report_year": 1909,
+    "source_file": "11_1909-10-13_p3_sn88085947_00211108605_1909101301_1111",
+    "archive_ref": "11_1909-10-13_p3_sn88085947_00211108605_1909101301_1111",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-10-13_p3_sn88085947_00211108605_1909101301_1111",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 575,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 1544,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\n1.-THE power Of women. for good or\nfor evil, since time began. has been\ntremendous. Instances in history\nwhere woman has welded her\npower for evil are rare. Usually,\nwhen she has fought, she has\nfought for what she believed to be\nright and Just and true.\n\n\nWoman Is the home maker. The\nhome is the foundation of clean\ngovernmeG. Through the home,\ntherefore, woman can be as great\na power for good in politics as in\nany other sphere of activity. Clean\npolitics are directed from the\nhome. Clean public servants are\nchosen in the home, just as carrupt\npublic servants are chosen in the\ndive. in the corporation private\noffice.\n\n\nTHE effect for good Of the ef-\nforts of the Women's Heney club\nin the present municipal campaign\ncannot be computed. Neither can\n1t be overestimated.\"\n\n\nThat is the tribute paid by F. J.\nHeney, the San Francisco graft\nfighter, to an organization of over\n400 San Francisco women, which\nIs working quietly, steadfastly-\nand. tirelessly to defeat, through\nthe election of Heney, the crafty,\norganized efforts of rich lawbreak-\ners to save themselves from GRIM\ninal prosecutions through securing\ncontrol of the office of district at\ntorney at an election next Novem-\nber.\n\n\nThere is nothing hysterical,\nnothing notwithstanding about the\nWomen's Heney club.\n\n\nIt's members represent the best\nin the city's home and social life.\nSome of the members are in mod\ncrate circumstances, some of them\nare rich. prominent socially. Mrs.\nElizabeth Gerberding, the presi-\ndent, is one of these. Some of the\nwomen believe in equal suffrage,\nsome of them do not. All of them\nbelieve that Francs j. Heney\nshould be the next district attorney\nof San Francisco.\n\n\nThe issue, as we see It,\" says\nMrs. Gerberding. lis principle, not\nparty or person. We want clean\ncity. The election of Mr.. Heney to\nthe office Of district attorney will\nmean, we believe, clean city. The\nsuccess of the influences opposing\nthe principle which Mr.. Heney rep\nresents resents would be a menace\nto every home in San Francisco. to\nevery boy and girl growing to man.\nhood and womanhood within those\nhomes.\n\n\nI'VE believe the time is coming\nwhen voters will not allow scoun-\ndrels to grasp and hold the reins Of\ngovernment. We believe that\nwomen, even without a vote, can\ndo much toward Fastening that\ntime. The efforts of our club,\ntherefore, are directed largely\ntoward securing the cooperation of\nother women. Our members, as\nthey can spare the time from their\nhomes. visit every home possible\nIn the districts assigned to them,\n\\ talking with wives and mothers,\ndaughters and sisters, explaining\nAcouSos Wi pun pOoOo oAN\nurging them to use their influence\nto the end that the votes that come\nfrom their individual homes shall\nbe cast right. j..\n\n\nWoman has a right, very good\nand logical right. to interest her\nself and participate In civic affairs.\nTHAT is the thing we are endeavor-\ning to show the women of San\nFrancisco. She can participate\nright in her own home. When men\ndo not discuss plblic affairs with\ntheir wives, 1t is because they be-\nlieve their wives do not under\nstand. II woman can show she I'M\nderstands, the influence of her\nview will 60 far when the men of\nher household go to cast their bal\nlots.\n\n\nTHAT is the basis of our work.\nWe shall undoubtedly be successful\nin the end\""
+    }
+  ]
+}

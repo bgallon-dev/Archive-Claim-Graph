@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-09-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-01",
+    "date_end": "1906-09-01",
+    "report_year": 1906,
+    "source_file": "62_1906-09-01_p1_sn88085947_00211108563_1906090101_1094",
+    "archive_ref": "62_1906-09-01_p1_sn88085947_00211108563_1906090101_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "62_1906-09-01_p1_sn88085947_00211108563_1906090101_1094",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 315,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 673,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\nthe proper celebration of Labor\nDay have been completed and the\nturnout of the local unions in the\nparade promises to be the largest\nin the history of the city. Through\nsome little misunderstanding when\nthe committees were first appoint\ned 1t was thought that there would\nbe a falling off in the number of\nunions that void participate In the\ncelebration, these little difficulties\nhave been settled in satisfactory\nmanner and complete understand\ning arrived at between all the local\nunions.\n\n\nAmong the speakers who will ad-\ndress the picnickers at Mantle\npark is the noter Chicago attorney,\nClarence Darrow, who has been\nretained to defend the imprisoned\nofficers of the Western Federation\nof Miners. Mr.. Darrow was the\nformer law partner of Governor\nAltgeld and has been retained\nmany times by labor organizations\nin its fights in the courts. He is\nsaid to be one of the best posted\nmen on the labor question in the\ncountry.\n\n\nAS outlined in the official pro-\ngram the parade will march from\nthe corner Of Monroe and Front\nat 10 o'clock Monday in two divis-\nions. The first will form on First\navenue west of Monroe and the\nsecond on First east of Monroe.\nThe unions will march in the fol-\nlowing order:\n\n\nFirst Division.\nMarshal of the day, w. F. Simons.\nSquad of police.\n\n\nBand.\n\n\nSpeakers in carriages.\nAide, George G. Cody.\nTypographical union.\nTalors.\n\n\nCigarmakers.\n\n\nBARRIERS.\n\n\nBrewery Workers.\n\n\nPrinting Freshmen.\nBoiler Makers and Helpers.\nHorseshoers.\n\n\nMachinists.\n\n\nCooks and Kitchenhelpers.\nFed@al Union, No. 12,222.\nIron MOlders.\n\n\nBookbinders.\n\n\nStage Employees.\n\n\nFederal No. 11,624.\n\n\nMattresses, Local 400.\nRetail Clerks.\n\n\nBartenders.\n\n\nWalters Alliance, No. %.\nRailway Carmen.\n\n\nSecond Division.\nBand.\n\n\nFrank Jacobs. aide.\nPlumbers and Steamfltters and\nHelpers.\n\n\nPainters.\n\n\nBuilding Laborers.\n\n\nPlasterers.\n\n\nCarpenters and Joiners, No. 90.\nSheet Metal Workers.\nStone Masons.\n\n\nElectrical Workers.\nLathers.\n\n\nBricklayers.\n\n\nBridge and Structural Iron Work.\ners.\n\n\nMill Workers, No. 1000.\nTransfers.\n\n\nTeamowners."
+    }
+  ]
+}

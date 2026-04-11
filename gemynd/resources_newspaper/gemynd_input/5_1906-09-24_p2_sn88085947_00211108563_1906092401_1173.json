@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "new LINE OfENED",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-24",
+    "date_end": "1906-09-24",
+    "report_year": 1906,
+    "source_file": "5_1906-09-24_p2_sn88085947_00211108563_1906092401_1173",
+    "archive_ref": "5_1906-09-24_p2_sn88085947_00211108563_1906092401_1173",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-09-24_p2_sn88085947_00211108563_1906092401_1173",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 74,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane & Inland railway\ntoday began the operation of pas\nsenger trains between Spokane\nand Waverly over the new line.\nTrains from Waverly will be pulled\nby steam engines to the junction\nwith the Traction cars on Third\navenue. Four coaches will make\nup the trains, two being run each\nway. They will leave Waverly at\nZ a. m. and IL m. Returning they\nwill leave Spokane at 5:45 and\n$50 p. m."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ".INTERSTAl\n\n\nMIMI lliIBIT",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-08",
+    "date_end": "1904-08-08",
+    "report_year": 1904,
+    "source_file": "8_1904-08-08_p1_sn88085947_0021110854A_1904080801_0286",
+    "archive_ref": "8_1904-08-08_p1_sn88085947_0021110854A_1904080801_0286",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1904-08-08_p1_sn88085947_0021110854A_1904080801_0286",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 196,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 171,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "w. A. Coplen, superintendent OF\nthe mining department Of ths inter-\nstate fair, which will Be held IN this\ncity October 3-s, is In Stevens county\nthis week looking up the mine owners\nwith view OF securing exhibits for\nthe fair. Last year q number Of ex-\nhibits were sent in from this section\nbut 1t il the desire Of the manage\nment to greatly increase the number\nand quality of these exhibits. AL\nOf the displays which were at the\nfair last year have been preserved\nand will be on exhibition this year.\nThe mining interests Of Stevens coun-\nty have never been properly repre-\nscented. 1t In the intention Of the\nfair management to secure samples\nfrom all the prominent mines and\nfrom recent strikes in the district.\n\n\nThe mining department will make\nawards this year for the best mineral\nexhibits. The exact nature Of the\nprizes has not been decided. but will\nbe Of q nature to encourage competi-\ntion. Three judges win award the\nprizes. Two have already been\nchosen. They are c. NJ. Fassett, ths\nassayer, and L. X. Armstrons. thu\neditor Of Mining. The third Judge\nwill be selected later."
+    }
+  ]
+}

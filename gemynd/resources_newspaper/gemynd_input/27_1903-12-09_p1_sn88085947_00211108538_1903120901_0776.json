@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-12-09 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-12-09",
+    "date_end": "1903-12-09",
+    "report_year": 1903,
+    "source_file": "27_1903-12-09_p1_sn88085947_00211108538_1903120901_0776",
+    "archive_ref": "27_1903-12-09_p1_sn88085947_00211108538_1903120901_0776",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1903-12-09_p1_sn88085947_00211108538_1903120901_0776",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 144,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 504,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "books Of the members Of all the\nunions it is quite another thing.\n\n\nEvery union man will be asked to\ncontribute IS to the fund, 81 each\nmonth, or it may all be paid at once,\nil the donater 10 desires. There are\nsome 5000 members Of organized Ia\nDor In the city, and the fund will\nreach at least SAG, 900, a. many Of\nthe Weather union mon will donate\nmore than what will be asked Of\nthem.\n\n\nAll building operations in the city\nwill be firmly tied up within the next\nfew days pursuant to the action Of\nthe trades council last night, when\nthey ordered that no union man be\nallowed to work on q building where\nthere have been employed non-union\nor boss plumbers. This amounts to\nq serious state Of Affairs. Not only\nwill it effect buildings upon which"
+    }
+  ]
+}

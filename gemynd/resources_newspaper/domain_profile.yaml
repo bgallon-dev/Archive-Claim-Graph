@@ -1,0 +1,69 @@
+version: "1"
+domain: spokane_newspaper_corpus
+description: >
+  Regional newspaper articles from the Spokane area (eastern Washington),
+  1883–1940, sourced from Chronicling America digitized collections.
+  Coverage spans labor organizing (IWW), railroad development, agriculture,
+  indigenous dispossession, mining, civic development, and the pre-history
+  of the Turnbull National Wildlife Refuge.
+resources:
+  seed_entities: seed_entities.csv
+  claim_type_patterns: claim_type_patterns.yaml
+  claim_role_policy: claim_role_policy.yaml
+  measurement_units: measurement_units.yaml
+  measurement_species: measurement_species.yaml
+  ocr_corrections: ocr_corrections.yaml
+  claim_relation_compatibility: claim_relation_compatibility.yaml
+  negative_entities: negative_entities.yaml
+  derivation_registry: derivation_registry.yaml
+  domain_schema: domain_schema.yaml
+  concept_rules: concept_rules.yaml
+  query_intent: query_intent.yaml
+  validator_verbs: validator_verbs.yaml
+
+year_validation:
+  tolerance: 10
+  action: flag
+
+# Synthetic corpus anchor: every newspaper document is treated as being
+# "about Spokane" so the retrieval layer's anchor-based temporal query
+# strategy works for this corpus the same way Turnbull's ABOUT_REFUGE
+# does. Individual articles are still multi-topic; claim-level extraction
+# handles fine-grained entity linking.  The backfill script
+# scripts/backfill_about_spokane.py creates the edges for docs already in
+# Neo4j; the ingest pipeline creates them on future documents matching
+# the title_keywords below (empty string matches every title).
+document_anchor:
+  title_keywords:
+    - ""
+  entity_type: Place
+  relation: ABOUT_PLACE
+  name: Spokane
+  normalized_form: spokane
+
+institution_id: spokane_newspaper
+
+synthesis_context: >
+  regional newspaper articles from the Spokane, Washington area (1883–1940),
+  covering labor organizing, railroad development, agriculture, indigenous
+  affairs, mining, civic infrastructure, and environmental pre-history
+
+expected_claim_shares:
+  railroad_activity: 0.10
+  labor_action: 0.08
+  civic_development: 0.10
+  agricultural_condition: 0.07
+  indigenous_policy: 0.05
+  mining_activity: 0.06
+  legal_notice: 0.12
+  crime_report: 0.08
+  election_event: 0.06
+  public_meeting: 0.05
+  person_profile: 0.04
+  accident_disaster: 0.04
+  commercial_transaction: 0.05
+  editorial_opinion: 0.03
+  infrastructure_project: 0.03
+  worker_condition: 0.02
+  free_speech_event: 0.01
+  depot_construction: 0.01

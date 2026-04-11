@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "LAsOlS' REALM\n\n\nCO. &5 ca s|sssz,",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-03",
+    "date_end": "1906-04-03",
+    "report_year": 1906,
+    "source_file": "7_1906-04-03_p4_sn88085947_00211108563_1906040301_0575",
+    "archive_ref": "7_1906-04-03_p4_sn88085947_00211108563_1906040301_0575",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1906-04-03_p4_sn88085947_00211108563_1906040301_0575",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 150,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 483,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 720,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The committee appointed by the\nCentral Labor union to investigate\nthe charges preferred against the\nlocal laundry trust that some OF its\nmembers have violated the state\nlaws by working its female en-\nployes more than 10 hours a day,\nmade it's report last night.\n\n\nThe committee finds that the law\nhas in some instances been violated\nbut recommends that the Central\nLabor union take no steps to prose\ncute such violations as the condi-\ntions now existing in the local laun'\ndries are open shop conditions and\na paltry fine would make no ma\nterial change. In conclusion, the\nreports says: ut may be that in\ntime, when flesh and blood can\nstand no more, the laundry workers\nwill turn to the union men of this\ncommunity for relief, and when that\ntime comes we will be only too\nglad to do all in our power to aid\nthem\""
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "MADELA STREET\nAS COMPROMISE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-03",
+    "date_end": "1910-06-03",
+    "report_year": 1910,
+    "source_file": "7_1910-06-03_p2_sn88085947_00211108630_1910060302_0863",
+    "archive_ref": "7_1910-06-03_p2_sn88085947_00211108630_1910060302_0863",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-06-03_p2_sn88085947_00211108630_1910060302_0863",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 158,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 211,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 295,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "IF the Milwaukee railroad permits\nthe eastern limit of the common\nuser clause Of its franchise to ex-\ntend as far as Madelia street, there\nwill still be show for subsequent\nlines to enter the city over the same\nright Of way, by making a proper\nadjustment with the Milwaukee.\n\n\nA majority of the city council has\ngone on record for Madelia street,\nwhich is six blocks east of Erie\nstreet, the eastern limit of the com\nmon user provision which tche Mil\nwaukee wanted to grant. and which\nwas covered by the motion of Coun-\nGilman Lambert.\n\n\nMadelia street was proposed by\nCouncilman Funk as substitute\nfor the Erie street line and APP\nproved for the time being by the\ncity council. The Milwaukee is anx-\nious to limit the common user\nto Erie street, which would make it\npractically Of no value as a means\nof affording other lines a chance to\nget into the city."
+    }
+  ]
+}

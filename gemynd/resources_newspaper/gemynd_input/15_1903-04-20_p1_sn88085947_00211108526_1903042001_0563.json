@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-20",
+    "date_end": "1903-04-20",
+    "report_year": 1903,
+    "source_file": "15_1903-04-20_p1_sn88085947_00211108526_1903042001_0563",
+    "archive_ref": "15_1903-04-20_p1_sn88085947_00211108526_1903042001_0563",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-04-20_p1_sn88085947_00211108526_1903042001_0563",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 80,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Three damage suits against the\nNorthern Pacific railroad were filed\nwith the clerk of the United States\ndistrict court today, being removed\nfrom the superior court.\n\n\nSarah May Wright puts a valuation\nof $4,000 on her husbands life. He\nwss killed by a train at Gem, Idaho,\nlast November. The complainant al\nleges that the railroad run its trains\nthrough the main street of Gem and\ndo not put up proper lights to warn\npeople.\n\n\nBeatrice NJ. Smith wants $4,000"
+    }
+  ]
+}

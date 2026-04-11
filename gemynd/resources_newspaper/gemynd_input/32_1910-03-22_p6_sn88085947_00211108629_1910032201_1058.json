@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-22 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-22",
+    "date_end": "1910-03-22",
+    "report_year": 1910,
+    "source_file": "32_1910-03-22_p6_sn88085947_00211108629_1910032201_1058",
+    "archive_ref": "32_1910-03-22_p6_sn88085947_00211108629_1910032201_1058",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1910-03-22_p6_sn88085947_00211108629_1910032201_1058",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 334,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1416,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\" L.\nMr.. Richard Fisher, Mr.. David Hull\nand Mr.. Jim Stewart\n\n\n= q z\n\n\nALAMO CLUB WILL DANCE.\nThe Alamo club has issued invit-\natoms for dance to be given\nEaster Monday at the Elks' temple.\nThe arrangements are in the hands\nof committee with w. j. Kirwig\nas chairman. and about 200 guests\nhave been hidden for the occasion.\nThis will be the first Of the after\nLenten series and will undoubtedly\nhe one of the largest attended af-\nfairs Of the season.\n\n\n= = 4\nRECITAL is A SUCCESS.\n\n\nMiss Lajla Skartvedt. a talented\nyoung pianist and pupil of Arthur\nFrazer, gave recital last evening\nat the assembly loom of the Spo-\nkane college. She was assisted by\nMiss Florence Mason as violinist\nand the program as a whole was\nvery entertaining.\n\n\n\nmanner and shows marked ability\nas an artist.\n\n\nMRS. ROBBINS IMPROVING.\nMrs. c. P. Robbins, who has been\nat Portland for some time is re-\nported as improving in health, but\nshe will not be home for several\nweeks. Mr.. Robbins returned from\na visit at that place yesterday.\nX. OF c. PLANNING SPLENDID\n\n\nAFFAIR.\".\n\n\nThe Knights of Columbus are\nmaking extensive preparations for\nthe sixth annual ball to be given by\nthem Monday, March %. at the Hall\nof the Doges. The hall will be dec\nGrated for the occasion and every\neffort is being made to have the\naffair one of the most pretentious\nyet given by the lodge. One hun\ndred and fifty couples have been\nincluded on the guest list.\nWOMAN's CLUB HAVE ENJOY\n\n\nABLE AFFAIR.\n\n\nThe members of the parliament\nairy law class of the Woman's club\nhad most enjoyable time yester-\nday at a meeting at the library.\nSeveral Of the ladies dressed in\ncostumes representing the most\nprominent ladies of the land and\nacted out their characters in\nmost entertaining manner.\n\n\n4 4\n\n\nMISS HAM RETURNS.\n\n\nMiss Gladys Ham, in company\nwith her father, returned yesterday\nfrom an extended trip through Cen"
+    }
+  ]
+}

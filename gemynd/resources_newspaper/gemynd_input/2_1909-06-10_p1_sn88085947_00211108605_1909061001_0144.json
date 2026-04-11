@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GENT IN\n\n\nTHE CITY WOOD PILE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-10",
+    "date_end": "1909-06-10",
+    "report_year": 1909,
+    "source_file": "2_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+    "archive_ref": "2_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 123,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 631,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "to the contrary notion. Possibly\nthey don't amount to anythina\nmore than q place from which to\ncollect water revenue regardless Of\nwhether the water is delivered on\nnot.\n\n\nSuch is the water system man\nagement that has prevailed IN the\npast two years. and which Mayor\nPratt desires perpetrated IN spite\nof his protestations to the con\ntrary. His actions speak consider.\nably louder than his words. He\n.reappointed Wetzel. but the people\nare to blame for the council where\nthe final guilt rests.\n\n\nAlong with the suffering an tho\nnorthside comes an interview H.\nthe morning. paper from H. r..\nRichards. president Of the Waahp\nington Water Power CO.. who hao\njust returned 10 henignly tall 4\n\n\nCONTINUED on page elS6Ey"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL SUE FOR\n\n\nFLOOD LOSS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-16",
+    "date_end": "1910-04-16",
+    "report_year": 1910,
+    "source_file": "7_1910-04-16_p3_sn88085947_00211108630_1910041602_0229",
+    "archive_ref": "7_1910-04-16_p3_sn88085947_00211108630_1910041602_0229",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-04-16_p3_sn88085947_00211108630_1910041602_0229",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 126,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 129,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "People owning property on the\nnorth side of Front avenue have\nconsulted council to seek for legal\nredress against the Washington\nWater Power Co. because of the\nflooding of their cellars during the\nrecent high water. 1t is claimed\nthat the closing of the south chan\nmel of the river has caused the\nwater to back up there in a man.\nner that it has never done before,\nand that as a result of this the flood\nwaters entered the cellars.\n\n\nThe city hall basement contained\nthree or four feet Of water at the\ntime of the recent flood. drowning\nout the city hall heating plant for\nseveral days.\n\n\nThe south channel was closed at\nHoward street a year ago by filling\nin under the bridge."
+    }
+  ]
+}

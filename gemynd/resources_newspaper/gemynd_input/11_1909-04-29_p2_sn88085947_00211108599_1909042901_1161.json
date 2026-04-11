@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "CLAMP LID ON\n\n\nSCALER JOINT\n\nBREWERY LICENSE PLAN OF\nRUNNING SALOONS AFFORDS\nMEANS OF CLOSING PLACE\nIN SPITE OF INJUNCTION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-29",
+    "date_end": "1909-04-29",
+    "report_year": 1909,
+    "source_file": "11_1909-04-29_p2_sn88085947_00211108599_1909042901_1161",
+    "archive_ref": "11_1909-04-29_p2_sn88085947_00211108599_1909042901_1161",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-04-29_p2_sn88085947_00211108599_1909042901_1161",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 5.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction",
+          "arrested"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 295,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 169,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 846,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 112,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 613,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The corporation counsel's Office\nclosed the Scaler saloon this morn\ning on a charge that it was being\noperated without license. P. c.\nKaylor, Scaler's man in charge\nwas arrested on warrant sworn\nto by Detective Burns and held un\nder 5000 bonds. Although the coun\nell was prevented from hearing the\nrevocation of license charges last\nnight. it is held that the place can\nbe kept closed indefinitely by the\nrule under which today's action\nwas taken.\n\n\nEnough fault was found or al\nlegged in Corporation Counsel\nAliens proceedings against Scaler\nupon which to secure a temporary\nrestraining order that prevented\nthe city council from hearing the\ncharges.\n\n\nThe Spokane Brewing & Malt\ning Co is making a fight to retain\nthe license. The license is issued\nIn the name of Henry Bosnian,\nwho serves the brewery in the ca\npacity of license holder.\n\n\nThe injunction hearing is set foI\nMay before Judge Hinkle, who\nissued the restraining order The\ncouncil proceedings were post\nponed until May 10.\n\n\nThe principle allegation made in\nsupport of the injunction against\nthe council is that proper recon-\nmendation in the matter of revok-\ning license had not been made\nand the procedure prescribed by\nordinance not complied with in\nother respects. 1t is contended\nthat Allen secured signatures OF\nthe city commissioners to the\ncharges as individuals instead of\nas police commission board.\n\n\n1t is now understood that the\nbrewing company claims that the\nlicense is the property of the\nKirkwood distillery and the cor\nporation counsel's Office is making\nan effort to ascertain the actual\nowner.\n\n\nThe complaint against the resort\nincludes the selling of liquor to\nyoung girls. Both Scaler and\nKearns have been heavily fined in\nthe justice of peace court on this\ncharge."
+    }
+  ]
+}

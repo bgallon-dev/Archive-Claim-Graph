@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "G Q Min u E D\n\n\nr o\nP A G F. O N E\n\nCOUNCIL SPLITS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-09",
+    "date_end": "1910-06-09",
+    "report_year": 1910,
+    "source_file": "7_1910-06-09_p2_sn88085947_00211108630_1910060902_0929",
+    "archive_ref": "7_1910-06-09_p2_sn88085947_00211108630_1910060902_0929",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-06-09_p2_sn88085947_00211108630_1910060902_0929",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 351,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1438,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1631,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 189,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mr. Dudley. its lawyer. showed his\ndispleasure, and said that if he were\nforced to accept common user\nclause the franchise would be\ndropped and the city entered over\nsome other line.\n\n\nThe city council last night, by a\nvote of to 2. turned down the eff\nfort of Council man Peter Nelson to\nhave the North Coast franchise sub\nmitted to a vote OF the people, the\nresult of such election to be bind\ning alike on people and railroads,\nThe only supporter Nelson had for\nhis resolution was Councilman\nFunk. Those voting against the\nquestion of the popular approval of\nthe franchise were Councilmen Cart\nwright, Shaefer, Gray, MOhr, Dalke,\nBelshaw and Lambert. During the\ndiscussion Belshaw said that in the\nfinal passage of the franchise he\nwould support the motion of Nelson,\nprovided he omitted the clause that\nrequired the railroads to pay the\ncost of the election. Nelson an\nnounced later that he would revive\nhis motion agin, with the compen-\nsation clause cut out.\n\n\nThe Lambert common user clause\nfor the North Coast was not salts\nfactory to the whole council, as II\nlodges in the North Coast a contro\nOF the situation to large measure\nThe vote by which the clause was\naccepted consisted of Lambert\nDalke. Gray, Nelson and Belshaw ir\nthe affirmative and Cartwright\nFunk. Shaefer and Mohr in the neg\nalive. Schiller being absent.\n\n\nAttorney Lawrence Hamblen\nagreed that he franchise of the\nNorth Coast should contain clause\nthat the union depot company\nshould take the city hall property\nfor $4,000. A meeting will be\nheld at o'clock tomorrow after.\nnoon to consider the depot fran.\nchise. The North Coast franchise\nextends only to Monroe street. at\nwhich point the terminal franchise\nis to begin.\n\n\nCouncilman Funk served notice\nlast night that when the considera-\nton of the Milwaukee franchise is\nresumed that he will demand that\nan arbitration board be appointed\nto assess the damages to be re-\nceived by abutting property owners\nwithout recourse to the courts\nNearly all such claims against the\nNorth Coast have already been set\ntied."
+    }
+  ]
+}

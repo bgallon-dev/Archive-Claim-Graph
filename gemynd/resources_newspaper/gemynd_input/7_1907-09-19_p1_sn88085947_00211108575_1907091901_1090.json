@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CASE Of KILL\n\n\nOr Be KILLED",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-19",
+    "date_end": "1907-09-19",
+    "report_year": 1907,
+    "source_file": "7_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+    "archive_ref": "7_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "colville"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 173,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 96,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "U. s. Marshal Pray, of this city,\nhas filed his report of the attempt\nto arrest Dan Stafford of Colville\non a charge Of selling liquor to In\ndians. The report is laconic and\nsimply says that Stafford is not in\ncustody because it was necessary\nto kill him.\n\n\nThe shooting took place on Stat\nford's ranch on the Columbia riv-\nerr. The offense was committed at\nReardon, but the officer was given\nthe slip. Knowing that Stafford had\nranch on the Columbia, Pray\nwent to it and surprised his man.\n\n\nMrs. Stafford threw herself in\nfront of her husband as he reach\ned for his pistol on sight of the\nmarshal. Pray had also reached\nfor his gun, but before he could\ndraw a bead on his man, the pro-\ntecting form Of Mrs. Stafford was\nbetween them.\n\n\nBut she was excited and stepped\naway Both men again tried to\nshoot, but the marshaIs bullet was\nthe quicker. Stafford was shot\nthrough the breast Pray was ex-\nonerated by a coroner's jury."
+    }
+  ]
+}

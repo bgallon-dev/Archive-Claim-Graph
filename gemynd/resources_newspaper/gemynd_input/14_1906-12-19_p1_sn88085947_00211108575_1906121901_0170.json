@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-12-19 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-19",
+    "date_end": "1906-12-19",
+    "report_year": 1906,
+    "source_file": "14_1906-12-19_p1_sn88085947_00211108575_1906121901_0170",
+    "archive_ref": "14_1906-12-19_p1_sn88085947_00211108575_1906121901_0170",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1906-12-19_p1_sn88085947_00211108575_1906121901_0170",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 75,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 418,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 238,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Charges weer preferred against\nthe carpenters and the engineers\nunions in the structural alliance\nlast night by George w. Miller, as\nbusiness agent of the alliance, be-\ncause the unions named refused to\ncall their men off the new freight\ndepot being erected by the North.\nern Pacific railway. The charges\nwere referred to a committee.\n\n\nThis morning the board of gov\nerrors of the alliance held a meet\ning and ordered strike on the"
+    }
+  ]
+}

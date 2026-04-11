@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "NOTICE OF SCHOOL DISTRICT\n\n\nBOND ELECTION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-28",
+    "date_end": "1903-10-28",
+    "report_year": 1903,
+    "source_file": "2_1903-10-28_p6_sn88085947_00211108538_1903102801_0625",
+    "archive_ref": "2_1903-10-28_p6_sn88085947_00211108538_1903102801_0625",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-10-28_p6_sn88085947_00211108538_1903102801_0625",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "school district"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 202,
+      "match_details": {
+        "education": [
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 232,
+            "in_headline": false
+          },
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 10,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Notice Is hereby given that spe-\ncial election will be held in school\ndistrict, No. 81, Spokane county, state\nOf Washington. on the 9TH day of No\nvember, 1908, for the purpose of de-\ntermining whether or not the di-\nrectors of said school district shall\nborrow money and issue bonds of the\ndistrict in the sum of two hundred\nthousand dollars ($200,000) for the\npurpose of purchasing sites and erect\ning school buildings Said bonds, If\nissued. shall bear interest not to ex-\ncoed four and one-half- per cent per\nannum, payable semiannually. and\nbonds to be payable twenty years\nfrom date thereof.\n\n\nThe election will be by ballot.\nThose in favor of the issuing of\nbonds as above specified will vote.\nBonds. Yes; those opposed. Bonds.\nNo\"\n\n\nThe polls will be open from\no'clock a. m. to o'clock p. m.\n\n\nThe polling places will be as fol-\nlows:\n\n\nWard 1. Building E217 Third ave-\nnue..\n\n\nWard 2. High school.\n\n\nWard 3. Washington school.\n\n\nWard A. Bancroft school\n\n\nWard s. Webster school.\n\n\nBisbee precinct. Bankson Bros.\nlumber office.\n\n\nBY order of the board of directors.\n\n\nDated this 18th day of October\n1903. T.. G. THOMAS,\nSecretary of the Board of Directors."
+    }
+  ]
+}

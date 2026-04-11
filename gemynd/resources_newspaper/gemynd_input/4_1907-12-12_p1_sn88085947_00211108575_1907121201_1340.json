@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-12-12 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-12",
+    "date_end": "1907-12-12",
+    "report_year": 1907,
+    "source_file": "4_1907-12-12_p1_sn88085947_00211108575_1907121201_1340",
+    "archive_ref": "4_1907-12-12_p1_sn88085947_00211108575_1907121201_1340",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-12-12_p1_sn88085947_00211108575_1907121201_1340",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 265,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 218,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "would not be acceptable to the ma\njority of the property owners. The\nroadway specifications called for\nare the same as those in the Den\nmis- plans. Also, the sidewalks are\nthe same.\n\n\n'Mr. Dennis further says that the\nSpokane & Inland railroad would\nnot accept a roadway less than 100\nfeet wide. This railroad goes un-\nder the trestle. No mention of the\ndesires of the railroad or what\nwould be acceptable to it are made\nin the advertisement for bids ex-\ncept that provision must be made\nto keep the water from flowing into\nthe viaduct, and room must be pro-\nvided for four tracks.\n\n\nMr. Dennis says that since the\nrailroad is to pay share of the\ncost it should have a voice in de-\nGliding the acceptance of the plans.\nThe Dennis proposition did not\nstipulate that the city could collect\ncent from the company, because\nMr.. Dennis reserved that right unto\nhimself.\n\n\nHE also says that he will send\nthe board letter protesting\nagainst any acceptance of a bid\nwhich does not include the same\nplans and specifications as are on\nfile in the city engineers office. The\nonly plans on file there are the Den\nmis- plans. Under this arrangement\nit would be making Mr.. Dennis a\npresent of the job on his own plans,\nas other contractors would prob\nably submit different plans.\n\n\nRegarding the reference to the\ncharter of the city Mr.. Dennis is\nusing the words and not it's mean\ning to secure the adoption of his\nown plans and not those of the\ncity engineer\""
+    }
+  ]
+}

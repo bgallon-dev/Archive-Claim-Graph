@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SERVES NOTICE\nON v. v. P.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-25",
+    "date_end": "1907-10-25",
+    "report_year": 1907,
+    "source_file": "2_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+    "archive_ref": "2_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-10-25_p1_sn88085947_00211108575_1907102501_1196",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 117,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 59,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Fire Commissioner ONO this\nmorning notified the Washington\nWater Power Co. that hereafter\nwhen any of its employees are about\nto begin stringing high power wires\nIn the vicinity OF any fire alarm\nboxes. Albert Thielman, electrician\nwith the fire department. must be\nnotified so the alarm boxes may be\nafforded proper protection.\n\n\nThis order is the result of the\nburning out of an alarm box on the\nDivision st. bridge Oct. IA through\nw. w. p. wires coming in contact\nwith wires of the fire department.\n\n\nThe company has made no reply\nto am official communication calling\nattention to the violation of wire\nfranchises by stringing wires above\nthe cross arms reserved for the\ncity's use."
+    }
+  ]
+}

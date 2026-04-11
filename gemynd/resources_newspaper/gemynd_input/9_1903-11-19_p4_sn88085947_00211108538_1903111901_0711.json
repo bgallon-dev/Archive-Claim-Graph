@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-11-19 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-19",
+    "date_end": "1903-11-19",
+    "report_year": 1903,
+    "source_file": "9_1903-11-19_p4_sn88085947_00211108538_1903111901_0711",
+    "archive_ref": "9_1903-11-19_p4_sn88085947_00211108538_1903111901_0711",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-11-19_p4_sn88085947_00211108538_1903111901_0711",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 89,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 479,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "lie made a general trip over that\nsection, which includes the famous\nPoplar creek. and says it is without\ndoubt the most wonderful mining terri\ntory in British Columbia. In Lar\ndeau creek quartz float containing free\nwire gold has been found within the\nlast few days and much excitement ex-\nlists among those searching for the\nledge from which it was broken.\n\n\nMr.. Leavell took up a water right\non Half Way creek, which will give\nhim a 300-foot fall to work his Spo-\nkane Falls placer claim"
+    }
+  ]
+}

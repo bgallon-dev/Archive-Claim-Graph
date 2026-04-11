@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "HAD\n\n\nA VERY fine Time",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-11",
+    "date_end": "1910-11-11",
+    "report_year": 1910,
+    "source_file": "9_1910-11-11_p2_sn88085947_00211108654_1910111101_0465",
+    "archive_ref": "9_1910-11-11_p2_sn88085947_00211108654_1910111101_0465",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1910-11-11_p2_sn88085947_00211108654_1910111101_0465",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 6.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage",
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 192,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 4,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 10,
+            "in_headline": false
+          },
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 927,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The woman suffrage victory in\nWashington last Tuesday was cele-\n-brated last evening by Spokane's\nmost prominent suffragets with a\nbanquet in the chamber of COM\nmerce banquet room, and felicia\n-tions over the successful outcome\nof the campaign were in order on\nall sides.\n\n\nMrs. May Arkwright Hutton, who\nhas been one of the leaders in the\ncause, bestowed eloquent praise\nupon Helen LaReine Baker, who as\nsisted rhe in the fight for suffrage\nIn Olympia two years ago.\n\n\nMrs. Rose Moore who made ring\ning campaign speeches from the\nIdaho line to the coast. was intro\nduced by Toastmistress Mrs. &Min-\nME J. Reynolds as the best little\ncampaigner in the state\" and deliv-\ncred short talk which won much\napplause.\n\n\nMrs. P. P. Stafford, who accom-\npanied Mrs. Moore on her campaign\ntrip, responded to Echoes From\nthe Campaign\" and told of expert\nences in speaking in a saloon in\nGeorgetown\n\n\n- Mrs. A. E. House, president of the\n-Woman's club, responded to the\ntoast, THE Clubwoman,\" declaring\nthat every member of her club was\nalso member of the Political\nEquality league.\n\n\n= A most enjoyable toast was that"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "THE FINDINGS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-15",
+    "date_end": "1910-11-15",
+    "report_year": 1910,
+    "source_file": "15_1910-11-15_p2_sn88085947_00211108654_1910111501_0513",
+    "archive_ref": "15_1910-11-15_p2_sn88085947_00211108654_1910111501_0513",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1910-11-15_p2_sn88085947_00211108654_1910111501_0513",
+      "composite_score": 2.52,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 459,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 256,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 2596,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The FINDINGS.\n\n\n\"Charge /, contained in the\ncharges filed by Mr.. Elliott before\nthis council, has been sustained.\n\n\nCharge 2, filed in the charges\nby Mr.. Elliott, has been sustained.\n\n\nCharge is as follows; We, up\non investigation, find that there\nwas a conspiracy, but that there is\nno evidence to show that Mr.. Sui\nlivan was in any way connected,\nand therefore exonerate Mr.. Sulli\nWon on this charge\n\n\nCharge 4. We find that while\nMr.. Sullivan did refuse the Spo-\nkane Press access to the police\nblotter, he did so upon the advice\nand opinion of the corporation\ncounsel, and therefore find this\ncharge not sustained. However.\nthat if the police blotter is open\nto inspection to one or any paper\nit should be open to all.\n\n\nCharge 5.-Protecting houses of\nill-fame. We find that while the\nsame is sustained by the evidence,\nit could not have existed except\nand alone by the knowledge and\nconsent of the board of police COM\nmiSSioneTs and the mayor, and\nfurther find from the evidence ad-\nduced that since the filing Of said\ncharge these houses have been\nclosed.\n\n\nAppointment Rules Violated.\n\n\nCharge 6. Favoritism in ap-\npointments on police force. We\nfind that the civil service rules\ngoverning the regulations of the\npolice department have been gross\nly violated and, while Mr.. Sullivan\nmade the recommendations, the\nappointing powers are vested in\nthe police commissioners who made\nthe appointments on his recon-\nmendation, and therefore, the\ncharges as to Mr.. Sullivan are not\nsustained.\n\n\nCharge Z. We find that after\nthe filing of these charges Mr..\nSullivan has resigned from the Of\nflee of acting chief, and further\nfind that the mayor, through his\nappointment of Sullivan as acting\nchief for about 16 months, disre-\ngarded the provisions of the city\ncharter requiring him to appoint a\nchief of police, and should be held\nequally responsible .or any and all\nacts of the office during that\nperiod.\n\n\nWanted Captain to Appear.\n\n\ncharge s. From the fact that\nthe chief of police refused to make\ndefense in the case when called\nupon to do so by the council, we\ncan see no other way than to sus-\ntain charge 8.\n\n\nWhereas, During the hearing of\nthese charges against Sullivan the\ntestimony seemingly developed\ncharges against Ol4lcers Hogan and\nDowney and other unknown Off\nGERS that they received money\nfrom prostitute sfor protection of\nsuch person or persons to ply their\nunlawful business;\n\n\nNow, therefore, we recommend\n= to the police commissioners to\ntmake a careful investigation of\nIsaid charges at once and make their\n. report thereof on the same and file\n= the same with the city council, and\nfrom date hereof recommend the\nsaid Officers Hogan and Downey"
+    }
+  ]
+}

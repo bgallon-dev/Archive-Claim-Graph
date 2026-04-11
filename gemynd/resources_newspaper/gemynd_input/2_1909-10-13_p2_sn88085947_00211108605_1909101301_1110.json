@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-10-13 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-13",
+    "date_end": "1909-10-13",
+    "report_year": 1909,
+    "source_file": "2_1909-10-13_p2_sn88085947_00211108605_1909101301_1110",
+    "archive_ref": "2_1909-10-13_p2_sn88085947_00211108605_1909101301_1110",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-10-13_p2_sn88085947_00211108605_1909101301_1110",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 315,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1626,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 72,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "City Engineer Ralston was lam\nbasted on all sides at the meeting\nof the city council last night He\nwas not present to hear the excor-\niation, but has been requested to\ncome to the next meeting to an\nswer some questions as to his Off\ncial conduct in the Washington\nstreet bridge salvage, of which\n$4,000 is reported to have disap-\npeared.\n\n\nCouncilman Funk had a strong\nresolution of censure for Ralston\nbecause of the collapse of tie\nSprague avenue fill, for which RsI-\nston was held responsible. Funk\nsaid that Ralston had consentHd\nthat the contractor should climb\nate the concrete base of the fill 1t\nsaving to the contractor of SIN\n900, but for an allowance 80 tie\ncity in the price of the work Af\nonly $500. The restitution wis\nmodified to protect the city in tie\nprobable lawsuit because of tie\nfill.\n\n\nCouncilman Mohr brought up Ct b\nquestion of the Monroe strd5t\nbridge and said that Ralston HI\n\n\nerected large building at TIE\nbridge, had asked for bids on Sh\nmillion feet of lumber, was hrep&f-\ning to remove the lights from the\nold bridge and about to begin to\ntear it down, all before the council\nhad even approved the plan for the\nnew bridge or determined how the\nbridge should be built, whether by\ncontract or by day labor.\n\n\nA resolution by Mohr was adopt\ned ordering the engineer to leave\nthe old bridge intact until further\norders of the city council and that\nno further. steps toward the build\ning of the bridge be taken beyond\ncarrying the piers and abutmerixs\nabove the high Water line, untfl\nthe council APPROVES the plans.\n\n\nCouncilman Lambert Sid TILT\nhe understood Professor Burr, WHO\nhad inspected the Monroe street\nbride plans. had ripped them Up\nbadly, but that so far as the cotin-\nell was concerned they were not"
+    }
+  ]
+}

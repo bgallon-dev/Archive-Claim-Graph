@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Continued from page u",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-09",
+    "date_end": "1909-08-09",
+    "report_year": 1909,
+    "source_file": "9_1909-08-09_p6_sn88085947_00211108605_1909080901_0603",
+    "archive_ref": "9_1909-08-09_p6_sn88085947_00211108605_1909080901_0603",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-08-09_p6_sn88085947_00211108605_1909080901_0603",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 286,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 549,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ranged the small ranchers. the\nwater users and the men who col\nonized the various government ir-\nrigation projects. Garfield won\nout repeatedly.\n\n\nThis year the situation is re-\nversed. The secretary of the in\nterror is on the defensive as usual,\nbut this time it is the water users\nand the homeseekers who are the\naggressors, and the interests\" are\nbehind Ballinger.\n\n\nThe charge against Secretary\nBallinger is, in substance, that he\nhas overturned the spirit of and is\nattempting to block the Roosevelt\npolicies as pertaining to conserva-\nton and reclamation.\n\n\nBallinger will be asked to ex-\nplain, first, why he is not satisfied\nwith the administration of Freder-\nlex H. Newell as director of the\nreclamation service. Director New\nell is the man who really conceived\nthe whole scheme of the reclama-\nton of the arid lands of the west.\nWay back before Senator New\nlands of Nevada and others sue\nceeded in getting the reclamation\nact through congress, F. H. Newell,\nthen employed in the U. s. geolog-\nical survey, dreamed about rec\nlamation. Men laughed at him\nthen, but he is now fast realizing\nhis dreams, as water is pouring\nover the once desert lands of the\nwest.\n\n\nThe reclamation act was passed\nIn the same week as the Panama\ncanal act. and up to January /,\n1909, the reclamation service had\nmoved more dirt than was moved\nat Panama. Never since the work\nbegan has man been employed\nin the reclamation service for any\nreason other than that he was the\nbest man available for the place.\nPoliticians who have had friends\nto reward have been sent else.\nwhere.\n\n\nWith this work, involving the ex.\npenditure of hundreds of thousands"
+    }
+  ]
+}

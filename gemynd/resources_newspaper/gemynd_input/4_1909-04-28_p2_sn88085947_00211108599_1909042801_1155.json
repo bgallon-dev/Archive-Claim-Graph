@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "BRIDGE WATTS\n\n\nFOR ELECTION",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-28",
+    "date_end": "1909-04-28",
+    "report_year": 1909,
+    "source_file": "4_1909-04-28_p2_sn88085947_00211108599_1909042801_1155",
+    "archive_ref": "4_1909-04-28_p2_sn88085947_00211108599_1909042801_1155",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-04-28_p2_sn88085947_00211108599_1909042801_1155",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 316,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 31,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 118,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 785,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Plans for a concrete bridge at\nMonroe street. prepared in City\nEngineer Ralstons office, were fin\nally adopted by the city council\nlast night, and it is believed that\nwork on the structure may actually\nbe begun in a comparatively short\ntime. The plans call for rather\nplain but neat structure, with a 30\nfoot roadway and nine foot side.\nwalks on either side.\n\n\nThree arches, the main one 240\nfeet across and the smaller ones at\neither end 1870 feet across, accord\ning to the plans, will be under the\nbridge, which can be built for\nabout 1896, 900, according to Rails\ntoms estimate. Councilman Dalke\nstarted something that was hard to\nstop, though, sort Of prediction\nthorn, in the estimation of some OF\nthe others present, when he moved\nthat the plans be adopted and that\nthe board of public works be in\nstructed to go right ahead with the\nwork, which has been hanging fire\nfor many months.\n\n\nAt a previous meeting. when the\nplans were up for consideration,\nCouncilman Lambert moved that\nthe board of public works be in\nstructed to go ahead and advertise\nfor bids, consequently Dalke\namended his motion to the effect\nthat the board either advertise for\nbids or go ahead with the day labor\nplan. The day labor plan was op-\nposed by Lambert, who maintained\nthat the city would be put to\ngreater expense than if they should\nhave the bridge built by some re-\nputable firm, as a plant, which\nwould be left on hand as mere\njunk would have to be purchased.\nSchiller then called attention to\nthe fact that there was only 100000\nin the bridge fund at the present\ntime and that after the election, so\nnear at hand, perhaps a sufficient\namount of money for the construc-\nton of the bridge would not be\nvoted. but that he piers could be"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WORLDS SUFFRAGETTES BEGIN SESSIONS IN\n\n\nLONDON WITH AMERICAN WOMAN IN CHAIR\n\nINTERNATIONAL WoMAN'S SUF-\nFRAGE ASSOCIATION OPENS\nNINE DAY CONGRESS, WITH\nDELEGATES PRESENT FROM\nEVERY CORNER OF THE\nEARTH.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-26",
+    "date_end": "1909-04-26",
+    "report_year": 1909,
+    "source_file": "2_1909-04-26_p1_sn88085947_00211108599_1909042601_1136",
+    "archive_ref": "2_1909-04-26_p1_sn88085947_00211108599_1909042601_1136",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-04-26_p1_sn88085947_00211108599_1909042601_1136",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 312,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 197,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "LONDON, April 26.-The suf-\nfragets began to report progress\nthis morning in every tongue when\nMrs. Carrie Chapman Gait of New\nYork called to order the worlds\ncongress of the International Wom-\nans Suffrage alliance.\n\n\nThousands of delegates are\nhere. They come from every civ\nflied land on both hemispheres.\n\n\nThe delegates aren't limited to\nthe six each that these Is coun-\ntries are entitled to send: Aus\ntralia, Bulgaria, Canada, Den\nmark, Finland, Germany. Great\nBritain, Hungary, Italy, Neither\nlands, Norway, Russia, South AT\nRIGA, Sweden, Switzerland and the\nUnited States. Many other ma\ntional associations in sympathy\nwith the suffrage movement have\naccepted the invitation to send\nfraternal delegates. Answering to\nroll call:\n\n\nDignifed danes of London aris-\ntocracy. who have chained them\nselves to parliament seats and\nthen shouted their demand for\nequal rights; who have clawed at\nthe eyes of many bobby\" who\nsought to break up their demon\nSTATIONS; who have served time in\nfilthy cells as felons-all for the\ncause.\n\n\nLight hearted fashion plates from\nParis, not so strenuous, but just\nas clamorous as their English sis\ntiers for the vote.\n\n\nDomesticated frauleins of Ber-\nlin who have won lots of municipal\nera 3oyment for their sex, but yet\nlack suffrage.\n\n\nThe enfranchised women Of\nAustralia.\n\n\nFinnish women, strongly repre-\nscented In parliament.\n\n\nAmerican women who are In\npossession of the franchise in a\nnumber Of states and who are now\nfighting for full suffrage before is\nlegislatures.\np The women of Sweden, fresh\nfrom a victorious fight for votes.\n\n\nNorwegian women, who OBJ.\ntanned the franchise year ago.\n\n\nIrish and Russian women, par\nTALLY successful.\n\n\nDemure little Japanese women,\ncontentedly playing waiting\ngame.\n\n\nMixed delegates from far-off In\ndia, South Africa and South Amer\nlea. Some from Canada and Ice\nland\n\n\nAssorted delegates of various\nraces and various compilations\nfrom various corners of the earth"
+    }
+  ]
+}

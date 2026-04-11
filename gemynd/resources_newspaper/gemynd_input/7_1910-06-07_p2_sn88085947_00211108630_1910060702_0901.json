@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UNION REPLIES To THE\n\n\nNORRIS THEATER STATEMENT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-07",
+    "date_end": "1910-06-07",
+    "report_year": 1910,
+    "source_file": "7_1910-06-07_p2_sn88085947_00211108630_1910060702_0901",
+    "archive_ref": "7_1910-06-07_p2_sn88085947_00211108630_1910060702_0901",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-06-07_p2_sn88085947_00211108630_1910060702_0901",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 112,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 271,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The statements made by the rep\nresentative of the Morris theater\nthat they were unaware as to the\ncause of the labor disturbance on\nthe theater building is misleading\nThe difficulty has been under con-\nsideration since Friday morning.\nThe representatives of the Building\nTrades council have tried to get an\nadjustment Of the trouble, but can\nget no satisfaction whatever.\n\n\nThe contractor who has the plas-\ntering does not know conditions in\nthis city when he intimates that\ncompetent men cannot be obtained\nhere There are at least IS men in\nthe city who are capable of putting\nup the staff which is in dispute.\nAS for the moulding and casting,"
+    }
+  ]
+}

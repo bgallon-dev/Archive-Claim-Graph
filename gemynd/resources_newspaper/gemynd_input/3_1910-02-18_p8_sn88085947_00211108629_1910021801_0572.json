@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HkSx)(NT(MATE\n[IESaffH2jI90RR Re IP&a\n\n\nIa al uIHS@ BY- RATA",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-18",
+    "date_end": "1910-02-18",
+    "report_year": 1910,
+    "source_file": "3_1910-02-18_p8_sn88085947_00211108629_1910021801_0572",
+    "archive_ref": "3_1910-02-18_p8_sn88085947_00211108629_1910021801_0572",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-02-18_p8_sn88085947_00211108629_1910021801_0572",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 180,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 134,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, Feb. 17.-Dear\nDad: 1t is time for the little fell\nlows, the plain citizens, to look into\nthis business of state rights.\n\n\nWater power is the bullseye of\nthe Ballinger-Pinchot inquiry tar\nget. There is battle on over the\ncoal in Alaska, and the public for\nests and the public domain. Long\nafter that Alaskan coal has been\nburned, however, the country will\nbe depending on the water power\nthat constitutes the real and rich\nest prize in this fight between a\nfew rich grabbers and the people.\n\n\nThe water power grabbers, who\nare hiding behind the row that is\nraised over Alaska coal, have\nseized about all the power sites ex-\ncept such as are on public lands.\n\n\nWhen the question comes up\nSenator Nelson and lot more, to-\ngether with a rich lobby and fleet\nof newspapers all over the country,\nwill argue that all water not navi-\ngable is the property of the state\nwithin which the water runs. The\nGeneral Electric expects to get this\nwater power if it is turned over to\nthe states."
+    }
+  ]
+}

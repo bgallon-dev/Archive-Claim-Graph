@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-10 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-10",
+    "date_end": "1903-09-10",
+    "report_year": 1903,
+    "source_file": "1_1903-09-10_p4_sn88085947_00211108538_1903091001_0371",
+    "archive_ref": "1_1903-09-10_p4_sn88085947_00211108538_1903091001_0371",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1903-09-10_p4_sn88085947_00211108538_1903091001_0371",
+      "composite_score": 10.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 3.5,
+        "spokane_development": 4.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ],
+        "railroads": [
+          "northern pacific",
+          "inland empire"
+        ],
+        "spokane_development": [
+          "water power",
+          "riverside avenue",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Watson Drug Co.. Granite bloek \\\nFrank W. Healy, in advance for tn\nNiagara Falls company. is here.\nYou can get anything you want for\n. sewing machine At J. p. Eastman\nq Co., as Riverside. Phone Main\n74s. Machines rented or-sold on sasy\nterms. Expert repairing.\nDave L. Fotheringham has return\ned from a trip to Butte.\n\n\nEasy Work Soap-The largest cake\non the market for cents. No fancy\nwrapper-all soap.\n\n\nCharles s. Fee, general passenger\nagent of the Northern Pacific, pass\ned through the city last night, en-\nroute to st. Paul from the coast.\n\n\nNew fall hat at Wilson's, 713 Riv-\nerside avenue. ........ ....\n\n\ns. NJ. Holcomb of Fort Branch\nInd, arrived from the east this morn\ning to meet his brothers. o. r. and\nc. L. Holcomb Of Ritzville.\n\n\nSee our stock of trusses, crutches,\nbatteries. electric belts and shoulder\nbraces before buying. Watson Drug\nCo., corner Riverside and Washing\nton.\n\n\nThe insurance companies have in\ncreased the rates on local department\nstores about one-third. The Crescent\nstore, which had been paying on a\n$40 rate. has been raised to $2.25;\nthe Palace store from $3.50 to 32.40;\nthe Wonder store from 31.65 to $40.\nand the Whitehouse Dry Goods COM\npany from $1.65 to $2.55.\nFor a perfect fitting shirt see Will\nson, 713 Riverside avenue.\n\n\nII you become sick or meet with\nany accident, you will be glad to have\nsomething to tide you over such an\nemergency. Now is the time to open\nan account with the Spokane & East\nern Trust company.\n\n\nThe plant and machinery Of the\nInland Empire Milling company, own\ned by the Washington Water Power\ncompany, is about to be sold to a\nHolland syndicate on a basis of s40,-\n600. The Hollanders have organized\nthe Spokane FIGURING Mills company\nto operate the plant.\n\n\nStop that headache with the Right\nHeadache Tablet.\n\n\nF. H. Newell, head Of the national\nbureau in charge Of the irrigation\nOf the arid west under the new ma\ntional irrigation act, addressed the\nchamber of commerce yesterday af-\nternoon on the irrigation of the Big\nBend country. Mr. Newell purposes\nusing the waters from the Spokane\nand Columbia rivers.\n\n\nFail shirtIngs open Tor inspection\nat Wilson's, 713 Riverside avenue.\n\n\nThe Club Cafe always in the lead\nOur 25c merchants lunch with beer\nor wine from 1870 to 2 p. m. as good\nas ever. Headquarters for steaks,\nchops, etc. I. Chilberg, manager.\n\n\nLeake's Spokane Pocket Guide will\nbe out about September 10. A more\nuseful book has never been issued\nin the city. Complete and condensed\nis the information it contains, to-\ngether with complete railroad and\nstreet car time tables. map Of city\nand street railways. Price, Is cents\neach, $3.50 per year. John w. Ora\nham, distributors. On sale at all\nnews stands."
+    }
+  ]
+}

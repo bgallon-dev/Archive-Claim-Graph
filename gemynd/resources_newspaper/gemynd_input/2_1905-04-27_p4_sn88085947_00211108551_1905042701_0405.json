@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "BUFFALO STINT\n\n\nTo OAk[AH0nA",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-27",
+    "date_end": "1905-04-27",
+    "report_year": 1905,
+    "source_file": "2_1905-04-27_p4_sn88085947_00211108551_1905042701_0405",
+    "archive_ref": "2_1905-04-27_p4_sn88085947_00211108551_1905042701_0405",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1905-04-27_p4_sn88085947_00211108551_1905042701_0405",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation"
+        ],
+        "agriculture": [
+          "cattle"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 269,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 332,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 1493,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BUTTE, Mont, April 27.-Thirty-\nfive buffalo were yesterday loaded at\nArlee for shipment to Oklahoma, and\nthey will go to Bliss, 900 miles south\nof Kansas City, where an effort will\nbe made to perpetuate the species.\nThe animals were all adults, and were\nthe best specimens Of the American\nbison that have even been shipped\nfrom the reservation.\n\n\nThe animals were purchased by\nGeorge w. Miller who has been on\nthe reserve for the past week or\n10 days, and considerable difficulty\nwas experienced in getting them into\nthe shipping pens. They are all from\nthe famous Michael Pablo herd, which\nfalo. and is the largest herd on\nearth.\n\n\nThe deal was made through Major\nSmead and the animals were shipped\nthrough town last night in two palace\nstock cars.\n\n\nIn well informed circles this ship\nment is taken as an indication that\nthe big buffalo herd on the reserva-\ntion will be disbanded within the next\nfew years. and that the Indians on\nthe reserve will sell off every indi-\nvidual in the big herd. the half blopds\nas well as the full bloods.\n\n\nWith the opening of the reserva-\ntion the grazing area will be limited,\nand the buffalo will no longer have\nthe range facilities as afforded today\nConsequently it will be necessary to\nfind some disposition for the rare ami\nmails, for they will not range in a\nsection where the white men frequent\nto any extent\n\n\nThe consideration of the deal has\nnot been made public, but 1t Is stated\nthat Mr.. Pablo secured a most sub\nstantial figure for his Indian cattle\""
+    }
+  ]
+}

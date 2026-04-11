@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-01-29 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-29",
+    "date_end": "1909-01-29",
+    "report_year": 1909,
+    "source_file": "3_1909-01-29_p7_sn88085947_00211108599_1909012901_0578",
+    "archive_ref": "3_1909-01-29_p7_sn88085947_00211108599_1909012901_0578",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-01-29_p7_sn88085947_00211108599_1909012901_0578",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 375,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 1916,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "have read with deep interest\nthe logical criticism of Mr.. Sunday\nby Jessie Shirley, published in\nTuesdays Press, and she deserved\nthe highest commentator for the\neffor,.\n\n\n1t may be true, as Adolph Ca\nmeron says. that Miss Shirley\nkeeps her show open on Sunday.\nSo do the street cars run on Sun\nday, and all the great railway\ntrains, and all the mines and smell\nters and thousand other kinds of\nenterprises run on Sunday. The\npeople want 1t that way. The Sun\nday of a hundred years ago has\nbeen changed to Sunday of\nrecreation to those who do not\nhave to work, because the people\nwant it that way. Even the base\nball teams play on Sunday, and not\neven the evangelical Billy has been\nable to reform his associates on the\ndiamond. The people want II and\nall the preachers in Christiandom\ncannot prevent it. One might as\nwell expect good general to de-\nlay battle with an enemy because\nthe opportunity happened to come\non Sunday. ..... ......\n\n\nThere may be some immoral in\nfluences connected with theaters,\nbut the reverse Is the rule. And\nthere are many plays. like the\n\"Sign of the Cross\" which con-\ntains more moral sentiment than\nall the sermons Billy Sunday ever\npreached\n\n\nTo listen to the rantings of Billy\nSunday one might be led to be-\nlieve that local option and tenn\nperence are synonymous terms.\nBut they are not Excessive drink\ning can only be cured by personal\nresolution. medical treatment or\nmoral suasion. People who wish\nto drink liquor will do so in spite\nof constitutions and statutes.\n\n\nFor eight years | resided in\nBenton county. Arkansas, and\nthere was not a saloon In the\ncounty nor could anyone buy a\ndrink of liquor at drug store. And\nyet there was whisky everywhere.\nII it was not shipped in from an\nother state In cases. it was made\nat home. And strange as 1t may\nseem. the principal ''moonshiners'\nof Benton county We're the pillars\nof the local churches and all very\nardent advocates of prohibition.\nWhisky is one of the simplest\nbeverages in the world to make. |\nhave seen a housewife In Arkan-\nsas sitting In the kitchen knitting"
+    }
+  ]
+}

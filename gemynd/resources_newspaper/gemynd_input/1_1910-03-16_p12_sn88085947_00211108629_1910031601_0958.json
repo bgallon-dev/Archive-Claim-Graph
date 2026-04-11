@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COUNTY AID\n\n\nIS SOUGHT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-16",
+    "date_end": "1910-03-16",
+    "report_year": 1910,
+    "source_file": "1_1910-03-16_p12_sn88085947_00211108629_1910031601_0958",
+    "archive_ref": "1_1910-03-16_p12_sn88085947_00211108629_1910031601_0958",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-03-16_p12_sn88085947_00211108629_1910031601_0958",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 107,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 350,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A delegation of prominent mem\nbers of the West End Improvement\nclub visited the county commission.\ners this morning to seek their CO.\noperation in the movement for the\nerection of a new Sixth avenue\nbridge across Hangman creek or\nThe partial filling in of the 1880 foot\nspan.\n\n\nThe plan of the West Enders is\nto have the city, county and Wash\nlngton Water Power company join\nforces TO pay for the improvement.\nbut as the state law only permits\nthe commissioners to use IS per\ncent of the moneys raised for roads\nwithin the city for city work, and\nthe Olive street bridge has secured"
+    }
+  ]
+}

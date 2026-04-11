@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BELLINCHAM BAY Line\n\n\nHEADS TOWARD SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-26",
+    "date_end": "1903-08-26",
+    "report_year": 1903,
+    "source_file": "7_1903-08-26_p2_sn88085947_00211108538_1903082601_0315",
+    "archive_ref": "7_1903-08-26_p2_sn88085947_00211108538_1903082601_0315",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1903-08-26_p2_sn88085947_00211108538_1903082601_0315",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 127,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 599,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Further evidence that the Belling-\nham Bay and British Columbia rail-\nroad intends entering Spokane is fur\nnished by local bankers through whom\nbonds are offered ror safe. These\nbonds are only offered for extensions\nof the road at the rate Of $4,000 per\nmile.\n\n\nThe prospectus states that the B.\nb. & B. C. r. r. Is California cor\nporation and the entire capital stock\nIs owned by the following San Fran\ncisco capitalists: ID. o. Mills, Alvin\n\"a Hayward, p. p. Cornwall, Lloyd\nTevis Estab, ]. B. Haggin and 8.\nPrentiss Smith.\n\n\nThe main line extends from What\ncom, where connection is made with\nthe Great Northern, northeast to\nSumas, where connection il made with\nboth Northern PACING and Canadian\nPacific, thence southeasterly to Ma"
+    }
+  ]
+}

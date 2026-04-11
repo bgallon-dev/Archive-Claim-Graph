@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-16 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-16",
+    "date_end": "1910-03-16",
+    "report_year": 1910,
+    "source_file": "5_1910-03-16_p1_sn88085947_00211108629_1910031601_0947",
+    "archive_ref": "5_1910-03-16_p1_sn88085947_00211108629_1910031601_0947",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-03-16_p1_sn88085947_00211108629_1910031601_0947",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 473,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 14,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Labor and the Woman's club\nhad the usual lemon handed them\nby the council last night. The\ndelegation from each presented the\ncause Of the police matrons again\nand the council referred the whole\nmatter to the judiciary committee,\nwhich will meet Monday and daily\nsome more probably.\n\n\nThen labor was handed an extra\nlemon for good count. there being\nno 5000 men on hand to protest.\nOn motion of Schaeffer. seconded\nby FUNK, the council pigeonholed\nthe petition of labor to have the\ninvestigating committee increased\nby the addition of union man to\nbe named by labor, not by the\nmayor. Funk who is supposed to\nrepresent labor. deliberately turned\non his constituents, just as a week\nbefore he had not dared lift his\nvoice when he saw labor's spOkes-\nman thrown from the council cham\nber Probably Mr.. Funk will be\nremembered by labor later.\n\n\n1t was more than ever evident\nlast night for some mysterious\nreason the council was not going to\nhave any real investigation of the\npolice department nor any police\nmatrons. 1t was evident that the\ncouncil was even willing to have\nthe whole thing handled by the\nmayor, who has taken it out of the\nhands of the council these last few\ndays, despite the general feeling\nin the council that it usually\ndoesn't want the mayor to butt in.\n\n\nThe women and labor are Won\ndering today just how bad condi-\ntions are in the police department\nIL every official of the city govern\nment is so intensely eager to keep\nthe whole mess covered up, and\nwhy it is that politicians who usu-\nally fight each other are so much\nin unison in denying fair investi'\ncation, or three police matrons.\n\n\nMeanwhile, labor has notified its\nmember of the latest mayor COM\nmittec to withdraw, as the leaders\nwill have nothing to do with any\nprobing committee that is domin-\nated by Sullivan, or soon-to-be\n(maybe) Corporation Counsel\nBlair. anC unless there is fair\ncommittee appointed by the mayor,\nsaid committee being chosen not by\nthe official clique now hunting\ncover. but by the organizations di-\nrectly concerned, then a secret\ncommittee will be authorized and\nits final findings and the evidence\nthat caused them will be printed.\nThe public will discover many\nthings of interest If it reads The\nPress these next few weeks. 1t\nwill also discover the real truth\nabout municipal and county condi-\ntions.\n\n\nThe attitude of the German So\ncieties Is about that of labor.\n\n\nwhile we feel that the mayors\nselection for us was good one.\nand that Mr.. Gundlach will always\nbe on the right side. we feel that\nthis is a six to one committee, with\nthe six probably welded to the ad\nministration program as were the\ntwo out of the three on the original"
+    }
+  ]
+}

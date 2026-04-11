@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-02-19 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-19",
+    "date_end": "1907-02-19",
+    "report_year": 1907,
+    "source_file": "6_1907-02-19_p4_sn88085947_00211108575_1907021901_0383",
+    "archive_ref": "6_1907-02-19_p4_sn88085947_00211108575_1907021901_0383",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1907-02-19_p4_sn88085947_00211108575_1907021901_0383",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 191,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 657,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "doze them into resembling their\nprevious action in seating Rev.\nHindley. They claim that he could\ndo the cause Of labor no possible\nharm if granted a seat, but that the\nmere fact that he was refused a\nseat was one of the hardest blows\ndealt the local unions in years, as it\nleads the general public to suppose\nthat the local labor organizations\nare dominated by the Retail Liquor\nDealers association.\n\n\nApologists for the bartenders\nclaim the action of the Central La\nDor union was taken on purely con-\nstitutional grounds, but this state\nment is not taken seriously by\nthose familiar with the facts. Min\nlisters have been seated in the con-\nvention of the American Federation\nOf Labor and in the State Fedora\nton of Labor, as well as in local\ncentral bodies in other cities.\n\n\nUnion men of this and other\ncities believe the clergy as a rule\nhas opposed labor organization, but\nthey say that most of this opposi-\nton has been due to ignorance and\nthis would be remedied by allowing\nthem to investigate and understand\nunion principles by actual contact\nwith tho u-OrlyiDU mon"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Jackson Congratulated by Railroads\nfor His success In SecuPInq\nTraitors In The Banks OF The\nSpokane JObbePS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-26",
+    "date_end": "1904-04-26",
+    "report_year": 1904,
+    "source_file": "9_1904-04-26_p1_sn88085947_00211108538_1904042601_1252",
+    "archive_ref": "9_1904-04-26_p1_sn88085947_00211108538_1904042601_1252",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-04-26_p1_sn88085947_00211108538_1904042601_1252",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 342,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1183,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the 20 shippers representing\nthe Spokane Shippers association\nwho met last night and ANONYMOUSLY\nsurrendered to the railroads were not\nproud of what they were about to do\n10 evidenced by their debarring news\npaper men from their session.\n\n\nPresident Schiller of the shippers\nassociation, Manager Goodall of the\nWhitehouse company and one or two\na local conference and to mark those\nwho We're wiled into surrendering.\n\n\nCrane . Close Second.\n\n\n1t was warm meeting. Many\nthings of interest to the general pub\nlie were developed. Fred Mason and\nl.. NJ. Booth led the retreat. with\nGeorge Crane a close second. Presi-\ndent Schiller and f. l.. Goodall tried\nto stem the Bull Run tide. 1t was of\nno use. Schiller spoke for half\nhour using the lash numerically. A\nFictitious listener remarked:\n\n\n\"That Ia the way Mason and Booth\ntalked when the fight began. and see\nthem now\"\n\n\nAnother remarked that number of\nbackbones were slowly crumbling.\n\n\nCutting Comment.\n\n\nMr. Flynn of Miller, Mower &\nFlynn interjected:\n\n\n\"All kinds OF fabrics sometimes re-\nquire n little starch\"\n\n\nBut the house that Jack built\ncrumbled before this bit of hot air\nwired from st. Paul to H. A. jackson\nOf the Great Northern yesterday:\n\n\njackson: congratulate you upon\nthe action of the executive commit\ntee of Me shippers. which l am GER\ntain cobld not have been secured\nwithout the assistance of our friends\namong the shippers. BLABON.\"\n\n\nThe telegram was read to the ship\n,pers at last nights meeting and was\nreceived rs rare condescension by\nsome and with derision by others. 1t\ndeveloped one fact, however, that the\nexecutive committee, which had re-\nfused their action TO the newspapers\nhad allowed the local railroad officials\nto wire their resolution to the officials\nat st, Paul, who, as appeared by the\ntelegram, were already congratulate\ning themselves on their easy victory.\nThis action of the executive commit\ntee was scored as without authority.\n\n\nDelegation for Chicago.\n\n\nThe meeting finally decided to al\nlow a coterie of its number to ride"
+    }
+  ]
+}

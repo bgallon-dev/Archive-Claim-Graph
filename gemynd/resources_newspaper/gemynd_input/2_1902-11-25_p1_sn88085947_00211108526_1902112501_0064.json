@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Briefs.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-25",
+    "date_end": "1902-11-25",
+    "report_year": 1902,
+    "source_file": "2_1902-11-25_p1_sn88085947_00211108526_1902112501_0064",
+    "archive_ref": "2_1902-11-25_p1_sn88085947_00211108526_1902112501_0064",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1902-11-25_p1_sn88085947_00211108526_1902112501_0064",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 2.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "turnbull"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 180,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "turnbull",
+            "weight": 2.5,
+            "offset": 327,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Judge Richardson's court has a\ncivil case on the book for this after\nnoon.\n\n\nJudge KEENAN, is busy today with\nthe o. r. Stockwell versus Windsor\nbuilding and Flo Darling case.\n\n\nThe advocates of an anti-vice\nticket are distributing copies of the\nstate laws covering the subject.\n\n\nJudge Belt is still taking testi-\nmony in the Turnbull lake case.\nThe lawyers are now searching for\nanother witness.\n\n\nA bench warrant was issued for\nJ. w. Strack, who was subpoenaed\nas a witness in the Turnbull lake\ncase and failed to appear.\n\n\nDR.. Moody of Standpoint, Idaho, Is\nin the city to remain a few days.\nMayor Byrne, in reply to an in\nquiry, again said that he is deter\nmined to put all slot machines out\nof operation.\n\n\nSpokane's retail stores are not\nbehind like establishments in other\ncities in their Thanksgiving dis\nplays and the show windows give\nevidence Of much care at this time,\nin many cases genuine artistic tai\nent being manifested. This depart.\nment of merchandising Is receiving\nsome of the attention its import\nance merits."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-08-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-10",
+    "date_end": "1906-08-10",
+    "report_year": 1906,
+    "source_file": "10_1906-08-10_p1_sn88085947_00211108563_1906081001_1014",
+    "archive_ref": "10_1906-08-10_p1_sn88085947_00211108563_1906081001_1014",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1906-08-10_p1_sn88085947_00211108563_1906081001_1014",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 278,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 799,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 41,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "City councilmen, members OF the\nboard Of public works and the city\nengineer this morning locked horns\non the bridge question. Standing\nupon the partly finished structure\nthat will replace the collapsed mid\ndie span of the Howard street\nbridge, Councilmen Gray, Funk and\nBaldwin on one side got their\nbacks up on the proposition Of En-\ngineer Mcintyre, Mayor Daggett\nand Commissioners ONO. Roy and\nWeymouth to- put the new steel\nbridge that now stands unused in\nthe cars in place of the old Haver-\nmale bridge.\n\n\nThose favoring this plan want\nthe new bridge put in so that it\nwill make crotch practically in\nthe same position as the present\nHavermale bridge, but with the\nnorth side of 1t intersecting the\nmiddle span 40 feet north from\nwhere it does now. This plan is\nalso favored by the Washington\nWater Power company. ....\n\n\nThe councilmen's proposition Is\nto do away entirely with rne Haver-\nmale bridge and use the new one\nordered in its place as the middle\nspan in place of concrete.\n\n\nThe objection offered by the\nboard to this proposition was that\nit would necessitate Havermale\nstreet striking the middle span at\nright angles, thus creating a con-\ngestion OF traffic on account OF the\nsharp angle. Traffic north and\nsouth on Howard street and west\non Havermale street would meet\nand on account of the sharp turn\nwould be at a disadvantage for all.\n\n\nThe councilmen in backing up\ntheir proposition said a fill could\nbe made at small cost and a great\nsaving would be made by the city\nIn putting in the new $23. 900 steel\nstructure for the middle span,"
+    }
+  ]
+}

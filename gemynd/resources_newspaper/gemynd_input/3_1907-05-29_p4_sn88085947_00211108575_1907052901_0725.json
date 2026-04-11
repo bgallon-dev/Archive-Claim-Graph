@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "SPOKANE REF0RMER\n\n\nGOES SADLY AMUCK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-29",
+    "date_end": "1907-05-29",
+    "report_year": 1907,
+    "source_file": "3_1907-05-29_p4_sn88085947_00211108575_1907052901_0725",
+    "archive_ref": "3_1907-05-29_p4_sn88085947_00211108575_1907052901_0725",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-05-29_p4_sn88085947_00211108575_1907052901_0725",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 179,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 378,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 134,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With false whiskers and eye\nbrows that failed to match his air,\nand his pockets full of deadly\nweapons, c. H. Duncan of this city\nwas arrested at Boise yesterday,\naccording to reports from there. In\naddition to his weird disguise and\narsenal. he was loaded with social\nlist literature and wicked leer He\nseemed prepared to inaugurate a\nseason of devastation at the scene\nof the Haywood trial, and the po-\nlice locked him up.\n\n\nDuncan is an organizer of the So\ncialist labor party here. He is also\nprominent in the Industrial Work\ners of the World organization. The\nregular socialists repudiate him\ncompletely. Furthermore, Duncan\nis considered peculiar in his ways\nand prone to distinguish himself by\nfreaky performances. He repeated\nly Jared the peaceful Sabbath gath.\nerings of the socialists at Oliver\nhall and was finally abated by be-\ning ruled off the floor. To say the\nleast, he is radical in his reform\nideas, but his friends are at a loss\nTO account for his invasion of Boise\nin disjointed disguise and warike\nparaphernalia."
+    }
+  ]
+}

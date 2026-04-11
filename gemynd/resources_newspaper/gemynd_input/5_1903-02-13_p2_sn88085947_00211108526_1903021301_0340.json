@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-13 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-13",
+    "date_end": "1903-02-13",
+    "report_year": 1903,
+    "source_file": "5_1903-02-13_p2_sn88085947_00211108526_1903021301_0340",
+    "archive_ref": "5_1903-02-13_p2_sn88085947_00211108526_1903021301_0340",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-02-13_p2_sn88085947_00211108526_1903021301_0340",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 155,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "have been cleaned. $50 candle power\nelectric lights will be placed in the\ntower. and then anyone who can see\nthe tower at all will be able to know\nthe time.\n\n\nThe clock Is a massive affair The\nhour belr weighs $4,000 pounds. the\nhammer for the bell weighs 400\npounds, while the quarter-hour bells\nweigh 1900. $3.50, $500 and 200\npounds, respectively. The pendulum,\nwhich is over 10 feet long, weighs\n700 pounds. The dials of the clock\nare 23 feet in diameter. The hour\nmarks are two feet long, the minute\nspaces are one foot square. while the\nminute hands are over IL feet long.\nThe clock is wound every Monday.\nWednesday and Friday afternoon, and\nit takes two men several hours to\ndo it. A new appliance. however. Is\nnow to be put in the tower. which\nwill wind the clock automatically by\nelectricity. When built, the clock\nand bells cost $4,000."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "RATE FIGHT\nCOMES Up\n\n\nTOMORROW",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-24",
+    "date_end": "1909-05-24",
+    "report_year": 1909,
+    "source_file": "11_1909-05-24_p1_sn88085947_00211108605_1909052401_0018",
+    "archive_ref": "11_1909-05-24_p1_sn88085947_00211108605_1909052401_0018",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-05-24_p1_sn88085947_00211108605_1909052401_0018",
+      "composite_score": 13.44,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "freight rate",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 293,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 207,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 60,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 127,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 207,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Tomorrow morning at the cham.\nManager j. G. Woodwork of the\nNorthern Pacific and Assistant\nTraffic Manager w. P. Kenney of\nthe Great Northern will attempt\nto explain to the shippers of Spo-\nkane wherein the freight rates pro-\nposed by their respective com.\npanies. are better than those fixed\nby the interstate commerce COM\nmission.\n\n\nMr.. Woodwork told The Press\ntoday that he had nothing to offer\nfor publication, but that they had\ncome on here to answer. any all\nquestions about the proposed rates,\nwhich any merchant in Spokane\nmight ask. When told that there\nseemed to be niger in the wood\npile, he retorted:\n\n\nI'VE never made a freight rate\nthat would please everybody, and\ndo not expect to be able to do it\nnow\"\n\n\nMr.. H. D. Turnkey, one of the\nnewly appointed members of the\ncommittee, seemed to take the pro-\nposed rates as joke, inasmuch as\nthe apparent concession of the rail\nroads in reducing the tariff on\ncanned goods Ave cents per 100\nwest of St. Paul is more than Offset\nby the proposed increase of tariff\non the same commodities east of\nst. Paul.\n\n\nA. w. Doland, in speaking for\nthe shippers, said that he had ne\nidea what the railroads had to Of\nfer new, but that it looked as #\nthey expected Spokane shippers to\nbelieve a dollar bill as good as\na two dollar bill. There will De\na meeting Of the committee this\nafternoon\" he added, Ito seect\nmembers to listen to the railroad\nand if they are not\ndisposed to give us what we think\nwe ought to have, we have every\nconfidence we will get it in Wash\nington, where we will be repre-\nscented by H. Nj. Stephens."
+    }
+  ]
+}

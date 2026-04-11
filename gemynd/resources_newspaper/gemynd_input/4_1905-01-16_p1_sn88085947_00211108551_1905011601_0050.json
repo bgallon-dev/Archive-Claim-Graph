@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Cro0kedness in City Council Is Hinted\nBecause 500, Refused IFS Price\n0fNew Telephone Eranchise--Hopkins\nIs Said to Control Six C0uncilmen",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-16",
+    "date_end": "1905-01-16",
+    "report_year": 1905,
+    "source_file": "4_1905-01-16_p1_sn88085947_00211108551_1905011601_0050",
+    "archive_ref": "4_1905-01-16_p1_sn88085947_00211108551_1905011601_0050",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-01-16_p1_sn88085947_00211108551_1905011601_0050",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 270,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 15,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "lead the fight against the new tele-\nphone company on behalf of the Pa\n|cific States Telephone company.\nWith Lindsey in the council were\nCouncilmen Snyder, ]. II. Boyd\nGeorge Koontz, Fred Pearson and Ar\nthur Baines\n\n\nAgainst the Hopkins cabal were N\ns. Pratt, Fred Baldwin, John Gray\nand Leonard Funk. Both sides de-\nclared the matter had become a po-\nltical ISSUE\n\n\nA committee meeting was held be-\nfore the council meeting and the tele-\n\n\nphone franchise was discussed. 1t\n\n\nwas proposed to allow the matter to\n\n\ngo over for further discussion, but\n\n\nthe six men mentioned above called\n\n\nthe matter from the committee when\n\n\nthe council met and tried to kill the\n\n\nfranchise.\n\n\nShrewd parliamentary tactics de-\nfeated this piratical attempt at kill\n\n\ning off the franchise before a proper\ninvestigation was had and the clover\nhoof of the CRATER bunch disappeared\nunder the ruling adopted at prior\nmeeting that when an amendment is\n\n\nmade to an ordinance the passage\nof the ordinance can not be voted\n\n\nupon for two evenings and then a\ntwo-thirds vote is needed.\nCouncilman Gray delivered the first\nshot at the Hopkins syndicate in the\n\n\nouncil by making the following mo-\n. ton:\n\n\nII make a motion to amend the or\n\n\ndinance for the franchise, changing\n\n\nit to read so that the company must\neXpend 100000 within two years\nafter getting the franchise instead of\n\n\nthe 100000 they have promised to\nspend in the original ordinance\"\nObjections We're made to the mo.\nton, but Attorney Cyrus Happy, rep\n\n\nresenting Mr. Sumner, corroborated\n\n\nthe statement thata 100000 would be\nspent instead of 100000."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-10-01 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-01",
+    "date_end": "1908-10-01",
+    "report_year": 1908,
+    "source_file": "11_1908-10-01_p5_sn88085947_00211108587_1908100101_1105",
+    "archive_ref": "11_1908-10-01_p5_sn88085947_00211108587_1908100101_1105",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1908-10-01_p5_sn88085947_00211108587_1908100101_1105",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 338,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 364,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Campaign warning is given sa-\nloonmen of the country by M. T.\nGilmore of Louisville. KY. presi-\ndent of the National Model License\nleague. 1t is addressed to whisky\ndealers generally and shows that\nMr.. Gilmore is awake to public at\ntitude toward the saloon from the\nliquor dealers standpoint at least.\nHe says:\n\n\nTo the Saloon Keepers of the\nUnited States:\n\n\nThe prohibition wave that was\nsweeping over the country would\nseem to be on the wane, but the\nprotest on the part of the people\nagainst the lawless saloon, the dive\nand the gambling resort is not sub\nsiding, but is exhibiting its force in\nlocal option conflicts.\n\n\nThe people are demanding, and\nproperly, that their laws shall be\nobeyed.\n\n\nSociety is moving forward and\nthe saloon must move forward or\nbe outlawed. The edict has gone\nforth that men must be sober if\nthey would be free, and few men\nwill now contend that man pos\nsesses an inherent right to over\nthrow his reason.\n\n\nThe edict has gone forth that\nsaloons must obey all laws-they\nthey must not sell to intoxicated\nmen, nor to habitual drunkards, nor\nto minors-that they must not ex-\nhibit improper pictures, nor con.\nmeet themselves with gambling re-\nsorts-in a word, that the saloan\nmust not be a nuisance.\n\n\nThe press of the country has Sc\ndeclared; the ministers have so de-\nclared; the law and order leagues\nhave so declared; the great con\nsentative element in society has SC\ndeclared\n\n\nThese forces for good are all\npowerful in society and our trade\ncannot afford to oppose them.\n1t would be foolish for us to OPP\npose them even though we could\n| do so successfully. because the de\nmands they are making are our de-\nmands.\n\n\nOur trade needs a house cleaning\nand we should aid the good work\n| along. The saloon that is run in\nviolation of the law or of decency\nshould be put out of business and\n| the better element in the trade"
+    }
+  ]
+}

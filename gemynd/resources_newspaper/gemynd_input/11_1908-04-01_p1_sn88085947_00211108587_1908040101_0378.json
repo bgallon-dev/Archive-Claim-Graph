@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Committee CALLS\n\n\nIN RAILROAD Men",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-04-01",
+    "date_end": "1908-04-01",
+    "report_year": 1908,
+    "source_file": "11_1908-04-01_p1_sn88085947_00211108587_1908040101_0378",
+    "archive_ref": "11_1908-04-01_p1_sn88085947_00211108587_1908040101_0378",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1908-04-01_p1_sn88085947_00211108587_1908040101_0378",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 139,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 327,
+            "in_headline": false
+          },
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 274,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city grade separation com.\nmission decided yesterday to in\nvlte d. c. Corbin to conference\nas soon as he returns to the city.\nThis will probably be Friday or\nSaturday. Jay p. Graves was at\nthe meeting, but nothing was given\nout as to his views on the sub\nject of common right of way, tun-\nmel through Cannon hill and union\ndepot, as proposed in City Engineer\nRalston's scheme.\n\n\nThe belief is that Graves was\nnot ut the meeting as \"A citizen or\na representative Of the streetcar\nlines. but as representative of\nthose interested with him In his\ntunnel along Front av. Mayor\nMoore said today that with such a\ncommission rs he has gathered\nsomething tangible should develop\nIn reasonable time.\n\n\nThe council last night decided to\nhold another grade separation\nbeeting next Monday night."
+    }
+  ]
+}

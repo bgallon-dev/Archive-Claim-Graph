@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-07-13 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-07-13",
+    "date_end": "1908-07-13",
+    "report_year": 1908,
+    "source_file": "7_1908-07-13_p1_sn88085947_00211108587_1908071301_0733",
+    "archive_ref": "7_1908-07-13_p1_sn88085947_00211108587_1908071301_0733",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-07-13_p1_sn88085947_00211108587_1908071301_0733",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 127,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 353,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 379,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Believing that the present agita-\nton to bond the city again for ad-\nditional new bridges is nonsensical\nuntil it Is clearly established that\nthe streetcar companies must pay\na fair proportion of the cost and\nthis proportion is established be-\nyond possibility of dispute or eva\nsion, The Press today put the ques-\nton squarely up to Mayor Moore.\n\n\nThe city council and board Of\npublic works have displayed an I'M\naccountable and inexcusable inabil-\nity to deal with the streetcar COM\npanies in the matter of bridge\ncost That question is practically\nright where it was after the How\nard st. bridge collapsed more than\ntwo years ago.\n\n\nMayor Moore's answer goes\nstraight to the roots of the whole\nmatter. If the taxpayers of the"
+    }
+  ]
+}

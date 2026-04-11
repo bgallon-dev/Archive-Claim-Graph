@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GETS A Letter FROM\n\n\nCOMPERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-13",
+    "date_end": "1906-09-13",
+    "report_year": 1906,
+    "source_file": "5_1906-09-13_p3_sn88085947_00211108563_1906091301_1138",
+    "archive_ref": "5_1906-09-13_p3_sn88085947_00211108563_1906091301_1138",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-09-13_p3_sn88085947_00211108563_1906091301_1138",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 152,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "E. A. Cooney, local organizer of\ntheh American Federation of Labor\nand member of the executive COM\nmittee of the Spokane County\nReferendum league, is in receipt of\nthe following letter of encourage\nment from Samuel Gompers, ma\ntional head of the federation:\n\n\nDear Sir and Brother: Your IA\nvor of August 81, together with\ncopy of Referendum Advocate, to\nhand.\n\n\nIn reply would say that the\nAmerican Federation of Labor, as\nyou are aware, has endorsed the\ninitiative and referendum. 1t has\nbeen put into operation in many\nplaces already, and Is meeting with\nconsiderable success. l hope you\nwill continue the work as your\ntime allows you from your other\nduties in spreading the principle in\nthe state of Washington.\n\n\n| am sending you under separate\ncover some official letter paper and\nliterature.\n\n\nWishing you success and best\nwishes, remain, Fraternally yours,\n\n\nID SAMUEL GOMPERS,\n\n\nPresident American Federation\n\n\nof Labor."
+    }
+  ]
+}

@@ -58,8 +58,10 @@ class UserContext:
     # Per-client identifier for API token holders (improves audit trail granularity).
     client_id: str | None = None
     # Institution IDs this user may read across. Defaults to a single-element
-    # list containing ``institution_id`` for back-compat; the web app
-    # overrides this at request time with the composite-config corpus list.
+    # list containing ``institution_id``. The web app's ``require_user_scoped``
+    # and ``require_admin_scoped`` dependencies (in ``retrieval/web/app.py``)
+    # expand this to the full composite corpus list for admin callers; other
+    # roles remain pinned to their home institution for tenant isolation.
     permitted_institution_ids: list[str] = field(default_factory=list)
 
     def __post_init__(self) -> None:

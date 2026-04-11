@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "t WAS REAL\n\n\nLIVE FEAST",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-18",
+    "date_end": "1909-12-18",
+    "report_year": 1909,
+    "source_file": "1_1909-12-18_p2_sn88085947_00211108617_1909121801_0403",
+    "archive_ref": "1_1909-12-18_p2_sn88085947_00211108617_1909121801_0403",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-12-18_p2_sn88085947_00211108617_1909121801_0403",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 275,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 184,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Meeting for a last love feast and\nshower of verbal bouquets for the\ngood work of its various members.\nthe executive committee for the\nSpokane county display at the\nAlaska ukon-Pacific exposition.\nheard the final report of it's secre-\ntary. in the gothic room of the\nDavenport restaurant last night.\nWith all bills paid, there is a bal\nance of $1030.S0 still in the treas\nury, out of the total receipts of\nS31 ,01690 from the county and from\npopular subscriptions.\n\n\nAll members of the committee\nWe're profuse in their praise of Mr.\nand Mrs. Martin J. Vessels, the\nfamous local decorators, who super\nintended the arrangement and dec\nGrafton of the beautiful Spokane\ncounty building, erected after the\nplans of julius little of the archi-\ntectural firm of Preusse e Sttle.\n\n\n1t was shown that, with one pos\nsible exception, the Spokane county\nbuilding was the most attractive\nand impressive on the grounds, and,\nas token of eheir appreciation,\nthe committee presented Mrs. Wes-\nsells with q hOndsOme gold watch.\n\n\nFollowing is list of the disburse-\nments of the committee as reported\nby Secretary Monroe:\n\n\nTotal cost of display. 1886;\nconstruction of building. 1894. so:\nassembling exhibit, $G500; mainten-\nance. $2790; salaries. $500, and\nlighting, $214777.\n\n\nThose present at the last sup\nrer' were l.. MacLean. f. F. G. Van\nDisscl, l.. F. Williams. r. A. Jones.\nSam Glasgow, J. A. Ristau r. A.\nHutchinson, J. A. Zittel, H. w. Col\nInns. f. d. Sanders, H. J. Shinn and\nGus Meese of the committee and\nH. l.. Blocker, c. NJ Fassett, NJ. J.\nVessels, l.. G. Monroe, A. W. Jones\nand W. S. McCTea."
+    }
+  ]
+}

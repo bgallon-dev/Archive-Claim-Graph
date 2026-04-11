@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\retrieval\synthesis.py
+# hypothesis_version: 6.151.9
+
+[4096, '\nCurrent query:\n', '60', 'ANTHROPIC_API_KEY', 'Anthropic_API_Key', 'Assistant', 'SYNTHESIS_MODEL', 'SYNTHESIS_TIMEOUT', 'User', '[ADDRESS REDACTED]', '[DOB REDACTED]', '[PHONE REDACTED]', '[SSN REDACTED]', '```', 'access_level', 'answer', 'caveats', 'claude-sonnet-4-6', 'content', 'donor_restricted', 'json', 'max_tokens', 'public', 'role', 'supporting_claim_ids', 'synthesis', 'user', '{synthesis_context}']

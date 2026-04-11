@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-11-23 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-11-23",
+    "date_end": "1905-11-23",
+    "report_year": 1905,
+    "source_file": "20_1905-11-23_p1_sn88085947_00211108563_1905112301_0130",
+    "archive_ref": "20_1905-11-23_p1_sn88085947_00211108563_1905112301_0130",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "20_1905-11-23_p1_sn88085947_00211108563_1905112301_0130",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 108,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 136,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The above Is Assessor Stewards\nreply to The Press open letter re-\ngarding the taxation Of deposits\nwith the gas company and Wash\nington Water Power company.\n\n\nThese companies do not have to\npay taxes on these deposits.\n\n\nYou, Mr.. Deposition, must pay the\ntaxes and II you do not return\nyour deposits for taxation, you\ncommit perjury.\n\n\nThe assessor Is not to blame\nthat this is so. He must perform\nhis duty as determined by law.\n\n\nBut what crying shame. That\nthe people of this city must turn\ntheir funds into 'he Golfers of\nthese companies, under illegal\nthreats Of refusal Of service.\n\n\nThen that these corporations"
+    }
+  ]
+}

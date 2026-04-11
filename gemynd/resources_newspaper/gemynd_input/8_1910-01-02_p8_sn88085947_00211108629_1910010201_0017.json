@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Spelling PLACES\nOf BEAUTY\n\n\nHERE\n\nWriter Says Straight Line\nEngineers Spelling City's\n\n\nNatural Advantages.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-02",
+    "date_end": "1910-01-02",
+    "report_year": 1910,
+    "source_file": "8_1910-01-02_p8_sn88085947_00211108629_1910010201_0017",
+    "archive_ref": "8_1910-01-02_p8_sn88085947_00211108629_1910010201_0017",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-01-02_p8_sn88085947_00211108629_1910010201_0017",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 520,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 1111,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 1481,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That Spokane is thoroughly en-\ntitled to it's claim as a City Beau\ntiful' is agreed by one writer\nwhose article appears in the\nTwentieth Century magazine this\nmonth. Much space is given in\nthe magazine to enthusiastic com\nment on the city's future prospects\npast success and present beauty\nand elegant half page halftones OF\nthe principal buildings, parks and\ninstitutions take up a half dozen\nnicely arranged pages of the popu\nlar little book. Pictures of the\nMasonic temple, the court house,\nSouth Central high School building,\nChristian Science church and of\nMantle and Liberty parks, and two\nsplendid pictures taken from diff\nferent points of vantage through\nOccur d'Alene park, are shown.\n\n\n|. OF the city of Spokane, the ar\nticle in part is as follows:\n\n\nINTELLECTUALLY, Spokane is far\nahead of any city of it's size with\nwhich / am familiar. Both in bust\nness blocks and residences it is\ndeserving of high praise. There is\nlittle of the bizarre or weakly pre-\ntentiOus as one so often finds in\nthe architecture of new towns. Ev-\nerything is solid, substantial, digni-\nfled and harmonious. A glimpse\ndown Riverside avenue reveals a\nscore of business blocks that would\ndemand nttnnfjNn in L.\nBoston or any other large eastern\ncity. Well designed and equally\nwell built, they reveal business\nprosperity as well as architectural\ntaste. Some of the buildings rise\nfar above the average, and the\nchurches are as artistically pleas\ning as are the business blocks.\n\n\n\"As usual, the real estate man\nand the \"straight-line engineer\" did\ntheir best to spoil the natural adj\nvantages of the growing city. No\nprovision was made for breathing\nplaces, in the form of city squares\ni'll the business section; and to-\nwards the west the possibilities OF\nthe riverfrOnt were totally ignored\nIts scenic banks below the falls\nwere made dumping places for\ntrash of every kind, or the site OF\nshacks that shock the eye and Of\nfend the taste. They are naturally\nadapted for the most beautiful of\nhomes and small parks where all\nthe people could come at allStimes\nand enjoy the flowing of theIi4er\nthe CLINT OF the sun upon a tree.\nlined stream, and the exquisite\nglories and delights of the falls\nabove. Who does not know the\ncharm and fascination that Niagara\npossesses for thousands and thous.\nands OF people from all parts of\nthe world, who come to it again\nand again to revel in the various\ncolors, the changing tints and\nshades, the fume, the fret, the\nmajesty and the mystery that are\nalways felt in the roar of a. great\nwaterfall? And only in a lesser\ndegree than Niagara, the Spokane\nfalls appeal to the same emotior/\nand produce the same sensations\nof delight and pleasure. To rescue\nthese river banks and provide\nsight seeing and scenic breathing\nspots is one of the endeavors OF\nthe present park board, and to con\nmeet them with a well arranged\nand beautiful civic center and q\nsystem of parks and scenic reser\nvatlons commensurate with the\ncitys commercial and financial i'm\n| pOrtance.\""
+    }
+  ]
+}

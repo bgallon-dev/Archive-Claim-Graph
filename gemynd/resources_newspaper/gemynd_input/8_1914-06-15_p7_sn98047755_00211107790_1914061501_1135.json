@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Washington Farmer — 1914-06-15 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1914-06-15",
+    "date_end": "1914-06-15",
+    "report_year": 1914,
+    "source_file": "8_1914-06-15_p7_sn98047755_00211107790_1914061501_1135",
+    "archive_ref": "8_1914-06-15_p7_sn98047755_00211107790_1914061501_1135",
+    "series": "Washington Farmer",
+    "language": "en",
+    "lccn": "sn98047755",
+    "newspaper_name": "Washington farmer. [volume] (Spokane, Wash.) 1914-1971",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1914-06-15_p7_sn98047755_00211107790_1914061501_1135",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.2,
+      "tier": "background",
+      "year": 1914,
+      "word_count": 520,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 1610,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 272,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "teries at the same time. The eco\nnomic advantage of this is that while\nthe engine is run for an hour or so\nmorning and evening to run the milk\ning machine it stores up enough cleo\ntricity in the batteries to furnish\nlight tor the rest of the \"a hours, and\nthe cost of the electric light is prac-\ntically nothing after the first installa-\nton. This arrangement is very much\ncheaper than buying current from the\npower company where a minimum\ncharge per month is always made\nwhether the electricity is used or not.\n\n\nThe cost of such dairy barn COM\nplete, except the machinery, need\nnot be over $500 to $1,000. The two\nsilos, 14x3O feet. will cost erected\nabout $500. The milking machine,\nwater system, electric light plant,\nensilage cutter, and the two gasoline\nengines will cost about $500.\n\n\nDairy farmers who have pfactieed\nancient methods will figure how they\nare going to pay for it all. With\nsuch an equipment and modern\nmethods of farming one can keep a\nCOW to the acre and raise prac tically\nall the feed on the farm. By plant\ning a few acres Of vetch and winter\nrye, or oats and barley in September\n10 I'd\nfor the silo about May 1st. Cut it\nand put it in green. Then distribute\nsome manure on the land with the\nspreader, pillow it, and cultivate it\nand drill in a crop OF corn, which\nwill be ready for the silo in the fall.\nThus with two silo crops a year it\ndoes not require many acres to fur\nnish green succulent feed for the\nCOWS. From the 1st to the 10th of\nJune when the clover is in bloom\ncut it green and put it in the silo.\nBy the middle of August second\ncrop will be ready which can be cut\nfor hay whereas ii the first crop were\nleft till the middle of July when\nweather is fit for haying it is too\ncoarse to make good hay and there\nwill be no second crop.\n\n\nThe dairy farmer should eliminate\nall \"boarders'' and keep no COWS that\ndo not average him SIS per month for\ncream and skimmllk fed to hogs in\nconjunction with silage. The 1st of\nAugust when pasture is short and\nweather hot, keep the COWS in the\nbarn lot and feed them silage, instead\nof having them use their energy in\nrustling feed. In this way the milk\nsupply Will be kept up.\n\n\nBy the use of the milking machine,\none man can accomplish in one hour\nwhat it takes two men to do in three\nhours and when it is done he is ready\nfor days work as the engine has\ndone the hard work.\n\n\nWith the barn and equipment as\noutlined above two men can do all\nthe work necessary on a farm sup\nporting so COWS and the necessary\nhogs to use the skimmilk and with\nan average return from each as in\nDictated it should not take long to pay\nfor the improvements and provide\ncomfort and independence for the\nfarmer."
+    }
+  ]
+}

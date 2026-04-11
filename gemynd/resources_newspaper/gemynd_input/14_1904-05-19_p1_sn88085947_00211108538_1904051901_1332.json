@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-05-19 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-19",
+    "date_end": "1904-05-19",
+    "report_year": 1904,
+    "source_file": "14_1904-05-19_p1_sn88085947_00211108538_1904051901_1332",
+    "archive_ref": "14_1904-05-19_p1_sn88085947_00211108538_1904051901_1332",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1904-05-19_p1_sn88085947_00211108538_1904051901_1332",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 116,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 428,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 18,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "plants and owning real estate prop\nerty. The line will connect the North\nern Pacific and o. R. & N. railways\nand will be operated by both steam\nand electricity.\n\n\n1t is proposed in the prospectus to\nbuild 10 miles of line in Idaho, from\nPalouse city toward Princeton, and\nl2-inile spur to a point near Viola,\nIdaho. These spurs would open up\nmining timber and grain districts.\n\n\nThe population served will be $4,000\npeople. The right Of way is almost en-\ntirely secured, bonds being given where\nprivate property is taken. Steam will\nbe the power at the outset and later\nwater powe, will be developed. The\nstock is offered at par, $l.00 per share."
+    }
+  ]
+}

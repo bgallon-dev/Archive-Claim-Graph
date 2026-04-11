@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-05-20 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-20",
+    "date_end": "1905-05-20",
+    "report_year": 1905,
+    "source_file": "6_1905-05-20_p3_sn88085947_00211108551_1905052001_0484",
+    "archive_ref": "6_1905-05-20_p3_sn88085947_00211108551_1905052001_0484",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1905-05-20_p3_sn88085947_00211108551_1905052001_0484",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 406,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 17,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 232,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "what Is the best wheat grown in\n\n\nthe spring wheat section?\" I asked\n\n\nProfessor w. M. Mays, assistant sec\n\n\nthe best authority on wheat breeding\n\n\nin the world.\n\n\nminnesota No. 1863. Here is what\nthe wheat experts of the st. Louis\nexposition thought of it,\" and he\nhanded me letter he had just re-\nceived, being an official notice that\nthis wheat had won a grand prize,\n\n\nfnd that he, as originator of it, would\nreceive grand prize medal.\nThis wheat is better than others\nhe continued, because it has been\nbred for two purposes. To make a\nhigh quality of -four, and big yields\nof grain. We test new variety for\n\n\nboth qualities before sending it out\nThis wheat was bred at the Min\n\n\nnesota experiment station from care\nfully selected stock. During the\neighth and ninth years we made ex-\ntensive field tests of it, and in 1902\n\n\nsent GU the first seed, 800 lots of four\nbushels each.\n\n\nThis seed was sold at about dou-\nBILE the market value of wheat, and\n| only to those who agreed to grow as\nmuch grain as possible for distribu-\nton as seed.\n\n\n\"The results have been very flat\ntering. Yields have been three to\nfive bushels more per acre from No\n100 than from the other varieties\ngrown alongside of it. This spring\nat least 100000 acres of it will be\nsown. At a conservative estimate\nthis should give the growers 1000.\n600 bushels of increase over what\n| they would get if other varieties were\nsown. Next year there will be 1,500,-\n| 600 acres of wheat No. 169 grown in\n| the northwest, and by the following\nyear it will be grown generally all\nover the spring wheat section, adding\nseveral million dollars to the gross\nincome from this product.\n\n\nThis is what plant breeding has\ndone. We were 10 years producing\nthis variety. 1t took a vast amount\nof labor. Hundreds Of thousands of\n| wheat plants We're examined, and\nrecords made on many of them. But\nlook at the result The increased\nvalue of the wheat crop this year\n\n\nwill more than pay for all the work\nwe have done in plant breeding. and\n\n\nwe have not confined our work to\n\n\nwheat alone.\n\n\nI'VE hope to take this variety and\n\n\nfrom it develop something enough\n\n\nbetter to displace it. In fact we are\n\n\nworking on that now. but it will be"
+    }
+  ]
+}

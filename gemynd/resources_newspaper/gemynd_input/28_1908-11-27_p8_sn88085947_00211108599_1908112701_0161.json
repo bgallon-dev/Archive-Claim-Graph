@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-11-27 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-27",
+    "date_end": "1908-11-27",
+    "report_year": 1908,
+    "source_file": "28_1908-11-27_p8_sn88085947_00211108599_1908112701_0161",
+    "archive_ref": "28_1908-11-27_p8_sn88085947_00211108599_1908112701_0161",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1908-11-27_p8_sn88085947_00211108599_1908112701_0161",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 385,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 1876,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I have it from a labor man who\nsupported Taft In the recent cam\npaign and was roundly denounced\nas traitor by some of the promi-\nnent officials who were behind\nBryan, that the incoming admins\ntration will endeavor to amend the\nSherman ANTITRUST law, to give\ntrade unions the same rights en-\njoyed by other voluntary organiza-\nlions, and also to require. when\ninjunctions are sought in labor dis\nputes, that defendants be given\ndue notice and an opportunity to\noppose the issuance or restraining\norders. Mr.. Taft and his advisers\nwill proceed in this matter without\nconsulting any of the labor Off\nGals who supported Bryan. In\nfact, they are to be deliberately\nsnubbed, on the ground that the\nrecent campaign has proven that\nthey could not deliver the labor\nvote to the democratic party, as\nthey had guaranteed to do, and\nthat, therefore. they do not really\nrepresent organized labor. 1t is\nprobable that the administration\nbills will be opposed by those Off\nGals who fought Taft upon the\npretense that they will not be suf-\nficiently far reaching.\n\n\nThe celebrated hatters' case, in\nwhich the United Hatters of North\nAmerica were held to be liable for\ndamages by the United States SUI\npreme court for boycotting the\nproduct of nonunion concern in\nConnecticut, and which case has\nbeen remanded back. to the United\nStates district court in the forego-\ning case to fix the amount OF dam\nages to be collected, will probably\nnot be finally decided until next\nspring. Martin Lawlor. secretary\nof the United Hatters and chief\ndefendant in the suit, informs me\nthat the costs that must be borne\nby the. union will be between\ns15O,0O0 and 100000. Under the\nSherman antitrust. law, which act\nwas invoked against the hatters,\nthe defendants are liable for three\nfold damages. The plaintiff in the\ncase-the Loewe Co. of Danbury,\nConn.-declared that its loss sus-\ntanned by reason of the boycott\namounted to $4,000, so that it is\nnot improbable that the United\nHatters will be compelled to pay\nout in the neighborhood of 100000\nfor boycotting what they alleged to\nbe an unfair product. The homes\nand bank accounts of many of the\nunions members, having an aggre-\ngate value of 100000, have been\nattahced and will probably be con"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Primary Election Charges to Be Pre-\n\n\nferred With Central Labor Union.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-14",
+    "date_end": "1908-09-14",
+    "report_year": 1908,
+    "source_file": "24_1908-09-14_p1_sn88085947_00211108587_1908091401_0989",
+    "archive_ref": "24_1908-09-14_p1_sn88085947_00211108587_1908091401_0989",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1908-09-14_p1_sn88085947_00211108587_1908091401_0989",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 201,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 158,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 1169,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "purge the Central Labor union\nof grating members is the slo-\ngan of the better element of that\norganization who are to meet in\nthe labor headquarters at 612k\nRiverside avenue tonight for the\npurpose Of submitting primary cleo\nton information against certain\nmembers.\n\n\nThe latter are accused of taking\nmoney from candidates In the\nprimary campaign and casting dis\ncredit upon labor organizations to\nwhich they are affiliated as well as\nthe great mass of labor of the\ncity.\n\n\nOne of the charges is that the\nofficial ballot turned out by the\nlabor unions was stolen and the\nname of ]. F. Congieton stamped\nwhere the name of J. s. Phillips\nhad been erased.\n\n\nE. A. Cooney, vice president OF\nthe State Federation of Labor,\nstated this morning that the bet.\nter element Is in possession OF\nnames of six undesirable men who\nwill be openly accused of grating\noff politicians, affidavits supporting\nthe accusations.\n\n\nThis thing is a discredit to or\nganized labor and shall not be\ntolerated\" says Cooney. IF we\ncan put the evidence properly be\nfore the body those accused will\nbe drummed out and dishonorably\ndischarged from further affiliation.\n\n\nAc cnua,.aI re thncn onanCnH ore"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "onnuAuoE no. Al4ss.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-19",
+    "date_end": "1903-08-19",
+    "report_year": 1903,
+    "source_file": "6_1903-08-19_p3_sn88085947_00211108538_1903081901_0292",
+    "archive_ref": "6_1903-08-19_p3_sn88085947_00211108538_1903081901_0292",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-08-19_p3_sn88085947_00211108538_1903081901_0292",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 262,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 383,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 188,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An ordinance vacating part OF the\n\n\nls-foot street shown upon the plat\n\n\ng. H. -Morgsn's addition to spoka ne\n\n\nFalls, now Spokane. washington.\n\n\nwhereas, petition has been filed\nwith the city council. signed BY al\nthe owners Of private property abut.\nting Upon y ssid street, pyayins Ter ~, tn\nstreet Shown upon the plat OF the\nb-diylsi0n Of lot IL. Of @. -. Nor.\ngan's addition to Spokane Falls. now\nSpoknne. Washington; and,\n\n\nWhereas, the hearing Of SAID peti-\n1905. It the. shoarr ct 8 e,cicoS Q. m.\nIn the council ohamDers OF the city\n\n\nAna more than 70 days notice Of\nlaSd hearing 'been given BY the city\netsrA in the nannsr prsscribsd y\nand no one appsarinG IT sAiA hearing\nTO object to such vacation, and the\nsame having been duly ordered by\nthe city council: therefors.\n\n\nThe city OF SPOKANE does ordain a.\n\n\nSection 1. That the following des-\ncribsd part Of the 3S-f0ot street\nian II i ios H. ne 81 e. Ne nsrs.ns s ad-\ndition to Spokane Falls. now Spokane.\nWarrington, to-wit: BeGinninG at the\ncub division. running thence due west\nIS feet: running thence north 1880\nfeet; running aience east Is fest; run\nming thence south to place OF begin\nming be, and the same Is hereby va\nGated.\n\n\nSec. 3. This ordinance shall take\neffect and be In force ten days after\nits passage.\n\n\nPassed the city council August II.\n1908, FRED e. BALDWIN.\n3A< President OF the City Council.\n\n\nAttest: G. A. FLEMING. City Clerk.\nApproved August Is. 1903.\n\n\nL. BOYD Mayor"
+    }
+  ]
+}

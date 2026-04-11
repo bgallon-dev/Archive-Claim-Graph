@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "BOTTLERS COMPLAIN\n\n\nOF FREIGHT RATES",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-24",
+    "date_end": "1908-12-24",
+    "report_year": 1908,
+    "source_file": "7_1908-12-24_p5_sn88085947_00211108599_1908122401_0334",
+    "archive_ref": "7_1908-12-24_p5_sn88085947_00211108599_1908122401_0334",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-12-24_p5_sn88085947_00211108599_1908122401_0334",
+      "composite_score": 20.16,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1908,
+      "word_count": 87,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 169,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 23,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 169,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 23,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SAN FRANCISCO, Dec. 24.-The\nlast commercial industry to COM\nplain to the officials of the South\nern Pacific and Santa Fee railroads\nagainst the proposed increase in\nthe freight rates on various COM\nmodities in transit through the\nstate are the shippers of bottled\nbeer.\n\n\nRepresentatives from the north\nern firms in Washington and from\nvarious eastern firms today are\ncomplaining that the projected in\ncrease of 10 cents per hundred\npounds will force them to raise the\nprices on the retailers or go out of\nbusiness."
+    }
+  ]
+}

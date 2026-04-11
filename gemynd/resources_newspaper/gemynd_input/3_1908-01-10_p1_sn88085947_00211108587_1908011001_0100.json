@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NO SEAT, NO FARE; WHERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-10",
+    "date_end": "1908-01-10",
+    "report_year": 1908,
+    "source_file": "3_1908-01-10_p1_sn88085947_00211108587_1908011001_0100",
+    "archive_ref": "3_1908-01-10_p1_sn88085947_00211108587_1908011001_0100",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-01-10_p1_sn88085947_00211108587_1908011001_0100",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 101,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 314,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The mo seat, no fare\" PROPOSE\nton which councilmen, particularly\nCouncilman Pratt, were interested\nin a few weeks ago, has evidently\ngone the way of most regulations\nwhich would be really beneficial to\nthe general public. The council\nwent SO far as to appoint a COM\nmittee to wait upon the Traction\nand Washington Water Power\ncompanies. Conferences were held\nand better service promised, but\nconditions are as bad as ever. The\ncouneilmen seemed satisfied to al\nlow the matter to drop when the\ncommittee secured promises.\n\n\nThe fact is that street cars are,\nif anything, more damned than\never before."
+    }
+  ]
+}

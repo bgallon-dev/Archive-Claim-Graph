@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "WOMAN SUFFRAGE\n\n\nNOT PROHIBITION",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-02",
+    "date_end": "1907-11-02",
+    "report_year": 1907,
+    "source_file": "12_1907-11-02_p1_sn88085947_00211108575_1907110201_1212",
+    "archive_ref": "12_1907-11-02_p1_sn88085947_00211108575_1907110201_1212",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-11-02_p1_sn88085947_00211108575_1907110201_1212",
+      "composite_score": 18.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 18.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "prohibition",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1907,
+      "word_count": 122,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 32,
+            "in_headline": false
+          },
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 148,
+            "in_headline": false
+          },
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": true
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 6,
+            "in_headline": true
+          },
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 21,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "T PORTLAND, Nov 1.-THE wom-\nems suffrage movement in Oregon\nhas suffered in the past because of\na popular belief that it is closely\nassociated with prohibition, said\nMrs. Abigail Scott Duniway. This\nisnot right. believe the main rea-\nson for the defeat of woman's suf-\nfrage in the last election was be-\ncause of the hurrah campaign in\nstituted by eastern women who as\nsociated themselves with the w.\nc! T. u\"\n\n\nIn these words the we'll known\nwoman leader declared the indie\npendence of the petition of woman\nsuffragists asking that the question\nbe again placed on the ballot next\nelection. 1t carries almost 10000\nvoters names. By working free of\nany party Mrs. Duniway expects\nvictory for the women."
+    }
+  ]
+}

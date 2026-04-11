@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Want CITY\n\n\nTO PAY IT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-12",
+    "date_end": "1906-07-12",
+    "report_year": 1906,
+    "source_file": "3_1906-07-12_p1_sn88085947_00211108563_1906071201_0918",
+    "archive_ref": "3_1906-07-12_p1_sn88085947_00211108563_1906071201_0918",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-07-12_p1_sn88085947_00211108563_1906071201_0918",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 168,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 249,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 53,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "It is announced today that an\nother session with the city council\nwill be asked by the board of public\nworks in an attempt to reconcile its\nown action on the Howard street\nbridge with that taken Tuesday\nnight when the council ordered the\nWashington Water Power company\nto reconstruct the bridge without\ncost to the city.\n\n\nPrevious to this action the board\nhad fixed up a deal whereby the\nGetty and the company should share\nthe expense of reconstruction\nequally.\n\n\nIN this the board claims to have\nhad the councils sanction express\ned In committee of the whole.\n\n\nProbably they did then, but the\ncouncil seems to have seriously re-\nconsidered the bridge question\nsince the public got really inter\nested in it.\n\n\n1t is stated, however, that the\nrepair work will be carried right\nthrough and the board apparently\nhopes to have it's benevolent deal\nto save the company the full por-\nton of expenditure 1t has made\nnecessary and can be held to make\ngood."
+    }
+  ]
+}

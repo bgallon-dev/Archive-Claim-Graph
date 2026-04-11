@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CLOUDS\n\n\nHIS TITLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-15",
+    "date_end": "1906-08-15",
+    "report_year": 1906,
+    "source_file": "1_1906-08-15_p1_sn88085947_00211108563_1906081501_1030",
+    "archive_ref": "1_1906-08-15_p1_sn88085947_00211108563_1906081501_1030",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-08-15_p1_sn88085947_00211108563_1906081501_1030",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 273,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 398,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Memories of the free and easy\ndays in Spokane in the early '9Os\nwhen men tried to steal horses and\ngo scot free are revived by the\nsuit brought this morning by\nGrant Dyer to clear title to 152\nacres of land on the Spokane river\njust below Nine Mile bridge. The\nsituation also illustrates the truth\nOf the proportion that the evil that\nmen do live after them.\n\n\nIn 1892 Tremain H. Fetterly filed\non homestead, now owned and\nfor the last IA years in open and\nnotorious possession of a direct\nline of possessors, according to the\nabstractor. In that year Fetterly\ndisappeared from public view as\na fugitive from justice. He had\nserved a term for horse stealing.\nHe was about due for another\nwhen he took the hike and left\nhis wife, Martha, to fill out the\nhomestead conditions. This she\ndid, and in 1897 a government pat\nent was given her.\n\n\nIn 1898 Grant Dyer bought her\nperfected homestead right. Some\nyears before Fetterly's son, Wal\nter, had figured in conviction for\nlarceny and the authorities at the\ncourthouse believe that he was the\nremnant of the famous Nine Mile\nhorse thief gang.\n\n\nWhen Mrs. Fetterly perfected\nher homestead and the patent was\nissued to her it was in the name Of\nher husband. He has not been\nheard from except a rumor that\nhe died in Montana under an as\nsumed name in 1900. But this can\nnot be proven and now Mr.. Dyer\nIs forced to bring suit to have all\nclaim that he or his heirs may\nhave before he can sell his prop\nerty."
+    }
+  ]
+}

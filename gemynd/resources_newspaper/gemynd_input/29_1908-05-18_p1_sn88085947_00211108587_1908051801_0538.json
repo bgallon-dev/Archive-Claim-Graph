@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-05-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-18",
+    "date_end": "1908-05-18",
+    "report_year": 1908,
+    "source_file": "29_1908-05-18_p1_sn88085947_00211108587_1908051801_0538",
+    "archive_ref": "29_1908-05-18_p1_sn88085947_00211108587_1908051801_0538",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "29_1908-05-18_p1_sn88085947_00211108587_1908051801_0538",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 572,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 1541,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The guiding hand of political\nbass, such as the republicans found\nso convenient in their recent gath\nering, is absent from the demo-\ncratic state convention this after\nnoon.\n\n\nThe republican convention was\nheld and ended the night before\nso far as results are concerned, but\nthe democrats haven't settled it yet\nand the fighting's fine every way\nyou look.\n\n\nLast night the delegates got to-\ngether on a general understanding\nof what they might be willing to\ndo in order to grease the wheels OF\norganization, but the morning\nbrought the signal sounds of\nstrife. The delegate states went\nglimmering for the most part\nthrough decision to add the al\nternates to the regulars and send\n20 to the national convention, evil\nIDENTIFY on the theory that twice as\nmuch noise for Bryan could there\nby be generated. Out of the crash\nthat ensued at noon the Third dis\n\n\n\nGilman Fred Baldwin, of Spokane,\nfor delegate at large and jerome\nDrumheller for district representa-\ntive.\n\n\nT. A. White, of Whitman county,\nwas the other nominee from the\nSsistrict and If no harsh hand inter-\nferes alternates will be added TO the\nregular list. Dan Curry, of Everett,\nwas conceded as a district delegate\nfrom the First.\n\n\nw. H. Dunphy, of Walla Walla,\nseemed at noon to still have the\nlead over c. G. Heifner, Seattle, for\nnational committeeman. The rest\nof the world Is mixed up in al\nliances and misa,liances enough 10\nmark 1t a royal affair instead of an\noutpouring of the common people.\nIt'll all come out in the wash, but\nthe rubbing will be hard and\nheated.\n\n\nProhibition bobbei up strong\nthis morning again after the politi-\n, cal engineers figured they had its\nghost laid to rest under the initia-\ntive and referendum. Whitman\ncounty is for prohibition and so Is\nWalla Walla and several other\ncounties are distressly dry from the\nsaloon standpoint. They favor 60\nIng the republicans one better on\nthe local option business and de-\nclaring for prohibition.\n\n\n'Sumptuary laws unduly limiting\nthe liberties Of the people are I'M\nInn a\n1t comes to the proposition that our\nneighbors shall say what we shall\neat or drink, II ought to be declared\nun-American and un-democratic.\"\n\n\nIn the above words, ex-U. s. Sen.\nGeorge Turner this morning at the\nstate democratic convention at the\narmory, sounded the keynote of the\nposition which the democrats of\nthe state will assume with rela-\nton to local option.\n\n\nOne OF the objects of the demo-\ncratic leaders in securing George\nTurner for temporary chairman was\nthat he might present In particular\nto the convention his views on the\nquestion of local option, as we'll as\nthe views Of the leaders who have\nIn hand the perfection of the plat\nform.\n\n\nEight counties have delegates\nwho are pledged to local option and\nhot fight is anticipated before the\nplatform committee, which consists\nof one member Of each delegation,\nIs ready to report this afternoon.\n\n\nAS now framed up, 1t is proposed\nTO leave out all reference to local\noption In the platform, the argu-\nment being that with an initiative\nand referendum plank instead those\npledged delegates may go back to\ntheir constituents with the infor-\nnation that the initiative and refer.\nendum reaches the same end and\ngoes farther In behalf of the peo-\npie than the republicans dared go.\n\n\n1t has already been argued that"
+    }
+  ]
+}

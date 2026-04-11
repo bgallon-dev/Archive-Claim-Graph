@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "G O N TIN u F. D\n\n\nr o\nP A G E O n f\n\nAPPALLING WALLACE\n\n\nREPORT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-23",
+    "date_end": "1910-08-23",
+    "report_year": 1910,
+    "source_file": "3_1910-08-23_p6_sn88085947_00211108642_1910082301_0581",
+    "archive_ref": "3_1910-08-23_p6_sn88085947_00211108642_1910082301_0581",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-08-23_p6_sn88085947_00211108642_1910082301_0581",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.5,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 279,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 1339,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 727,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Unless this is cut within the next\nyear it will entail loss of enor.\nnous proportions to the govern.\nment and private owners.\n\n\nThis morning Supervisor Weigle\nsent Ranger A. E. Holcomb to open\nup the old Mullan road leading to\nthe Bullion mine, where eight\nbodies are buried. These will be\nbrought to Wallace \"Wednesday\nmorning. Ten soldiers from Fort\nGeorge Wright left at o'clock to\naid in clearing the path.\n\n\nA crew was also sent out to the\nBig Fork of the Occur d'Alene\nwhere IL bodies are buried under\nthe ruins. This will necessitate\nthe claring of 80 mills of road tC\nWallace.\n\n\nBesides the IL dead at Big Fork\nthree men are lying with broker\nlegs and three totally blinded. DR.\nMax T. Smith of Wallace is head\ning the relief expedition.\n\n\nKNOWN LIST OF DEAD.\n\n\nLou Holmes. Spokane.\n\n\nTom welsh, spokane.\n\n\nGeorge Ziegler, Newport, 81\nyears old.\nMis-. Ernest Demhardt, Newport\nGeorge Campbell, Newport. -\nThomas Carey, Newport.\n\n\nCady, rancher. Newport\nHenry Herman, Garwood, Idaho\nV. Nicholson, age II. Gem. Idaho\nLarry Ryson, age so, Wallace.\n\n\nLeslie Sellers, age Is, Gem\nIdaho.\n\n\nS. d. Adams, age 80, Chicago.\n\n\nA. Renston, Hillsdale, Wis.\n\n\nErnest Elgin, age 60. Wallace.\n\n\nWilliam Mickey, Taft, dead al\nSaltese.\n\n\nRoderick Ames, rancher. Big\nCreek.\n\n\nJoe Beauchamp, rancher, Bis\nCreek.\n\n\nJoseph c. Boyd, Wallace.\n\n\nJoe Fene, Placer Creek.\n\n\nWilliam Hearmouth, War Eigle\nmine.\n\n\nJoe Smith, burned near Mullan.\n\n\n\"Frenchy.\" familiar Spokane\ncharacter, killed on Placer creek.\n\n\nJohn Address. wife and five chill\ndren, La Tour creek, near Cataldo\nreported dead.\n\n\nb. A. Smith, wife and two chill\ndren, La Tour creek, near Cataldo\nreported dead.\n\n\nJames Osborn, wife and ekilc Ii"
+    }
+  ]
+}

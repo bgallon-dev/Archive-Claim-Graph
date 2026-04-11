@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Reduction In\n\n\nLumber Tariff",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-22",
+    "date_end": "1903-07-22",
+    "report_year": 1903,
+    "source_file": "18_1903-07-22_p1_sn88085947_00211108538_1903072201_0194",
+    "archive_ref": "18_1903-07-22_p1_sn88085947_00211108538_1903072201_0194",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1903-07-22_p1_sn88085947_00211108538_1903072201_0194",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 63,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Northern Pacific announces q\nreduction in rate on lumber and hum\nDer products to washhurn. N, d.. from\npoints west. effective Immediately.\nThe regular st. Paul rate OF 10 cents\nper hundred 10 granted. washburn\nis the terminal OF the Bismarck.\nWashburn 4 Great Falls. and the re-\nduction win enable local houses to\ncompete in the rich territory along\nthis road."
+    }
+  ]
+}

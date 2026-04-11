@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-24 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-24",
+    "date_end": "1910-03-24",
+    "report_year": 1910,
+    "source_file": "30_1910-03-24_p5_sn88085947_00211108629_1910032401_1085",
+    "archive_ref": "30_1910-03-24_p5_sn88085947_00211108629_1910032401_1085",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1910-03-24_p5_sn88085947_00211108629_1910032401_1085",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 249,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 1159,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "list, when Grin Wentworth and\nFrederick Child issued invitations\nfor dance to be given by them\nFriday, April 1, at the Childs home\non Occur d'Alene street.\n\n\nThe guest list includes many of\nthe students of the South Central\nhigh school and members of the\nyounger society set.\n\n\n& 4 Z\n\n\nYINGST-BANkSON WEDDING.\n\n\nMiss Ada Yingst and Mr.. L. c.\nBankson were quietly married last\nevening at the home of the brides\nparents, Mr.. and Mrs. ]. r. Yingst\non First avenue. The service was\nread by the Rev. S. Willis McFad.\nden OF the Presbyterian church\nPreceding the ceremony Miss Mabel\nlnkster of Davenport, Wash, played\nMendelssohns wedding march.\n\n\nThe bride wore a tailored suit of\ngray and carried white carnations\nand was attended by Miss Nell Mus.\ntain, who was gowned in a pale blue\nchiffon and carried pink carnations\n\n\nMr.. and Mrs. Bankson will be at\nhome after April Is at 81 Liberty\navenue. Mrs. Bankson has many\nfriends in this city and Mr.. Bank\nson Is well known as assistant pur.\nchasing agent of the Inland Railway\ncompany.\n\n\n4 & &\n\n\nThe Young Woman's Christian as\nISOLATION will turn their rooms over\ntoday to the members of the Won.\nans Christian Temperance union\nthe occasion being the lecture to be\ngiven by Mrs. Lulu Loveland Shep.\nerd of Salt Lake City.\n\n\nThe rooms will be decorated in\nthe national colors-red, white and\nblue. A general invitation is ex\ntended to all church and club\nwomen."
+    }
+  ]
+}

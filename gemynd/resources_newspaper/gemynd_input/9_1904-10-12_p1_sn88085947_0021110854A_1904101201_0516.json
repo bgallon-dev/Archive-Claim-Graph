@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "BUY BREEDING\n\n\nBEEF CATTLE NOW\n\nPrices Lowsst for Ysars-Lay Foun-\n\n\ndation for High Glass Herd.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-12",
+    "date_end": "1904-10-12",
+    "report_year": 1904,
+    "source_file": "9_1904-10-12_p1_sn88085947_0021110854A_1904101201_0516",
+    "archive_ref": "9_1904-10-12_p1_sn88085947_0021110854A_1904101201_0516",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-10-12_p1_sn88085947_0021110854A_1904101201_0516",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 128,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 15,
+            "in_headline": false
+          },
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 20,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Pure bred beef cattle are now SELL\ning for less money than for years.\nWhen beef brought high prices in the\nmarket, there were plenty of buyers\nfor pure bred breeding stun. Prices\nwent away up, too high. in fact. for\nthe good of the breeding business.\nMany new men loaded up at these\nboom prices. and now are disguised\nand unloading at half or third the\nprices they bought for.\n\n\nA number OF breeders were embar-\nassed financially to such an extent as\nto be seriously crippled for years.\nprobably for life. by injudicious buy\nIng at the boom prices of four or five\nyears ago.\n\n\nBut now. high-class breeding stock\ncan be bought for what II is worth.\nIn many cases less than its real val"
+    }
+  ]
+}

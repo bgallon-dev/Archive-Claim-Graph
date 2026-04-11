@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Want GERAGHTY\n\n\nTO WAKE UP",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-13",
+    "date_end": "1907-02-13",
+    "report_year": 1907,
+    "source_file": "14_1907-02-13_p1_sn88085947_00211108575_1907021301_0360",
+    "archive_ref": "14_1907-02-13_p1_sn88085947_00211108575_1907021301_0360",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1907-02-13_p1_sn88085947_00211108575_1907021301_0360",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 91,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Initiative and referendum advo-\nGates are growing nervous over the\ncity charter amendment which\nCorporation Counsel Geraghty has\nbeen instructed to draw up for sub\nmission to the voters at the COM\ning election. They want to have a\nchance to see what kind of an\namendment is turned out before it\nis time to vote on it.\n\n\nMr.. Geraghty says he has been\nbusy, but will have the amend\nment ready for inspection in good\ntime. Some light on the subject\nwill be asked at the council meet.\ning tonight."
+    }
+  ]
+}

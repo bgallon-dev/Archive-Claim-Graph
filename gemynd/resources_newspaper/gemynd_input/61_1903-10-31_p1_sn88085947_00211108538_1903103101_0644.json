@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL ERECT A\n\n\nFINE. BUILDING",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-31",
+    "date_end": "1903-10-31",
+    "report_year": 1903,
+    "source_file": "61_1903-10-31_p1_sn88085947_00211108538_1903103101_0644",
+    "archive_ref": "61_1903-10-31_p1_sn88085947_00211108538_1903103101_0644",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "61_1903-10-31_p1_sn88085947_00211108538_1903103101_0644",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 79,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 47,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A general desire on the part of the\nWashington Water Power company\n: has been evidenced lately to encourage\nbusiness men to build and move 10\nThe vicinity of Post and Mill streets,\nbetween Main and Front avenues. 1t\nis reported today on very good author\nlty that the company contemplates\nbuilding a 100000 or 1000 building\nin that vicinity, which it will occupy\nwith its offices. How soon operations\nwill be started cannot as yet he learn.\ned"
+    }
+  ]
+}

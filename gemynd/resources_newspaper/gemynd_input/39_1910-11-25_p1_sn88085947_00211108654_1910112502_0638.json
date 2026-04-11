@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-11-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-25",
+    "date_end": "1910-11-25",
+    "report_year": 1910,
+    "source_file": "39_1910-11-25_p1_sn88085947_00211108654_1910112502_0638",
+    "archive_ref": "39_1910-11-25_p1_sn88085947_00211108654_1910112502_0638",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "39_1910-11-25_p1_sn88085947_00211108654_1910112502_0638",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 53,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 8,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(Womans suffrage\" big\nAt the election\n\n\n\n\nfailure?\"\npublished sensational article by Richard Barry famous\nabsolutely that 1t failure Colorado\nin which he investigated the He said\n\n\n\n\n\nsold notably in Denver.\n\n\nof given statements\ncommissioned Editor\nley watch the the polls\nelection write\nresult his observations then\narticle whichfollows throws\nproblem Colorado standpoint eastEditol"
+    }
+  ]
+}

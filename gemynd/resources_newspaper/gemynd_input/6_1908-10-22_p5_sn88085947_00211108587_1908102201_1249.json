@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "VAN CLEAVE LABOR'S\n\n\nWORST ENEMY",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-22",
+    "date_end": "1908-10-22",
+    "report_year": 1908,
+    "source_file": "6_1908-10-22_p5_sn88085947_00211108587_1908102201_1249",
+    "archive_ref": "6_1908-10-22_p5_sn88085947_00211108587_1908102201_1249",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-10-22_p5_sn88085947_00211108587_1908102201_1249",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 162,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 509,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Seth Low, former mayor of New\nYork city. participating In a joint\ndebate at Alton with Congressman\nHarry F. Rainey Of Illinois, declared\nto 5000 people that J. w. Van Cleve,\npresident OF the National Manufac-\nturers' association. Is the greatest\nenemy Of organized labor in the\ncountry.\n\n\nLow also alluded to the report,\nwhich, he said, had gained country\nwide circulation, that Van Cleave\nand members Of his organization\npractically had forced the national\nrepublican convention at Chicago to\nadopt the anti-injunction plank as a\npart Of it's platform.\n\n\nIF the Sherman antitrust law in\nterferes with the rights of labor\"\nsaid Low. sit should be repealed\"\n\n\nLow also scored Bryan for at\ntempting to- force the guaranty of\nbank deposits upon the people be-\nfore the plan had more than\nreached an experimental stage in\nOklahoma.\n\n\n\"The guaranty plan should have a\nthorough trial.\" he said. before the\ncountry is asked to accept it.\"\n\n\nYet Low is working for Taft."
+    }
+  ]
+}

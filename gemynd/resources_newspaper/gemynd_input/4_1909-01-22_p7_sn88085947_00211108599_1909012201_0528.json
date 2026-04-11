@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CLUB CARNIVAL\n\n\nBIG SUCCESS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-22",
+    "date_end": "1909-01-22",
+    "report_year": 1909,
+    "source_file": "4_1909-01-22_p7_sn88085947_00211108599_1909012201_0528",
+    "archive_ref": "4_1909-01-22_p7_sn88085947_00211108599_1909012201_0528",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-01-22_p7_sn88085947_00211108599_1909012201_0528",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 162,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 142,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A genuine carnival of music\nopened at the Spokane theater\nlast night for the rest of the week\nwith Saturday matinee under the\nauspices of the Woman's club. A\ngenerous part of the proceeds of\nthese performances will be given\nto the food and fuel fund for the\npoor of the city.\n\n\nThe program includes selections\nfrom such favorites as THE b.\nhemian Girl\" Carmen\" and THE\nMikado.\" There are 300 persons in\nthe numerous scenes and tableaux.\nThe posing and effects are beauti-\nfull and We're the recipients of con-\ntinuous applause last evening. The\nopera selections were rendered in\nunvarying good voice. The ballet Is\nsomething fine.\n\n\nTonight's program will include a\nCarmen scene with Mrs. j. G.. Cum\nningham as Carmencita. DR.. Titus\nwill sing Don Jose. Mrs. Pearl Hut\nton Schrader will sing special\nsolo this evening and the other\nfeatures of last nights perform.\nance will be repeated. The cast\nhas been trained by M. A. Agostini."
+    }
+  ]
+}

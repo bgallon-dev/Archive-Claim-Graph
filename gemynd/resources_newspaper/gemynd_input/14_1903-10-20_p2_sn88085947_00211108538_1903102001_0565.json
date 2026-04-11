@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Will IRRICATE 5000\n\n\nACRES NEAR SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-20",
+    "date_end": "1903-10-20",
+    "report_year": 1903,
+    "source_file": "14_1903-10-20_p2_sn88085947_00211108538_1903102001_0565",
+    "archive_ref": "14_1903-10-20_p2_sn88085947_00211108538_1903102001_0565",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1903-10-20_p2_sn88085947_00211108538_1903102001_0565",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 64,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 265,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane Canal company, of\nwhich l.. MacLean is president, today\nmade a contract with Messrs. Stone\nand Manning for the grading of the\ncanal of that company to take water\nfrom Newman lake and conduct it onto\nSpokane prairie between Trent and the\nIdaho line, for irrigation purposes.\n\n\nThe work Of grading will be COM\nmenced at once and be pushed to COM"
+    }
+  ]
+}

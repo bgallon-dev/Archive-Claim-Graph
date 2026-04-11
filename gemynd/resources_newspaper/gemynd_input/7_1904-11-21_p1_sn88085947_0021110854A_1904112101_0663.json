@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "A BANQUET Will Bf\n\n\nGIVEN DALEY",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-21",
+    "date_end": "1904-11-21",
+    "report_year": 1904,
+    "source_file": "7_1904-11-21_p1_sn88085947_0021110854A_1904112101_0663",
+    "archive_ref": "7_1904-11-21_p1_sn88085947_0021110854A_1904112101_0663",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-11-21_p1_sn88085947_0021110854A_1904112101_0663",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 159,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 706,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "James ]. Daley, assistant city\ncomptroller, who is attending the\ntwenty-fourth annual meeting of the\nnational convention of the American\nFederation of Labor in San Francisco,\nwrites to n lodge member that the\nmeeting is one of the most success\nful In the history of the order.\n\n\nMr.. Daley is a delegate from the\nlocal federation. No. 11,62i, and is\none of the six to be elected from\nthis state. There are 500 delegates\npresent from every part of the\nworld. The speech delivered by\nMichael McDavitt, member of the\nhouse of parliament from Ireland,\nwas one of the most brilliant ever\ngiven before labor organization in\nAmerica.\n\n\nHon. Sir Wignall of London moved\nhis audience to tears in defense of\nwoman's suffrage at meeting of the\nunion Saturday evening.\n\n\nUpon Mr. Daley's return to Spo-\nkane Federal union, No. 11,624, will\ntender him banquet, at which he\nwill be expected to relate the pro-\nceedings of the convention."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RAILROAD TO OPEN\n\n\nSUMMIT BOULEVARD",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-10",
+    "date_end": "1906-01-10",
+    "report_year": 1906,
+    "source_file": "23_1906-01-10_p1_sn88085947_00211108563_1906011001_0288",
+    "archive_ref": "23_1906-01-10_p1_sn88085947_00211108563_1906011001_0288",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1906-01-10_p1_sn88085947_00211108563_1906011001_0288",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 59,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern railway COM\npany is preparing to open Ide ave\nnue. from Monroe to Cedar street.\n1t is said that within the next 10\ndays the dedication of the land will\nbe made, This will open Summit\nboulevard for travel.\n\n\nThe GGreat Northern had the\nchoice of opening the boulevard or\nbuilding several bridges over its\ntracks."
+    }
+  ]
+}

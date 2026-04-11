@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GARFIELD GOES\n\n\nTo COAST",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-08",
+    "date_end": "1907-07-08",
+    "report_year": 1907,
+    "source_file": "3_1907-07-08_p1_sn88085947_00211108575_1907070801_0836",
+    "archive_ref": "3_1907-07-08_p1_sn88085947_00211108575_1907070801_0836",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-07-08_p1_sn88085947_00211108575_1907070801_0836",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 299,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1191,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The official party from Washing\nton, d. c., that arrived In Spokane\nSaturday afternoon late broke up\nlast night Secretary OF the Interior\nJames r. Garfield leaving for Seat\ntie accompanied by DIR. w. J. Nc\nGee, secretary of the inland water\nways commission; Prof. J. A.\nHolmes, Of the geological survey.\nand Secretary Garfleld's son. John.\nChief Forester Pinchot left for\nMoscow this morning, intending\nlater to join Secretary Garfield on\nthe coast.\n\n\nSaturday evening the party was\nformally welcomed to Spokane with\na banquet at Davenport's by repre-\nsentative business men of the city.\nMayor Moore acted as sponsor for\nSecretary Garfield, introducing him\nIn a brief address on the value OF\nthe work of interior department.\nThe secretary expressed a desire to\nget in touch with western people\nand interests as the chief object OF\nhis trip and talked at length ON\nhis departments operations in pro-\ntecting government timber and\nlands and coal deposits. He was\nsent out to reconcile this section OF\nthe country to the administration\nforest reserve policy and the adj\ndress of Mr.. Pinchot, who followed\nSecretary Garfield. was devoted to\nthis policy. DR.. MCGEE spoke ON\nthe preservation of water power,\nProf Holmes on coal deposits, and\nbrief addresses were made by SEN\nator Ankeny and Congressman\nJones. The latter declared belief\nthat the people Of this state support\nthe forest reserve policy.\n\n\nOn Sunday. the visitors were\ngiven q view of the Spokane valley\nby an automobile trip to Hayden\nlake. Jay p. Graves auto led the\nexpedition with Secretary Garfield\nand the balance OF the party was\ndistributed among the delegation OF\nmembers OF the chamber Of COM\nmerce in 5 other automobiles. Es-\npecial attention was given the irri-\ncation projects now In operation In\nthe valley."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CORPORATIONS\n\n\nBUY PAPERS\n--sr... XII\"\n\nCOMBINED CoWLES PLANT\nREPORTED SOLD AND NEW\nMAN Is PLACED IN CHARGE.\nG. NJ. OR STANDARD OIL\nDEAL.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-19",
+    "date_end": "1908-11-19",
+    "report_year": 1908,
+    "source_file": "9_1908-11-19_p8_sn88085947_00211108599_1908111901_0105",
+    "archive_ref": "9_1908-11-19_p8_sn88085947_00211108599_1908111901_0105",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-11-19_p8_sn88085947_00211108599_1908111901_0105",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 401,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1678,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The report that w. H. Cowles\nhas disposed of his combined\nnewspaper plant in this city, in\nGuiding the Spokesman-Review and\nthe Chronicle is accepted as fact\nIn business circles. Mr.. Cowles,\n1t is understood, will 60 abroad for\nseveral years, when the details of\nthe deal have been completed. w.\nd. Finley, who came to Spokane a\nyear ago with the announced in\ntention of starting a new daily\nhere. backed by the Boston Globe,\nis now nominally in charge of the\nCowles combine. and has been\nactively concerned with the publ\ncation of the Chronicle end of 1t\nfor the past week or so. 1t is ex-\npected that he will shortly take\nentire charge of the plant, repre-\njsenting the purchasers.\n\n\n! Who the latter are is not d.\nvulged by those who profess to be\non the inside, but the common ac-\nlceptance is that either the Great\nNorthern or Rockefeller interests\nare concerned. They are to be\nrepresented locally by syndicate\nof Spokane businessmen who. to\nall public intents and purposes,\nwill be the actual owners.\n\n\nAfter four years or more of\nundertaking and general exposure,\nthe great corporations Of the coun-\ntry have learned the value of sex-\ntensive publicity facilities, and the\ndeal here is merely one of a num-\nDer that have been reported from\nvarious parts of the country and\nnot generally disputed. The pub\nlie appears to need edueation in\norder to appreciate the benefits of\ncorporation domination, and the\ncorporations are willing to pay for\nthe education, choosing newspa-\npers as the best mediums, rather\nthan encounter anything like what\nthey have had to meet under the\nRoosevelt administration.\n\n\n1t is probable that the local pur-\nchase of newspaper property is a\nGreat Northern deal, contaminated\nat the time of Hill and Elliott's\nvisit week ago. The report of\nan impending sale to this company\nbecame current when Mr.. Cowles\nwent to st. Paul last spring. The\nHill roads will have great deal to\ndo with public affairs in this part\nOf the country in the next few\nyears. A first page interview with\nHill and Elliott after the visit here\non the mistake made in the Spo-\nkane grade separation matter was\nthe first indication : the Review\ngave of a new influence in its\nmidst.\n\n\nStatements on the amount of\nmoney involved in the deal are not\navailable."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CARRY THE RAILROAD\n\n\nFIGHT TO BITTER END\n\nSpokane Shippers Will Fight Hill in\n\n\nPolitics if Necessary---Rai|road\nOfficials Busy With Their Scissors.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-03",
+    "date_end": "1904-03-03",
+    "report_year": 1904,
+    "source_file": "3_1904-03-03_p1_sn88085947_00211108538_1904030301_1068",
+    "archive_ref": "3_1904-03-03_p1_sn88085947_00211108538_1904030301_1068",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1904-03-03_p1_sn88085947_00211108538_1904030301_1068",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 132,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 719,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "for the moment they withdrew their\nbusiness from the o. II, & n. they\nwould receive the odium OF all Spokane\nbusinessmen.\n\n\nCutting Out the Interviews.\n\n\nNor are the railroads idle. They are\nno longer ridiculing the agreement of\nthe Spokane shippers but are bending\nevery energy to break it. They are\nplacing businessmen of Spokane on\nrecord with the officials Of the Hill\nlines. Every comment made by the\nnewspapers anent the freight situa-\nton is being filed, and all interviews\nwith tho shippers are being carefully\ncut out and sent to the head officials\nat st. Paul.\n\n\nWhat the motive Of this is is not as\nyet determined, but it Is supposed\nthere Is some plan on foot for a retail\niation by the Northern Poetic and\nGreat Northern companies."
+    }
+  ]
+}

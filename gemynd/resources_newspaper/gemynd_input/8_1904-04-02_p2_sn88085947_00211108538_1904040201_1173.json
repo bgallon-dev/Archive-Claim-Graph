@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-04-02 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-02",
+    "date_end": "1904-04-02",
+    "report_year": 1904,
+    "source_file": "8_1904-04-02_p2_sn88085947_00211108538_1904040201_1173",
+    "archive_ref": "8_1904-04-02_p2_sn88085947_00211108538_1904040201_1173",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1904-04-02_p2_sn88085947_00211108538_1904040201_1173",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 112,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 419,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "over which the Spokane Traction\ncompany have asked the city for. a\nfranchise. An officer of the Traction\ncompany said this morning, however,\nthat the fight would be between the\ncity and the Washington Water Pow\ner company; that the Traction COM\npany had not as yet taken any steps\nin the matter. Frank Graves, the\nlegal adviser of the Traction company\nleft for the east this morning to be\ngone two weeks.\n\n\nWhether the Water Power company\nwill attempt to rush it's work in oppo-\nsition to the wishes of the city is a\nquestion. No statement as to the\nfacts could be obtained from officers\nof the company this morning."
+    }
+  ]
+}

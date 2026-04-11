@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "EARLING AND ELLIOTT CON-\nFERENCE HERE INDICATES\nCOMBINATION OF THREE\nBIG LINES TO CONTROL To-\nCAL SITUATION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-15",
+    "date_end": "1908-02-15",
+    "report_year": 1908,
+    "source_file": "5_1908-02-15_p1_sn88085947_00211108587_1908021501_0224",
+    "archive_ref": "5_1908-02-15_p1_sn88085947_00211108587_1908021501_0224",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-02-15_p1_sn88085947_00211108587_1908021501_0224",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 183,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With Pres. A. J. Earling, of the\nMilwaukee, and Pres. Howard Ell\nlott, of the Northern Pacific, trav-\ncling around the country together\nand holding conferences in import\nant points like Spokane, it looks\nlike the Milwaukee extension west\nis largely another enterprise of the\nHill system.\n\n\nAt least, no very fierce competi-\nton is foreshadowed by the at\ntitudes of the two magnates. 1t is\nnot hard to imagine the master\nhand of Jim Hill guiding the move\nments of both.\n\n\nBoth Mr.. Earling and Mr.. Elliott\nleft early last evening for Butte on\nMr.. Elliott's special train, after\nspending the day here in going\nover the local situation. Nothing\nis given out as to the object of\ntheir mission. Both have been\nmaking a thorough inspection OF\nthe coast situation and comparing\nnotes along the line.\n\n\nThe Milwaukee will shortly be\nconnected with the Northern Pa.\ncific at Lombard, Mont, about 300\nmiles east of Spokane, and the re\nsuit of the inspection and confer\nences may be a traffic agreement\nwhereby the Milwaukee will come\ninto Spokane over the Northern"
+    }
+  ]
+}

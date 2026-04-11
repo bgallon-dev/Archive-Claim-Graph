@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-02 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-02",
+    "date_end": "1903-02-02",
+    "report_year": 1903,
+    "source_file": "27_1903-02-02_p3_sn88085947_00211108526_1903020201_0301",
+    "archive_ref": "27_1903-02-02_p3_sn88085947_00211108526_1903020201_0301",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1903-02-02_p3_sn88085947_00211108526_1903020201_0301",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 127,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 259,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "who are conscientious in the per-\nformance Of their respective duties\nand to whose ability the members,\nthrough Alex Galbraith, attribute the\npresent condition Of the lodge. Meet\nings are held once week at X. Of p.\nhall.\n\n\ne. 8. Potts has been elected by the\ntrades council to represent the Build\ning Laborers' International Protect\ni've union, Ne. 2.\n\n\nT. 9, Heskett, J. T. Snyder, w. III.\nMetcalf and w. H. Upper are the\nnew delegates to the council from\nthe Typographical union, No. 1913.\n\n\nThe new officers of State Employees\nunion. No. %, were installed last\nevening. The meeting was unusually\nwell attended and at its conclusion\nthe boys prepared an impromptu\nentertainment. rendering a program\nthat consisted of all the latest songs\nand jokes."
+    }
+  ]
+}

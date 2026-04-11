@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "title": "BRIGHT LITTLE ITEMS WHICH SHOW JUST WHAT SPOKl\n\n|ohn w. Whittinoton, preside Mt",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-12",
+    "date_end": "1910-05-12",
+    "report_year": 1910,
+    "source_file": "27_1910-05-12_p10_sn88085947_00211108630_1910051201_0613",
+    "archive_ref": "27_1910-05-12_p10_sn88085947_00211108630_1910051201_0613",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1910-05-12_p10_sn88085947_00211108630_1910051201_0613",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.5,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "iww_labor": [
+          "arrested"
+        ],
+        "indigenous": [
+          "colville"
+        ],
+        "spokane_development": [
+          "city council"
+        ],
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 622,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 2032,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 3200,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 2710,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1833,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 2980,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "spokane_development",
+        "turnbull_prehistory",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "John w. Wilmington, president\nof the National Association OF Life\nUnderwriters, was entertained by\nthe life insurance agents of Spo-\nkane with a luncheon yesterday at\nDavenports. Those present: A. A.\nDorm of the Aetna; F. ]. Dorsey of\nthe Columbian National; c. II. Nc\nCoy OF the Equitable; F. Burman of\nthe Fidelity Mutual; w. II. Shields\nof the Mutual; J. A. Rhinehardt, l..\nG. Reed, E. e. Lohnes and l.. O.\nSweetland of the Northwestern\nMutual; l.. F. Cole OF the Pacific\nMutual, Thomas Seward and A. r..\nMcGillivray OF Mutual Benefit.\n\n\nThe Y. M. c. A. membership cam\npaign to secure 500 new members\nwas deferred to May 80.\n\n\nActive plans were begun by the\npeoples terminal committee yester-\nday for a referendum election to\nlet the people vote on the question\nof requiring terminal rates in ex-\nchange for franchises to the North\nCoast and Milwaukee railroads.\n\n\nChief Deputy Sheriff Clarence e.\nLong left for Tacoma to bring back\nEsther Lewis, alias Labrique, who\nis wanted by the Spokane police de-\npartment for obtaining money un-\nder false pretenSes.\n\n\nAt 6 o'clock on the eve of May 18,\nHalley's comet will pass between\nthe earth and the sun, according\nto computations completed today by\nProfessor George Ellery Hall, di-\nrector of the Carnegie observatory\non Mount Wilson, Cal. The passage\nOF the nucleus of the wanderer\nover the face of the sun will occuIN\n/ 80 minutes, he declares.\n\n\n| F. J. MacGougan, manager Of the\nPacific States Telephone com.\npany, says that he invites an in\nvestigatiOn of the financial affairs\nof the company with a view of de\n/ termining whether or not it's rates\nare excessive. He says that his\ncompany will divide with the city\nall revenue over Z per cent net\nafter making reasonable allowance\n| for depreciation.\n\n\nIt was agreed at conference\n| held between the mayor and the\nmembers of the city council yes\nterday that the Sprague avenue fill\nshould be rebuilt with sloping walls\nat a probable additional cost OF\n$4,000. 1t is hoped to get the bill\ncompleted by October /.\n\n\nThe following homestead con\ntests were posted at the local lane\noffice by Register Hal J. Cole\nJames A. Mcmahon, believing ia\nson Winery dead, and no heirs\nhaving appeared to look after hi!\ninterests, contests the southeast\nquarter of the northeast quartet\nOf section 1, township 80 north\nrange 80 f. w. M; hearing OF\nJuly 18. Adolph Wegener of Irby\ncontests the south half of thu\nsouthwest quarter of section\ntownship % north, range 80 e. w\nM. Evidence taken at Odessa, Sep\nTENDER 6. Anders j. Anderson con\ntests the north quarter of the\nsouthwest quarter of section 4; thu\nnortheast quarter of the south\nwest quarter, together with lot .\nsection 5; all in township So. range\nAl. Hearing at Colville, July D.\n| A suit to recover $16,425 wa\nbrought against G. A. Carlson\nAaron Kuhn, Nose Oppenheimer\nJoseph Cohn, Alfred Anderson, lie\nander Schindahl and Samue\nSmith, doing business under tn\nname of G. A. Carlson, by j. w\nAbrams.\n\n\nAn oratoricaI contest, \"Woma'\nSuffrage\" will take place at tn\nSouth Central high school tomol\nrow afternoon. Prizes of $40, 81\nand $40 have been offered by Mrs\nMay Arkwright Hutton.\n\n\nTony Flame, 8. Rosenbaum AM\nF. Schlager, second hand dealers\nwere arrested on the charge o\nhaving neglected to keep thei\nbooks showing their sales and pun\nchaSeS.\n\n\nAfter falling 80 feet, Janitor c\nNJ. Clark of the Review building\npicked himself up, bruised ant\nshaken, but otherwise unhurt. Mr.\nClark was standing on the sill o\nwindow on the first floor when\nin moving about. one of his fee"
+    }
+  ]
+}

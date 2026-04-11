@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "JURISDICTION FIGHT AGAIN",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-24",
+    "date_end": "1907-12-24",
+    "report_year": 1907,
+    "source_file": "15_1907-12-24_p4_sn88085947_00211108587_1907122401_0043",
+    "archive_ref": "15_1907-12-24_p4_sn88085947_00211108587_1907122401_0043",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1907-12-24_p4_sn88085947_00211108587_1907122401_0043",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 86,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 279,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A protest was filed in the Cen\ntrail Labor union last night by the\ncement workers union against\nmembers of the federal union doing\ncement work on the city bridges.\nThe cement workers claim jurisdic-\nton over this class of work and\ntheir jurisdiction has been recog-\nnized by the American Federation\nof Labor. They asked that the cen\ntrail body enforce their right to the\ncement work on the city bridges.\n\n\nA committee was appointed to in\nvestigate and report back to the\ncentral organization."
+    }
+  ]
+}

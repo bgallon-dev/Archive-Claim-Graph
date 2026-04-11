@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "TO BUY\n\n\nCITY HALL",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-19",
+    "date_end": "1907-09-19",
+    "report_year": 1907,
+    "source_file": "5_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+    "archive_ref": "5_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-09-19_p1_sn88085947_00211108575_1907091901_1090",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 120,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 504,
+            "in_headline": false
+          },
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 257,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The latest rumor attending the\nsale Of property along Front av. is\nthat an attempt will be made to\npurchase the city hall site. City\nofficials have heard rumors of this,\nbut no official negotiations have\nbeen offered. The hall is said to\nbe directly on the right of way the\nNorth Coast road Is buying up\nalong the river through town.\n\n\nProperty is still being bought on\nthe west end of Front av. in the\nneighborhood of the Monroe st.\nbridge. 1t is reported that a strip\nbetween the w. w. p. Medical\nLake depot site and Frank P. Ho-\ngan's' property was purchased for\n100000. what Is considered an ex-\norbitant figure for the land in ques-\nton."
+    }
+  ]
+}

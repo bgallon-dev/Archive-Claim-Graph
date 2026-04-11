@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Dist TEACHERS INSTITUTE\n\n\n[V{R HID IN TH[ STATE",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-12-28",
+    "date_end": "1904-12-28",
+    "report_year": 1904,
+    "source_file": "14_1904-12-28_p4_sn88085947_0021110854A_1904122801_0816",
+    "archive_ref": "14_1904-12-28_p4_sn88085947_0021110854A_1904122801_0816",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1904-12-28_p4_sn88085947_0021110854A_1904122801_0816",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 132,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "County Superintendent of Schools\nM. b. Watkins has been largely re-\nsponsible for the most successful\nteachers institute ever held in the\ncounty. The attendance has in\ncreased 100 over last years record\nand the work accomplished during\nthe session closing tonight has been\nwonderful. Many exceedingly impor-\ntant subjects have been discussed and\nbrought forward in a light that will\naffect the public school system\nthroughout the county and state.\nIr Watkins selected his instruc-\n\n\nthis year wholly from the state\n\n\nply and the experiment has given\n\n\nSyreatest satisfaction.\n\n\n4 institute closes its work this\n\n\n<ding when 1t will merge with the\nGate association.\n\n\nThe attedance at the 18th annual\nstate teachers association is expected\nto be far In advance Of what was ar\nranged for and promises to reach the"
+    }
+  ]
+}

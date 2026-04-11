@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BIG LOCAL OPTION\n\n\nMEETING SUNDAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-03",
+    "date_end": "1908-09-03",
+    "report_year": 1908,
+    "source_file": "9_1908-09-03_p4_sn88085947_00211108587_1908090301_0920",
+    "archive_ref": "9_1908-09-03_p4_sn88085947_00211108587_1908090301_0920",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-09-03_p4_sn88085947_00211108587_1908090301_0920",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 154,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 584,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Prominent Scandinavian speak\ners will address a local option meet\ning next Sunday at 3 p. m. In the\nSwedish tabernacle, Second and d.\nvision. The purpose of the meet\ning is to arouse the interest OF the\npublic in local option and nominal\ning at the primaries candidates\nwho have pledged their support to\nan effective local option law. The\nprogram includes prayer by Rev.\nA.. r. Anderson and welcome ad.\ndress by Oscar Johnson. \"The Ad-\nvantages Of Local Option\" by the\nsecretary of the International Re-\nform bureau, Rev. F. A. Scarve;\nsong by Mrs. H. Stanton; \"The AID.\nvance of the Temperance Move\nment,\" by Rev. John M Oslund;\n\"Our Duties as Citizens\" by Rev.\nX. A. Lundin; \"The New Primary\nElection Laws by the grand cleo\ntoral superintendent of the Interna-\ntional Order of Good Templars, Au-\ngust Cedercrans; ''The Advantages\nof Temperance Community\" by\nRev. A. r. Anderson."
+    }
+  ]
+}

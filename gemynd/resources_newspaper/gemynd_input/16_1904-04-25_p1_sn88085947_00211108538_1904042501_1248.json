@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Executive Committee Votes to Hold\nConference at Chicago Roads Pro-\npose Concessions to Big Concerns\nbut Nothing for the Retailer The\nCommittee to Talk--Schiller Will\nFIGHT It--Decisi0n Was Taken Last\nFriday.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-25",
+    "date_end": "1904-04-25",
+    "report_year": 1904,
+    "source_file": "16_1904-04-25_p1_sn88085947_00211108538_1904042501_1248",
+    "archive_ref": "16_1904-04-25_p1_sn88085947_00211108538_1904042501_1248",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1904-04-25_p1_sn88085947_00211108538_1904042501_1248",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 410,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 830,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An executive committee meeting\nof the Shippers association was held\nFriday afternoon, and 1t was decided\nto have a meeting of the whole as\nISOLATION tonight at o'clock to con-\nslider the latest move OF the railroads\nfor Chicago conference. The action\nof the executive committee at FRI\ndays meeting has been closely guard\ned, but through some of the smaller\nshippers not on the committee The\nPress today learned that the commit\ntee had voted to favor a Chicago\nconference and had discussed other\nmatters which the small shipper does\nnot think are to his interest. Mr..\nSchiller. president OF the association,\nstated today that he did not call\neither of the meetings, but that they\nwere called by Mr. Booth. He said:\n\n\n''The committee meeting was to\nconsider proposition from the rail-\nroads for a Chicago meeting. Mr..\nHill of the Northern Pacific has been\ninterviewing the shippers during the\npast week. carrying with him a tele-\n\n\n\nstructed him to find out where the\nfriends of the Northern Pacific rail-\nroad stood\n\n\nSchiller Stands by Retailers.\n\n\nII told him stood for conference\nhere and will fight for our original\ndemand and that only. have not\nheard anything about compromise\n\n\n\n\n\ncommittee meeting and will fight\nanything of the kind at tonights\nmeeting\"\n\n\nWhen told that It was rumored\namong the smaller shippers that the\nexecutive committee had voted to\nfavor a reduction in carload lots from\nthe east and to ask for lower rates\nout of here in order to make this\nplace distributing and jobbing cen\nter, he hid:\n\n\nWants Flat Reduction.\n\n\nII will favor nothing of the kind\nand l think there are plenty of others\nwho will not favor 1t. We want\nnat reduction in rates as first de-\nmanded and will fight for it If I\netanu alone.\n\n\nMuch talk was going the rounds to-\nday as to what action the executive\ncommittee had taken. No one seemed\n20 be clearly Informed, but the opin-\nIon prevailed that some compromise\nhad been suggested which involved a\nreduction on carload lots, but left out\nsmaller shipments. This change OF\nfront would benefit only a few big\nfirms and would leave the smaller\nshippers, the department stores and\nmany others In the lurch.\n\n\nManager Goodal of the Whitehouse\ncompany and other members of the\nexecutive committee refused to he\ninterviewed relative to the commit\ntees action. saying it had been agreed\nto preserve secrecy until tonight's\nmeeting."
+    }
+  ]
+}

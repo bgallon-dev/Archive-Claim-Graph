@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UNION EMPLOYEES ARE\n\n\nCROWED OUT Of JOBS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-26",
+    "date_end": "1907-07-26",
+    "report_year": 1907,
+    "source_file": "13_1907-07-26_p1_sn88085947_00211108575_1907072601_0900",
+    "archive_ref": "13_1907-07-26_p1_sn88085947_00211108575_1907072601_0900",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1907-07-26_p1_sn88085947_00211108575_1907072601_0900",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 104,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 257,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "means and material to build laun-\ndry big enough to handle all the\nunion work in town. Money will be\nraised by stock subscriptions, to\nwhich number have already sub\nscribed.\n\n\nOne Of the reasons given by the\nEastern management today for de-\nclarihg for the open shop\" was\nthat the commercial interests of\nthe tity would not patronize the\nplace otherwise and that it was i'm\npossible to get coal and supplies.\n\n\nThe former management, how\nevers experienced no such difficulty.\nTodaa,'s trouble simply changes the\nEastern into the Washington laun-\ndry and for the time being the trust\nhas sunhorsed the union."
+    }
+  ]
+}

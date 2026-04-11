@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "PROPOSED AMENDMENTS TO TIE\nCITY CEARTER OF THE CITY\nOF SPOKANE, ADOPTED by TNF:\nCITY C0nNCYT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-16",
+    "date_end": "1903-04-16",
+    "report_year": 1903,
+    "source_file": "9_1903-04-16_p2_sn88085947_00211108526_1903041601_0552",
+    "archive_ref": "9_1903-04-16_p2_sn88085947_00211108526_1903041601_0552",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-04-16_p2_sn88085947_00211108526_1903041601_0552",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 397,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 1226,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 470,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "To be submitted to the qualified\nelectors Of said city at the municipal\ntheir ratification or rejection.\n\n\nPROPOSED AMENDMENT NO. 81.\nResolved, That Section No. 10 OF the\ncity R ehsotsF be yegsSniSs Mo *\nResol I'd. That Section No. I'd of the\ncity, Nlarteer be amended 80 AZ 40\nread as follows:\n\n\nSection 70. corporation counsel\nconfirmed by the council, and shall\nhold office for the term OF two years.\nHe may be removed upon the recon-\nmendation of the mayor by major\ncity council, or may be removal by a\nvote of two-thirds of the meI.iDers OF\nthe council. after charges have been\npreferred. The corporation counsel\ncourt of this state and must have\nbeen engaged In the practice of his\nprofession for at least Ave years. He\nshall give sufficient bond to the\n| for the faithful performance of his\nduties. The city council may by or\ndinance, -two-thirds voting therefor\nauthorize the corporation counsel to\nappoint one or more assistants. when\never the interests of the city demand\nsuch appointment.\n\n\nPROPOSED AMENDMENT NO. Sc.\nResolved. That Section No. IS of the\n\n\nPROPOSED AMENDMENT. No. 81.\nResolved. That Section No. ass OF the\ncity c.larter be amended 80 as to read\nas follows:\n\n\n| We recommend that Section 16i\nof the city charter as II now exists\n| be amended so as to read as follows:\n\n\nSection 1853. There shall be city\ntreasurer, who shall be ex-officio tax\ncollector. and who shall be elected\nat the same time In the same manner\nas the mayor He shall give a bond\nin such sum as the city council may\n\n\nPROPOSED AMENDMENT NO. IS.\nResolved That Section NJ. 215 of the\ncity charter be amended so as to read\nas follows:\n\n\nSection 215. An annual tax of not\nmore than one mill on the dollar of\nthe assessed valuation OF the prop\nerty of the city shall be levied, the\nproceeds thereof to be q part of the\n| public park fund. and to be used In\n| the construction and building of\ndrives and boulevards. the planting\nOf trees, shrubs and flowers, and any\nother improvements that may by the\npark commission be deemed neces-\nsary or proper for the ornament or\nidentifying of the public parks of the\ncity.\n\n\nPROPOSED AMENDMENT NO 50.\nResolved. That Section No. 21S of the\ncity charter he repealed."
+    }
+  ]
+}

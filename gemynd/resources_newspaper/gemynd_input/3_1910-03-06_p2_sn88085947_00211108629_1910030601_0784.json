@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "Mann COMES\nTO the AID\n\n\nOf POLICE\n\nGAYS THEY WERE EVER GEN.\nTIEMEN IN DEALING WITH\n\n\nWOMEN PRISONERS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-06",
+    "date_end": "1910-03-06",
+    "report_year": 1910,
+    "source_file": "3_1910-03-06_p2_sn88085947_00211108629_1910030601_0784",
+    "archive_ref": "3_1910-03-06_p2_sn88085947_00211108629_1910030601_0784",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-03-06_p2_sn88085947_00211108629_1910030601_0784",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "jail"
+        ],
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 275,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 308,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1286,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1228,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A typewriter statement eight\npages in length has been issued by\nPolice Justice s. A. Mann as de-\nTense of his action in handling the\nj. w. w. cases. Judge Mann aspires\nto represent this district in con-\ngress and for fear that the voters\nover the district might misinterpret\nhis attitude in dealing with the\nstreet speaking cases he goes into\nsome details to explain.\n\n\nJudge Mann's version of the\nstreet speaking controversy does\nnot tally with the official statement\nprepared by the Central Labor\ncouncil The judge defends the po-\nlice and other city authorities, his\nown decisions, and says in conclu-\nsion:\n\n\nIl have been associated with the\npolice department Of Spokane in\nvarious ways during the last six\nyears and the first report has yet\nto come to me in which charge of\nungentlemanly conduct toward\nwomen is made against the officers:\n/ believe that the statements and\ncharges made by women associ-\nated with the l. w. w. are absolute\n~ untrue, and are made solely for\nthe purpose of notoriety, and at\nthe same time casting reflections\nupon the police department of this\ncity, to gain the sympathy of the\ngood residents of this country\"\n\n\nThis last statement is in direct\nconflict with the claim of the mem\nbers of the Woman's club leading\nin the fight for matrons at the city\nJail. If the women had the ballot\nJudge Mann might be placed in\nthe peculiar position of being called\non the carpet and made to explain.\nThe women have sworn statements\nin contradiction of this conclusion\nof Judge Mann as to the purity OF\nthe police department."
+    }
+  ]
+}

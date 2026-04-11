@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AMONG THE TOHhRJ",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-07",
+    "date_end": "1903-01-07",
+    "report_year": 1903,
+    "source_file": "22_1903-01-07_p3_sn88085947_00211108526_1903010701_0217",
+    "archive_ref": "22_1903-01-07_p3_sn88085947_00211108526_1903010701_0217",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1903-01-07_p3_sn88085947_00211108526_1903010701_0217",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 200,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 237,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the Clearwater country. where there\nis possibility Of forming an A. l..\nUT oday he will leave for Lewiston,\nIdaho, where he intends to put in a\nvery strong union. Mr.. Williams was\ngranted seat of privilege at last\nnights meeting of the trades council.\n\n\n1t Is reported that at the next\nmeeting of the Retail Clerks union\nactive measures will be taken for the\npurpose of organizing the lady clerks.\nThis movement will be encountered\nwith many difficulties. but when once\norganized it is believed that the\nunion will be a potent factor in the\ncity.\n\n\nThe National Brewery Workers\nunion will hold special convention\nin February to consider the question\nOF jurisdiction over transfers, sta\ntionary engineers, firemen and other\ncrafts employed in the brewery in\ndustry.\n\n\nKansas City BARRIERS will present q\nbill to the next legislature provid-\ning for the creation of board of\nexamination and inspection. BARRIERS\nclaim that this will be a protection\nfor the public as well as to the craft.\n\n\ndelegation from the American\nLabor union called upon the city\ncouncil last night with a petition\nasking that the city employ only\nunion labor The matter was referred\nto the finance committee."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CENTRAL LABOR UNION Or\nDERS COMMITTEE TO iNVES-\nTIGATE NATURE OF AGREE\nMENT AS TO KEEPING HOW.\nARD STREET BRIDGE IN RE-\nPAIR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-26",
+    "date_end": "1906-06-26",
+    "report_year": 1906,
+    "source_file": "3_1906-06-26_p1_sn88085947_00211108563_1906062601_0862",
+    "archive_ref": "3_1906-06-26_p1_sn88085947_00211108563_1906062601_0862",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-06-26_p1_sn88085947_00211108563_1906062601_0862",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 149,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 115,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Central Labor Union last\nnight instructed the legislative\ncommittee to ascertain whether or\nnot the Washington Water Power\ncompany had forfeited its franchise\nover the Howard street bridge, by\nnot having kept it's agreements\nwith the city to strengthen the\nbridge SO it would be safe for cars\nand other traffic.\n\n\nInquiries at the city hall and an\ninvestigation of the franchises\nwould appear to show that the local\nmonopoly is safe and can retain\nits grip on the new bridge when\never the city can get one erected.\n\n\nThere is believed to be little\ndoubt but that the company could\nbe refused the use OF the bridge for\na long time to come, but there is\nlittle apparent hope of anything of\nthis nature being done for every\ncity official with any real authority\nis generally believed to be working\nhand in glove with the big COM"
+    }
+  ]
+}

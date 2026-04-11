@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MONSTER FARMERS\n\n\nMEETING PLANNED",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-12",
+    "date_end": "1909-08-12",
+    "report_year": 1909,
+    "source_file": "9_1909-08-12_p7_sn88085947_00211108605_1909081201_0628",
+    "archive_ref": "9_1909-08-12_p7_sn88085947_00211108605_1909081201_0628",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-08-12_p7_sn88085947_00211108605_1909081201_0628",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 121,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 468,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A monster meeting of Spokane\ncounty farmers Is planned for Sep\nTENDER 3 at the court house, to\nexpress the views of the farmers\nof the county In the matter of the\ngrand Jury investigation Of county\naffairs. The meeting is being talk\ned up In all parts of the county,\nand wherever farmers hold a gath\nering the Spokane conference Is\nput forward and the attendance of\nall urged.\n\n\nr. B. Martin. president of the\nSpokane County Township club,\nand President Kegley of the\nGrange are the chief advocates of\nthe meeting. \"We expect one of\nthe best gatherings OF the kind\never held by the farmers of Spo-\nkane county,\" said Mr.. Martin.\nEverywhere you go there Is de-"
+    }
+  ]
+}

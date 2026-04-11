@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "A VERY LONG\n\n\nTIME",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-27",
+    "date_end": "1909-10-27",
+    "report_year": 1909,
+    "source_file": "3_1909-10-27_p1_sn88085947_00211108605_1909102701_1215",
+    "archive_ref": "3_1909-10-27_p1_sn88085947_00211108605_1909102701_1215",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-10-27_p1_sn88085947_00211108605_1909102701_1215",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 158,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 189,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 42,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The fact developed at the meet\ning Of the city council last night\nthat although over two months have\nelapsed since Professor w. H. Burr\nof New York, employed as consult\ning engineer on the Monroe street\nbridge, was in Spokane, the plans\nfor the bridge as exported by him\nhave not yet reached the city coun-\nGil.\n\n\nAfter Professor Burr concluded\nhis examination, it was given out\nat the engineers office that he had\napproved the plans in every partic-\nular. Last night City Engineer Raj\nston reluctantly admitted that Pro-\nfessor Burr had offered a few sug-\ngestions as to changes\" and that\nthe making of these changes has so\noccupied the engineer office that\nthe plans are not yet finished.\n\n\nFrom other sources the informa-\nton comes that Professor Burr fair\nly hacked the old plans to pieces,\nand that the new plans will bear\nmore Of the earmarks of Burr than\nthose of Ralston."
+    }
+  ]
+}

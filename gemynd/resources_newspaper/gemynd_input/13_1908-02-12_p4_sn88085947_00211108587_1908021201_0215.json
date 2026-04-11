@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RAILROAD LIABLE FOR\n\n\nDAMAGED GOODS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-12",
+    "date_end": "1908-02-12",
+    "report_year": 1908,
+    "source_file": "13_1908-02-12_p4_sn88085947_00211108587_1908021201_0215",
+    "archive_ref": "13_1908-02-12_p4_sn88085947_00211108587_1908021201_0215",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1908-02-12_p4_sn88085947_00211108587_1908021201_0215",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 66,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 171,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OLYMPIA, Feb. 12.-By a vote\nof four to three the state supreme\ncourt upheld the superior court of\nSpokane county in decision\nawarding w. H. Harris $1,19S\ndamages from the Great Northern\nfor household goods destroyed in\nshipment. The company claimed\nthat as no stipulations had been\nmade as to rates the liability\nclause protecting the company\nruled. Rudkin, Fullerton and\nMount held for the railroad."
+    }
+  ]
+}

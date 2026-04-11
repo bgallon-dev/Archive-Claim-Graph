@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-08-20 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-20",
+    "date_end": "1910-08-20",
+    "report_year": 1910,
+    "source_file": "5_1910-08-20_p2_sn88085947_00211108642_1910082002_0553",
+    "archive_ref": "5_1910-08-20_p2_sn88085947_00211108642_1910082002_0553",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1910-08-20_p2_sn88085947_00211108642_1910082002_0553",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 141,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 139,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Tearfully pleading with the\nmayor to help her to secure dol\nlar which had been unjustly with\nheld from her since last June by\nthe Reliable Employment Agency,\n9177 IL Sprague avenue. Mrs. Ran\ndali, a woman OF about As years,\nwas granted her request and told\nthat 1t was the policy Of the city to\nguard against entertainments of\nvarious employment offices in this\ncity.\n\n\nMrs. Randall, with her baby hoy,\ntalked to the mayor for a while,\nand she was told that she was en-\ntitled to the dollar. She said that\nshe had gone to Mrs. Heating. man.\nager of the Reliable Agency. last\nJune, paid dollar and been given\na ticket to go to a house on Lee\nstreet, where she expected to get\na position as a housekeeper. She\nwent there at once, but found the"
+    }
+  ]
+}

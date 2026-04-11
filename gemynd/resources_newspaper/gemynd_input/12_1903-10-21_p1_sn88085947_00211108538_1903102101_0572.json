@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOWARD ELLIOTT IS\n\n\nTO SUCCEED MELLEN",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-21",
+    "date_end": "1903-10-21",
+    "report_year": 1903,
+    "source_file": "12_1903-10-21_p1_sn88085947_00211108538_1903102101_0572",
+    "archive_ref": "12_1903-10-21_p1_sn88085947_00211108538_1903102101_0572",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1903-10-21_p1_sn88085947_00211108538_1903102101_0572",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 150,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 366,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "talk regarding the candidacy Of Coun-\nsci c. w. Bum for tine office.\n\n\nMr.. Bum is well known here and\nit was hoped by the people of Spokane\nthat he would be the one to receive\nthe appointment.\n\n\nSeven different people had been\nmentioned in connection with the Of\nAce, and among them was James d.\nFarrell Of the Pacific Coast Steam\nship company, J. w. Blabon of the\nNorthern Pacific, J. w. Kendrbck of\nthe Santa Fe, Frank Underwood OF\nthe Erie. Cooper and Hanrfaford OF\nthe Northern Pacific.\n\n\nIn making the selection Of Mr.. FL\nhot, in the opinion Of those in local\nrailway circles, the directors of the\nNorthern Pacific could not have done\nbetter. Elliott is man Of wide ex-\nperience. Up to the time Of the Of\nfetal announcement Of his election\nhas name had never been given prom\ninence as likely to be successful."
+    }
+  ]
+}

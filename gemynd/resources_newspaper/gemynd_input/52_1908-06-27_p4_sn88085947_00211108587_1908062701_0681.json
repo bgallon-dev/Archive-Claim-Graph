@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PLACES BIG CONTRACT FOR 10000 TONS OF\n\nHILLCREST STEAM COAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-06-27",
+    "date_end": "1908-06-27",
+    "report_year": 1908,
+    "source_file": "52_1908-06-27_p4_sn88085947_00211108587_1908062701_0681",
+    "archive_ref": "52_1908-06-27_p4_sn88085947_00211108587_1908062701_0681",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "52_1908-06-27_p4_sn88085947_00211108587_1908062701_0681",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 60,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Washington Water Power\nCo. tested other coal at the plant.\nThey secured analysis of four diff\nferent Goals for carbon, ash, mois-\nture, sulphur and the resulting heat\nunits. Calorimeter or burning tests\nwere not only made at the plant,\nbut by c. M. Fassett, assayer, of\nSpokane, and Professor Fulmer at\nthe Washington State college at\nPullman, Wash."
+    }
+  ]
+}

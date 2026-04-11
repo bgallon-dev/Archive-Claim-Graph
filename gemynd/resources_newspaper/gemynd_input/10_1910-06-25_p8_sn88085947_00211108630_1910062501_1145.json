@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HENRIETTA CROSSNAN WILL \"BEG\n\n\n.BORROW OR STEAL BABLES''",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-25",
+    "date_end": "1910-06-25",
+    "report_year": 1910,
+    "source_file": "10_1910-06-25_p8_sn88085947_00211108630_1910062501_1145",
+    "archive_ref": "10_1910-06-25_p8_sn88085947_00211108630_1910062501_1145",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1910-06-25_p8_sn88085947_00211108630_1910062501_1145",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 203,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 577,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "lieve in the future of America and\nheartily believe in the influence\nof woman\"\n\n\nwhen l hear a woman say, I\ndon't believe in equal rights 1\nconclude she is ignorant of the\nlaws and give her an example Of\nsome of them which still exist in\nsome states. Suppose you had a\nhusband and children and that hus-\nband sa wifi to will your children\naway from you. What would you\nthink? L wouldn't stand for 1t.\nshe will exclaim. When she is\nawakened, the first thing you know\nshe is suffragist. She has invest\nigated the laws. 1t is ignorance of\nthe law which makes women OPP\npost equal suffrage.\n\n\nII am an actress and live in my\nown little world, and haven't much\ntime for anything else but my\nwork and my family. l can't af-\nford to disappoint the public. l\nmust look pretty\" and she puck\ncred her mouth. \"My eyes must\nbe bright\" and she cast side\nglance into the morror before\nwhich she was standing\" and\nhave to appear young. Or else,\"\nshe continued, \"the people would\nsay, She isn't what she used to\nbe- and that would never, never\ndo. l must please the people\""
+    }
+  ]
+}

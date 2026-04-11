@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Gr0Wth of Udter and Electric Power\n\n\nin Spokane.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-30",
+    "date_end": "1902-12-30",
+    "report_year": 1902,
+    "source_file": "3_1902-12-30_p2_sn88085947_00211108526_1902123001_0187",
+    "archive_ref": "3_1902-12-30_p2_sn88085947_00211108526_1902123001_0187",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1902-12-30_p2_sn88085947_00211108526_1902123001_0187",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 197,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 635,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 126,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "spring. 1t is also the intention to\nextend and greatly improve the street\nrailway service. Applications have\nbeen made to the city council for\nfranchises on Indiana ave. from Mon\nroe to Hamilton SITS. and on Lacey\nave. for the purpose of improving\nthe service at Union Park. 1t is\nalso proposed to build new bridge\nacross the river on Post st. to bet\nter accommodate the North Side serv-\nice. Fifteen new cars of the most\nmodern type have been ordered and\nare expected here March /.\n\n\nThe company gives employment at\npresent to 300 men and will increase\nthat number as soon as spring opens,\n\n\nPractically but small part of the\nimmense water power is yet in use\nand there is room for many more\nfactories along the river front, where\nthe cheapest and best of all motive\npowers can be obtained. The more\nmodern method, however, Is, instead\nof locating factories where most con-\nvenient for water power and take\nthe chance of securing sidetracks, to\nlocate them most conveniently on the\nrailroads or sidetracks already built\nand operate them with electric power,\nwhich is second only to water in the\nmatter Of cost."
+    }
+  ]
+}

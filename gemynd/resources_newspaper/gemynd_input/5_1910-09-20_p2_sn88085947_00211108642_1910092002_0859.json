@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "NEW NORTH END .\nIMPROVEMENT\n\n\nCLUB FORMED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-20",
+    "date_end": "1910-09-20",
+    "report_year": 1910,
+    "source_file": "5_1910-09-20_p2_sn88085947_00211108642_1910092002_0859",
+    "archive_ref": "5_1910-09-20_p2_sn88085947_00211108642_1910092002_0859",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1910-09-20_p2_sn88085947_00211108642_1910092002_0859",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ],
+        "education": [
+          "school board"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 118,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 253,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 448,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A new club among the residents\nof Burns addition was formed at a\nmeeting in the new schOOlhouse\nSunday night. The North End I'M\nprovement club, 1t is called, has a\ndistinct object in view, as the title\nindicates. The residents of Burns\naddition have no electric lights, the\nnearest telephone Is two miles\naway, the water system is 1hCnin-\nable, and the school house &aS Only\nbeen supplied for threaSgrades.\nCommittees were appointed to wait\non the school board, Maprs RFatt\nand the telephone and electric night\ncompanies. The officers are Will\nlam Harding. president; n Pratt,\nvice-president; H. w. Young, Sec\nrotary; e. Erickson, treasIreri land\n0. 0. Mills, sergeant-at-arps. THE\nclub numbers about IS meWbers."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-25",
+    "date_end": "1906-10-25",
+    "report_year": 1906,
+    "source_file": "4_1906-10-25_p1_sn88085947_00211108563_1906102501_1280",
+    "archive_ref": "4_1906-10-25_p1_sn88085947_00211108563_1906102501_1280",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1906-10-25_p1_sn88085947_00211108563_1906102501_1280",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 332,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Are western railroads, particular\nly the Northern Pacific and Union\nPacific deliberately limiting the\nfuel supply of this and other cities\nof their territory until cold wealth\ner creates an enormous demand\nand consequent jump in prices\nThis Is the question looming up\nover the Spokane fuel situation.\n\n\nOF the mines that supply Spo-\nkane with coal, the Roslyn is own\ned by the Northern Pacific and the\nRock Springs is the property Of the\nUnion Pacific. Other mines that\nsend coal here are the Monarch,\nWyoming, owned by the Wyoming\nCoal Mining company; Carney, also\nin Wyoming, owned by the Carney\nCoal Mining company. and Crows\nNest, owned by the Crows Nest\nCoal Mining company. Whether\nthese are Independent concerns or\nsubsidiary companies Of the rail.\nroads interested is of course mat\nter unknown except to the princi-\npals.\n\n\nBut the fact remains that the\nwhole wide western territory,\nserved by both the Northern Pa\ncific and the Hartman lines. have\nbeen absolutely drained Of fuel CO.\nincident with the approach of cold\nweather. There has been no Rock\nSprings coal on the local market\nfor long time. One car came in\nyesterday from Roslyn.\n\n\nThe wood supply that might\nhave relieved the situation-and\nlikewise counteracted in a great\nmeasure the effects of coal\nfamine-has beeN withheld by lack\nof cars. II the prevailing scarcity\nof coal is the result of deliberate\narrangement, the cutting off OF\nthe wood supply naturally remain\ned merely a matter Of distributing\nrolling stock so that in such man\nner that it would not be available.\n-~Iu Omaha yesterday grand\nJury returned 81 indictments\nagainst a coal firm for violation of\nthe antitrust law. Ogden has\nbeen suffering for fuel for some\ntime. The coal famine is as acute,\napparently. in one place as in an\nother, and nicely apportioned\neverywhere. There Is just enough\navailable always to keep every\nbody nervous and reconciled to the\nprospect Of famine prices. The\nrailroads blame the mines-and"
+    }
+  ]
+}

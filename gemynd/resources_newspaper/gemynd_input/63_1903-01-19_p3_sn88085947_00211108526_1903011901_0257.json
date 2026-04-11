@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AMONG THE TOHERJ\n\nINTERSTATE COMMITTEE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-19",
+    "date_end": "1903-01-19",
+    "report_year": 1903,
+    "source_file": "63_1903-01-19_p3_sn88085947_00211108526_1903011901_0257",
+    "archive_ref": "63_1903-01-19_p3_sn88085947_00211108526_1903011901_0257",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "63_1903-01-19_p3_sn88085947_00211108526_1903011901_0257",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 211,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 87,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to an opinion expressed\nyesterday by T. S. Heskett. local or\ngani2er for the American Federation\nof Labor. one of the most important\nmeasures adopted at the recent con-\nvention of the Washington State Fed\nGrafton of Labor has not yet been\ndrawn to the attention of the public.\nThree fraternal delegates were APP\npointed to attend the Oregon State\nLabor convention to be held at La\nGrande on May 10. the purpose being\nto have a committee selected from\nWashington, Oregon and California to\nact as n kind of Information bureau\nbetween these three states. The Cali\nfornia State Labor convention was\ntee. and the end in view appears to\nbe to put an end to unfair labor com\npetition in neighboring states by\nbringing about a uniform scale of\nwages among unions of the same\ncraft. For instance, II the carpen-\nters should succeed in raising the\nwage scale or be conceded reduc-\ntion in working hours, this will i'm\nmediately be communicated by the\nbureau to unions of the same craft in\neach of the three states. The dele\ngates chosen at the convention of the\nWashington Federation of Labor were\nIl. 8. Heskett OF Spokane. II. w.\nNorth of Tacoma and Il. A. Rust of\nSeattle."
+    }
+  ]
+}

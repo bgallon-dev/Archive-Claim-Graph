@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WORKING ALLIANCE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-14",
+    "date_end": "1907-01-14",
+    "report_year": 1907,
+    "source_file": "8_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+    "archive_ref": "8_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 95,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 63,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the last meeting of the State\nFederation Of Labor the State\nGrange was represented by dele\ngates. The grange proposes to sup\nport union labor in return for Ia\nboris support for better freight\nrates. The relations now existing\nbetween the two great bodies of la\nDor in the state are reported as be-\ning most cordial. The alliance is\nin embryo yet, local labor leaders\nsay, but it is believed that a work\ning alliance will be perfected that\nwill have a great influence in shap-\ning the political destinies of Wash\nington."
+    }
+  ]
+}

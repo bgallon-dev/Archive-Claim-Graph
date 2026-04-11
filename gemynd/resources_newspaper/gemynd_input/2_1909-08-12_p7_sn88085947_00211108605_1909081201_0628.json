@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "INSIDE STORY. OF CO.. OsSAL LAND GRAB",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-12",
+    "date_end": "1909-08-12",
+    "report_year": 1909,
+    "source_file": "2_1909-08-12_p7_sn88085947_00211108605_1909081201_0628",
+    "archive_ref": "2_1909-08-12_p7_sn88085947_00211108605_1909081201_0628",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-08-12_p7_sn88085947_00211108605_1909081201_0628",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "land office"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 107,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 292,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "terests of the United States. and\nstating that he lands had been\nwithdrawn in accordance with a\npolicy adopted by President Roose-\nEelt. He did not want his chief to\nEbe advised wrongly of his attitude,\nBE said.\n\n\n81 The lists were approved by Sec.\n|5etary Ballinger and rushed over to\n\n\nthe land office with instructions to\n\n\nact upon them the same day they\n\n\ncame to Ballinger's desk, although\nthese things usually have to take\n\n\ntheir turn in the business on the\ndesk of a cabinet officer %$A\nNearly every restoration made\nby Ballinger was so worded that\nthe land was Immediately thrown\nopen to entry. a&ui"
+    }
+  ]
+}

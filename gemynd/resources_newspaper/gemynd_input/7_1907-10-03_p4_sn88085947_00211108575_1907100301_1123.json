@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "GETS THE\n\n\nBRIDGE JOB\n\nNEW YORK EXPERT TO PASS\n\n\nHIS OPINION ON MONROE ST.\nSTRUCTURE AND POSSIBLY\nDRAW PLANS FOR NEW ONE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-03",
+    "date_end": "1907-10-03",
+    "report_year": 1907,
+    "source_file": "7_1907-10-03_p4_sn88085947_00211108575_1907100301_1123",
+    "archive_ref": "7_1907-10-03_p4_sn88085947_00211108575_1907100301_1123",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-10-03_p4_sn88085947_00211108575_1907100301_1123",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 237,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 575,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city council last night, in\nspecial committee. authorized the\nemployment of William H. Burr, OF\nNew York, as bridge expert, to\npass on the Monroe st. bridge and\nrecommend new structure either\nsteel or concrete, as he though best\nsuited for the locality and\ngeographical conditions. The other\nexpert under consideration was J..\nA. L. Waddell, of Kansas City. On\naccount of his being altogether a\nsteel expert, and many of the\ncouncilmen leaning toward the con-\ncrete style of structure, Waddell\nwas given little consideration.\nWaddell was highly favored by the\nWashington Water Power Co.,\nwith which the council is having\nso much trouble over an agree\nment as to its share of the expense\nof new bridge. He is already ia\nmiliar with every piece of steel\nand bolt in the bridge, having been\nsent plans by the w. w. P.\n\n\nMr.. Burr offers to expert the\nbridge for $1,000 and transporta-\nton both ways from New York.\nWaddell's proposition was $500,\nwithout transportation. If it is de-\ncided to have Burr make the plans,\nthen he will be paid 31a per cent\nOf the cost of the construction,\nwhich would give him almost $12.-\n600 for his work, according to the\n100000 estimate of the engineer\ning department of the city.\n\n\nA letter was mailed to the expert\ntoday asking him to get on the\nground and begin work as soon as\npOSSihlo"
+    }
+  ]
+}

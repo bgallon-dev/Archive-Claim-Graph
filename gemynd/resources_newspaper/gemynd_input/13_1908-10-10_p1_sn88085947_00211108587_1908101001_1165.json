@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "IMPROVEMENT FOR\n\n\nPEACEFUL VALLEY",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-10",
+    "date_end": "1908-10-10",
+    "report_year": 1908,
+    "source_file": "13_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+    "archive_ref": "13_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 135,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 196,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 44,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 13,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The board of public works has\nrequested the city council for an\norder permitting them to advertise\nfor bids for the Improvement of\nMain avenue west from Lincoln to\nHuron street. running under the\nMonroe street bridge. At Huron\nstreet the Improvement will turn\nnorth to Water street, the idea be-\ning to give the people of Peaceful\nvalley more easily Travelled\nwagon route I'm and out of the city.\n\n\nThe making of this Improvement\nwill also terminate a dispute be.\ntween the Spokane Casket Co. and\nJames A. LaRue over private\ndriveway leading out of the valley\nacross I-aRue's land. This con-\ntroversy has been before the board\nof public works a number OF times\nand has practically been settled\nby LaRue deciding land to the city\nfor part of the proposed improve.\nment."
+    }
+  ]
+}

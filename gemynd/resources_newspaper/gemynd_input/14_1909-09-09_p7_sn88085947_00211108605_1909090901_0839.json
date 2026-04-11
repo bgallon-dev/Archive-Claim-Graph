@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SAYS INDIAN MAIDS WILL\n\n\nSOLVE SERVANT PROBLEM",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-09",
+    "date_end": "1909-09-09",
+    "report_year": 1909,
+    "source_file": "14_1909-09-09_p7_sn88085947_00211108605_1909090901_0839",
+    "archive_ref": "14_1909-09-09_p7_sn88085947_00211108605_1909090901_0839",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1909-09-09_p7_sn88085947_00211108605_1909090901_0839",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 298,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 206,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "special Correspondence 10 The Press\n\n\nSEATTLE. Sept. 9.--The servant\nproblem has been solved at last!\n\n\nSo, at least, says Mrs. Thomas\nBurke Of Seattle, generally regard\ned as the best dressed woman in\nthe exposition city.\n\n\nBut how? Simple enough.\n\n\nGet an Indian maid-or a bevy\nof them, II your establishment war\nrants. The Indian is the new do\nnestle servant.\n\n\nMrs. Burke knows, for she EN-.\nploys descendants OF the original\nowners of America in her house.\nhold. Her cook is an Objibwa girl,\nand her chauffeur has Chippewa\nblood in his veins.\n\n\nThese facts came out the other\nday at meeting of Indian edu-\nGators at the Alaska Yukon expo\nsition, which was secured by the\nefforts Of Miss Estelle Reel, super\nintendent of the government IN\ndian schools. Miss Reel gathered\nat Seattle pupils of many Indian\nschools and by practical demon\nstration showed what progress the\naborigine is making under the in\nvader's tutilage.\n\n\nThen Mrs. Burke, whose hus-\nband, Judge Thomas Burke, is one\nof the richest men in the north.\nwest. formerly James J. Hills right\nhand man on the coast, came to the\nfront and let her cook demonstrate\nher professional ability. The DEM\nonstration was a great success.\nSadie Quake\" as Mrs. Burke's\nservant is named, made good.\n\n\nAt this same meeting grand\ndaughter Of Chief Seattle, whose\nname was taken by the northwes.\nmetropolis, demonstrated the value\nOf her domestic science and train\ning by cooking most edible repast\nfor Mrs. Richard A. Ballinger, wife\nof the secretary of the interior.\n\n\nEyes, indeed, I believe the In\ndian can solve our domestic prob\nlens and solve them right\" said\nMrs. Burke. II am doing all l can\nto introduce the dusky maids into\nmy friends homes and many have"
+    }
+  ]
+}

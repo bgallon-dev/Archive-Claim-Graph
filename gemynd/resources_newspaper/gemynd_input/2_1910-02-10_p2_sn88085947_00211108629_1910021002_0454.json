@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "HARD\n\n\nTo GET IN\nFLYNN CASE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-10",
+    "date_end": "1910-02-10",
+    "report_year": 1910,
+    "source_file": "2_1910-02-10_p2_sn88085947_00211108629_1910021002_0454",
+    "archive_ref": "2_1910-02-10_p2_sn88085947_00211108629_1910021002_0454",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "2_1910-02-10_p2_sn88085947_00211108629_1910021002_0454",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 7.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "conspiracy",
+          "gurley flynn"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 211,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 714,
+            "in_headline": false
+          },
+          {
+            "term": "gurley flynn",
+            "weight": 3.0,
+            "offset": 753,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Seven Jurors had practically\nbeen agreed upon when the Gurley\nFlynn conspiracy case closed at\nnoon today. A jury may be Sc\ncured this afternoon, but it is not\nprobable that it will be, as the de-\ntense has not yet used any of it's\nperemptory challenges. 1t is pos\nsible that the regular venire of\njurors will be exhausted before a\njury is secured, and a halt called in\nthe trial to permit the calling of\nnew jury timber\n\n\nJudge KEENAN, has permitted the\ndefense to question the veniremen\nas to their feelings regarding the\n]. W. w., socialists, labor unions\nand ether classes Of radicals\" At\nfirst these questions were barred\n\n\nSome have said that the city of\nSpokane, in an effort to support it's\nattitude in the street speaking con-\ntroversy, and not Gurley Flynn, is\nthe real defendant. At any event,\nthe state of Washington and Spo-\nkane county are to bear all the\nexpense of the prosecution, and the\ncity is saved the costs of the trial\nG.. J. FilignO is Jointly indicted and\nis being tried with Gurley Flynn.\n\n\nThe trial will run indefinitely, as\nthe defense for the girl agitator\nwill be the most elaborate yet in\ntroduced in any of the conspiracy\ncases."
+    }
+  ]
+}

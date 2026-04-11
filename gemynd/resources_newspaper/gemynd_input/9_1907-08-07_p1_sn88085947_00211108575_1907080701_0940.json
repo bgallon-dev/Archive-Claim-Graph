@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-07 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-07",
+    "date_end": "1907-08-07",
+    "report_year": 1907,
+    "source_file": "9_1907-08-07_p1_sn88085947_00211108575_1907080701_0940",
+    "archive_ref": "9_1907-08-07_p1_sn88085947_00211108575_1907080701_0940",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1907-08-07_p1_sn88085947_00211108575_1907080701_0940",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 185,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 114,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 44,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The council last night ordered\nthe board OF public works to enter\ninto immediate negotiations with\nthe Washington Water Power Co.\nfor a renewal of it's lighting con-\ntract with the city. The old con-\ntract expires Aug. 81.\n\n\nCouncilman N. s. Pratt, on whose\nsuggestion the matter was taken up,\nfavor a l year contract instead of\n5 as before. Other councilmen who\nfavor the / year limit are Laumer,\nGray, Phillips and Baldwin.\n\n\nDuring the past s years the w.\nw. p. has charged \"a apiece for arc\nlights and agreed to keep each l\nburning every night. In many In\nstances they go out, but there Is\nnothing in the old contract penaliz-\ning the company for this. The\nlighting bill costs the city approx\nmately 100000 per year. which Is\npractically clear gain for the com\npany.\n\n\n1t was suggested today that the\ncompany will condescend to submit\ntwo popositions-One for year at\nIS per arc light and l for years at\nthe old rate. The board of public\nworks favors a 5-year contract with\nthe privilege Of cancellation on 81"
+    }
+  ]
+}

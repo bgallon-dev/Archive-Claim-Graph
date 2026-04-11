@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-14 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-14",
+    "date_end": "1903-07-14",
+    "report_year": 1903,
+    "source_file": "43_1903-07-14_p3_sn88085947_00211108538_1903071401_0168",
+    "archive_ref": "43_1903-07-14_p3_sn88085947_00211108538_1903071401_0168",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "43_1903-07-14_p3_sn88085947_00211108538_1903071401_0168",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle",
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 138,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 39,
+            "in_headline": false
+          },
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 26,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "produces flne stfAsfa: me alfalfa, fns\ncattle. We have. for . few days only.\nan opportunity seldom offered to en-\ngage in the stock business. a hne\nranch Of $50 acres, good improve\nments, part OF It in alfalfa, more\nready to be put in; 20 head of high\nGrade mich COWS, IS head Of 2-year-\nODDS. 10 head Of yearlings, two horses.\n50 hogs (all sizes). two wagons. har-\nness. two mowers. one rake. two har-\nrows, one cultivator, two plows. one\ncream separator and churn and other\nthings necessary to carry on the\nranch; good location; short winters;\nfine open range adjoining. This first\nclass property can be had for $4,000;\nhalf cash. balance six years at Q per\ncent. Must be sold within the next\n10 days. For further particulars\ncall on\n\n\nA q ea0WnER"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-27 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-27",
+    "date_end": "1906-10-27",
+    "report_year": 1906,
+    "source_file": "7_1906-10-27_p1_sn88085947_00211108563_1906102701_1288",
+    "archive_ref": "7_1906-10-27_p1_sn88085947_00211108563_1906102701_1288",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1906-10-27_p1_sn88085947_00211108563_1906102701_1288",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 256,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1138,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ments and rolling stock. Big divi-\ndends sent the stock up and an era\nof market manipulation was sub\nstituted for the expansion and in\ncrease of equipment that the rapid\ndevelopment of the country. espe-\ncially the Northwest. demanded.\n\n\nThe condition is aggravated by\napplication of the same policy to\noperating forces. The man who\ncould make the road show maxi\nmum profit and minimum expendi-\nture, regardless of life or limb or\npublic demand, shot into the as\ncendancy.\n\n\nThe Hill policy of railroading is\nVIGOROUSLY a policy of cheap con-\nstruction and cheap operation. 1t\ndemands cheap material and cheap\nmen. Consequently older officials\nworth good salaries are let out\nwhenever there is an opportunity\nfor doing so. Younger men with\npromotion promised, work harder,\nwork cheaper, and are more sub\nsevient. When they arrive at the\nage of 40 o thereabout they meet\nthe fate of their predecessors. That\nis tn way their promised promotion\nusually pans out Any Hill rail\nroad man in position to tell the\ntruth will confirm this.\n\n\nOne result is told in the wrecks\nthat have become matters of al\nmost daily occurrence, especially\non the Great Northern. Lives Of\ntrainmen are sacrificed to this pol\nicy continually, but that makes no\ndifference with dividends. If the\ncompany Is caught where it cannot\nescape, as in the Diamond lake ac-\ncident, 1t merely denies the fact Of\na wreck and settles on a cash basis\nwith survivors of its i'll fated en-\nployes. Then the management re-"
+    }
+  ]
+}

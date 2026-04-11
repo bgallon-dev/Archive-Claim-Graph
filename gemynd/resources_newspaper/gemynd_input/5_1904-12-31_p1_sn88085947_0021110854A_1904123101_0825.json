@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "[|QHT HOUR LAW\n\n\nCONSTITUTIONAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-12-31",
+    "date_end": "1904-12-31",
+    "report_year": 1904,
+    "source_file": "5_1904-12-31_p1_sn88085947_0021110854A_1904123101_0825",
+    "archive_ref": "5_1904-12-31_p1_sn88085947_0021110854A_1904123101_0825",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-12-31_p1_sn88085947_0021110854A_1904123101_0825",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 176,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 388,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 424,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Victory has been declared for the\neight hour law in Spokane. The su-\npreme court at Olympia has decided\nthe city ordinance constitutional and\nthe result will be that all men en-\nployed on public contracts in this\ncity will work but eight hours here\nafter.\n\n\nThe decision practically ends the\nproceedings instituted by Peter Co.'S\ntello In the superior court recently\nwhen he asked for an injunction to\nrestrain the board of public works\nfrom cancelling the contracts on\nwork where he compels his men to\nwork nine hours. 1t is a great VIC\ntory for the advocates of the eight\nhour law.\n\n\nThe right of the state or of a\nmunicipality to fix the number Of\nhours in a days labor on public\nworks is clearly and effectively es-\ntablished by the decision.\n\n\nThe case went up from Spokane.\nJames c. Broad was charged with\nviolating the eight hour ordinance,\nand having been denied a writ Of\nhabeas corpus, he appealed to the\nsupreme court, claiming that the\neight hour law and all ordinances"
+    }
+  ]
+}

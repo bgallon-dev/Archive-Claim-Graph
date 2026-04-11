@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "CITY NEWS\n\n\n~ | N Bril- F ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-25",
+    "date_end": "1910-03-25",
+    "report_year": 1910,
+    "source_file": "1_1910-03-25_p14_sn88085947_00211108629_1910032501_1106",
+    "archive_ref": "1_1910-03-25_p14_sn88085947_00211108629_1910032501_1106",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-03-25_p14_sn88085947_00211108629_1910032501_1106",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 3.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "inland empire"
+        ],
+        "spokane_development": [
+          "building permit"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 314,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1230,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1345,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1230,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "building permit",
+            "weight": 1.0,
+            "offset": 262,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Before going on record on the\nquestion of the park bonds the\nHays Park Improvement club last\nnight appointed a committee to see\nthe park board and inquire into\nthe matter. A resolution was\nadopted in favor of terminal rates\nin the pending railway franchises\n\n\nA building permit for three\nstory brick apartment house on\nThird avenue. between Browne and\nMcclellan, has been issued to w.\nS. Scott. The cost is $4,000.\n\n\nT. l.. Greenough, W. J. c. Wake.\nfield and d. w. Twohy have incor-\nporated the Greenough Investment\ncompany for 100000.\n\n\nWith a capitIiztion of 100000\nthe Spokane Asphalt Macadam\nPaving company has been incor-\nporated by F. p. Hogan, Jay P.\nGraves. Otto Weile and others. 1t\nwill manufacture and lay the as.\nphalt macadam that so favOrably\nimpressed the incOrporators on\ntheir recent visit to California.\n\n\nA question of the legality Of the\nissue of 100000 of water improve\nment bonds has been raised by the\nattorney for the eastern company\nthat is to take the bonds. 1t is\nclaimed that the bonds have ex-\nceeded the legal limit that may be\nissued without an election some\n$4,000, while the city attorney said\nthat the limit had not been reached\nby $4,000 The bond company\nwants an election.\n\n\nA new schedule of freight rates\non Lake Occur d'Alene and the\nOccur d'Alene river, to take effect\nApril %, has been announced by\nthe Inland Empire system. in con-\njunction with the Perry-Lyon Navi-\nCATION company. The new rates\nwill make cut into the o. r. &, n.\nterritory in the Occur dAlenes.\n\n\nGetting into the city hall location\nscrap early, the North Side I'M\nprovement club last night went on\nrecord as fayoring the building of\nthe new structure in Keystone adj\ndition, on Gardner avenue, between\nWall and Washington. There are\ntwo whole blocks that can be had\nthprp"
+    }
+  ]
+}

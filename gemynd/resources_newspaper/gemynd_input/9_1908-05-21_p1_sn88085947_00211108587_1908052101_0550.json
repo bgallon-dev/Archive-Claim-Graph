@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-05-21 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-21",
+    "date_end": "1908-05-21",
+    "report_year": 1908,
+    "source_file": "9_1908-05-21_p1_sn88085947_00211108587_1908052101_0550",
+    "archive_ref": "9_1908-05-21_p1_sn88085947_00211108587_1908052101_0550",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-05-21_p1_sn88085947_00211108587_1908052101_0550",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 188,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 89,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "freight trains over the Portland b\nSeattle will be entirely eliminated\nby the use Of the Great Northern\ntracks. Although the two roads\nare under different management,\nthe same money and general inter-\nests control them, which made the\nnegotiations easy.\n\n\nThe reported plans come from an\nauthoritative source.\n\n\nOne of the advantages In favor\nof the company is the fact that 1t\nwill not be necessary to purchase\nsingle home, and only very lit\ntie property. All the ground that\nmust be bought Is owned by John\nA. Finch, one of the men who was\nin favor of the old N. p. plans for\na dirt fill.\n\n\n1t Is believed that when the\nroad gets it's trains through the\ncity via the Great Northern, Of\nficials will then wait until the\ncourts force them to separate the\nN. P. grade. This, it Is estimated.\nwill take at least five years. After\nthe courts have ordered the work,\nthe question will then be as to the\nadvisable plan, which 1t is contend\ned will be found to be practically\nwhat the company tried to have\nthe council approve."
+    }
+  ]
+}

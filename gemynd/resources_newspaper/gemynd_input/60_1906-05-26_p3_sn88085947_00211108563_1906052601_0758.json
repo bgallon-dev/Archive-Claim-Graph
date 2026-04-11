@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-05-26 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-26",
+    "date_end": "1906-05-26",
+    "report_year": 1906,
+    "source_file": "60_1906-05-26_p3_sn88085947_00211108563_1906052601_0758",
+    "archive_ref": "60_1906-05-26_p3_sn88085947_00211108563_1906052601_0758",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "60_1906-05-26_p3_sn88085947_00211108563_1906052601_0758",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "assay",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 140,
+      "match_details": {
+        "mining": [
+          {
+            "term": "assay",
+            "weight": 1.5,
+            "offset": 171,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 111,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Pine Nut ledge is traceablc\nfor 500 feet across tho Captain\n\n\nSam. This marvellous deposit of\ngold bearing ore ranges from Is to\n20 feet in width, and gives gen.\neral assay value Of SIS per ton. A\nfour foot ledge has been opened at\nsix places on the Kentucky giving\ny uniform value Of better than 800\nper ton. This ledge Is the same\nvein from which sensational values\nare being taken on the CONSOLIDATE\ned. At every point where these\nLodges have been opened on the\nKentuck and Captain Sam, they\nhave stood the most exhaustive\ntests and given values Of from SIS\n10 500 to the ton. The vein on tho\nKentucky has been proven to a\n1epth of so feet and has broadened\n\n\nbut and become richer with depth.\nOn the Arkansas two lodges aver."
+    }
+  ]
+}

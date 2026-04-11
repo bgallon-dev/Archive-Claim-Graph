@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GAS TANK EXPLOSION ON\nORIENTAL LIMITED EXPOSES\nPATRONS TO DANGER AND\nDISCOMFORT AT NIGHT IN\nMOUNTAINS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-28",
+    "date_end": "1908-12-28",
+    "report_year": 1908,
+    "source_file": "4_1908-12-28_p1_sn88085947_00211108599_1908122801_0354",
+    "archive_ref": "4_1908-12-28_p1_sn88085947_00211108599_1908122801_0354",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-12-28_p1_sn88085947_00211108599_1908122801_0354",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 184,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The gas tank of the observation\ncar on the Great Northern Oriental\nLimited train, which left Seattle at\n$3.50 last evening, exploded when\nthe train was few miles west Of\nHot Springs, about 1880 this morn\ning. The car was considerably\ndamaged by the fire that followed,\nand the passengers occupying the\nsleeping compartments in it were\ncompelled to fee in their night\nclothes to escape the flames and\ngas. The car was Immediately cut\noff from the rest of the train, and\nthe crew fought the flames with all\nthe available fire extinguishers,\nwith the result that the fire was\nsoon under control.\n\n\nNo one was seriously injured,\nthough one lady in her excitement\nfell out of an upper berth and Sc\nverely bumped her head. The pas\nsengers in the observation car had\nto climb out of the rear end Of the\ncar In their night clothing into\nabout six inches of snow and water\nand walk two Car lengths to the\ntrain. s\n\n\nd. w. Twohy, president Of the\nOld National bank, occupied a\nberth next to the gas tank. He"
+    }
+  ]
+}

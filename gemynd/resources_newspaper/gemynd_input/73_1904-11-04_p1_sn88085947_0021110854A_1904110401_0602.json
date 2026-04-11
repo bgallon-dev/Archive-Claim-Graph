@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "CITIZENS\nCOMPLAIN",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-04",
+    "date_end": "1904-11-04",
+    "report_year": 1904,
+    "source_file": "73_1904-11-04_p1_sn88085947_0021110854A_1904110401_0602",
+    "archive_ref": "73_1904-11-04_p1_sn88085947_0021110854A_1904110401_0602",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "73_1904-11-04_p1_sn88085947_0021110854A_1904110401_0602",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 89,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 75,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 194,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Another instance Of the unlawful\ngreed and carelessness Of the WASH\nington Water Power company came\n70 light this morning when an addi-\ntional bunch OF complaints were turn\n\"a into the board OF public works\nover the frightful condition Of the\ncrosswalks on Fourth avenue.\n\n\nWhen the Warrington Water Pow\nu company laid the street car tracks\non fourth avenue from Stevens street\neast TO Liberty Park all Of the CROSSE\nyelhs Nere torn up.\n\n\n>keoesty of ths cittssns. the walks\n\n\nown 70 one side and later On"
+    }
+  ]
+}

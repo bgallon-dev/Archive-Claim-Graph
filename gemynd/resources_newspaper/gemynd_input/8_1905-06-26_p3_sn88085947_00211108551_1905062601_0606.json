@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "NOTICE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-26",
+    "date_end": "1905-06-26",
+    "report_year": 1905,
+    "source_file": "8_1905-06-26_p3_sn88085947_00211108551_1905062601_0606",
+    "archive_ref": "8_1905-06-26_p3_sn88085947_00211108551_1905062601_0606",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1905-06-26_p3_sn88085947_00211108551_1905062601_0606",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 492,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1424,
+            "in_headline": false
+          },
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 1346,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "| In the superior court of the state\nOF Washington. in and for the county\nof Spokane.\n\n\nSpokane International Railway\ncompany, a corporation, plaintiff, vs.\n| Edward M. Wright and Laura A.\n| Wright, his wife, defendants.\nTo Edward NJ Wright and Laura\nA. Wright, his wife, defendants:\nYou and each of you will please\ntake notice that the petitioner, the\nSpokane International Railway COM\npany, has filed in the superior court\nof the state of Washington, for Spo-\nkane county, a petition directed to the\nsaid court, setting forth that the\nSpokane International Railway COM\npany is corporation organized under\nthe laws of the state of Washington,\nengaged in the construction and oper-\nalton of n line of railway beginning\nin the city of Spokane, thence easter\nly to n point near the town of Rath-\ndrum, in the county of Kootenai,\nstate of Idaho. and thence In\nnortheasterly direction up the valley\nof the Mooyie river. to the internal\ntional boundary line between the\nUnited States and Canada; that 1t Is\nessential for the operation of it's lines\nof railway, and the accommodation\nOF the public using the same, that 1t\nacquire those lands situate in Spo-\nkane county. Washington, and de-\nscribed as lots fifteen G5), sixteen\nU6) and seventeen GD in block one\nCd of River Front Addition to Spo-\nkane Falls (now Spokane), Washing\nton, for use for its right of way for\nthe line of It's said railway, and for\nnecessary sidetracks, depot grounds\nand terminal yards: that the defend\nant Edward NJ. Wright, appears to be\nthe sole owner in fee of said realty.\nand the defendant, Laura A. Wright,\nhas or claims to have some interest\nIn or lien upon said premises; and\nthat said petition prays that the\ncourt empanel jury to ascertain and\ndetermine the compensation to be\nmade in money to the owners of said\nrealty. and to all others interested\ntherein for the taking of said realty\nby petitioner for the purposes afore-\nsaid copy of said petition is here\nto attached and herewith served upon\nyou.\n\n\nAnd you, and each OF you. are here\nby notified that on the 14th day of\nJuly. 1905, petitioner will apply to\nthe superior court of the state of\nWashington, for Spokane county. and\nto the Honorable William a. Huneke,\njudge thereof, at his courtroom in the\ncity of Spokane, at the hour OF $50\no'clock a, m, or as soon thereafter\nas counsel for petitioner can be heard.\nfor hearing upon said petition, and\nan adjudication by the court that the\ntaking of said realty Is for public USE\nand la necessary to the business of\npetitioner. and for tho fixing OF\ntime and place at which n jury may\nhe called to determine the compensa-\nton to be made therefor,\n\n\nDated this 10th day OF June, 1905.\n\n\nALLEN Il ALLEN,\n\n\nAttorneys for Petitioner.\n\n\ny. O. address: 61S Tho Rookery,\nSpokane, Wash."
+    }
+  ]
+}

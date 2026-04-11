@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-06-17 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-17",
+    "date_end": "1905-06-17",
+    "report_year": 1905,
+    "source_file": "17_1905-06-17_p3_sn88085947_00211108551_1905061701_0578",
+    "archive_ref": "17_1905-06-17_p3_sn88085947_00211108551_1905061701_0578",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1905-06-17_p3_sn88085947_00211108551_1905061701_0578",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 430,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1199,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 1052,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "his wire, DEFENDANTS.\n\n\nTO James N Allison and\nAllison, his wife, defendants:\n\n\nYou, and each of you, will please\ntake notice that the petitioner, the\nSpokane International Railway Com\npany, has filed in the superior court\nof the state of Washington, for Spo-\nkane county, a petition directed to the\nsaid court. setting forth that the Spo\nkane International Railway Company\nis corporation organized under the\nlaws of the state of Washington. en-\ngagged In the construction and opera\nton of line of railway beginning in\nthe city of Spokane, thence easterly\nto a point near the town of Rath-\ndrum. in the county of Kootenai.\nstate of Idaho, and thence in q\nnortheasterly direction up the valley\nof the Mooyie river to the interna-\ntional boundary line between the\nUnited States and Canada; that 1t is\nessential for the operation of its lines\nof railway. and the accommodation\nof the public using the same. that 1t\nacquire those lands situate in Spo-\nkane county, Washington. and de-\nscribed as lot fourteen UD in block\nfive 60 OF River Front Addition to\nSpokane Falls (now Spokanc), state\nof Washington. for use for it's right\nOf way for the line of it's said rail-\nway. and for necessary sidetracks.\ndepot grounds and terminal yards\nthat the defendant, James n. Allison,\nappears to be the sole owner in fee\nof said realty. ana the defendant\n\n\n- Allison. his wife. has or claims\nto have some interest in or lien upon\nsaid premises; and that said petition\nprays that the court empanel Il jury\nto ascertain and determine the com\npensation to be made In money To\nthe owner of said realty by petitioner\nfor the purposes aforesaid;\n\n\nAnd you, and each of you, are\nhereby notified that on the 18TH day\nof July, 1905, petitioner will apply\nto the superior court of the state OF\nWashington, for Spokane county, and\nto the Honorable William A. Huneke\njudge thereof. at his courtroom IN\nthe city OF Spokane. at the hour OF\n$40 a m. or as soon thereafter as\ncounsel for petitioner can be heard\nfor a hearing upon said petition, and\nan adjudication by the court that the\ntaking of said realty is for public use\nand is necessary to the business OF\npetitioner, and for the fixing of g\ntime and place at which a jury may\nbe called TO determine the compensa.\nton to he made therefor.\n\n\nDated this 10th day of June. A. ID\n1905. ALLEN Il ALLEN.\nAttorneys for Petitioner\n=. o. address; 6lS The Rookery\nSpokanc WASH"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "POLICE TOOL THE\n\n\n5TR[[T CAR (0NpAhI",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-10",
+    "date_end": "1904-04-10",
+    "report_year": 1904,
+    "source_file": "2_1904-04-10_p4_sn88085947_00211108538_1904041001_1203",
+    "archive_ref": "2_1904-04-10_p4_sn88085947_00211108538_1904041001_1203",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-04-10_p4_sn88085947_00211108538_1904041001_1203",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 303,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Washington Water Power com\npany attempted this morning TO spring\na coup d'etat on the city and sent a\nforce of 40 men to Third avenue where\nthis company and the Traction com\nparry are contending for franchise.\nbut before they had been able to stick\na pick into the ground the police had\ndiscovered the trick and had a force\nOf men on hand to stop it. The result\nwas that the company's men were call\ned in and the street remains as it was\nheretofore.\n\n\nThe board was notified this morning\nthat the company had men On the\nground with shovels and picks. ready to\ngo TO work. Officers MeDermott, Dunn\nBucholz and Jellactly under orders\nfrom Captain CoVerly were hurried to\nthe scene to see that no ground on\nthe street was broken. SO quick were\nthe police that they arrived almost as\nsoon as the men.\n\n\nCorporation Counsel Judscn sent a\ncommunication to the board this morn\ning saying the Washingtn Water Power\ncompany would be allowed to haul\nmaterial to the ground pending the\nhearing of the restraining order by\nJudge KEENAN,. Saturday he had for\nhidden this\n\n\nmo Thought of It.\"\n\n\nH. NJ. Stephens, attorney for the\nstreetcar company. said this morning:\nEve have no intention of laying track\nor digging up the street until we obtain\npermission from the court. The hear\nino for the restraining order against\nthe city will come before Judge Ken\nnan next Monday. and as l am of the\nopinion that the franchise granted to\nthe company in 1890 is valid l think\nthe restraining order will he decided in\nour favor. If it is we will start work\nImmediately. Personally, do not think\na line is needed on Third avenue. but\nif the people demand one we are will"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "title": "| 7 Y !\nIN w 81",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-04",
+    "date_end": "1909-12-04",
+    "report_year": 1909,
+    "source_file": "13_1909-12-04_p8_sn88085947_00211108617_1909120401_0255",
+    "archive_ref": "13_1909-12-04_p8_sn88085947_00211108617_1909120401_0255",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1909-12-04_p8_sn88085947_00211108617_1909120401_0255",
+      "composite_score": 14.56,
+      "domain_scores": {
+        "turnbull_prehistory": 1.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 3.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "iww_labor": [
+          "jail"
+        ],
+        "agriculture": [
+          "fruit grower"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "education": [
+          "cheney normal"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 585,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 568,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 3306,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "fruit grower",
+            "weight": 1.5,
+            "offset": 30,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 2863,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "cheney normal",
+            "weight": 3.0,
+            "offset": 568,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "education",
+        "iww_labor",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Interest among Spokane county\nfruit growers has been aroused in\nthe sixth annual meeting of the\nWashington State Horticultural as.\nsociation which will be held at\nWenatchee January IL to IA.\n\n\nA piece Of ground 100x142 on\nthe south side of Second avenue\nbetween Division and Pine has\nbeen purchased for $4,000 from\nLucia F. Gilbert by the Citizens\nInvestment Co., recently organized.\n\n\nThe Spokane high school won the\ndebate on the commission plan of\ngovernment last night, gaining the\ndecision over Walla Walla by the\nunanimous choice of the judges. A\nprofessor from Cheney normal and\ntwo from Pullman were the judges.\nSpokane can now compete in the\nsecond series, to be held in Janu-\nairy.\n\n\nEx-Mayor C. Herbert Moore has\nreturned to Spokane after three\nmonths tour of the country as one\nof the American commissioners in\ncharge of the Japanese party He\nsaid the Japanese commissioners\nsailed from San Francisco Novem-\nDer 80 with the feeling that Amer\nlea, after all, was their best friend\namong the great nations.\n\n\nAn effort is being made to adjust\nthe difficulties as to maintenance\nbonds for street paving so that-the\nwork of paving Lincoln street from\nFourteenth to Nineteenth avenue\ncan proceed. A number of other\nimprovements of the same charac-\nter are tied up because the bonding\ncompanies have refused to sign\nmaintenance bonds beyond a\nperiod of five years.\n\n\nJ. D. Bassett of Ritzvlle has in\nterested Spokane capital in a chain\nof 20 country banks controlled by\nhim. and as a result the Union Sc\ncurities Co. has been organized\nwith capital stock of 5000, 1000.\nMen behind the Old National bank\nhave helped to finance the new\nenterprise.\n\n\nThe Steel King Manufacturing\nCo.. which will make wind mills,\nhas been incorporated here for\n100000.\n\n\nThe Ladies' Aid society Of the\nUnivedsalist church will give a\nrummage sale in the basement Of\ntheir church Saturday, December\nII. They will also hold Christ\nmas sale at Davis shoe store on\nDecember ii.\n\n\nr. Lewis Clarke IS planning to\nexpend $50, 1000 on his country place\nat Hayden Lake. One Of the inn\nprovements to be made at once\nwill be $4,000 home for his super\nintendent.\n\n\nArticles Of incorporation of the\nSpokane Valley Irrigated Land Co.\nwere filed with the county auditor\nyesterday. The capital stock Of\nthe company is $4,000, with Phil\nT. Becher, Harry J. Nicely, d. M.\nThompson, c. F. Young and e. G..\nTaylor as the incorporators.\n\n\nOr. Frank W. HiIscher was given\nthe custody of his six year old son\nAudrey by Judge Sullivan yester-\nday. who modified the divorce de-\ncree so as to give the father the\ncustody of all three sons.\n\n\nUpon the application Of Martha\nWurm. Adam Wurm was adjudged\nan habitual drunkard by Judge\nHinkle yesterday afternoon and\nplaced on the \"black list\"\n\n\nF. A. Wingate Of krupp, WASH,\nand the Fireman's Fund Insurance\nCo. of San Francisco commenced\nsuit against the Great Northern\nyesterday for $27,97420 for dam\nages alleged to have been sustained\nin the fire which swept over the\nbusiness section Of Krupp last Au-\ngust. The fire is said to have\nstarted from spark from a Great\nNorthern train in pile of rub\nbish negligently left on the track.\n\n\nCharles D. Howell, charged with\nholding up a Great Northern train\nnear Boomers Ferry March Is, 1908,\nwas brought to this city yesterday\nand lodged in the county Jail to\nawait trial at the April hearing Of\nthe federal court."
+    }
+  ]
+}

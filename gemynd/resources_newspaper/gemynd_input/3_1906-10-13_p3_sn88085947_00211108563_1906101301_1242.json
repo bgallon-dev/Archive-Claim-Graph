@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "mot NECESSARY\"\n\n\nSAYS an. p\" WiTTER",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-13",
+    "date_end": "1906-10-13",
+    "report_year": 1906,
+    "source_file": "3_1906-10-13_p3_sn88085947_00211108563_1906101301_1242",
+    "archive_ref": "3_1906-10-13_p3_sn88085947_00211108563_1906101301_1242",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-10-13_p3_sn88085947_00211108563_1906101301_1242",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 333,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 2,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A Northern Pacific engine backed\ninto another in the local yards a\nfew days ago. There happened to\nbe an employee of the railroad COM\npany between the two when the\nshock came. He Is dead. The\nchronicle of the event was given\nthe people by the morning paper\nunder the headline, Engine Kills\nWalter Rhea.\"\n\n\nThe closing paragraph of the mar\nrative was as follows: Coroner\nWitter said last night that he did\nnot consider an inquest necessary.\nPeople who saw the accident de\nclared it to be accidental and that\nno blame could be attached to the\nrailroad company\"\n\n\nWho saw the accident except en-\nployes of the corporation? Who de-\ntermined that the accident\" was\naccidental\" but other employees of\nthe railroad company? Who is the\ncoroner who did not consider an\ninquest necessary\" but surgeon\nin the employ of the company?\n\n\nThe democratic platform says:\nI'VE favor the adoption by the leg\nislature of law relating to in\njuries to an employee, similar to the\nlaw enacted by the last congress\nrelating to personal injuries\n\n\nHere again the democratic party\ngoes on record in the interests OF\nthe man who tolls in dangerous po-\nsitions. Some fellow employee was\nresponsible for the death of Walter\nRhea. 1t was the hand of some man\nwho bumped one engine into an\nother. and created the situation\nwhere an inquest was net neces-\nsary and no blame could be at\ntached to the railroad company.\n\n\nCorporation greed, backed up and\nmade to appear plausible by hired\nminions, Is one of the menaces OF\nthe time. In its alliance with the\nrepublican candidates in this coun-\nty there Is no moderation. The only\nway in which this slavery can be\nbroken Is by the ballot. The only\nprotection any citizen can have\nagainst this overpowering union of\npower and plumber is to turn both\nout of public places. This. the dem\nocracy Is trying to do. ard In its\nwork asks your aid."
+    }
+  ]
+}

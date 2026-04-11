@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PLAN TO SHIP FREE\n\n\nSPEECH MEN AWAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-20",
+    "date_end": "1909-11-20",
+    "report_year": 1909,
+    "source_file": "1_1909-11-20_p1_sn88085947_00211108617_1909112001_0128",
+    "archive_ref": "1_1909-11-20_p1_sn88085947_00211108617_1909112001_0128",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-11-20_p1_sn88085947_00211108617_1909112001_0128",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 180,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 442,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the mayor and other city\nofficials have co-operated with rep\nresentatives of the Northern Pa\ncific railroad in scheme to rid\nSpokane of all her idle working\nmen during the |. w. w. troubles\nwith the police, in order to weaken\nthe support of the revoIutionists, is\nan assertion made by |. W. w. lead.\ners. One prominent representative\nof the !. w. w. declared last night\nthat approximately 5000 men had\nbeen shipped out Of Spokane by the\nNorthern Pacific Railroad Co., at\nthe solicitation of Mayor N. s. Pratt\nand others, during the last three\nweeks.\n\n\nIII such statements are true, the\nwork has evidently had at least a\npart of its intended effect, for at\nthe present time there are com\nparatively few idle workingmen in\nSpokane, as compared with the\nNUMBERS of penniless creatures\nwho have thronged the~city at this\nseason in previous years. Accord\ning to reports being circulated by\nthose interested in the /. w. w.\nfight, the Northern Pacific has\nbeen securing the majority of its\nmen, wanted on works all through"
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-04-11 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-11",
+    "date_end": "1906-04-11",
+    "report_year": 1906,
+    "source_file": "9_1906-04-11_p2_sn88085947_00211108563_1906041101_0601",
+    "archive_ref": "9_1906-04-11_p2_sn88085947_00211108563_1906041101_0601",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-04-11_p2_sn88085947_00211108563_1906041101_0601",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 5.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "agriculture": [
+          "wheat"
+        ],
+        "railroads": [
+          "northern pacific",
+          "inland empire",
+          "great northern"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1906,
+      "word_count": 579,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1989,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 1808,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 2255,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1026,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 3250,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 3135,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "died yesterday at E514 Pacific ave-\nnue.. ,tHniisflU\n\n\nLily Isabel Rodgers, age II, died\nlast night at Sacred Heart hospital\nof perityphitis.\n\n\nThe Knights of the Macabees will\nmeet d. P. Marley of Port Huron\nnext Friday and a committee -7ill\nbe appointed to entertain him.\nThieves yesterday stole the cook\nstove belonging to r. c. Rima at IT\nSherman street. He had cleaned\nit and had set it outside his house\nto dry.\n\n\nMrs. J. ]. Stevenson and Mrs.\nKerns will entertain the Northside\nchapter of the First Presbyterian\nchurch Thursday afternoon at Mrs.\nKerns' home. E1S33 Fifth avenue.\nChairman w. S. McCrea of the\nY. M. c. A. building committee says\nthat the wealthy men of Spokane\nare slow to respond to it's call for\ndonations to get the roof on.\n\n\nThe two kellogg boys, Perkins and\nFrank, who ran away from their\nhome at 1924 Chandler street Mon\nday, have returned home after their\nwanderings. They were glad to get\nback and are repentant.\n\n\nCondemnation proceedings were\nbgeun yesterday against several lot\nowners by the Great Northern\nagainst Frank Johnson, ]. c. Har-\ncleroad, w. F. Johnson and L. C.\nWestphal.\n\n\nMrs. George Manning will ad-\ndress the missionary society of the\nCentral Christian church at it's reg\nular meeting tomorrow afternoon\nat the home of Mrs. ]. M. Simpson,\n03221 Madison street.\n\n\nF. Lewis Clark, chairman of the\nCity Beautiful park committee, has\njust returned from a trip east and\nhas decided to call a meeting for\nthe purpose of discussing the ad-\nvisibility of taking the city parks\nout of politics.\n\n\nClarence Mclean, who with his\nbrother was a victim of a dyna-\nmite explosion caused by thawing\nit, died yesterday at his home on\nRed Bluff Prairie His brother, Will\nliam, lies in precarious condition\nat Sacred Heart hospital.\n\n\nAccording to Lake D. Wolford,\nthe pioneer wheat grower of the\nPalouse, the late blizzard has hurt\nthe wheat quite extensively. He\nhas just returned from a trip over\nthe Palouse country.\n\n\n| Celine Vanard, French woman,\nwas arrested by Officer Pearson last\nnight on a charge of robbing John\nMadden of $55. This is the third\ntime the woman has been before\nthe police for theft. At the police\nstation she had a fit of Mysteries\nand made an attack on Madden.\n\n\nA. Timing, general agent of the\nNorthern Pacific, has finally decid-\ned to accept the new position offer\ned him as general agent with the\nsame company in Seattle. He has\nmade many friends in this city and\nis 10th to leave. Geo. A. Mitchell\nhas been appointed to succeed him.\n\n\nThe sale of the Marion block,\nwhich was advertised for April \"a,\nhas been postponed to May 8. There\nis much speculation as what the\nvalue of the building is. Various\nbusiness men estimate it as worth\nanywhere from $500 to $4,000 a\nfront foot and the total estimates\nrange from 100000 to 100000.\n| Emmett Holmes, the cOlored poll\ntician, who is in the pay of the city,\nwill be called down by the Carne-\ngle library board for holding down\ntwo jobs-one as janitor for the IL\nbrary and the other as janitor for\nd. c. Corbin. People have objected\nto his serving two masters and say\nhe is not devoting his best talents\nto the library.\n\n\nThe chamber of commerce is con-\nsidering a proposition of having a\nstereoptlcon view entertainment\nand lectures on the Inland Empire"
+    }
+  ]
+}

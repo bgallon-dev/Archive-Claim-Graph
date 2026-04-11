@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-02 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-02",
+    "date_end": "1910-04-02",
+    "report_year": 1910,
+    "source_file": "2_1910-04-02_p10_sn88085947_00211108630_1910040201_0033",
+    "archive_ref": "2_1910-04-02_p10_sn88085947_00211108630_1910040201_0033",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-04-02_p10_sn88085947_00211108630_1910040201_0033",
+      "composite_score": 18.62,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 3.5,
+        "agriculture": 2.0,
+        "railroads": 2.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian reservation",
+          "reservation"
+        ],
+        "agriculture": [
+          "land office"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 440,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 1479,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 1486,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 1424,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 2172,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 308,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "gone to ColfaX to surrender him\nself to the sheriff. y\n\n\nOne hundred feet frontage on\nPacific avenue has been bought by\nthe City Dye Works for a plant to\ncost about $4,000. The property\nwhich lies near Garfield street\nwas purchased from Newton Green\nfor $4,000.\n\n\nThe record of the hearing of the\nWashington Water Power company\nflooded lands case, just completed\nin Occur d'Alene before the in.\nterror department, contains total\nof 100000 words, covering 5000\npages of closely typewriter mat\nter. This is said to be the heaviest\nrecord ever sent to the interior de-\npartment (as the records and ex.\nhibits weigh half tom and\ninvolves the right of the Wash.\nington Water Power company to\nexercise eminent domain.\n\n\nThe Vermont Loan G. Trust COM\npany is planning the erection of a\n$4,000 apartment house on Ninth\navenue, just off Mcclellan street\nThe plans call for structure loo\nfeet on Ninth avenue by 40 feet\ndeep. 1t will be four stories high\nand finished fer three and -four\nroom apartments.\n\n\nM. n. Whtehouse has just pur\nchased the southwest corner OF\nThird avenue and Bernard street\nfrom Jacob Woolley for $4,000.\nThe March rainfall fell below the\naverage of 1.34 inches during the\nlast 80 years, only total OF rs\nbeing recorded.\n\n\nThe rentals of offices in the\nHyde block have been greatly in\ncreased, causing storm of protest\nfrom the tenants. Office rooms\nare in demand and the company\n| get.\n\n\nAt the branch U. S. land office\nin this city at the opening of the\nSpokane Indian reservation yester\n| day only 10 responded. In the alb\nsence of Allen Newton of Helena\nMont, holder of No. /, Miss Mabe\n| ID. McNickle of Chicago had firs1\n| choice and filed on 1873 acres in the\nnortheast part of the reservation\n| Others who filed were A. J. Snoddy\nof Miller, S. d., holder of No 8; A\nj. Mullan, Wallace, Idaho; H. A\nTreadwell, Mabton, Wash; Nora N\nGilbert of Seattle; Walter John\nson, Nelson; Emil Schaffner\nEvansville, H., and Albert II\nSquires of Valleyford.\n\n\nAttorneys Hoffman and Bailey\nbefore Judge Huneke of the SUI\nperior court, have contested the\nright of the county clerk to charge\n$500 for filing dismissals.\n\n\nJudgment was yesterday rem\ndered against the Great Northern\nrailway by Judge J. d. Hinkle il\nthe superior court in favor of Mar\ngaret Rice and five children fol\n$1,000, she being the widow of &;\nformer employee of the compan!\nwho was killed in the Hillyart\nyards while working under an en-\nCINE which was bumped into by an\nother locomotive."
+    }
+  ]
+}

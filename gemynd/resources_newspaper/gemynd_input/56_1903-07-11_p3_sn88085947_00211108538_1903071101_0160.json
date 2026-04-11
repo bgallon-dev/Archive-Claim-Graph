@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Rich Bottom Land",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-11",
+    "date_end": "1903-07-11",
+    "report_year": 1903,
+    "source_file": "56_1903-07-11_p3_sn88085947_00211108538_1903071101_0160",
+    "archive_ref": "56_1903-07-11_p3_sn88085947_00211108538_1903071101_0160",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "56_1903-07-11_p3_sn88085947_00211108538_1903071101_0160",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 138,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 17,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\naEedusss 1ne- alfalfa; fins alfalfa. fins\n'd1tt1A We have. Tor . fsw Gays only.\nan opportunity seldom offered to en-\ngage In the stock business. A fine\nranch OF Soc acres, good improve\nmslits. part OF IL in alfalfa, more\nready to - put IN; 2S head Of high\ngrade mich cows. 10 head Of 2-year-\n.olds. ~ head Of yeariings. two horses,\n30 hogs (all sizes), two wagons. hsr-\nness. two mowers, ono rake, two llar-\nrows one cultivator, two plows. one\ncream separator and churn and other\nthings necessary to carry on the\nranch; good location; short winters:\nfine open range adjoining. This first\nclass property can be had for $4,000;\nhalf cash, balance six years at 6 per\ncent. Must be sold within the next\n10 days. For further particulars\ncall on\n\n\nA. s. cnOWDER,"
+    }
+  ]
+}

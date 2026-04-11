@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "USE OF CARLISLE\nQUESI!0NEDBY\n\n\nHOUSE\n\nREPRESENTATIV SAY GRAD\nYATES OF INDIAN SCHOOL\nRETURN TO BLANKETS\n\n\nAND TEPEE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-20",
+    "date_end": "1910-02-20",
+    "report_year": 1910,
+    "source_file": "1_1910-02-20_p2_sn88085947_00211108629_1910022001_0592",
+    "archive_ref": "1_1910-02-20_p2_sn88085947_00211108629_1910022001_0592",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-02-20_p2_sn88085947_00211108629_1910022001_0592",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 9.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "treaty",
+          "indian school"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 205,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian school",
+            "weight": 2.5,
+            "offset": 37,
+            "in_headline": false
+          },
+          {
+            "term": "treaty",
+            "weight": 1.5,
+            "offset": 530,
+            "in_headline": false
+          },
+          {
+            "term": "indian school",
+            "weight": 2.5,
+            "offset": 70,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nWASHINGTON, Feb. lbs the\nCarlisle Indian school doing any\ngood besides training several husky\nfootball players every year?\n\n\nDo the graduates become useful\ncitizens or do they return to the\nblanket and tepee and sleep with\ndogs as their aboriginal ancestors\nhave done for generation?\n\n\nThese were the questions dis\ncussed in the house this afternoon\nduring consideration of the indian\nappropriation bill.\n\n\nUsually this measure, carrying\neight or nine million dollars for\nthe support of the indians and for\nthe carrying out of treaty obliga-\ntons made with the tribemen in\nthe past, goes through as though it\nwere creased.\n\n\nThis year half the members on\nthe floor seem anxious to take a\nwhack at it.\n\n\nThe greater part of today's de-\nbate was upon the subject of the\nappropriations for the Carlisle and\nother schools. Representative\nTawney Republican, Minnesota\nled the attack on this item, declar-\ning he had his doubts about the\ngood accomplished by the Indian\nschools. He himself had visited a\nlittle town near Albuquerque. n. NJ,\nand there had seen the seven Car\nIsle graduates which the town\nboa Stad Nome of them WOI1ld taIk\nEnglish and all had gone back to\nthe blanket, the moccasin and the\ndogs."
+    }
+  ]
+}

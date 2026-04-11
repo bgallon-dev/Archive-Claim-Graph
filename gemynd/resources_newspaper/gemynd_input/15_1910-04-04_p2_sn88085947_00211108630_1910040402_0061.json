@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-04 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-04",
+    "date_end": "1910-04-04",
+    "report_year": 1910,
+    "source_file": "15_1910-04-04_p2_sn88085947_00211108630_1910040402_0061",
+    "archive_ref": "15_1910-04-04_p2_sn88085947_00211108630_1910040402_0061",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "15_1910-04-04_p2_sn88085947_00211108630_1910040402_0061",
+      "composite_score": 15.96,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 5.5,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "inland empire",
+          "great northern"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 673,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 3097,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 2909,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 2138,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1532,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 2909,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1098,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Following is A. w. Dolands re-\nply to B. l.. Gordon, whose letter\nwas published yesterday:\nB. l.. Gordon. Esq. Spokane. \" ash.\n\n\nDear sir: Your open letter to me\npublished in Sunday mornings\nSpokesman-R Review and The Press\n\"a copy of which you probably ne\nelected to mail mel, has been\nbrought to my attention.\n\n\nYour questions impute to me mo-\ntives and the possession of knowl-\nedge of which | am innocent and\nignorant. | have read your letter\nmore in sorrow than in anger, feel\ning sure that if the party who\nwrote it for your signature had al\nlowed YOU sufficient time for delib-\nGrafton. you would not have per-\nmitted yourself to become sponsor\nfor this unworthy attack upon me.\nThe publication of this attack saw\nors too much of the mud-sllnging\nmethods of partisan political\ncampaign. My business or person\natty has nothing to do with the\nissue involved, and when your prin-\ncipals, through you, attack my bust\nness and me, they and you are\nseeking to divert attention from\nthe main question. | am but one\nof fifteen thousand citizens, over\nten thousand of them voters, who\nare urging the city council to\nchange its position on the fran\nchise question, and even if it were\npossible for you to discredit me,\nyou would be unable to discredit\nthe other thousands who stand\nwhere | stand. To succeed you\nwill have to discredit the whole\ncommunity. Now as to your Ques-\ntions.\n\n\nOne answer will suffice for the\nfirst four. The business that | rep\nresent has no rate other than that\npossessed by the drug trade gen\norally in the Inland Empire, includ-\ning western Montana, Idaho, Utah\nand eastern Oregon, The rate is\nopen and is published in the COM\nmodify tariffs applying to Spokane\nand this entire section of the coun-\ntry, and is approved by the Inter\nstate Commerce Commission. This\nraIe can be used by any one ship\nping goods in the quantities pre-\nscribed by this tariff. Whether or\nnot this rate is a favorable one.\nyou are wrong in your statement\nthat it was given entirely by the\no. r. & n. company. Up to six or\nseven years ago the drug trade in\nthis section had no mixed carload\nrate at all. At that time l was CIV\ning the Great Northern I.ailrOad\ncompany a considerable share of\nmy shipments, and on urging them\nfor a carload rate with the privi-\nlege of assortment as given the Pa\ncific coast jobbers, they assured me\nthat if | could get the consent of\nthe o. R. & n. and other roads,\nthey would give their consent. 1t\ntook several months to secure the\nconsent of all the roads doing Dusl-\nness in this section, and the rate\nwas not put on until all three of\nthe transcontinental lines at that\ntime doing business gave their con-\nsent The o. R. G. n, did not put\ntn rate into effect itself; in fact,\nwould not until the other roads had\ngiven their consent. This instance\nestablished the fact so often urged\nthat no one of these roads would\nindependently put into effect any\nchange in carload freight rates.\nThis occurred prior to the date\nwhich you mention in your letter.\n\n\nNow, as the rate per hundred\nwhich you alleged | obtained from\nthe Hartman lines. Prior to the\nso-called boycott instituted by the\nSpokane merchants against the Hill\nlines, the Spokane Drug Co. was\npaying a rate of $3.50 to Spokane\non carload lots on drugs. Our COM\npetitors on the coast were paying\ns140, a difference against us of\nnearly 40 per cent. AS the result of\nthat boycott our rate was advanced\nto $212. Against this we protested,\nurging that we should not be penal\nlied for our efforts in standing with\nthe Spokane jobbers, and after a\ngreat deal of negotiation the rail\nroads consented to restore the old\nrate of $190. Soon after the rate"
+    }
+  ]
+}

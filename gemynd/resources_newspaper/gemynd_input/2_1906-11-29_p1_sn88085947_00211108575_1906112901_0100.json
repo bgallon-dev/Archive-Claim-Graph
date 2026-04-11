@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-11-29 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-29",
+    "date_end": "1906-11-29",
+    "report_year": 1906,
+    "source_file": "2_1906-11-29_p1_sn88085947_00211108575_1906112901_0100",
+    "archive_ref": "2_1906-11-29_p1_sn88085947_00211108575_1906112901_0100",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-11-29_p1_sn88085947_00211108575_1906112901_0100",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 334,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 158,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The trouble between the local\nprinters union and the Review\nPublishing Co. assumed unique\nand complicated aspect today. Its\noutcome may be an application for\nInjunction to prevent the interna-\ntional executive board removing\nthe Spokane unions charter, filed\non behalf of other members not\nconcerned in the Review trouble.\n\n\nThe dispute Is expected to come\nto a head at meeting called for\no'clock this afternoon at which\nPresident Lynch, of the 1 nterna-\ntional organization, will be repre-\nscented by Daniel Cartano, Of this\ncity.\n\n\nLate yesterday afternoon Presi-\ndent Lynch wired an ultimatum\nthat the Spokane unions charter\nwould be revoked unless the men,\nbers who quit work returned to-\nday. Mr.. Cartano was delegated a\npersonal representative Of the\npresident to carry out the condi-\nlions imposed.\n\n\nPresident Lynch has telegraphed\nto Butte and Anaconda and other\nwestern towns to send all idle\nprinters to this city. Cartano met\nthe men who have left their posi-\nlions on the Spokesman-Review\nand Chronicle and advised them\nOF obey the orders of the interna-\ntional and return to work pending\narbitration of the present trouble.\nNone of the men, however have re-\nturned to their places and none\nshow a disposition to do so. They\nhave no objection to other union\nmen coming in and have so mott\nfed Mr. Cartano. They simply\ndon't want the Jobs.\n\n\nThe prospective situation Inn\npiled by the presidents action af-\nfects the balance of the union in\nthis city, who are not involved in\nthe existing trouble, to this ex-\ntent: II the charter is revoked\n4 they find themselves without union\nstanding. All other newspapers,\nprinting shops and trades allied in\nthe printing business find them\nselves deprived of the union label.\nThis Is the view of 1t taken by\nmany union members, and a\nstrong sentiment of remonstrance\nhas developed.\n\n\nThe outcome depends on the re-\nsuits of this afternoons meeting.\nThe men who quit say they will\nnot return. Lynch says they\nmust."
+    }
+  ]
+}

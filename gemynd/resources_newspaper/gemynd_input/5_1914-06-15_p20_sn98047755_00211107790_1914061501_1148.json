@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "Washington Farmer — 1914-06-15 — pp20",
+    "doc_type": "newspaper_article",
+    "date_start": "1914-06-15",
+    "date_end": "1914-06-15",
+    "report_year": 1914,
+    "source_file": "5_1914-06-15_p20_sn98047755_00211107790_1914061501_1148",
+    "archive_ref": "5_1914-06-15_p20_sn98047755_00211107790_1914061501_1148",
+    "series": "Washington Farmer",
+    "language": "en",
+    "lccn": "sn98047755",
+    "newspaper_name": "Washington farmer. [volume] (Spokane, Wash.) 1914-1971",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1914-06-15_p20_sn98047755_00211107790_1914061501_1148",
+      "composite_score": 11.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 3.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 6.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange",
+          "irrigation"
+        ],
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage",
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.2,
+      "tier": "medium",
+      "year": 1914,
+      "word_count": 455,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 2542,
+            "in_headline": false
+          },
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 359,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 224,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 230,
+            "in_headline": false
+          },
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 252,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OhAoON OOoOOO'\n\n\nWithholding by the government of\nnatural resources not already passed\nbeyond its control and operation\neither directly by the government\nor under short-time leases.\n\n\nEnthusiastic approval of both ma\ntional woman suffrage and national\nprohibition.\n\n\nCommentator of the measures\nknown as the \"Seven Sisters, - to-\ngether with an appeal to the grange\nmembers to Immediately sign the\npetitions necessary for their submits\nsion to the people.\n\n\nIgnoring of party affiliations and\nsupport of men for office who will\nstand steadfast and true for those\nthings which will benefit the farmer.\n\n\nRecord of Achievement\n\n\nConcluding his address Master Keg-\nley declared:\n\n\n\"Today we are still poor in purse,\nbut we are strong in mum bers, and\nthe Washington state grange is known\nthroughout the length and breadth of\nthe land as power to be reckoned\nwith. We can look back on a record\nof achievement that may we'll make\nour hearts rejoice.\n\n\n''We fought and exposed the con-\nspiracy that was preventing grange\nextension, with the result That six of\nour northwestern states have been\nadded, one of which in the last quar-\nter led all other states in the number\nof new oranges organized. We fought\nmachine rule in the national grange,\nand its backbone is broken. The\nring leaders tried desperately to sup\npress publicity. and charged US With\nattempting to break up the order, but\nwe increased the membership 20-fold\nin our own state, and in every pro-\ngressive state there was marked in\ncrease, and in the grange as whole\nthe membership increased two and a\nhalf times. And. brothers and sis\ntiers, the growth was most rapid where\npublicity was greatest. What is pub\nIicity but telling the membership the\ntruth?\n\n\n'EWe have taken up measure after\nmeasure for the public welfare, in our\nstate, and forced them to victory.\nMonopoly and special privilege have\nsingled us out for the enemy they\nhave most to fear, and we know they\nare right. The rumseller. the white\nSLAYER, the gambler, the grating\npolitician, the fish combine and other\nspecial corporations are raising huge\nfunds to finance the 'Stop-Look Lis\nten league and fighting in the last\nditch, knowing that the grange is the\nsolid center of the peoples forces\nwhich have driven them there\n\n\nPass Strong Resolution\n\n\nAmong the resolutions passed by the\nmeeting was an endorsement of the\n\"seven sisters\" measures; condemn\nalton OF the Stop Look Listen League:\nthe endorsement of the State Fair:\nthe endorsement of a state powder\nmill; favor construction by govern\nment of the Palouse irrigation pro.\nject; government ownership of rail\nroads; new law fixing fees of at\ntorneys and doctors; favoring appeal |\nOF law provided for road supervisors +; |"
+    }
+  ]
+}

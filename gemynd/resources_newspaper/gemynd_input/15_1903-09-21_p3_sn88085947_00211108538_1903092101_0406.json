@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-21 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-21",
+    "date_end": "1903-09-21",
+    "report_year": 1903,
+    "source_file": "15_1903-09-21_p3_sn88085947_00211108538_1903092101_0406",
+    "archive_ref": "15_1903-09-21_p3_sn88085947_00211108538_1903092101_0406",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-09-21_p3_sn88085947_00211108538_1903092101_0406",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 121,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 595,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "reenter the controversy for the con-\ntroll of the Clearwater territory. 1t\nis said by local officials that no word\nhas been received by them of the in\ntentions of the company. but 1t is\ncontended by railway men that the\no. r. s. N. intends to carry out the\nplans suggested in the articles of in\ncorporation.\n\n\nThe incorporators are w. II. Ken\nneedy. the chief engineer. and ]. N.\nTeal and James H. Wilson. who are\nassociated with the legal department\nOf the line. This proposed line and\nthe proposal to build from Spokane to\nBellingham Bay appear to be two\nthreats to enter the territory Of the\nNorthern Pacific. All officials. how\never, are silent on the matter."
+    }
+  ]
+}

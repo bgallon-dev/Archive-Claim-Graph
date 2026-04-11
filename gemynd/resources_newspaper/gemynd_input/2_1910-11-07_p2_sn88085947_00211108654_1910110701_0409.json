@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-11-07 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-07",
+    "date_end": "1910-11-07",
+    "report_year": 1910,
+    "source_file": "2_1910-11-07_p2_sn88085947_00211108654_1910110701_0409",
+    "archive_ref": "2_1910-11-07_p2_sn88085947_00211108654_1910110701_0409",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-11-07_p2_sn88085947_00211108654_1910110701_0409",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 186,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 765,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and nearly as many of the apple\nextra were destroyed, while both\nengines were crushed into unrecog-\nnizable heaps of scrap iron.\n\n\nThe bodies of Glass, engineer OF\nthe apple extra, Joe Keeie, condCc-\ntor of 451. and Mcintyre, brake.\nman on the head end of the apple\nextra were covered by the debris,\nwhich caught fire Immediately aft.\nerr the wreck, and up to this morn\ning had not yet been recovered\n\n\nThe three unkrCwns whose char\nred bodies were taken from the\nwreck, were \"hobos\" who had been\nriding on the train, and it is be-\nlieved probable that before the\nwreck is cleared away one or more\nbodies will be found, there having\nbeen a number of unauthorized pas\nsengers on train No. 451 at the time\nof the smash. a-.\n\n\nOfficials Won't Talk.\n\n\nOfficials of the Great Northern\nare reticent regarding the wreck\nand it's cause today, refusing to\ngive out any information other than\nto say that every effort is being\nmade to clear the track and to re-\ncover the bodies of the victims\nknown to be under the debris."
+    }
+  ]
+}

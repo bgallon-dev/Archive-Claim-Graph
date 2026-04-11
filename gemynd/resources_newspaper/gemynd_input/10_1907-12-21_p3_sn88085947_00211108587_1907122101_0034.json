@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-12-21 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-21",
+    "date_end": "1907-12-21",
+    "report_year": 1907,
+    "source_file": "10_1907-12-21_p3_sn88085947_00211108587_1907122101_0034",
+    "archive_ref": "10_1907-12-21_p3_sn88085947_00211108587_1907122101_0034",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-12-21_p3_sn88085947_00211108587_1907122101_0034",
+      "composite_score": 2.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 98,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 372,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 407,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I One surreptitious shipment val.\nued at 100000 was contiscated, and\nothers of smaller amounts have\nbeen found, 1t used to be com.\nmon sight to see a miner come up\nfrom below with so much high\ngrade In his clothing that he\ncould scarcely walk.\n\n\nThe mine has been practically un,\ntouched, say its owners, who con.\ntinued to ship fabulous amounts\nfrom 1t until the present strike\ntied 1t up.\n\n\nFirst quality ore from this mine\nIs worth between $40 and $50 a\npound and the gold can be melted\nout of 1t over a candle."
+    }
+  ]
+}

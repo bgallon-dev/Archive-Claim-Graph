@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UNDER NEW HEAD $50, 600 CLUB BEGINS\n\n\nLAST LAP IN MARATHON TO MAKE GOOD\n\nDat With Uncle Sans Checking Up Result Five\nYears BOOSTING",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-27",
+    "date_end": "1910-02-27",
+    "report_year": 1910,
+    "source_file": "8_1910-02-27_p20_sn88085947_00211108629_1910022701_0720",
+    "archive_ref": "8_1910-02-27_p20_sn88085947_00211108629_1910022701_0720",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-02-27_p20_sn88085947_00211108629_1910022701_0720",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 342,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 1272,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Officers and members of the One\nHundred and Fifty Thousand club\n0f Spokane, conceded to be the\nforemost booster\" organization of\nit, kind in the Pacific Northwest,\nhave entered upon the sixth year of\nactivity, headed by c. Herbert\nMoore, who will take up the COM\nbined position of president and\ngeneral manager in few days. in\nthe spirit of public enterprise and\nwithout salary or other pecuniary\nreward. The other members of the\nboard of managers for 1910 are:\nJohn F. Meagher, vice president:\nw. D. Vincent. treasurer; Harry j.\nNicely, F. Wallace King, H. E. Os-\nvalid, J. l.. Paine, James c. Cum\nningham. Phil T. Becher, S. A.\nMann, Arthur w. Jones, Gordon c.\nCorbaley. Gus Meese, M. H. Eggles-\nton and j. Oscar Peterson. Miss\nMildred Simmons is assistant Sec\nrotary.\n\n\nMOORE HAS DONE MUCH FOR\n\n\n\"clTY BEAUTIFUL\"\n\n\nMr. Moore has been identified\nwith public enterprises in Spokane\nfor years. He is one of the pioneers\nof the city and 20 years ago was\nsuperintendent of a little cable\nrailway, since which time he has\nbeen in the hotel business, in the\nfurniture trade and served as\nmayor from 1907 to 1909. He re-\ntired from active business several\nyears ago to devote his time to the\nimprovement of property interests.\nHe was one of the prime movers in\nthe old Spokane exposition, which\nwas destroyed by fire IA years ago.\nHe has always been identified with\nthe parks and boulevards move\nment, and while mayor of Spokane\nhe devoted much time to this\nbranch of the administration. He\nwas one of the first members of\nthe City Beautiful\" committee of\nthe club and worked constantly and\nconsistently for a cleaner, brighter\nand more progressive municipality.\n10000 CLUB A GREAT INFLU-\n\n\nENCE.\n\n\nThe One Hundred and Fifty\nThousand club, organized five\nyears ago, has 5000 members, and\nhas figured at all times as an i'm\nportant ally of the manufacturing\nand commercial interests of the\ncity. While its membership en-\nbraces men in all walks of life, it"
+    }
+  ]
+}

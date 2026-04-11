@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "0DOYOU =\nKNOW 4:",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-19",
+    "date_end": "1910-12-19",
+    "report_year": 1910,
+    "source_file": "4_1910-12-19_p1_sn88085947_00211108654_1910121901_0910",
+    "archive_ref": "4_1910-12-19_p1_sn88085947_00211108654_1910121901_0910",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-12-19_p1_sn88085947_00211108654_1910121901_0910",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 164,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 489,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That on Christmas day, 1860, the\nonly people Of Spokane who cele-\nbrated Christmas were on old buck\nIndian, his sQuaw, three papooses\nand an old pinto cayuse; and they\nwent fishing?\n\n\nThat Stevens county, although\nmore cut up than any other county\nof the state, is still the largest?\n\n\nThat near Daisy, WASH, In the\nPinIfSok country, there still stands\nthe cr,tnbling remains of an old log\n\"block house.\" which was much\nused in the early days when all\nfreight for the northern part of the\nInland Empire was hauled in wag-\nons from Fort Walla Walla.\n\n\nThat Waite's lake, a few miles\nfrom Valley. Wash, and right on\ntop of a mountain, is supposed to\nbe the crater Of an extinct volcano?\n\n\nThat the Blackfoot Indians Of\nMontana and the Dakotas once\ncame as far west as Republic.\nWash, on raiding expeditions?\n\n\nThat Hillyard had newspaper\nmore than IA years ago? II was\ncalled the Hillyard Headlight, and\nIt soon went out."
+    }
+  ]
+}

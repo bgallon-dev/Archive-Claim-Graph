@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-08-10 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-08-10",
+    "date_end": "1905-08-10",
+    "report_year": 1905,
+    "source_file": "9_1905-08-10_p4_sn88085947_00211108551_1905081001_0765",
+    "archive_ref": "9_1905-08-10_p4_sn88085947_00211108551_1905081001_0765",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1905-08-10_p4_sn88085947_00211108551_1905081001_0765",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 492,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 659,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ter manhood, nobler citizenship,\nand truer Christianity should be\nset on foot. The dignity of labor\nshould be maintained, which can\nbe done only through the love that\nman should nave for his work,\nand through the intelligence which\nhe puts into it. A steady hand\nand sober mind are necessary for\nthis. Hence, the necessity of the\ntemperate cause and of the efforts\nwhich organized abstainers are put\nting into the movement\"\n\n\nNow. in what is here written this\npriest does not mean that the ten\ndency is to grow worse; but he\nmeans that with shorter hours and\ninreased wages there is a tendency\nto go wrong which must be offset\nby movements such as this great\ntemperance movement and similar\nefforts for social and civic better\nment. or else the increase in leis-\nure and money will prove a curse\ninstead of blessing. | strive never\nto tell anyone what | do not thor\nOughly believe, and | shall not say\nto you that to be honest, and tenn\nperate, and hardworking and\nthrifty will always bring success.\n\n\nThe hand of the Lord is some\ntimes heavy upon the just as well\nas upon the unjust, and in the life\nof labor and effort with We must\nlead on this earth it is not always\npossible either by work, by wisdom\nor by upright behavior to ward off\ndisaster. But it is most emphati-\nally true that the nance for leading\nhappy and prosperous life is I'M\nmensely improved if only the man\nis decent, sober, Industrious and ex-\nercises foresight and judgment.\nLet him remember above all that\nthe performance of duty is the first\nessential to right living, and that\na good type of average family life\nis the corner stone of national nap\npiness and greatness. No man can\nbe a good citizen. can deserve the\nrespect of his fellows, unless first\nof all he is a good man in his own\nfamily, unless he does his duty\nfaithfully by his wife and children.\n\n\n| strongly believe in trades I'M\nions wisely and justly handled, in\nwhich the rightful purpose to bene-\nfit those connected with them is\nnot accompanied by a desire to do\ninjustice or wrong to others.\nbelieve in the duty of capitalist and\nwage-wOrker to try to seek one an\nother out, to understand each the\nothers point of view, and to en-\ndeavor to show broad and kindly\nhuman sympathy one with the\nother.\n\n\n| believe in the work of these\ngreat temperance organizations, OF\nall kindred movements like the\nYoung Mems and Young Women\nChristian Associations, in short II\nevery movement which strives tC\nhelp a man by teaching him how\nto help himself But most of all\n\n\nbelieve in the efficiency of the MAJ\n\n\nhimself striving continually to in\n\n\ncrease his own self respect by the\n\n\nway in which he does his duty Il\n\n\nhimself and to his neighbor."
+    }
+  ]
+}

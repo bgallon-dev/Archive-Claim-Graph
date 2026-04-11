@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-29 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-29",
+    "date_end": "1903-07-29",
+    "report_year": 1903,
+    "source_file": "5_1903-07-29_p2_sn88085947_00211108538_1903072901_0219",
+    "archive_ref": "5_1903-07-29_p2_sn88085947_00211108538_1903072901_0219",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-07-29_p2_sn88085947_00211108538_1903072901_0219",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "gold mine",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 215,
+      "match_details": {
+        "mining": [
+          {
+            "term": "gold mine",
+            "weight": 1.5,
+            "offset": 1044,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 344,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "three full claims and three fractions\nis located on the Arrowhead e. Koote-\nnay branch of the Canadian Pacific\nrailroad near Tenderfoot creek Where\nopened up by tunnels and a drift the\nvein Is four feet wide and lies be-\ntween altered limestone and chist\nTwo crosscut tunnels driven so and\nIs feet respectively and connected by\na drift show an ore shoot \"a inches\nin width.\n\n\n1.-THE ore Is mostly iron pyritcs and\ngray copper and Is extremely rich in\ngold. While on the property tool,\nseveral hand samples giving values\nIn gold and silver ranging from Sal. 10\nto $414.A per ton\"\n\n\nSecretary John Mackenzie Of the\nHandy company supplemented the In\nterview with the report Of the Assays\nmade BY the Hall Mining & Smelling\ncompany, as follows:\n\n\nSamples taken from west end OF\ntunnel No. ., gold $2S3.6O. silver\n31s.41, totai $2s7.O1; from shaft and\ntunnel No. 8. gold 500. silver s4.3f,\ntotal $103.31; from east end Of drift\ngold $34.40. silver 3S.73. total 341.l3;\nfrom mouth OF tunnel No. 1, gold\n340s.So, silver 1854. total $416.44,\nThe Handy Gold Mines Develop\nment company was organized in this\ncity last spring by Colonel w. N.\nBrayton of Kaslo, who is president\nand manager Minnesota and local\ncapital is behind the enterprise."
+    }
+  ]
+}

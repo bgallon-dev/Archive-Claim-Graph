@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MAY JAR\n\n\njim HILL",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-25",
+    "date_end": "1909-02-25",
+    "report_year": 1909,
+    "source_file": "11_1909-02-25_p2_sn88085947_00211108599_1909022501_0749",
+    "archive_ref": "11_1909-02-25_p2_sn88085947_00211108599_1909022501_0749",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-02-25_p2_sn88085947_00211108599_1909022501_0749",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 218,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 29,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Just as was anticipated, the\nGreat Northern has absolutely re-\nfused to aid Prosecuting Attorney\nF. C. Pugh in his efforts to bring to\nlight the relations of Judge M. j.\nGordon, former counsel for the\nGreat Northern, and Judge Milo A.\nRoot, former justice of the supreme\ncourt of the state. 1t has likewise\nrefused to throw any light on the\nalleged shortage of Judge Gordon\nwith the company, which people in\nthe confidence of the railroad esti-\nmated to be as much as $4,000.\nAnd worse still, it has even refused\nto lend it's aid to the state In the\nprosecution of the case against\nGordon for the Sparrow shortage OF\n$4,000, for which Gordon was ar\nrested and is under bond of $780,\n900.\n\n\nBut the prosecutor is not yet\nthrough with the Great Northern.\nSince the big corporation has con-\ncluded to stand on its dignity and\nrefuse to aid in the prosecution of\nJudge Gordon, it is quite likely that\nthe prosecutor Office of Spokane\ncounty may have surprise or two\nin store for Jim Hills road before\nthey get through with it.\n\n\nWhat steps will be taken to bring\nthe Great Northern to time Will not\nbe given out just now, but some\nthing is brewing. Prosecutor Pugh\nthinks he has enough."
+    }
+  ]
+}

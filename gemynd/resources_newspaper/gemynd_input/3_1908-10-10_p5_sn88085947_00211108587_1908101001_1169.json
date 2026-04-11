@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NOTHING LEFT\n\n\nBUT SHADOW\n\nLABOR SPEAKER SAYS RE-\nPUBLIC WILL COME TO\nTHAT IN 10 YEARS UNLESS\nCHANGE Is EFFECTED.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-10",
+    "date_end": "1908-10-10",
+    "report_year": 1908,
+    "source_file": "3_1908-10-10_p5_sn88085947_00211108587_1908101001_1169",
+    "archive_ref": "3_1908-10-10_p5_sn88085947_00211108587_1908101001_1169",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-10-10_p5_sn88085947_00211108587_1908101001_1169",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 380,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 847,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"This republic, within the next\n10 years IL the present conditions\ncontinue, will be nothing but a\nshadow\" declared Andrew Furu-\nseth, president of the California\nState Federation of Labor, who\nlast night addressed crowd of\nebout 100 in the high school audi\ntoriuRa. Mr.. Furuseth was discuss\ning injunctions. He fiayed Roose-\nwelt and Taft with bitter denuncia-\nton. Among other things he said\nthat if Roosevelt is aware of the\ninjustice of iniunctions as used\nagainst the laboring man then he\nis against human liberty.\n\n\n\"All we want Is the same chance\nthat the law gives to murderer\nthe right to be indicted and tried\nbefore a jury. Under the i2junc-\nton system we have no indict-\nment by grand jury, no jury to\ndecide--nothing but the judge who\nmade the law. If he is inclined to\nbe despotic his decision will be\nagainst the laborers.\n\n\n\"Theh injunction system is a re-\nturn to despotic form of gov.\neminent. We are not attacking the\njudiciary. but judge is only hui\nman. Because he wears the\nermine robe is no reason that his\nwhole nature is changed. He il\nsubject to passions like the rest\nof us.\n\n\neve drafted a bill and appealed\nto Washington. The bill, if made\na law, would remedy the evil; BIZ:\n1t was never gotten out of the\ncommittee so long as Senator Plat\nOF Massachusetts was there The\nLord has taken him now. Finally,\nhowever, it was got out. We could\nget it passed with something else\nwritten in and r.,,king it mean just\nthe opposite. 1t was a republican,\nhouse and republican senate. II\nthose in power were responsible.\nthen the republicans are RESPONSE\nBILE. The trusts have been given\nlegislation for their protection.\n\n\nMANY were in favor of the bill\nbut they could not get 1t past the\nmajority.\n\n\nI'VE then prepared bill of\ngrievances and submitted it to\nSpeaker Cannon. He gave us a\nlecture. 1t was submitted to 9TH\ners, who wouldn't discuss it.\n\n\n1T was then submitted to the\npresident who gave another lee\nture.\n\n\nThe matters in Connecticut\nwanted more wages and quit. The\nemployers got an injunction pro-\nhibiting matters from publishing\nthe fact. They lost their rights of\nfree press and the rights of free"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "RAILROAD STORY 5(H[h[\n\n\nTo BOOST RIAL ESTATE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-03",
+    "date_end": "1906-03-03",
+    "report_year": 1906,
+    "source_file": "13_1906-03-03_p1_sn88085947_00211108563_1906030301_0468",
+    "archive_ref": "13_1906-03-03_p1_sn88085947_00211108563_1906030301_0468",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1906-03-03_p1_sn88085947_00211108563_1906030301_0468",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 64,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 77,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 183,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "II Is rumored in Spokane this\nmorning that the recent announce\nment that the Northern Pacific\nshops would be moved out OF the\ncity was simply a proposition to in.\ncrease the price of real estate out\neast OF town and that the shops\nwill not be moved for several years.\n\n\nThis statement was made by one\nof the prominent men of this city"
+    }
+  ]
+}

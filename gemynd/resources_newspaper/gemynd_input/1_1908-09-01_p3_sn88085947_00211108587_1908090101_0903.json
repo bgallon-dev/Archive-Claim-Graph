@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CAAF|N WON'T\nCOMPROMISE\n\nWANTS STRAIGHT PROHIBl-\nTON AND WILL GIVE NATION\nEXAMPLE BY CLEANING OUT\nSALOONS AT CAPITAL.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-01",
+    "date_end": "1908-09-01",
+    "report_year": 1908,
+    "source_file": "1_1908-09-01_p3_sn88085947_00211108587_1908090101_0903",
+    "archive_ref": "1_1908-09-01_p3_sn88085947_00211108587_1908090101_0903",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-09-01_p3_sn88085947_00211108587_1908090101_0903",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 330,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 63,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Masonic temple WIS crowded last\nnight to hear Eugene w. Chain,\nprohibition candidate for president.\nIn the audience ware many ladies,\nwho seemed to vie with the men in\ntheir approval of the points made\nby the speaker. Mr.. Chain is not\na polished orator In the sense gen.\norally understood, his style being\nclear, forcible presentation of his\nsubject.\n\n\nIn his opening remarks Mr..\nChain spoke of the growing spirit\nof political independence and the\nbreaking asunder @: party ties that\nhad bound men in the past. People\ntoday are more given to the discus\nsion of economic and moral ques-\ntons than ever before, he said.\n\n\nTaking up the question of local\noption, Mr.. Chain said the majority\nhad no right to force moral wrong\non a minority. He likened the\nlocal optionists to the men who adj\nvocated compromise on the slave\nquestion. Compromise in slavery\ndays, he said, was found to be\nwholly unsatisfactory, likewise\ncompromise on the liquor question\ntoday only retards the proper solu-\nton of the question, which is COM\ning soon in a national prohibition\nlaw.\n\n\nHe advocated an amendment to\nthe United States constitution for\nbidding the manufacture, sale, i'm\nportation or expectation of intoxi-\neating liquors as the only proper\nand right solution of the liquor\nquestion. State prohibition has\nbeen tried, he said, but it does not\nprohibit. He seemed to think that\na prohibition law without prohibit\nton officers to enforce it will never\nsucceed. as men who are not in\nsympathy with a moral question\ncan never take the interest in il\nthat men do who believe in it.\nHence he thought it was necessary\nto have the prohibition party in\npower to make prohibitiona sue\ncess.\n\n\nMr.. Chain stated that if he were\nelected president the first thing he\nwould do would be to clean out the\nsaloons in the District of Columbia,\nparticularly the one that fiourishes\nin the basement of the national\ncapitol building."
+    }
+  ]
+}

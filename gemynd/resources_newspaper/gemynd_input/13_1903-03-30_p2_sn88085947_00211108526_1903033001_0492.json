@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "Brief Bits Of News.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-30",
+    "date_end": "1903-03-30",
+    "report_year": 1903,
+    "source_file": "13_1903-03-30_p2_sn88085947_00211108526_1903033001_0492",
+    "archive_ref": "13_1903-03-30_p2_sn88085947_00211108526_1903033001_0492",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1903-03-30_p2_sn88085947_00211108526_1903033001_0492",
+      "composite_score": 9.75,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 1.0,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "indigenous": [
+          "reservation"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903,
+      "word_count": 295,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 1634,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 1518,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 159,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 237,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 906,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Admiral w. S. Schley and Colonel\nA. K. Mcclure and party will spend\ntwo hours in Spokane the evening\nof April /.\n\n\nnew time table will go into eff\nfeet on the Northern Pacific April s,\nshortening the time to meet the COM\npetition of the Great Northern.\n\n\nLivery stable men have raised the\nprices for boarders from SIS and\nSIS per month to SIS and $50. Prices\nfor rented teams will also be raised.\n\n\nAnthony Gibbon, barber. was found\nguilty Saturday of attempting GRIM\ninal assault on Maud Coxhead, the\ngirl who masqueraded as a messenger\nboy\n\n\nWord has been received from\nWashington that the Spokane federal\nbuilding site has been approved and\nwarrant drawn for the purchase\namount.\n\n\nB. c. Bedell Of Walla Walla has\nrefused to change the date Of the\nG. A. r. encampment of the depart\nment of Washington and Alaska from\nJune % to May 26.\n\n\nLewis II. Swan, millman OF North\nTonawanda. N. Y, has written the\nchamber of commerce Offering to put\nin a 100000 lumber mill in Spokane\nil 10 acres are given him as a bonus.\n\n\nIt is understood that the recent\nvisit of John Malone. the Tacoma\ngambler in Spokane. means that the\ngamblers of the state will unite forces\nand make a test case of the new\nant!-gambling law.\n\n\nMiss Margaret Dolan, who was ac-\ncidentally hit in the head with a\nstick of cordwood last December, has\nbrought suit for s10,150 damages\nagainst the Northwestern Improve\nment company and William Gray.\n\n\nGeneral Land Commissioner Rich\nards has issued circular in refer\nence to the north kalf of the Col\nvile reservation. the most important\npoint in which is the repeal of the\nrequirement of an additional $3.50 per\nacre for homestead lands."
+    }
+  ]
+}

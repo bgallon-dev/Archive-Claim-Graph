@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-01-02 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-02",
+    "date_end": "1910-01-02",
+    "report_year": 1910,
+    "source_file": "2_1910-01-02_p5_sn88085947_00211108629_1910010201_0014",
+    "archive_ref": "2_1910-01-02_p5_sn88085947_00211108629_1910010201_0014",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-01-02_p5_sn88085947_00211108629_1910010201_0014",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 203,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 100,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 909,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "women workers Of New York. The\nletter follows:\n\n\nYou have doubtless heard of the\nshirt waist makers strike out here.\nFor weeks l have been so deeply\nengaged in the struggle with these\nstriking men and women that |\nhave found it difficult to think of\nanything else. am still in the\nfight, as the strike is not yet over\nThere were between 10000 and\n10000 out about there weeks ago.\nNow there are about 5000 strikers\nleft, the rest having gone back, on\nthe union terms, with recognition of\nthe union. -s ~,\"-\n\n\nI'VE go about to the striking\nshops talking to the girls (they are\noverwhelmingly discouraged some\ntimes), and give them talks, confer\nwith them, etc. Then we picket, go\nto see employers, who ask for COM\n'1nHtees- from the union; in short,\nWe do score of different things a\nday, andsit takes all of the efficient\ntime of each day. Last night | went\nto the night court, where our pick\ncts are brought, arrested purely at\nthe behest of the masters. who hire\nthugs to annoy them and policemen\nto haul them into court when they\nresent the rough treatment Of the\nthugs.\n\n\nEverywhere the struggle is the"
+    }
+  ]
+}

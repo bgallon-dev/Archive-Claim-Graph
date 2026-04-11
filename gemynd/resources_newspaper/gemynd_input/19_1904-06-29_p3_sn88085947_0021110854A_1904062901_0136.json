@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "IT. lGA1IEs AND 1ErU11.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-06-29",
+    "date_end": "1904-06-29",
+    "report_year": 1904,
+    "source_file": "19_1904-06-29_p3_sn88085947_0021110854A_1904062901_0136",
+    "archive_ref": "19_1904-06-29_p3_sn88085947_0021110854A_1904062901_0136",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1904-06-29_p3_sn88085947_0021110854A_1904062901_0136",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 88,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Beginning Sunday. June 10. the\nNorthern Pacific will inaugurate their\nSunday excursions to Occur d'Alene\nCity and st. MAries. Sunday train\nwill leave at 3 q. m. returning to\nSpokane at Z p. m. The steamer\nGeorge Cakes, the largest and most\ncommodious steamer on the lake. will\nmake the trip Occur d'Alene to Har-\nrison. Chatcalet and st. Maries and\nreturn. connecting with train both\nways; fare for the entire round trip,\n$50. Finest trip for . days ride to\nbe found.\n\n\nJ. w. HILL. General Agent."
+    }
+  ]
+}

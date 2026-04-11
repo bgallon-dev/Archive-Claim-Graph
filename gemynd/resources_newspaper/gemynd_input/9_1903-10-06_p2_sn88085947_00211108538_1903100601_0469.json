@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Tips From the Fair.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-06",
+    "date_end": "1903-10-06",
+    "report_year": 1903,
+    "source_file": "9_1903-10-06_p2_sn88085947_00211108538_1903100601_0469",
+    "archive_ref": "9_1903-10-06_p2_sn88085947_00211108538_1903100601_0469",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-10-06_p2_sn88085947_00211108538_1903100601_0469",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 266,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 633,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The local trains from the north\nlast night were crowded to their full\nest capacity notwithstanding the ad-\ndition of several extra coaches.\n\n\nVisitors will find the bureau Of in\nformation the place to go to If in\nwant of rooms or accommodation. H.\nNJ Cockrell. the manager. can be\nfound in his Office in the Peyton\nblock all day. and has also arranged\nto be there in the evening up till\n10 o'clock.\n\n\nH. S. Simmons and G. H. Farwel\nof Wenatchee are out to capture the\n$3.50 prize for the best general ex-\nhibit of green fruits from the river\ndistricts. Their combined display is\nTO be found in the center of the north\nbalcony of the exposition hall and is\nwell worth examining. Both exhibit\ntors won gold medals for general dis\nplays of fruits at the Buffalo Pan\nAmerican exposition.\n\n\nThe Washington State Sugar COM\npany of Waverly this morning in\nstalled their exhibit of granulated\nsugar made from beets. The exhibit\nis set off by a number of big photo\ngraphs showing the factory.\n\n\nThe market gardeners have come\nto the front this year with a jump\nand next to the county displays their\nexhibits in the horticultural ant\nagricultural lines are certainly the\nmost interesting. Among the local\ncontributors are Otto Hubenthal and\nJ. c. Ristan of Moran prairie, A. A.\nKelly Of East Spokane. r. A. Jones\nof Riverside and r. Kiesling. The\ncompetition for prizes in ne several\nclasses In which the truck gardeners\nhave entered promises to be fierce.\n\n\nAt the center of the east end of"
+    }
+  ]
+}

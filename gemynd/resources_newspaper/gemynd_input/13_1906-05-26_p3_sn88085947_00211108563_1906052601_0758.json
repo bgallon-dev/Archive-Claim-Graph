@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "LAKE BRANCH READY\n\n\nNEXT SUMNER",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-26",
+    "date_end": "1906-05-26",
+    "report_year": 1906,
+    "source_file": "13_1906-05-26_p3_sn88085947_00211108563_1906052601_0758",
+    "archive_ref": "13_1906-05-26_p3_sn88085947_00211108563_1906052601_0758",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1906-05-26_p3_sn88085947_00211108563_1906052601_0758",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ],
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 77,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 403,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Inland Empire Railway COM\npany will have a line running to\nLake Pend d'OreilIe, Idaho, by next\nsummer. Announcement of this\nfact was made yesterday by F. A.\nBlackwell, chairman of the finance\ncommittee Of the company. The\ncompany has purchased the Lie\nberg property of LOO acres on\nSwuaw bay on the lake.\n\n\nLake Pend d'Oreille is Sc miles\nform Spokane. The new line to\nthe lake will branch from the Hay\nden Lake extension."
+    }
+  ]
+}

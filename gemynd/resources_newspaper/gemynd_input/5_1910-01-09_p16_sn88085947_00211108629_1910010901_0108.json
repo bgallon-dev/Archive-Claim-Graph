@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-01-09 — pp16",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-09",
+    "date_end": "1910-01-09",
+    "report_year": 1910,
+    "source_file": "5_1910-01-09_p16_sn88085947_00211108629_1910010901_0108",
+    "archive_ref": "5_1910-01-09_p16_sn88085947_00211108629_1910010901_0108",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-01-09_p16_sn88085947_00211108629_1910010901_0108",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 350,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 123,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "EkVY THAT do l think of divorce\n\n\nw and alimony?\" said Mrs.\n\n\n~ May Arkwright Hutton,\nthe prominent leader of the Wom-\nans Suffrage club, when asked for\nher views on the subject. We'll, I\ncan tell you in very few words my\nideas in regard to this question. I\nbelieve that marriage is a civil con-\ntract, as the contracting parties are\ngoverned by law; when it goes be-\nyond this it depends entirely upon\nthe individuals.\n\n\nDivorce laws. like many other\ngood laws, have been abused, but\nmany times it is good way out of\na bad bargain. Why should people\nremain together and be unhappy?\nTo my mind, the cause of so much\ndiscomfort, unhappiness and d.\nvorce is due to incompetency. I\nbelieve that every girl should be\nreared as Queen Victoria reared her\ndaughters-to be able to do every\nthing from scrub a floor to play a\npiano.\n\n\n\"The average girl is likely to\nmarry a man who will want Irish\npotatoes three times a day, and the\naverage girl doesn't know how to\ncook them. Yes, indeed, the great\nest cause of divorce is incompetent\ncy on the part of women. Statistics\nshow that there are fewer divorces\namong Germans and Scandinavians\nthan any other nationalities and\nattribute this to their early train\ning.\n\n\nTHE American girl and especial\nly the western girl, lacks training.\nThis is plainly Illustrated said Mrs.\nHutton, by little experience | had\nsome time ago.\n\n\n81 advertised for a maid. | had Il\napplicants, among them, Swedes.\njapanese girls and boys and even\nq Chinaman. One young lady said.\n4 hear you are literary woman\nMrs. Hutton, to which | replied, I\nhave been accused Well said the\nyoung lady, my mother was a cou-\nsin to Lord Emerson, and l think\ncan be of service to you Can\nyou cook?\" was the next question\naddressed to the fair applicant and\nshe answered, no\"\n\n\nMrs. Hutton drew herself up in\nher comfortable chair and laughed\nas l asked her what she thought of\nthe alimony part of the question."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-04-18 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-04-18",
+    "date_end": "1908-04-18",
+    "report_year": 1908,
+    "source_file": "10_1908-04-18_p2_sn88085947_00211108587_1908041801_0439",
+    "archive_ref": "10_1908-04-18_p2_sn88085947_00211108587_1908041801_0439",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1908-04-18_p2_sn88085947_00211108587_1908041801_0439",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 77,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 262,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Her success at the polls was one of\nthe queer results Of the past weeks\nelections.\n\n\nMrs. Barney is a pretty widow, a\ntelephone operator and the daugh-\nter of a minister She was a candi-\ndate on the dry ticket. For the first\ntime in years the city voted against\nprohibition. She was the only mem\nDer OF her ticket elected.\n\n\nHer opponents claim that she Is\nnot qualified voter, and therefore\ncan not hold office."
+    }
+  ]
+}

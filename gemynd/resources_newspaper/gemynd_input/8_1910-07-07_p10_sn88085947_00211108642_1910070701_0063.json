@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-07-07 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-07",
+    "date_end": "1910-07-07",
+    "report_year": 1910,
+    "source_file": "8_1910-07-07_p10_sn88085947_00211108642_1910070701_0063",
+    "archive_ref": "8_1910-07-07_p10_sn88085947_00211108642_1910070701_0063",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-07-07_p10_sn88085947_00211108642_1910070701_0063",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "rate case"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 276,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 874,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "mediately left for home, asking the\nboys working with him to see that\nthe company got the scores down\ntown. The message, he found when\nhe got home, had been little ahead\nof time, for the baby fingered a few\nminutes after he reached it's side.\n\n\nExcitement was created In the\nSpokane valley just east of the city\nlimits yesterday noon by a prairie\nfire that broke out near Subway,\ncaused by spark from an engine\non the N. P. 1t took a hard fight\nby the residents to get the flames\nchecked.\n\n\nLord ShoIto Douglas, son Of the\nMarquis of Queensbury of prize\nring fame, has been in Spokane\nlooking for his wife, a former va\nriety actress, who deserted him.\nLord Sholto was broke and while\nhere shipped with a Canadian sur\nVey1ng crew.\n\n\nAttorney n. m. Stephens will\nleave for Chicago Friday to appear\nbefore the Interstate Commerce\ncommission in a further hearing of\nthe Spokane rate case on July II.\nAn effort will be made at that time\nto have the commission cause the\nrates to become effective as soon\nas possible. Members of the rate\ncommittee of the chamber of COM\nmerce believe that all of the local\nrailroads will soon come to the new\nrates.\n\n\nJudge Huneke has ordered that\nthe custody of the young son of\nDavid S. and Pearl Beekley be Civ\nen- to the father during the pen\ndency of the divorce hearing. Prior\nto this time restraining order has\nbeen issued against the husband\nforbidding him to even see the\nchild. Affidavits filed by people\nacquainted with the parties caused\nthe court to change it's ruling."
+    }
+  ]
+}

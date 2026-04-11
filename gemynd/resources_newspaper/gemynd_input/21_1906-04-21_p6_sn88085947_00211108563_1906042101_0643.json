@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-04-21 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-21",
+    "date_end": "1906-04-21",
+    "report_year": 1906,
+    "source_file": "21_1906-04-21_p6_sn88085947_00211108563_1906042101_0643",
+    "archive_ref": "21_1906-04-21_p6_sn88085947_00211108563_1906042101_0643",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1906-04-21_p6_sn88085947_00211108563_1906042101_0643",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "assay",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 151,
+      "match_details": {
+        "mining": [
+          {
+            "term": "assay",
+            "weight": 1.5,
+            "offset": 164,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Pine Nut ledge is traceabe for 800 feet across\nthe Captain SAM This marvellous deposi! of gold\nbearing ORE ranges from Is to 20 feet in width aid\ngives general assay value of $75 per ton. four\nfoot ledge has been opened at six places the Ken\nlucky giving uniform value of better than 500 per\nton. This ledge is the same vein from which\ntional values are being taken the Consolidated.\nAt every point where these lodges have been or\nened on the Kentucky and Captain Sam, they have\nstood the most exhaustive tests and given values of\nfrom $75 to 500 to the ton. The vein on the Ken\nlucky has been proven to depth of so feet and has\nbroadened out and become richer with depth. On\nthe Arkansas two lodges averaging from four to six\nfeet in width reveal values of better than 800 per\nton."
+    }
+  ]
+}

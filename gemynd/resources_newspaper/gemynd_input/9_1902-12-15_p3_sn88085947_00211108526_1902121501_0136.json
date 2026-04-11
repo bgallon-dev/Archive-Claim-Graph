@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "COMING REAL ESTATE\nACTIVITY IN SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-15",
+    "date_end": "1902-12-15",
+    "report_year": 1902,
+    "source_file": "9_1902-12-15_p3_sn88085947_00211108526_1902121501_0136",
+    "archive_ref": "9_1902-12-15_p3_sn88085947_00211108526_1902121501_0136",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1902-12-15_p3_sn88085947_00211108526_1902121501_0136",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 121,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 51,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 7,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\" That Spokane is on the eve of\nThe most important real estate\nperiod of its history is vouched for\nby every prominent realty dealer\nIn the city, and the air of sup\npressed excitement that everywhere\npervades the offices where city\nproperty'fs bought and sold gives\neloquent testimony of the sincerity\nof the assertion.\n\n\nThe city has fortunately, some\nthink, SO far escaped the tolls of\nthe professional boomer, and it is\na matter of current history that\nseveral attempts at initiating prop\nerty values have been promptly\nsquelched by the wiser real estate\nmen, who state that, while not\naverse to- the jumping of prices\nwhey wish no reactionary slump\nsuch as would be consequent upon\nvalues insubstantially based."
+    }
+  ]
+}

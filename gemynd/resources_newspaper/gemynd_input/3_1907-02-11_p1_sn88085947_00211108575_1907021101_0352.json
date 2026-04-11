@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "THAT. H|LLyARO\nriot\"",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-11",
+    "date_end": "1907-02-11",
+    "report_year": 1907,
+    "source_file": "3_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+    "archive_ref": "3_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested",
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 350,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 625,
+            "in_headline": false
+          },
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 459,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A vastly different version than\n\n\nthat printed in the Spokesman-Re-\n\n\nview of the riot\" at Hillyard last\n\n\nnight is given The Press by men\n\n\nwho witnessed the proceedings and\n\n\nfeel that their town has been\n\n\nslandered by deliberate misrepre-\n\n\nsentation.\n\n\nAS these witnesses tell it, the\n\n\ntrouble that resulted in the arrest\n\n\nof A. Richardson was caused by\n\n\nconductor No. 142, on a w. w. P.\n\n\nCo. car, shaking and cutting nine\nyear old boy who hollered \"scab.\" y\n\n\nThis boy is the son Of Engineer\n\n\nJack Croak, who was killed two\nyears ago.\n\n\nRichardson protested against the\nway the boy was treated and was\nImmediately arrested by Specials\n\n\nByram and Hamlin. There was no\nfighting or rock throwing, although\nthe railroad men were angry at the\n\n\nrough treatment given a child of\n\n\ntheir dead comrade by a grown\n\n\nman. Five specials took part in the\narrest, and Richardson, who had\ndemurred at going on the car, was\nbeaten over the head with a billy\nafter he had been placed in seat.\nSeeing this, George Banks warn\ned the specials to desist, as Rich\nardson was not resisting, and the\nmen would not see him abused.\n\n\nLater when three of the specials\n\n\nleft the car they handcuffed Rich\n\n\nardson and he was brought to the\npolice station as if he were high\n\n\nway robber.\n\n\nOn leaving the other specials at\nHillyard Byram caused laugh\nby telling his colleagues to shoot\n\n\nthem down like dogs if they\nhad to-\"\n\n\nAnd then Deputy Sheriff McPugh\ncame along and took Byram's star,\ntelling him he had done enough\nmischief for one time. McPugh\ngave the railroad boys little quiet\ntalk and the trouble was all over,\nas they had no intention Of Great\nIng riot. Somebody had placed\ntorpedoes on the track, but no harm\nwas done.\n\n\nThe Hillyard men who witnessed\nthe occurrence were ]. c. Patton\nJ. Lobner, w. Evans, S. s. Shields,\n\n\nT. ]. Clark, C. Avery, George\n, Banks, Lee Stout, Frank Cave and\n\n\nr. y. Burbank. Shields is mer-\n\n\nchant at Hillyard and the rest are\nrailroad men."
+    }
+  ]
+}

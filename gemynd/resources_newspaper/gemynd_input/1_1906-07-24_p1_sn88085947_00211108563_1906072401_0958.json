@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SIX LOSE LIFE IN\n\n\nG. n. CATASTROPHE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-24",
+    "date_end": "1906-07-24",
+    "report_year": 1906,
+    "source_file": "1_1906-07-24_p1_sn88085947_00211108563_1906072401_0958",
+    "archive_ref": "1_1906-07-24_p1_sn88085947_00211108563_1906072401_0958",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-07-24_p1_sn88085947_00211108563_1906072401_0958",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 247,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 689,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cars that lie on the bottom of the\nlake. The engine Is No. $40, with\na weight of 272,000 pounds, and is\nsupposed to lie in 100 feet Of\nwater.\n\n\nWhen the accident occurred the\nengine, mail, smoker and baggage\ncarsrent down 20 foot embank-\nment into the lake. The day car\nremained, projecting from the en-\nbankment into the water. The\nsleeper remained within the portal\nof the tunnel, while the dining and\ntourist cars never left the track.\nThe acetylene tank under the\nsmoker exploded and set fire to\nthe wreckage. Some of the pas\nsengers in this car, which was\npartly submerged, escaped by\nsmashing windows and diving\nthrough the apertures thus made.\n\n\nThe list of killed given out at the\nGreat Northern office today is as\nfollows:\n\n\nN. Edward Munson, engineer,\nHillyard; Frank Bell, fireman,\nHillyard; Charles Danner, mail\nclerk, Spokane; George r. Stick\nland, express messenger; George\nHoward Curtice, Spokane, lumber\nman; T. J. Dolbow, Spokane.\n\n\nE. NJ. Newcomb OF 1zO Indiana\navenue is reported missing.\n\n\nThe seriously injured are: C..\nMihills, Spokane; John Lord, Seat\ntie, actor; J. Durbin, Spokane;\nTom Wainch, Spokane; Elmer E..\nHall, Colfax, Wash; Henry e.\nByoeum, Minot, N. D.; Thomas Hol-\nland, Usk, Wash; M. E. Cash,\nStandpoint, Idaho; Walter H. Ross\n/ news agent, Seattle; E. B. New.\ncombe, Spokane; Pete Nelson,\nNagle hote, Spokane; F. d. Row\nans, walter; William Smith, wait.\ner; w. q. Patterson, dining car\nconductor; G. L. Thomas, New\nport."
+    }
+  ]
+}

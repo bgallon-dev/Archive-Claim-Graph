@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FOR\n\n\nA BIG RALLY",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-06",
+    "date_end": "1910-08-06",
+    "report_year": 1910,
+    "source_file": "29_1910-08-06_p2_sn88085947_00211108642_1910080601_0393",
+    "archive_ref": "29_1910-08-06_p2_sn88085947_00211108642_1910080601_0393",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "29_1910-08-06_p2_sn88085947_00211108642_1910080601_0393",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 60,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 98,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A meeting of the joint commit\ntees from the labor unions, the\nfarmers organizations and the\nequal suffrage association will be\nheld tonight in the equal suffrage\nrooms in the Hutton building, to\ncomplete arrangements for the\nrally which It is proposed TO be\nheld at an early date.\n\n\nAll members OF the committee are\nrespectfully urged to be present."
+    }
+  ]
+}

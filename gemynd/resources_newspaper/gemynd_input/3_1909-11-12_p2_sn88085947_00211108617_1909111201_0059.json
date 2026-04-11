@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-12 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-12",
+    "date_end": "1909-11-12",
+    "report_year": 1909,
+    "source_file": "3_1909-11-12_p2_sn88085947_00211108617_1909111201_0059",
+    "archive_ref": "3_1909-11-12_p2_sn88085947_00211108617_1909111201_0059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-11-12_p2_sn88085947_00211108617_1909111201_0059",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 124,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 231,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 568,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ". WHOLESALE BATHS GIVEN Z\n\n\nq Police Commissioner Teurke 4\n\n\n= at noon today said: 4\n= Most Of the men at the 4\n. Franklin school have accepted Z\n= the bread and water fare, and 4\n. some are taking regular I\n. meals, 30 the hunger strike al I\nq this point 10 broken. Z\n= \"This morning an order was 4\n. issued that the men at the Z\n. Franklin school be- given\n. baths and for this purpose\n\n\n. eight ut q time Of them have\n\n\n= been taken in the patrol\n\n\n. wagon from the school to the\n. police station and given baths 4\n. under the shower bath at\n= tachment at the city jail\""
+    }
+  ]
+}

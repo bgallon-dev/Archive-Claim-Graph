@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Gompers Talks on\n\n\nBuilding Strikes.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-09",
+    "date_end": "1903-06-09",
+    "report_year": 1903,
+    "source_file": "40_1903-06-09_p1_sn88085947_00211108538_1903060901_0046",
+    "archive_ref": "40_1903-06-09_p1_sn88085947_00211108538_1903060901_0046",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "40_1903-06-09_p1_sn88085947_00211108538_1903060901_0046",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 97,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 45,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON. June o.-President\nGompers of the American Federation\nOF Lamor today reviewed the build\ning situation In an interview. He\nsays that all reports have been ex-\nagserated aha that there is 6othftg\nserious ip the labor questions 70 fear.\nNothing serious will Jesuit ] good\n'pany men gre out, but oil are local\nd!p0tss He says the fact Is en-\nployers ASSOCIATIONS have been uk-\nganzide TO antagonize aud crush\nunions and as q result every defensive\nlabor movement Is heraldsd IN sS-\ntrsyassa, terps as part p ths re.\nulO campaisb against 3sanissd \"a\nbon"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-06 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-06",
+    "date_end": "1907-05-06",
+    "report_year": 1907,
+    "source_file": "5_1907-05-06_p4_sn88085947_00211108575_1907050601_0643",
+    "archive_ref": "5_1907-05-06_p4_sn88085947_00211108575_1907050601_0643",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-05-06_p4_sn88085947_00211108575_1907050601_0643",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 173,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 416,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 537,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "crop is said to be an exceptionally\nshort one and many of the farmers\nhave suffered accordingly. Grain\ndealers have suffered alike with\nthe farmers, while the Independent\ndealer has profited.\n\n\nNot much damage has been done\nto grain that has remained on the\noutside. Mr.. Stevens, an indepen-\ndent dealers at Elmira, has $4,000\nbushels outside his warehouse, but\nit is still in fine condition. A whole\ntrain load of wheat was removed\nfrom Davenport last Thursday. and\nstations farther down the Washing\nton Central line must begin to get\nrelief at once in order that the\nwarehouses may be cleared in time\nfor this years harvest.\n\n\nThese conditions have been in\nflicted by traffic conditions and all\nwill be relieved contomporaneously\nwith the remedying Of railroad con\niestiOn. With wheat moving there\nwill be plenty of money for the\nfarmers, as grain dealers will CON\ntract all this years yield at 60\ncents, the market price at the pres\nent time. which is 10 cents higher\nthan was paid Jan. |"
+    }
+  ]
+}

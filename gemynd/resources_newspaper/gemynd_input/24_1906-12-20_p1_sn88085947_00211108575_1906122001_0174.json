@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BLOCKADE ORDER\n\n\nAGAINST 6. N.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-20",
+    "date_end": "1906-12-20",
+    "report_year": 1906,
+    "source_file": "24_1906-12-20_p1_sn88085947_00211108575_1906122001_0174",
+    "archive_ref": "24_1906-12-20_p1_sn88085947_00211108575_1906122001_0174",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1906-12-20_p1_sn88085947_00211108575_1906122001_0174",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 50,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 77,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MILWAUKEE,, Dec. 20. - A\nfreight blockade order was issued\ntoday against the Great Northern\nby all Chicago and st. Paul rail\nroads. No perishable or carload\nfreight will be accepted for points\nwest of Grand Forks. N. ID. 1t is\nfeared this order will only compli-\ncate the situation."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "FIREMAN AND TEMPLAR WENT\n\n\nTO JAIL FOR FREE SPEECH",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-19",
+    "date_end": "1909-11-19",
+    "report_year": 1909,
+    "source_file": "3_1909-11-19_p7_sn88085947_00211108617_1909111901_0118",
+    "archive_ref": "3_1909-11-19_p7_sn88085947_00211108617_1909111901_0118",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-11-19_p7_sn88085947_00211108617_1909111901_0118",
+      "composite_score": 16.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 12.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 150,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 115,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 470,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 39,
+            "in_headline": true
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 30,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "as appears this contest by the au-\nthorities of Spokane to prevent\nspeaking on the street. 1t Is not\nopposition to street speaking that\nis impelling them on, but hostility\nto labor. The officials of Spokane\nhave permitted themselves to be\nused as catspaws by interests hos\ntile to the workingmen, and the eff.\nfort is now to crush the l. w. w.\nin this fight in the hope of deliv'\nering another blow to labor. There\nis no use denying the issue.\n\n\n81 spent nearly week in Jail,\ngoing there voluntarily because\nwas disguised with the way this\nsituation is handled by the authori'\nties. | repeatedly asked for trial\nand they finally turned me loose.\n\n\nAsked If his lodge connections\nwere responsible for his release,\nRobinson said that he did not\nknow but thought that the police\nhad come to the conclusion that\nthey could not convict him."
+    }
+  ]
+}

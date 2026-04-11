@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT (AN 70U Do f0R SPOKANE !\n\n\nBOOSTERS CLUB WANTS TO KNOW",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-01",
+    "date_end": "1905-09-01",
+    "report_year": 1905,
+    "source_file": "12_1905-09-01_p1_sn88085947_00211108551_1905090101_0838",
+    "archive_ref": "12_1905-09-01_p1_sn88085947_00211108551_1905090101_0838",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-09-01_p1_sn88085947_00211108551_1905090101_0838",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 144,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 448,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Enthusiasm, hard work and unity\nOf purpose were the watchwords at\nthe meeting last night in the cham\nDer Of commerce rooms of the $50, 900\nboosters club. What can we do for\nSpokane, how can we do it best and\nlet us do 1t together, in the same\nway and at once were the crystallized\nsentiments expressed by a score of\nspeakers.\n\n\n1t was a typical western boomers\nmeeting and the spirit pervading it\nmeA 9 great things for the city Of\nSpokane and the Inland Empire.\n\n\nA constitution was adopted, COM\nmittees appointed and the club went\nto work Immediately on it's great aim\nswelling the citys population.\nMembers for the club was the first\nsubject for consideration. The mem\nbership committee outlined it's work\n1t proposed appointing sub-commit-\ntees for every line of business and\ncraft in town and increasing the"
+    }
+  ]
+}

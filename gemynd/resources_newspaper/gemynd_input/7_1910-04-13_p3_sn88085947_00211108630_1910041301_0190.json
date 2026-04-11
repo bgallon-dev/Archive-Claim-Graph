@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NEW RULE IN ST. LOUIS rs THAT FANS WITH |\n\n\nTHE BUG MUST NOT HISS BASEBALL PLAYERS |\n\nSOME INTERESTING ENGAGEMENTS\n\n\nAHEAD FOR SPOKANE INDIANS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-13",
+    "date_end": "1910-04-13",
+    "report_year": 1910,
+    "source_file": "7_1910-04-13_p3_sn88085947_00211108630_1910041301_0190",
+    "archive_ref": "7_1910-04-13_p3_sn88085947_00211108630_1910041301_0190",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-04-13_p3_sn88085947_00211108630_1910041301_0190",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 7.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "spokane indians"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 126,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "spokane indians",
+            "weight": 2.5,
+            "offset": 127,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "now declared to be in practically\nas good condition as they will be\nat most any time during the sea-\nson.\n\n\nAnother game with the Con-\nzaga college boys will be played by\nthe Indians Saturday afternoon and\nthe Hazlewoods of the City league\nwill try their luck against this pro-\nfessional team Sunday afternoon.\n\n\nOne coming game that is attract\ning great amount of attention by\nIndian followers is that of Friday\nafternoon at Recreation park with\nthe Oregon Agricultural college\nnine. Oregon fans seem to think\nthat college team is made up of\nthe real live material that is re-\nquired of good ball players and\nthey intimate that the Indians will\nbe YEARLY searching for the pei\nlet before the game is over."
+    }
+  ]
+}

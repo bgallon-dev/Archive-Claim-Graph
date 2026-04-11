@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MONEY\n\n\nON PARK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-25",
+    "date_end": "1907-05-25",
+    "report_year": 1907,
+    "source_file": "7_1907-05-25_p4_sn88085947_00211108575_1907052501_0713",
+    "archive_ref": "7_1907-05-25_p4_sn88085947_00211108575_1907052501_0713",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-05-25_p4_sn88085947_00211108575_1907052501_0713",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 114,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 539,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Hundreds of mechanics are now\nputting the finishing touches to\nNatatorium park and to have it in\nreadiness for the opening, which is\nset for May 80. The entire grounds\nare being remodeled and some of\nthe latest Eastern park novelties\nare being installed.\n\n\nSome of the new concessions be-\ning built this season are the shoot\nthe chutes, circle swing, Galveston\nfood, darkness and dawn, house of\ntrouble, foolish house, and large\nand commodious dancing pavilion\n120 feet by 140 feet in size.\n\n\nThe pines in the park will be fes-\nTONED with electric lights, making\na beautiful display for summer eve\nnings.\n\n\nSpecial uniformed police officers\nwill be constantly on the grounds"
+    }
+  ]
+}

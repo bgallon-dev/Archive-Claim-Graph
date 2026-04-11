@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "Afraid Of A STREET SPEAKING\n\n\nFIGHT At WENATCHEE, WASH.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-25",
+    "date_end": "1910-05-25",
+    "report_year": 1910,
+    "source_file": "10_1910-05-25_p1_sn88085947_00211108630_1910052502_0758",
+    "archive_ref": "10_1910-05-25_p1_sn88085947_00211108630_1910052502_0758",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "10_1910-05-25_p1_sn88085947_00211108630_1910052502_0758",
+      "composite_score": 14.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 10.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "arrested",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 95,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 223,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 93,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 12,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "a Salvation Army service. The Sal\nvationists complained to the police\nRoe to move, they were arrested.\n\n\nThey plead not guilty Monday at\nternoon and were fined $25 and\ncosts, which they refused to pay.\nUpon their return to jail they re-\nfused to work and were placed In\na dungeon on bread and water\ndiet. At every meal since that time\nthey have thrown away the bread,\ntaking only the water to uasnch\ntheir thirst. They threaten to havs\n200 men from Spokane In town 10\nfight It out unless released tmme-\ndlateiy. u"
+    }
+  ]
+}

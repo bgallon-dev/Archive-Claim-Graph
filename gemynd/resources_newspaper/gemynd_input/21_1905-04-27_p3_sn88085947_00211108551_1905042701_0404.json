@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PICTURE TALKS WITH AMERICAN MAYORS\n\n\n&C\n\n. CLAY TIMANUs, OF BALTIMORE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-27",
+    "date_end": "1905-04-27",
+    "report_year": 1905,
+    "source_file": "21_1905-04-27_p3_sn88085947_00211108551_1905042701_0404",
+    "archive_ref": "21_1905-04-27_p3_sn88085947_00211108551_1905042701_0404",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1905-04-27_p3_sn88085947_00211108551_1905042701_0404",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "great fire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 78,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "great fire",
+            "weight": 2.5,
+            "offset": 55,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tenn. TIE board plan is good; we have\ntried it,\"\n\n\nThe great fire destroyed property\ninsured for $3O,OOO.0O0 and actually\nworth $6O.OO0,O0O. Despite that fact\nthe city closed the year with a sur\nplus of 1892, 900 in the treasury. The\ntax duplicate will be $2O,00O,O00\nlarger in 1906 than it was last year\n\n\nAn effort is also being made to\nassess the franchises of corporations\nusing the streets on a valuation of\n23,000,000. OF this amount 100000"
+    }
+  ]
+}

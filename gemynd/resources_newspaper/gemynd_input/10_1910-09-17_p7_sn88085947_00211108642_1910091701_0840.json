@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "CITY NEWS\n~ IN BRIEF ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-17",
+    "date_end": "1910-09-17",
+    "report_year": 1910,
+    "source_file": "10_1910-09-17_p7_sn88085947_00211108642_1910091701_0840",
+    "archive_ref": "10_1910-09-17_p7_sn88085947_00211108642_1910091701_0840",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1910-09-17_p7_sn88085947_00211108642_1910091701_0840",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "agriculture": [
+          "wheat",
+          "wheat harvest"
+        ],
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 299,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 817,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 9,
+            "in_headline": false
+          },
+          {
+            "term": "wheat harvest",
+            "weight": 1.5,
+            "offset": 9,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 980,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With the wheat harvest COM\n\n\npleted and fall coming on, the an\n\n\nnual crop of Migrants has been\n| keeping the Union Rescue mission\nofficials on the jump. Jobs are eX-\nceedingly scarce and about rs per\ncent of the applicants are young\n\n\nmen under 25 years of age, which is\n\n\nan almost unprecedented condition.\nA bottle of hair tonic, a jar Of\ncold cream and a complexion oint-\n\n\nment was the result of a recent\npetty raid on Ritter's drug store by\n\n\nan old man who is thought to be\n\n\nmentally unbalanced.\n\n\nAt a meeting of the members of\nthe Hays Park Baptist mission and\nthe Minnehaha Baptist church\nThursday night, plans were formu-\n\n\nlated for selling the property of\n10th congregations, combining the\nfunds for the purchase of lot in a\n\n\nmore central location.\n\n\nExhibits from Alberta and British\nColumbia for the Dry Farming Con-\ngIess, to be held in October at the\n\n\nInterstate fair, will approximate\nthree carloads of grains and fruits,\nis the assurance of officials Of the\nexposition. The Canadian exhibit is\n| to be a big feature of the congress.\nResidents living near Illinois ave-\nnue. and Hamilton street have asked\n\n\nthe police for protection from q\n\n\ngang of young rowdies who are ter\n\n\nrorizing the neighborhood.\n\n\nAlleging that his wife intends to\ngo the pace that kills in spite of all\nhe can do, Gordon Dodd filed suit\n\n\nfor divorce in the superior court\nyesterday.\n\n\nAt a meeting Of the Sunday\nSchool superintendent union at\nthe Y. M. Z. A. last night. plans\nwere outlined for the 60 day,\ndouble up\" membership campaign.\n\" you have noticed new face\namong the officers of the YIN. c.\nA. lately. II probably belongs to Mr..\nq. A.. Forbes, the new assistant\nsecretary and bookkeeper."
+    }
+  ]
+}

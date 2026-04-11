@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-10-13 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-13",
+    "date_end": "1908-10-13",
+    "report_year": 1908,
+    "source_file": "6_1908-10-13_p7_sn88085947_00211108587_1908101301_1187",
+    "archive_ref": "6_1908-10-13_p7_sn88085947_00211108587_1908101301_1187",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-10-13_p7_sn88085947_00211108587_1908101301_1187",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 410,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 1657,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Special Correspondence to The Press\n\n\nCOLUMBUS, o., Oct. 13.-Ohio\nis too much surprised and excited\nover the saloon question to pay\nmuch attention to the presidential\nrace. The latter is a question for\nNovember. The saloon issue con-\nfronts voters constantly and elec-\nlions are held daily to decide\nwhether they shall go or stay.\n\n\nThe last legislature passed a\ncounty local option bill that went\ninto effect a few weeks ago. 1t\nwas the plan of the Anti-saloon\nleague, led by Superintendent\nWayne B. Wheeler, to have imme-\ndate elections in 20 counties that\nwere pretty certain to go dry. Then\nthe fight was to be prosecuted\nagain after the November election.\nBut he was wrong in thinking that\nthe enemies of the saloon could be\nheld in restraint. From counties in\nall parts of the state came demands\nthat the league lead them in cleo\nton contests. The league was busy\nand begged them to wait. Their\nanswer was that they would attend\nto the matter themselves. AS a\nresult the league is leading in a\nfight twice as big as it had mapped\nout. And with startling results.\n\n\nCounties began going dry at the\nrate of one day. A month after\nthe opening of the battle the drys\nhad won in 80 of the 81 counties.\nIn their single victory the vets\nsaved \"a saloons. In their 30 vic\ntories the drys wiped out S72\nsaloons. The saloon tax in this\nstate is $1,000 year. The drys\nhave thus cut off public revenue\nto the amount of $S72,000, but they\nfeel that the result Is worth the\ncost\n\n\n1t is freely predicted that by the\nmiddle of November more than half\nthe SO counties of the state will be\ndry. Otto Horix, secretary of the\nLiberty league, the organization OPP\nposing prohibition, comedies that\nthe drys will be able to carry 60\ncounties. Even If his estimate is\ncorrect the saloons in the wet coun-\nties are in grave danger.\n\n\nIn 80 counties the drys have had\njust short of 10000 majority. The\nfights in the next 30 will be some\nwhat closer, but it is estimated that\nthey will swell the dry majority to\nover 10000. The drys will then be\nIn position to demand state pro-\nhibition and they figure that even\nII the vets should retain 2S coun-\nties they could not. in a state vote\novercome the 10000 majority III the\ndry counties."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STEALING FROM THE UNBORN.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-28",
+    "date_end": "1908-08-28",
+    "report_year": 1908,
+    "source_file": "1_1908-08-28_p2_sn88085947_00211108587_1908082801_0894",
+    "archive_ref": "1_1908-08-28_p2_sn88085947_00211108587_1908082801_0894",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-08-28_p2_sn88085947_00211108587_1908082801_0894",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "land grant"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 227,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "land grant",
+            "weight": 2.0,
+            "offset": 344,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "western lumber man, more frank than many, was\nasked the secret of his great success. He replied:\n\n\n81 get rich robbing children still unborn\"\n\n\nWhat did he mean? Literally what he said. He meant\nthat his numbering operations were-to all ntens and\npurposes-thevng from cradles.\n\n\nFor he cutting timber sections of forest land\npurchased from the land grant railroads. likewise adj\njacent lands bought from fraudulent homesteaders ;and\nalternate sections of government land where the cut\nting without right title-sheer theft trespass, fitch\ning from the people And he was cutting the modern\ntimber companies cut, without thought of anything but\npresent gain.\n\n\nAud this admitted, what others know but do not\nadmit that the victims of his thefs were the children of\nour children.\n\n\n'To steal from living grown-up people, nowadays, is\nnot easy task the pursued but to steal from in\nfants not yet born find quite simple\"\n\n\nYes This man is right. Stripping timber from our\nmountain Sides without leaving seeds sapngs for the\ncoming years, robbing coming generations We get the\nlumber and we dom worry.\n\n\nBut what will children say of usg And the child\nof children And after all they not i'm\nportant than ourselves? Would live and struggle just\nfor the eangs and the drinkngs Of today.\n\n\nLet us look to the heritage of which trustees.\nIndeed in honor bound."
+    }
+  ]
+}

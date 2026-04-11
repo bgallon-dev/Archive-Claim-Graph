@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-05-11 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-11",
+    "date_end": "1903-05-11",
+    "report_year": 1903,
+    "source_file": "45_1903-05-11_p3_sn88085947_00211108526_1903051101_0637",
+    "archive_ref": "45_1903-05-11_p3_sn88085947_00211108526_1903051101_0637",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "45_1903-05-11_p3_sn88085947_00211108526_1903051101_0637",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 112,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 33,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 192,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WALLA WALLA, Wash, May IL\nWinter wheat is looking well through\nthe Walla Walla valley. Spring\nwheat II poor and warmer weather\nand rain are needed. Prospects for\nbarley are fair.\n\n\nPENDLETON, Ore. May 11.-Fall\nwheat Is backward. but otherwise\nthrifty and promising. Spring wheat\nIs practically all seeded with a small\nincrease in acreage. The corn, oat\nand barley crops are small In this\ncounty.\n\n\nCOLFAx. Wash. May 1.-THE\nwheat acreage in this section of\nwhitman county Is about 10 per cent\nof that of last year and most of\nthis Is sown with spring wheat. The\nseason is late and conditions are\nrather poor on account of lack of\nrain.\n\n\n"
+    }
+  ]
+}

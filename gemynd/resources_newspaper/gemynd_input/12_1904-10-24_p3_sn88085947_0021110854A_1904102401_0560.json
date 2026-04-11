@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-10-24 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-24",
+    "date_end": "1904-10-24",
+    "report_year": 1904,
+    "source_file": "12_1904-10-24_p3_sn88085947_0021110854A_1904102401_0560",
+    "archive_ref": "12_1904-10-24_p3_sn88085947_0021110854A_1904102401_0560",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1904-10-24_p3_sn88085947_0021110854A_1904102401_0560",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 211,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 582,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "other, as to keep them both in the\nfield. leaving no room for a third\nparty of moral ideas.\n\n\n2.-No self-respecting young man\ndesires to begin his career as a citi-\nzen in company with a class Of men\nwho claim that they can control the\npolicies of government by poisoning\nand bribing it's electors, and threaten\ning the government officials into ST.\nlence concerning their crimes, on PEN\natty of defeat If they dare open their\nmouths against the perpetrators Of\nthese crimes.\n\n\n3.-First voters mothers taught\nthem to 'be brave\" All parties, plat\nforms and candidates other than the\nprohibition are too cowardly to utter\nword against the profit-sharing\npartnership existing between the gov\neminent and the liquor traffic, by\nwhich more than 100000 was\nworse than wasted last year; in the\npurchase OF a liquid poison, that is\nneither food, raiment nor shelter, but\nwhich added greatly to the burden Of\ntaxation by filling our police and\ncriminal courts, prisons. almshouses\nand insane asylums.\n\n\n4.-First voters ought to be in har-\nmony with the best ideals of the age,\nas expressed by the nations wisest\nand best educators. Many of the re-\nligious denominations controlling our\ncolleSeS and universities have declar-\ned substantially, and some Of them in"
+    }
+  ]
+}

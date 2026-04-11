@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-03 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-03",
+    "date_end": "1903-09-03",
+    "report_year": 1903,
+    "source_file": "24_1903-09-03_p1_sn88085947_00211108538_1903090301_0344",
+    "archive_ref": "24_1903-09-03_p1_sn88085947_00211108538_1903090301_0344",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1903-09-03_p1_sn88085947_00211108538_1903090301_0344",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle",
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 86,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 378,
+            "in_headline": false
+          },
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 358,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One Of the largest deals this year\nFor irrigated lands was consummated\nin this city this morning when Mayor\nc. w. Mcc~y Of Sprague purchased\nfrom the Spokane Valley Land &\nWater company n acres In the Green\nacres district for $7700 cash.\n\n\n- Mayor Mccoy purchased the land\n= behalf of Mr.. Nauver. a wealthy\n/ tockraiser Of Sprague. who will plant\nsame with alfalfa for feeding cattle.\n\n\nThe property Is situated between\nRathdrum and Hauser and II irrigat-\ncd by the Fish lake canal."
+    }
+  ]
+}

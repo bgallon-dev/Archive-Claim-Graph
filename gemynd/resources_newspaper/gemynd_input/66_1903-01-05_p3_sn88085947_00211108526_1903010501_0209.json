@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-01-05 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-05",
+    "date_end": "1903-01-05",
+    "report_year": 1903,
+    "source_file": "66_1903-01-05_p3_sn88085947_00211108526_1903010501_0209",
+    "archive_ref": "66_1903-01-05_p3_sn88085947_00211108526_1903010501_0209",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "66_1903-01-05_p3_sn88085947_00211108526_1903010501_0209",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 99,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 373,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Hack, Bus and Transfer Drivers\nunion. \\. l.. u, initiated the follow\ning officers last night Sunday /:\nPast president. Il. r. Reed: president,\nL. II. White; recording secretary, c.\nw. Sargent; financial secretary. Rufus\nGreen; treasurer, Christ Steiner;\nguard, Milton Cascarden: guide. John\nw. Henderson; trustees, Rufus\nGreen. A. ]. Larssn and George\nPierce; delegates TO trades council.\nl.. III. White. Chris Steiner Ernest\nLafrerty and J. w. henderson. A\nsocial session and refreshments fol-\nlowed. Addresses were made by IL.\nL. Hughes, member OF the executive\nboard OF the American Labor union,\nand by U. T. Terwilliser."
+    }
+  ]
+}

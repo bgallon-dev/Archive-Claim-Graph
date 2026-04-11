@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ORDER OF MARCH FOR\n\n\nLABOR DAY PARADE",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-03",
+    "date_end": "1903-09-03",
+    "report_year": 1903,
+    "source_file": "2_1903-09-03_p4_sn88085947_00211108538_1903090301_0347",
+    "archive_ref": "2_1903-09-03_p4_sn88085947_00211108538_1903090301_0347",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-09-03_p4_sn88085947_00211108538_1903090301_0347",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 208,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 42,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Labor Day committee appoint\ned by the trades council to arrange\nfor the big celebration on Monday\nnext held a meeting East night and\ncompleted many of the plans.\n\n\nThe celebration is to be a big af-\nfair, calling out all the local unions\nin a monster parade, after which all\nhands will repair to the Natatorium\nfor a day of pleasure. There will be\nspeaking by J. r. Sovereign, c. r.\nZienke, Fred n. Foss and C. A Fos-\nter, after which sports and dancing\nwill be engaged in.\n\n\nThe colored Baptists of the city\nwill give big barbecue on the\ngrounds and there will be several\nshow attractions. for which privi-\nleges have been let.\n\n\nThe marchers in the parade will\nmove four abreast, under the leader\nship of Grand Marshal w. D. Jack\nman. There will be many floats of\nbeautiful and original pattern. The\norder of the unions in line and line\nOF march follows:\n\n\nSection Marshal Of the day. w\nD. Jackman; platoon Of police\nHopes band, Spokane trades council\nbuilding laborers' council, speakers Ir\ncarriages. typographical union, tail\nors. plasterers. building laborers\nplumbers, bricklayers, stone masons\nletter carriers. granite cutters, cleo\ntrical workers; division aide, Teddie\nReynolds.\n\n\nSection 2-Carpenters and joiners"
+    }
+  ]
+}

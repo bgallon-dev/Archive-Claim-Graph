@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-02-28 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-28",
+    "date_end": "1907-02-28",
+    "report_year": 1907,
+    "source_file": "5_1907-02-28_p1_sn88085947_00211108575_1907022801_0412",
+    "archive_ref": "5_1907-02-28_p1_sn88085947_00211108575_1907022801_0412",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-02-28_p1_sn88085947_00211108575_1907022801_0412",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 162,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 17,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Officials of the Great Northern\nwho have been handling the Japa-\nnese labor on that line believe that\nthe Japanese government has is\nsued a call to it's subjects In the\nUnited States to return to Japan\nand join the army. Within the past\nfew weeks nearly 200 Japanese la.\nborers have quit the Great North.\nern in this state alone, and every\nJapanese asked why he would quit\nhas replied, me go home to join\narmy\"\n\n\nOffers of increased pay have\nbeen disdained by these Japs and\na bonus offered by the railroad dis\nregarded. Today there is not JAP\nworking along the Coast Line be-\ntween Seattle and Vancouver, B\nc., where formerly 200 were EN-\nployed. The exodus has also ex'\ntended over the Cascade division OF\nthe main line, and officers of the\nroad say it resembles the sudden\ndeparture of the hundreds of ia\npanese laborers for the native land\nat the opening of the Russian war"
+    }
+  ]
+}

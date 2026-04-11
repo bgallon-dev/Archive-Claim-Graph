@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GUARD HAS A SNAP\n\nspe cial Correspondence to The Pre-,",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-22",
+    "date_end": "1907-05-22",
+    "report_year": 1907,
+    "source_file": "29_1907-05-22_p4_sn88085947_00211108575_1907052201_0701",
+    "archive_ref": "29_1907-05-22_p4_sn88085947_00211108575_1907052201_0701",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "29_1907-05-22_p4_sn88085947_00211108575_1907052201_0701",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 53,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 203,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, May 22.-Eugene John\nson is the governors bodyguard.\nHe was appointed detective with\nthe special duty of safeguarding\nGovernor Goodlhg at a time when\nthe state officials felt that while the\nMeyer, Haywood and Pettibone\ntrials were pending those who had\nbeen especially active in bringing\nabout the arrest of the prisoners"
+    }
+  ]
+}

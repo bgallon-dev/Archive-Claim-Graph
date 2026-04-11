@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-08-16 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-16",
+    "date_end": "1909-08-16",
+    "report_year": 1909,
+    "source_file": "5_1909-08-16_p1_sn88085947_00211108605_1909081601_0652",
+    "archive_ref": "5_1909-08-16_p1_sn88085947_00211108605_1909081601_0652",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-08-16_p1_sn88085947_00211108605_1909081601_0652",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 131,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 532,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "John Barrett, director Bureau Of\nAmerican Republics, who will be\none Of the important speakers at\nthe Trans-Mississippi congress.\n\n\nTrans-Mississippi Congress met\nhere today in a convention which\npromises to furnish another force\nfull demonstration that the west is\ndissatisfied with the way the new\nguardian of the public domain Is\nhandling things. There is every\nindication that Ballinger will again\nbe forced into the limelight.\n\n\nThe fight here will be more un-\nequal than was the fight at Spo-\nkane. Although attorneys for the\nwater power trust, notably Frank\nH. Short of Fresno. CAL, were at\nSpokane, they are here in more\nabundant numbers. Denver is the\ncenter of the Amalgamated inter\nests OF Colorado, and as a munich\npality has always been trust-bound.\nThe public domain is the sub"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-01 — pp12",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "13_1910-05-01_p12_sn88085947_00211108630_1910050101_0455",
+    "archive_ref": "13_1910-05-01_p12_sn88085947_00211108630_1910050101_0455",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1910-05-01_p12_sn88085947_00211108630_1910050101_0455",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 694,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 1487,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor The Press-Many society\neditors, especially the youthful\nones, say woman is getting hope\nlessly beyond her depth when she\nasks equal rights as citizen of the\nL. S. A. am pleased at this time\n10 have an opportunity to give these\nyoung women writer's a pointer.\nWould you prove to me what politi-\nclans or politics have ever done for\nwomen? Show me what law pro-\ntects women where women are not\nvoters. Do you know why men are\nvoters, by what guarantee they hold\ntheir right to vote or the ballot Ga\ncitizens right to share in govern\nment was theirs by inheritance)\nthey say. Who secured it? What\nwas the plea that won this privilege\nor right? | am telling you and Civ\ning proof of that-the first to uplift\nwoman from the depths of degrade\nton was the Catholic church; the\nchurch takes great pride in protect\ning women. First, by sanctifying\nmarriage and condemning divorce;\nsecond, history of thousands of\nyears shows us the names of women\nillustrious for their holy lives and\nnoble character, adjoining their\npages as brilliant stars in the con-\nstellation of her canonized saints.\nThis proves to you the attitude OF\nthe church toward woman. They\nhave taken high rank in the church\nas doctors of theology in the dark\nages and taught philosophy in many\nuniversities of Europe.\n\n\nA great mistake is made by men\nwhen they confound religion and\npolitics. Religion uplifts and hon\nors women. Politicians degrade\nwomen-not politics. Montreal a\nwomen to exercise their right of\nmunicipal suffrage in pending\nelection in the interest of decency\nand good government. They took\nadvice. put up the ticket that stood\nTor decency and the result was a\nvictory.\n\n\nMr.. Politician. what we want is\nprogression. We are not willing to\n20 back to the time of Caesar, when\ny\nhorns for the pleasure of the bar\nbarous spectators in the great\narenas, and We are not satisfied to\nbe hitched TO the plow with the COW\nas they did at one time in Norway\nWe are not satisfied with being the\nmothers or your offspring and duti-\nfull housewives. We can prove to\nyou our mission embraces the outer\nas we'll as the inner world; that we\nare intelligent enough to make, i'm\nprove and define the laws which\nman has made.\n\n\nWe demand recognition on the\nstatute book as real persons, not\nonly when we commit a crime, but\nwhen the laws are made which\nmake crime punishable. We demand\na ticket for decency at our next\nelection, to protect woman from the\nman who deems himself wise\nenough to have voice in the making\nof the law and especially an officer\nof the law\n\n\nThe first move at the next cleo\nton is a ticket that demands de-\ncency and when we have the right\nto vote see how we can assist you.\nThe ballot is for the homeless and\nfriendless, young, beautiful and edu-\nGated who say How shall / earn\nmy bread?\" The ballot is not for\nthe class that gives monkey or dog\ndinners, as that class never granted\na right to the lower class out of\nlove. especially in olden times.\nThey roared the cannon in their\ntrembling wealth: now We will use\nthe ballot instead. as we have no\nsons or husbands to be used for tar\ngets for wealth.\n\n\nTwenty thousand little girls, for\neigners, aged from eight to IA, are\nworking in the slaughter houses in\nChicago, secured by emigrant\nagents How many are employed in\nVice President Sherman canning\nfactory? What is the matter with\nsuch a system as you men have?\nHow many thousand women sup\nport their families. including hus-\nbands, in the United States. Many\nof these are obliged to take any\nsort of employment to keep from\nstarving. Who voted this slavery\nstate of affairs? Who coerced the\nnottingham to vote against his\nown interests?\n\n\nNow. Mr.. Politician, your days\nare numbered. Woman is going to\nbe the queen Of her homo instead\nof the slave. The first step is\nhome for girls and right here in this"
+    }
+  ]
+}

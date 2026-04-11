@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "MANY MPR0 VENTS\n\n\nIN PIERCE CITY CAMP",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-16",
+    "date_end": "1903-07-16",
+    "report_year": 1903,
+    "source_file": "3_1903-07-16_p3_sn88085947_00211108538_1903071601_0176",
+    "archive_ref": "3_1903-07-16_p3_sn88085947_00211108538_1903071601_0176",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-07-16_p3_sn88085947_00211108538_1903071601_0176",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 222,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 1161,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 1087,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "E II. w. Greenberg has returned from\nb two vselks outing At Pierce City,\nidaho. He Il interested h ths Rsd\nCloud group. ~ miles north Il ths\ncamp and Mas been doing vosns pros\npecting. He states that the property\nhas a 1e-foot free milling quarts\nledge. A shaft Is being sunk. and\n1at depth of 20 feet valaes avSrags\n\n\nb per ton. In places rich stringers\nare met running the vslues w late\nthe thousands.\n\n\n1xUH WILD BOSE.\n\n\nThe principal property In the Piercs\nCity camp is the wild Rose. 1t has\nthe distinction Of being the richest\nVITA q little baby\" three-stamp\nmill the company cleaned UP $4,000\nlast season over and above all rum\nming expenses. The property Is de-\nveloped by a 130-foot shaft and drifts.\nAt present cross cut txnnel is being\ndriven to tap the ledge at depth\nOF 240 feet. The vein shows . width\nof 20 feet Of which a pay streak Of\ntwo feet il milled. averaging 800 In\ngold per ton.\n\n\nAnother prominent mine Is the San\ntiag0. The owners have over 80\ntons on the dump that will average\n$50 per ton. The workings consist\nof an S0-foot shaft with drifts and\nSlopes. The ore chute IL from one\nfoot to 10 inches In width.\n\n\nThere IL considerable placer min"
+    }
+  ]
+}

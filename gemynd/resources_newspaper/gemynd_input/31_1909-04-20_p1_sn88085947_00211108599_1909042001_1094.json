@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-04-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-20",
+    "date_end": "1909-04-20",
+    "report_year": 1909,
+    "source_file": "31_1909-04-20_p1_sn88085947_00211108599_1909042001_1094",
+    "archive_ref": "31_1909-04-20_p1_sn88085947_00211108599_1909042001_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "31_1909-04-20_p1_sn88085947_00211108599_1909042001_1094",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 568,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 2321,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "don MADE anOtner assault Oh STdnu\njury notes this morning in Judge\nHunekes court. Frank Graves,\nFrank T. Post and Potter G. Sulli-\nvan were present but the absence\nfrom the city of Prosecutor Fred\nPugh, who returned later in the\nmorning, prevented the Gordon\nlawyers from executing whatever\nmaneuver they had planned. The\nhearing was deferred until\no'clock in order to permit the\nstates attorneys to confer with\ntheir chief.\n\n\nThe ball was set in motion by\nJudge Huneke asking that the\ngrand jury be brought before him.\nOn the appearance of the grand\nJury in the courtroom Judge Hun\nexc stated that the word had again\ncome to him that the evidence be-\nfore the grand jury was being\ntaken in shorthand by Deputy\nProsecutor Pelletier, an that the\nshorthand notes so taken were be-\ning transcribed on the typewriter,\nand that the notes had passed out\nof the grand jury's hands.\n\n\nForeman Ben Davis OF the grand\nJury said that Deputy Prosecutor\nPelletier was taking these notes\nunder the order of the grand jury,\nas permitted by the court in one\nof it's most recent instructions to\nthe grand jury, and that the notes\nwere In the custody of l. b.\nSchoen, who had succeeded Mr..\nBigelow as clerk.\n\n\nThe court seemed not fully salts\nfed with this assurance on the\npart of Mr.. Davis and Intercepted\nMr.. Schoen, the clerk. Schoen like\nwise insisted that the notes were\nentirely in his custody, and had\nnever lef this hands, except to\nhave them Transcribed on the type\nwriter by Mr.. Pelletier.\n\n\nAttorney Frank Graves of coun-\nsci for Judge Gordon seemed to\nquestion Schoen's statement and\nasked Judge Huneke to call Dep\nuty Pelletier to the stand.\n\n\nChief Deputy Prosecutor d. F..\nKizer objected to this proceeding\non the ground that he would like\nto consult Prosecutor Pugh before\nPeletier gave testimony, and after\nsome wrangling the hearing ad-\njourned until p. m.\n\n\nA conference of the attorneys\nfor Judge Gordon then followed in\nthe lawyers room in the rear of\nJudge Huneke's courtroom, from\nwhich they emerged with their\nfaces wreathed in smiles and evil\nIDENTITY in good humor over the sit\nuation as they saw 1t.\n\n\nLittle by little are the fangs of\nthe Spokane county grand jury be-\ning removed through the always\nsuccessful efforts of the ever in\ncreasing array of legal talent re-\ntanned by Judge M. j. Gordon and\nthe Great Northern railway. If\nthe present course continues the\ngrand jury after awhile will be a\nperfectly harmless institution.\n\n\nThe most recent ruling of Judge\nHuneke touches on the use of that\ntime honored institution, the sub.\npoena duces tecum or order COM\npolling a witness to bring with him\nto. the grand jury room certain\nbooks and AYERS called for in the\nsubpoena. Under the order of\nJudge Huneke the right of the\nGreat Northern to refuse to bring\nsuch papers into court is recog.\nnized. and to secure the presenta.\nton of such papers before the\ngrand jury the approval of the at\ntorneys OF the Great Northern and\nlater of the court must be secured.\n\n\nOn this holding Judge Huneko\nordered that Judge F. V. Brown,\ngeneral western counsel of the\nGreat ,.cNorthern, be discharged\nfrom the contempt proceedings.\n\n\nThe ruling on the subpoena\nduces tecum Is the most important\nNtatnrv Nnf attatrnI kxy thA C,~n,"
+    }
+  ]
+}

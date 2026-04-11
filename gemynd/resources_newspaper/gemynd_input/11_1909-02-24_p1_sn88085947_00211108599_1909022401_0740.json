@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE COUNTY is\n'DRY\" OUTSIDE CITIES\n\n\nAFTER NEXT TUESDAY.\n\nOperation Of Township Law Will Put Coun\ntry Saloons Out Of Business for\n\n\nWhole Year.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-24",
+    "date_end": "1909-02-24",
+    "report_year": 1909,
+    "source_file": "11_1909-02-24_p1_sn88085947_00211108599_1909022401_0740",
+    "archive_ref": "11_1909-02-24_p1_sn88085947_00211108599_1909022401_0740",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-02-24_p1_sn88085947_00211108599_1909022401_0740",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 188,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Prohibition will soon prevail in\nthe rural districts of Spokane\ncounty without waiting for legisla-\ntive action.\n\n\nEvery saloon in Spokane county\noutside of the incorporated cities\nand towns must go out of business\n10 days after the taking effect OF\nme township government law next\nTuesday, March 2.\n\n\nThis is the opinion handed down\nby Deputy Prosecutor Ernest E.\nSargent, in charge of the legal end\nof the organization of townships,\nwhich will be effected at their first\nannual meeting next Tuesday. His\nopinion is upheld by ]. Stanley\nWebster, chief deputy prosecutor.\nIn accordance Herewith no action\non the saloon question will be\ntaken at the Tuesday meetings.\n\n\nThis opinion of the prosecutors\noffice is based upon the require\nment in the township law that\nwhenever saloon licenses are to\nbe granted at least 10 days notice\nof the pendancy of such applica-\ntons must be published by the\nclerk of the township. AS there\nare no clerks as yet there is no\nlegal functionary to give the no\ntice, hence the voters of the town\nships will not ballot on the ques-\nton of saloons."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "ORDINANCE NO. Assoc.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-28",
+    "date_end": "1903-10-28",
+    "report_year": 1903,
+    "source_file": "34_1903-10-28_p7_sn88085947_00211108538_1903102801_0626",
+    "archive_ref": "34_1903-10-28_p7_sn88085947_00211108538_1903102801_0626",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "34_1903-10-28_p7_sn88085947_00211108538_1903102801_0626",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 1158,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1935,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 708,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 471,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An ordinance for the Improvement\nOF Sharp avenue from Monroe to\n\n\nJefferson street by curbing and\n\n\nsidewalking the same and for the\n| payment of the cost thereof, Great\n| ing an assessment district and pro-\n\n\nvlding for the levy and collection of\n| special assessments on the property\n| IN said assessment district to pay\n\n\nfor the said improvement, and for the\n\n\nIssuing of bonds and the payment\n| thereof.\n\n\nWhereas, a petition was duly pre-\n\n\nscented to the board of public works\n\n\nnue. by curbing and sidewalking\n\n\npublic works having sscertained that\n\n\nthe signers of said petition are the\n\n\nproperty subject to contribute to\n\n\nsuch improvement. and having made\n\n\nit's report on said petition to the\n\n\ncity council on the first day\n\n\nof September, 1908, and it appearing\n\n\nto the city council that said report\n\n\ncontains statement of the assessed\n\n\nvaluation of the property, which in\ntheir Judgment should be assessed for\n| such Improvement according to the\n\n\nlast assessment thereof, a statement\n\n\nof the area and correct valuation Of\nthe property owned by the parties\n\n\nsigning the petition, and the estimat-\n\n\ned cost of such improvement. and\n\n\nhaving In such report set forth the\n|\n\n\nwith respect to the granting or re-\n\n\nfusing the prayer of said petition,\n\n\nand statement of all the facts nee\n\n\nessary to enable the council to act\n| intelligently on said petition. and\n| having recommended that the prayer\n| of said petition be granted. and said\n| board having with their said report\n| filed with the city council the plans\n\n\nand specifications for such improve\n\n\nment ;, and 1t appearing. to the city\n| conveniences requires the improve\n\n\nment of said street as is petitioned\n\n\nFor and in accordance with the plans\n\n\nsnd specifications of said board of\n| public works; now, therefore,\n\n\n! The city of Spokane does ordain\n| as follows:\n\n\nd Section /. That Sharp avenue. in\n\n\nthe city of Spokane. from the center\n| line of Monroe street to the center\n| line of Jefferson street shall be i'm\n\n\nproved by curbing and sidewalking\n\n\nthe same, in all respects in accord\n\n\nance with the plans and specifications\n| therefor.\n\n\n| II Section 9 That the cost and ex-\n\n\npense of said Improvement shall be\n| borne by the property included in\n| created to the extent of the benefits\n\n\nreceived by said property from said\n\n\nhereinafter provided; and by the city\n\n\nof Spokane for the difference. II any\nthere be. between the actual cost\n\n\nand expense thereof and the total\n\n\namount of the benefits. received by\nnot be liable in any manner for any\nportion of the costs and expense Of\n\n\nsaid Improvement. other than that\nportion herein designated to be borne\n1 by it,\n\n\n| Section 3. The assessment district.\n| for the purpose of levying and COL\nLetting special assessments to the OK\n| tent of the benefits received by the\n\n\nproperty therein Elm to pay the costs and\n| ments as above provided. is hereby\ncreated and established to consist Of\n| all the lots and parcels of land on\n| each side Of Sharp avenue. except\n1 that occupied by cross streets and al\n\n\nleys from the center line of Monroe\n\n\nstreet to the center line of Jefferson\nstreet.\n\n\nSaid assessment district shall be\n\n\nknown lasr. n as sharp Avenue improve\n| Is more particularly described as fol-\n! lows:\n\n\nLots S. 6. 7 and 8. in block .; lots\n=. 8. .. 10 IL and IL; in block 10:\n\n\nlots st: and and n S & * i pso' s, Il\nBingamans addition to Spokane\n| Lots 4. s and 0, in block So: lots i,\n\n\naddition to Spokane; Strip OF un-\ny,\n| Bingaman's addition. and block 81.\nSTATIONS addition. and extending 1870\nfeet from the north line of Sharp ave-\n\n\nnue.. Also strip of unplatted land\nlying between block 16. Bingaman's\n\n\naddition and block SO. STATIONS ad-\ndition. and extending $50 feet from\n| the south line of Sharp avenue.\nSection 4. Special assessments pay\nable in ten equal annual instruments\n\n\nshall be assessed to and levied upon\n1 the lots and parcels OF land in the\n| assessment district above described,\n/ in the manner provided by the char\n| ter OF Spokane and ordinance No\n! AlOSS. passed September 10. 1901\n4 Such assessments shall be made and\n\n\nall things pertaining thereto done in\n\n\naccordance with the provisions of said\n! charter and said ordinance. and said\n| assessments wh.h the same shall\n\n\nhave been confirmed by the city\n\n\ncouncil shall be lien on the prop\n| erty In said assessment district, and\n/ payment thereof may be enforced in\n! the manner provided by law\n\n\nar Section g. There Is hereby created\nIL fund TO be known as Sharp\nNumber Three, in which shall be\npaid the aforesaid assessments as and\nwhen directed by ordinance confirm\ning said assessments and the assess\n\n\nment roll therefor and said fund is\ncreated for the purpose of redeeming\n1 the bonds issued in payment of the\ncost and expense of said Improvement\nlas hereinafter provided. and from\nwhich shall be paid said bonds to the\nextent thereof. and In no event shall\n\n\nthe city OF Spokane be liable for the\n\n\npayment of said bonds or any part\nthereof.\n\n\n| Section 6, For the purpose of\n| making payment for the cost and ex-\nfeuse of said Improvement there\n\n\nshall be issued by the city OF Spo-\n| kane its negotiable coupon bonds. as\n| provided in an act of the legislature\n| Of the state of Washington. entitled\n| IAN act authorizing the issuance and\n| sale of bonds by cities. to pay for To-\n| cal improvements. providing for the\n| payment thereof and declaring an\n\n\nemergency\" approved March II. 1899\npayable TO bearer ten years after\n\n\ndate, bearing interest at the rate OF\n| six per cent per annum. payable an\n/ nually. which bonds shall be STYLED\n| special Improvement Bonds\nSharp Avenue Improvement Dis\n| trict Number Three\" provided the\n| city Of Spokane reserves the right TO\n\n\ncordng to their numerical order. as\n! provided in the vt above referred\n/ to, whenever there shall be sufficient\n| money on hand in the fund hereinbe-\n| fore designated to nav any OF said\n\n\nbonds Said bonds shall be issued in\n| an aggregate amount equal 10 the\n| total amount of special assessments.\n| levied as herein provided. and shall\n| be OF the denomination OF 5000 each.\n| except that one bond may be for such\n| sum less than S20O as may be neces-\n| sary to make the issue correspond\n| with the total amount OF special as\n| sesSments levied as herein provided\n| and provided also that the first of\n| said bonds may be for an amount\n| equal to the amount OF cash on hand"
+    }
+  ]
+}

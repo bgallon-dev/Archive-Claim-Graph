@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BUSINESS MEN HAVE\n\n\nSTRAIGHT IS LINEUP\n\n\nO's ~ eUue W",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-26",
+    "date_end": "1910-09-26",
+    "report_year": 1910,
+    "source_file": "4_1910-09-26_p1_sn88085947_00211108642_1910092602_0922",
+    "archive_ref": "4_1910-09-26_p1_sn88085947_00211108642_1910092602_0922",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "4_1910-09-26_p1_sn88085947_00211108642_1910092602_0922",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 113,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Today the contest for member.\nship on the commission that Is to\nwrite the new city charter reduced\nitself to a stralght-out test between\nthe Munter ticket and the citizens\nor business mems ticket. The fight\nis waxing hot at the finish, with\nboth sides using their best energies\nto control the commission.\n\n\nOriginally the business men had\nseven Of the Munter ticket on their\nslate, but the members Of the Mum\nter ticket would not consent TO this\narrangement. announcing their In.\ntention to stand or fall by their\noriginal agreement--each for all\nand all for each, so to speak.\n\n\nHence, the seven names thns add.\ned to the business mcn's ticket"
+    }
+  ]
+}

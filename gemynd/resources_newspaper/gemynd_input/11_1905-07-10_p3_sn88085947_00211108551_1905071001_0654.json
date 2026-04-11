@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "NOTICE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-10",
+    "date_end": "1905-07-10",
+    "report_year": 1905,
+    "source_file": "11_1905-07-10_p3_sn88085947_00211108551_1905071001_0654",
+    "archive_ref": "11_1905-07-10_p3_sn88085947_00211108551_1905071001_0654",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1905-07-10_p3_sn88085947_00211108551_1905071001_0654",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 474,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1334,
+            "in_headline": false
+          },
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 1256,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In the superior court of the state\nof Spokane.\n\n\nSpokane International Railway\ncompany. a corporation. plaintiff, VS..\nEdward NJ. Wright and Laura A..\nWright. his wife, defendants.\n\n\nTO Edward NJ. Wright and Laura\nA. Wright. his wife, defendants:\n\n\nYou and each of you will please\ntake notice that the petitioner, the\nSpokane International Railway COM\npany, has filed I'm the superior court\nof the state of Washington, for Spo-\nkane county. petition directed to the\nsaid court, setting forth that the\nSpokane International Railway COM\nthe laws of the state of Washington,\nengaged in the construction and oper-\nalton of line of railway beginning\nin the city of Spokane, thence easter\nly to point near the town of Rath-\ndrum, in the county of Kootenai,\nstate of Idaho, and thence In a\nnortheasterly direction up the valley\nVI tnt MoOylt \" tiit\ntional boundary line between the\nUnited States and Canada; that 1t is\nessential for the operation of it's lines\nof railway. and the accommodation\nof the public using the same. that 1t\nacquire those lands situate in Spo-\nkane county. Washington. and de-\nscribed as lots fifteen U5. sixteen\nu6) and seventeen 90 In block one\nu) of River Fronts Addition to Spo-\nkane Falls (now Spokanc), Washing\nton. for use for its right of way for\nthe line OF it's said railway. and for\nnecessary sidetracks, depot grounds\nand terminal yards; that the defend\nant Edward NJ. Wright. appears to be\nthe sole owner I'm fee OF said realty,\nand the defendant. Laura A. Wright,\nhas or claims to have some interest\nin or lien upon said premises; and\nthat said petition prays that the\ncourt cmpanel a jury to ascertain and\ndetermine the compensation TO be\nmade In money to the owners of said\nrealty. and to all others interested\ntherein for the taking of said realty\nby petitioner for the purposes afore-\nsaid: copy of said petition is here\nto attached and herewith served upon\nyou.\n\n\nAnd you, and each of you. are here\nby notified that on the 18th day OF\nJuly, 1905, petitioner Will apply to\nthe superior court OF the state of\nWashington. for Spokane county. ant,\nto the Honorable William a. TIuncke.\nJudge thereof, at his courtroom In tho\ncity of Spokane. at the hour of 9:30\no'clock a. H.. or as soon thereafter\nas counsel for petitioner can be heard.\nfor hearing upon said petition. and\nnm adjudication by the court that the\ntaking of said realty Is for public use.\nand Is necessary to the business of\npetitioner, and for the fixing OF a\ntime and place at which jury may\nbe called to determine the compensa\nton to be made therefor.\n\n\nDated this 18th day of June. 1908.\n\n\nALLEN & ALLEN,\n\n\nAttorneys for Petitioner.\n\n\n+. O. address: els The Rookcry.\nSpokane, Wash."
+    }
+  ]
+}

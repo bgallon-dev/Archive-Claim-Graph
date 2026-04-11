@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BIG JOLT FOR\ns. 8 P, co.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-23",
+    "date_end": "1910-03-23",
+    "report_year": 1910,
+    "source_file": "3_1910-03-23_p2_sn88085947_00211108629_1910032302_1068",
+    "archive_ref": "3_1910-03-23_p2_sn88085947_00211108629_1910032302_1068",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-03-23_p2_sn88085947_00211108629_1910032302_1068",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 163,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 113,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One more huge pile of dollars was\nadded this morning, to the gigantic\nprice that must be paid by the Spo-\nkane & Inland Empire Railway sys-\nTEN for lives lost in the Occur d.\nAlene wreck. on the afternoon of\nJuly 81. In the court of Henry l..\nKEENAN,, a judgement for the sum\nof S11 500 was handed down to Mar\ngaret M. Veine of Springfield, Mo,\nwhose young husband was among\nthe victims of that catastrophe.\nTogether with this sum, the young\nwidow will be reimbursed for other\nexpense to which she has been\nput by the litigation.\n\n\nMrs. Neine is the executriX of her\nhusbands WILL made in September,\n1908 and by the merits of that docu-\nment, she is bequeathed the entire\nestate of her husband. John A.\nVeine, the wreck victim, according\nto his wife's complaint was a rail\nroad brakeman, aged 80 years, and\nwas working on a road out of their\nhome in Springfield, Mo."
+    }
+  ]
+}

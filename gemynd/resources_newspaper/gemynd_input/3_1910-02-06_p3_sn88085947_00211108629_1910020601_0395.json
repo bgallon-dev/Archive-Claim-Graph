@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PALOUSE FALLS\n\n\nBOOSTER IS HERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-06",
+    "date_end": "1910-02-06",
+    "report_year": 1910,
+    "source_file": "3_1910-02-06_p3_sn88085947_00211108629_1910020601_0395",
+    "archive_ref": "3_1910-02-06_p3_sn88085947_00211108629_1910020601_0395",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-02-06_p3_sn88085947_00211108629_1910020601_0395",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 141,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 536,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "w. G. Cole, secretary of the COM\nmercial club of Palouse Falls,\nWash, has been in Spokane the\npast few days. Mr.. Cole is well\npleased with the enthusiasm dis\nplayed by all the members and pre-\ndiets that the club will do a great\ndeal of good in the way Of improve\nment and development at Palouse\nFalls and in the Washtucna valley\nthe coming season.\n\n\nCharles Kolb and John Bruhn,\nlocal contractors, have been\nawarded the contract for building\nthe extension of the flume in the\nWashtucna valley. which is being\ndeveloped by the Palouse Irrigation\n& Power Co. This new flume will\ncarry the water for about 5000\nacres of land that will be put on\nthe market in five and 10 acre\ntracts this spring. The contract\ncalls for the completion of the\nflume by April I."
+    }
+  ]
+}

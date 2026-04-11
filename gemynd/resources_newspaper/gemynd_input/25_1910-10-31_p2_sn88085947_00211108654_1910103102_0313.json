@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "HIGH POWER\n\n\nOf REFORM",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-31",
+    "date_end": "1910-10-31",
+    "report_year": 1910,
+    "source_file": "25_1910-10-31_p2_sn88085947_00211108654_1910103102_0313",
+    "archive_ref": "25_1910-10-31_p2_sn88085947_00211108654_1910103102_0313",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "25_1910-10-31_p2_sn88085947_00211108654_1910103102_0313",
+      "composite_score": 2.52,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 417,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 137,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 149,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "head of the Los Angeles milk trust.\n\n\nBOTH ARE NUMBERS OF THE\nM. & M. sS\n\n\nOn July 16 last, during the pro-\ngress of the brewery workers\nstrike. the city council passed an\nordinance forbidding union picket\ning. Labor leaders and some others\nhold. and with good grounds, that\nthe ordinance is so broad as to\ndeny freen speech.\n\n\nAside from the merits OF the or\ndinance or the Justice OF its pas\nsage is the fact that ONE OF IT'S\nTRAINERS AS WE'LL AS IT'S\nCHIEF ADVOCATE WAS EARL\nROGERS.\n\n\nEarl Rogers Is and was at the\ntime of the passage Of the ordin-\nance. special attorney for the M.\n& M.\n\n\nEarl Rogers was one OF the law\nyers who defended Patrick Calhoun\nIn the San Francisco graft prose-\ncutiOns.\n\n\nEarl Rogers has gained notoriety\non the Pacific coast through his\ndefense of rich criminals OF the\nstamp Of the San Francisco hribe-\ngivers. -\nTo associate. Rogers with the idea\nOf true reform 10 an absurdity\nwhich only the Pacific coast can\nfully grasp. This u fact, not com\nment.\n\n\nTo identify Rogers as a Trainer\nOf reform administration measure\nwould appear, then, to be an\nabsurdity not to be thought OF\nYET l. FOUND SUCH AN IDEN.\nLITIGATION STARTLINGLY SIM\nPIE. sr-s 4s\n\n\nLeslie Hewitt, who was cry at.\ntorney when the ordinaISes was\ndrawn and put to vote, frankly, ad-\nmitted to me in five-minute chat,\nthat Rogers did have hand In the\nframing of it. v,\n\"As finally passed.\" he said, 6sthe\nordinance was much broader, than\nin its original draft. was in\nstructed by the council to draw, up\nthe ordinance and it was the SUBJ\nject of several conferences, in the\njudicial committee\" ~\n\n\nWAS it sumbitted to the M. &\nM. before it was passed by the\ncouncil?\" III\n]. swell, no, not exactly, Il khe\ncommittee conferences certaik duo\ngestions for changes were made BY\ncertain men. Yes, Earl Rogers\nwas one Of them. n believe Earl\nRogers 10 acting as attorney for the\nm. q NJ, yes\"\n\n\nAll right. Now, what would a\nreform mayor think of an Earl\nRogers framing reform administra.\ntion measures?\n|. l asked Mayor Alexander. It was\nthe mayor is an old man. worried\nby sudden and involved difficult\nties; that his friends say he is\nguided largely by the men who\nelected him; that / had disturbed\nhim at his Sunday dinner.\nl asked him If he thought Earl"
+    }
+  ]
+}

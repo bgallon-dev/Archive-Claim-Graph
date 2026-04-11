@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "OREGON COMMISSION\nCUTS Freight RATE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-04-01",
+    "date_end": "1908-04-01",
+    "report_year": 1908,
+    "source_file": "12_1908-04-01_p4_sn88085947_00211108587_1908040101_0381",
+    "archive_ref": "12_1908-04-01_p4_sn88085947_00211108587_1908040101_0381",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1908-04-01_p4_sn88085947_00211108587_1908040101_0381",
+      "composite_score": 25.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 8.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "railroad commission",
+          "freight rate"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1908,
+      "word_count": 96,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 95,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 23,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 95,
+            "in_headline": false
+          },
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 23,
+            "in_headline": true
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SALEM. Ore, April 1.-The\nstate railroad commission ended its\nmost important session by cutting\nfreight rates in Oregon from one\nsixth to one tenth of the present\nfirst class rates, and all other\nfreight rates accordingly.\n\n\nThe basis of the decision is that\nall rates from Portland to points\nin eastern Oregon. east of The\nDalles, shall be reduced in proper\nton to the excess above the rate\nfrom Portland to The DalleS,\nwhich is 25 per cent of the first\nclass rate.\n\n\nThe railroads nave announced a\ndetermination to attack the ruling\nin federal courts."
+    }
+  ]
+}

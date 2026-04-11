@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PARA DALTON'S\n\nAmethyst Club\nHolds Interest,\"\n\n\ning Meeting",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-28",
+    "date_end": "1910-09-28",
+    "report_year": 1910,
+    "source_file": "1_1910-09-28_p10_sn88085947_00211108642_1910092801_0967",
+    "archive_ref": "1_1910-09-28_p10_sn88085947_00211108642_1910092801_0967",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-09-28_p10_sn88085947_00211108642_1910092801_0967",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 173,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 164,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mrs. William c. Smith and Mrs.\nWilliam Nicholson, with Mrs. J. G..\nLong and Mrs. Ross Bratttin as\nalternates, were elected as dele\ngates to the state federation of\nwoman's clubs, at Walla Walla from\nOctober lib, from the Amethyst\nclub at a meeting held yesterday at\nthe home of Mrs. William c. Smith,\nSLIT Browne street.\n\n\n\"A prettily appointed luncheon\nproceeded the business meeting yes\nterday, after which the roll call was\nresponded to by quotations from\nJames Whitcomb Riley.\n\n\nAn interesting paper on Homo\nlulu\" was given by Mrs. ]. j. King\nand Mrs. C. J. Wilcox ably dis\ncussed Middle West Literary Writ\ners.\"\n\n\nIn the absence of Mrs. Buckley,\n4 Mrs. J. r. Mitchell recited Little\nboy Blue\" A book review Of\n'Hoosier School Masters was given\nby Mrs. William Nicholson. A dis\ncussion on United States history,\n\"The Period of Discovery\" was led\nby Mrs. c. Il. Burkett.\n\n\nThe next meeting will be held In\ntwo weeks at the home of Mrs. G. G.\nMantell. 1104 Eighth avenue."
+    }
+  ]
+}

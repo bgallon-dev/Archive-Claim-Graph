@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-08 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-08",
+    "date_end": "1906-10-08",
+    "report_year": 1906,
+    "source_file": "8_1906-10-08_p4_sn88085947_00211108563_1906100801_1223",
+    "archive_ref": "8_1906-10-08_p4_sn88085947_00211108563_1906100801_1223",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1906-10-08_p4_sn88085947_00211108563_1906100801_1223",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 159,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 664,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "land where he put up his log hut.\n\n\nHe thought that land was plenty\n\n\nenough in the wilderness and never\n\n\ndreamed that he would be disturb\ned. When Mr.. Newell and his en-\n\n\ngineers came they wanted to do the\n\n\nright thing, so they offered to buy\nJim out. But Jim would not sell.\n\n\nHe said he preferred to stay where\nhe was, and anybody who trespas-\nsed on his ranch would do so at\nhis peril. The engineers have since\nlooked into the business end Of\nJim's riff, and are not trespassing\nany more. By general consent the\nwork on the dam is being carried\non in such parts as do not interfere\nwith Jim Sheffield. But this can't\nalways last, and eventually Jim or\nthe reclamation service must give\nground. Mr.. Newell doesn't care\nmuch for meeting Jim with his own\nweapons and is disposed to sick an\non him. This is what\nwill probably be done."
+    }
+  ]
+}

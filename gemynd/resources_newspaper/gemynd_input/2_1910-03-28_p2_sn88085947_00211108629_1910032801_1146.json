@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G O N TIN u E D\n\nTO LAUNCH NEW",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-28",
+    "date_end": "1910-03-28",
+    "report_year": 1910,
+    "source_file": "2_1910-03-28_p2_sn88085947_00211108629_1910032801_1146",
+    "archive_ref": "2_1910-03-28_p2_sn88085947_00211108629_1910032801_1146",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-03-28_p2_sn88085947_00211108629_1910032801_1146",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 358,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 685,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the question to be first passed upon\nlar meetings. The state conven-\nton, because of the matter being\none that was subject to a referen-\ndunn vote, took no action either\nway, beyond voting to submit it.\nThe total vote cast shows 1928 for\nto 6S3 against.\n\n\nThe resolution that was adopted\nand that has met the referendum:\nendorsement of the unions, follows:\n\n\nWhereas, Legislation and other\npolitical action is most important\nfor the advancement of labor from\nthe fact that every industrial ques-\nton is finally political question,\nas demonstrated by the efforts of\nemployers to destroy labor organ\nizations and their influence through\ndenial of freedom of speech, free\npress, right to boycott. by the issu-\nance of injunctions against labor\nthe use of the police, militia, army\nand private detectives to defeat the\nefforts of labor to better its indus\ntrial condition: and\n\n\nWhereas, All efforts of the wage\nworkers to secure labor legislation\nthrough pledges from candidates of\nthe republican and democratic pO-\nlitical parties and lobbying at the\nlegislative sessions have proven\ncomplete failures owing to the fact\nthat the old parties stand as repre-\nsentatives of business and proper\ntied interests as against labor;\nbe it\n\n\nResolved, That for ,abors own\nbest interests, the Washington\nState Federation of Labor urges all\naffiliated and unaffiliated labor or\nganiZatiOn in the state to send del\negates to a convention to be held\non July 4, 1910, in the city of Spo-\nkane, for the purpose of organizing\na labor party. separate and distinct\nfrom the democratic and republican\nparties, and without fusion or trad\ning with them, with the view of\nplacing labor candidates in the field\nfor congressional, state, district\nand county offices; be it further\n\n\nResolved. That upon the adoption\nof this resolution by the State Fed\nGRAFTON of Labor, the same be for\nwarded through it's secretary to\nevery labor organization in the\nstate for endorsement and election\nof delegates to said convention, the\nnumber of delegates of each organ\nization in such political convention\nto be the same as provided for rep\nresentation in the State Federation\nof Labor convention"
+    }
+  ]
+}

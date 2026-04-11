@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AGAINST\n\n\nn, P, SCHEME",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-25",
+    "date_end": "1907-11-25",
+    "report_year": 1907,
+    "source_file": "8_1907-11-25_p1_sn88085947_00211108575_1907112501_1288",
+    "archive_ref": "8_1907-11-25_p1_sn88085947_00211108575_1907112501_1288",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-11-25_p1_sn88085947_00211108575_1907112501_1288",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 139,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Councilman Gray this morning\nstated that he will never consent to\nthe Northern Pacific grade separa-\nton plan if Browne st. is to be\nclosed He said that the city had\nfought two years to open the street\nand since then expensive business\nbuildings have been erected south\nof the tracks because there was an\noutlet by Browne st. to the north.\n\n\nRegarding the proposition that\nthe railroad company could buy up\nthat property Mr.. Gray stated that\nhe did not believe the company\nwould do so, for the reason That 1t\nwould too expensive an undertake\ning.\n\n\nThe grade separation plans will\nbe submitted to the body of council\nmen Tuesday night, at which time\nit is said n P. counsel, Edward j..\nCannon, will offer what comprom-\nUse, if any, the railroad company is\nwilling to make."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "VICTIMS BRAVE FIGHT\nFOR LIFE; n. P. IS\n\n\nBLAMED FOR WRECK",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-11",
+    "date_end": "1910-04-11",
+    "report_year": 1910,
+    "source_file": "10_1910-04-11_p2_sn88085947_00211108630_1910041102_0163",
+    "archive_ref": "10_1910-04-11_p2_sn88085947_00211108630_1910041102_0163",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "10_1910-04-11_p2_sn88085947_00211108630_1910041102_0163",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 128,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 456,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cause of it's alleged failure to in\nstall signal at safe distance on\neither side from the high trestle on\nwhich the collision occurred 1t\nwas also found that the inexperi-\nence of Vennie Otis Safranek, fire\nman on the foremost engine of the\ns., P. & S. train No. 3, together\nwith the failure of Engineer\nCharles B. Vivian of the same en-\nCINE, to take due precaution, was\nin part the cause of the catas-\ntrophe.\n\n\n1t was asserted at the hearing\nbefore the railroad commission that\nthough Fireman Nenn of the rear\nengine on No. discovered that\nthe signal on the semaphone at\nthis point was red, as they ap-\npreached, the engine ahead was\ncontrolling the air brakes and his\nengine was left powerless."
+    }
+  ]
+}

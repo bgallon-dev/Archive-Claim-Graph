@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "LABOR.\n\nRETAIL CLERKS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-14",
+    "date_end": "1903-01-14",
+    "report_year": 1903,
+    "source_file": "6_1903-01-14_p4_sn88085947_00211108526_1903011401_0242",
+    "archive_ref": "6_1903-01-14_p4_sn88085947_00211108526_1903011401_0242",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-01-14_p4_sn88085947_00211108526_1903011401_0242",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 371,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1587,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1313,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the meeting of the retail clerks\nunion held Monday evening at Central\nLabor hall no action was taken in\nthe matter of the formation of a\nlady clerks union, although it was\nunderstood that decisive steps in this\ndirection were to be made.\n\n\nThe question of the closing of\nstores on Sunday was discussed at\nsome length, and it was found that\nin order to bring the movement to a\nsuccessful issue it would be neces-\nsary to receive the cooperation of\nthe authorities. Several new men,\nbers were initiated, and 1t was re-\nsolved on account of the increasing\nstrength in membership to secure\nanother hall, as the one now used is\nnot commodious enough and is not\ncentrally situated.\n\n\nAll branches of work in England\nstop work at noon on Saturdays.\n\n\nOn the first of the year there was\ngeneral raise in wages in San\nFrancisco.\n\n\nThe plumbers, laundry workers\nand machinists will meet tonight at\nCentral Labor hall.\n\n\nThe municipal ownership of fran\nchises has been declared by the Cen\ntrail Labor union of Erie, Pa.\n\n\nA convention was held at Everett,\nWash, for the purpose of organic\ning a national single weavers' asso-\ncitation.\n\n\n1t is expected that the Georgia\nchild labor bill will be defeated when\nit comes to vote in the lower house\nof the legislature.\n\n\nA recent law passed in New York\nplaces an employer in jail for s days\nif he refuses to pay a female en-\nploye wages when work is done.\nThe Bartenders' league initiated\nsix new members at the meeting held\nlast night, which raises the member\nship roll to 1876.\n\n\nTom Heskett will probably replace\nHorace Brown as secretary of the\ntrades council, as Mr.. Brown is I'M\nable TO attend to the duties of the\noffice on account of business which\ndemands his presence elsewhere on\nTuesday evenings.\n\n\nThe builders and architects petit\n| ton was read before the trades\ncouncil last night. The petition re-\nquested the council to use it's infu-\nence against the hodcarriers' demand\nfor an increase of wages from $3.50\nto 81 per. day, but the council de-\n| cided not to take any action on the\nmatter until the next meeting."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-07-09 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-09",
+    "date_end": "1907-07-09",
+    "report_year": 1907,
+    "source_file": "6_1907-07-09_p4_sn88085947_00211108575_1907070901_0843",
+    "archive_ref": "6_1907-07-09_p4_sn88085947_00211108575_1907070901_0843",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1907-07-09_p4_sn88085947_00211108575_1907070901_0843",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 478,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 440,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nLOS ANGELES, Cal, July g.\nMental pictures Of dignified. earn\nest-faced orator, pleading with his\nfellow men to leave off the evils OF\nstrong drink; long files of wretched\nliquor-sated mortals who could\nonce boast of being respectable,\nuseful men slowly making their\nway to the front of the church to\nsign the famous pledge of Francis\nMurphy-such are the stirring, I'M\npressive flashlights of Renaissance\ncalled up to the little group OF\ntemperance workers in the Murphy\nhome here.\n\n\nEvery day for week they gath\ncred in the hope they would be on\nhand to offer a consoling word to\nthe wife and children when the\nend came. Each day the physi-\nclans declared the patient could\nnot possibly live more than a few\nhours more. Still Francis Murphy\nlived on, hour after hour, day after\nday, every now and then Tightening\nthe silence of the deathroom with\nSOME UTSeZy WlttiIloL thot hN'N>\nhim world-famed as an orator.\n\n\nover 100000 great-hearted\nmen have signed my pledge in this\nor other countries\" was the sub\nstance of one of DR.. Murphy's al\nlusions to his life work. Those\nwho have not wavered will not\nwaver after my death, and those\nwho have stumbled must get to\ntheir feet\"\n\n\nAT another time before his death\nthe patient said:\n\n\nGod is SO willing to look out\nfor the drunkard, II the latter will\nonly let him. There are worse\nthings than drinking. The man\nwho lusts for power, the inquisitive\nspirit, the greedy man, are all\nworse than the drunkard.\"\n\n\nFrancis Murphy spent a half\ncentury of his 70 years for the\ndrinking man. Twelve million men\nsigned his pledge. He addressed\n$4,000 meetings and visited thou\nsands of saloons in quest of the\nclass he desired to save. In his\ntemperance work he save. In his\ntemperance work he Travelled L.\n100000 miles, or, in other words,\nstretched the piue ribbon of So\nbriefly 40 times around the globe.\n\n\nMurphy was generous, jovial,\ncareless and hospitable. 1t may\nnot be wondered that the drink\nhabit became so well fastened to\nhim not long after his arrival in\nthis country al the age of Is. He\nwas fast going to the dogsa t Port\nland, Me-, when rescued at the\nvery brink Of disaster by Captain\nSturtevant, master of sailing\nschooner. Although he had little\neducation, Murphy scrubbed in a\nlittle notebook this now famous\npledge, which has stood the test or\na generation unchanged:\n\n\nwith malice toward none, with\ncharity for all, | hereby pledge my\nsacred honor that, God helping me,\nI will abstain from all Intoxicating\nliquors as beverage, and that l\nwill encourage others to abstain.\n(Signed) Francis Murphy\"\n\n\nFrom that moment Murphy be-\ncame a character. At the end of a\nmonth he had 100 names signed in\nthe little book to the pledge. His"
+    }
+  ]
+}

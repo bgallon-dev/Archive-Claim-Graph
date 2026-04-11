@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "|(|h6 CHARGE =\nPART Of RAT[\n\n\nEN-",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-03",
+    "date_end": "1905-07-03",
+    "report_year": 1905,
+    "source_file": "13_1905-07-03_p1_sn88085947_00211108551_1905070301_0628",
+    "archive_ref": "13_1905-07-03_p1_sn88085947_00211108551_1905070301_0628",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1905-07-03_p1_sn88085947_00211108551_1905070301_0628",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "fruit grower"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 65,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "fruit grower",
+            "weight": 1.5,
+            "offset": 260,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(Scripps News Association.)\n\n\nWASHINGTON, July 3.-Commis-\nsioner Prouty of the interstate COM\nmerce commission today decided that\nicing, charged by private fruit car\nline, are part Of the rates on fruit\ncarried, for the reasonableness of\ncase was the Michigan Fruit Growers\nassociation against the Pere Mar\nquette and Michigan Central. The\ndecision is a great victory for the\nfruit growers all over the country."
+    }
+  ]
+}

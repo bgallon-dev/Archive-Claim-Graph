@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FIRM IS WILLING,\n\n\nTO SETTLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-04",
+    "date_end": "1906-05-04",
+    "report_year": 1906,
+    "source_file": "5_1906-05-04_p4_sn88085947_00211108563_1906050401_0683",
+    "archive_ref": "5_1906-05-04_p4_sn88085947_00211108563_1906050401_0683",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-05-04_p4_sn88085947_00211108563_1906050401_0683",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 146,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 451,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A difficulty which 1t is feared\nmay embroil a thousand Spokane\nunion men has arisen over the Ia\nDor troubles in connection with the\nEmpire Ice company, which con.\nQuoted skating rink on Sinto ave-\nnue. between Elm and Oak streets\nlast winter.\n\n\nJ. H. Schaffer, manager of the\ncompany has made statement in\nregard to the trouble existing be-\ntween his concern and the local\nunions. The concern was placed\non the unfair list last winter by the\nbuilding trades council because of\ntrouble arising at the time the skat.\ning rink and ice plant were being\nbuilt. At this time the union must\nclans had a contract to furnish\nmusic at the rink.\n\n\nWhen the concern was placed or\nthe unfair list the musicians hello\nthat they were compelled to live ur\nto the contract and they played\nthere all winter and the buildins"
+    }
+  ]
+}

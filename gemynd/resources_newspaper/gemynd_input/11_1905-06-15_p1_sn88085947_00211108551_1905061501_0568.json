@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-06-15 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-15",
+    "date_end": "1905-06-15",
+    "report_year": 1905,
+    "source_file": "11_1905-06-15_p1_sn88085947_00211108551_1905061501_0568",
+    "archive_ref": "11_1905-06-15_p1_sn88085947_00211108551_1905061501_0568",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1905-06-15_p1_sn88085947_00211108551_1905061501_0568",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 140,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 193,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 409,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the pumps provided for by the plans\nfor additions to the present water\nsystem, and\n\n\nWhereas, Such surplus power II\nsufficient. If properly utilized, to OPP\ncrate. in addition to the pumps, an\nelectric light and power plant; now\ntherefore be 1t\n\n\nResolved. by the council of the city\nof Spokane. that in order to take ad-\nvantage OF ana use such power as Is\ndaily going to waste at said station,\nthe board of public works be and\nthey hereby are directed to make and\nreport to this council at it's next reg\nular meetings:\n\n\n\"First-The total horse power cap.\nable of being developed with the pres\nent dam.\n\n\n\"Second-The number of horse\npower used at present at the pump.\ning station.\n\n\n''Third--The number of horsepower\nthat will be necessary to operate the\nadditional pumps provided for in the"
+    }
+  ]
+}

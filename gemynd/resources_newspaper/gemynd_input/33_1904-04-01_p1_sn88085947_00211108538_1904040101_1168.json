@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CHANGES N\n\n\n\\. ,. OFFICES",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-01",
+    "date_end": "1904-04-01",
+    "report_year": 1904,
+    "source_file": "33_1904-04-01_p1_sn88085947_00211108538_1904040101_1168",
+    "archive_ref": "33_1904-04-01_p1_sn88085947_00211108538_1904040101_1168",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "33_1904-04-01_p1_sn88085947_00211108538_1904040101_1168",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 76,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 76,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ST. PAUL, April IA circular re-\nGently issued from the presidents Of\nAce at Northern Pacific building an\nnouncing changes in the operating\nand land departments became effect\ni've today Thomas Cooper, now gen.\neral manager, becomes land commits\nsioner, to succeed w. II. Phipps, re-\nsigned. Mr.. Phipps, it is understood,\nwill go to Washington to look after\nhis extensive land and lumber inter-\nests. H. J. Horn become general man.\nager, succeeding Mr.. Cooper"
+    }
+  ]
+}

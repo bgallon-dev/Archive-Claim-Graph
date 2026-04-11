@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FAIRBANKS ADDRESS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-01",
+    "date_end": "1905-06-01",
+    "report_year": 1905,
+    "source_file": "12_1905-06-01_p4_sn88085947_00211108551_1905060101_0523",
+    "archive_ref": "12_1905-06-01_p4_sn88085947_00211108551_1905060101_0523",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-06-01_p4_sn88085947_00211108551_1905060101_0523",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 377,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 116,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Vice President Fairbanks said in\npart:\n\n\npresident Roosevelt has taken a\nvery great interest in the Lewis AID\nClark exposition from it's inception,\nand it is at his request, and on his\nbehalf, l have the great honor of\nparticipating with you in these open\ning ceremonies.\n\n\nI'VE commemorate an important\nevent in American history. We pay\ntribute to the intrepid explorers who\nmade their arduous expedition up the\n\n\nMissouri, across the Rocky noun\n\n\ntains, down to the Pacific, and point\ned the way to this land of incom-\nparable opportunity. Their fame is\nsecure where the deeds of men of\nheroic mold are forever recorded.\nThey were the forerunners of a high\n| order of civilization in a territory\nwhich, prior to their venturesome en-\n| terprise, was terra incognita. 1t was\n| a wilderness, inhabited by the aborig-\n| ines, into which no white man had\nentered; it has become the seat of\n| empire-of vast commercial power,\nWe look upon their work with tgenu-\n| inc admiration and grateful apprecia-\n| ton.\n\n\nThis exposition has risen as all\nexpression of the gratitude of the\npeople for what brave men wrought\n| for humanity and civilization in the\n| long ago.\n\n\nThousands followed in later years\n| IL 3 I,\n| no less danger than they encountered\nand no less heroism than they dis\n| played They were not aimless wan\nderers. They were the soul of energy\n\n\nand came with high and fixed pur-\n| pose. They have made their SIMPLE\n\n\ncontribution.\n\n\n| las we stand here, amid the rich\ned by comforts unknown to any other\ntime. we recall with unmeasured APP\nprobation the pioneers who led the\nway to greatness upon this coast.\nJ You have accomplished much\n\n\nsince the first permanent settlement\nappeared upon this coast. Within\ncomparatively recent years. prosper\nGus cities and villages have beer\n\n\nbuilt, railways have been constructed\n, industries created, schools, colleges\nand churches founded, and every\n\n\nwhere we observe the signs of thrift\nprogress and contentment. Who\n\n\nwould dare to prophesy the trans\n\n\nformation which will be witnessed b!\n\n\nthose who shall stand here at thu\n\n\nclose of the present half century\n\n\nYes, who will venture to foretell tn\nmeasure of your upbuilding in tn"
+    }
+  ]
+}

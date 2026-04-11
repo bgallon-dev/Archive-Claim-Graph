@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AMONG THE TOlZERJ",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-22",
+    "date_end": "1902-12-22",
+    "report_year": 1902,
+    "source_file": "10_1902-12-22_p3_sn88085947_00211108526_1902122201_0160",
+    "archive_ref": "10_1902-12-22_p3_sn88085947_00211108526_1902122201_0160",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1902-12-22_p3_sn88085947_00211108526_1902122201_0160",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 231,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 919,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the last meeting of the Cooks\nunion five new members were mi\ntiated.\n\n\nThe Indiana supreme court has de-\ncided that the weekly pay law is con-\nstitutional.\n\n\nThe electricians, fathers and stone\nmasons will NEE at Central Labor\nhall tonight.\n\n\nCooks union. No. $50. will not hold\nanother meeting until January 8. 1t\nmeets at 1857 Howard st.\n\n\nThe difficulty between the Wait\nresses alliance and the Woman's EX-\nchange was settled this morning.\n\n\nThe Spokane Typographical union\nhas taxed it's members cents per\nmonth to keep up the fight against\nthe Los Angeles Times.\n\n\nA colored washerwomens and\ncooks union is being organized in\nNalosta, Ga, by two white men. Con-\nsternation prevails there.\n\n\nNext meeting Of the Womans alli-\nance, No. 400, will be held on the\ncoming Friday at 1857 Howard St,\ninstead of on the customary night.\n\n\nTho shnglc wcavers are consider\ning the ACCESSIBILITY of forming a\nunion, and the trades council is doing\nall within it's power to assist them.\n\n\nThe bartenders report that al\nthough their union is of very recent\ndate. it is now one of the strongest\nin the city. Fourteen new members\nwere initiated at the last meeting.\n\n\nc. w. Dow has replaced J. r.\nSnyder on the arbitration committee.\nMr.. Snyder was unable to attend to\nhis duties on the committee on ac-\ncount of pressing duties elsewhere."
+    }
+  ]
+}

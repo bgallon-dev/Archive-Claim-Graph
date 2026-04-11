@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "Banner Month\n\n\nIn Land Sales.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-02",
+    "date_end": "1903-06-02",
+    "report_year": 1903,
+    "source_file": "11_1903-06-02_p1_sn88085947_00211108538_1903060201_0022",
+    "archive_ref": "11_1903-06-02_p1_sn88085947_00211108538_1903060201_0022",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-06-02_p1_sn88085947_00211108538_1903060201_0022",
+      "composite_score": 15.4,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 7.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "indigenous": [
+          "colville",
+          "reservation"
+        ],
+        "agriculture": [
+          "land office",
+          "final proof",
+          "timber culture"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1903,
+      "word_count": 104,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 381,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 337,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 346,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          },
+          {
+            "term": "final proof",
+            "weight": 2.5,
+            "offset": 267,
+            "in_headline": false
+          },
+          {
+            "term": "timber culture",
+            "weight": 2.5,
+            "offset": 500,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The report of Receiver Hyde of the\nfocal land office shows the month\nJust passed to have been the banner\nmonth in the history Of the office.\nThe sale OF public lands amounted to\n9981.S9 acres and 1Q5 original home-\nstead entries, covering 14,512.69\nacres, were made. Final proof was\nentered on ~ claims, covering 3915.25\nacres.\n\n\nIn the Colville reservation there\nwere 81 original homestead entries\ncovering 7S6S.S3 acres, and 1852\nacres of Colville reservation land\nwere sold for $3s3755. One final\ntimber culture proof was made. Dur\ning the month the state selected\n1bsl.S2 acres. Commissions and fees\nreceived amounted 70 $s4s2,44"
+    }
+  ]
+}

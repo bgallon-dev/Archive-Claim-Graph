@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-10-03 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-03",
+    "date_end": "1905-10-03",
+    "report_year": 1905,
+    "source_file": "12_1905-10-03_p4_sn88085947_00211108551_1905100301_0953",
+    "archive_ref": "12_1905-10-03_p4_sn88085947_00211108551_1905100301_0953",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-10-03_p4_sn88085947_00211108551_1905100301_0953",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 171,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 633,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Few women suffragists have ever\nclaimed the ballot for women as an\ninherent right. They claim it as an\nact of justice. not as a concession\nof chivalry. The ballot was first\ngiven to men upon the principle\nthat taxation without representa-\nton is tyranny\"\n\n\nAfter a time men began to under\nstand that there was something\nmore important in government than\nproperty, and that was the man\nlegislature elected a man who was\nunseated by the United States SEN\nate, and it has now elected another\nwhose claim to seat there is still\nupon trial. This he holds as one\nimportant proof why womae suf-\nfrage in practice is a failure. Sure\nly, the suffrage can not be expected\nto revOlutionize religious views. nor\nupset established customs. The\nMormon man and woman will nat\nurally view the affairs of the world\nfrom the Mormon point Of view.\ni Mr.. Cleveland also calls attention\nto the frauds of Colorado, which\nhimself, who stood behind the\nproperty, and so they applied to"
+    }
+  ]
+}

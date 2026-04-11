@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "HOW TO CURE HAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-21",
+    "date_end": "1904-05-21",
+    "report_year": 1904,
+    "source_file": "7_1904-05-21_p3_sn88085947_0021110854A_1904052101_0004",
+    "archive_ref": "7_1904-05-21_p3_sn88085947_0021110854A_1904052101_0004",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-05-21_p3_sn88085947_0021110854A_1904052101_0004",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 158,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 120,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 12,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "w. ]. Spillman. agrostologist of the\ndepartment of agriculture. gives a\ncareful account of very useful\nmethod OF curing hay. Harvesting\non this farm Is a very interesting\nprocess\" says Mr.. spilIman. THE\nmethod Of curing is as follows:\n\n\n1.-THE grass Is cut in the afternoon.\nThe first nights dew never hurts 1t.\nLet 1t die the next day until noon.\nII Is then put into curing cocks.\nwhich are made to lie nat. These\ncokcs are upset the next morning.\nand In the afternoon four of them\nare made into one weathering cock.\nLet 1t stand thus for one day: then\nhaul to the barn or rick\n\n\nAS there are many persons these\ndays who are turning to farming\nwith little or no experience, the ex-\nplicit directions given by Mr. Spill\nman will doubtless prove most valu-\nable. although, of course. they may\nrequire some modification with vary\ning conditions Of weather and quality\nOF hay."
+    }
+  ]
+}

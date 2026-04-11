@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "S|MPK |NS IS\n\n\nSEEN '...tR RE-\n\nSlightly Disguised, but Says He Does\n\n\nNot Fear Arrest.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-14",
+    "date_end": "1907-10-14",
+    "report_year": 1907,
+    "source_file": "10_1907-10-14_p1_sn88085947_00211108575_1907101401_1156",
+    "archive_ref": "10_1907-10-14_p1_sn88085947_00211108575_1907101401_1156",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-10-14_p1_sn88085947_00211108575_1907101401_1156",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "agriculture": [
+          "orchard"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 241,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 39,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 295,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Simpkins has no apparent fear\nOf being arrested In spite Of the\nbig rewards talked OF. He says\nthe rinkertons do not want him\nand that he Is Of no use to either\nside.\n\n\nAnd he denounces all Of Orch.\nards confession as q lie.\n\n\nHe admits being in Idaho the\ntime of the Steunenberg murder\nand saw Orchard in Boise where\nthe latter claimed to be negotiating\nthe purchase of small ranch. In\nSimpkins' opinion Orchard impli-\nGated him in his confessions to\ngive credence to them. Orchard\nknew he was in Boise at the time\nas an organizer of the federation,\nand figured that people who other\nwise would call Orchards confess\nsion fake would believe it in part\non account of seeing Simpkins\naround. The circumstance, he said,\nwould also serve to connect the\nunion with the murder.\n\n\nAbout the time Orchards con-\nfession was made and officers Of\nthe law were endeavoring so hard\nto locate him, Simpkins was at\nPhoenix, B. c., among friends. He\nstopped for time at the Phoenix\nhotel, conducted by Pat Shea, for\nmerly a policeman and miner in\nButte, Mont.\n\n\nRepresentatives Of Thiele's De-\ntecttve agency in this city got a\nclew and when they reached\nPhoenix Simpkins was out doing\nassessment work with a couple of\nfriends. The Thiele men did not\nexpress themselves as anxious to\ndo other than locate him. They\nstated they did not seek his arrest."
+    }
+  ]
+}

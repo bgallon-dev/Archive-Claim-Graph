@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-05-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-20",
+    "date_end": "1905-05-20",
+    "report_year": 1905,
+    "source_file": "30_1905-05-20_p1_sn88085947_00211108551_1905052001_0482",
+    "archive_ref": "30_1905-05-20_p1_sn88085947_00211108551_1905052001_0482",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1905-05-20_p1_sn88085947_00211108551_1905052001_0482",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 89,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 44,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON. May Poorest\ndent Elliott of the Northern Pacific\ntoday addressed the senate commit\ntee on interstate commerce on the\nsubject of rate legislation, which he\nopposed. He said, while tho fedfal\ngovernment might give the commits\nsion power to fix the actual rate the\nrailroad should charge, they could not\nmake the railroad buy more ears.\nbuild more branch roads and improve\ntheir property. He said II the inter-\nstate commerce commission were to\nuse the power now In it's hands much\nOF The alleged popular demand for"
+    }
+  ]
+}

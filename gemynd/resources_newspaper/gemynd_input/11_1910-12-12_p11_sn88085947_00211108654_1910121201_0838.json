@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-12-12 — pp11",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-12",
+    "date_end": "1910-12-12",
+    "report_year": 1910,
+    "source_file": "11_1910-12-12_p11_sn88085947_00211108654_1910121201_0838",
+    "archive_ref": "11_1910-12-12_p11_sn88085947_00211108654_1910121201_0838",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-12-12_p11_sn88085947_00211108654_1910121201_0838",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 106,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "everything sent in to be sold for\nthe suffrage campaign will be dis\nposed of. Hence the cigarettes.\nLikewise the stockings.\n\n\nenthusiasm. Purple and green are\nalso to be found among the hosiery.\nBut purple and green hose are the\nmode, and the report that the vote\nseekers will be henceforth known\nas Green Stockings\" has not q,\nword of truth in it. u.\n\n\nMrs. Harriet Stanton Blatclf i\npresident of the WOmen's Politl-\ncal Union. Mrs. John Winters\nBrannan is one of the many inter-\nested donors. Mrs. Alberta Hill\nwill enlighten the visitors as to The\nrelation of smoke and hosiery to\nwomens rights."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CAMPAIGN OUTLOOK FROM\n\n\nLABOR STANDPOINT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-05",
+    "date_end": "1906-11-05",
+    "report_year": 1906,
+    "source_file": "1_1906-11-05_p1_sn88085947_00211108575_1906110501_0014",
+    "archive_ref": "1_1906-11-05_p1_sn88085947_00211108575_1906110501_0014",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-11-05_p1_sn88085947_00211108575_1906110501_0014",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 188,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 819,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Apparently but little local inter-\nest is being taken in the election\nby merchants and business men\ngenerally. Some Of the corpora\ntons secured nominations satisfac-\ntory to themselves, but have taken\nbut little active part in the cam\npaign, it is stated, beyond the usual\ncontributions.\n\n\nThe union labor vote of the state\nwould appear to be big factor in\nthe present fight and If the work\nIng men stand with the American\nFederation Of Labor there is rea-\nson to believe that the big republi-\ncan majorities of the past will be\ncut down to a greater extent than\nfor years past.\n\n\nThe slums Of all the cities in the\nstate are well registered and will\nas a rule support the republican\nticket in order to claim protection\nand any other favors which are so\nnecessary to this element from the\ndominant party.\n\n\nThe farmers grange has made an\nactive campaign and has worked\nfor the first time in the history Of\nthe state hand in hand with the\nState Federation of Labor for the\ninitiative and referendum and the\ndirect primary laws. If the present"
+    }
+  ]
+}

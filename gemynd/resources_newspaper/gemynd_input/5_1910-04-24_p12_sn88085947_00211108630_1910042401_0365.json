@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "ALL UNITE TO FIGHT\n\n\nDREADED White PLAGUE\n\nPROGRAM of Tuberculosis Institute Is Arranged\n\n\nDaily Meetings.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-24",
+    "date_end": "1910-04-24",
+    "report_year": 1910,
+    "source_file": "5_1910-04-24_p12_sn88085947_00211108630_1910042401_0365",
+    "archive_ref": "5_1910-04-24_p12_sn88085947_00211108630_1910042401_0365",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-04-24_p12_sn88085947_00211108630_1910042401_0365",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 1.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 5.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "education": [
+          "normal school",
+          "cheney normal"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 149,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 5,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "normal school",
+            "weight": 2.5,
+            "offset": 12,
+            "in_headline": false
+          },
+          {
+            "term": "cheney normal",
+            "weight": 3.0,
+            "offset": 5,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "dent Cheney Normal school, Cheney,\nWash.\n\n\nPure Mill: What It Means and\nHow TO Get It. DR.. S. B. Nelson,\nprofessor of veterinary science,\nWashington State college.\n\n\nParks and Fairgrounds\" Earl\nConstantine.\n\n\nStereopticon lecture, DR.. Charles\nDoland.\n\n\nFRIDAY, APRIL 20, 1910.\n\n\nCivic Night, C. M. Fassett, chair.\nman.\n\n\nChairmans address, Economic\nCost of tuberculosis to the United\nStates and State of Washington\"\n\n\nCare of the Consumptive: a\nCivic Necessity\" Hon. Harry Ros-\nenhaupt.\n\n\nThe Cost of Sanitation\" DR.. Eu-\ngene Kelly, deputy state health com\nmissioner.\n\n\nCounty Sanitary Administra-\nton\" f. C. McBroom, county com\nmissioner.\n\n\nTHE Necessity for Meat and\nMilk Inspection\" DR.. S. b. Nelson,\nprofessor of veterinary science,\nWashington State college.\n\n\nAddress, Peter Nelson, council\nman Fifth ward.\nSome Needs of the Board of\nHealth DIR. NJ. b. Grieve, city\nhealth officer.\n\n\n\"The Need of Municipal Medical\nInstitutions, DR.. John O'Shea, city\nemergency surgeon.\nStereopticon lecture."
+    }
+  ]
+}

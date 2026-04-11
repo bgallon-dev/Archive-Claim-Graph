@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT IT COSTS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-28",
+    "date_end": "1906-06-28",
+    "report_year": 1906,
+    "source_file": "58_1906-06-28_p1_sn88085947_00211108563_1906062801_0870",
+    "archive_ref": "58_1906-06-28_p1_sn88085947_00211108563_1906062801_0870",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "58_1906-06-28_p1_sn88085947_00211108563_1906062801_0870",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 76,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 152,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Representatives of the\n\n\nlocal electrical workers\nunion recently kept time on\n\n\nwork being done by the\nstrikebreakers in the en-\nploy of the Washington\nWater Power company in\ninstalling new pole at the\ncorner of Sprague and Lin\ncoin. The cost in time con.\n\n\nsumed amounted to over\nSl25. The same work should\n= not cost under ordinary con-\n\n\nditions more than $25, so\nthe union linemen say.\n\n\n} a a - ~ a a a"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Mayor Boyd Has Remarkable Views\non Morals and Official Conduct\nHe Says He Is Going to Take His\nOwn Time About It.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-21",
+    "date_end": "1904-04-21",
+    "report_year": 1904,
+    "source_file": "4_1904-04-21_p1_sn88085947_00211108538_1904042101_1236",
+    "archive_ref": "4_1904-04-21_p1_sn88085947_00211108538_1904042101_1236",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1904-04-21_p1_sn88085947_00211108538_1904042101_1236",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 462,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 1452,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 195,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "of the board of police. or CD upon\nthe complaint in writing of any pri-\nvate citizen\"\n\n\nAnd, Furthermore:\n\n\n\"rhat upon the filing of such rec\nommendation or complaint, at the\nnext meeting of the city council, reg\nular or special. the city council shall\nfix a time for investigating the\ncharges made, which shall not be less\nthan three nor more than 10 days\nthereafter. And upon proof satisfac-\ntory to the council that any law of\nthe state or an ordinance of the city\nhas been violated, the council may re-\nwoke such license by a majority vote\nof all the members present\"\n\n\nWhen asked three days ago what he\nwas going to do about the fact that\nemployment agents had been caught\ntrying to entice girls into a house of\nill repute, and in conspiring to get in\nnocent girls between the ages of ii\nand 16 years to lead a life of shame,\nhe said\n\n\n\"Ill have to see the corporation\ncounsel\"\n\n\nThe Press said nothing at the time.\nYesterday he again said he would\nhave to see the corporation counsel.\nHe had not done it yet, because both\nhe and the corporation counsel had\nbeen so busy.\n\n\nBusy with what?\n\n\nIs there any business under the\nheaven of more Importance than the\nprotection of the grlhood and the\nhomes of Spokane?\n\n\nWhen pressed and pinned down on\nthe question as to just what he was\ngoing to do he said:\nIl amt going to take any action\nright now. I'll tell you that. I'm go\ning to take my own time about It,\"\n\n\nThis after not only The Press but\nthe trades council, a representative\nbody of men, had officially called the\ncitys attention to the fact that en-\nployment agents In Spokane were en-\ngaging In the most infamous crime\n| that is on the calendar.\nThen in lodging the reporters\nquestions this mayor said he would\nhave to talk to the councilmen; he\nwould have to see how they felt\nabout 1t,\n\n\nThat Is the proper course, no doubt.\nIF foul murder was committed in\nthe city, the proper way for the Of\niicer sworn to enforce the law would\nbe to sit calmly In his Office and wait\nfor someone to come in and make\nwritten complaint against the muir\nderer; then this officer should take his\nown time about doing anything; and,\nfinally, when he did decide to move a\nlittle bit go out and see what this\nand that official said about 1t before\nhe decided whether or not he would\neven investigate to see If the charge\nagainst the murderer were true.\n| At least it seems that is the Boyd\n| idea of official Conducr.\nThe charter prn\"i'\"s way in"
+    }
+  ]
+}

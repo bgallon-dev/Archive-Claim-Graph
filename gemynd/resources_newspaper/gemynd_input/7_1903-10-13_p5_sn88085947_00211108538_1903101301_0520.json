@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "indian TERRITORY IS\n\n\nREEKINC WITH GRAFT",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-13",
+    "date_end": "1903-10-13",
+    "report_year": 1903,
+    "source_file": "7_1903-10-13_p5_sn88085947_00211108538_1903101301_0520",
+    "archive_ref": "7_1903-10-13_p5_sn88085947_00211108538_1903101301_0520",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1903-10-13_p5_sn88085947_00211108538_1903101301_0520",
+      "composite_score": 9.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 9.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian territory",
+          "indian land",
+          "indian agent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903,
+      "word_count": 291,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian agent",
+            "weight": 2.5,
+            "offset": 595,
+            "in_headline": false
+          },
+          {
+            "term": "indian land",
+            "weight": 2.5,
+            "offset": 785,
+            "in_headline": false
+          },
+          {
+            "term": "indian territory",
+            "weight": 1.5,
+            "offset": 118,
+            "in_headline": false
+          },
+          {
+            "term": "indian territory",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MUSKOGEE. !. T., Oct. 1S.-The\ninspectors sent here by the depart\nment OF justice will report plenty Of\ngrating in the Indian Territory.\nThree inspectors were sent out, and\nafter nearly q months work they\nwere not through. Inspector Taylor\nreturned to Washington a few days\nago. presumably to make a verbal re-\nport to the attorney general. but In\nspectors Chalmers and Oschenreiter\nare still on the ground.\n\n\nThe department of justice investi-\ncation has nothing to do with any\nthing but federal officials. 1t does not\ntouch the work of the Dawes COM\nmission, or Of the Indian inspector,\nor the Indian agent. 1t does not go\ninto the subject of leases. or ex-\ncessive holdings, which figure in the\ncharges brought by Mr.. Brosius of\nhas It inquired into trust companies,\nor the sale Of Indian lands All these\nmatters are uninvestigated. except\nfor the activities Of the representa-\ntive of the Indian Rights association\n\n\nThe department of justice has in\nvestigated the legal machinery in the\nfour federal districts into which the\nterritory is divided. It's inquiry has\nincluded the offices Of the United\nStates marshals, the United States\ncommissioners and the clerks and\ndeputies employed by them.\n\n\nIn general there has been plenty of\nevidence to support the charges of\ngrating\" and corruption. The In\nspectors found that the deputy mar\nshals in numerous instances were do\ning business with their hands out be-\nhind them for petty brides. Four\ndeputies were summarily discharged.\nThese deputies were located at Ok\nmulgee. Sapulpa and Holdenville.\n\n\nShortly after the investigation\nopened the assistant United States\ndistrict attorney for the western dis\ntrict attorney for the western dis\ntrict. Mr. Joseph Mccoy rendered his\nresignation Mr.. Mccoy has been"
+    }
+  ]
+}

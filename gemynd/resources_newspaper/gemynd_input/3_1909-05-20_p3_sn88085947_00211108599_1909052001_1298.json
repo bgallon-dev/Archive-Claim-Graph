@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NORO|CA NOW A\n\n\nSUFFRAG|ST\n\nWILL DEVOTE REST OF HER\nLIFE TO CAUSE AFTER FIN\nISHlNG PRESENT GRAND\nOPERA TOUR, WHICH IS HER\nLAST.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-20",
+    "date_end": "1909-05-20",
+    "report_year": 1909,
+    "source_file": "3_1909-05-20_p3_sn88085947_00211108599_1909052001_1298",
+    "archive_ref": "3_1909-05-20_p3_sn88085947_00211108599_1909052001_1298",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-05-20_p3_sn88085947_00211108599_1909052001_1298",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 294,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 248,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Madame Nordica has joined the\nsuffragettes. 1t has been many\nday since a woman's cause has\ngained so important recruit and\nthe news will spread rejoicing\namong the battling suffragettes the\nworld over.\n\n\nThe credit of her conversion to\nthe woman's suffrage cause is due\nto Mrs. Clarence Mackay. They\nwe're fellow passengers aboard the\nKaiser William II, which arrived at\nCherbourg lately. Madame Nor\nIDEAS one companion on shipboard\nwas Mrs. Mackay, with whom she\nspent hours walking the deck, deep\nIn conversation or porting over suf-\nfragist literature in the salon. The\nday before landing Madame Nor\ndica said she had been wholly con-\nWINGED of the justice of the cause.\n\n\nut is the one cause worth living\nfor and working for she said.\nAnd ] mean to give the rest of my\nlife to it. Next season will be the\nlast on the opera and concert stage.\nshall say farewell to the public,\nmany times in the near future to\nplead for the cause of woman\n\n\nSo anxious was the great singer\nto- get in touch with the English\nleaders of the suffragist movement\nthat she left Immediately for Lon\ndon. Incidentally, she will sing in\nLondon as we'll as in Paris before\nreturning to the United States,\nwhere she is to make a farewell\ntour, which will be followed by her\nmarriage to George Young. the New\nYork banker. Then she expects to\ntake up at once the new career\nwhich has opened before her.\n\n\nNordica, who is New England\nwoman, has strong opinions and the\ncourage of her convictions. She is\nan eloquent speaker and her en-\nthusiasm, her wide popularity and\nforceful personality will make her a\nmost valuable addition to the fight\ning battalion of women refOrmers."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WASHINGTON PRUNES\n\n\nIN MARKET OF LONDON",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-27",
+    "date_end": "1903-10-27",
+    "report_year": 1903,
+    "source_file": "17_1903-10-27_p8_sn88085947_00211108538_1903102701_0619",
+    "archive_ref": "17_1903-10-27_p8_sn88085947_00211108538_1903102701_0619",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-10-27_p8_sn88085947_00211108538_1903102701_0619",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 99,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 243,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ceived for prunes in the English me-\ntropolis. The experiment has opened\na new and wonderful market to the\nprune industry of this state.\n\n\nThe Campbell farm has 10000 trees\ncovering 400 acres. There are 1400\nacres in the farm.\n\n\nFour crops of alfalfa were grown\non the farm this year The total\ncrop was $500 tons, for which the\nowners received 81 per ton, unbaled,\non the farm, a return of s17,500.\n\n\nAlthough Mr.. Campbell has not fig\nured the total return from the farm,\na friend of his said today that more\nthan $4,000 had been Melted."
+    }
+  ]
+}

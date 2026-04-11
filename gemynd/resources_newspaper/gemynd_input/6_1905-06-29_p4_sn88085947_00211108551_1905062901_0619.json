@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-06-29 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-29",
+    "date_end": "1905-06-29",
+    "report_year": 1905,
+    "source_file": "6_1905-06-29_p4_sn88085947_00211108551_1905062901_0619",
+    "archive_ref": "6_1905-06-29_p4_sn88085947_00211108551_1905062901_0619",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1905-06-29_p4_sn88085947_00211108551_1905062901_0619",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 307,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 503,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "not by women alone, not by men\nalone, but government of men and\nwomen, by men and women, for men\nand women-this is the ann and ideal\nof our association. One hundred\nyears ago Oregon was an untrodden\nwilderness. The transformation of\nthat primeval territory into prosper\nGus communities, enjoying the high\nest degree OF civilization, could not\nhave been accomplished without the\nwork of women. No restriction should\nbe placed upon energies and abilities\nso potent for good. The extension\nof the right of suffrage would re-\nmove a handicap from the efforts of\nwomen and give them an opportunity\nto work for the welfare of the state\n\n\nI'VE do not claim that women's\nvoice in the government would at\nonce sound the death knell to all\nsocial and political evils. But we do\nbelieve that a government represent\ning the interests and beliefs of WON\nn and ren would prove itself, and\nis proving itself, where it now ex-\nlists, TO be better government than\none which represents the interests\nand beliefs of men alone The move\nment for the enfranchisement of\nwomen is based upon the unchanging\nand Interchangeable principles of hui\nman liberty, in accordance with\nwhich successive classes of men have\nwon the right of self-government.\n\n\n\"On such a foundation ultimate\nvictory is assured-and, in truth, is\nconceded. even by those who oppose.\nThe day is ever drawing nearer when\nthe nation will apply to women the\nprinciples which are the very founda-\ntons of its existence; when, on every\nelection day, there will be reaff1rmed\nthe immortal truths of our Declara-\nton Of American Independence Then\nindeed will this be a just govern\nment. deriving its powers from the\nconsent OF the governed\n\n\nThe remainder Of the opening ses-\nsion was devoted chiefly to the ap-\npointment Of the necessary commit."
+    }
+  ]
+}

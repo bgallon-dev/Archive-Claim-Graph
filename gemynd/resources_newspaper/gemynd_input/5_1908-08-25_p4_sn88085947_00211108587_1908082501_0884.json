@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ".FEOERAT|ONF0R\n\n\nLABOR FIGHT\n\nREAFFiRMS ALLEGIANCE TO\nA. =. OF L. AND PUT LABOR\nRECORDS OF ALL CANDI-\n\n\nDATES BEFORE THE PUBLIC.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-25",
+    "date_end": "1908-08-25",
+    "report_year": 1908,
+    "source_file": "5_1908-08-25_p4_sn88085947_00211108587_1908082501_0884",
+    "archive_ref": "5_1908-08-25_p4_sn88085947_00211108587_1908082501_0884",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-08-25_p4_sn88085947_00211108587_1908082501_0884",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 245,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 861,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Resolved, that the Washington\nState Federation of Labor re-\naffirms its allegiance to the parent\norganization, the American Fedora\nton of Labor, both industrially and\npolitically, pledging our influence\nto stand faithfully by our friends,\noppose and defeat our enemies,\nwhether they be candidates for\npresident, for. congress or other\noffices, whether executive, legisla-\ntive or judicial\" We further af-\nfirm that we recognize that it is\nJust as much our duty to conform\nto conform to the political pro-\ngram as outlined by the American\nFederation of Labor as it is our\nduty to conform to any other prin-\nciples promulgated by the parent\nbody.\n\n\nThis resolution will be printed as\nthe heading of the answers to the\npledges from those candidates as\npiring to state Offices, and will be\nsent to all the union men through\nout the different counties, to the\nstate grange and to places where\n/ they have no unions.\n\n\nThe answers to the pledge blanks\n! that have been sent to these can\ndidates will be printed in full, and\nno attention will De paid to those\nwho answered by letters or other\nwise except filling out the regular\nform.\n\n\nE. A. Cooney, second vice presi-\ndent of the executive and legisla-\n, tive committee of the State FEEDER\nalton of Labor, returned this morn.\ning from North Yakima, where the\ncommittee was in session yester-\n: day. There were nine members in\n: attendance The state has heen"
+    }
+  ]
+}

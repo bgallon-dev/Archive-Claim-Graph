@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOMEN'S RIGHT To VOTE\n\n\nIS FAVORED BY LABOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-12",
+    "date_end": "1910-01-12",
+    "report_year": 1910,
+    "source_file": "4_1910-01-12_p2_sn88085947_00211108629_1910011201_0132",
+    "archive_ref": "4_1910-01-12_p2_sn88085947_00211108629_1910011201_0132",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-01-12_p2_sn88085947_00211108629_1910011201_0132",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 151,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 215,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The women will soon have a\nright to vote in this state if the\nmembers of the labor unions have\nanything to say to it. At the state\nconvention at Walla Walla last\nyear they gave complete en-\ndorsement of the woman's suffrage\nprogram. This year at Houuiam\nthey promise to go a step farther,\nand take an active part in securing\nan amendment to the state consti-\ntuition, insuring the right to vote to\nthe women of Washington.\n\n\nWilliam J. Coates, president of\nthe local central labor council, and\na delegate from that body and\nfrom the local pressmen union\nat Hoquiam, has introduced a reso-\nluton on the subject at the con-\nvention which is now in session.\nThe resolution stands good\nchance of being passed. 1t is as\nsured the woman's suffrage will\nbe one of the planks in the plat\nform of the proposed new labor\nparty."
+    }
+  ]
+}

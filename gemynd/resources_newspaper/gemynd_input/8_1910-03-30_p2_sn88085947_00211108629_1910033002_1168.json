@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WANT OPINION\n\n\nOf THE PEOPLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-30",
+    "date_end": "1910-03-30",
+    "report_year": 1910,
+    "source_file": "8_1910-03-30_p2_sn88085947_00211108629_1910033002_1168",
+    "archive_ref": "8_1910-03-30_p2_sn88085947_00211108629_1910033002_1168",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "8_1910-03-30_p2_sn88085947_00211108629_1910033002_1168",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 140,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 319,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The board of county commission\ners are today sending out circu-\nlar letter to all the taxpayers in\nthis county, with the view of OBJ\ntanning their sentiment in regard\nto the proposed new bridge to be\nbuilt over Hangman creek-wheth-\ner the county shall bear the entire\nexpense, or the expense be borne\nby the Washington Water Power\ncompany.\n\n\n1t is proposed to replace the high\ntrestle over. Hangman creek at\nSeventh avenue with a fill at an\nestimated cost of 100000. The\nWashington Water Power com\npany has offered to pay 5 per cent\ninterest on 100000, or $4,000 a\nyear, for franchise to lay tracks\nand operate cars over the same.\nThis payment is equal to about\n$50, 900 cash. The county has been\nasked to contribute $4,000, the bal\nance to be paid by the city."
+    }
+  ]
+}

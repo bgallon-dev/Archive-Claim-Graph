@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "INLAND EMPIRE CONDITIONS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-02",
+    "date_end": "1910-08-02",
+    "report_year": 1910,
+    "source_file": "11_1910-08-02_p6_sn88085947_00211108642_1910080201_0353",
+    "archive_ref": "11_1910-08-02_p6_sn88085947_00211108642_1910080201_0353",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-08-02_p6_sn88085947_00211108642_1910080201_0353",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 4.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 106,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 45,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 31,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The harvest in progress in the\nInland Empire wheat district is\nyielding better than was expected.\nFrom 60 to so per cent of the aver\nage crop will result Price is the\nbest at the threshing period in\nyears, the first offering selling at\n80 cents. Spring wheat is short,\nranging one-fourth to half of a\ncrop.\n\n\nWashington and Oregon have\nthe greatest apple crop in years\nand trees are already being\npropped up to support the weight.\nTranslated into dollars and cents,\nthis means that if the price is as\ngood as last year, many northwest\nern apple. growers will make small\nfortunes this year."
+    }
+  ]
+}

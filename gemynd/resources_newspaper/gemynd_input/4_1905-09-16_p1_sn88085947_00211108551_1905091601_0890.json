@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "JOINT ROAD\nTO PORTLAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-16",
+    "date_end": "1905-09-16",
+    "report_year": 1905,
+    "source_file": "4_1905-09-16_p1_sn88085947_00211108551_1905091601_0890",
+    "archive_ref": "4_1905-09-16_p1_sn88085947_00211108551_1905091601_0890",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-09-16_p1_sn88085947_00211108551_1905091601_0890",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 128,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 377,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 524,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "incorporators. The capital stock\nwas placed at 100000.\n\n\nThe objects of the company were\nstated to be building line be-\ntween Seattle and Spokane. SpO-\nkane and Portland and Seattle and\nPortland; also to own bridges over\nthe Columbia and own and oper-\nate steamboats,, telegraph and tele-\nphone lines.\n\n\nThe organization of this company\nshows the practical ratification of\nthe Great Northern and Northern\nPacific and gives the lie to all\nstatements by railroad officials\nthat these two lines can not use\nthe same tracks and depot facilities\nin the city of Spokane.\n\n\n1t does not yet appear whether\nthe Great Northern Is to build to\nconnect with the new line at Ken\nnewick. but undoubtedly great rail,\nroad developments are on the tapis\nfor eastern Washington."
+    }
+  ]
+}

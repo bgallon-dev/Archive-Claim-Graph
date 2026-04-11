@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "IAARI!OR\n-G.E{@Hya",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-12",
+    "date_end": "1909-11-12",
+    "report_year": 1909,
+    "source_file": "8_1909-11-12_p10_sn88085947_00211108617_1909111201_0067",
+    "archive_ref": "8_1909-11-12_p10_sn88085947_00211108617_1909111201_0067",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-11-12_p10_sn88085947_00211108617_1909111201_0067",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop",
+          "american federation"
+        ],
+        "mining": [
+          "mine workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 549,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 21,
+            "in_headline": false
+          },
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 1588,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine workers",
+            "weight": 2.0,
+            "offset": 2059,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BY PETER POWER\n\n\nThe American Federation of La\nDor, which meets in Toronto next\nweek, is composed of about 120 ma\ntional and international unions,\nwhich in turn have some $1,000 af-\nfiliated local unions, with a total\nmembership of approximately q\n100000 men and women.\n\n\nThere are about 20 national or\nCARNATIONS, as well as numerous\nlocal unions, with combined\nmembership of close to a million,\nthat are not attached to the A. F.\nof L. They comprise the railway\nbrotherhoods, the bricklayers and\nmasons, metalliferous miners, the\nglass workers, etc. -\nThe federation, as such, q has lit\ntie power, it being voluntary al\nlance guaranteeing home iTule, or\ntrade autonomy to each affili-\nated body. In recent years, owing\nto jurisdictional disputes between\nvarious international unions, there\nhas been a tendency to increase\nthe power of the federation, but\nthe most successful of the affili-\nated organizations are inclined to\ncombat the Capitalization idea and\nuphold the policy of noninterfer-\nence, setting up the claim that\nonly by the most rigid observance\nof the principles of democracy and\nhome rule have the organizations\nprospered, despite all the antagon-\nisms they .have been. compelled to\nface.\n\n\nAnd the onward march of the\nhosts of labor has not been over a\npathway strewn with roses, even\nthough it has been triumphant in\nmany respects. 1t has been an up\nhill struggle. frequently requiring\nenormous sacrifice and fighting for\nevery inch of ground.\n\n\nThe most formidable obstacle\nthat has been utilized to block the\nadvance of labor has been the So\ncalled movement for the open shop\ninaugurated about 10 years ago by\nthe National Association of Manu-\nfacturers, which secured the CO.\noperation of many powerful cap\nitalists, public officials, educators\nand other professionals.\n\n\nYet, despite many bitter strug-\ngiles, entailing heavy financial as\nlosses on both sides by wage\nstrikes, lockouts, boycotts and\nblacklists, the unions gained in\nnumbers, sometimes slowly and\nsteadily, quite often in leaps and\nbounds.\n\n\nThus decade ago the United\nMine Workers counted only $1,000\nmen, but today they can count bet\nter than 16 to l over the former\nperiod, or total of 265,000 They\nhave had number of national\nstrikes, with the result that, ex-\ncepting in certain districts in\nWest Virginia and Pennsylvania,\nthey have won full recognition of\nthe union, the eight-hour day, high\ner wages and other improvements\nin the bituminous coal districts.\nEven the anthracite barons have\nbeen compelled to concede partial\nrecognition and do business with\nthe union,\n\n\nThe International Typographical\nunion now number nearly $4,000.\nhaving nearly doubled it's member\nsnip IN III years. This organization\nrefuses to recognizez the term\nopen shop\" classifying printing\noffices as union or nonunion. The\ntypographical unioA has probably\nfought the greatest labor battle in\nthe present generation. In its con\ntest for the eight-hour day 1.-The\nunion spent $5,000,000; all but $780,\n900 of which amount was cheerful.\n\n\nly paid by the members them.\n! selves, who won the fight, while\nthe employers ssociation-known\nas the United Typothetae of\nAmerica-which opposed the ihau-\nguration of the eight-hour day, is\na wreck. The |. T. U. alsosshas a\nfive-year agreement with. 1.-THE\nAmerican Newspaper Pubnsltfs\nassociation, which body INCLUDES\nnearly all the great daily &neIs-\nDaDerS of the country."
+    }
+  ]
+}

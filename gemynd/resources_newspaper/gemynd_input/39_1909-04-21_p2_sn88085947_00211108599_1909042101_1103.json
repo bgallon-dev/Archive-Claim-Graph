@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "SENT BACK TO\n\n\nTHE MUOHOlE\n\nPEACEFUL VALLEY CITIZENS\n\n\nONCE MORE FLIM-FLAMMED,\nWITH LAW AND FACTS\nCLEARLY IN THEIR FAVOR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-21",
+    "date_end": "1909-04-21",
+    "report_year": 1909,
+    "source_file": "39_1909-04-21_p2_sn88085947_00211108599_1909042101_1103",
+    "archive_ref": "39_1909-04-21_p2_sn88085947_00211108599_1909042101_1103",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "39_1909-04-21_p2_sn88085947_00211108599_1909042101_1103",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 659,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1124,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 73,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "IsH.\n\n\nWith the room full OF Peaceful\nvalley petitioners last night, the\ncity council made some pretense of\nconsidering the assessment role of\nthe Main avenue Improvement\nThe matter has been held back for\nabout a year at the instance of\n/\" the Graves interests. and last night\n1t was up for final confirmation.\n\n\nThe Spokane Inland people had\nnot even deemed it necessary to\nfile formal protest within the time\nlimit prescribed for citizens lack\ning city hall pull, and subsequent\ndevelopments proved that the COM\npany invited no serious risks by\nsuch neglect.\n\n\nThe matter was once more re-\nferred. this time to May II, at\nwhich time it is expected that the\ncharter amendment providing for\nextension of improvement districts\nbeyond the confines of abutting\nproperty will have been decided by\nthe general election.\n\n\nThe argument brought to light\nthe interesting fact that tightening\nthe burden from the Graves peo-\npie on this identical improvement\nwas one of the objects considered\nin proposing the amendment.\n\n\nLast nights proceedings afford\ned opportunity for fiim-fam team\nwork between Frank Graves. attor-\nney for the Inland Empire inter\nests, and City Attorney Allen, a\nmethod of procedure in which\nGraves proved an adept and Allen\na willing second.\n\n\nAliens opinion 1.-THE council\nneeds legal opinions in matters af-\nfecting the interests of corpora\ntions), was that the Graves be-\nlated protest had no standing in\nlaw because of not being filed in\ntime. He also said that the con-\ntention that the Graves properly\nassessed would not be benefited\nmight be founded in law had II\nbeen presented according to law,\nbut as the matter stood the &C,\nton of the council in confirming\nthe role would be conclusive.\n\n\n- Frank Graves then proceeded to\ncrate after his usual fashion, TAX\ning the city attorneys opinion as\nstatement that the sacred prop\nerty rights of fac Inland system\n3. were about to be outraged because\nof the Discrimination of the COM\npany to conform to the law that\nindividual citizens are compelled\nTO comply with. Whatever affirma-\ntives he deemed his argument\nneeded were supplied by Mr.. Allen\nwithout hesitation.\n\n\nCity Engineer Ralston helpeo\nsome with remarks on the scale of\ncivic Improvements he has in his\nhead for the riverbank section in\nyears to come as inducements for\nthe council to accede to the Graves\nwishes in the matter. Ralston had\nnothing definite to pronounce, but\nlimited of things of far greater i'm\nport than Immediately furnishing\ncouple of thousand citizens a\nroad they could travel into the\nheart of the city.\n\n\nAttorney w. S. Dawson appear\ned for the Peaceful valley property\nowners; Lambert, as ward repre-\nsentative, made as good bluff as\nhe was capable of, and number\nof citizens interested entered their\npleas for the improvement. 1t was\nshown that in winter wholesale\nhouses refused to deliver goods\ninto the valley but all that weigh\ned little against the Graves con.\n, tention that the company would be\n. assessed $4,000 for the improve\ng.. ment, whereas under the proposed\namendment this amount could be\ndistributed among property own\ners on either side who had already\nimproved their abutting property\nand paid for it under the old sys-\nTEN.\n\n\nMr.. Graves stated that his COM\npany wished to be very fair ana\npay its share of all civic improve\nment, demonstrating at the same\ntime that it intended to pay no\nmore than it could be forced to\npay. What 1t can be forced to pay\nthrough the present attitude of the\ncouncil and administration officials\nlooks microscopic enough to suit\n:. the company, certainly.\n\n\nThe whole performance again\n= emphasizes the fact that city Or\ndinance and charter provisions\namount to little except when they\nhappen to apply to the ordinary\nproperty holder who lacks city\nhall influence\" and attorneys TO\ninstruct the council as to exactly\nhow he wishes to eyade civic regu."
+    }
+  ]
+}

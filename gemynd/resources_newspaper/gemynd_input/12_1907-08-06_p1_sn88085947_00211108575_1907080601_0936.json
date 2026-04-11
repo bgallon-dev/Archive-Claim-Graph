@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-06 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-06",
+    "date_end": "1907-08-06",
+    "report_year": 1907,
+    "source_file": "12_1907-08-06_p1_sn88085947_00211108575_1907080601_0936",
+    "archive_ref": "12_1907-08-06_p1_sn88085947_00211108575_1907080601_0936",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-08-06_p1_sn88085947_00211108575_1907080601_0936",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 216,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 331,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Electrical Workers union\nhad an inning last night at the meet.\ning of the Central Labor union when\nthey asked that the w. w. P. Co. be\nplaced on the fair list. The matter\ncame up through a communication\nfrom the union requesting that the\npower monopoly be placed on the\nfair list. They stated that their &C\nton in accepting an open shop\" and\nreturning to work was due to in\nstruction received from the Pacific\ncouncil of their organization which\nrecommended such course.\n\n\nThe communication occasioned\nconsiderable discussion and the\nelectrical workers came in for some\ncriticism over the manner in which\nthey had involved the unions in a\nfight with the local monopoly and\nhad been among the first to drop the\ncontest, leaving the other unions in\nthe lurch.\n\n\ne. A. Cooney spoke on the ques-\nton at considerable length. He ad-\nmitted that when the Central Union\nhad taken up the fight for the line\nmen it had done so as matter of\nsympathy and that the union had\nnot inaugurated the fight according\nto the laws of the Central body or\nunder conditions that were alto\ngether fair to the company, but he\nsaid the unions had realized what\nany labor organization was up\nagainst when seeking fair treatment"
+    }
+  ]
+}

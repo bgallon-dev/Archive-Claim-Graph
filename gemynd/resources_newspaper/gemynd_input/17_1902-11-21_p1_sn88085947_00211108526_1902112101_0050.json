@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "EQUALS LAST YEARS\n\n\nBIG BUILDING RECORD",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-21",
+    "date_end": "1902-11-21",
+    "report_year": 1902,
+    "source_file": "17_1902-11-21_p1_sn88085947_00211108526_1902112101_0050",
+    "archive_ref": "17_1902-11-21_p1_sn88085947_00211108526_1902112101_0050",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1902-11-21_p1_sn88085947_00211108526_1902112101_0050",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 63,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 128,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 143,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "066. This year not quite II months\nshow $1,396,35S investment.\n\n\nThe present II months has to\ncompete with such projects as the\nGreat Northern depot, the Spokane\nhotel and numerous churches and\nother fine edifiCes.\n\n\nOne notable item and a source\nof self congratulation in all recent\nbuilding operations here is the fact\nthat these improvements have not\nbeen made on borrowed money."
+    }
+  ]
+}

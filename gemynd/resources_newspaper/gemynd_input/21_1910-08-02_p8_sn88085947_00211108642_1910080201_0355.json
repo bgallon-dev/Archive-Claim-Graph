@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "title": "c.ITY NEWS\n\" In BRIEF ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-02",
+    "date_end": "1910-08-02",
+    "report_year": 1910,
+    "source_file": "21_1910-08-02_p8_sn88085947_00211108642_1910080201_0355",
+    "archive_ref": "21_1910-08-02_p8_sn88085947_00211108642_1910080201_0355",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1910-08-02_p8_sn88085947_00211108642_1910080201_0355",
+      "composite_score": 16.8,
+      "domain_scores": {
+        "turnbull_prehistory": 2.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 2.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "turnbull"
+        ],
+        "agriculture": [
+          "orchard"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.5,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 414,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "turnbull",
+            "weight": 2.5,
+            "offset": 1742,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 2193,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1840,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 41,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 948,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "depression_era",
+        "railroads",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A vigorous protest will be made\nwith the city council shortly by the\nFirst Ward Improvement club\nagainst floods in the Union Park\ndistrict.\n\n\nCouncilman Schaefer will file a\nresolution with the city council to-\nnight, demanding grade separation\nfrom the n. P. through Spokane.\n\n\nOne hundred voters gathered at\nthe city hall last night and decided\nto hold a mass meeting tomorrow\nnight at the Spokane theater, pro-\ntesting against the site selected for\nthe new city hall.\n\n\nA motorman on the Mantle street\ncar line tainted while at his post\nyesterday and just barely managed\nto throw on the air clutch before\nlosing consciousness, the car travel\ning down the Washington street\nhill at a high rate of speed, but\nstopping before the switch was\nreached.\n\n\nWhen Or. l.. p. Waterh ap-\npears in the police court this after\nnoon, he will have to explain why\nhe failed to report case of scarlet\nfever.\n\n\nSpecial Officer Hope got the drop\non w. A. Newman, a hobo. who was\nstealing a ride on the \\. P. fast\nmail, and brought him to the police\nstation.\n\n\nAt meeting of the Liberty Park\nImprovement club last night Con\ntractor Fl. l.. Lilienthal made things\nlively for a while by vigorously pro-\ntesting against the action of the\nclub in calling on the board of\nworks a couple of weeks ago and\nscoring his alleged dilatory meth\nDDS of street construction,\n\n\nGordon r. vauthrin, aged 81\nyears, died of scarlet fever yester-\nday morning at the Sacred Heart\nhospital. The body is at the Blu\nchanan undertaking rooms awaiting\nthe arrival of the father.\n\n\nCharles w. Framer, aged 30\nyears, died yesterday morning at\nthe home OF his son-in-law, John A.\nWilson, S1S23 Maple street. He\ncame here three weeks ago from\nMontezuma, Iowa. The body will\nbe sent by the Turnbull Undertak-\ning company this morning to his for\nmer home.\n\n\nBeginning Sunday, July 81, the\nNorthern Pacific railway train No.\n2, eastbound, will carry passengers\nfrom Seattle, Tacoma, Portland, FL\niensburg. North Yakima and this\ncity for Miles City, Mont.\n\n\nGeorge A. Bond was yesterday APP\npointed assistant secretary of the\nnational apple show to assist Secre-\ntary Rem ii. Rice in preparations\nOF final details. Mr.. Bond is the\nowner Of an orchard and poultry\nfarm at Meadow Lake and occupied\nthe same position at the first apple\nssllow In 1908. He began his duties\nyesterday.\n\n\nThe body Of Mrs. Anna L. Wilson,"
+    }
+  ]
+}

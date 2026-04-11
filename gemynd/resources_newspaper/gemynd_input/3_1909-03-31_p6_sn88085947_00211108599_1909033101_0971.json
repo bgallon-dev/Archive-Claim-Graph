@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOMEN ARE IN\n\n\nEARNEST\n\nWILL MAKE HOUSE TO HOUSE\nCAMPAIGN OF EDUCATION IN\nSPOKANE FOR EQUAL SUI.\nERAGE CAUSE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-31",
+    "date_end": "1909-03-31",
+    "report_year": 1909,
+    "source_file": "3_1909-03-31_p6_sn88085947_00211108599_1909033101_0971",
+    "archive_ref": "3_1909-03-31_p6_sn88085947_00211108599_1909033101_0971",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-03-31_p6_sn88085947_00211108599_1909033101_0971",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 357,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 65,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A house to house campaign of\neducation in behalf of the right OF\nsuffrage for women was resolved\nupon at the meeting of the Spo-\nkane Equal Suffrage league last\nnight. Three parlor meetings and\none general meeting will be held\neach month-one every week.\n\n\nMrs. May Arkwright Hutton,\nPRESIDENT of the league, reported on\nthe success of the women's lobby\nfor equal suffrage at Olympia in\nsecuring the submission of con-\nstitutional amendment for that\npurpose. She said that it was\nfound necessary to first convert\nthe wives of the legislators and\nthe rest was easy. The success of\nwoman uffrage in Washington de-\npended on the women themselves,\nshe said, as the men will grant it\nII they think the women demand\nthe ballot.\n\n\nMrs. w. M. Wilson, E311S\nSprague avenue, denounced the ac-\nton of the legislators who defeated\nthe eight hour day for women. Mrs.\nWilson said that it was her mis-\nfortune that she was compelled to\nwork in one of the laundries for\nliving and witnessed the spectacle\nof her employer going to Olympia\nto lobby against the eight hour\nbill. If women voted she said men\nwould be compelled to earn the\nliving and the women who now\nwork could then devote some of\n. their time to their families.\n\n\nMrs. Lydia Irons, 02023 Wash\nington street, told of the injustices\nIn property matters which women\nrest under in some states. She\nsaid she had worked in the suffrag-\nlist movement in Idaho and Oregon\nand urged the formation of pre-\ncinct organizations for the suffrag-\nlist campaign of 1910.\n\n\nOther speakers were Mrs. Eliza\nbeth Godding, d. c. Coates of the\nLabor World and Mrs. Hand, who\nspoke of an encounter with an in\nquisitive man assessor. 1t was de-\ncided to cable the good wishes of\nthe club to Mrs. Baker of Spokane,\nwho has gone to London to repre-\nsent the state of Washington in\nthe international suffragist conven-\nton in April.\n\n\nOfficers elected were: Presi-\ndent, May Arkwright Hutton; vice\npresidents, Lorene Baker, Mrs. w.\nM. Wilson, Elizabeth Gibson; sec\nrotary, Sadie Coates; treasurer,\nNellie Colbert."
+    }
+  ]
+}

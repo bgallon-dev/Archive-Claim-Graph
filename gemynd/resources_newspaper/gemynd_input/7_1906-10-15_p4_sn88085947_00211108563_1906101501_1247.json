@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-15 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-15",
+    "date_end": "1906-10-15",
+    "report_year": 1906,
+    "source_file": "7_1906-10-15_p4_sn88085947_00211108563_1906101501_1247",
+    "archive_ref": "7_1906-10-15_p4_sn88085947_00211108563_1906101501_1247",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1906-10-15_p4_sn88085947_00211108563_1906101501_1247",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 236,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 208,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "S@ulRzsxllHuEzEA61pI 90\nare said to be busy in an effort to\ncomes too strong to be controlled\nhead the movement before 1t be-\n\n\nBoth are directly interested in\nsecuring Spokane franchises, and\nthe Washington Water Power CON-\npany especially appears to have\nstrong reasons for fighting the sub\nmission of those franchises to popu-\nlar vote in case the public cares\nto pass on them.\n\n\nReferendum advocates argue that\nthe principal use of the plan they\nadvocate Is to remove municipal\ngovernment from the hands OF\n\"tenderloin bosses\" and cooperative\ninfluences. They point significant\nly to the opposition they have\naroused in this city in support Of\nthis claim.\n\n\nElse why, they asw, is Dutch\nJake\" bringing all the influence OF\nOccur d'Alene headquarters to bear\nagainst the referendum issue in\nconjunction with corporation\nagents. They must fear the loss\nof power and prestige, it is argued,\nif the referendum carries.\n\n\nAnd the supporters Of that meas\nlie are asking the voters generally\nif they deseve help or hindrance\nin a fight Of this sort. They are\noffering their proposed reform on\nthe strength of the enemies 1t\nmakes in addition to the benefits\nthey claim it will confer in the line\nof better government for the good\nof the people as opposed to the\nforces that constantly demand\n\"protection\" and the monopolistic\norganization that make politics a\npart of their business policy for\nbusiness\" reasons."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-10-21 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-21",
+    "date_end": "1909-10-21",
+    "report_year": 1909,
+    "source_file": "4_1909-10-21_p4_sn88085947_00211108605_1909102101_1176",
+    "archive_ref": "4_1909-10-21_p4_sn88085947_00211108605_1909102101_1176",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-10-21_p4_sn88085947_00211108605_1909102101_1176",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 288,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 686,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "II could be digging out sage\nbrush\" said Smith, land settias\nready TO get A crop IN next sprins,\nor back home | could he earning\nwages. guess it'e tosB up\"\n\n\ntalked with Smith about the\noutlook. why had he doAe it7\nWhat did he hope 10 accomplish :?\nHis answers summed up the case\nabout like this.\n\n\nHe might eo on indefinitely\nworking az motorman, and, bass\nring sickness, saVe little each\nmonth. but what they PaVed never\nwould make them independent.\n| They could not even Eave enough\nTO buy home. Each year expenses\nwere getting more, and the Income\nSTAYED the same. What we're they\ngoing 60 do about It? Just drift\nuntil misfortune, eiekness or ase\ncame alpngS\n\n\nNo. This government Irrigation\nhuHiness looked better. one THE\nI HuntleS project UP IN Montana. the\n$500 would lay the foundation Of\nan investment which In a few\n! wears ought TO place the Smith Fam\n/ lily beyond the reach OF want. That\nIN the way II locked to him.\nThis Ia how he figured its WITH\ntheir $500 savings they could\nmake the frat payment on a 10.\nacre irrigated farm, and pull\n| through the first pianeer stages Of\nlearning the game and getting\nstarted The actual payment and\nfilling coats on the land the first\nyear would be about 5000. Then a\ntiny house would coat $500 more.\nWith the reRt he could buy a team,\nOF hofses, a plow and harrow and a\nfew other absolutely necessary\ntoola, together With seed fence\nwire and posts, The Test Of the\nmoney would be used Mp IN buying\nfuel and food until the frat crops\nwere marketed\n\n\nAll this would mean hard work"
+    }
+  ]
+}

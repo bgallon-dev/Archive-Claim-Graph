@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BEGIN WORK FOR CITY LIGHT PLANT",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-20",
+    "date_end": "1907-05-20",
+    "report_year": 1907,
+    "source_file": "1_1907-05-20_p1_sn88085947_00211108575_1907052001_0688",
+    "archive_ref": "1_1907-05-20_p1_sn88085947_00211108575_1907052001_0688",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-05-20_p1_sn88085947_00211108575_1907052001_0688",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 361,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 764,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Although the city administration allowed ample\nsonably expected from the beneficial planned it is\nnot bit too early recall the republican platform plank\nvoring the construction of a municipal lighting plant\n\n\nThe platform which Moore elected has pledged\nthis Improvement if operation of city plant\nfeasible The Press is convinced that municipal lighting\neven more feasible and profitable In Spokane than\nand necessary.\n\n\nThe Press shortly to be submit actual\nthe agitation until the city and the private\nnished cheaper light n\n\n\npower will not be contradcted except from the\nfinancially interested in maintaining the hodup process\n\n\nHere few figures Introductory campaign\nfrom the citys light and power expense records:\n\n\nAT present the city paying the Washington Water Power\nmonopoly total of s243o monthly for light This\namounts to approximately $685. 60 annually\nIs fair month This bill includes light power\nlight for the city pumping station.\n\n\nDetailed figures will will be\npossible to make reliable comparisons power\ncosts the private against the municipal\nlight competition private corporations\n\n\nis absolutely predicate the comparison will\nprove the necessity for competition in this city\n\n\nPreliminary made show that the citv can\ninstall power plant at cost Of abot $50 600 Of suAicien\ncapacity to furnish street public building lights\nIn other the entire investment\nfigured against the ciys light power turned\ninto the Golfers of the W. W. p Co. This revenue may\nnoticed is clear profit for the 1t plant\nshed with immense capacity and what\nthe city brings returns by method exactly similar finding\nmoney-and lots of it.\n\n\nmunicipal light proposition Having the cheapest power\nces IN the state is able to pay enormous dividends, and\nWill hold on to what it has with monopolistic tenacy\n\n\nOne point of municipal ownership of public\nutilities is the opposition corporations\nve that measures fought most bitterly by these interests\napt to the worthy securing the public What\nprofits big corporation will certainly profit the public pub\nTic administration be made businessike energetic\nprivate control\n\n\nThere is valid complaint against Spokanes ownership of\nthe waerworks There be considering the\nrule is applied lighting will have\nfor gratitude that nstas this\neconomy in public service."
+    }
+  ]
+}

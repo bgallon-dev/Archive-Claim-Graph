@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "TO BLOCK\n|DE Az. At\n\n\nANY COST",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-07-14",
+    "date_end": "1908-07-14",
+    "report_year": 1908,
+    "source_file": "26_1908-07-14_p1_sn88085947_00211108587_1908071401_0737",
+    "archive_ref": "26_1908-07-14_p1_sn88085947_00211108587_1908071401_0737",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "26_1908-07-14_p1_sn88085947_00211108587_1908071401_0737",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 562,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 114,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 850,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That bribery and bullying have\nbeen resorted to in an effort to de-\nfeat the Ide av. improvement, Or\ndered by the city council over a\nprotest Of alleged representatives\nof the North Coast railroad, is the\ncharge made by residents of the\nNorth Side who have been strug-\nCling for more than year to have\nthe improvement completed.\n\n\nThe fact that number of prop\nerty owners had been paid 5000\ndown on prospective deals for their\nproperty on con iition that they\nsign a remonstrance against the\nIde improvement was brought out\nlast meeting OF the Ide av. and\nSummit Boulevard Improvement\nleague.\n\n\nSix such deals made after\np. m. yesterday were reported to\nthe meeting held at 1912 Ide. Nc\nCrea and Merryweather were the\nagents making these deals. The\nsame firm, with railroad assist\na:ice, has held up the improvement\nfor the past year in the board of\npublic works.\n\n\nThe property bought yesterday\nlies on Ide from Oak st. west 1t is\nthis property that the railroad in\nterests are trying to block from\nImprovement in order that right OF\nway may be secured at the lowest\nfigure in the event that the rail-\nroad builds through that section of\nthe city.\n\n\nIn many cases reported to the\nleague threats were used to com\npei agreement to sign remon.\nSTRANGE. Property owners were\ntold that their property would not\nbe wanted after the council meet\ning tonight when the improvement\nassessment role comes up for nnal\nconfirmation. Then, McCrea &\nMerryweather, the owners say, de-\nclared they would condemn or\nline the street with railroads so\nthat the property left unsold would\nbe worthless.\n\n\nBut the condition of every sale\nwas that the property owner sign\na remonstrance against the I'M\nprovement of the avenue. The deals\nwere not made final. the property\nowner accepting 5000 and signing\na sale agreement in several of\nwhich no final price was fixed. The\nthreats are said to have been used\nlargely to women found found at\nhome in order to induce them to\ninfluence their husbands to help\nblock the improvement.\n\n\nment already ordered would be\nheld up in thu council meeting\ntonight If it cost $4,000; that it\nwould not be permitted to go\nthrough.\n\n\nResidents interested in securing\nthe improvement were told today\nthat the board of works had au-\nthorized H. l.. Lillienthal to with\ndraw his bond deposited when he\nwas awarded a contract for the\nIde av. work year ago for $19,-\n600. The work has since been held\nup on request of McCrea & Merry\nweather. The withdrawal of\nLillienthal means that deal has\nbeen arranged whereby the pro-\nject is to be finally abandoned even\nafter a committee of the council\nand interested parties had visited\nthe ground and the council, acting\non this report had ordered the\nwork proceeded with.\n\n\nPres. Goodall, Of the chamber Of\ncommerce, was enlisted in the\nfight to override the wishes of\nproperty owners and that failing,\nthe promoters of the railroad deal\nhave apparently resorted to the\nboldest possible means to carry out\ntheir plans.\n\n\nAS result it is expected that a\nshowing will be made against the\nimprovement tonight that will put\nan end to it entirely and leave that\nsection of the city wholly at the\nmercy of the railroad people and\ntheir agents."
+    }
+  ]
+}

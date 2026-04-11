@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-05-19 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-19",
+    "date_end": "1906-05-19",
+    "report_year": 1906,
+    "source_file": "2_1906-05-19_p1_sn88085947_00211108563_1906051901_0732",
+    "archive_ref": "2_1906-05-19_p1_sn88085947_00211108563_1906051901_0732",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-05-19_p1_sn88085947_00211108563_1906051901_0732",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 152,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 97,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "NJ. Van Duyn, J. ]. Plowhead and\nJohn Rice. of Caldwell.\n\n\n1t has been presumed by many\nthat the mine owners were backing\nthe prosecution financially, but that\nseems not to be true. Idaho is pay\ning the bill. Money for the por-\npose is not available, but the gov\nernor and certain other state of\nflcials have authority to issue de\nficiency warrants, subject to ap-\nprevail by the legislature at the\nnext session Such warrants to\nthe amount of $4,000 have been\nissued and another Of $4,000 is on\nthe way. The state is paying the\nlawyers and detectives and, accord\ning to state authority, it paid also\nfor that kidnapping special train.\n\n\nThose connected with the prose-\ncution declare that they have con-\nfirmed the confessions made by Or\nchard and Adams and have other\nevidence tending to show that the\nprisoners were at the head of a con-"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "MUST PAY FOR\nINSPECTION",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-01",
+    "date_end": "1907-07-01",
+    "report_year": 1907,
+    "source_file": "2_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+    "archive_ref": "2_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 159,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 680,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane Falls Gas Light Co.\nmust pay for an inspection OF it's\ngas or plant, according to an agree\nment made when It was granted\nIt's franchise under the new Roger\nH. Williams Co. Councilman Pratt\nrecently, in open council, called the\ngas company robber and one thing\nand another and now he has stated\nthat he will publish an ordinance\nand ask the council to provide a\ngas Inspector, AS pointed out in\nThe Press, no action by the council\nto appoint an inspector is needed.\nThe franchise OF the Williams COM\npany distinctly says:\n\n\n:; t.All governors, works of and gas\nfurnished by the said grantee shall.\nat reasonable business hours, be\nsubject to inspection by the board\nOf public works. or such expert as\nthey may appoint\nsaid grantees shall pay all such\nreasonable costs ard charges OF\nsuch inspection when grantees are\nfound In default\"\n\n\nThis ordinance passed the city\ncouncil May IL, 1904."
+    }
+  ]
+}

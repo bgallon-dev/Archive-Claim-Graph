@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GRAND JURY AGAIN\n\n\nUNDER GORDON FIRE,\n\nAttorneys Now Turned Inquisitors Of In\nquisitors in Effort to Confiscate\n\n\nEvidence.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-20",
+    "date_end": "1909-04-20",
+    "report_year": 1909,
+    "source_file": "3_1909-04-20_p1_sn88085947_00211108599_1909042001_1094",
+    "archive_ref": "3_1909-04-20_p1_sn88085947_00211108599_1909042001_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-04-20_p1_sn88085947_00211108599_1909042001_1094",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 252,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 472,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Northern in its combat against an\ninvestigation of it's relations with\nJudge M. J. Gordon, its former\ncounsel, now the subject of grand\njury inquiry. Under this ruling 1t\nwill not longer be necessary for\nLouis Hill, president of the Great\nNorthern, to dodge the state of\nWashington, and travel hundreds\nof miles out Of the beaten path, for\nfear of beinb compelled to produce\ndamaging documents in court.\n\n\nA protecting mantale has been\nthrown around tie operations Of\nthe Great Northern railway in\ndealing with judges and legisla-\nlures in the state Of Washington,\nand the privilege right of the rail-\nroad to maintain under cover all\npapers and correspondence relat-\ning to such activities remains un-\ndisturbed.\n\n\nJudge Turner's plea in behalf of\nthe Great Northern was able and\ningenious and illustrated what fine\npoints of law the skilled advocate\ncan raise in defending the rights Of\na rich client under attack. Judge\nTurner's plea went as far back as\nthe constitution of the United\nStates. which he showed was\nframed to protect corporations in\ndistress.\n\n\n. The court has ruled that the\nprosecuting attorney is not permit\nted to take shorthand notes in the\ngrand jury room; that witnesses\nbefore the grand jury can repeat\ntheir testimony on the outside\nwhen the same does not defeat the\nends of justice, and now that the\nsubpoena duces tecum can not be\ninvoked by the grand jury without\nthe consent of the attorneys of a\nperson under investigation and the\ncourt."
+    }
+  ]
+}

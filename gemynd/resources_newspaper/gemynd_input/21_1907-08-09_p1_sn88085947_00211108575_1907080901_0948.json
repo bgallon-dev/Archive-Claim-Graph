@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BARRIERS NO LONGER\n\n\nWORK LIKE MULES",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-09",
+    "date_end": "1907-08-09",
+    "report_year": 1907,
+    "source_file": "21_1907-08-09_p1_sn88085947_00211108575_1907080901_0948",
+    "archive_ref": "21_1907-08-09_p1_sn88085947_00211108575_1907080901_0948",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1907-08-09_p1_sn88085947_00211108575_1907080901_0948",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 79,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 226,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Babers' union will partici-\npate in the Labor day parade. This\nwill be the first time in several\ndays that the BARRIERS have taken\npart in the Labor day exercises\n\n\nFor several years the union had\nit's hands full fighting open shops\nand were compelled to work longer\nhours and on holidays, but better\nconditions now obtain, with the re.\nsuit that the men can now take 4\nholidays during the year, Labor day\nbeing one Of them."
+    }
+  ]
+}

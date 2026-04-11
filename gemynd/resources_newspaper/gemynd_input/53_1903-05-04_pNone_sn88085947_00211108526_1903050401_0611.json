@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "QUINN CONFIDENT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-04",
+    "date_end": "1903-05-04",
+    "report_year": 1903,
+    "source_file": "53_1903-05-04_pNone_sn88085947_00211108526_1903050401_0611",
+    "archive_ref": "53_1903-05-04_pNone_sn88085947_00211108526_1903050401_0611",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "53_1903-05-04_pNone_sn88085947_00211108526_1903050401_0611",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 244,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 34,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "E. F. Quinn business agent of the\ntrades council and president of the\ntailors union, said today:\n\n\nMayor Byrne should receive the\nunhesitating vote of every iaboring\nman in this city. No suggestion from\na man who is promised n political\nposition or who is n member of one\nof the old parties should influence\na single labor voter. Never before\nhas Spokane had a mayor who has\nstood for union labor as he has\n\n\nI'm the present campaign the\nchances are too great to change a\ncertainty for a uncertainty at the\npolls tomorrow. and workingmen\nshould not lose sight of the fact that\nthe only real issue Is that of the\nCommercial club versus organized la\nDor The only way for us to protect\nour homes is to see that the homes\nare supplied with enough money earn\ned by wages to protect them.\n\n\nThere may be other men who\nwould follow the policy that Mayor\nByrne has pursued towards organiz-\ned labor but such another mayor\nhas never been found in Spokane\nUnion men know this and they also\nknow if they were to lose Mayor\nByrne as the chief executive of the\ncity they would be the greatest losers\nof all the people in the city. For\nthat reason every workingman.\nwhether in the ranks of organized la\nDor or outside and every poor man\nshould go to the polls tomorrow and\ncast his ballot for the mayors re\nelection."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PUT It Up TO\n\n\nTHE MAYOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-14",
+    "date_end": "1909-09-14",
+    "report_year": 1909,
+    "source_file": "5_1909-09-14_p9_sn88085947_00211108605_1909091401_0879",
+    "archive_ref": "5_1909-09-14_p9_sn88085947_00211108605_1909091401_0879",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-09-14_p9_sn88085947_00211108605_1909091401_0879",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 114,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 31,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Alleging that the Scandinavian\nemployment agency has misrepre-\nscented the true condition of affairs,\neight men who were hired day be-\nfore yesterday to do work on Post\nstreet for City Contractor Lilien.\nthai, appeared at the office of\nMayor Pratt to lay their grievances\nbefore the mayor.\n\n\nThe men stated that they paid\nall the way from 81 to $50 for\ntheir positions, and that the en-\nployment agent told them that the\nwork was to last at least three\nmonths. After working a day and\na half for Lilienthal at street grad\ning on Post street the men were\ntold this morning by the foreman\nin charge that they were not\nneeded."
+    }
+  ]
+}

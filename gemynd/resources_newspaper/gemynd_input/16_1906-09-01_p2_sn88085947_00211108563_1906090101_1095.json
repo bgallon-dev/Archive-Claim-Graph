@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "title": "IN ANUrsHELL",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-01",
+    "date_end": "1906-09-01",
+    "report_year": 1906,
+    "source_file": "16_1906-09-01_p2_sn88085947_00211108563_1906090101_1095",
+    "archive_ref": "16_1906-09-01_p2_sn88085947_00211108563_1906090101_1095",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1906-09-01_p2_sn88085947_00211108563_1906090101_1095",
+      "composite_score": 18.2,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 4.0,
+        "railroads": 8.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "agriculture": [
+          "land office",
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "great northern",
+          "northern pacific",
+          "railroad commission",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1906,
+      "word_count": 390,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 1114,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 1102,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1411,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 304,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 285,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1534,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1411,
+            "in_headline": false
+          },
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 246,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An increase of so cents per day\nhas been demanded by hoistmen\nemployed at the mines around\nWallace. The men now receive 81\nand $3.50 for eight hours. The de-\nmand was refused and walkout\nfollowed.\n\n\nAn attack on the onstitutionality\nof the state railroad commission\nlaw is made by the Great Northern\nand Northern Pacific in a cross\ncomplaint served on the attorney\ngeneral at Olympia. Unjust dis\nelimination is alleged between\nsteam and electric lines.\n\n\nStevens county residents will\nhave a chance to protest the pro-\nposed creation of forest reserve.\nCongressman Jones has taken the\nmatter up with the federal authori-\nties.\n\n\nAlvin Mckinney shot and killed\nEd Flynn, mining man at Saltese\nMont, last might. The men were\nold enemies and had been drinking\n\n\nRalph Metcalf of Tacoma and\ncandidate for state senator from\nthe Twenty-siXth district, has\nlaunched Cushman boom for\nUnited States senator. He is also\nout for the direct primary.\n\n\nJames Robinson mistook his\nfriend, Paul Scott, for bear while\nhunting near Lake Washington and\nfired. Scott is dead.\n\n\nUnder a decision handed down\nby the Idaho land Office homestead\nesr find they waited for nothing 81\ndays in line at Lewiston for a\nchance to file on land to be thrown\nopen to settlement. The land Of\nfee rules that only actual settlers\nwho had filed on the land before it\nwas included in the reserve are en-\ntitled to consideration.\n\n\nNew distributing freight rates\nfrom Walla Walla go into effect\ntoday on the Hartman lines.\n\n\nSafe robbers secured $3.50 from\nthe o. r. & N. depot at Latah last\nnight. The agent caught the rob-\nbers in the building and ran to get\nhelp. When he returned they had\nvanished.\n\n\nMrs. Catherine Theriault, who\nhad resided at Wallace since 1854,\nsuccumbed to an attack of paraly-\nsis. She was found on the floor\nof her home helpless and died later\nat Providence hospital.\n\n\nThe Southern Pacific is consid-\nering the use of electric power to\ntake freight and passenger trains\nover the steep grades of the Sierra\nNevada mountains. 1t is under\nstood the new electric power will\ntake cars over at minimum rate\nof fifteen miles an hour.\n\n\nA union labor party will be in\nthe field in California this fall.\nMayor Schmitz is open for nomina-\nton as governor."
+    }
+  ]
+}

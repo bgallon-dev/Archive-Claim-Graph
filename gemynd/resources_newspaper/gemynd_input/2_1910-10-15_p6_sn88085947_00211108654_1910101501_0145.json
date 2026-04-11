@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "MARKET BASKET",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-15",
+    "date_end": "1910-10-15",
+    "report_year": 1910,
+    "source_file": "2_1910-10-15_p6_sn88085947_00211108654_1910101501_0145",
+    "archive_ref": "2_1910-10-15_p6_sn88085947_00211108654_1910101501_0145",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-10-15_p6_sn88085947_00211108654_1910101501_0145",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 1.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 3.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "iww_labor": [
+          "strike"
+        ],
+        "agriculture": [
+          "hay",
+          "alfalfa",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 292,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 460,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 20,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 1479,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 1352,
+            "in_headline": false
+          },
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 1321,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Hens have gone on a strike.\nHome laid, strictly fresh eggs have\ngone to so cents. Not only that,\nbut some of the retailers are pay\ning so cents for them in trade.\n\n\nPotatoes are down to $3.50 at\nsome stores, and apples and other\nfruit are selling at reasonable\nprices.\n\n\nBest fresh home eggs. 40@45c doz;\neastern eggs, selected, 30@35c dog;\nbest local creamery butter, 45c per\npound; second grade local butter. Acc\npound; local flour. $3.50 sack of 40\npounds; Cheney flour, $1.25 sack;\nlard, 19c pound; compound, 1Sc.\n\n\nF1UTTs AND VEGETABLES.\n\n\nPotatoes, 81 SO LIS per sack. or IL\nturnips, carrots and beets, to &c Id;\noranges. 35 a SOC dozen; new apples,\nSoc to 81 box; figs and dates, 100 &c\npackage; peaches, SOC to SOC crate;\neach: crab apples, 81 box; prune\nplums. SOC to soc per apple box; toma-\ntoes, s6c crate; CONCORD grapes.\nSoc basket; pears; :!4 LIS box;\n\n\nPot roast, Jpn @15c; prime ribs,\n$50 20c;- chuck steak, 12hc; round\nsteak, 15c: sirloin steak, 1Sc; porter\nhouse, 22Q25c; boiling beef, &C., SC\nand Toe. Pork-Steak, 1Sc; chops,\n10000; roast, 18@20c; whole ham,\n22c; ham, sliced, csc; bacon, by strip,\n23c; sliced. Csc; picnic hams, 15c\nMutton-Shoulder..1 2hc: leg of NUT\nton, Ice; mutton chops, is a 18c. Veal\nChops, 1SQ25c; shoulder, 15c; loin,\n70 a 22c. Dressed chickens, 26c to acc.\n\n\nFEED.\n\n\nRetail-Alfalfa, 31s@19 ton; timo-\noat hay, $40; bran and shorts, $23;\nstraight bran, $22; straight shorts.\ns26: corn whole, $3.50 cwt; corn,\ncracked, {1.90; feeding wheat, $40\ncwt; oats, $3.50 cwt; barley, $3.50;\nsteam rolled oats, $1.85 cwt.\n\n\nFUEL,\n\n\nPine wood, $500 cord, $2.76 rick;\nFIR and tamarack, S70750 cord. SO. 90\nrick; Rock Springs coal. $500 ton;\nSheridan coal. $500 ton."
+    }
+  ]
+}

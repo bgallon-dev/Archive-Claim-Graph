@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "SIMPKINS TO BE CHIEF\n, WITNESS FOR HAYWOOD\n\nExpected He viii Surrender and Be Used to\nRefute Orchards Confession on Which\n\n\nStates Case Rests.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-23",
+    "date_end": "1907-05-23",
+    "report_year": 1907,
+    "source_file": "9_1907-05-23_p1_sn88085947_00211108575_1907052301_0702",
+    "archive_ref": "9_1907-05-23_p1_sn88085947_00211108575_1907052301_0702",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1907-05-23_p1_sn88085947_00211108575_1907052301_0702",
+      "composite_score": 9.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood",
+          "western federation"
+        ],
+        "agriculture": [
+          "orchard"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 131,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 74,
+            "in_headline": false
+          },
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 35,
+            "in_headline": true
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 489,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, Idaho, May 23.-Jack\nSimpkins, the missing member of\nthe quartet of Western Federation\nmembers accused of the murder of\nSteunenberg, is expected to sur\nrender to Idaho authorities in order\nthat he can be called as chief wit\nness for the defense.\n\n\nHe alone can dispute Orchards\nstory, as he knew all Orchards\nmovements.\n\n\n1t is reported the defense plans\nto link great timber frauds with\ntheir case. Detectives have been\nworking months on the theory that\nSteunenberg was murdered by\nOrchard at the request of men who\nwanted to get him out Of the way,\nas he knew too much about their\nstealing timber land.\n\n\nThe defense admits it will try to\nhave Borah's alleged indictment by\nthe federal grand jury for timber\nland frauds injected into the case."
+    }
+  ]
+}

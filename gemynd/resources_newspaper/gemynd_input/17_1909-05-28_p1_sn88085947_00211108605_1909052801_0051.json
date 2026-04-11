@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "title": "SOMETHING NEW AND\n\n\nCLASSY IN HOBO GRAFT",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-28",
+    "date_end": "1909-05-28",
+    "report_year": 1909,
+    "source_file": "17_1909-05-28_p1_sn88085947_00211108605_1909052801_0051",
+    "archive_ref": "17_1909-05-28_p1_sn88085947_00211108605_1909052801_0051",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1909-05-28_p1_sn88085947_00211108605_1909052801_0051",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 6.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 110,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 125,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 179,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 21,
+            "in_headline": false
+          },
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 30,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A new species of the hobo, or an\nold hobo with new tricks. has been\ndiscovered by the police in the per-\nson of d. J. Keane. arrested this\nmorning by Special Agent Kenevan\nof the Northern Pacific.\n\n\nTickets, p-l-e-a-s-e,\" was the\nlusty shout waited BY the heavy\nmorning breeze to the alert ears OF\nthe young officer as he was passing\nalong the platform beside a coahc\nloaded with foreigners. That\nsounded strange. since the men\nhad just got on and the train was\nstanding still, so the officer corf\ncluded to Investigate. and invest\ngate he did.\n\n\nThere. In his torn and tattefs\nclothing. his face suggesti~ y"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CONTRACTORS PLAN KNOCK\nED OUT BY CHARTER PHO'\nVISION AND PROSPECT 10\nGOOD FOR DAY LABOR PRO-\nJECT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-17",
+    "date_end": "1908-02-17",
+    "report_year": 1908,
+    "source_file": "11_1908-02-17_p1_sn88085947_00211108587_1908021701_0228",
+    "archive_ref": "11_1908-02-17_p1_sn88085947_00211108587_1908021701_0228",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1908-02-17_p1_sn88085947_00211108587_1908021701_0228",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 157,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 292,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Contractor Lillienthals PROPOSE\nton to build the East Sprague tres\ntie by day labor and charge 10 per\ncent for his superintendent OF the\nlob will get no further than the\nmere statement of his aspirations\nCORPORATION Counsel Hamblen TINS\nmorning threw cold water upon II\nwhen he said that the city charter\nprovision did not allow work 10 De\ndone in that manner but that II let\nat all by contract it should be on\ncompetitive bids.\n\n\nPlans for the work are now pc\ning prepared in the engineers OIL\nfice but will not be ready for cay\nor so. There is every prospect\nthat the work will be done ny the\ncity on the day labor plan.\n\n\nCommissioner j. T. OBrien, VINO\nfrustrated the schemes OF o. D.\nDennis to do the work for $4,000,\nIs in favor of day labor on most\ncity iobs but reserves any dehnite\nconclusion as to 1.-THE trestle WORK"
+    }
+  ]
+}

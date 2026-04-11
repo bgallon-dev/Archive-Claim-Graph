@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-03-04 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-04",
+    "date_end": "1909-03-04",
+    "report_year": 1909,
+    "source_file": "12_1909-03-04_p3_sn88085947_00211108599_1909030401_0784",
+    "archive_ref": "12_1909-03-04_p3_sn88085947_00211108599_1909030401_0784",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1909-03-04_p3_sn88085947_00211108599_1909030401_0784",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 314,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 1375,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "rate, | know that one of the great\neconomies in concentration in the\nmanufactures is the doing away\nwit hthe so-called middleman.\n\n\nBut the farmer is not solely a\nproducer. He is also consumer.\nHe consumes shovels, forks, wag-\nons, plOws, reapers, harness and\nthe like. He goes to the polls and\nvotes for noncompetition on prices\nof these things. He does not say.\nI'VE are paying so cents for pitch\nforks today\" He pays an organ\nICED interest\" price, because there\nis no effective political cooperation\namong farmers to put them on a\nlevel with organized interests with\nwhich they do business. For the\nfarmer, prices on both his products\nand necessities are fixed by others.\nByt what others? BY pit gamblers\nin New York and Chicago, by trans\nportation monopolies and protected\nmanufacturing trusts-by organ.\nlied interests\"\n\n\nMaybe Mr.. Roosevelt doesn't\nmean 1t by his advice for co-opera-\nton, but can see no adequate sat.\nisfaction of this need save through\nthe farmers cooperation, polite\nally. pretty largely along the lines\nof true socialism. know. at any\nrate. that as a manufacturer. 1t il\nto my financial advantage to stand\nfor a political principle that enables\nme to keep out foreign tools and\nmachines. charge our farmers wha,\nlike for them and sell cheaper to\nthe foreign farmer at a profit.\n\n\nIn some parts of our country, not\nably the south and southwest. the\ngrange, or cooperative idea. which\nis really step in socialism. has\nproved of great advantage to farm\ners. That its operation is not more\nwidespread is wholly the fault OF\nthe farmers themselves. II Mr.\nRoosevelt's effective cooperation\nmeans community interest and ad\nvantage In storehouses. banks, road\nbuilding. transportation facilities\nand market places. he Is right IN\nputting II as the first great genera\nand immediate need of country life\nAT any rate, | know from expert"
+    }
+  ]
+}

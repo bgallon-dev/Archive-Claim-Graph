@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-09-18 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-18",
+    "date_end": "1909-09-18",
+    "report_year": 1909,
+    "source_file": "1_1909-09-18_p7_sn88085947_00211108605_1909091801_0915",
+    "archive_ref": "1_1909-09-18_p7_sn88085947_00211108605_1909091801_0915",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-09-18_p7_sn88085947_00211108605_1909091801_0915",
+      "composite_score": 12.74,
+      "domain_scores": {
+        "turnbull_prehistory": 1.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 3.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "iww_labor": [
+          "jail"
+        ],
+        "agriculture": [
+          "hay"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "education": [
+          "cheney normal"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 202,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 947,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 187,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 223,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 375,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "cheney normal",
+            "weight": 3.0,
+            "offset": 947,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "education",
+        "iww_labor",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "threatened her life and that she\nfears bodily harm at his hands.\nMousse has been asked to pay $50\nper month temporary alimony.\n\n\nGerald Shea, under sentence OF\nthree months at the county jail, has\nbeen pardoned by Governor Hay on\ncondition that he behaves himself\nand does not leave the state.\n\n\nThe heirs Of J. E. Luck, deceased\nhave recovered judgment for $500\nagainst the Northern Pacific.\n\n\nJ. s. Gulick has had the ties that\nbind him to Inez M. Gulick severed\nby Judge Webster.\n\n\nAlleging that his wife sometimes\ncost him $50 per day, and never less\nthan $40 per day, c. Henry Davis\na convict In a Wisconsin prison, has\nfiled an answer to the divorce com\nplant of his wife.\n\n\nSuperintendent Of Schools Wat\nson has issued invitations to all\nteachers to join the Spokane So\nciety of Social and Moral Hygiene\nthe annual meeting of which will\nbe held October 4, at which time\nthe chief address will be delivered\nby President H. c. Sampson of the\nCheney Normal.\n\n\nThe Christian Endeavor society\nof the First Presbyterian church\ngave novel newspaper party last\nnight at the church parlors. The\ndecorations consisted of humorous\nnewspaper clippings, while the"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-08-22 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-22",
+    "date_end": "1910-08-22",
+    "report_year": 1910,
+    "source_file": "18_1910-08-22_p4_sn88085947_00211108642_1910082202_0611",
+    "archive_ref": "18_1910-08-22_p4_sn88085947_00211108642_1910082202_0611",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "18_1910-08-22_p4_sn88085947_00211108642_1910082202_0611",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 4.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "real estate"
+        ],
+        "womens_civic": [
+          "suffrage",
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 315,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1736,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 11,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 378,
+            "in_headline": false
+          },
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 861,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "are in the real estate and mining\nbusiness in Spokane. Six children\nsurvive.\n\n\nMrs. Frances Nelson, IS, Daven-\nport, died Sunday at the Deaconess\nhospital, where she had been taken\nfor medical treatment a few hours\nbefore her death.\n\n\nLeroy, the infant ,son Of ]. w.\nHefling. E2307 Sprague avenue, was\nburied this morning at Greenwood\ncemetery.\n\n\nMrs. M. J. Reynolds, the woman\nsuffrage orator will give this week\nto work in the Pasco-North Yakima\ndistrict.\n\n\nA boarding house at Front and\nMarket, being moved off the right\nof way Of the Milwaukee, stalled on\nthe tracks of the Inland and caused\nan II hour interruption of traffic\nat that point Passengers were\ntransferred around the building.\n\n\nA. suffrage meeting will be held\ntonight at the First Universalist\nchurch, Fifth and Howard. Albert\nH. Brown will be the speaker.\n\n\nRepresentatives from the various\nwomen's clubs will meet at the Y.\nM. G.. A. at 2:30 tomorrow after\nnoon to make arrangements for\nwoman's day at the interstate fair\n\n\nA business meeting will be held\nat the Emmanuel Baptist church\nafter the services next Sunday\nmorning, when the question of NAM\ning a pastor will be considered.\n\n\nA fire which threatened to do\n100000 or more damage, was\nchecked at the 100000 mark early\nSunday morning, when the Musser\nlumber mill was destroyed. The\nlumber of the Washington Mill Co.\nwas saved and $4,000 damage was\nreported by the Union Iron Works.\nJames Carroll, II, was taken Into\ninformal custody by the police who\nwill try and get him a job. He\nsays he beat his way here from\nMadison, Wis.\n\n\nRobbers held up |. e. Snathem,\n| E33 Nora avenue, Saturday night\nand took S3.45 in cash and a watch.\nellis Sapp, ardent courier OF\n! Mrs. Weart, nee Jimason, was re-\nleased from Jail Saturday night\nafter being warned to behave him\n| self"
+    }
+  ]
+}

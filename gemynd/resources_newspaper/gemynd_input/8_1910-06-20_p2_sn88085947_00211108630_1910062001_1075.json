@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "CELEBRATE\n\n\nSTATEHOOD",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-20",
+    "date_end": "1910-06-20",
+    "report_year": 1910,
+    "source_file": "8_1910-06-20_p2_sn88085947_00211108630_1910062001_1075",
+    "archive_ref": "8_1910-06-20_p2_sn88085947_00211108630_1910062001_1075",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-06-20_p2_sn88085947_00211108630_1910062001_1075",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 7.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "statehood"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 74,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "statehood",
+            "weight": 2.5,
+            "offset": 214,
+            "in_headline": false
+          },
+          {
+            "term": "statehood",
+            "weight": 2.5,
+            "offset": 12,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(ey United Press Leased Wire)\n\n\nSANTA FEE, N. NJ, June 20.-Al\nbuquerque and other cities and\ntowns will celebrate the signing OF\nfireworks and oratory. Santa FEES\ncelebration began Saturday when\nthe passage of the statehood bill\nwas announced.\n\n\nActing Governor Jaffa today re.\npiled felicitously to kilograms OF\ncongratulations from the governor\nand other officials of Arizona, which\nwill enter the union at the same\ntime as New Mexico under the new\nlaw."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": ".HENEY ON HALLS TRAIL\n\nTRIAL OF JOHN HALL, FORMER\nV. S. ATTORNEY FOR LAND\nFRAUDS, BEGINS AT PORT\nLOND TODAY.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-13",
+    "date_end": "1908-01-13",
+    "report_year": 1908,
+    "source_file": "6_1908-01-13_p1_sn88085947_00211108587_1908011301_0108",
+    "archive_ref": "6_1908-01-13_p1_sn88085947_00211108587_1908011301_0108",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-01-13_p1_sn88085947_00211108587_1908011301_0108",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy"
+        ],
+        "agriculture": [
+          "livestock"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 272,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 365,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 458,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "PORTLAND. Jan. 13.-The first\nland fraud trial called in Portland\nunder direction of Heney for over\nyear opened this morning before\nFederal Judge Hunt, when John\nHall, former United States district\nattorney, charged with illegally\nfencing government lands, was\nbrought up for trial. With Hall is\nassociated Winlock w. Steiwer as\nco-defendant.\n\n\nHall is charged with conspiracy\nfor illegal fencing in which 1880\nacres of public lands were inclosed\nand used by livestock corpora\nton as pasture. The morning ses-\nsion was consumed in preliminary\nmotions.\n\n\nVeniremen were ordered to re-\nport at court at 2 o'clock in the aft\nernoon for examination. Heney\ncharged Hall with obstructing him\nIn his work of rounding up land\nfrauders and finally had him dis\nmissed from Office. Hall has al\nways maintained he was innocent.\n\n\n1t is expected that the trial Will\nlast about two weeks and that fully\n80 witnesses will be examined\n\n\nA motion for a separate trial\nmade by John Hall over two years\nago before the late Judge Bellinger\nand a motion for a plea in abate-\nment made by Franklin p. Hays al\nthe same time, We're found on the\ndocket this morning by Judge\nHunt and will have to be disposed\nof before Francis J. Heney can get\ndown to the real work of trying\nHall on the charge of conspiracy\nand land fraud. The motions had\nbeen forgotten by both sides.\n\n\nJudge Bellinger died before he\nruled upon them and the eases had\ndragged ever since that time. Both\nHall and Hays took until tomorrow\nto decide what steps they would\ntake in regard to the motion."
+    }
+  ]
+}

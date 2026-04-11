@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "DELEGATES GATHER To\n!. DISCUSS COAL famine",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-26",
+    "date_end": "1903-01-26",
+    "report_year": 1903,
+    "source_file": "5_1903-01-26_p1_sn88085947_00211108526_1903012601_0275",
+    "archive_ref": "5_1903-01-26_p1_sn88085947_00211108526_1903012601_0275",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-01-26_p1_sn88085947_00211108526_1903012601_0275",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 123,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 81,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 220,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the work of the commission now in\nvestigating the cause of the anthra-\ncite coal strike, but to inquire into\nthe conditions which are becoming so\nalarming throughout the country and\nto devise. If possible, some means of\nrelief. Another purpose in holding\nthe convention in Washington is to\nbring the opinions of representative\nbody of men before the federal gov\neminent and congress. BY doing this\nit is hoped the federal authorities\nwill be induced to take the necessary\naction for the welfare of the peo-\npie\" instead of listening to the\nclaims of the mine operators and dis\ntributors, who are more interested in\ngetting exorbitant prices. 1t is urged.\nthan they are in supplying the actual\nnecessities of freezing humanity\""
+    }
+  ]
+}

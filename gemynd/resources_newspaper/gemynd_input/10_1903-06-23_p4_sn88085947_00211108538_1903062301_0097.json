@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NO more BODIES FOUND\n\n\nIN DEBRIS OF WRECK",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-23",
+    "date_end": "1903-06-23",
+    "report_year": 1903,
+    "source_file": "10_1903-06-23_p4_sn88085947_00211108538_1903062301_0097",
+    "archive_ref": "10_1903-06-23_p4_sn88085947_00211108538_1903062301_0097",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1903-06-23_p4_sn88085947_00211108538_1903062301_0097",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 187,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 195,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One of the bodies at the morgue, a\nvictim of yesterdays wreck disaster\n81 the Division street crossing of\nthe 8. F. & N, was positively identi-\nfed this morning as that of a casual\nworker at the Great Northern shops\nat Hillyard known as Bill Thomas.\nThe men who identified the remains\nwere C. c. Persons of 316 Riverside\navenue and Albert Hegstrom of 1922\nClark street.\n\n\nThey told Morguekeeper Smith that\nthey knew nothing of Thomas ante\ncedents and only knew him as one\nwho had been for a few days doing\nodd Jobs about the Hillyard shops.\n\n\n1t was on the remains identified as\nthose of Thomas that the two pay\nchecks were found yesterday, 1t is\nnot known how he came into pos\nsession of them, but it is possible\nthat he may have had money and\ncashed them for Hunt and Epellman.\n\n\nCoroner Smith is working after\nfacts which will throw. light on the\ncauses Of the disaster. What infor-\nnation he has gained he keeps to\nhimself. He does not know when\nhe will hold an inquest. and 1t may be"
+    }
+  ]
+}

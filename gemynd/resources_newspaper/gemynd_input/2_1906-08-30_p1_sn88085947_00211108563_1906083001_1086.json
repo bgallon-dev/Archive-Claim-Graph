@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MAKES It\n\n\nLOOK SICK",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-30",
+    "date_end": "1906-08-30",
+    "report_year": 1906,
+    "source_file": "2_1906-08-30_p1_sn88085947_00211108563_1906083001_1086",
+    "archive_ref": "2_1906-08-30_p1_sn88085947_00211108563_1906083001_1086",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-08-30_p1_sn88085947_00211108563_1906083001_1086",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 251,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 94,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "From the tenor of discussion\namong men affected the increase\ngranted carmen by the Washington\nWater Power company is not re-\ngarded as anything extraordinary\neven for that concern. Said one\ntoday: -\n\n\n\"The Washington Water Power\ncompany has received lot Of\ncheap advertising during the last\nfew days because it's men received\na raise of 1 cent per hour. This\nraise\" amounts to between so and\nrs cents per hour, only that number\nOf men being affected out Of the\nhundreds employed. The manage\nment called the night crews into\nthe Office at the barn and told them\nthat the concern was only making\na profit of 1 cent on each passenger\ncarried; that under these circum-\nstances it would refuse to pay an.\nother cent; that the men were re-\nceivtng more now than they were\nworth. In regard to the complaints\nOF the men on the overcoats fur\nnished by the company they were\ntold that they showed base ingrati-\ntude in obejecting to the regula-\nton coat furnished them at so\nmuch per coat. This grievance.\nhowever, would, so the official\nstated, receive his careful consid-\nGRAFTON. To portion Of the day\ncrews an Increase was granted,\nabout rs men getting the benefit.\nIn view of the statement from\nNew York recently that the net\nearnings OF the Washington Water\n\n\nPower company last year amounted\nto $500,000 the statement made by\nthe management that a profit Of\nonly l cent per passenger is made\nlooks rather debatable.\""
+    }
+  ]
+}

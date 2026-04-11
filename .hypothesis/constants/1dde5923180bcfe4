@@ -1,0 +1,4 @@
+# file: C:\Users\octot\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\jose\backends\cryptography_backend.py
+# hypothesis_version: 6.151.9
+
+[b'-----BEGIN CERTIFICATE-----', 8.0, 256, 'ASCII', 'CBC', 'EC', 'GCM', 'Invalid JWE Auth Tag', 'Invalid signature', 'P-256', 'P-384', 'P-521', 'PKCS1', 'PKCS8', 'RSA', 'alg', 'big', 'crv', 'd', 'dp', 'dq', 'e', 'k', 'kty', 'n', 'oct', 'p', 'private_bytes', 'public_bytes', 'public_numbers', 'q', 'qi', 'secp256r1', 'secp384r1', 'secp521r1', 'tag cannot be None', 'to_pem', 'utf-8', 'x', 'y']

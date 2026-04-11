@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "JUDGMENT FOR $4,000 ENTER\nED AGAINST NORTHERN PA.\nCiFlC IN NOTED STRUGGLE\nOVER CORBIN RAILROAD.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-31",
+    "date_end": "1909-03-31",
+    "report_year": 1909,
+    "source_file": "2_1909-03-31_p1_sn88085947_00211108599_1909033101_0966",
+    "archive_ref": "2_1909-03-31_p1_sn88085947_00211108599_1909033101_0966",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-03-31_p1_sn88085947_00211108599_1909033101_0966",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 155,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 46,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "After % years Of continuous liti-\ncation, the Northern Pacific is call\ned upon to pay about $4,000 in\nJudgment and costs growing out Of\nthe alleged failure of D. G. Corbin\nto meet all of his obligations in the\nbuilding Of the old Occur d'Alene\nRailway & Navigation Co.'S line In\nthe early SOS.\n\n\nThe case, which has once been to\nthe United States court of appeals,\nwas passed upon by Judge Whit\nson of the federal court, who enter\ned Judgment against the Northern\nPacific on every point.\n\n\nThe plaintiff In the case Is JOS\neph Fl. Boyd of the National iron\nworks on North Division street.\nwho with q partner, William II.\nSpaulding, built a section of the\nCorbin road to the Coepr, S,Alenes,\nThe original claim of Boyd and\nSpaulding was $23.675.S5, which\nwith interest, court costs and other\nexpenses. has now nearly qaudru-\npied,\n\n\nAfter Corbin built the road he"
+    }
+  ]
+}

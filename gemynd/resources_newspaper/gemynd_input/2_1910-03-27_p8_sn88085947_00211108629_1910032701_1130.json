@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "TREATMENT OF ORES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-27",
+    "date_end": "1910-03-27",
+    "report_year": 1910,
+    "source_file": "2_1910-03-27_p8_sn88085947_00211108629_1910032701_1130",
+    "archive_ref": "2_1910-03-27_p8_sn88085947_00211108629_1910032701_1130",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-03-27_p8_sn88085947_00211108629_1910032701_1130",
+      "composite_score": 15.12,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 5.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ],
+        "mining": [
+          "smelter",
+          "mine owner",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 289,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1066,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1066,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 1325,
+            "in_headline": false
+          },
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 453,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 173,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "plicable. Before adopting any par\nticular process of concentration,\ncareful experiments and practical\nworking tests must be made in the\nlaboratories, on samples of aver\nage ore OF sufficient quantity.\n\n\nGenerally, however, it may be\nstated that when ore of payable\nvalue can be cheaply mined on a\nlarge scale, and cheaply transport\ned, the best results are obtained\nby shipment in bulk to the smelt\ners, from which special rates can\nbe obtained, if the mine owner is\nable to contract for large and regu\nlar supplies of ore. BY shipping\nin bulk the following advantages\nare derived:\n\n\nThe capital cost, and time neces-\nsary to erect and operate a com\nplete smelling plant, and i'll add\nton thereto a complete crushing\nand concentrating plant is entirely\nsaved.\n\n\nUnless ores are specially suit\nable for concentration, the losses\nin fine shines and in the taillngs\nfrom concentration plants may\nvary from Il per cent to 90 per\ncent of the original value.\n\n\nThe concentration, which has\nnow cost so much to produce, must\nthen be shipped in sacks and han\ndied at higher freight rates, wheth\ner it is smelted locally, or whether\nit is loaded, transported and smelt\ned. The samplins of wet concen\ntrates is liable to be erratic. as it is\n, impractiCable to dry and mix them\nproperly. In addition 10 this, being\nfinely crushed, the smelter, on re\nceipt Of them, has to \"briquette'\nthem with some binding material\nto prevent the fines being carried\naway into the flues. The cost OF\nbriquetting adds from S1.00 per tor\nand upwards to the cost OF treat\nment, hence, as above mentioned\nil is better TO arrange to ship II\nbulk wherever it is practicable."
+    }
+  ]
+}

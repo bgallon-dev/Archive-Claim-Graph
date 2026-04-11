@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "SPOKANE MEN HAVE\n\n\nSOLD REVIEW MINE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-11",
+    "date_end": "1907-04-11",
+    "report_year": 1907,
+    "source_file": "8_1907-04-11_p4_sn88085947_00211108575_1907041101_0559",
+    "archive_ref": "8_1907-04-11_p4_sn88085947_00211108575_1907041101_0559",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-04-11_p4_sn88085947_00211108575_1907041101_0559",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "assay",
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 145,
+      "match_details": {
+        "mining": [
+          {
+            "term": "assay",
+            "weight": 1.5,
+            "offset": 631,
+            "in_headline": false
+          },
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 496,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Bank of Commerce, of Green\nwood. B. c., has bought the con-\ntrolling interest in the Review mine,\nlocated at Bolster, Wash, from\nPeter Larsen, Patrick WEIGH and\nJ. w. Stewart. Spokane railroad\nThe deal was consum-\nmated through John T. Beattie,\nmanager of the bank. The mine has\nbeen closed down for 4 years on ac-\ncount of lack of cheap transporta-\nton. Operations will begin again,\nhowever. The Victoria, Vancouver\n& Eastern railroad has agreed to\nbuild a branch to Bolster and haul\nReview ore and other ore of the\nMyers Creek district. The mine\nwas purchased in 1900 for $35 600\nand that much more was spent in\nAlthough the assay\nreturns average S17 to the ton, ship\nments have been profitless on &C\ncount of the long wagon haul. The\nconsideration is said to have been\nclose to SO 900."
+    }
+  ]
+}

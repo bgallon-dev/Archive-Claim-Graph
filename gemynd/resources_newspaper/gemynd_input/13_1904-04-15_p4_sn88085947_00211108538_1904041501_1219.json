@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "water TALK\n\nCITY COUNCIL AND CITIZENS\nWILL DISCUSS SITUATION TO-\nNIaHT-GILL OPPOSES REsER-\nvoIR AS TOO EXPENSIVE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-15",
+    "date_end": "1904-04-15",
+    "report_year": 1904,
+    "source_file": "13_1904-04-15_p4_sn88085947_00211108538_1904041501_1219",
+    "archive_ref": "13_1904-04-15_p4_sn88085947_00211108538_1904041501_1219",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1904-04-15_p4_sn88085947_00211108538_1904041501_1219",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 98,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 95,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 12,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Fred F. Baldwin, at the request of\nthe taxpayers league committee, has\ncalled a meeting of the city council\nTO be held in the council chamber this\nevening.\n\n\nThe purpose of the meeting is to\ndiscuss with the city officials the con-\nstruction of a 10000, 000-gallon reser-\nvoir and the ACCESSIBILITY of installing\nwater meters. City Engineer Gill is\nstrongly opposed to the erection of a\nreservoir, as is also Commissioner\nHandley. Mr.. Gill will present figures\nto the taxpayers league and members\nof the city council showing that a\nreservoir can not be erected for less"
+    }
+  ]
+}

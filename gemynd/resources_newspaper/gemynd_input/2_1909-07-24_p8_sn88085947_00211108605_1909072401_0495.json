@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-07-24 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-24",
+    "date_end": "1909-07-24",
+    "report_year": 1909,
+    "source_file": "2_1909-07-24_p8_sn88085947_00211108605_1909072401_0495",
+    "archive_ref": "2_1909-07-24_p8_sn88085947_00211108605_1909072401_0495",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-07-24_p8_sn88085947_00211108605_1909072401_0495",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 162,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 206,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ply closed where necessary, to be\nreOpened when traffic demanded,\ngoverned the various agreements,\nand Lambert was also responsible\nfor provision that all viaducts be\nconstructed of concrete and steel.\nThe Great Northern objected on\nthe ground that 1t would be impos.\nsible to get the steel by the time\nthe crossings were needed, but the\nrule went through.\n\n\nMost of the concessions were ac-\ncorded In Difference to the argu-\nments offered and intelligent inter\nest shown by several property\nowners who followed the proceed\nings closely on the map and had\nno hesitancy in making their needs\nknown.\n\n\nThe lines of both roads were\nconsidered jointly as they run\nthrough this section. Grade sepR-\nration was ordered for the follow.\ning streets: Sixteenth, Fourteenth\nat the Great Northern crossing;\nEleventh and Decatur. Eleydae(\nand A, at the North Coast crossing;\nMelbourne. North Coast crossing;\nbetween Ninth and Tenth. Eighth\nand, Ninth, both roads; Fifth av-\nenue, both roads; Second, North"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "ENGINEER s\nOFFICE IS\n\n\nCOSTLY\n\nDeputies Gaily Take Long\nVacations on Full Pay\n\n\nA Few Facts.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-10",
+    "date_end": "1910-12-10",
+    "report_year": 1910,
+    "source_file": "4_1910-12-10_p1_sn88085947_00211108654_1910121002_0812",
+    "archive_ref": "4_1910-12-10_p1_sn88085947_00211108654_1910121002_0812",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "4_1910-12-10_p1_sn88085947_00211108654_1910121002_0812",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 466,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 906,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 1358,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "While the probe Is being In.\nserted in different departments at\nthe city hall It will not do to slight\nthe engineers office. That ancient\nand tIme-honored institution OF\npolitical and other activity can al.\nways be depended upon to produce\nsomething worth going after, If the\ninquisitor will but delve deep\nenough.\n\n\nThe purpose of this article is not\nto say anything harsh about the\nengineers office at this time. be-\ncause City Engineer Mccartney is\nan awfully nice fellow, and The\nPress hates like the mischief to\ninjure the feelings of good fell\nlows. But there are one or two\nthings in connection with the Of\nflee that it might not be amiss at\nthis time to call to the attention of\nMr.. Mccartney, just as they have\nbeen placed before The Press.\n\n\nTo begin with, it is understood\nthat A. d. Butler, Macartney's s\nchief deputy. has Just returned\nfrom a 45-day vacation at full pay,\nSITS per month. The city charter\nsays that 10 days is the extent of\nthe vacation allowed any one of.\nficial in single year-but what\ndoes it matter, when we see Mayor\nPratt go away for five weeks and\npull down his little 1894 per\nmonth on his return, just the same\nT! Then there is Mr.. Klifeld. an\nassistant engineer at $135 per. Mr.\nklifeld wants to go to see the old\nfolks back in New York state OF\nsome other place in the east, SO\nMr.. Mccartney has asked the\nboard of public works or the coun.\nGil to send Mr.. Klifeld east at full\npay and expenses to attend a\npaving convention of some sort. Ii\nis to be hoped that the price of\npaving will not be hoisted above\npresent figures on the return OF\nMr.. Klifeld. So it may be cheaper\nfor the taxpayers to pay the ex.\npenses of Klifeld and let the paw.\ning business stand where it is, for\nit is high enough already.\n\n\nThen there Is the winter sched,\nule\" in the engineers office, which\nhas just gone into effect. This\nschedule works this way; All the\nrod or men and inspectors EN-\nployed at SO per day are laid off\nfor the winter and the high priced\nengineers are kept on. The engi\nneers then turn In and act as rod\nmen for each other. in order tC\nkeep busy, the only difference be\ning that the city pays 81 or So pei\nday for carrying the chain, while\nformerly 1t paid but SO. The en-\ngineers are mostly single fellows\nwho live well and need the money\nwhile the rod men and inspectors\nare largely common scrub tax\npayers with families to support\nand can i've during the winter on\nwhat they earned in the summer"
+    }
+  ]
+}

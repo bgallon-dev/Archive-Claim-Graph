@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SUPREME COURT ON TRIAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-12",
+    "date_end": "1908-11-12",
+    "report_year": 1908,
+    "source_file": "2_1908-11-12_p4_sn88085947_00211108599_1908111201_0053",
+    "archive_ref": "2_1908-11-12_p4_sn88085947_00211108599_1908111201_0053",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1908-11-12_p4_sn88085947_00211108599_1908111201_0053",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 333,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1264,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Rumors affecting the integrity Judge Root of this\nstate have Judge Root and his colleagues the bench\n. demand for investigation\n\n\nIn vong this demand the has selected its\ntribunal-the associated attorneys\n\n\nWith all the\nof honesty and ability handle such be\nthey capacity compose\nproperly with power place smember the\nsupreme\n\n\nThe instituted maintained by the people\nof the anweable making abiding pub\nlie alone this public\ntain the facts and to administer the penalty\n\n\nIn view of the initiative in the matter\nspecial session the legislature justified for this investigation\nThe bar association aors under the being the nv\ntgaon named by the party under accusation the\nwhich the acted be correctly deemed accusation\ndence and fix punishment\n\n\nthere is anything with this the\nmnair nublc confidence in the states highest tribunal to an alarm\ning degree already jurisdiction\n\n\nNo matter how favorable the bar commission find\npublic opinion that be already formed will undergo\nchange desired\n\n\nthe other against Judge\nthe legislature would with finally prob\nability The would be too serious to be disposed\nthan at the bar of public\n\n\nConsideration of this matter naturally brings\nshortage out of which the concerning Judge\n\n\nJudge Gordon short\nto the extent $4,000 Great Northern officials\nthe company brought criminal CIVIL\ncashier paymase under similar circumstances would\n\n\npublic company afraid to\nDO So that Judge Gordon holds over the Hill interests club of\nvae Information because former official relations\nnot faunt.\n\n\nsearchlight RAILROAD interests\nin this have long coupled with political\nin that connection the itself has not\nbefore the Gordon\n\n\n1t has\nrailroad influences reached branch\nNobody positively\nimation that\nform of public entimenthe\n\n\n\n\n\nRight the time to either establish the\ncourt of this above\nthis\napply clean vigorous\nThe inviting\nthe extend\nstead\n\n\nO iudi\nciouy permit unofficial\ncannot safely permit undischarged\n\n\n\nreproach\ncharges the guilty punished\nIf, nor minded\npatriotic citizen will\n\n\n\n\n\n\n\n\nreality presented pub\nlie the professional The\nelusive the judiciary of this will\neasily efface.\n\n\n\n\n\nproofs o"
+    }
+  ]
+}

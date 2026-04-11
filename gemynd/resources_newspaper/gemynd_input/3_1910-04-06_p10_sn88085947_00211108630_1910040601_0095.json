@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-06 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-06",
+    "date_end": "1910-04-06",
+    "report_year": 1910,
+    "source_file": "3_1910-04-06_p10_sn88085947_00211108630_1910040601_0095",
+    "archive_ref": "3_1910-04-06_p10_sn88085947_00211108630_1910040601_0095",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-04-06_p10_sn88085947_00211108630_1910040601_0095",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 364,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 382,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1103,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and the question of the responsible\nity for the monstrosity landed or\nthe shoulders of the taxpayers sc\nplain that he could no longer, If\nhe would, evade his duty by voting\nto retain Ralston.\n\n\nLAMBERT SCORES ENGINEER\n\n\nLambert said that he had con.\ntended for two years that Ralston\nwas untitled for the place. Are\nwe going to have repetition of the\nSprague avenue fill on the new\nMonroe street bridge?\" asked Lam.\nbert. Already there has been ex.\npended on the bridge some $S1 900\nand what is there to show for it?\nWe can not tell what the Sprague\navenue fill will cost before it is\nfinally completed. Ralston has\ncost the taxpayers in two years\n100000, and if he continues in\noffice he may bankrupt the city be-\nfore he gets through\"\n\n\nc. w. Mohr: \"A year ago the\nmatter of the removal of Ralston\nwas up and had I-voted for it then\nwe might have terminated this\ntrouble at that time. ] am sorry\nnow that | did not favor the move\n| want Mr. Ostrander to point to\na single job of any size built by\nRalston that was finished in accord.\nance with the plans and within the\nestimate. There is not one. The\ncity council has time and again\nbeen fooled-bunkoed by the\nsmooth talk of Ralston.\"\n\n\nCouncilman Shaefer said that\nsince the court had placed the re-\nsponsibility for the Sprague avenue\nmuddle on the shoulders of Ralston\nhe accepted the judgment of the\ncourt He had examined the papers\nin the case and conceded with the\nfindings of the court. But he OPP\nposed the removal of RalstOn at\nthis time because of the amount of\nwork pending,\n\n\nOstrander presented a lot of fig\nures on work that the engineers\noffice turned out last year and had\nunder way at the present as an\nargument for the retention of Raj\nston, all of which Lambert insisted\nwas further proof that competent\nman was needed to handle these\nlarge undertakings.\n\n\nWhen the final vote of the coun-\nGil removing Ralston was an\nnounced there was a loud cheer of\napproval from the large audience\npresent."
+    }
+  ]
+}

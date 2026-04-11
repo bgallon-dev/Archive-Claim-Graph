@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "BY W. S. CHARLES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-18",
+    "date_end": "1910-04-18",
+    "report_year": 1910,
+    "source_file": "5_1910-04-18_p9_sn88085947_00211108630_1910041801_0276",
+    "archive_ref": "5_1910-04-18_p9_sn88085947_00211108630_1910041801_0276",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-04-18_p9_sn88085947_00211108630_1910041801_0276",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 3.5,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "livestock",
+          "wheat",
+          "irrigation"
+        ],
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 569,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 929,
+            "in_headline": false
+          },
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 946,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 1365,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1817,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MO portion of the great empire\n\n\nIN of the northwest is attracting\nmore attention at the present\ntime than that portion of Washing.\nton which lies on either bank Of the\nmighty Columbia and her many\ntributaries, known as the Okanogan\ncountry, embracing within its scope\nthe counties of Okanoean, Cheian\nand Douglas. It is an empire within\nan empire, rich in timber and min.\neral, and embracing within itself an\narea greater than many Of the east\nern states.\n\n\nThrough its very center. through\na great gorge, rolls the Columbia,\nthe marvel of all the rivers of the\nwest, fed here and there along her\ncourse by lesser streams, which add\nvolume to her waters, creating\ngreat channel of commerce for the\nfleet of river steamers which ply\ndaily upon her bosom from Wenat-\nchez on the south to Bridgeport on\nthe north. carrying up cargoes of\npassengers and freight intended, for\nthe development of the country;\ncarrying down cargoes of wheat,\nfruit and livestock to that outer\ndomain which is just beginning to\nawake to the rare possibilities of\nthe new empire within.\n\n\nAlong the fertile valleys of the\nMethow and the Okanogan rivers\nand other streams which empty\ninto the Columbia, is a busy scene\nof activity. Great orchards are be-\ning laid out and planted in the rich\nsoil, with the promise of rich re-\nturns to the owners in the near\nfuture. The Okanogan government\nirrigation project is being rapidly\ncompleted for the watering of thou\nsands of acres of the finest apple\nand peach lands in the northwest.\nUp the Methow valley, on Brewster\nflat. and at other points, other\ngreat irrigation projects are in\nactive operation or in course of con-\nstruction. Down the Okanogan val\nley numerous railroad construction\ncamps are located, each one busy\nfrom morning till night building the\nOroville-Wenatchee extension of the\nGreat Northern railway. the reach\ning out of the arm of transportation\nto seize the great bulk of tonnage\nwhich is already in waiting and\nwhich is daily being added to by\nthe rapid development of the reg\nion.\n\n\nA myriad of lakes and mountain\nstreams are to be found in this\nregion, favorable to fishing, min\ning and stock raising as well as the\nirrigation. The high mountains,\nlying further back, with glaciers\nand snow capped peaks, assure an\nabundance of water the year\nround. These mountain ranges are\nthe hunters paradise. Black tail\nand mule deer, as well as bear\nabound. White goats also are num-\nArous in the mountain ranges. On\nthe higher mountain plateaus on\nhe west portion of Okanogan coun-\ny are also to be found the only\nbig horn TO be found in Washing\nION.\n\n\nThe whole region with its mar\nvelous resources, lies within the\nnatural supply belt of Spokane\nThe completion of the proposed\nelectric line from Spokane to the\nColumbia river and further points |\nwould open up great wholesale !\nregion which would become practi |\ncallv exclusive territory for Spo-\nkane. All surveys have been made |\nand the assurance is given that the\nbuilding of the road is at no far\ndistant date. This would bring a\ngreat tributary province within |\neight hours run to Spkane and add |\ngreatly to the commercial suprem- |\nacy OF this rapidly growing city. /,\nAdded impetus would be given to\ndevelopment of the mineral wealth"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+version: "1"
+# Measurement species vocabulary.
+# The newspaper corpus does not primarily deal with wildlife counts,
+# so this file ships minimal.  The measurement extractor will still
+# extract numeric quantities (dollars, acres, population counts, etc.)
+# via the unit patterns in measurement_units.yaml; this file only
+# controls the species-noun-after-number heuristic.
+#
+# If Turnbull pre-history articles contain wildlife mentions, add
+# species terms here incrementally.
+
+type_hints:
+  head: livestock
+  cattle: livestock
+  horse: livestock
+  sheep: livestock
+  hog: livestock
+  acre: land_unit
+  bushel: crop_unit
+
+immediate_patterns:
+  - "head"
+  - "cattle"
+  - "horses?"
+  - "sheep"
+  - "hogs?"
+  - "bushels?"
+  - "acres?"
+  - "tons?"
+  - "persons?"
+  - "men"
+  - "women"
+  - "voters?"
+  - "members?"

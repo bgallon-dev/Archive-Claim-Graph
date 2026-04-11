@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOW ALLEN HELPED\n\n\nTO Reflect DOAK",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-07",
+    "date_end": "1906-11-07",
+    "report_year": 1906,
+    "source_file": "3_1906-11-07_p1_sn88085947_00211108575_1906110701_0022",
+    "archive_ref": "3_1906-11-07_p1_sn88085947_00211108575_1906110701_0022",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-11-07_p1_sn88085947_00211108575_1906110701_0022",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 146,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 313,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Notwithstanding the reelection\nOf Sheriff Doak by good majority,\nF. M. Allen, business agent of the\nlocal electrical workers union,\nwants to make it plain that he at\nno time made any settlement of the\ngrievances of his union against the\nsheriff for appointing men as dep\nuties who were employed by the\nWashington Water Power company\nto fill the place of the striking\nlinemen. The reason Mr.. Allen\nmakes this statement is due to the\nfact that Doak circulated report\nduring the last few days OF the\ncampaign that all differences be-\ntween him and the union had been\nsettled.\n\n\n1t might be as we'll to explain\nthat Mr.. Allen and many other\nmembers of his union were not in\nposition to do Mr.. Doak any\ngreat damage, as they had got into\nMr.. Corbin's habit of not register\ning. and were unable to vote."
+    }
+  ]
+}

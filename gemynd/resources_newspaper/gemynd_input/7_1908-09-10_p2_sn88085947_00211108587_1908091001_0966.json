@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FRUIT CROPS MAKING\n\n\nBIG MONEY",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-10",
+    "date_end": "1908-09-10",
+    "report_year": 1908,
+    "source_file": "7_1908-09-10_p2_sn88085947_00211108587_1908091001_0966",
+    "archive_ref": "7_1908-09-10_p2_sn88085947_00211108587_1908091001_0966",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-09-10_p2_sn88085947_00211108587_1908091001_0966",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "fruit grower"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 122,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "fruit grower",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Fruit growers in Chelan county\nare reaping a rich harvest for their\nfruit this year. Everything points\nto the present year being one of\nthe most prosperous in her history.\n\n\nThe peach crop is nearly all pick.\ned, and, while the price has not\nbeen high, the great increase in the\ncrop has placed lots of money in\nthe fruit growers pockets.\n\n\nThe cantaloupe and the tomato\ncrops were the most profitable of\nthe early products, and the prices\npaid for these were the highest\never paid before for like products\nin the Wenatchee valley.\n\n\nThe apple crop will also be big.\nThe various fruit growers associa-\ntions expect to place the apples in\npool at prices ranging from $1.25\nto 1925."
+    }
+  ]
+}

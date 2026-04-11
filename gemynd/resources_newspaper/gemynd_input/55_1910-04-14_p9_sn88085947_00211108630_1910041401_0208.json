@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-14 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-14",
+    "date_end": "1910-04-14",
+    "report_year": 1910,
+    "source_file": "55_1910-04-14_p9_sn88085947_00211108630_1910041401_0208",
+    "archive_ref": "55_1910-04-14_p9_sn88085947_00211108630_1910041401_0208",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "55_1910-04-14_p9_sn88085947_00211108630_1910041401_0208",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 125,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nTo eliminate any danger Of the\ncity ever going in darkness, the\nWashington Water Power Co. has\nprovided an elaborate system of\nstorage batteries to be thrown into\ncommission at any emergency.\n\n\nThe death Of Mrs. Samuel Green.\nberg, wife of the Spokane business\nman, occurred yesterday at Repub-\nlie, Wash. The funeral will be held\nhere from the orthodox Jewish tenn\npie tomorrow at 10 o'clock.\n\n\nIn the offices Of Mayor Pratt yes.\nterday j. b. Combs addressed the\ncampaign committee of the anti\ntuberculosis fight that is to be made\nin this city the week beginning\nApril 25.\n\n\nThe jury in the murder case\nagainst Sim Lewis yesterday re-\nturned verdict of manslaugbter\nwith the recommendation that the\nvery llghtest sentence be imposed"
+    }
+  ]
+}

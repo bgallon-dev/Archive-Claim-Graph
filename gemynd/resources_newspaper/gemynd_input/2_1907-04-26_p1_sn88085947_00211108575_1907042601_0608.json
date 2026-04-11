@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "To REPORT ON\n\n\n/. WRECK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-26",
+    "date_end": "1907-04-26",
+    "report_year": 1907,
+    "source_file": "2_1907-04-26_p1_sn88085947_00211108575_1907042601_0608",
+    "archive_ref": "2_1907-04-26_p1_sn88085947_00211108575_1907042601_0608",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-04-26_p1_sn88085947_00211108575_1907042601_0608",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 328,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A. w. Perley, inspector of tracks\nand safety appliances for the state\nrailroad commission, with head\nquarters at Olympia, is in the city.\nHe has just returned from an in\nspection of the Kennewick wreck,\nof which he will say little, as no re-\nport has yet been submitted to the\nn1n1ission. The office occupied by\nMr.. Perley was created at the last\nsession of the legislature for the\nbenefit of railway employees and\nsince, April 1 Mr.. Perley has made\nan extensive record Of inspections.\n\n\nThe contemplated action taken by\nthe commission to compel the n. p.\nto build double track on either\nside of the Cascade tunnel for the\npurpose of relieving traffic conges-\ntion has been abandoned. as this\nroad has reduced it's tonnage to\nsuch an extent that an improvement\nIs looked for. After close inspection\nMr.. Perley attributes the main\ncause of the congestion to the fault\nof the operators in keeping trains\nstanding upon sidings an unneces-\nsary length of time. At the pres\nent time a train passes through this\ntunnel every SO minutes.\n\n\nMr.. Perley's first complaint TO\nthe commission called attention to\ndisabled cars hauled by means Of\nchain couplings past places where\nrepairs could have been made, in\nviolation of both state and federal\nlaws. He found cars at Ellens-\nburg, chained together, ready to be\nhauled to Tacoma for repairs, it\nbeing a common practice Of the y.\nP. TO haul cars from near the shops\nat Pasco over the mountains to\nTacoma.\n\n\nThe new laws passed at the last\nsession of the legislature will be\nenforced by Mr. Perley June IA.\nOne restricts all railway companies\nthroughout the state from working\ntheir men more than 16 consecu-\ntive hours. Another requires that\nall fagmen must be able to speak\nEnglish.\n\n\nMr.. Perley was for % years an\no. r. & N. engineer. He is max.\ning an official inspection of tracks\nand equipment in this city."
+    }
+  ]
+}

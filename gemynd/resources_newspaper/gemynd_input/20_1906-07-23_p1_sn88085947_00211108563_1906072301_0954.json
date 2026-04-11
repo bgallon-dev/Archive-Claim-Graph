@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CHANCE FOR\n\n\nPAP00SES",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-23",
+    "date_end": "1906-07-23",
+    "report_year": 1906,
+    "source_file": "20_1906-07-23_p1_sn88085947_00211108563_1906072301_0954",
+    "archive_ref": "20_1906-07-23_p1_sn88085947_00211108563_1906072301_0954",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "20_1906-07-23_p1_sn88085947_00211108563_1906072301_0954",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "allotment"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 67,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "allotment",
+            "weight": 2.0,
+            "offset": 133,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MUSKOGEE, I. T., July 23.-To-\nday Is the last day on which Indian\nbabies can be enrolled so as to\nsecure for them their share in the\nallotment. Although the number\nof Indian babies enrolled during\nthe last few days has been consid-\ncradle, it is believed that many\nIndians In the remote districts\nhave neglected to register their\nbabies, thus FORGETTING their share\nin the allotment."
+    }
+  ]
+}

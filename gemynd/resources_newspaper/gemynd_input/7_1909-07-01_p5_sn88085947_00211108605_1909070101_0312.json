@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MILWAUKEE, INVADES\n\n\nHARTMAN TERRITORY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-01",
+    "date_end": "1909-07-01",
+    "report_year": 1909,
+    "source_file": "7_1909-07-01_p5_sn88085947_00211108605_1909070101_0312",
+    "archive_ref": "7_1909-07-01_p5_sn88085947_00211108605_1909070101_0312",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-07-01_p5_sn88085947_00211108605_1909070101_0312",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "milwaukee road"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 70,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "milwaukee road",
+            "weight": 2.0,
+            "offset": 23,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE, July THAT the\nMilwaukee road intends to consid-\ner all Pacific coast ports its field\nfor getting freight and passengers\nlis evident from an arrangement en-\ntered into with the Alaska Pacific\nSteamship Co. to gather freight at\nCalifornia points to be delivered In\nthis city for eastern shipment. The\nfirst carload of freight has ar\nrived on the Admiral Sampson and\nwas Immediately dispatched east\nover the Milwaukee."
+    }
+  ]
+}

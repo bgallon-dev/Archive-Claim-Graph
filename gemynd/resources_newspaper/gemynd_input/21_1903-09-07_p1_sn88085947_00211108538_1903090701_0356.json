@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Railroad to Cut\n\n\nOFT Myers Falls",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-07",
+    "date_end": "1903-09-07",
+    "report_year": 1903,
+    "source_file": "21_1903-09-07_p1_sn88085947_00211108538_1903090701_0356",
+    "archive_ref": "21_1903-09-07_p1_sn88085947_00211108538_1903090701_0356",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1903-09-07_p1_sn88085947_00211108538_1903090701_0356",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 135,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 69,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Judging by the late operations of\nthe surveyors in the employ Of the\nSpokane Falls & Northern, the town\nof Meyers Falls may soon pass out\nOF existence as regards it's being a\nrailway point. For a month past a\ncrew has been working south of\nMeyers Falls and also north of there\nas far as Marcus. Their object is to\nmake a new line and cut out all the\nold curves, some of which are as\nsharp as 10 degrees, and as result\nof the work six-degree cruves will\nbe the highest on the line. 1t will\nbe necessary on account of having\nchanged the line to make it fully\nnine miles longer and to pass by\nMeyers Falls and through the town\nof Kettle Falls. Engineer Whitcomb\nis in charge of the corps."
+    }
+  ]
+}

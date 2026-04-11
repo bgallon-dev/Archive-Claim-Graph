@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-07-30 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-30",
+    "date_end": "1907-07-30",
+    "report_year": 1907,
+    "source_file": "83_1907-07-30_p1_sn88085947_00211108575_1907073001_0912",
+    "archive_ref": "83_1907-07-30_p1_sn88085947_00211108575_1907073001_0912",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "83_1907-07-30_p1_sn88085947_00211108575_1907073001_0912",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 105,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 121,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A request is made that\npeople of Union park par\nticularly, and other parts of\nthe city that may feel inter-\nested in the temperance\nfight, attend the council\nmeeting at the city hall to-\nnight, when the liquor IL\ncense applications for Union\npark come up for discus\nsion.\n\n\nUnion park will be rep\nresented by DR.. Penn, DR..\nHerbert, of the National\nAnti-Saloon league, the min\nlisters committee, Robert A.\nTyson and others. 1ney\nexpect to make a vigorous\nshowing against granting\nthe license and are backed\nup with petitions proving\nthat an overwhelming ma\njority of park residents are\nagainst the saloons."
+    }
+  ]
+}

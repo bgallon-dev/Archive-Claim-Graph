@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-12-07 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-07",
+    "date_end": "1908-12-07",
+    "report_year": 1908,
+    "source_file": "3_1908-12-07_p5_sn88085947_00211108599_1908120701_0214",
+    "archive_ref": "3_1908-12-07_p5_sn88085947_00211108599_1908120701_0214",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-12-07_p5_sn88085947_00211108599_1908120701_0214",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 150,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 405,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Alaska-Yukon- Pacific monument is\nmore than 60 per cent completed,\nThe ground work consisting of\ngrading and the light. gas, tele-\nphone, sewer and water systems\nare in and the site has been clear\ned and excavation work. finished\nfor the United States government\nbuildings. The paving is now 40\nper cent completed and within the\nnext 80 days more than one half\nof the IL miles Of streets and\nwalks on the exposition grounds\nwill be paved with asphalt.\n\n\nThe design for the Women's\nbuilding has been submitted and\nthe plans for the Spokane county\nstructure have been accepted. The\nwork of building the exposition has\nprogressed to such an extent that\nthe main entl dnce gates are now\nbeing built. On September 20 the\nexposition commenced charging an\nadmission of 10 cents to the\ngrounds and up to last Saturday\nthere had been more than 100000\npaid admissions."
+    }
+  ]
+}

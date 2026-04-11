@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "ORDINANCE NO. Al54a.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-12",
+    "date_end": "1904-02-12",
+    "report_year": 1904,
+    "source_file": "28_1904-02-12_p2_sn88085947_00211108538_1904021201_1001",
+    "archive_ref": "28_1904-02-12_p2_sn88085947_00211108538_1904021201_1001",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1904-02-12_p2_sn88085947_00211108538_1904021201_1001",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 906,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 134,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1714,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 580,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\n75c; matinee, SOC and Csc.\n\n\nORDINANCE NO. A154a.\n\n\nAn ordinance for the improvement of\n\n\nAugusta avenue from the center\n\n\nline of Monroe street to the center\n\n\nline of Ash street by grading, park\n\n\ning and sidewalking the same and\n\n\nfor the payment of the cost there\n\n\nof. creating an assessment district\n\n\nand providing for the levy and col\n\n\nlection of special assessments on\n\n\nthe property in said assessment\n\n\ndistrict to pay for the said i'm\n\n\nprovement. and for the issuing Of\n\n\nbonds and the payment thereof.\n\n\nWhereas. A petition was duly pre-\nscented to the board of public works\nTor the improvement of Augusta ave-\nnue. by grading. parking and side\nwalking the same. and the board OF\npublic works having ascertained that\nthe signers of said petition are the\nowners of at least one-half of the\nproperty subject to contribute to\nsuch improvement and having made\nit's report on said petition to the city\ncouncil on the fifth day of January.\n1904, and it appearing to the city\ncouncil that said report contains a\nstatement of the assessed valuatio\nof the property which in their judg-\nment should be assessed for such i'm\nprOvement. according to the last as\nseSSment thereof. a statement of the\narea and correct valuation of the\nproperty owned by the parties sign\ning the petition. and the estimated\ncost of such improvement. and hav-\ning in such report set forth the rea-\nsons for their recommendations with\nrespect to the granting or refusing\nthe prayer of said petition, and\nstatement of all the facts necessary\nto enable the council to act intelli-\ngently on said petition and having\nrecommended that the prayer of said\npetition be granted, and said boar\nhaving with their said report filed\nwith the city council the plans and\nspecifications for such Improvement;\nfrom said report that public con-\nveniences requires the improvement\nof said street as is petitioned for\nand in accordance with the plans and\nspecifications of said board of public\nworks. now, therefore:\n\n\nThe City of Spokane does ordain as\n| follows:\n\n\nSection I. That Augusta avenue,\n| in the city of Spokane, from the CEN\n| ter line Of Monroe street to the CEN\nter line of Ash street shall be i'm\nproved by grading. parking and side\nwalking the same, in all respects in\n| accordance with the plans and speci-\n| fications therefor.\n\n\nSec. q That the cost and expense\n| of said improvement shall be borne\n| by the property included in the as\n| sessment district hereinafter created\n| to the extent OF the benefits received\n| by said proprty from said improve\n| ment, to be determined as hereinafter\nprovided; and by the city of Spokane\n| for the difference. If any there be,\nbetween the actual cost and expense\n| thereof, and the total amount of the\n| And said city shall not be liable in\n| any manner for any portion of the\ncosts and expense Of said improve\nment. other than that portion herein\n| designated to be borne by it.\nSec. 3. The assessment district\n| for the purpose of levying and. col\n| lecting special assessments to the ex-\n| tent of the benefits received by the\nproperty therein to pay the costs and\n| expenses of the aforesaid improve\n| ment as above provided. is hereby\n| created and established to consist of\nall the lots and parcels of land on\n| each side of Augusta avenue except\n| that occupied by cross streets and\n| alleys from the center line of Mon\nroe street to the center line of Ash\nstreet.\n\n\nSaid assessment district shall be\n| known as Augusta Avenue Improve\nment District Number One\" which is\nmoro particularly described as fol-\nlows:\n\n\nBlock 8, lots /, Q. 8, 4 and &; block\n9. lots I. 2. 8, a. S and 6; block 10,\nlots /. g. 8. 4, s and s. block II. lots\nIs. 9, 10, II and 49, block 10, lots Z, s.\n| g. 10. II and 49, block 20. lots Z, 8. 0,\n| 10, II and -; block 81. lots 6, 7. s,\nand 10: all in Mountain View addi-\n\n\n'lG Block sG s p ffosT1 2, 3. 4. s and G;\n| s, lots /. :, 8. 4. s and 6 block I,\n| lots z 8, g. 10, II and 10; block 8,\nlots I, 5. 8. 10. ii and IL; block Q,\nlots Z. s. 0. 10, II and IL, all in\n| Colers Boulevard Addition to Spo-\n| kane.\n\n\nSec. 4. Special assessments pay\n| able in ten equal annual installments\n| shall be assessed to and levied upon\n| the lots and parcels of land in the\nassessment district above described,\nin the manner provided by the charter\n| of the city of Spokane and Ordinance\nNo. A10sS, passed September TO- 1901.\n| Such assessments shall be made and\n| all things pertaining thereto done in\n| accordance with the provisions of\nsaid charter and said ordinance, and\n| said assessments. when the same\nshall have been confirmed by the city\n| council. and shall be lien on the\nproperty in said assessment district,\nand payment thereof may be enforced\nin the manner provided by law.\nSec. s. There is hereby created a\nfund to be known as Augusta Avenue\nImprovement Fund. District Number\n! ] l|||\nthere"
+    }
+  ]
+}

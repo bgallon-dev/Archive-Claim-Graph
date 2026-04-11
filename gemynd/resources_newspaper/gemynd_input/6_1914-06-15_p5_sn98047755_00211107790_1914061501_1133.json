@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Washington Farmer — 1914-06-15 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1914-06-15",
+    "date_end": "1914-06-15",
+    "report_year": 1914,
+    "source_file": "6_1914-06-15_p5_sn98047755_00211107790_1914061501_1133",
+    "archive_ref": "6_1914-06-15_p5_sn98047755_00211107790_1914061501_1133",
+    "series": "Washington Farmer",
+    "language": "en",
+    "lccn": "sn98047755",
+    "newspaper_name": "Washington farmer. [volume] (Spokane, Wash.) 1914-1971",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1914-06-15_p5_sn98047755_00211107790_1914061501_1133",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay",
+          "alfalfa"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.2,
+      "tier": "background",
+      "year": 1914,
+      "word_count": 280,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 414,
+            "in_headline": false
+          },
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 1151,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nRAPE-In some sections of the state,\nespecially that which lies west. of the\nCascade range, these crops are very\ngenerally used for soiling purposes.\nThey bring enormous yields of green\nfeed on rich moist soil, often as much\nas so to so tons per acre. On account\nof the high protein content OF these\nfeeds, they should be fed in combin-\nalton with feeds that are compare\nlively high in carbohydrates. When\ngrain hay is used as the dry rOughage,\neither kale, marrow. cabbage or rape\nwill fit in we'll as succulent feed.\n\n\nSilage\n\n\nAS a means of furnishing a Oh cap,\nsucculent feed all the year round, and\nat the same time provide for convent\nence in feeding, and economy of\nspace in storage, there is nothing\nthat will take the place of a silo.\nSilage is now being successfully N ade\nIn the state of Washington from any\nof the following crops: Corn, clover,\noats and vetch, oats and peas, barley\nand peas, barley and vetch, corn and\nclover and clover and rye grass.\n\n\nCorn is the most popular because\nof the high quality of silage which it\nmakes. In sections where corn can\nnot be grown successfully any of the\nother crops mentioned is recommend\ned. Alfalfa alone does not make\ngood silage, probably because of its\nbeing high in protein. which, upon\ndecomposition produces an offensive\nodor. There is every reason to be-\nlieve, however, that alfalfa mixed\nwith corn or any of the small grains\nwill make good silage, although this\nhas not been definitely determined.\nThe nutritive ratio of these crops is\nonly slightly changed by being pre-\nserved as silage, and for practical"
+    }
+  ]
+}

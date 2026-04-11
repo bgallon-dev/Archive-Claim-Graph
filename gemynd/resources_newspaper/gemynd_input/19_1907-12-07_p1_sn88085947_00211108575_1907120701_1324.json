@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "-\nMINERS DIDN'T\n\n\nGO TO WORK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-07",
+    "date_end": "1907-12-07",
+    "report_year": 1907,
+    "source_file": "19_1907-12-07_p1_sn88085947_00211108575_1907120701_1324",
+    "archive_ref": "19_1907-12-07_p1_sn88085947_00211108575_1907120701_1324",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1907-12-07_p1_sn88085947_00211108575_1907120701_1324",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 91,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 92,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to reports received by\nminers union men in this city to-\nday, the CRANKY mine and smelter\nat Phoenix, b. c.. did not start up\nthis morning, as planned, under q\nreduced wage scale, 1t Is claimed\nthat the force of men doing repair\nwork quit last night.\n\n\nw. r. Williams, consulting en-\ngineer of the CRANKY company and\nan old union man, went TO Phoenix\nlast night from here. and ii is pre-\nsumed that he will attempt to act\nas mediator between the men and\nthe company. -"
+    }
+  ]
+}

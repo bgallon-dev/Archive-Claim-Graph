@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THE WOMlEslN'S CORNER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-15",
+    "date_end": "1910-11-15",
+    "report_year": 1910,
+    "source_file": "34_1910-11-15_p9_sn88085947_00211108654_1910111501_0520",
+    "archive_ref": "34_1910-11-15_p9_sn88085947_00211108654_1910111501_0520",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "34_1910-11-15_p9_sn88085947_00211108654_1910111501_0520",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 551,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 997,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "j Ill., Wy \\\nIs =\nSocial news is a daily feature of\nThe Press. Any one Wishing to in\neert such news should send 1t adj\ndressed to the society editor. or phone\nbefore 10 q. m.\n\n\nTO WE'D THIS EVENING.\nMiss Ethel M. Lindsay, daughter\nof Mr.. and Mrs. F. T. Lindsay, and\nJ. F.. Terry, son of Mr.. and Mrs.\nw. M. Terry, will wed this evening\nat the home of Father Butler OF\nTaonzaga. Only immediate relatives\njsill be present.\n\n\n4 3\n\n\nWEDDING DATE SET.\n\n\nThe nuptials of Miss Helen Sum-\nmers, daughter of Mr.. and Mrs.\nHarry Summers, and James Clark.\nson of Mr.. and Mrs. Patrick Clark,\nwill be held on December in the\nearly morning at the cathedral OF\nOur Lady of Lourdes.\n\n\n3 4 -\n\n\nPOSTAL CLERKS WILL DANCE.\nAn event of much local interest\nto government employees will be\nthe dance given by the National\nAssociation of Postoffice Clerks at\nthe Elks' temple. Tuesday evening,\nNovember %. The guests of hon.\nor will be the retiring officers, j.\nO. Walstrom, G. c. Wilt, c. A. AS\nkins and p. r. Ball.\n\n\nWoMAN's CLUB WILL STUDY\n\n\nCOMPOSERS.\n\n\nAt the next meeting of the\nWomans club the members will\nmake study of women composers.\nA very interesting meeting was\nheld yesterday afternoon at Hotel\n223. A musical program including\nvocal and instrumental selections\nand dances, was rendered by mem\nbers of the club.\n\n\nPAN HELLENlc's MEETING\n\n\nTHURSDAY.\n\n\nThe Pan Hellenic association\nwill be entertained at the home OF\nMrs. f. B. Macon, 211 Euclid ave-\nnue.. on Thursday afternoon.\nUNITE ELMiRA YOUNG PEOPLE\nMiss Hazel M. Cannady and Rob\nert e. Lea, OF Elmira. Wash, were\nunited In marriage at the Pilgrim\nCONGREGATIONAL church yesterday\nby the Rev. w. J. Hindley.\n\n\ns~4..,.y = = q\n\n\nANNOUNCE ENGAGEMENT.\nMr.. and Mrs. James Durkin an\nnounce the engagement of their\ndaughter Eva to Leo Jones, the\nson of Mr.. and Mrs. II. 7. Jones OF\nOlympia. Wash.\n\n\nWILL HAVE HOUSE WARMING\n\n\nON MONDAY NIGHT.\n\n\nMembers of the Woman's club.\nnow building the first Spokane\nclub house to be erected by the\nwomen of this city will hold a\nhouse warming in their new home\nnext Monday evening. The new\nclub house Is OH Walnut street near\nNinth avenue. 1t is not finished on\nthe interior as yet. Some time IN\nthe future when the cottage has\nbeen fully decorated and furnished\na larger affair will be held, at\nwhich time members OF other\nclubs of the city will be invited to\ninspect the home.\n\n\nMr.. and Mrs. Robert l.. Dalke\nand family will leave for New York\ncity / nthe near future for a trip.\nafter which they will journey to\nCalifornia for the winter months.\n\n\nq 4 .\n\n\nDR.. and Mrs. Thomas A. Russell\nare expected home from Portland\nthis week.\n\n\nMrs. A. B. Conkling, who has\nbeen the guest of Mrs. II. b. Gray\nbill and Mrs. A. Il. House for the\npast few days. has returned to her\nhome In Conklin Park, Idaho.\n\n\n& 4 =\n\n\nThe Thistle Social club will meet\non Wednesday with Mrs. II. Scott,\n3108 Garland avenue.\n\n\nMrs. J. Fl. Douglas of Tacoma is\nvisiting her sister, Mrs. f. Fl.\n,,Rishop, at the latter's home, 225\nstif,enl avenue.\n\n\n\n\n\n\n\n\n~"
+    }
+  ]
+}

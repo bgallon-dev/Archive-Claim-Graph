@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "title": "FOR RELIEF Of\n\n\nHURON ST.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-27",
+    "date_end": "1906-11-27",
+    "report_year": 1906,
+    "source_file": "11_1906-11-27_p1_sn88085947_00211108575_1906112701_0092",
+    "archive_ref": "11_1906-11-27_p1_sn88085947_00211108575_1906112701_0092",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-11-27_p1_sn88085947_00211108575_1906112701_0092",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 78,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 67,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city council tonight will\nconsider the request Of the board\nof public works that an ordinance\nbe passed approprlating $3.50 for\nextending the outlet to the Huron\nst. sewer. The board of health\ntwo months ago complained that\nthe outlet was not extended far\nenough into the river to prevent\nthe current throwig the sewage\nback against the bank, and resi-\ndents in that part of the city have\nbeen doing their best to abate the\nnuisance."
+    }
+  ]
+}

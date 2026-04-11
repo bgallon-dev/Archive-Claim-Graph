@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-18 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-18",
+    "date_end": "1903-03-18",
+    "report_year": 1903,
+    "source_file": "7_1903-03-18_p3_sn88085947_00211108526_1903031801_0453",
+    "archive_ref": "7_1903-03-18_p3_sn88085947_00211108526_1903031801_0453",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1903-03-18_p3_sn88085947_00211108526_1903031801_0453",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 130,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 30,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 125,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At last nights meeting of the\ntrades council the different unions re-\nported their position towards the gen\neral sympathetic strike and over two\nthirds of them voted it down.\n\n\nThis action is the subject of much\ndiscussion throughout the city today\nand labor leaders refer to II as a\nconclusive proof that organized labor\nin Spokane is actuated by n spirit of\nconservatism,\n\n\nMany persons were laboring under\nthe belief that the unions would en-\ndorse the general strike without Civ\ning the seriousness of such n move\nment due consideration.\n\n\nThe feeling of depression which\novercame the business interests of\nthe city In view of the possibility of\nprolonged labor warfare has been\nlifted as a result of the decision of\nthe unions and everyone is now look"
+    }
+  ]
+}

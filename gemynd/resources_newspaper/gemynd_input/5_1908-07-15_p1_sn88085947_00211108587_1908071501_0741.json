@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-07-15 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-07-15",
+    "date_end": "1908-07-15",
+    "report_year": 1908,
+    "source_file": "5_1908-07-15_p1_sn88085947_00211108587_1908071501_0741",
+    "archive_ref": "5_1908-07-15_p1_sn88085947_00211108587_1908071501_0741",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-07-15_p1_sn88085947_00211108587_1908071501_0741",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 161,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 31,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "from which vantage the nations\nprohibition two-thirds are being\nbombarded and devastated without\nredress by the brewers under the\nprotection of the federal govern\nment's interstate regulations.\n\n\nThe politicians of the two now\ndominant parties may ignore the\nissue in their national platforms il\nthey choose. but action this year\nwillfbe sure to bring swift retribu-\ntion upon those who would attempt\nat This late hour to stifie public\nagitation and weakly dodge the\nquestion involved.\n\n\nThe prohibition question has the\nrighi of way and nothing can now\nprevent its agitation from one end\nof the nation to the other.\n\n\nThe brewers, in national conven.\nton, affect to welcome the agita-\nton. AS a matter of fact they can,\nnot stop it if they would.\n\n\nThe issue of prohibition cannot\nbe sgitated without making prohi.\nbitien sentiment and prohibition\nvoters.\n\n\nWe launch cur national cam\npaisn this year confident that the\npresidential hour for national vic\ntory. is not far distant."
+    }
+  ]
+}

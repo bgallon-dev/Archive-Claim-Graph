@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "title": "A[I WILL 60\n\n\nTo JAIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-05",
+    "date_end": "1909-03-05",
+    "report_year": 1909,
+    "source_file": "6_1909-03-05_p1_sn88085947_00211108599_1909030501_0790",
+    "archive_ref": "6_1909-03-05_p1_sn88085947_00211108599_1909030501_0790",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-03-05_p1_sn88085947_00211108599_1909030501_0790",
+      "composite_score": 11.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "industrial workers",
+          "jail",
+          "arrested",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 287,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 45,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 535,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 604,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 394,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 17,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "q The Salvation Army, Volunteers\nof America, Industrial Workers of\nthe World, socialists and Russian\nand Jewish revolutionists will be\nout holding street meetings in def\nance of the police and the city or\ndinance opposing them tonight.\nMajor c. F. Milford of the Volun-\nteers, Captain Sturms and Adju-\ntant Kuhn of the Salvation Army\nand James Walsh, state organizer\nof the /. w. WIS, were all arrested\nfor holding street meetings last\nnight, but that don't matter--they\nare all anxious to test he ordin-\nance.\n\n\nOrganizer Walsh of he I. w. w.\nrefused to put up bond last night,\nand has been In the city jail ever\nsince. He declared he would re-\nfuse to put up bond or to pay fine\nand that the street meetings will\ncontinue every night. giving the\ncity new prisoner from it's ranks\neach time, and that test\" cases\nwould be made out of each one OF\nthem.\n\n\nThe socialists will take hand\ntonight in defiance of the police\nand 1t seems that by the time the\nordinance prohibiting street speak.\ning inside the fire limits has been\nthoroughly tested\" both the city\nand the county jails and perhaps\nan improvised bull pen will be MI.\ned with martyrs.\n\n\nThe Salvation Army and the Vol\nunteers of America are fighting the\nordinance along decidedly different\nlines than the l. w. w. and other\nrevolutionary organizations. Lead\ners of both these religious bodies\nstated today that they intended tc\ntest the ordinance only so far as\nreligious rights We're concerned\nThey have won out everywhere\nelse.\n\n\nWalsh declares that before the\nfight between the city and the |\nw. w. is over. recruits may be\nsent here from Tacoma, Seattl,"
+    }
+  ]
+}

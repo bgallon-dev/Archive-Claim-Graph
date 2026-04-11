@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-06-21 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-21",
+    "date_end": "1910-06-21",
+    "report_year": 1910,
+    "source_file": "22_1910-06-21_p9_sn88085947_00211108630_1910062101_1094",
+    "archive_ref": "22_1910-06-21_p9_sn88085947_00211108630_1910062101_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1910-06-21_p9_sn88085947_00211108630_1910062101_1094",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.0,
+        "agriculture": 2.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation"
+        ],
+        "agriculture": [
+          "grange"
+        ],
+        "railroads": [
+          "inland empire"
+        ],
+        "education": [
+          "school board"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 487,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 1272,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 1726,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1781,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 2534,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "education",
+        "indigenous",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\ngrocers' twelfth annual picnic were |\ncompleted at a meeting of the as |\nISOLATION last night. The picnic |\nwill be held at Liberty lake Thurs |\nday, June %. All groceries and |\nmeat shops will be closed on that |\nday.\n\n\nSimon Green, fiscal agent for the\nUnited Wireless Telegraph COM\npany, says that his company is glad\nof the federal investigation being\nconducted into its affairs. Between\n$500 and 5000 people in the Inland |\nEmpire are interested in the stock\nOF the Wireless.\n\n\nD. j. Hayward, juror in Judge\nHuneke's court, was late yesterday,\nbut was excused when he said that\nhe became entangled in a runaway.\nWhen he arrived at court he was\nwithuot a necktie.\n\n\nMiss Grace Henry has been APP\npointed secretary to Captain w. II.\nApetz of the Spokane Volunteers of\nAmerica. -\n\n\n{. e. Chapman, the worse for too\nmuch beer or other intOxicant, tried\nto give a large part of the police\nforce cigars last night. All refused,\nand he was locked up to sober up.\n\n\nGeorge A. Lee, assistant attorney\ngeneral of Washington, has return\ned from an eastern trip. He said\nthat fasteners are much interest\ned in Spokane.\n\n\nJudge Edward Whitson has hand\ned down a decision confirming the\nrights of certain Indians, members\nof the Yakima tribe, to their home\nsteads in the Yakima reservation.\nSecretary Rem n. Rice of the Ma\ntional Apple show left last night\non a business trip to eastern Mon\ntana. Saturday he returned from a\n| trip to the Bitter Root valley and\nreported that interest is strong in\nthe coming apple show.\n\n\nL. r. Horton, anti-saIoon league\nsuperintendent, returned from\nWalla Walla yesterday. The AL\nSaloon league field day will be held\nthere next Sunday.\n\n\nA non-suit was announced yester-\nday in the case of G. H. Grange\nand ]. A. Hodgins. Their wagon\nwas struck by an Inland Empire\ncar, but Judge Hinkle ruled that\nwhen a driver tries to cross in\nfront of a train they were guilty\nOF contributory negligence.\n\n\nHiram Smith left his wife a short\ntime ago, and she told the prose\ncutting attorneys office about it,.\n! Yesterday Smith told MS story. He\nsaid that he had spent his wages\non the Lowing bowl\" and did not\ndare to go home. So he went to\nButte, got better job there, and\nwhen he mad saved little money,\nreturned to his wife with it.\n\n\nMethodist ministers Of the city\npicnicked today at Liberty lake.\n\n\nWork on the new grade schools\nand the addition to the North Cen\ntrail high school is progressing rap\nidly and will probably be complet-\ned in time for the reopening of\nschool in September. Right at the\ntime the school board was compli-\n\n\nBe sure and read tomor-\nrows article in the Chron-\nicle on Electa Coffee, and\nthen present coupon as early\nas possible."
+    }
+  ]
+}

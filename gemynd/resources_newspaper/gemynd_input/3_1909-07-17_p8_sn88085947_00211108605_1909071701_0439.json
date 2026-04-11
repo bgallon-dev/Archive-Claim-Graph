@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GREAT PARADE\n\n\nAUGUST z",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-17",
+    "date_end": "1909-07-17",
+    "report_year": 1909,
+    "source_file": "3_1909-07-17_p8_sn88085947_00211108605_1909071701_0439",
+    "archive_ref": "3_1909-07-17_p8_sn88085947_00211108605_1909071701_0439",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-07-17_p8_sn88085947_00211108605_1909071701_0439",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 144,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 347,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Everett G. Griggs. president of\nthe Pacific Coast Lumbermen S as\nISOLATION and head of the st. Paul\n& Tacoma lumber Co. and the Ia\ncoma Country club. has accepted\nan invitation from E. F. Cartier\nVan Dissel, grand marshal, to ride\nas one of the guards of honor in\nthe parade of progress in connec-\nton with the seventeenth session\nof the national irrigation congress\nIn Spokane, August to IA. John\nID. Farrell and former Governor\nJohn McGraw, both of Seattle, will\nalso take part.\n\n\nThe parade of progress on Au-\ngust II will show the development\nof the northwest from the advent\nof Captains Lewis and Clark to the\npresent day, and it is expected that\n10000 uniformed marchers, headed\nby mands of music, will be in line\nin the parades of the industrial\nand irriagtion army on August 10\nand II."
+    }
+  ]
+}

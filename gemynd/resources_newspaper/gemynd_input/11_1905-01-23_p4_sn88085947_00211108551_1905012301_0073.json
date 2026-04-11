@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-01-23 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-23",
+    "date_end": "1905-01-23",
+    "report_year": 1905,
+    "source_file": "11_1905-01-23_p4_sn88085947_00211108551_1905012301_0073",
+    "archive_ref": "11_1905-01-23_p4_sn88085947_00211108551_1905012301_0073",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1905-01-23_p4_sn88085947_00211108551_1905012301_0073",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 133,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 421,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WALLACE, Idaho, Jan. 23.-The\nmagnificent success of the Spokane\n& Occur d'Alene electric railway has\ninspired the thought of extending the\nroad through to Wallace, Capitalists\nfrom the east and Spokane have been\nlooking over the route and early con-\nstruction is contemplated.\n\n\nThe proposed route runs from\nOccur d'Alene through Fourth of July\ncanyon and by the old mission to\nWallace. This is the route selected\nby the Northern Pacific railway in\n1887. Most of the land along the\nroute is owned by the government\nand the Northern Pacific Railway\ncompany has long since lost its right\nof way.\n\n\nThe electric road is to be built\ncloser TO the old Mullan road, mill\ntary road between Fort Benton,\nMont, and Walla Walla, than the sur\nvey of the Northern Pacific Railway\ncompany."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-12-04 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-12-04",
+    "date_end": "1903-12-04",
+    "report_year": 1903,
+    "source_file": "13_1903-12-04_p1_sn88085947_00211108538_1903120401_0760",
+    "archive_ref": "13_1903-12-04_p1_sn88085947_00211108538_1903120401_0760",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1903-12-04_p1_sn88085947_00211108538_1903120401_0760",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 166,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 712,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 609,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "hanging on with bulldog determination.\n\n\nOn Thursday, October %, the jour\nneymen plumbers to the number of 20\nstruck for an increase in wages from\nIS to $3.50 day. The loss to them\nat the old rate of wages will soon\nmount up to the round sum of $4,000.\nDuring the time since they first struck\nand the present the men have drawn\nheavily on their own personal resources,\nas well as upon their treasury.\n\n\nWith the bosses still firm in their\ndetermination of holding out until\nspring if necessary. it is evident set\nElement will soon be forced upon the\nplumbers themselves or the union will\nhe disrupted.\n\n\nThis strike has caused more ill-feel-\ning among the members of organized\nlabor than is generally known. The\ntrades council itself is badly split up\nowing to the withdrawal Of the ear\npenters, and there are several other\nunions which only granted their en-\ndo.sement of the strike under pres\nsure brought to bear by other unions."
+    }
+  ]
+}

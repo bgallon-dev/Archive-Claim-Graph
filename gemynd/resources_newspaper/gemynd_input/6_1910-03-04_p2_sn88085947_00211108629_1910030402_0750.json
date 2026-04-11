@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "G O NTIN u f D\n\n\nr o\np A G F. O n E\n\nMARCH WILL BE ON\n\n\nTUESDAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-04",
+    "date_end": "1910-03-04",
+    "report_year": 1910,
+    "source_file": "6_1910-03-04_p2_sn88085947_00211108629_1910030402_0750",
+    "archive_ref": "6_1910-03-04_p2_sn88085947_00211108629_1910030402_0750",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "6_1910-03-04_p2_sn88085947_00211108629_1910030402_0750",
+      "composite_score": 1.68,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 301,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 886,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 313,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "protest Tuesday night Is believed\ncertain by the leaders, who have\nfelt the pulse of the workers of\nSpokane, who, without a dissenting\nvoice, say they are tired of the\nlodging and postponement Of the\ncouncil\n\n\nEither we are going to get what\nwe want, Tuesday night, or there\nare going to be some new faces in\nthe city council, and if the mayor\nwants to discover the temper of the\nworkers of Spokane all he needs do\nis to attempt to postpone action on\nthe wage and matron questions un-\ntil Wednesday\" said Mr.. Coates at\nloon today.\n\n\nThe parade will form at 1880 and\nmarch on the city hall, and every\nSpokane union is ordered into the\nparade.\n\n\n1t is the first time in the history\nof the city that a body of 5000 citi-\nzens. demanding justice, have\nmarched on the city hall, and union\nleaders apparently have no especial\nfear of Chief Sullivan doing any\nclubbing, or of there being any Jail\ncells filled with enthusiastic union\nmen.\n\n\n1--WE can't get anything out of the\ncouncil without soaring them; they\nhave repeatedly gone back on their\nsolemn pledges and rescinded their\nordinances proposing square deal.\nThe only way out now is to fight,\nand we are going to fight\"\n\n\nThat is the way another member\nof the protest parade committee\nfeels about 1t.\n\n\nNext Tuesday night will be the\nliveliest evening Spokane has ex-\nperienced in months, and without\ndefinite action from the council on\nthe question of an increase for the\ncity laborers and on the police ma\ntron problem the last attempt of\nlabor to politely request things\nfrom the council will have been\nmade. 1t will be recall, special\nelection, and the putting in office\nof fair men-that is the last word\nof labor."
+    }
+  ]
+}

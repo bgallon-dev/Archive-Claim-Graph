@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ANOTHER WAY OF ROCKING A BOAT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-15",
+    "date_end": "1909-05-15",
+    "report_year": 1909,
+    "source_file": "11_1909-05-15_p4_sn88085947_00211108599_1909051501_1267",
+    "archive_ref": "11_1909-05-15_p4_sn88085947_00211108599_1909051501_1267",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-05-15_p4_sn88085947_00211108599_1909051501_1267",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 703,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 146,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "dangerous a\na fool friend.'\n\n\nOne meet his enemy in fair fight and fight it out but\ntool friend is flank attack that is bound to cripple\n\n\nThe of temperance on trial before the people of\ntins country The antlsaoon forces have waged terrific\nwarfare and have made wonderful progress.\n\n\nThe ttsaloon people making converts every day,\nbut there thousands of men who yet undecided\n1t is from these that future converts must come.\n\n\n1t Will not be the arguments of the liquor interests so\nmuch the conduct of the anquor people in general\nand the operation of restrictive laws in sections where\nthey have that will prejudice the who\nis yet undecided\n\n\nVery few will shy at temperance Very few actually\nadvocate absolutely drunkenness other But\nthe instinct against bgotry is second in strength only to\nthat against tyranny in the breast Of free\n\n\n80 when, in the name Of temperance, bigotry and\ntyranny appear the loses 1t is of the harm\ndone by well meaning, but fool, friend\n\n\nSuch is the of Louis Ses tenant farmer at Will\noughby little town in northeastern Ohio\n\n\nThe county went dry Steis, former mill worker had\nmet with an accident and compelled to leave the heavy\nlabor of the mill He rented small farm and with his\nwife and 10 children took up the tillng of the soil\n\n\nTn the farm were some apple trees. Steis, being\nthrifty German, additional in the apple crop\nHe rugged little cider mill and made cider Last fall\nhe sold all he made it made (while it was\n\"sweetD except one barrel, which he reserved for his\n\n\n\nThis barrel of cider was cured with old world skill and\nbecame a clear and sparkling beverage.\n\n\nThe neighbors when they dropped in often given\nglass of the cider and plate Of Frau Steis kuchen\nAnd this was set out in the spirit of hospitality.\n\n\nSteis was sober His boys hard working lads.\n\n\nHis wife does her share. No guest reeed from the\nStes door, and the barrel of cider fred none of the coun\ntysde to deeds of violence.\n\n\nThe county had gone dry The honest farmers of the\ncounty had been told how their boys ruined in the\ncheap GROCERY They and their wives had rebeed against\nthe doctored poison sold whisky. They had voted\nagainst the saoon they had condemned the groggery and\nthe grogshOp\n\n\nThen day young mana stranger-came to the\ndoor He had walked far Would Seis let him have some\nthing to drink?\n\n\nCertainly there the water in the WELL milk in the\ncan the cider in the barrel and the stranger well\ncome to take his choice.\n\n\n'Ciders Very well. Here is cup and there is the\ncellar door Help YOURSELF\n\n\nThe young man came up from the cellar and, thanking\nFrau Seis, handed back the cup and coin Oh she\ndid not want pay. The stranger quite welcome. But\nhe laid the coin on the table and went away.\n\n\nThen came the officers of the law. The young whom\nthe old German had welcomed an anti-saoon\ndetective.\n\n\nBut Louis Steis not prosecuted under criminal\nlaw No. it not the crime for which he must suffer-\nbut he must be made to sweat for trying to cheat the\ncounty out of the tax that is levied on saloons.\n\n\nTried and convicted Of selling this drink of cider he was\nordered to the dow tax\" $1,000, and added pen\natty of 5000.\n\n\nThey attached his carpets, his furniture stoves beds\ndishes cooking utensils farm Implements the horses the\nthe very flour in the bin the hame hanging in the\ncellar the dried apples and peaches depending from the\ngarnet raers everything except the clothing Stes his\nwife and four children home had on and the dog\n\n\n1t all figured up 5000 but it would not bring that much\nat sherfs sale So the county offered to accept $46 and\nthe lawyers took $3.50 Seis landlord loaned him\n$500 and took mortgage all he owned\nThat victory for the anti saloon detective but\nvictory that will cost dear.\nSuch incident will nullify the work of the whole army\nOF honest anti saloon leaguers for six months."
+    }
+  ]
+}

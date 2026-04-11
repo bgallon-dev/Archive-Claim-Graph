@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-27 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-27",
+    "date_end": "1909-12-27",
+    "report_year": 1909,
+    "source_file": "12_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+    "archive_ref": "12_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "12_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 65,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 114,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and effective public service.\n\n\nSince the forest service called\npublic attention to the rapid abb\nsorption Of the water power sites\nand the threatening growth Of q\ngreat water power monopoly, the\nattacks upon It have increased with\nmarked rapidly. anticipate that\nthey will continue to do so. stu\ngreater opposition 10 promised in\nthe near future. There 10 but one\nprotection-an awakened public\nopinion."
+    }
+  ]
+}

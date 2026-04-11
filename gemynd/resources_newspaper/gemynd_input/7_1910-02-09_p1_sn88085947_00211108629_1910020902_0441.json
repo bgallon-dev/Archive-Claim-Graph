@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "DAY LABOR TO\n\n\nBUILD BRIDGE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-09",
+    "date_end": "1910-02-09",
+    "report_year": 1910,
+    "source_file": "7_1910-02-09_p1_sn88085947_00211108629_1910020902_0441",
+    "archive_ref": "7_1910-02-09_p1_sn88085947_00211108629_1910020902_0441",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-02-09_p1_sn88085947_00211108629_1910020902_0441",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 135,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 54,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 26,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "AT adorned meeting of the city council this after\nthe Monroe street concrete bridge after nearly two\nyears of crossfring and parleying ordered built by\nday labor This is in pursuance of the request of City\nEngineer Raston who is thereby given full hand to\nry the work.\n\n\nRason not present at the meeting, but was rep\nresented by three of his assistants who told the council\nwhy they believed they could build the bridge by day\nlabor and the city money The final vote the plan\nof construction was to for day labor Councilman Lam\nbert being the only member to hold to his original attitude\nof refusing to let Raston build the bridge.\n\n\nWork on removing the old bridge will now proceed and\nthe bridge will go up the old is disposed\nOf"
+    }
+  ]
+}

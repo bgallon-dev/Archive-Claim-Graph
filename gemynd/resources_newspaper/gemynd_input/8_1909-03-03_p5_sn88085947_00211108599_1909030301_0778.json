@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-03-03 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-03",
+    "date_end": "1909-03-03",
+    "report_year": 1909,
+    "source_file": "8_1909-03-03_p5_sn88085947_00211108599_1909030301_0778",
+    "archive_ref": "8_1909-03-03_p5_sn88085947_00211108599_1909030301_0778",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-03-03_p5_sn88085947_00211108599_1909030301_0778",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 200,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 290,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "whisky drinking states. Along with\nthis came a sharp advance in the\nprice of corn. Following the pass\nage of the anti-express liquor\ntraffic bill comes the uncertainty\nof what the pure food law may do.\n\n\nStill further down the road the\nprohibitionists have erected a\nsign reading: National prohibition\nbib So the liquor men have\nsome cause to be detected. They\nare letting out cry of personal\nliberty\" that can be heard all over\nthe District of Columbia.\n\n\nAnd the blue ribboners are con.\ntinuing to do business. They have\nmapped out a plan for the sixty.\nfirst congress that is anything but\nencouraging to the saloon interests\nThe campaign includes the intro.\nducing of a bill providing. that an\namendment to tho constitution pro.\nhibiting the manufacture or sale OF\nliquor in the United States, be pro-\nposed to the legislatures of the 46\nstates.\n\n\nShould three-fourths of the state\nlegislatures ratify the proposed\namendment, the United States\nwould become nationally dry.\n\n\nIf congress refuses to pass this\nbill, the national prohibition com\nmittee will try to have three\nfourths of the state legislatures\npetition congress to adopt the\namendment. Then congress would\nbe forced to do so."
+    }
+  ]
+}

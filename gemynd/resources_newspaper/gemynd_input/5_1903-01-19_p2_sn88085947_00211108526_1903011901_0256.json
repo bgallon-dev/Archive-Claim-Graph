@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The following platform was",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-19",
+    "date_end": "1903-01-19",
+    "report_year": 1903,
+    "source_file": "5_1903-01-19_p2_sn88085947_00211108526_1903011901_0256",
+    "archive_ref": "5_1903-01-19_p2_sn88085947_00211108526_1903011901_0256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-01-19_p2_sn88085947_00211108526_1903011901_0256",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 154,
+      "match_details": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 780,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The following platform was\nadopted:\n\n\n\"First-Whereas, the city Of Spo-\nkane Is so favorably situated as to\npossess a great natural waterpower\nwe favor the use of this natural force\nin providing for the wants of the\ncommunity by the public ownership\nand operation of electric plants and\nall other public utilities requiring\nmunicipal franchises. the revenue de-\nrived from the operation of such in\ndustries to be applied wholly to the\nshortening of the hours Of labor and\nthe increase of wages Of employees\nand to securing greater efficiency and\ndiminishing the rates to consumers\nWe are unalterably opposed to the\ngranting of any public franchises\nwhatever.\n\n\n\"Second-The establishment of q\nfree municipal employment bureau.\n\n\n\"Third-The abolition of the con-\ntract system on all public works, all\nwork to be done direct by the city\n\n\n\"Fourth-Extension of the eight\nhour work day to all municipal en-\nployes, and the payment of the pre-."
+    }
+  ]
+}

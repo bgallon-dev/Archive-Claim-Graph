@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-08-30 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-30",
+    "date_end": "1904-08-30",
+    "report_year": 1904,
+    "source_file": "9_1904-08-30_p2_sn88085947_0021110854A_1904083001_0362",
+    "archive_ref": "9_1904-08-30_p2_sn88085947_0021110854A_1904083001_0362",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-08-30_p2_sn88085947_0021110854A_1904083001_0362",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 169,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 283,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 547,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "mendations will be the cutting off of\nthe electric street sprinkler run over\nthe tracks of the Washington Water\nPower company.\n\n\nThis sprinkler has been tn, use\nof more complaint from citizens than\nany other part of the street system\nOf sprinkling.\n\n\nThe city pays to the Washington\nWater Power company $3.50 a month\nfrom May l to October for the\nsprinkler, regardless of whether it is\nrun or left In the barns. or whether\n1t rains or the sun shines.\n\n\nThis money goes to the corporation\nand the work done is so unsatisfac-\ntory that the board OF public works\nlast month seriously considered the\nplan to abrogate the contract.\n\n\nFour steam sprinklers can be put\non for $500 a month and the work\ndone is much more satisfactory than\nthe careless surface work of the\ncorporation sprinkler.\n\n\nBecause of this the board OF public\nworks will recommend the cancella-\ntion of the contract with the WASH\nington Water Power company to pre-\ntend to sprinkle the streets."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "300 STUDENTS\n\n\nTRY FOR HONORS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-22",
+    "date_end": "1910-01-22",
+    "report_year": 1910,
+    "source_file": "11_1910-01-22_p3_sn88085947_00211108629_1910012201_0219",
+    "archive_ref": "11_1910-01-22_p3_sn88085947_00211108629_1910012201_0219",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-01-22_p3_sn88085947_00211108629_1910012201_0219",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 60,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "County Superintendent of Schools\nr. G. Mcfarland stated last night\nthat all of the papers of the pupils\nwho took the eighth grade examina-\ntions Thursday and Friday at the\nMasonic temple will be graded by\nJanuary 20.\n\n\nExaminations were held at 3S\nplaces in Spokane county and Mr..\nMcfarland is of the opinion that\n900 students took the tests."
+    }
+  ]
+}

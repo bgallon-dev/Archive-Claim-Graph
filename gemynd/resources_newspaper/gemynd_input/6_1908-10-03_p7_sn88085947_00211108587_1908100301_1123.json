@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "BIG MINING STRIKES FORECASTED",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-03",
+    "date_end": "1908-10-03",
+    "report_year": 1908,
+    "source_file": "6_1908-10-03_p7_sn88085947_00211108587_1908100301_1123",
+    "archive_ref": "6_1908-10-03_p7_sn88085947_00211108587_1908100301_1123",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-10-03_p7_sn88085947_00211108587_1908100301_1123",
+      "composite_score": 19.32,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 7.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ],
+        "mining": [
+          "mining strike"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1908,
+      "word_count": 92,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 455,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 455,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mining strike",
+            "weight": 2.5,
+            "offset": 4,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "freight handlers, machinists, ETC..\nwill not be tolerated, and one union\nalone is said to have lost several\nthousand members as a result OF\nthe issuance of an ultimatum\nagainst labor organizations\n\n\nOn the other hand. it has leaked\nout that at least four of the rail\nway brotherhoods-or at least Of\nficials who claimed to represent\ntheir organizations in the matter\nhave entered into an alliance with\nrailway officials to popularize the\nidea of advancing freight rates and\nto oppose all future legislation re-\ngarded as hostile to the railway\ninterests."
+    }
+  ]
+}

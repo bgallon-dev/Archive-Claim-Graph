@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WoMEN'S PARLIAMENT MEETS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-10",
+    "date_end": "1905-10-10",
+    "report_year": 1905,
+    "source_file": "9_1905-10-10_p2_sn88085947_00211108551_1905101001_0975",
+    "archive_ref": "9_1905-10-10_p2_sn88085947_00211108551_1905101001_0975",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1905-10-10_p2_sn88085947_00211108551_1905101001_0975",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 59,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 234,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "LOS ANGELES, Cal, Oct. 10\nThe Women's parliament opens its\ntwo days session here today. A\nlarge number of delegates from all\nparts of the country are in attend.\nance and an interesting session is\nexpected. Matters relating to WON\nans suffrage, as well as various\nreforms in which women are inter.\nested, will be considered by the\nparliament."
+    }
+  ]
+}

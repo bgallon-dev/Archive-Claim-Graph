@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL DEBATE MERITS\n\n\nOF DES MONIES PLAN\n\n\nATTON|CHT'S SESSION",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-05",
+    "date_end": "1909-02-05",
+    "report_year": 1909,
+    "source_file": "53_1909-02-05_p1_sn88085947_00211108599_1909020501_0610",
+    "archive_ref": "53_1909-02-05_p1_sn88085947_00211108599_1909020501_0610",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "53_1909-02-05_p1_sn88085947_00211108599_1909020501_0610",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 683,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 797,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Tonight the civic commission\nwill meet in executive session to\nwade into the merits of the Des\nMoines plan of government, togeth-\nerr with less extensive forms Of\ncharter revision that have been\noffered. Heretofore the commits\nsion has listened to the views of\nthose on the outside, but tonight\nit will debate the question on it's\nown account. The commission is\ndivided as to the extent of charter\nrevision advisable at this time, and\ntonight's meeting will give a fair\nidea of the character of revision\nfavored by majority of the COM\nmission.\n\n\nAn effort will be made by the ad-\nvocates of the Des Moines plan to\nsecure it's approval by the COM\nmission and immediate submission\nto the people. If this is done 1t\nwill be carried into effect through\nthe election of commission of Is\nto draft a new city charter. This\ncharter commission would be\nclothed with official power to pre-\npare a charter draft to submit to.\npopular vote, and could adopt a\nplan of government like the Des\nMoines idea or report it in modi-\nfed form.\n\n\nAn official charter commission of\nthis. character would be clothed\nwith power which the present civic\ncommission lacks. The need of\ncharter revision is apparent to\nmost of the members Of the civic\ncommission and it may be that the\ncivic commission, without approx\ning any particular form of revision,\nwill urge the calling of an election\nof an official body to give us\nnew charter.\n\n\nThe direct. legislation advocates\nin the Central Labor union seem\nto think that there Is feeling in\nthe civic commission against CIV\ning the people an initiative and\nreferendum amendment with per-\ncentage as low as that required in\nthe Seattle charter, 10 per cent for\nthe initiative and eight per cent\nfor the referendum, and in case\nthe commission balks on granting\nas liberal right to use these privi-\nleges, the direct legislation movers\nwill ask that the initiative and ref\nerendum be withdrawn from the\ncommission, whereupOn move\nment will be started to secure the\nsubmission of these reforms at the\ncoming city election by means Of\na petition. The right of recall will\nalso be asked at the same time by\nthe advocates of the initiative and\nreferendum.\n\n\nIn case the civic commission con-\ncludes to postpone action on the\nDes Moines plan Councilman Os-\ntrander will move for the immedi-\nate submission to the people of the\nquestion of electing councilmen at\nlarge in place of by wards, as at\npresent. This move will be fought\nby those opposed to the Des.\nMoines plan fully as hard as the\nDes Moines idea itself, as it strikes\nat what is considered one root of\nthe evil under the present charter.\nThe question of the election of\ncouncilmen at large was adopted\nthis week by the people of Los\nAngeles, in voting on an amend.\nment to their charter.\n\n\nThe advocates of the initiative\nand referendum are fearful that If\nthey tie up with any more extern\nsive plan Of charter revision at\nthis time they may endanger the\nadoption of their favorite reform.\nWith direct legislation placed in\nthe hands of the people on the\nbasis of low percentage for call\ning these rights into play. 1t is\nheld by the advocates of these\nforms that the abolition of ward\nlines and other advanced steps can\nbe secured later through the in\nitiative and referendum.\n\n\nThe saving features of the Des\nMoines plan of government are it's\nnonpartisan provisions, its aboli-\nton Of ward lines and the limit\ning of responsibility for the man\nagement of the affairs of the city\nto a commission of Ave men, held\nin check by the initiative and ref\nerendum and right of recall On\nthe question Of nonpartisan NUM-\ncipal elections the civic commits\nsion has agreed In the Affirmative;\nas to the initiative and referendum\nand right OF recall. II Is only dit\nference as to the percentage of the\nvoters necessary. leaving the aies\nton OF the abolition of ward lines"
+    }
+  ]
+}

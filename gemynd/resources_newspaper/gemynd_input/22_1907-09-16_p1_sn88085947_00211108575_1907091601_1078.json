@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GALVESTON plan\n\n\nFOR SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-16",
+    "date_end": "1907-09-16",
+    "report_year": 1907,
+    "source_file": "22_1907-09-16_p1_sn88085947_00211108575_1907091601_1078",
+    "archive_ref": "22_1907-09-16_p1_sn88085947_00211108575_1907091601_1078",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1907-09-16_p1_sn88085947_00211108575_1907091601_1078",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 89,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "James Geraghty, former corpora\nton counsel, favors revision of the\ncity charter. He said today that he\nadvocated the commission plan\nadopted by Galveston and some\nother cities as the best method of\ncarrying on the business of this\ncity.\n\n\nMr.. Geraghty said the council\ncould by ordinance provide for the\nelection Of revision commission\nThe commission would consist of\nIs freeholders elected by the peo-\npie. They would revise the char\nter. which would then have to be\nsubmitted to a vote or the people\nbefore becoming effective."
+    }
+  ]
+}

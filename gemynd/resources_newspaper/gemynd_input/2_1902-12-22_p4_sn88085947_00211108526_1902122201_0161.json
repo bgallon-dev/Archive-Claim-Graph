@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CANADIAN ROAD\n\n\nMAY BUILD HERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-22",
+    "date_end": "1902-12-22",
+    "report_year": 1902,
+    "source_file": "2_1902-12-22_p4_sn88085947_00211108526_1902122201_0161",
+    "archive_ref": "2_1902-12-22_p4_sn88085947_00211108526_1902122201_0161",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1902-12-22_p4_sn88085947_00211108526_1902122201_0161",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 195,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1038,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the Canadian Pacific may\nbuild into Spokane within the next\ntwo months seems within the bounds\nOf possibility,\n\n\nThe connecting branch would be\nabout 200 miles in length and the\nroute chosen would be Via the Crow 5\nNest Pass.\n\n\nD. c. Corbin and Senator Turner\nare reported to be the promoters Of\nthe new line, and the latter is credit\ncd with being in chanrge of the pro-\ngram TO secure a government charter.\nbusiness connected with the new road\nis said to have kept the senator away\nfrom Washington.\n\n\nSenator Turner when he returned\nlast Wednesday from Seattle was ask\ned point black by The Press repre-\nsentative regarding the proposed\nCanadian Pacific extension and denied\nall knowledge of the Canadian Pa\nsenator is again visiting the Sound\ncities. but returns tonight.\n\n\nHis reticence may arise from the\nfact that a United States charter is\nnecessary, the road being foreign\nconcern, and until this charter is Sc\ncured, which is not probable until\nFebruary, premature publication may\nstir up matters in the Great North\nern and Northern Pacific TO the effect\nOf blocking the Canadian company.\n\n\nPresident Hill of the Great North"
+    }
+  ]
+}

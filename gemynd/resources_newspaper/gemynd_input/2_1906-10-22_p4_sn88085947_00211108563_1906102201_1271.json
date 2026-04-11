@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "DEADLY WRECK\nON THE GREAT\n\n\nNORTHERN",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-22",
+    "date_end": "1906-10-22",
+    "report_year": 1906,
+    "source_file": "2_1906-10-22_p4_sn88085947_00211108563_1906102201_1271",
+    "archive_ref": "2_1906-10-22_p4_sn88085947_00211108563_1906102201_1271",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-10-22_p4_sn88085947_00211108563_1906102201_1271",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 222,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 991,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern is having\nrun of bad luck lately in the\noperation of it's line on both sides\nof the mountains. Near Monroe, a\nSnohomish county town on the\nwest side, freight and local pas\nsenger trains collided yesterday,\nthe accident resulting in the death\nof Engineer ]. E. Hudson. Fireman\nA. w. Riddell and Patrick Sheri-\ndan, another trainman.\n\n\nGeorge Lawrence and Wetzell,\nengineer and conductor of the pas\nsenger train, were injured.\n\n\nFailure on the part of the\nfreight crew to obey orders is\ngiven as the cause of the collision.\nThe crew had orders to wait for\nthe local at Monroe, but pulled out\nin the belief that they could reach\nSultan in time to pass the local\nthere. A breakdown delayed the\nfreig t after leaving Monroe and\nthe collision came shortly after\nthe freight pulled up again, the\ntrains meeting with terrific force\non a curve. Passengers were badly\nshaken up, but none seriously in\njured.\n\n\nAt the instance of the coroner,\nConductor Erickson, of the freight,\nwas arrested at Everett to be held\nfor the result of the inquest this\nafternoon.\n\n\nFor the two wrecks that occurred\nat Malaga and Trinidad, on this\nside of the mountains, Saturday,\ncompany officials are still unable to\nassign any reason. At Trinidad\nfreight train ran into siding on"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WELLINGTON\n\n\nDEPOT TURNED\n\n\nIN TO M0RGUE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-05",
+    "date_end": "1910-03-05",
+    "report_year": 1910,
+    "source_file": "5_1910-03-05_p1_sn88085947_00211108629_1910030502_0767",
+    "archive_ref": "5_1910-03-05_p1_sn88085947_00211108629_1910030502_0767",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1910-03-05_p1_sn88085947_00211108629_1910030502_0767",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 158,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 13,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "--a- (By United Press Special Wire.)\n. WELLINGTON Wash, March 5-A fierce blizzard\n. ing\n= last heavy falling\nneither living dead Of\n. night .\n. Scenic night\nand returning Wellington daylight this mornings\n. the trail obteraed\n= fell 300 a .\nHis companions him after hard The\n. trail is getting dangerous minute .\nThe bodies Of Engineer B. Jansan and Fireman Par\nfridge today making total Of AZ bodies\n\n\ncovered since the rescue work stopped by the blizzard\n. Men through bodies Of .\nPetit Secretary\nslides Of\nyesterday\n. started the Of six being killed a slide. .\n. = = = . . . . . . - q\n\n\nWELLINGTON Wash March sThis morning strange funeral\nslipping sliding\nHot\nshipped\nthe railroad since the\n\n\nThis funeral Alaskan\nby dogs, however, IN\nblankets Of the bodies\nshattered\n\n\nis nerverackns trip to Scenic. In places\nfalse\nthe dead down a thousand feet.\n\n\nContinued Page"
+    }
+  ]
+}

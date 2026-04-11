@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STATE INSPECTOR PERLEY\nTELLS RAILROAD MEN OF\nLEGISLATIVE NEEDS AND\nURGES UNITED ACTION THIS\nFALL,",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-03-14",
+    "date_end": "1908-03-14",
+    "report_year": 1908,
+    "source_file": "10_1908-03-14_p1_sn88085947_00211108587_1908031401_0318",
+    "archive_ref": "10_1908-03-14_p1_sn88085947_00211108587_1908031401_0318",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1908-03-14_p1_sn88085947_00211108587_1908031401_0318",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 407,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 2084,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The absolute necessity Of the\nrailroad employees of this state TAX\ning an energetic and intelligent\npart in. politics his. fall was. point\ned out by A. w. Perley, state track\nand equipment inspector, at meet\ning in Hillyard last evening. He\nhas addressed trainmen at various\npoints in the state lately on this\nsubject and said that he considers\nthe work of arousing them to\nrealization of their own interests\none Of the most important functions\nof his position.\n\n\nTwo measures were pointed out\nspecifically as those with which\nrailroad employees are most vitality\nconcerned. These are the state\nliability law and the limited liabil-\nity law. The former Is designed\nto give the railroad employees &C\ncess to state courts in prosecutions\nfor injuries and the second is a\nscheme Of the railroads to limit the\namount any railroad mans family\ncan recover for his death to $4,000.\n\n\nThe state law was defeated in\nthe senate last session and the lat\nter is expected to come up again\nfor passage at the next session. An\nother effort will also be made to\npass the state liability law, al\nthough the federal act has been in\nvalidated by the U. s. supreme\ncourt. 1t is proposed to avoid the\ntechnical flaws the supreme court\ndiscovered and enact law that\nwill stand the test In this state.\n\n\nTo secure this law and defeat the\nrailroad measure Perley urged the\nmen to wake up to their RESPONSE\nbilities and organize for political\naction. He pointed out the vast\nimprovement made through the le-\ngislature in middle and southern\nstates, where the tracks are level\nand but a small percentage of the\ndanger encountered here exists.\nWashington, with every line climb\ning a mountain range, offers train\nmen the poorest protection of any\nstate.\n\n\nThe limited liability law, If pass\ned, would make 1t cheaper for rail-\nroads to kill employees than to\nMAIN them. A man might recover\nmore than $4,000 for the loss of a\nleg but his family could get moth\ning more IL deprived of his support\nthrough fatal accident, and possible\nnot so much.\n\n\nIllustrating what had been &C.\ncomplished since the work OF the\nrailroad commission began IL\nmonths ago, Perley covered in out\nline a vast amount of inspection\nand rulings resulting in improved\nconditions. He declared that he\nwas in no wise antagonistic to the\ncompanies, and argued that none of"
+    }
+  ]
+}

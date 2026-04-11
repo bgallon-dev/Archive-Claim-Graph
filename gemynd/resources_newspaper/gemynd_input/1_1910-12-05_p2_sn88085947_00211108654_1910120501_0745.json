@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G O n I'll N u + % |\n\n\nr o H----\nP A G E Q N f\n\nAND THE GREATEST",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-05",
+    "date_end": "1910-12-05",
+    "report_year": 1910,
+    "source_file": "1_1910-12-05_p2_sn88085947_00211108654_1910120501_0745",
+    "archive_ref": "1_1910-12-05_p2_sn88085947_00211108654_1910120501_0745",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-12-05_p2_sn88085947_00211108654_1910120501_0745",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mine workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 261,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mine workers",
+            "weight": 2.0,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "United Mine Workers headquar.\ntiers, Greensburg, Pa.\n\n\nPerhaps you read that story, and\nif you did you undoubtedly felt sor-\nry for the strikers and their FAINT\nlies. You may have wished that\nyou could help them, but did you,\nafter having partaken Of your\nThanksgiving dinner, give those\nunfortunates a second thought, and\ntry to devise some way in which\nyou could be of assistance to them?\n\n\nI didn't.\n\n\nBut A. Excl did,\n\n\nYou probably don't know A. Excl\nnever saw him until last even\ning, when he came to my home.\n\n\nII want to see you,\" he said as\nopened the door in answer to his\nknock.\n\n\n81 thought maybe you could send\nsome money to these folks\" he\nsaid in reply to my question as to\nwhat he wanted. 5-.\n\n\nThen l asked him to come in and\nexplain, for A. Excl talks rather\nbroken English, and l did not I'M\nderStand what he wanted.\nHe came in, and took from his\npocket a clipping OF the Green's\nburg story published in The Press.\n\n\nIl read this\" he said. 81 read\nhow boy, eight years, have no\nshoes; how girl have no shoes, and\nthink maybe you would send 'em\nfive dollars to get some. L been\nthere. l know what it is like and\nwant to help some. l think you get\nmoney there quicker than ME-\"\nHe handed me the clipping and\na again read how at Jamison camp\nNo. 1, an eight-year-old boy limped\naround in the half-frozen slush,\nbare-footed, his feet in terrible con-"
+    }
+  ]
+}

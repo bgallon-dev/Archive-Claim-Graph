@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BIG PARADE OF\n/ UNION WORKERS.\n\nOrganized Labor Celebrates Its HOLIDAY\n!. by Marching in Uniform\nK. Array.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-07",
+    "date_end": "1903-09-07",
+    "report_year": 1903,
+    "source_file": "4_1903-09-07_p1_sn88085947_00211108538_1903090701_0356",
+    "archive_ref": "4_1903-09-07_p1_sn88085947_00211108538_1903090701_0356",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-09-07_p1_sn88085947_00211108538_1903090701_0356",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 230,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 644,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "They carried canes The brewery\nworkers appeared with dark trousers,\nlight blue shirts, light belts and black\nfor ornament. The red shirts and\nblack caps appeared thoroughly en-\nblematical Of the horseshoers. as did\nthe white suits, aprons and caps of\nthe bakers and confectioners. The\nboilermakers and the iron workers\nwore blue denim overalls and blouses\nand white caps. The blacksmiths were\nuniformed in black, while around\ntheir waists were tied heavy leather\naprons.\n\n\nThe speakers of the day. John r.\nSovereign, Fred N. Foss and c. A.\nFoster, rode in a decorated carriage,\nfollowed by another containing the\nwomen who are delegates to the\ntrades council.\n\n\nOne Of the typical floats was that\nof the boilermakers. A group of men\nwere engaged in driving rivets. Three\nyoung ladies also appeared on this\nfloat The blacksmiths' float repre-\nscented a shop in full action. Upon\nthe transfers float was donkey\ncart. The members of the union\nturned out in great number driving\ntheir wagons.\n\n\nImmediately after the parade dis\nbanded the union men, accompanied\nby their families, set out for Nata-\nforum Park, where the other exer-\ncises of the day were held.\n\n\n\n\n\nhundreds Of hungry people was a\nsumptuous barbecued repast, provid-\ned by the members of the colored\nBaptist church.\n\n\nDancing was commenced in the pa\nvilion at once. and it will be con-\ntinued this evening."
+    }
+  ]
+}

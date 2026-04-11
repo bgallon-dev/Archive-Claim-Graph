@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-02-28 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-28",
+    "date_end": "1910-02-28",
+    "report_year": 1910,
+    "source_file": "3_1910-02-28_p2_sn88085947_00211108629_1910022801_0726",
+    "archive_ref": "3_1910-02-28_p2_sn88085947_00211108629_1910022801_0726",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-02-28_p2_sn88085947_00211108629_1910022801_0726",
+      "composite_score": 1.68,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 104,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 253,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 421,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Success by peaceable means\nfirst; If not, then war-such is the\nattitude Of the committee of the\nj. w. w. that visited Mayor Pratt\ntoday.\n\n\nThe committee consisted Of w.\nL. Foster, former reporter for the\nSeattle socialist, who has done\ntime in the city Jail because of the\nspeech fight; J. ]. McKelvey, a new\nconner, and T. j. Gillespie.\n\n\nThe committee had talk with\nCouncilman Ostrander, spokesman\nfor the mayor in the city council,\nand told Ostrander that they might\nhave occasion to appeal to the\ncouncil again to modify the street\nspeaking ordinance before renew\ning the fight in this city."
+    }
+  ]
+}

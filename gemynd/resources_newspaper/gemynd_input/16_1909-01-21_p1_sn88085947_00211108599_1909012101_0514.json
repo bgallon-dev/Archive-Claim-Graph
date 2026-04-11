@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MISS FERGUSON UNABLE TO\nAPPEAR FOR SECOND TRIAL\nBECAUSE OF hARASSlNG\nTACTICS OF COMPANY.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-21",
+    "date_end": "1909-01-21",
+    "report_year": 1909,
+    "source_file": "16_1909-01-21_p1_sn88085947_00211108599_1909012101_0514",
+    "archive_ref": "16_1909-01-21_p1_sn88085947_00211108599_1909012101_0514",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1909-01-21_p1_sn88085947_00211108599_1909012101_0514",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 122,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 317,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Worried by repeated medical in\nspections and X-ray examinations\ndemanded by the defendant. Myrtle\nFerguson, the frail girl who re-\nGently appeared in court on cot\nat the first trial of her case, was\ntoday compelled by physical weak\nness, to dismiss for the present her\nsnit for $20.600 damages against\nthe Washington Water Power Co.\nThe defendant corporation has\nfled motion after motion for ex\naminations of the girls person.\nthe last one being today. when the\ndefendant asked that the girl sub\nNIT to an examination under an\nanaesthetic to see whether or not\nher claim that she was too Ill TO at\ntend another trial of the case at\nthis time was correct.\n\n\nAt the same time the defendant"
+    }
+  ]
+}

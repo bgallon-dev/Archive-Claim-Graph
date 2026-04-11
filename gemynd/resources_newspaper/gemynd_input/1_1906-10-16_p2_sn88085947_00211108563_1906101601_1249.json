@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BACK TO THE LAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-16",
+    "date_end": "1906-10-16",
+    "report_year": 1906,
+    "source_file": "1_1906-10-16_p2_sn88085947_00211108563_1906101601_1249",
+    "archive_ref": "1_1906-10-16_p2_sn88085947_00211108563_1906101601_1249",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-10-16_p2_sn88085947_00211108563_1906101601_1249",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "rural delivery"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 123,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "rural delivery",
+            "weight": 1.5,
+            "offset": 187,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One discovered in the fact\nmany and other colleges\nlectng farming as a in life\n\n\nthese families They have\nprofession deliberately out of\nlove\n\n\nRecent changes in farm something with this\nRural delivery telephones the\npaper facilities much of drudgey and\ndeadening rural life.\n\n\nBesides\n\n\nrecognized that brains to success\nfarming necessary future. The\nbest talent and education is laid under contribution\n\n\nTherefore looking agriculture profession\nmedicine law Already edu\nGated farm managers in at good salaries.\n\n\nThere much money farming in other\nthe life is\nSo that from beginning hear the\n\n\nBack to the land!\n\n\nEvery inherited\ninstinct attracts the human the soil\n\n\n\nAway city\nfinty Away the\nthe wide sailing springng\ngrass. o\n\n\nMan the God the country. live\nwise the"
+    }
+  ]
+}

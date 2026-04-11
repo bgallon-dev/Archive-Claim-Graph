@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THREE TRAINS DAILY\nON THE n. P. TO\n\n\nC0EUR D'ALENE",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-13",
+    "date_end": "1904-04-13",
+    "report_year": 1904,
+    "source_file": "22_1904-04-13_p4_sn88085947_00211108538_1904041301_1211",
+    "archive_ref": "22_1904-04-13_p4_sn88085947_00211108538_1904041301_1211",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1904-04-13_p4_sn88085947_00211108538_1904041301_1211",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 130,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is a persistent rumor today\nthat the Northern Pacific has planned\nto enter into an active and aggressive\ncompetition with the Occur d'Alene\n& Spokane electric line for the pass\nenger business to Lake Occur d'Alene.\n1t is claimed that numbered among\nthe plans Of the company for this\ncompetition is the putting on of three\ndaily trains each way to and from\nthe lake with 50-cent fare. The\npresent rate by the electric line is 60\ncents each way\n\n\nAdding Equipment.\n\n\nNearly so cars of gravel are used\non the Occur d'Alene & Spokane cleo\ntrio line every day In baIlasting the\nroadbed. This work will be continued\nuntil the road is one of the finest bal\nlasted in this section, which will\ngreatly decrease the time between"
+    }
+  ]
+}

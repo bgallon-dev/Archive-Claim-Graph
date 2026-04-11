@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CITY OWNERSHIP\n\n\nGAINS A POINT\nCAN CONDEMN PROPERTY OF\nPRIVATE CORPORATION\nNEEDED FOR A CITY\n\n\nUTILITY.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-22",
+    "date_end": "1910-02-22",
+    "report_year": 1910,
+    "source_file": "2_1910-02-22_p2_sn88085947_00211108629_1910022201_0626",
+    "archive_ref": "2_1910-02-22_p2_sn88085947_00211108629_1910022201_0626",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-02-22_p2_sn88085947_00211108629_1910022201_0626",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 179,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 258,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BY a margin of one vote the SUI\npreme court of the state of Wash\nington has conceded to cities that\nmay hereafter desire to purchase\nand operate their public utilities a\nvaluable point. 1t has given the\nright of the city to condemn the\nproperty of a private public utility\ncorporation when the same is\nneeded for the operation of a mu-\nnicipal public utility. In other\nwords, this gives the municipality\nowned utility precedence in the\npower of condemnation over that\nexercised by the privately owned\nutility.\n\n\nThe case came up from Tacoma\nin the effort of that city to con-\ndenim a power site for the purpose\nof enlarging the municipal lighting\nplant. The site was already held by\npublic utility corporation, which\ncontended that the city could not\ntake their property. Five judges of\nthe supreme court, Morris. Mount,\nParker, Crow and Chadwick upheld\nthe right of the city to condemn.\nwhile Judges Rudkin, Fullerton,\nGose and Dunbar held the opposite\nview. The case will probably go to\nthe supreme court of the United\nStates."
+    }
+  ]
+}

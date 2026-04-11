@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MORE CAR\nLINES FOR\n\n\nNORTH HILL",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-29",
+    "date_end": "1909-12-29",
+    "report_year": 1909,
+    "source_file": "5_1909-12-29_p2_sn88085947_00211108617_1909122902_0515",
+    "archive_ref": "5_1909-12-29_p2_sn88085947_00211108617_1909122902_0515",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1909-12-29_p2_sn88085947_00211108617_1909122902_0515",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 225,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 184,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BY unanimous vote the city coun-\nGil has responded to the numerous\nrequests for additional car facili-\nties in the Lidgerwood district and\npassed the franchise asked by the\nWashington Water Power company\nfor new car lines on Division and\nAddison streets from Liberty ave\nnue. to Rowan avenue. Each of\nthese lines will branch from the\n| old LidserWood line at Liberty ave.\nnue. and run north a mile and a\nhalf into district that at the pres\nent has no car service.\n\n\nThe granting of the franchise\nwas urged at a recent meeting Of\nthe people of that locality held at\nthe Hamilton school. Several pc.\ntitions in favor of granting the\nfranchises were circulated and\nsigned by hundreds of property\nowners and citizens living in the\nterritory tributary to the proposed\nextensions.\n\n\nThe only objection to the build\ning of the new lines was entered\nby property owners residing along\n!.idgefWOOd street, from which it\nis proposed to remove the car line\neast one block to Addison street.\nThey filed demonstrating petition\nbut in the meeting at the Hamii\nton school only four votes out of\n200 people present opposed the\ngranting of the franchise.\n\n\nCouncilman Funk tried to get a\nmo seat, no fare provision into\nthe franchise, and one calling for\ng universal franchise, but this eff\nfort was defeated."
+    }
+  ]
+}

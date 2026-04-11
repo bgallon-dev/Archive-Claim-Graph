@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-11-13 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-13",
+    "date_end": "1907-11-13",
+    "report_year": 1907,
+    "source_file": "5_1907-11-13_p4_sn88085947_00211108575_1907111301_1251",
+    "archive_ref": "5_1907-11-13_p4_sn88085947_00211108575_1907111301_1251",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-11-13_p4_sn88085947_00211108575_1907111301_1251",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 168,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 453,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "land under the lumber act, knowing\nthat it contained valuable deposits\nof coal.\n\n\nThree of Walkers assistants\nwere in the mine when he was kill\ned. They claim that their ladders\nwere cut and that they had a diff\ncult time in reaching the surface,\nonly to find their chief cold in\ndeath.\n\n\nThe weapon used was sawed-off\nshotgun, a common weapon in Du-\nrange, especially among the land\nowners-a class who armed them\nselves with these weapons to fight\nthe Western Federation of Miners\nduring thee famous Colorado war.\n\n\nWalker was known as a shrewd\nman and was an important witness\nfor the government at the hearings\nbefore the grand pury. Many men\nwho have accumulated fortunes\nthrough alleged frauds wept no\ntears at his untimely death.\n\n\nImmediately following the trag-\nedy orders were sent for all secret\nservice men in the district to con-\ngregate at Denver. The meeting\nwas secret and orders were re-\nceived from Chief Wilkie to ferret\nthe assassination to the bottom."
+    }
+  ]
+}

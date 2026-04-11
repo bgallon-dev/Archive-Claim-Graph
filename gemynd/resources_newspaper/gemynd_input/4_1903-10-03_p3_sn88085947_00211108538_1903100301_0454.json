@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Prominent Speakers\n\n\nfor the Institute",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-03",
+    "date_end": "1903-10-03",
+    "report_year": 1903,
+    "source_file": "4_1903-10-03_p3_sn88085947_00211108538_1903100301_0454",
+    "archive_ref": "4_1903-10-03_p3_sn88085947_00211108538_1903100301_0454",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-10-03_p3_sn88085947_00211108538_1903100301_0454",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 175,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "County Superintendent of Schools\nMarshall b. Watkins is back from his\ntrip to Olympia, where he was in\nattendance upon the annual meeting\nor the school superintendent of the\nstate. Mr.. Watkins said that he had\nnot been able to complete all his ar\nrangements for the coming institute\nfor Spokane county. but he had fixed\nupon the first week in November as\nthe time\n\n\nIl met many people whom 1 would\nlike to have here at the institute, but\nhave secured only one-Professor A.\nIII. Yoder of the state university at\nSeattle. l really expect to have with\nus DIR. r. G. Boone. editor OF Educa-\ntion. DR.. Boone was formerly super\nintendent of the schools Of Cincinnati\nand later president of the state nor\nNAL school of Michigan. He Is an\nable man and, as he speaks the previ-\nGus week at the Kittitas county in\nstitute. have high hopes of securing\nhim for Spokane. AS TO the others,\nII Is a matter of correspondence be-\nfore any definite announcement can\nbe made."
+    }
+  ]
+}

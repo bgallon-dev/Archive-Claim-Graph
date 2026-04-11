@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-09-06 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-06",
+    "date_end": "1906-09-06",
+    "report_year": 1906,
+    "source_file": "25_1906-09-06_p3_sn88085947_00211108563_1906090601_1112",
+    "archive_ref": "25_1906-09-06_p3_sn88085947_00211108563_1906090601_1112",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1906-09-06_p3_sn88085947_00211108563_1906090601_1112",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 54,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 73,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "This project Is one Of the object\nlessons used in the fourteenth an\nnual irrigation congress now in\nsession at Boise. The land, abso-\nlutely worthless before irrigation.\nproduces certain crop the first\nyear water is applied which makes\n1t salable at 800 per acre. Recla.\nnation cost does not exceed $50\nuer acre."
+    }
+  ]
+}

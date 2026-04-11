@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "TRYING TO SETTLE STRIKE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-27",
+    "date_end": "1910-06-27",
+    "report_year": 1910,
+    "source_file": "34_1910-06-27_p3_sn88085947_00211108630_1910062701_1152",
+    "archive_ref": "34_1910-06-27_p3_sn88085947_00211108630_1910062701_1152",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "34_1910-06-27_p3_sn88085947_00211108630_1910062701_1152",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "mining": [
+          "mine workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 62,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 17,
+            "in_headline": true
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine workers",
+            "weight": 2.0,
+            "offset": 266,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire.i\n\n\nKANSAS CITY, June 27.-ln an\nendeavor to settle the differences\nbetween the 10000 striking miners\nin the southwestern coal district\nand the mine operators, James Ell\nlott, representing the operators,\nand President Lewis of the United\nMine Workers of America, are con-\nferring today. 1t is expected that\nwork in the mines will be resumed\nJuly 5."
+    }
+  ]
+}

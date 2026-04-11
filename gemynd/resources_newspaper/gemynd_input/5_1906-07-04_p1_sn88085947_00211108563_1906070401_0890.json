@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-07-04 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-04",
+    "date_end": "1906-07-04",
+    "report_year": 1906,
+    "source_file": "5_1906-07-04_p1_sn88085947_00211108563_1906070401_0890",
+    "archive_ref": "5_1906-07-04_p1_sn88085947_00211108563_1906070401_0890",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-07-04_p1_sn88085947_00211108563_1906070401_0890",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 163,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 219,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 320,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "pended by the Home people in this\ncity Will be much less than has\nbeen expected.\n\n\nMr.. Summers Agreement.\n\n\nHere is Mr.. Summers voluntary\nstatement which he placed in writ\ning:\n\n\nSPOKANE, Wash. Feb. 20, 1905.\nSpokane Trades Council, City.\nGentlemen: am advised that your\norganization has passed resolutions\nurging the city council of Spokane\nto pass a pending ordinance grant\ning to me a franchise to construct,\nmaintain and operate a telephone\nsystem in this system, and that you\nhave appointed committee to\nlabor for the passage of such an\nordinance.\n\n\nIn this action you have added\none more to the many obligations\nam under to organized labor for\nfavors received, and | desire to\nassure you that, if this franchise is\ngranted, | shall adopt the same\npolicy in installing the plant here,\nthat | have heretofore followed. to-\nwit: l shall employ union labor,\nwork union hours, and pay the\nunion scale of prices. Yours very\ntruly. CHARLES L. SUMNER."
+    }
+  ]
+}

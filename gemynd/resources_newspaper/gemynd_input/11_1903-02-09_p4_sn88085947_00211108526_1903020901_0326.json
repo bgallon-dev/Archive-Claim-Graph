@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-09 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-09",
+    "date_end": "1903-02-09",
+    "report_year": 1903,
+    "source_file": "11_1903-02-09_p4_sn88085947_00211108526_1903020901_0326",
+    "archive_ref": "11_1903-02-09_p4_sn88085947_00211108526_1903020901_0326",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-02-09_p4_sn88085947_00211108526_1903020901_0326",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 294,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 401,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "interview this morning said: 1.-THE\nmembership of our new union down\nthere is growing and it is the inten-\nton of the boys to make Lewiston\nfirst class union camp. Mr.. Harvey\nis now our president. He was county\nchairman of the labor party ticket\nand is in Helena now attempting to\nunseat the republican senator from\nFergus county, who is opposed to la\nDor unionism.\"\n\n\nThe committee appointed by the\ntrades council to attend to the en-\nlargement of the building that is at\npresent occupied as the Central Labor\nhall will hold a consultation tonight\nwith Mr.. Oppenheimer, to see if sat\nisfactory arrangements can be made\nShould Mr.. Oppenheimed find it i'm\npossible to acCede to the request of\nthe unions, then steps will at once\nbe taken to procure new quarters I'M\ntil suitable location can be found\nwherein to erect a labor temple. 1t\nis understood, however, that the pro-\nprietOrs of the present accommoda-\ntions have expressed their intention\nof charging them.\n\n\nWithin the past year the American\nFederation of Labor has increased\ntenfold in this city. Said Organizer\nHeskett this morning: THE Ameri-\ncan Federation of Labor is today in\na stronger position in Spokane than\nit ever was. With it are affiliated all\nthe international organizations be-\nsides every union of Importance\"\nLabor union. No, 23S, of Hope, Ida\nno, which was organized about two\nmonths ago by II. L. Hughes of Spo-\nkane, reports making good progress\nand expects to become one of the\n! strongest in the state. The union will\n| give a grand picnic some time in May\non Land Pend d'Oreille, and will OK\ntend an invitation to all the unions\n/ In Spokane to participate in the fes-\n! tiVity.\n\n\n"
+    }
+  ]
+}

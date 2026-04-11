@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "title": "RAILWAYS YIELD\n\n\nNINE HOUR DAY\n\nSpokane Operators Notified That\n\n\nVictory Is Won Without Strike.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-28",
+    "date_end": "1908-02-28",
+    "report_year": 1908,
+    "source_file": "5_1908-02-28_p1_sn88085947_00211108587_1908022801_0270",
+    "archive_ref": "5_1908-02-28_p1_sn88085947_00211108587_1908022801_0270",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-02-28_p1_sn88085947_00211108587_1908022801_0270",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 1.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "indigenous": [
+          "reservation"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 244,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 106,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 89,
+            "in_headline": true
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 457,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 212,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 82,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "indigenous",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A clean victory has been won for\nthe interstate nine hour law, de-\nsigned for the relief of overworked\nno strike, according to official ad-\nvices received by Spokane opera\ntors from ST. Paul this morning.\n\n\nTheh Northern Pacific accepts\nthe nine hour law provision to go\ninto effect March without the\ncontemplated reduction of wages.\nBy this agreement the minimum\nscale of SIS per month average\nwill be maintained, and nine\nhour workday assured.\n\n\nThe only reservation made by\nthe company is the right to work\nwhat is called split tricks. This\nmeans that an operator going to\nwork in the morning may be laid\noff for one or several hours during\nthe day when there is nothing to\ndo. This exception will permit\nwithout increase Of operating\nforces, as the men will be required\nto put in their nine hours on time\nonly when there is actual neces-\nsity of having an operator on duty\nand will not be drawing pay for the\ntime they are off.\n\n\nIn Offices of any consequence,\nhowever, the men will be relieved\nof the ~ hour shifts without de-\ncrease from the wage scale now\npaid. This rule affects all opera\ntors except relay men on the Great\nNorthern. who secured eight hours\nsome time ago.\n\n\nAnother indication that the vic\ntory is general came last night in\na call from Pres. Perham, of the\nOrder of Railway Photographers at\nst. Louis, for 500 operators wanted"
+    }
+  ]
+}

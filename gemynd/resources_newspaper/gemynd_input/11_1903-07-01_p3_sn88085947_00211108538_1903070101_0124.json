@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-01 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-01",
+    "date_end": "1903-07-01",
+    "report_year": 1903,
+    "source_file": "11_1903-07-01_p3_sn88085947_00211108538_1903070101_0124",
+    "archive_ref": "11_1903-07-01_p3_sn88085947_00211108538_1903070101_0124",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-07-01_p3_sn88085947_00211108538_1903070101_0124",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 175,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 182,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 38,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The members Of the women's\nchristirae Temperance union Of the\nritS-Sle going to take up the matter\nOf the new saloon boz ordinance. and\nN h likely they win call on the\nmayor and the city council to urge\nthe passage Of the ordinance.\n\n\nMrs Mary & Trowbridge. one of\nkhe most active w. G. T. u. workers\nIn the city. says:\n\n\n1--WE approve this new ordinance\nand wish that all curtains could be\nvemoved from boxes wherein liquor\nu sold to both sexes. In restaurants\nrs well as In saloons\n\n\nMANY of our girls are ruined I'm\nkhese places and we hope that they\nare going to pass out OF existence.\nThe new ordinance should become\nLaw.\n\n\n1.-The matter will come up in the\ndifferent unions throughout the city\nand will come up at the Federal union\nmeeting one week from Friday.\n\n\n''Inasmuch ~ the ordinance comes\nup before the city council next week\nI am considering the ACCESSIBILITY of\nImmediately calling . meeting OF the\nective workers In the W. C. T. u."
+    }
+  ]
+}

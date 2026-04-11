@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE. SUFFRAGST LEADER REPLIES TO\n\n\nMORE BABIES, NOT MORE BALLOTS\"",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-27",
+    "date_end": "1909-12-27",
+    "report_year": 1909,
+    "source_file": "2_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+    "archive_ref": "2_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "2_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 161,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 715,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "reformation as a whole will be\nslow from the fact that as class\nthey have not suffered enough.\nWomen whoa the iron heel Of ne.\ncessity has driven out of the home\ninto the world to wage an unequal\nindustrial warfare on account OF\ntheir sex are the women who viii\ndemand the ballot because Trey\nrecognize the power it gives to\nmen.\n\n\nMr.. Editor, you struck the key\nnote when you assert: what wom-\nen- want they will have\" This\ntruth has been demonstrated in all\nages that when a woman will she\nwill\"\n\n\nl believe that the Injustice of\ndenying the woman the ballot IS SO\nglaring and the justice of the cause\nso apparent that it will soon rouse\nthe women from the apathy into\nwhich they have fallen, and that\nuniversal suffrage for women for\nthe benefit of the race will prevail,\nMrs. discipline Dodge Daskam Pa\ncons opinions to the contrary not\noutstanding. May Arkwright\nHutton"
+    }
+  ]
+}

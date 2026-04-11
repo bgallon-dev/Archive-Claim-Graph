@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-14 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-14",
+    "date_end": "1903-07-14",
+    "report_year": 1903,
+    "source_file": "8_1903-07-14_p2_sn88085947_00211108538_1903071401_0167",
+    "archive_ref": "8_1903-07-14_p2_sn88085947_00211108538_1903071401_0167",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-07-14_p2_sn88085947_00211108538_1903071401_0167",
+      "composite_score": 10.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 3.5,
+        "agriculture": 0.0,
+        "railroads": 3.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian reservation",
+          "reservation"
+        ],
+        "railroads": [
+          "inland empire",
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903,
+      "word_count": 272,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 479,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 486,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 326,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 340,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Northern Pacific railway and to the\nInternational Encyclopedia, published\nby Dodd, Mead, & Co.\n\n\nIn 1902 Spokane, by actual tabula-\nton. got 1900 visitors. This year\nno committee being appointed for\nthat purpose. no count has been kept,\nbut it is conservative to say that\nfully twe-thirds of last years num-\nDer came into the Inland Empire\nchamber of commerce.\n\n\nThe chamber of commerce has also\nplayed a Legislative part. making ef-\nforts to open the south half OF the\nColyille Indian reservation; starting\nthe good roads movement and the\nformation Of a county good roads as\nsociation: securing appropriations for\nopening UP the upper Columbia river\nfor navigation: assisting in the mat\nter Of increasing the facilities ut\nFort Wright SO as to make 1t a regi-\nmental post and the construction of\na steel bridge across the Spokane\nriver to directly connect the city with\nthe post; aiding in building an ar\nm0ry building. and bringing to Spo-\nkane the proposed Norwegian college.\n\n\nMuch more can be written of the\nefforts to locate mills and factories\nhere. To do these things there have\nbeen held since the first of the year\nII board meetings, two general meet\nings and four special meetings, be-\nsides numerous meetings OF the diff.\nferent committees.\n\n\nAdded to It's other functions. the\nchamber Of commerce has entertain.\ned several distinguished individuals\nand parties visiting the city. Sena\ntors Ankeny and Foster, General Fun.\nston and Major Andrews were enter\ntanned. as well as the North Dakott\n| Editorial association and the Penn\nsylvania and New York delegates t\nthe national Presbyterian assembl,\nat Los Angeles."
+    }
+  ]
+}

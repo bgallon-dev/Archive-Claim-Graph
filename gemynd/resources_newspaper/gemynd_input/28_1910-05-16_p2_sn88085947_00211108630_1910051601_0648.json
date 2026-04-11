@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WATERS EMBLEMS ON\nDONKEY MAKE MAN MAD",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-16",
+    "date_end": "1910-05-16",
+    "report_year": 1910,
+    "source_file": "28_1910-05-16_p2_sn88085947_00211108630_1910051601_0648",
+    "archive_ref": "28_1910-05-16_p2_sn88085947_00211108630_1910051601_0648",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1910-05-16_p2_sn88085947_00211108630_1910051601_0648",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 102,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 37,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "= \"l'm ony a donkey, but ! I\n. won't scab. I'm ony a don. Z\n. key, but | won't work more Z\nq than sixx days q week.\" Z\nq These were emblems car Z\n. ried on the sides Of a donkey 4\n= being led through the streets I\n. by a boy today. When the I\n. donkey got opposite tho Psdi- I\n. cord cafe enc Of the men I\n. there was made 20 lrate by I\ny reading the embiews that no I\n= rushed out and mixed things 4\nq with the beast."
+    }
+  ]
+}

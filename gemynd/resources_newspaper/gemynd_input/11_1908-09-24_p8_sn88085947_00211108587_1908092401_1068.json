@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "HOBO CAMP DEADLY\n\n\nPLACE FOR CHICKEN",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-24",
+    "date_end": "1908-09-24",
+    "report_year": 1908,
+    "source_file": "11_1908-09-24_p8_sn88085947_00211108587_1908092401_1068",
+    "archive_ref": "11_1908-09-24_p8_sn88085947_00211108587_1908092401_1068",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1908-09-24_p8_sn88085947_00211108587_1908092401_1068",
+      "composite_score": 11.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 6.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ],
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 83,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 48,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 110,
+            "in_headline": false
+          },
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There's a lot of trouble in the\nvicinity of the Great Northern\nbridge in the west end of town on\naccount of a hobo camp and the\ndepredations its members commit\nagainst chicken roosts. Several\npeople have missed chickens that\nfail to answer roll call at feeding\ntime. The climax was capped yes\nterday when a dozen fine chickens\nbelonging to Mrs. Rowell were\nstolen. Sh notified the police and\nofficers went to the vicinity, but\nthe hobo camp was found de-\nserted."
+    }
+  ]
+}

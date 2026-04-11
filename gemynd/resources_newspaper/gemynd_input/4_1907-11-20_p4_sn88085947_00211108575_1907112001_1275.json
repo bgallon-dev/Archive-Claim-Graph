@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-11-20 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-20",
+    "date_end": "1907-11-20",
+    "report_year": 1907,
+    "source_file": "4_1907-11-20_p4_sn88085947_00211108575_1907112001_1275",
+    "archive_ref": "4_1907-11-20_p4_sn88085947_00211108575_1907112001_1275",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-11-20_p4_sn88085947_00211108575_1907112001_1275",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 196,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 198,
+            "in_headline": false
+          },
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 95,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cuse him of having any executive\nability to speak Of\n\n\nHowever, the most potent reason\nfor the exposition's failure is found\nin the purpose of a party Of the\noriginal promoters to engineer a\nclever real estate speculation. 1t\nwas figured that the exposition was\nto bring improvements to the bar\nrem waste of land which was\nchosen for the site. and the pro-\nmotors We're to profit by this I'M\nearned increment by becoming\nowners of this land.\n\n\nThis Influenced the choice of the\neXposition's site, and the most I'M\nportant reason for it's failure was\nthe inaccessibility of this site. To\nreach the place boat trip from\nWashington of IL hours was re-\nquired, and there never has been a\ntime when there were enough boats\nto handle the traffic comfortably.\n\n\nIn addition to which there were\nno facilities at the exposition for\ncovering the grounds, and the Wis\nitor was subjected from the begin\nming to all manner of petty imposi-\nton and discomfort.\n\n\nA determined effort will be made\nin congress to foil the efforts of the\nlobby to try to make the govern\nment \"a goat for this losing spec\nulatiOn."
+    }
+  ]
+}

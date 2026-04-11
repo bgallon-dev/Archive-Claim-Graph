@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FINDS 81\nUNFORTUNATE\n\n\nCHILDREN",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-15",
+    "date_end": "1910-08-15",
+    "report_year": 1910,
+    "source_file": "24_1910-08-15_p2_sn88085947_00211108642_1910081501_0487",
+    "archive_ref": "24_1910-08-15_p2_sn88085947_00211108642_1910081501_0487",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1910-08-15_p2_sn88085947_00211108642_1910081501_0487",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 54,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 64,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In taking the school census of\nSpokane county, r. G. Mcfarland,\ncounty superintendent of instruc-\nton, has encountered 81 children\ndeficient in some way. Thenty\nwere feeble minded, eight deaf,\nthree deaf and dumb. two blind,\nand one each had defective speech,\nanother was a paralytic, one was\nfoolish and another had spinal\nfrOuhlp"
+    }
+  ]
+}

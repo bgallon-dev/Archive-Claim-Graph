@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "10000 CLUB\n\n\nTO THE FRONT",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-31",
+    "date_end": "1907-07-31",
+    "report_year": 1907,
+    "source_file": "2_1907-07-31_p4_sn88085947_00211108575_1907073101_0919",
+    "archive_ref": "2_1907-07-31_p4_sn88085947_00211108575_1907073101_0919",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-07-31_p4_sn88085947_00211108575_1907073101_0919",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "chamber of commerce"
+        ],
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 276,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 1253,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 135,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The extent to which the Inter\nstate Fair association was bluffing\nin trying to force pool room gam\nbling at the fair in spite of legal\nprohibition duly enacted, is reveal\ned by the fact that the directors\nand a $50 900 club committee are\nholding a session this afternoon to\narrange a fair with the gambling\nfeature eliminated.\n\n\nThis. according to Interstate Fair\nassociation declarations previous to\nMayor Moore's unequivocal stand\non the question, is an impossibility\nand action based on any other\ntheory is ridiculous.\n\n\nBut in spite of the strongest in\nfluences that could be brought to\nbear Mayor Moore refused to per-\nnit game of football with his Of\nfee, and the proposed operation on\nthe anti-pool ordinance begged\ndown after hasty readings has\nbeen given it by an apparently will\ning council.\n\n\nThe hum of the buzZsaw began\n\" deNeiOp ~ SuCH an eAlcHl tHdl\nit attracted attention even in the\ncouncil chamber.\n\n\nNaturally another tack had to be\ntaken, as there was no real deter\nmination to abandon the fair. It's\ntoo much of mOney-maker to be\nforsaken that easily, although the\nreturns from the pool room graft\non the races is undoubtedly the\nleading factor from financial\nstandpoint. So readjustment may\nbe comfortably accomplished\nthrough the chamber of commerce\nand 10000 club, and the fair man\nagement saved from an embarrass-\ning backdown.\n\n\nAny deficit the directors may\nfigure out because of the scarcity\nof race track grafters will be made\nup. as the plan is outlined, through\nthe threadbare but usually effective\nmethod of levying a tribute on the\nbusiness interests of the city\nthrough the 10000 club."
+    }
+  ]
+}

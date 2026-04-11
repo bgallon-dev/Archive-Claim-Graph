@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-09-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-14",
+    "date_end": "1905-09-14",
+    "report_year": 1905,
+    "source_file": "11_1905-09-14_p1_sn88085947_00211108551_1905091401_0882",
+    "archive_ref": "11_1905-09-14_p1_sn88085947_00211108551_1905091401_0882",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1905-09-14_p1_sn88085947_00211108551_1905091401_0882",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "land office"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 273,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 1401,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Two pieces of official paper,\nhanging side by side on the bulle-\ntin board in the Office of the county\nauditor, form a sharp contrast in\nthe mind Of the ordinary individ-\nual. One paper sets forth in de-\ntail. by lots, the valuation fixed\nby the state land department on\nproperty wanted by the Spokane\nInternational railway. The other\npaper sets forth in detail, lot by\nlot, the valuation fixed by this\nsame state land department on\nproperty which is offered for sale\nin open competitive market to the\ncitizens of this vicinity. Both pa\npers refer to land the school\nsection in the eastern part of the\ncity.\n\n\nNo one doubts but that Spokane\nis to be the gamer by the con-\nstruction and operation of the Cor\nbin road, but that is no reason why\nthe state should make a present of\nits land to Mr.. Corbin's road\n\n\nThe contrast between the value\nof lots as set forth on the two\npieces of paper Is ridiculous, not\njust to the state or to the people\nand suggests pnrposefuI valuation\nIn favor of the railway.\n\n\nThere are So lots wanted by the\nrailroad, and the valuation fixed by\nMr. Ross office ranges from S. up\ntoward 800. There is approx\nmately an equal number Of lots on\nthe other list. and few of the valu-\nations for ground alone fall below\n5000\n\n\nTo become specific, the lot at\nthe northeast corner of Cook street\nand Broadway, in block 1852, which\nis wanted by the railroad, is valued\nby the state land Office at $3.50.\nThe lot advertised for sale to the"
+    }
+  ]
+}

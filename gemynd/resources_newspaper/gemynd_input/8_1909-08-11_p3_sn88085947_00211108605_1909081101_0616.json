@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ",ARDEE ROASTS BALLLNCER",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-11",
+    "date_end": "1909-08-11",
+    "report_year": 1909,
+    "source_file": "8_1909-08-11_p3_sn88085947_00211108605_1909081101_0616",
+    "archive_ref": "8_1909-08-11_p3_sn88085947_00211108605_1909081101_0616",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-08-11_p3_sn88085947_00211108605_1909081101_0616",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 146,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 242,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cupancy and use should be made\nas cheap and as little onerous as\nmay be. And therefore there are\nnot few people who look with re-\ngreet upon the rulings which the\nsecretary of the interior has re-\nGently made concerning the opera\ntons of the reclamation act.\n\n\nmo one has yet the right to\nquestion the secretary's loyalty to\nthe principles of government\nreclamation of arid public lands\nBut there will be one class OF pao-\npie who will rejoice at the secre-\ntary's rulings: those who are op-\nposed to the reclamation service\nand would, for one reason or an\nother, like to see 1t hampered In\nIts great work. In rendering these\ndecisions. the present secretary OF\nthe interior, Mr.. Ballinger, has re-\nversed his predecessor. MIR. Gar.\nfield. whose loyalty to the prin-\nciples of government reclamation\nhas never been questioned. s.s"
+    }
+  ]
+}

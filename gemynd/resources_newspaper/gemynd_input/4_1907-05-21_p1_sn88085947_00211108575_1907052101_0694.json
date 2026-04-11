@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SIGNS Up\nALL BUT TWO\n\n\nSHOPS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-21",
+    "date_end": "1907-05-21",
+    "report_year": 1907,
+    "source_file": "4_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+    "archive_ref": "4_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 213,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 528,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With the exception of NiXon-Kim-\nnell and WarrenOllver, every cleo\ntrical contractor in the city signed\nthe Spokane Building Trades ALI\nance agreement with the union\nelectrical workers, between $50\nand 10 O'Clock this morning. Close\nsilence on both sides has been\nmaintained for the past few days\nregarding the deadlock which has\nworkers and the contractors since\nMay 1.\n\n\nThis mornings developments\npractically ends the fight and vir-\ntually in favor of the union. The 2\nremaining unsigned shops will en-\ndeavor to maintain an open shop.\nThey declare that they will not sign\neven though the others have broken\nthe ice.\n\n\nNone of the strikers have suffered\nby the prolonged lockout. as all\nhave been amply supplied with\nwork in the few shops which signed\nalmost at first notice, but they are\nall visibly pleased at their success\nin winning the fight.\n\n\nThe union has held itself willing\nto confer with the contractors upon\nany occasion and have offered at\nany time to call an open meeting\nof their members that the contrac-\ntors might be permitted to come\nface to face with the workmen\nthemselves, instead of a committee\nfrom the body. Thus the fight has\nbeen waged and now that it has\nbeen ended so nicely no hard feel"
+    }
+  ]
+}

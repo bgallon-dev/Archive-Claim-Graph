@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-08 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-08",
+    "date_end": "1903-04-08",
+    "report_year": 1903,
+    "source_file": "15_1903-04-08_p3_sn88085947_00211108526_1903040801_0525",
+    "archive_ref": "15_1903-04-08_p3_sn88085947_00211108526_1903040801_0525",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-04-08_p3_sn88085947_00211108526_1903040801_0525",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 965,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 641,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1884,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 4928,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Light and Power Company, of Spo-\n\n\nkane. it's successors or assigns, TO\n\n\nerect. maintain and use wires for\n\n\nconveying electricity for electric\n\n\nlight, electric heat and electric\n\n\npower purposes; and to erect poles\n\n\nand the necessary supports there\n\n\nfor, and construct conduits on.\n\n\nover, along and under the streets\n\n\nand alleys of the City of Spokane\n\n\nand granting the use of the streets\n\n\ntherefor.\n\n\nThe City of Spokane does ordain as\n\n\nSection /. That the Spokane Light\nand Power Company. of Spokane, its\nSuccessors or assigns, be and is here\nby granted the right to erect. main\ntain and use wires for conveying cleo\ntricity for electric light, electric heat\nand electric power purposes. and the\nnecessary poles or conduits for the\nsupport of the same, and all neces-\nsary appurtenances thereto, on. over,\nalong and under all the streets and\nalleys of the City of Spokane.\n\n\nSec. 2. The right to use said\nis hereby granted for the period Of\nforty-two (42) years, and on condi-\nton that the said Spokane Light and\nPower Company shall pay to the city\ntreasurer Of the City of Spokane,\nage of this ordinance and before 1t\nshall commence work under this\nfranchise, the sum of seventeen hun\ndred and fifty dollars (s1750). and\non the first day OF July of each year\nthereafter until and including the\nseventeen hundred and fifty dollars\nG1750). and on the first day of July\nof each year thereafter until and in\nGLIDING the year 1919, the sum OF\nthe first day of July of each year\nthereafter until and including the\nyear 1945. the sum of twenty-five\nhundred dollars E2500).\n\n\nSec. 3. Said annual payment shall\nbe made annually to the City of Spo-\nthe year 1903 and thereafter a stipu-\nlation for annual charges at least as\nlarge as herein contained shall be\nmade part of any and all ordinances\npurposes. which may be asked for and\ngranted to other applicants.\n\n\nAnd in case said city council shall\npass an ordinance giving to other\nparties the right to engage In the\nbusiness of delivering electric light\ntain such clause calling for said pay\nments as provided in this ordinance,\nthen the annual charges demanded\nUnder this ordinance shall be null\nmd void, otherwise to remain in full\n'orce and effect provided. that moth\n\n\nherein shall be construed to en-\n\n\n- said Spokane Light and\nPower Company, its successors or as\nsigns. to demand and recover from\nthe City of spokane any of said an\nnual payment or payments which may\nhave been made, by reason of said\nfailure to require payment to be\nmade by persons receiving other fran\nchises for electric lighting and power\npurposes. The nonpayment Of said\nseventeen hundred and fifty dollars\n(s175O on the dates specified and\nthe non-payment of any of the an\nnual charges called for under this\nfranchise within ten t0) days after\nJuly the first of each and every year\nwhen payments become due shall for\nfelt this franchise at the option of\nthe City OF Spokane.\n\n\nSec. 4. The said Spokane Light and\nPower company. its successors or AS\nsigns, In exercising the right and\nprivileges herein granted shall erect\npoles. and stretch wires and build\nconduits in such manner as not to IN\nterfere with the free and unobstruct-\ned use of the streets and alleys OF\nsaid city and no wires on said poles\nshall be suspended at n less height\nthan thirty-tive $3.50 feet from the\nsurface of the streets and alleys, and\nthe upper arm of all poles erected,\nand those which may be fitted with\narms for the carrying of wires shall\nBIO reserved for the use of the city\nfor the carrying of wires for the\ncityS business.\n\n\nSec. 5. The City of Spokane shall\nhave, supervision over the wires and\npoles of the aforesaid company; but\nno discrimination shall be made In\nthe aforesaid supervision which\nwould work to the disadvantage of\nthe Spokane. Light and Power Com\npany In any respect, or particular.\nand to the advantage OF any person.\nfirm or corporation now holding a\nfrAnrbtSa neh OF Il 4\npurposes, or which may hereafter be\ngranted.\n\n\nSec, 6, The city may require all\nwires erected and strung under this\nfranchise to be placed under ground\nwithin Its fire limits whenever the\ncity shall have population OF one\nhundred thousand Goo, OO0). or when\nthe state law shall require IL to be\ndone so: provided, that whenever the\n| said Spokane Light and Power Com\npany. it's successors or assigns. may\nelect during the life of this franchise\nto put said wires under ground In any\nportion of the city, permission Is\nhereby granted to do so after u shall\niirst nile n bond. to be approved by\nthe mayor. In the sum of twenty five\nthousand dollars 025. D09). with sure\nties. conditioned to hold the city\nharmless from any and all DANA ges\nthe city may be put to or become\nliable Tor by reason of placing the\nsaid wires under ground. and to Law\n| the necessary pipes or conduits for\nthe Same In such manner az not to\nInterfere with any existing pipes In\nsaid streets: and file with the city\ncouncil, Its board OF public works. or\nthe city engineer a complete set of\nplans and specifications FOR such\nwork. Said work to he done subject\nTo the supervision Of the proper au-\nthorities of said city: provided, how\never that the city OF Spokane re-\nserves the right to use the upper\nright hand duct OF any conduit line\nused by said company. its successors\nor assigns. for the purpose of the\ncarrying of wires for the city's bust\nhess when the same are put under"
+    }
+  ]
+}

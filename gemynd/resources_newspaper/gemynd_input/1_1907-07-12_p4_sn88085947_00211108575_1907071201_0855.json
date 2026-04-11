@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MORE STREETS\n| ARE VACATED",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-12",
+    "date_end": "1907-07-12",
+    "report_year": 1907,
+    "source_file": "1_1907-07-12_p4_sn88085947_00211108575_1907071201_0855",
+    "archive_ref": "1_1907-07-12_p4_sn88085947_00211108575_1907071201_0855",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-07-12_p4_sn88085947_00211108575_1907071201_0855",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 137,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 134,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1 Mayor Moore this morning sign\nCd the ordinance vacating the alley\nBetween Main and Front avs. from\nColfax to Market SITS, where the\nNorthern Pacific railroad wants to\nbuild spur track for the accom-\nmediation of the Marshall-Wells\nWarehouse Co.\n\n\nThe mayor also signed the ordi-\nnance vacating an alley between\nSheridan and Hatch SITS. on East\nSpragne av., where there are some\nshort lots caused by too close plat\nting Of additions. The alley was\nworthless to the city.\n\n\nThe McGoldrick Lumber Co., by\nthe signing of another alley vaca.\nton by the mayor, was made the\npresent of some valuable property.\nThe vacation was along several lots\nin Bradley & Dennis addition to the\neast side Of Hatch st. Vacated\nproperty reverts back to AUDITING\nproperty and the lumber concern\nowns all Of that"
+    }
+  ]
+}

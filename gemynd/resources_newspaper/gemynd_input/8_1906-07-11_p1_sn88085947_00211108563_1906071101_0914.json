@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MUST REPLACE BRIDGES\n\n\nWITHOUT COST TO CITY",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-11",
+    "date_end": "1906-07-11",
+    "report_year": 1906,
+    "source_file": "8_1906-07-11_p1_sn88085947_00211108563_1906071101_0914",
+    "archive_ref": "8_1906-07-11_p1_sn88085947_00211108563_1906071101_0914",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1906-07-11_p1_sn88085947_00211108563_1906071101_0914",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 129,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 325,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "For little has yet been said Of\nficially of criminal negligence in\nexposing men, women and children\neverybody who crossed at How\nard street, on foot or cars-to a\ncrash into the torrent that in an\nother instant would have hurled\nthem over the falls without hope\nof rescue.\n\n\nCan Settle Question Of Supremacy.\n\n\nThe Washington Water Power\ncompany's officers represent\ntransportation of some conse-\nquence.\n\n\nThe city administration Of Spo.\nkane represents a municipal cor,\nporation of $4,000 people, every\nelector OF which is. or should be,\nan influential and interested citi.\nzen.\n\n\nWhich is the greater? Spokane\ncan settle that question by standing\nsolidly behind the council in this\ninstance and demanding that every\nofficial from Mayor Daggett down\ndo to his. whole duty to the public."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ROOSEVELT T0UCHESBUTTON\n\n\nLEWIS AND CLARK FAIR IS ON",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-01",
+    "date_end": "1905-06-01",
+    "report_year": 1905,
+    "source_file": "48_1905-06-01_p1_sn88085947_00211108551_1905060101_0520",
+    "archive_ref": "48_1905-06-01_p1_sn88085947_00211108551_1905060101_0520",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "48_1905-06-01_p1_sn88085947_00211108551_1905060101_0520",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 173,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 634,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "when he first came to Oregon, and\npredicted greater development for\nthe Pacific northwest during the COM\ning years than the past has wit\nmessed.\n\n\nVice President Charles w. Fair\nbanks, the personal representative of\nPresident Roosevelt, was orator of\nthe day and received an enthusiasts tic\ngreeting as he began his address. The\nspeaker dwelt upon the rapid settle\nment and development of the north\nwest and the attention 1t is attract\nIng throughout the world, and paid\nglowing tribute to the energy and\nperseverance of its pioneers and early\nsettlers and congratulated the peo-\npie of Oregon upon the successful\ncontamination of an exposition which\nIs attracting attention and focusing\nthe eyes of the world on the land\nwhere rolls the Oregon.\n\n\nAn address followed by Hon. James\nA. Tawney, congressman from Mime\nsofa. who spoke on behalf of the\nhouse of representatives. lie was\nliterally applauded. A divine bene-\ndiction was proclaimed by the Right\nRev. A. Christie, most reverend arch\nbishop of Oregon of the Roman Cath\nollie ch,rch"
+    }
+  ]
+}

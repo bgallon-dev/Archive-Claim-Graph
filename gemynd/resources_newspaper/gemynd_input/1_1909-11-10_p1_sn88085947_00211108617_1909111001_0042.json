@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "Allow Free Speech Under\n\n\nProper Regulations.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-10",
+    "date_end": "1909-11-10",
+    "report_year": 1909,
+    "source_file": "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042",
+    "archive_ref": "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042",
+      "composite_score": 14.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 10.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 307,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 175,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 636,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nand which is being dis\ncussed by the council this afternoon excellent It will\nif adopted, end the fight between the l. W. w. and the\npolice The Press not only believing in free speech BUT\nINSISTING STRENUOUSLY ON IT'S IMPARTIAL\nOBSERVANCE IN SPOKANE thinks that the ordinance\nshould be adopted at once.\n\n\nThe proposed ordinance is in effect in Seattle Chicago\nand New York Each of these cities has had it's troubles\nover the free speech question: because of the attitude\npolice officials, and each has, result, LOCALLY\nrecognized the right it is NATIONALLY recognized\nIN the constitution of the United States.\n\n\nThe ordinance allows street speaking at any place\nany time Of the day., WITH THE EXCEPTION OF Be\nTWEEN THE HOURS OF AND P NJ, when traffic\nflowing out from the business district at it's height The\nprovision also made and insisted upon that the speakers\ngive hours notice to the police in order that they may\nmake preparations to insure order and prevent possible\ndisorder.\n\n\nThis is the law in Seattle Why should it not be the\nlaw in Spokane! Spokane is part of the United States\nand is not only foolish but it is against the federal laws\nto oppose free Speech Judges here and elsewhere\ndecided.\n\n\n\nPass ordinance permitting but regulating street\nspeaking, and the trouble will be There be\nother fair and equitable action by the city government\nAS has been stated BEFORE The Press does not hold brief\nfor the w. w. endorse their organization any other\norganization. But Independent newspaper it pur-\nto WELD its lance In the causenot of the classes of\nthe blouse of Have\" or the blouse of Want''-but\nsimply of the great body of the people, and to that\nSpokane in this instance, gets laws good those of\nSeattle. Chicago and New York CITY,"
+    }
+  ]
+}

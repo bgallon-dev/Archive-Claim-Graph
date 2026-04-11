@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-05-11 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-11",
+    "date_end": "1903-05-11",
+    "report_year": 1903,
+    "source_file": "16_1903-05-11_p1_sn88085947_00211108526_1903051101_0635",
+    "archive_ref": "16_1903-05-11_p1_sn88085947_00211108526_1903051101_0635",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1903-05-11_p1_sn88085947_00211108526_1903051101_0635",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 131,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 160,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 370,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Despite the fact that the city coun-\nell closed the deal with the agents\nfor the gas company whereby the\nlatter gets a strip of land on Main\navenue west of the Monroe street\nbridge, In consideration that re-\ntanning wall be built and that a\nbuilding be put up in which the city\nis to have without cost rooms suit\nable for the public library, a promi-\nnent member of the city council said\ntoday that he believed Andrew Car\nnegie's offer of $4,000 library\nwould be accepted.\n\n\nIn this connection 1t is interesting\nto note that Fred Baldwin, chairman\nof the finance committee of the city\ncouncil, received letter today from\na representative of Mr.. Carnegie ex-\nplanning more fully the conditions\nthat would go with the gift The"
+    }
+  ]
+}

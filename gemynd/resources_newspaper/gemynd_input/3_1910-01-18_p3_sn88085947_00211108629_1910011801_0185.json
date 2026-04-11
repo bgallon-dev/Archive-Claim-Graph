@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "CITY NEWS\nOIN grief ~",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-18",
+    "date_end": "1910-01-18",
+    "report_year": 1910,
+    "source_file": "3_1910-01-18_p3_sn88085947_00211108629_1910011801_0185",
+    "archive_ref": "3_1910-01-18_p3_sn88085947_00211108629_1910011801_0185",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-01-18_p3_sn88085947_00211108629_1910011801_0185",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 1.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "agriculture": [
+          "orchard",
+          "hay"
+        ],
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 444,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 114,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 1905,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 2442,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1406,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 2097,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A ruling by the attorney general\nholds that state funds appropri-\nated for the school for feeble mind\ned youth at Medical Lake cannot\nbe used for the care of children of\nthis class in King county. The in\nstitution at Medical Lake is filled,\nand the applicants from King\ncounty were cared for there.\n\n\nTwcnty-eiehth avenue, Perry to\nArthur. and Thirty-third avenue,\nfrom Perry street to 800 feet west,\nhave been ordered graded ana\nwalks laid. Plans are ready for\nthe paving of Howard street, Fifth\nto Seventh. A petition for the\ngrading and sidewalking Of Rich\navenue, Pittsburg to Crestline, has\nbeen placed ON file.\n\n\nRev. Mel Trotter, an exponent of\nmilitant Christianity, will be in\nSpokane February 20 and will con-\nduct two revival meetings at the\nArmory. Mel is the founder of the\nRescue mission.\n\n\nTim Harrlgan, who stepped into\na hole on Pacific avenue, has\nasked the city to pay him damages\nto the extent of $500. No lights\nwere burning. he claims, and as\nthe result of the accident he sus-\ntanned sprained ankle that has In\ncapacitated him from labor.\n\n\nHoward street property owners,\nFifth to Seventh, have protested\nagainst the narrowing of that\nstreet to 80 feet, claiming that a\nwider street is necessary because\nof the traffic.\n\n\nA rate of $12.5o for the round\ntrip to Seattle from Rosalia has\nbeen made by the Milwaukee for\nthe opening of the Western Steel\ncompany, January 81. A number\nof Inland Empire people will go.\n\n\nWhile In Spokane yesterday\nState Bank Examiner j. l.. Mohun-\ndro stated that the next legislature\nwill be asked to pass law putting\nout of business all private banks\nwhich refuse to take out a charter\nunder the state law. There are 1856\nstate banks and \"A national banks\nin Washington, and over 60 per\ncent of the bank deposits of the\nstate are held in the state banks.\nThe bank examiner finds that the\nbanks of the state are In a healthy\ncondition.\n\n\nGovernor M. E. Hay and W. D..\nStem, Bible class organizer of Kan\nsas City. were honor guests at a\nbanquet given last night in the in\nterests of the Adult Bible class\ncampaign in the lower dining room\nof the Chamber of Commerce.\nAbout $50 men and women attended\nthe affair and enjoyed the adj\ndresses made by Governor Hay and\nMr.. Stem.\n\n\nAt a meeting held last evening at\nOpportunity, County Superintend-\nent Edward /. Mcfarland spoke ON\nthe consolidation of the schools all\nover the country. At the meeting\nlast night school patrons were\npresent from Orchard avenue,\nTrent, Chester, Vera and East Spo.\nkane."
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "MAKEPR0GRESS\n!. ON CHARTER\n\n\nREVISION",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-09",
+    "date_end": "1909-02-09",
+    "report_year": 1909,
+    "source_file": "22_1909-02-09_p1_sn88085947_00211108599_1909020901_0634",
+    "archive_ref": "22_1909-02-09_p1_sn88085947_00211108599_1909020901_0634",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1909-02-09_p1_sn88085947_00211108599_1909020901_0634",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 614,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 100,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 1828,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Marked progress was made last\nnight by the civic commission in\nconsideration of the revision of the\ncity charter. The meeting was en-\ntirely harmonious, and presented a\nstrong contrast to the preceding\nsession, when the local option\nquestion was under consideration.\n\n\nOn the matter of the life of\nstreet railway franchises, due to\nthe plea made before the commits\nsion at its last meeting by d. L.\nHuntington and Waldo G. Paine of\nthe street car companies, COM\nmittee was appointed, consisting Of\nJudge Huneke, Captain John Gray\nand F. H. Walker.\n\n\nThe question of enlarged assess\nment districts in the making of\nstreet and other improvements\nthat benefited more than the abut-\nting property was called up by Mr..\nRalston and recommitted to the\ncommittee, consisting of Fred Bald\nwin, John Gray and Mr.. Ralston,\nwho were requested to get copy\nof the Seattle charter provision on\nthe question.\n\n\nThe question was raised at this\npoint by ]. M. Geraghty that the\ncharter should be amended to per\nNIT the creation of park assess\nment districts to enable neighbor-\nhoods IL they desired to purchase\ngrounds for parks or play grounds,\nthe same to be paid for by assess\ning the neighboring property, as is\ndone in other cities.\n\n\nThe assessments committee will\nalso consider this suggestion.\n\n\nl.. R. Hamblen introduced. the\nfirst draft of an amendment Gre\nating a non-partisan water COM\nmission of seven men, similar to\nthe park board. to be appointed by\nthe mayor and serve without pay,\nwho are to have full charge of the\nmunicipal water works. Council\nman Nelson wanted the sewers\nadded. The chair appointed com\nmittee consisting of Hamblen,\nBaldwin Ostrander, Mohr and Ohm\nstead, to investigate and make a\nreport.\n\n\nThe question Of placing full pow\nerr in the hands of the mayor to\nAPPOINT and remove the members of\nthe board of public works. the city\nengineer and other excessive or adj\nministrative officers was called up\nby Chairman Post. Mr.. Baldwin\nintroduced the draft of an amend\nment prepared years ago by ex-\nMayor Comstock, which called for\nthis same provision. with the addi-\ntional feature that the city engi-\nneer be one of the members of the\nboard of works. A committee was\ndppoihttu W uidil TIC HSSSSodiy\namendment along this line, con-\nsisting of Olmstead. Geraghty,\nBaldwin, Lambert and Dalke\n\n\nA provision for the exercise OF\nthe right of recall by the qualified\nvoters of the city, introduced by\nMr.. Ostrander, was read and re-\nferred back to him to be drafted\nafter the provision in the Des\nMoines charter, which is simpler.\nUnder this plan % per cent of the\nregistered voters of the city can\nfile a petition with the acity clerk\npreferring charges against any\nelective officer. whereupon an cleo\nton is called, and all candidates\nnames placed on the ballot, includ-\ning that of the man against whom\nthe charges have been filed. If\nanother than the incumbent of the\nOffice is chosen at such election\nthen the office is declared vacant\nand the successful candidate given\nthe Office. II the old incumbent is\nreelected. he is permitted to con\nunue in Office the same as before.\n\n\nChairman Post called. up the\nquestion of electing councilmen at\nlarge instead of by wards, and a\ncommittee, consisting of w. ID. Vim\ncent, F. II. Walker and Jacob\nSchiller was appointed to draft\nsuitable amendment on the sub\nlect\n\n\nThe commission asked the city\ncouncil, on motion of Mr.. Baldwin,\nto make an appropriation of 500\nto cover the cost typewriting and\nother expense the commission\nwork entailed. and then adjourned\nto meet next Friday night"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TO SHUT WOMEN\n\n\nOUT OF SALOONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-26",
+    "date_end": "1908-02-26",
+    "report_year": 1908,
+    "source_file": "4_1908-02-26_p2_sn88085947_00211108587_1908022601_0261",
+    "archive_ref": "4_1908-02-26_p2_sn88085947_00211108587_1908022601_0261",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-02-26_p2_sn88085947_00211108587_1908022601_0261",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 120,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 317,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Councilman Estep's ordinance to\nprevent sale of liquor to women in\nsaloons, and variety theaters was\nintroduced in the council last\nevening and referred to the COM\nmittee of the whole for further dis\ncussion. Fred Schade, represent\ning the brewery interests, opposed\nthe measure on the ground that it\nwould establish prohibition in Spo-\nkane as far as women are con-\ncerned.\n\n\nCounsel Hamblen holds the Or\ndinance constitutional although it\nmakes distinction in not naming\nrestaurants and hotels in the list\nof places forbidden to serve wom-\nen- tipplers. If passed the law will\ndo away with the presence of wom-\nen- In saloons, practice as flourish\ning now as prior to the time boxes\nwere ordered removed."
+    }
+  ]
+}

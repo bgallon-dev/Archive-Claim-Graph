@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "TO RESUME:\nFIGHT HERE:\nTOMORROW / |\n!. w. w. MEN ARRESTED TO-\nDAY FOR CIRCULATING\n\n\nTHEIR PAPER.\nARRESTS MADE TODAY\n\"GREET THE DEVIL WHEN HE\nCOMES\" CHIEFS REMARK\nFREE SPEECH MEN\n\n\nCONFIDENT.\n\nARRESTS MADE TODAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-28",
+    "date_end": "1910-02-28",
+    "report_year": 1910,
+    "source_file": "3_1910-02-28_p1_sn88085947_00211108629_1910022801_0725",
+    "archive_ref": "3_1910-02-28_p1_sn88085947_00211108629_1910022801_0725",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-02-28_p1_sn88085947_00211108629_1910022801_0725",
+      "composite_score": 16.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 12.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "arrested",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 358,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 231,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1316,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 162,
+            "in_headline": true
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 49,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the fight to regain the use\nOF the streets for speaking pur-\nposes will reopen tomorrow, 10 the\nannouncement made In the issue\nOf the Industrial Worker Of Febru-\nary rs. For circulating copies OF\nthe paper, two members OF tho\nI. w. w. organization were arrest\ned this morning by Patrolman Ful.\nTer.\n\n\nCharles DevIin, the second Of the\nduet to be apprehended, announced\nat the police station that there ara\nover 1000 !. w. w. men In Spokane\ntoday, and that the number 10 orov-.\ning rapidly with each incoming\ntrain. Z VI\n\n\nA committee Of three called on\nMayor Pratt at the city hall this\nmorning. Although none would\ntalk about their errand. 1t was un-s\nderstood from. reliable source\nthat their mission was made, for\nthe purpose OF trying to persuade\nthe mayor to instruct the police\nto not molest the street speakers\nwhen the fight is renewed.\n\n\nTHE CHIEFS REMARK\n\n\nChief Sullivan refused to make\nany statement OF what will be done\nin case the fight opens up afresh\ntomorrow. \"Greet the devil when\nhe comes,\" was all the chief would\nsay. He was asked II the same\ntactics would be pursued by the po-\nlice that characterized their side\nof the recent trouble and he re-\npiled, Il presume So\"\n\n\nThe offices OF the l. w, w were\nraided recently In both Cocur\nd'alene and Hillyard and the pro-\nprietors of the places arrested In\nboth cases. This was done accord\ning to Captain OF Detectives Burns,\nfor the purpose of warding off A.\nmuch trouble as possible by weak\nening the forces Of tho \"conspira-\ntors\" ,s\n\n\nARRESTS GETTING FREQUENT\n\n\nIF. McCarty was the first OF tho\npair arrested for circulating the\nofficial paper. Of the industrial\nworkers, this morning. He wan\nbrought to the station by Patrols\nman Fuller at 10: 40. Half an hour\nlater Charles Devlin, another Of tho\nsame brigade was ''pinched\" on the\nsame charge. Both mon were\nbooked with vaurancy and both re-\nfused 10 elueidate ON the reputed\nplans OF tho orsinaxltion IN the\nfuture,\n\n\nMembers Of the organization\n\n\n(contlnucd on Page Twe.)"
+    }
+  ]
+}

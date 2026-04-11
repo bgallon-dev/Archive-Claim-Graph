@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Railway Disasters.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-24",
+    "date_end": "1903-06-24",
+    "report_year": 1903,
+    "source_file": "12_1903-06-24_p1_sn88085947_00211108538_1903062401_0098",
+    "archive_ref": "12_1903-06-24_p1_sn88085947_00211108538_1903062401_0098",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1903-06-24_p1_sn88085947_00211108538_1903062401_0098",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 110,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 53,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Disaster after disaster has been the\nportion. Of the Great Northern system\nthis ySSi. Following the repeated tie-\nups in the Cascade mountains during\nthe winter came the Kootenai floods\nnear Bonners Ferry and on Monday\nthe wreck Of q coal train at Division\nstreet.\n\n\nAfter laboring hard ever since the\nfloods at Boomers Ferry three weeks\nago they have finally succeeded in\nraising one Of the wrecked engines\nwhich rolled down the embankment.\n\n\nThe first attempt resulted in the\ntoppling over Of the wrecker and an\nother one was ordered from Havre\nto lift the one In the ditch. There\nIL still one engine that has not been\nlifted."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL FIX BLAM f\n\n\nFOR B0Y'SDEATH",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-13",
+    "date_end": "1906-07-13",
+    "report_year": 1906,
+    "source_file": "12_1906-07-13_p1_sn88085947_00211108563_1906071301_0922",
+    "archive_ref": "12_1906-07-13_p1_sn88085947_00211108563_1906071301_0922",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1906-07-13_p1_sn88085947_00211108563_1906071301_0922",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 218,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 947,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "said that he was within 25 feet of\nthe boy before he noticed him and\nblew the whistle. He then went\nto the fireman's side of the cab and,\nnot seeing the boy any more,\nthought he had escaped.\n\n\nIn the meantime a large crowd\nhad gathered, but for fully half an\nhour no one could recognize the\nremains. Two boys finally identi-\nfed the corpse and while one went\nto his home the other fastened to\nthe corner of Post street and\nSprague avenue, where the fathers\nexpress wagon stood, and sum.\nmoned him to the scene.\n\n\nWhen the police patrol arrived a\nblanket was placed over the mutt\nlated form. 1t was an effecting\nscene that followed the lifting Of\nthe blanket when the father viewed\nthe remains of his son.\n\n\nWhether or not an inquest will\nbe held will be determined this\nafternoon by Coroner Witter, who\nIs investigating the case and inter-\nviewing witnesses and members of\nthe train crew. The coroner said.\n\n\n\"The question of the liability OF\nthe Northern Pacific company is\nwhat l wish to determine before |\nshall hold an inquest. II find the\nengineer was lax In his duties and\ndid not blow whistle of warning\nl shall call an inquest and for\nmally place the blame upon him.\""
+    }
+  ]
+}

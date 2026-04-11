@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "NO FREE SPEECH\n\n\nFIGHT TOMORROW",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-28",
+    "date_end": "1910-02-28",
+    "report_year": 1910,
+    "source_file": "7_1910-02-28_p1_sn88085947_00211108629_1910022802_0721",
+    "archive_ref": "7_1910-02-28_p1_sn88085947_00211108629_1910022802_0721",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-02-28_p1_sn88085947_00211108629_1910022802_0721",
+      "composite_score": 23.52,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 13.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "industrial workers",
+          "i. w. w."
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 139,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 355,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 32,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 5,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 574,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "No outbreak will be made by the I. w. w. in it's\nstruggle for the right to speak the street. will be made\ntomorrow. Though preparatory measure in antcipa\n\n\non of renewed trouble with the revolutionary forces city\nofficials declared to have added 20 specials to the\npolice force it that the special jobs doomed to\nbe short.\n\n\nmeeting of the leaders Of the Industrial Workers of\nthe World held at noon today in a temporary head\nquarters and decided that another open violation Of\nthe citys ordinances would not be made until the free\nspeech matter is again carried before the city council in\nendeavor to peaceabe settlement of the affair.\"\nHow this will be done is not known at the present\ntime but prominent in the movement declare that it\nwill be within the next few weeks."
+    }
+  ]
+}

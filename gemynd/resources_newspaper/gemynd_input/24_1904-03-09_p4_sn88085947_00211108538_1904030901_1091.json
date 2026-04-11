@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "$4,000 Suit Is\n\n\nSETTLED FOR SIS",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-09",
+    "date_end": "1904-03-09",
+    "report_year": 1904,
+    "source_file": "24_1904-03-09_p4_sn88085947_00211108538_1904030901_1091",
+    "archive_ref": "24_1904-03-09_p4_sn88085947_00211108538_1904030901_1091",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1904-03-09_p4_sn88085947_00211108538_1904030901_1091",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 57,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The case of Tony Potato, who was\ninjured by a hand car, against the\nGreat Northern will be settled out of\ncourt. The company has agreed to\npay the expenses incurred by Potato\non account of the accident, and give\nhim s.. This is satisfactory and the\ncase will be dropped. Potato originally\nbrought suit for 5000."
+    }
+  ]
+}

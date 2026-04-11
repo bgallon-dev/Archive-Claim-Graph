@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "I1A;lB IA\nN{@A2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-11",
+    "date_end": "1909-06-11",
+    "report_year": 1909,
+    "source_file": "5_1909-06-11_p6_sn88085947_00211108605_1909061101_0157",
+    "archive_ref": "5_1909-06-11_p6_sn88085947_00211108605_1909061101_0157",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-06-11_p6_sn88085947_00211108605_1909061101_0157",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "western federation"
+        ],
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 286,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 108,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 722,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 621,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The final curtain fell in the\ngreat seven years struggle. be-\ntween the Mine Operators associa-\nton and the Western Federation of\nMiners, when the Colorado legis-\nlature passed the appropriation bill\nfew days ago, when contained\nprovisions to partially reimburse\nthe miners who suffered damages\nduring the Peabody war\" With\nout an exception this contest was\nthe most bitter and uncompromis-\ning that ever has been waged be-\ntween labor and capital on this\ncontinent. It's cost mounted high\ninto the millions of dollars.\n\n\nOn the one side stood the Mine\nOperators association, assisted by\nStandard OILS untold wealth, the\nsmelter combine, railways, etc. /;\nthe governor, the high courts, the\nmilitia, several detective and\nstrike-breaking agencies, the Cit.\nliens alliance, with a few notable\nexceptions the daily newspapers\nof the country, and even President\nRoosevelt and other Washington\nofficials threw their immense pow.\ner and influence to the support OF\nthe employers.\n\n\nOn the other side stood the\nWestern Federation of Miners\nwith its back to the wall, grim\nand determined, resolved to fight\nto the last ditch to preserve its\nentity and safeguard the rights of\nits membership. Financially, the\nminers were forced to depend\nupon the small contributions of\ntheir fellow workingmen and sym.\npathizers, and the traed union\npress.\n\n\nFrom the day that the men\nstruck in Colorado City, in 1902,\nto compel the enforcement of the\neight-hour law in mines and\nshelters, as voted by the people of\nColorado by an overwhelming ma\njority In referendum, down to\nthe elimination of the celebrated\ntrials In Boise, not single\ncharge laid at the doors of the\nminers by the operators and their\npress, politicians and Pinkertons\nhas been substantiated In court."
+    }
+  ]
+}

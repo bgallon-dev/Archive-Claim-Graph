@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "COUNCIL DOES\n\n\nRAILROAD BIDDING",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-07-27",
+    "date_end": "1904-07-27",
+    "report_year": 1904,
+    "source_file": "9_1904-07-27_p2_sn88085947_0021110854A_1904072701_0239",
+    "archive_ref": "9_1904-07-27_p2_sn88085947_0021110854A_1904072701_0239",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-07-27_p2_sn88085947_0021110854A_1904072701_0239",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 348,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 57,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 296,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The ticket brokers got a hard jolt\nat the meeting of the city council\nlast evening when Councilman Lind\nsay (the tool of the railroads) intro\nduced an ordinance requiring all\nbrokers to pay a license Of 500 a\nyear and put up bond of $4,000. The\nordinance was presented through the\nefforts of the chamber of commerce,\nwho wish to put stop to the prac-\ntice.\n\n\nThe ordinance requires that the\nterm ticket broker shall apply to all\nwho deal in tickets unless they are\nconnected with a steamship or rail-\nway line. The brokers will be re-\nquired to make daily reports to the\nchief Of police, in which will be in\ncluded every sale and purchase, to-\ngether with a description of the\nticket.\n\n\nUpon failure to do so the broker\nis liable to fine of from $50 to $500\nand Imprisonment not to exceed &c\ndays.\n\n\nPound Limits.\n\n\nThe city pound limits were greatly\nextended and cover practically the en-\ntire city. The ordinance was passed\nlast night The ordinance prohibits\nthe driving of herds larger than II\nthrough the city without a permit\nfrom the mayor and prohibits any\nstock from running loose in thu\npound limits under any circum\nstances Stock must be kept tiet\nup in any portion of the city whether\n\n\nthe hours Of s p. m. and o'clocl\na. m.\n\n\nCouncilman Gray introduced an or\ndinance which provides that hereafte\nall sidewalks in the city shall b.\nbuilt of either cement or vitrifiet\n\n\nbrick. The aim of the ordinance il\nto do away with the wooden side\nwalks.\n\n\nThe council will meet the commit\ntee of the Taxpayers league on Fri\nday and will then go over the watel\n| situation with them. Engineer Gil\n| submitted plans for a reservoir OIL\n| Cooks hill. He also submitted plan.\n| for a 1000, 900 gallon reservoir to b.\n| built in Lidgerwood.\nThe remainder of the business o\n| the council was routine work and thu\npassing of street improvement ordi\n| nances. A few saloon licenses wer\ngranted."
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "Inland Empire Retailers\nPass Resolutions Sup\nporting R00seUeH's Rate\nIdeas and Demand LdlO\nEmbodying Them.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-18",
+    "date_end": "1906-01-18",
+    "report_year": 1906,
+    "source_file": "9_1906-01-18_p1_sn88085947_00211108563_1906011801_0316",
+    "archive_ref": "9_1906-01-18_p1_sn88085947_00211108563_1906011801_0316",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-01-18_p1_sn88085947_00211108563_1906011801_0316",
+      "composite_score": 10.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1906,
+      "word_count": 110,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 294,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 294,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "his speech to the association. The\njudge urged that the resolution be\ngiven the utmost support of every\nmember of the association and that\nall concerned work for the resolu-\nton and work in harmony with\nPresident Roosevelt, who is in ia\nvor of the government having the\npower to fix the unjust freight rates\nwhich now exist.\n\n\nThe association has been in ses-\nsion for the past two days and has\nbeen a success in every way. This\nmornings program was as follows:\n\n\n\"The Relations between Whole\nsaler and Retailer\" E. l.. Powell\nof Powell-Sanders company, Spo-\nkane.\n\n\nUnity of Purpose\" e. N. Cory,\nsecretary of the Spokane Grocers'"
+    }
+  ]
+}

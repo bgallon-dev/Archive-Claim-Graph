@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FOES OF The SALOON",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-16",
+    "date_end": "1904-11-16",
+    "report_year": 1904,
+    "source_file": "16_1904-11-16_p1_sn88085947_0021110854A_1904111601_0646",
+    "archive_ref": "16_1904-11-16_p1_sn88085947_0021110854A_1904111601_0646",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1904-11-16_p1_sn88085947_0021110854A_1904111601_0646",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 91,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 246,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "COLUMBUS. O., Nov. 16.-There\nwas large and representative at\ntendance today at the opening of the\nAnti-Saloon league, The sessions will\ncontinue until the end of the week.\nThe presiding officer is Bishop Wilson\nof Chattanooga and among the other\ntemperance leaders of prominence\nwho are down on the program for\naddresses are John G. woolley Of\nChicago, Rev, f. s. Chapman. d. D..\nof California. Rev G. w. Young. d.\nD., of Kentucky. Congressman Cha rlss\nf, Littlefield OF Maine and Rev. Louis\nAlbert Banks, u. D.. OF New York."
+    }
+  ]
+}

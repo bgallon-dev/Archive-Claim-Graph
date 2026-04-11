@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "MUST REDUCE PRICE OR\n\n\nLOSE UNION DEPOT, CLAIMED",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-22",
+    "date_end": "1909-12-22",
+    "report_year": 1909,
+    "source_file": "11_1909-12-22_p1_sn88085947_00211108617_1909122201_0440",
+    "archive_ref": "11_1909-12-22_p1_sn88085947_00211108617_1909122201_0440",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-12-22_p1_sn88085947_00211108617_1909122201_0440",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 111,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 263,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 34,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One of the most persistent advo-\nGates of the proposed union passen-\nger station Is the North Coast rail-\nway. The North Coast seems to\nthink, however, that unless the city\ncouncil reduces the price of the city\nhall property $4,000 there is no\nshow for the union depot project\ngoing through.\n\n\nHence the chief counsel for the\nroad, l.. r. Hamblen. former attor-\nney for the city. has been calling\ncouncilmen to his office, one by\none, and interviewing them on their\nfeeling toward cutting the price\nplaced on the city hall property\nfrom $500 to S275,000, The first\nfigure was agreed upon by the city\ncouncil after careful deliberation"
+    }
+  ]
+}

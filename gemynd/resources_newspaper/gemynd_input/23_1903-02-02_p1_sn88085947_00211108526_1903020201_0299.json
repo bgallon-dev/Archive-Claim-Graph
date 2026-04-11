@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-02-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-02",
+    "date_end": "1903-02-02",
+    "report_year": 1903,
+    "source_file": "23_1903-02-02_p1_sn88085947_00211108526_1903020201_0299",
+    "archive_ref": "23_1903-02-02_p1_sn88085947_00211108526_1903020201_0299",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1903-02-02_p1_sn88085947_00211108526_1903020201_0299",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 91,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 144,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "day. with a short time the imports\nof this coal will be at least 500 cars\nper day. or 10000 tons.\n\n\nAt the time the duty was taken off\ncoal the Great Northern was paying\ninto the customs department $3.50 a\nday in duties at 81 cents ton.\n\n\nOn the amount IL is bringing in at\nthe present time 1t is saving $4,000 a\nday and with the import increased to\n500 cars day. the saving in duty to\nthe road. by the act of congress, will\nbe $6700 a day"
+    }
+  ]
+}

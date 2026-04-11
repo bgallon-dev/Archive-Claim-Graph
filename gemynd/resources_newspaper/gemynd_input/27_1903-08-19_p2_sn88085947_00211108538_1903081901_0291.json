@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "o1puAxux no. Ais.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-19",
+    "date_end": "1903-08-19",
+    "report_year": 1903,
+    "source_file": "27_1903-08-19_p2_sn88085947_00211108538_1903081901_0291",
+    "archive_ref": "27_1903-08-19_p2_sn88085947_00211108538_1903081901_0291",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1903-08-19_p2_sn88085947_00211108538_1903081901_0291",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 1274,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1743,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 631,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 347,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "manSheiu afenue LIUh monfoe \"\n\n\nns ts rs ssn. By 4Sr fhs saa SSss\nl. Of the cost thereof. creating an as\nsessment district and providing for\nthe levy and collection Of special\nassessments on the property IN said\nsaid Improvement, and for the is\n\n\nsuing OF bonds and the payment\nthereof.\n\n\nWhereas. a petition was duly pre-\nsented' to the board of public works\nfor the improvement Of Mansfield\navenue by, grading and curbing the\nsame. and the board of public works\nhaving ascertafned that the signers\nof said petition are the owners Of at\nleast one-ha1f of the property sub\nment, and having made it's report on\nsaid petition to the city council on\nthe 18th day Of June, 1903, and 1t ap-\npearing to the city council that said\nreport contains statement of the\nassessed valuation Of the property\nwhich in their Judgment should be\nassessed for such Improvement. ac-\ncording to the last assessment there\nof. q statement of the area and cor\nrect valuation of the property owned\nand the estimated cost OF such i'm\nprovement, and having In such re-\nport set forth the reasons for their\nrecommendations with respect to the\ngranting or refusing the prayer of\nsaid petition. and statement of all\nthe facts necessary to enable the\ncouncil to act fntel1igently on said\npetition. and having recommended\nthar the prayer of said petition be\nElgranted. and said board having with\nCouncil the plans and specifications\niffpr such Improvement: and It appear;\nTing to the city. council from said\nreport that public convenience. re-,\nEas Is petitioned for and In accord,\nahce With the plens and specifications\nri said board OF public works; now.\nThe city Of sDol<ane does srdain m,\n\n\nSection 1. That Mansdeld avenue.\nq the city Of Spokane, from the cen.\nTer line Of Monroe street 70 the CEN\nter line of Mn btreet.. a1laff - I'M\nrroved by grading and curbing the\neams r Al respects IN raccordance\nNAB the plans aAad ssssctaeations\n\n\nSec, .. That the cost and expense\nof said Improvement shall he borne\nny the property included 40 the as\n10 the eCtent OF the dement's rAcefyed'\n~. saiA proeerty from -said Improve\nnert. 70 be ,de4srmtned as her4i1a3ter,\nprovided; ana by the city OF DpCkaiiH\nfor the difference, AZ any there be.\nhetween the actual cost and lexpenas\nthereof. and the total amount Of the\n\n\nsaid Fs city shah r. nss PEE sSs\nany manner for any portlon Of thu\ncosts ard -expAnse Of sadd im6rove-,\nment, other than that portion herein\ndssisnatsd e BE borne BY H. !. IS\nTor the purpose 0f lsvying and COL\necting special assessments TO the\nextent OF the benefits received ~\nthe property therein TO pay Ahe costs\nand expenses of the aforesaid I'M\nby created and established TO consist\nOF all the, lots and parcels Of land;\non ZACH side of Mansfield avenue ex-\ncept that occupied by cross streets\nMonroe street to the center Hire Of\nMil street. 50 80,\nSaid assessment district shall be\nknownas Mansfield Avenue Improves,\nnnent District Number One\" which\ny more particularly described as fol,\nlows:\n\n\nLots 4. .. 8. =, s.. 8. Z. block is; lots\n1. 2. 8, 4. s, s, block 16; lots 1. 2. 8.\n4. s. 6, block II: lots 3, Q. 10. II, IL.\nu. a. block 2s: lots Z, 8. =: 10. II. T..\nsosk g. g. AZ, III IN Aoos:s oaatsion g\nthe city of Spokane,\n\n\nSec. Z. Special assessments paya-\nBile in ten equal annual instailments\nshall be assessed to and levied upon\nthe dots and parcels OF land in the\nassessment district above described.\nIN the manner provided by the char\nter of the city of Spokane and Ordi-\nnance No. A16SS. passed September\n10, 1901. Such assessments shall be\nmade and all things pertaining there\nto. done. In accordance with the pro-\nvisions OF said charter and said or\ndiaance, and said assessments, when\nthe same shall have been confirmed\nby the city council. and shall be\nment district. and payment thereof\nmay be enforced in the manner pro-,\nvfded by law\n\n\nSec. s.. There is hereby created a\nfund TO be known as Mansfield Ave\nNumber One. into which shall be paid\nthe aforesaid assessments az and\nwhen directed by ordinance confirm\ning said assessments and the assess\nnent roll therefor. ana said fund is\ncreated for the purpose Of redeemtng\nthe bonds issued IN payment Of the\ncost and expense of said improve\n\n\nnent, as hereinafter provided. and\nfrom which shall be paid said bonds\nshall the city Of spokans be LIABLE svs sor\nthe payment Of said bonds or any\npart thereof\n\n\nSec. 8. For the purpose of max\ning payment for the cost and expense\nVI Sdtu improvement, Il3Sft SnHll De\nissued by the city Of Spokane its ne\ngotiahle coupon bonds. as provided in\nan act OF the Legislature OF tire state\nOf Washington. entitled An act au-\nthorizing the issuance and sale of\nprovements. providing for the pay\nment thereof. and declaring an emer-\ngency.\" approved March IA. 1899. pay\nable 10 bearer. ten years after date.\nbearing interest at the rate of per\nInn a liza\ns which p Sonds shal Se styied as\nImprovement Bonds. Mansfield Ave-\nnue. Improvement District Number\nOne\" provided the city OF Spokane\nreserves the right to cali and pay\nany Of said bonds. according to their\nnumerical order. as provided In the\nact above referred to. whenever ,fhern\nshall be sufficient money on hand in\nthe fund hereinbefore designated to\npay, any Of said bonds: Said bonds\namount equal to the total amount of\nspecial assessments levied az herein\nprovided. and shall be Of the .aenom-\nination of 5000 each. except. that one\nbond may be for such sum less than\n5000, as may be necessary TO make\nthe issue correspond with the total\namount of special assessments, levied\nas herein nrovided. and provided also\nthat the first. Of said bonds may be\nfor an amount equal to the amount of\n\n\n\n\n\nthe same are payable as herein pro-\nvided. at the time of the issuance Of\nthe same. The difference between the\ntotal amount OF special assessments.\nlevied as herein provided. and the aci\ntual cost and expense of said i'm\nprovement shall be paid by the city OF\nSpokane as provided in ordinance\nNo A1088. above referred to.\nSec. 7. Said improvement shall be\nmade under the supervision OF the\nboard Of public works, which Is here\nby authorized to receive bids fur\nmaking the same and to enter into\nbe necessary to have said omprove-\nment completed as soon as may be\nconsistent with the proper procedure\n4, The contract for said Improvement\nshall provide that the same shall be\ncompleted in all things in accordance\nwith the plans and specifications for\nsaid improvement. herein referred to-\nand shall also provide that the con-\ntractor making the same shall accept\nthe bonds herein provided for at par\nand accrued interest In payment of\nthe contract price for such work. to\nthe extent OF such bond issue. If the\nance. If any of such contract price\nshall be paid in such manner as shall\nbe hereafter designated by the city\ncouncil. No contract herein provided\nfor shall go into effect. in so far as\nthe city Is concerned. or be binding\nupon it, until the assessments herein\nprovided for shall be confirmed: and.\nin the9event the assessment and as\nsessment roll herein, provided for\nshah not be confirmed, then such con-\ntract shall be Of no further force or"
+    }
+  ]
+}

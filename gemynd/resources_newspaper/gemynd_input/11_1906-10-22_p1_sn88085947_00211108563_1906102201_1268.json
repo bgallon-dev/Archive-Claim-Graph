@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-22 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-22",
+    "date_end": "1906-10-22",
+    "report_year": 1906,
+    "source_file": "11_1906-10-22_p1_sn88085947_00211108563_1906102201_1268",
+    "archive_ref": "11_1906-10-22_p1_sn88085947_00211108563_1906102201_1268",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-10-22_p1_sn88085947_00211108563_1906102201_1268",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 199,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the existing coal shortage\nIn this city is in part caused by\nthe Northern Pacific Railroad com.\npany confiscating coal offered for\nshipment is emphatically denied\nby General Agent Mitchell and\nother N. P. officials in this city.\n\n\nIn reply the railroad officials\npoint to instances where in past\nperiods when fuel was scarce they\nhave turned over railroad coal for\ncommercial use.\n\n\nThey claim to have no record of\nany commercial coal consigned to\nthis city being confiscated. While\nthe company, like all consumers at\nthis time, is economizing as much\nas possible in the use of coal, 1t is\nnot yet reduced to the extremity\nof appropriating that consigned to\nlocal dealers, it is stated.\n\n\nCars are scarce at this time\nlargely on accountof heavy grain\nshipmentsh, but N. P. officials be-\nlieve they will be able to obtain\nall needed to bring down what\ncoal the mines at Rock Springs\nand in Wyoming can supply.\n\n\nThe whole trouble, it is explain\ned, is caused by the inability of the\nmines to fill their orders. Labor\nhas been scarce This year and the\ncoal mines, according to railroad\ninformation, have suffered particu-\nlarly in this respect."
+    }
+  ]
+}

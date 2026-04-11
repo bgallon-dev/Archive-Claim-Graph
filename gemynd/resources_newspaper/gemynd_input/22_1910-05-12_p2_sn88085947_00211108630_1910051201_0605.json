@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "INLAND EMPIRE\n\n\nNEWS NOTES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-12",
+    "date_end": "1910-05-12",
+    "report_year": 1910,
+    "source_file": "22_1910-05-12_p2_sn88085947_00211108630_1910051201_0605",
+    "archive_ref": "22_1910-05-12_p2_sn88085947_00211108630_1910051201_0605",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1910-05-12_p2_sn88085947_00211108630_1910051201_0605",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 4.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ],
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 92,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 452,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WARDNER, Idaho. - Hereafter\nsaloons doing business here must\npay city license of $3.50 per year.\nThe council has decided the saloons\nmust help finance the city.\n\n\nLEWISTON, Idaho.-IIarry New.\nman fell into the Clearwater river\nyesterday and was drowned. He\nwas 20 years old.\nGRANGEVILLE Idaho. - Lee\nKing was chosen school superin-\ntendent at meeting last night. He\nis a graduate of the University Of\nMichigan.\n\n\nPULLMAN, Wash. - Whitman\nCounty Pomona grange, at meet\ning held here. arranged for the\nstate grange meeting, to be held\nhere June ITO."
+    }
+  ]
+}

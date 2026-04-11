@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TOWN FULL Of\n\n\nTEACHERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-29",
+    "date_end": "1908-12-29",
+    "report_year": 1908,
+    "source_file": "4_1908-12-29_p2_sn88085947_00211108599_1908122901_0363",
+    "archive_ref": "4_1908-12-29_p2_sn88085947_00211108599_1908122901_0363",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-12-29_p2_sn88085947_00211108599_1908122901_0363",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 214,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 743,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "TheAtwenty-second annual con-\nvent of the Washington educa-\ntiQ( association convened at\n\n\nthis afternoon at the South\nhtral high school. The conven.\nZion was called to order with every\nfoot of space available in the audi\ntoriHm taxed to it's utmost.\n\n\nIt is estimated by County Super\nintendent Mcfarland this after\nnoon that there are at least 1900\nto 1900 teachers in the city, which\nnumber he expects will be increas-\ned to from 1000 to $500 by tomor-\nrow evening. Educators are said\nto be looking forward to the pres\nent convention in Spokane as the\nmost successful and profitable in\nthe history of the association.\n\n\nA reception will be given the\nteachers and visiting educators to-\nnight at the Masonic temple, under\nthe auspices of the Women's club.\nThere will be music, oratory and\nsomething good to eat.\n\n\nThe joint institute by the teach\ners of Spokane county and city,\nStevens and Lincoln counties clos\ned today noon. Resolutions were\nadopted favoring a simpler and bet\nter plan of certifying teachers, and\nalso asking the legislature to main\ntain the present law as to the issu-\nance of permanent licenses to\nteachers holding first grade certifi-\nGates who have taught for 90\nmonths, 36 of which were in the\nstate of Washington."
+    }
+  ]
+}

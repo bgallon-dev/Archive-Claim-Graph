@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "ROW FOR\n\n\nYOUNG To HOE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-12",
+    "date_end": "1907-06-12",
+    "report_year": 1907,
+    "source_file": "7_1907-06-12_p1_sn88085947_00211108575_1907061201_0748",
+    "archive_ref": "7_1907-06-12_p1_sn88085947_00211108575_1907061201_0748",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-06-12_p1_sn88085947_00211108575_1907061201_0748",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 272,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 830,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 470,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Organizer Young says the situa-\nton between the 3 local federal\nunions and the contractors over en-.\nforcement of the 2.75 wage scale is\ntoo critical to talk about.\n\n\nA. F. Gin, OF the principal EN-.\nployers of federal union labor, says\nthere is no trouble that he knows\nof and that he is able to hire all\nthe men he needs.\n\n\nMeanwhile, Young, with commit\ntees from the unions and / from\nthe Central Labor union, is trying\nto settle the friction that has re\nsuited in a strike of union and has\nset 2 federal unions in opposition\nto each other\n\n\nThe trouble has brought to the\nsurface lot of tangles that will\nhave to be Strengthened out, and IL\nIs believed the final result will be\na reorganization under l head. II\nis claimed ttat Federal union No,\n11,624 Is composed Of foremen as\nwe'll as common laborers, in viola.\nton of the American Federation OF\nLabor regulations, and that through\nthese foremen many members OF\nthe union are influenced into sup.\nporting measures started In con\ntractors interests. The accused\nunion disputes these allegations\nand thus it goes.\n\n\nWhen union No. 1922 tried to\nenforce the s2.75 wage scale It is\nclaimed, the other union furnished\nmen at the $3.50 rate to the Indie.\npendent Asphalt Co., Of which Gill\nis manager.\n\n\nTo reconcile these differences\nand bring peace with the contrac\ntors at the same time Is the task\nset for Young. And he must also\nadjust the new wage scale to con\ntracts under the old scale that Il\nwill require all summer to com\nplete."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "new EXTENSION WILL\n\n\nSOON Be IN OPERATION",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-05",
+    "date_end": "1903-11-05",
+    "report_year": 1903,
+    "source_file": "16_1903-11-05_p1_sn88085947_00211108538_1903110501_0660",
+    "archive_ref": "16_1903-11-05_p1_sn88085947_00211108538_1903110501_0660",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1903-11-05_p1_sn88085947_00211108538_1903110501_0660",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 101,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 205,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The new extension Of the Montana\nrailroad, from. Harlowton to Lewiston,\na distance of about 70 miles, will be\nopened to traffic November Is, accord:\ning to the new freight tariff on lum-\nDer issued by the Northern Pacific.\nThis tariff provides an increase of only\n10 cents on the old rate from the coast\nto Harlowton and the rate to Lewiston\nand intermediate points from the coast\nis now so cents per 100.\n\n\nThe completion of the line at this\nearly date is very gratifying to people\nwho have had sundry sensations of the\n75-mile stage coach ride from Harlow"
+    }
+  ]
+}

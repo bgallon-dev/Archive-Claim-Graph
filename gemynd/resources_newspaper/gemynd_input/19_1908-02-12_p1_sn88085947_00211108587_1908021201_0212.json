@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "n. P, BUYING PROPERTY\n\n\nALONG EAST SPRACuE Az,",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-12",
+    "date_end": "1908-02-12",
+    "report_year": 1908,
+    "source_file": "19_1908-02-12_p1_sn88085947_00211108587_1908021201_0212",
+    "archive_ref": "19_1908-02-12_p1_sn88085947_00211108587_1908021201_0212",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1908-02-12_p1_sn88085947_00211108587_1908021201_0212",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 74,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 32,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Those close to the plans of the\nNorthern Pacific and its grade sep.\naration propositions have noticed\nOf late that the railroad has bought\npractically all Of the property along\nFast Sprague av. from Division st,\nto within block of the west end\nOF the trestle, and this leads to the\nbelief that the line which now\ncurves block north of that place\nIa To be Strengthened out, thus\nwedding an incline and shortening"
+    }
+  ]
+}

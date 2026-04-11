@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-02-22 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-02-22",
+    "date_end": "1906-02-22",
+    "report_year": 1906,
+    "source_file": "23_1906-02-22_p1_sn88085947_00211108563_1906022201_0436",
+    "archive_ref": "23_1906-02-22_p1_sn88085947_00211108563_1906022201_0436",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1906-02-22_p1_sn88085947_00211108563_1906022201_0436",
+      "composite_score": 9.75,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 5.5,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood",
+          "arrested",
+          "vincent st. john"
+        ],
+        "agriculture": [
+          "orchard"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1906,
+      "word_count": 168,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "vincent st. john",
+            "weight": 3.0,
+            "offset": 899,
+            "in_headline": false
+          },
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 709,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 870,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 403,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 890,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "written to encourage the agent in\nthe commission of the crime. The\ndetails of others committed at In\ndependence, Telluride and Cripple\nCreek were given to show the Or\nganization protected it's men and\nsaved them from conviction. This\nevidence with Orchards confess\nsion revealed the plots of the West\nern Federation and established the\nguilt of the inner circle\" of the\norder. Fred Miller, attorney for\nOrchard, who appeared for him at\nthe preliminary examination, was\nrefused permission to see his client\nby the warden of the penitentiary\nNo reason was given, but it Is be-\nlieved to be the intention of the\nprosecution to prevent Orchard be-\ning tempered with or induced to\nretract the confession.\n\n\nMeyer, Haywood and Pettibone\nare confined in separate cells, but\npermitted to hold consultations.\nAll letters are inspected by the pri-\nson authorities.\n\n\nSteve Adams, arrested at Haines,\nOre, and Vincent ST. John, presi-\ndent of the Burke miners union.\nboth Steunenberg suspects, were\ndelivered to the penitentiary to-\nday."
+    }
+  ]
+}

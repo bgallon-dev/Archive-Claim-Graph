@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Glass Workers Will\n\n\nOrganize Union.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-22",
+    "date_end": "1903-04-22",
+    "report_year": 1903,
+    "source_file": "23_1903-04-22_p4_sn88085947_00211108526_1903042201_0574",
+    "archive_ref": "23_1903-04-22_p4_sn88085947_00211108526_1903042201_0574",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1903-04-22_p4_sn88085947_00211108526_1903042201_0574",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 75,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 76,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An attempt will be made Sunday\nafternoon by Organizer T. s. Hes\nkett of the American Federation OF\nLabor to unionize all the glassw work.\ners of the city. A meeting has been\ncalled for that purpose at Central\nLabor hall at 1880 o'clock.\n\n\nThe union, If formed, will include\nglass cutters, Jewellers and all glass\nworkers. About 90 are employed in\nthese trades in Spokane, every sash\nand door factory employing two or\nthree."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BREWERS WON'T QUIT",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-25",
+    "date_end": "1907-10-25",
+    "report_year": 1907,
+    "source_file": "4_1907-10-25_p4_sn88085947_00211108575_1907102501_1199",
+    "archive_ref": "4_1907-10-25_p4_sn88085947_00211108575_1907102501_1199",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-10-25_p4_sn88085947_00211108575_1907102501_1199",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 165,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 90,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The brewery workmen will use\nevery means at their disposal to\nsecure concessions from the\nAmerican Federation of Labor at\nthe coming meeting. The execll-\ntive committee of the federation\nruled some time ago that the\nBrewery Workers union must\ncease to claim and EXCISE jurisdic.\nton over firemen and teamsters\nemployed by the breweries Of the\ncountry. Upon refusal the fedora\nton revoked the cnarter of the\nbrewers and refused to recognize\nthe utilization of the union with the\nnational organization.\n\n\nThe brewery workmen have ap-\npealed to the unions affiliated with\nthe A. F. of l.. against the ruling\nof the executive board and have in\na great number of instances re-\nceived assurances of support. The\nbrewers claim a prior right to jur-\nisdiction over teamsters and engi-\nneers employed by the brewing\ncompanies. owing to the fact that\nthey organized these men years be-\nfore any attempt was made to do\nso on the part of the American\nFederation of Labor."
+    }
+  ]
+}

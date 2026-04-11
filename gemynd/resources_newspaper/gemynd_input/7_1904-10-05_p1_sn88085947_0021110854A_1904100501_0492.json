@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-10-05 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-05",
+    "date_end": "1904-10-05",
+    "report_year": 1904,
+    "source_file": "7_1904-10-05_p1_sn88085947_0021110854A_1904100501_0492",
+    "archive_ref": "7_1904-10-05_p1_sn88085947_0021110854A_1904100501_0492",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-10-05_p1_sn88085947_0021110854A_1904100501_0492",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 137,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 505,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 146,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "take steps to secure a share of the\nbounty for Washington, Oregon and\nIdaho. these states having been nam\ned as benefciaries under the law.\n\n\nThe chamber of commerce took the\ninitiative and asks for the co-opera-\ntion Of every chamber Of commerce,\ncommercial club, farmer, business\nman and capitalist in the states\nnamed.\n\n\nllaxwel1's Speech.\n\n\nMir. Maxwell spoke upon THE F'u-\nture Of the Great Northwest-Irriga-\ntion, Education, Forestry and Homes\nof the Land\" The speaker is a men,\nber of the National Irrigation associa-\ntion and an expert upon thu subject.\nHe is one of the best informed men\nin the United States on irrigation. is\nfluent talker and carried weight\nwith his hearers.\n\n\nAt 8 o'clock this evening there will\nbe a banquet and the committee in\ncharge has provided to serve 400\nguests."
+    }
+  ]
+}

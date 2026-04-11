@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Colfax Fair.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-17",
+    "date_end": "1903-10-17",
+    "report_year": 1903,
+    "source_file": "17_1903-10-17_p2_sn88085947_00211108538_1903101701_0549",
+    "archive_ref": "17_1903-10-17_p2_sn88085947_00211108538_1903101701_0549",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-10-17_p2_sn88085947_00211108538_1903101701_0549",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "county fair"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 73,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "county fair",
+            "weight": 1.5,
+            "offset": 54,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "COLFAX. Oct. 17.-All records for\ngate receipts at the county fair were\nbroken yesterday when $3.50 was TAX\nen- in. The weather has been splendid\nand the attractions in the way of char\nlot races and the regular track races\nhave been Of high order. The automo-\nbile race yesterday was failure, owing\nto a breakdown, but a two-mle exhi\nbition proved very interesting. Last\nnights dance at the armory was wei\npatronized."
+    }
+  ]
+}

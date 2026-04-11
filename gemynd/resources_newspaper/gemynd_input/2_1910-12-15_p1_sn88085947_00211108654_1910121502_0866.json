@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RACY TESTIMONY IN\n\n\nBALDWIN SUIT\n\nMRS TURNBULL TELLS OF CONTRACT MARRIAGE\n\n\nWITH GREAT FINANCIER.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-15",
+    "date_end": "1910-12-15",
+    "report_year": 1910,
+    "source_file": "2_1910-12-15_p1_sn88085947_00211108654_1910121502_0866",
+    "archive_ref": "2_1910-12-15_p1_sn88085947_00211108654_1910121502_0866",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "2_1910-12-15_p1_sn88085947_00211108654_1910121502_0866",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 7.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "turnbull"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 187,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "turnbull",
+            "weight": 2.5,
+            "offset": 38,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "LOS ANGELES, CAL. Dec. 15.-Mrs Lillian Ashley\nurnbu mother of Beatrice Anita Turnbul today took\nthe stand the first witness in the brought by her\ndaughter for share in the estate of the late\nE. j. lucky Baldwin, on the ground that she is his\ndaughter\n\n\nII first met Mr.. Baldwin in Boston,, the putative\nvisited California. then that grew to know him\nbetter. - -\n\n\nAFTER living at the Hotel Westminster in Los Angeles\nfor some time went to San Francisco There Mr. Bald\nwin was very attentive.\n\n\n1T in San Francisco that his attitude grew from\nfathery one to something different. He asked to\nmarry hm and told that contract marriage in Cali\ntornla was as binding ceremony performed by JUS\ntice OF the peace minister Finally consented to\nremember the wording of the contract Mr. Baldwin wrote\nand signed his name to the following:\n\n\n~ Elias jackson Baldwin, do take Lillian Alma Ash\nley to be my lawful and welded wife,\n\n\nII wrote and signed the following:\n\n\n- Lillian Alma Ashley, do take Elias jackson Bald\nwin to be my lawful and welded husband'''"
+    }
+  ]
+}

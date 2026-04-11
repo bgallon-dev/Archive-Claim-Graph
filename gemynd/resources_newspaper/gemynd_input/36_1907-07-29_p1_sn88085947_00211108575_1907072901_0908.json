@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GALA DAY At DENVER\n\n\nd HEADQUARTERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-29",
+    "date_end": "1907-07-29",
+    "report_year": 1907,
+    "source_file": "36_1907-07-29_p1_sn88085947_00211108575_1907072901_0908",
+    "archive_ref": "36_1907-07-29_p1_sn88085947_00211108575_1907072901_0908",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "36_1907-07-29_p1_sn88085947_00211108575_1907072901_0908",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 63,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 118,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "s DENVER, July 29-The Western\nFederation of Miners headquarters\nis deluged with kilograms of con-\nCALCULATIONS on the Haywood ver-\ndict. Messages from 10 foreign\ncountries were received. All east\n'efn cities are represented.\n\n\n: Philadelphia, Cincinnati and\nBaltimore ask Haywood to speak\nin those cities and are planning re-\nceptiOns to him. Miners say the\nverdict will greatly increase the\nfederation membership."
+    }
+  ]
+}

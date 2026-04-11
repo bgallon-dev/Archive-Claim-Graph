@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BIG CELEBRATION\n\n\nLABOR DAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-29",
+    "date_end": "1907-06-29",
+    "report_year": 1907,
+    "source_file": "24_1907-06-29_p1_sn88085947_00211108575_1907062901_0808",
+    "archive_ref": "24_1907-06-29_p1_sn88085947_00211108575_1907062901_0808",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1907-06-29_p1_sn88085947_00211108575_1907062901_0808",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 83,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 446,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Preliminary arrangements for the\ncelebration of Labor day will be\nmade Sunday, June 30, when dele\ngates from all unions are expected\nto meet at Central Labor hall at\n2:30. A general Labor day commit\ntee will be organized and the work\nOF planning the celebration out\nlined.\n\n\nAS the past year has been a\nsplendid period for organized labor\nin this city it is intended to make\nthe coming celebration the biggest\naffair of the kind ever held in the\nInland Empire."
+    }
+  ]
+}

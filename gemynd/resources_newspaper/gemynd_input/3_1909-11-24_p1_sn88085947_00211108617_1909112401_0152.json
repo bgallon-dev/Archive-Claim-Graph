@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "VERY EXPENSIVE,\n\n\nSAYS Pres. LOVET7\n\nWill Take Up Union Depot Project\nHartman Chief.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-24",
+    "date_end": "1909-11-24",
+    "report_year": 1909,
+    "source_file": "3_1909-11-24_p1_sn88085947_00211108617_1909112401_0152",
+    "archive_ref": "3_1909-11-24_p1_sn88085947_00211108617_1909112401_0152",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-11-24_p1_sn88085947_00211108617_1909112401_0152",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 180,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 9,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 56,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"A union depot in Spokane would\nbe a very expensive proposition,\nand ! would not like to talk about\nit until have conferred with Mr..\nkruttschnitt.\"\n\n\nThis statement from the lips Of\nRobert S. Lovett, the successor of\nHartman to the presidency of a\nsystem controlling over 1900 miles\nof railroad, is all that could be\nCLEANED in regard to the proposed\nunion depot which Is aetating Spo-\nkane TODAY.\n\n\nMr.. Lovett, in company with Vice\nPresident J. p. O'Brien, General\nCounsel w. w. Cotton, Traffic Man\nager j. G. Stubs, Director of Main\ntenance and Operation j. krutt-\nschnitt and seven other officials of\nthe Hartman system, composing\none of the most distinguished\ngroups of railroad officials who\never visited Spokane, arrived in\nSpokane last night from the east\nand left at 1915 this morning for\nPortland.\n\n\nIl am very much pleased with\nyour city\" stated President Lovett\nthis morning. It's air of enter\nprise and seeming prosperity can\nnot but impress any visitor. | was\ntaken about the city this morning\nand from the class of buildings 1t"
+    }
+  ]
+}

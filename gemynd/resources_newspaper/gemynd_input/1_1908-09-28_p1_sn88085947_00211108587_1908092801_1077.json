@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "SCHOOL BOARD\nTo CONSIDER\n\n\nDANGER",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-28",
+    "date_end": "1908-09-28",
+    "report_year": 1908,
+    "source_file": "1_1908-09-28_p1_sn88085947_00211108587_1908092801_1077",
+    "archive_ref": "1_1908-09-28_p1_sn88085947_00211108587_1908092801_1077",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-09-28_p1_sn88085947_00211108587_1908092801_1077",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "school board"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 316,
+      "match_details": {
+        "education": [
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 222,
+            "in_headline": false
+          },
+          {
+            "term": "school board",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The question of the danger to\nwhich 800 little tots who attend\nthe Whittier school are at present\nexposed on account of no water\nconnections and lack of proper\nescapes in case of fire, will be\ntaken up at a meeting of the\nschool board in the administration\nbuilding tonight\n\n\nBut Secretary Thomas this\nmorning stated that the board\nwould probably decide not to make\na water connection on account of\ndanger of freezing during the cold\nweather, and that no water would\nprobably be run into the school\nuntil a hot water plant Is put IN.\nThe children now drink out of a\nbucket, one cup doing service for\nmost of them, it is claimed.\n\n\nRecently the fire commission\ncondemned the old furnace, which\nhad charred the floor above It on\naccount of it's defects, and this will\nnot be used again, it is stated.\nStoves in each room will be SO\narranged as to afford protection\nfrom fire, according to Mr.\nThomas. Stairway escapes are to\nbe installed on two sides of the\nbuilding.\n\n\nResidents of West Grove add\nton, whose children attend the\nschool, momentarily expect a repe\ntition of the Collingwood horror\nand are urging the school beard to\nhasten the work of installing fire\nescapes. At present, it is explain\ned, there is danger of ire only q\npart of the day as the stoves are\nnot kept going all the time. 1t is\nexpected that before the weather\nturns so cold that fires must be\nmaintained throughout the day\nthat the escapes will be in place.\n\n\nThe fact that a fire could start\nin 10 minutes seem to be over\nlooked. The board is again con\nvicted of a false sense of security\nin regard to the fire danger.\n\n\nThe city has fire commission to\nlook out for such things, but the\nboard appear to be paramount t.\nits authority."
+    }
+  ]
+}

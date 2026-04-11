@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "REAL ESTATE MEN SW0OP\n\n\nDOWN ON PUBLIC MARKET",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-19",
+    "date_end": "1908-02-19",
+    "report_year": 1908,
+    "source_file": "3_1908-02-19_p1_sn88085947_00211108587_1908021901_0236",
+    "archive_ref": "3_1908-02-19_p1_sn88085947_00211108587_1908021901_0236",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-02-19_p1_sn88085947_00211108587_1908021901_0236",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 282,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 1468,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "be taken up and dissected, He cited\nthe Seattle plan whereby farmers\nare not charged cent and the only\nexpense the city is not involved\nfinancially to any degree.\nCommissioner O'Brien went fur\nTheir into the Seattle plan, explain\ning that the only expense there is\na policeman who permits no buying\nfrom producers for booth supplies\nuntil the public has had an oppor-\ntunity to trade direct from the\nwagons.\n\n\nThe whole matter was finally left\nto committee composed of Gray,\nEstep and Pratt to get in shape\nfor future presentation. Thomp-\nsons project has a small lobby\nworking for it and the other inter-\nests are equally busy. Unless the\ncouncil exhibits more actual in\nterest in the market than has here\ntofore been evident thte market\nwill be dickered out of existence.\nThe growers association is natural\nly against it, and it will get plenty\nOf help from disappointed realty\ndealers.\n\n\nMayor Moore is set against any\ndealing for the purchase of site\nor other elaborate arrangements\nin which it will be an easy matter\nto lose the project. He wants a\nfree market and is positive 1t can\nbe established in months time\nwithout noticeable expense to the\ncity, simply by setting aside por\ntons of an unused street and erect\ning the necessary sheds. Farmers\ncould then come in and the public\ncould go to the market and buy.\nCommissioner O'Brien is of the\nsame opinion.\n\n\nIn the meantime the council\nseems disposed to daily with all\nthe complicated schemes enterpris-\ning real estate men can present to\nunload property on the city at\ntime when the administration is\nfacing situation that demands the\nmost careful financiering."
+    }
+  ]
+}

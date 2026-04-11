@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-13 — pp20",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-13",
+    "date_end": "1910-03-13",
+    "report_year": 1910,
+    "source_file": "16_1910-03-13_p20_sn88085947_00211108629_1910031301_0912",
+    "archive_ref": "16_1910-03-13_p20_sn88085947_00211108629_1910031301_0912",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-03-13_p20_sn88085947_00211108629_1910031301_0912",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 2.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "flour mill"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "riverside avenue",
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 576,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "flour mill",
+            "weight": 1.5,
+            "offset": 2080,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 384,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 1723,
+            "in_headline": false
+          },
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 1627,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "up the greatest competition III\nbuilding pride, commercial strug\ngle and enterprise known to the\nnorthwest. That early competition\nwas the father of the inspiring\nspirit of boosting that is still firing\nSpokanes people on to do great\nthings today.\n\n\nSTARTING TO BUILD A NEW\n\n\nCITY.\n\n\nBefore that most of Spokane's\nbusiness section was spread along\nHoward street from the river to the\nNorthern Pacific railroad, the only\nline that had at that time pene\ntrated this community of hidden\nriches. Smoke was still curling\nfrom the old ruins when men who\nowned property on Riverside, both\ncast and west of Howard street, be-\ngan the erection of statnly office\nbuildings. The Hyde block. Fern\nwe'll and the Jameson buildings\nwe're among them.\n\n\nThe big six-story structures look\ned all too large and out of proper\nton for Spokane in those days,\nbut\" said the Hydes and others,\n1--WE are going to make Riverside\nthe main business street of Spo-\nkane; this is our only chance and\nthe only way is to make our build\nings handsome and imposing, so\nothers will build beside them and\nkeen the good work going\"\n\n\nThus ii is seen that as direct\nresult of that open valve a new\ncity sprang up with its principal\nbusiness streets crossing the main\nbusiness lines of the old town at\nright angles. Unfortunately, in\ndeed, many of these enterprising\nmen who plunged into the early\nbuilding boom of a new Spokane\nfailed in the financial crash of\n1893, but the stately buildings bear\ning their names stood as an example\nfor others in the building of big\nger and better city.\n\n\nHOW THE OLD TOWN LOOKED.\n\n\nTen years before this time the\npresent site of Riverside avenue\nand Howard street seemed away\nout on the prairie\" from the central\npart of old Spokane Falls. Howard\nstreet and Front avenue was the\nscene of the greatest activity,\nthough a few scattering little bust\nness places reached as far as Main\navenue. The entire village was\nframed by Front and Main ave-\nnues and Stevens and Wall streets.\nOutside of this territory practically\nthe only buildings were the log\nhundred inhabitants, saw mill\nand flour mill.\n\n\nBarracks used by soldiers who\nkept trace of the Indians and\nbuilded the Mullan road across the\nprairies and through the hills, were\nstanding about Main avenue and\nHoward and Wall streets. No rail\nroad entered the town at that time\nand owners OF the property that is\nnow dotted with towering business\nblocks, factories and mills were\nfearful that no road would come\nthis way. The canyons hemming\nthe city in on nearly every side\nseemed almost impossible.\n\n\nPIONEER RELATES STORIES\n\n\nor THOSE OLD DAYS.\n\n\nSecretary Il. N. Cory of the Spo.\nkane Grocers' association. one OF\nthe earliest residents OF the city,\nwas q clerk at this time in the\ngrocery store of r. w. Forrest. who\nopened 6pokane's first exclusive\ngrocery store at the corner OF Front\nand Howard. where the Occur\nd'Alene hotel now stands. Follow\nIng Ii o story Of those old days as\nhe has related II to a representa-\ntive Of The Press:\n\n\nSpokane Falls. as the town was\nthen known, could not scratch to-\ngether more than 300 or $50 people,\neven by taking In all the white\npopulation OF the whole surround.\nINK country. There were only q\nIN little trading places here and\n\n\nm nAonf ~ ollr noffQpase came"
+    }
+  ]
+}

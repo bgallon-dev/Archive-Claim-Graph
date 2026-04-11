@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-11-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-18",
+    "date_end": "1903-11-18",
+    "report_year": 1903,
+    "source_file": "19_1903-11-18_p1_sn88085947_00211108538_1903111801_0704",
+    "archive_ref": "19_1903-11-18_p1_sn88085947_00211108538_1903111801_0704",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1903-11-18_p1_sn88085947_00211108538_1903111801_0704",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 102,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 34,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At a well attended meeting of the\ntrades council last night that body\nsucceeded in getting through an amend\nment which promises to completely\nrevolutionize things for time at least,\nA rather bitter fight has been waged\nbetween the friends of Ed Quinn and\nanother faction in the council. Quinn,\naccording to his friends, is a little too\nconservative and level-headed and tries\nto prevent proposed strikes. In his\nposition of business agent of the trades\ncouncil, his influence is wide. Some\nof the more hot-headed mioniSts have\nfor some time been Directing to Qunn\nand there have been rumors of charges"
+    }
+  ]
+}

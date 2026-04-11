@@ -1,0 +1,266 @@
+version: "1"
+# Maps (claim_type, entity_type) pairs to a relation_type for claim entity links.
+# Missing entries fall back to the default relation for that entity_type in the extractor.
+#
+# The newspaper corpus has four entity types (Person, Organization, Place, Event)
+# and four relation types (SUBJECT_OF_CLAIM, LOCATION_OF_CLAIM, ORGANIZATION_FOCUS,
+# TOPIC_OF_CLAIM).  The mapping is more uniform than Turnbull's ecological relations
+# because newspaper text has a simpler actor/location/topic structure.
+
+policy:
+
+  # ── Person roles ─────────────────────────────────────────────────────
+  # Persons are SUBJECT_OF_CLAIM in most contexts — they are the actors.
+  - claim_type: labor_action
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: free_speech_event
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: labor_legal_action
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: indigenous_policy
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: civic_development
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: mining_activity
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: election_event
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: crime_report
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: person_profile
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: railroad_activity
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: depot_construction
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: freight_rate_dispute
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: worker_condition
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: accident_disaster
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: legal_notice
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: editorial_opinion
+    entity_type: Person
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: public_meeting
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: womens_civic_action
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: education_event
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: depression_relief
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: agricultural_condition
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: land_policy_action
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: farm_organization
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: turnbull_prehistory
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+  - claim_type: commercial_transaction
+    entity_type: Person
+    relation_type: SUBJECT_OF_CLAIM
+
+  # ── Organization roles ───────────────────────────────────────────────
+  # Organizations are ORGANIZATION_FOCUS when they are the institutional
+  # actor, and TOPIC_OF_CLAIM when they are being discussed.
+  - claim_type: labor_action
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: free_speech_event
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: railroad_activity
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: freight_rate_dispute
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: depot_construction
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: mining_activity
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: farm_organization
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: womens_civic_action
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: civic_development
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: depression_relief
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: education_event
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: public_meeting
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: election_event
+    entity_type: Organization
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: indigenous_policy
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: worker_condition
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: labor_legal_action
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: legal_notice
+    entity_type: Organization
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: editorial_opinion
+    entity_type: Organization
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: commercial_transaction
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: turnbull_prehistory
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: land_policy_action
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: infrastructure_project
+    entity_type: Organization
+    relation_type: ORGANIZATION_FOCUS
+  - claim_type: accident_disaster
+    entity_type: Organization
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: crime_report
+    entity_type: Organization
+    relation_type: TOPIC_OF_CLAIM
+
+  # ── Place roles ──────────────────────────────────────────────────────
+  # Places are LOCATION_OF_CLAIM universally.
+  - claim_type: railroad_activity
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: depot_construction
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: freight_rate_dispute
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: labor_action
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: free_speech_event
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: worker_condition
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: labor_legal_action
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: indigenous_policy
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: agricultural_condition
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: land_policy_action
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: farm_organization
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: turnbull_prehistory
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: civic_development
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: infrastructure_project
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: mining_activity
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: depression_relief
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: education_event
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: womens_civic_action
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: legal_notice
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: public_meeting
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: election_event
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: accident_disaster
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: crime_report
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: person_profile
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: commercial_transaction
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+  - claim_type: editorial_opinion
+    entity_type: Place
+    relation_type: LOCATION_OF_CLAIM
+
+  # ── Event roles ──────────────────────────────────────────────────────
+  # Event entities (e.g., "Woman Suffrage", "Interstate fair") are topics.
+  - claim_type: womens_civic_action
+    entity_type: Event
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: election_event
+    entity_type: Event
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: civic_development
+    entity_type: Event
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: editorial_opinion
+    entity_type: Event
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: agricultural_condition
+    entity_type: Event
+    relation_type: TOPIC_OF_CLAIM
+  - claim_type: public_meeting
+    entity_type: Event
+    relation_type: TOPIC_OF_CLAIM

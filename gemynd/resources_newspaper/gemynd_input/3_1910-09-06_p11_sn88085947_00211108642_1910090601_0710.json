@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABOR SPEAKERS\n\n\nPRAISE PO|NDEXTER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-06",
+    "date_end": "1910-09-06",
+    "report_year": 1910,
+    "source_file": "3_1910-09-06_p11_sn88085947_00211108642_1910090601_0710",
+    "archive_ref": "3_1910-09-06_p11_sn88085947_00211108642_1910090601_0710",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-09-06_p11_sn88085947_00211108642_1910090601_0710",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 172,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 40,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mrs. Philip P. Stafford spoke for\nequal suffrage. She pleaded that\nwomen be placed on an equal foot\ning with men politically as well as\nindustrially, and that then women\nwould be found shoulder to shoulder\nwith union labor, working for the\ncommon good of all. She also en-\ntered a plea for home for union\nmen in Spokane.\n\n\nr. B. Martin, representing the\nfarmers, who have recently joined\nhands with organized labor, spoke\nfor clean government and honesty\nin office. William J. Coates pre-\nsided over the meeting.\n\n\nAfter the speaking the following\ncontests and prize winners were an\nnounced at the park:\n\n\nBaby contest-Winners with their\nmothers: First, Mrs. T. ]. Skillman,\nbaby Pauline, IL months old; sec\nond, Mrs. H. Johnson, baby Joseph,\nfour months old; third, Mrs. M. O.\nEbert, baby Norman, 10 months old.\nPrizes were $40, S. and 81.\n\n\nPie eating contest-Victor Nelson\nfirst, Jack Quinten second. Willie\nVan Buskirk third. Prizes $3.50, 81\nand SO cents.\n\n\nPole climbing contest-George\nKratz first, 16 seconds; Fred Clio,"
+    }
+  ]
+}

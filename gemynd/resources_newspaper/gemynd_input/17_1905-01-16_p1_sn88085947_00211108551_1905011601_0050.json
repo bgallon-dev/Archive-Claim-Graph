@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-01-16 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-16",
+    "date_end": "1905-01-16",
+    "report_year": 1905,
+    "source_file": "17_1905-01-16_p1_sn88085947_00211108551_1905011601_0050",
+    "archive_ref": "17_1905-01-16_p1_sn88085947_00211108551_1905011601_0050",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1905-01-16_p1_sn88085947_00211108551_1905011601_0050",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 605,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 961,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 287,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the special meeting of the city\ncouncil Saturday night the message\nof Mayor Boyd was read asking for\ncharter amendments to increase the\npower of the mayor and to place with\nthe chief executive the responsibility\nfor the efficiency of the fire and po-\nlice department and the board of\npublic works.\n\n\nThe changes asked for give the\nmayor absolute power to remove in\ncompetents and to enforce a more\nthe readers of The Press may study\nthe changes proposed the mayors\nmessage is given in full.\n\n\n1t may also be pointed out that\nthese reforms are in line with the\nmovement of the business mems\nparty who would elect a mayor to\nserve without salary. The candidate\nproposed, d. C. Corbin, objected to\nmaking the race mainly because Of\nthe handicap a mayor Is laboring un-\nder. With the changes outlined the\nmayor would be given sweeping\npower and the objection Of Mr.. Cor\nbin would be removed. The message\nreads:\n\n\nSPOKANE, Wash, Jan. IA, 1905\nHon. President and City Council\nGentlemen: Your prompt action in\ntaking up the question Of charter\namendments as suggested in my mes\nsage submitted at your last meeting\nt.. a HI Ir,I\nappreciates the necessity of energetic\naction in order to get the proposed\namendments before the people at the\nForthcoming municipal election.\n\n\nThe weak points in our present\ncharter have become so apparent\nthrough years of experience, and\nhave been brought out so distinctly\nby the experience of the last Is\nmonths, that men who have the best\ninterests of the city at heart ought\nto have little difficulty at this ime\nin getting together on amendments\nthat will tend to secure for Spokane\nan administration of its municipal af-\nfairs that will be more economical\nand businesslike than any that has\nbeen possible under the present char\nter. Years of experience in the pub\nlie service in Spokane, supplemented\nby a careful study of the charters\nof other cities in recent months,\nprompts me to believe that I am able\nat this time to offer some sugges-\ntions in the way of amendments to\nour organic law that will tend to\nsimplify and strengthen our charter\nin manner that will result in posi-\ntive and lasting public benefit.\n\n\nThe main trouble with our char\nter at present is that the responsible\nity is 50 divided that II can not be\nfixed anywhere, and that the execu-\ntive has not sufficient power to COM\npei subordinate officers to properly\nperform their duties. One appointive\nanother, which would not be possible\nif one official were responsible for\nthe acts of all. There should be one\nman who is responsible for the acts\nof all officials under him, and that\nman, manifestly, should be the mayor\nwho appoints them. The theory that\nthe mayor may create an official. who\nin turn may appoint subordinates.\nand that the official thus created, to-\ngether with the subordinates whom\nhe appoints, no matter how incompe-\ntent or dishonest they may prove to\nbe, may defy the official head who\ncreated them 10 disturb them in their\npositions without first securing the\nconsent of the legislative body, which\nfor purely political reasons may de-\nsire to retain them, is absurd.\n\n\nwhile the executive should be\ngiven sufficient power to remove in\ncompetent officials, enforce his poll\ncies ana protect the interests of the\npeople, care should be taken that he\nis not invested with power that\nwould enable him to place corrupt OF\nincompetent persons in places of pub\nlie trust, or for personal or political\nreasons remove members of the fire\n"
+    }
+  ]
+}

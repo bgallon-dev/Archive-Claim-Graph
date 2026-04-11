@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-20 — pp15",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-20",
+    "date_end": "1910-03-20",
+    "report_year": 1910,
+    "source_file": "39_1910-03-20_p15_sn88085947_00211108629_1910032001_1025",
+    "archive_ref": "39_1910-03-20_p15_sn88085947_00211108629_1910032001_1025",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "39_1910-03-20_p15_sn88085947_00211108629_1910032001_1025",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 483,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1628,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "during this past winter and\n\n\nit is no wonder the society\nmaids have not been complaining\nof the dull, quiet season of Lent.\nPerhaps they favored the parties\nhave a few quiet hours to think it\nover-I mean what the answer\nshould be.\n\n\n1t is rumored around that one of\nthe most popular maids, who is\nsomewhat quiet but decidedly\ncharming may soon announce her\nintention of becoming a bride. At\nleast her friends will be disappoint-\ned if she doesn't.\n\n\nooh, we all knew Clara and Earl\nwould get married soon,\" said one\nmost gallant in their responses to\nthe toasts. A special musical pro-\ngram was given. a feature of which\nwas the appearance of the Current\nEvents quartet. The quartet is\ncomposed of Mrs. c. C. McEachran,\nMrs. Sarah Hole, Mrs. Dayton\nStewart and Mrs. George Hoag.\n\n\nCovers were placed for Is guests.\n\n\n= = 4\n\n\nAttractive appointments marked\nthe dinner party given Thursday\nevening by Miss Kathleen Norman\nat the Hotel Spokane. The O&ca-\nsion was the celebration M fhe\nbirthday anniversary of thess yohng\nhostess. A3a +,\n\n\nFavors of st. Patrick dayswere\nmuch in evidence at the Lewis\nhome on Gardner aventfe Thursday,\nwhen Mrs. Arthur A. Lewis enter\ntanned at an afternoon at cards.\nWhist was the game and tables\nwere arranged for \"a guests.\n\n\n2 Z &\n\n\nMiss Gretchen Gill was hos\ntess of the day Thursday when she\nentertained at bridge luncheon\nThe Gill home, the rooms OF which\nwere prettily decorated with a\ncolor note of pink and green, was\nthe scene of the affair. The after\nnoon hours following the dainty\nluncheon were devoted to whist\nThe invitation list included 36\nnames.\n\n\nThe dancing party given by the\nWoman's club Thursday evening\nat the Masonic temple compliment\ntary to the persons who took part\nin the home talent plays present.\ned by the club proved one of the\nlargest and most enjoyable events\nof the week.\n\n\nThe invitation list included about\n300 names and the proceeds Will\ngo toward the building fund OF the\nnew club house.\n\n\nThree popular ladies We're host\nesses at a charming affair given\nThursday in celebration of st. Pat\nrick's day. The hOstesses Were\nMrs. A. G. Gray, Mrs. J. E. Horton\nand Mrs. M. G. Washburn.\n\n\nThe affair, which was given at\nthe Horton home on Bryant avenue,\nwas in form of l o'clock luncheon\nand the appointments were carried\nout in green, the color OF the day,\nshamrocks and green foliage being\nused throughout the rooms and on\nthe tables. Covers were laid for 80\nguests.\n\n\n& & 4\n\n\nMrs. E. A. Lewis was hostess\nFriday afternoon, when she enter\ntanned complimentary to Miss\nBrown, who is her guest for few\nweeks. The affair was in form of\nan afternoon tea. Several friends\ncalled and slipped tea with the host\ness and met her honor guest."
+    }
+  ]
+}

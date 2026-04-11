@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "f|[fT5 DEATH\n\n\n/ IN TIL F|R[\n\nWoman Burned and Two\nMen Are Injured at\n\n\nBurke, Idaho",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-23",
+    "date_end": "1903-10-23",
+    "report_year": 1903,
+    "source_file": "9_1903-10-23_p1_sn88085947_00211108538_1903102301_0588",
+    "archive_ref": "9_1903-10-23_p1_sn88085947_00211108538_1903102301_0588",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-10-23_p1_sn88085947_00211108538_1903102301_0588",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mining camp"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 242,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mining camp",
+            "weight": 1.5,
+            "offset": 489,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WALLACE, Idaho, Oct. GA fire\nbroke out at Burke last night. The\nMiners Home lodging house was burn\ned to the ground and Mrs. Brand, who\nwas asleep IN one of the rooms, was\nburned to death. John Snyder and M\nR. Freeman, two other dodgers, who\ndid not hear the cries of \"fre\" in time,\nnarrowly escaped with their lives. As\nit was, they both were severely burn,\ned. Six Or seven small frame cottages\nwere also burned before the flames\nhad spent their fury. For time it was\nthought the entire mining camp would\nbe destroyed, as the fire was almost\nimpossible to control. ...-\n\n\nOwing to the peculiar situation OF\nthe town, the small fire precautions\nthere were practically useless. All that\nsaved the town was the fact that the\nwind was blowing in such a way that\nthe sparks. and flames did not take a\ndirection that would endanger the\nwhole street.\n\n\nThe greatest excitement prevailed\nduring the progress of the fire, men\nand women crowded each other about\nas they, frantically tried to lend aid\nto the escaping. inmates of the lodging\nhouse. and carried the furnishings OF\nthe business houses and residences into\nthe street as. far from the ravages Of\nthe damss as possible.\n\n\nBut all their efforts to save the\nbuildings in the line Of the fire de-\nmon were fruitless.\n\n\nThe Miners Home is but small\nbuihinq of not more than 20 rooms."
+    }
+  ]
+}

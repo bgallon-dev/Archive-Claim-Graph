@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FOR JUDGEMENT of LABOR\n\nSpecial Correspondence to The Press",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-07-27",
+    "date_end": "1908-07-27",
+    "report_year": 1908,
+    "source_file": "7_1908-07-27_p4_sn88085947_00211108587_1908072701_0784",
+    "archive_ref": "7_1908-07-27_p4_sn88085947_00211108587_1908072701_0784",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-07-27_p4_sn88085947_00211108587_1908072701_0784",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 422,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 229,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Special Correspondence Co The Press\nWASHINGTON, D. c., July 81\nBoth parties have spoken\nchoose between them,\" is the cam\npaign slogan sounded by Pres.\nGompers of the American Fedora\ntion of Labor. He refers particu-\nlarly to the injunction planks of\nthe republican and democratic\nplatforms. There is a sharp pop.\nping of controversy over the mat.\nter among labor men in all parts\nof the country. Appended are the\nplanks submitted by the two par.\nties for the judgment of labor:\n\n\nDEMOCRATIC\n\n\nThe courts of justice are the\nbulwark of our liberties, and we\nyield to none in our purpose to\nmaintain their dignity. Our party\nhas given to the bench a long\nlist of distinguished judges, who\nhave added to the respect and\nconfidence in which this depart\nment must be jealousy main\ntame. We resent the attempt of\nthe republican party to raise\nfalse issues respecting the judi\nciary. 1t is an unjust reflection\nupon a great body of our citizens\nto assume that they lack respect\nfor the courts.\n\n\n1t is the function of the courts\nto interpret the laws which the\npeople create, and if the laws APP\npear to work economic, social or\npolitical injustice, it is our duty\nto change them. The only basis\nupon which the integrity of our\ncourts can stand is that of answer\ning justice and protection of life.\nIf judicial processes may be abused\nwe should guard them against\nabuse.\n\n\nExperience has proved the ne\ncessity of a modification of the\npresent law relating to injunctions,\nand We reiterate the pledge of our\nnational platforms of 1896 and 1900\nin favor Of a measure which pass\ned the United States senate in\n1896, but which a republican con-\ngress has ever since refused to en-\nact. relating to contempts in fed.\neral courts and providing for trial\nby jury in cases of indirect con.\ntempt.\n\n\nQuestions of judicial practice\nhave arisen. especially in Con\nnecticut, with industrial disputes\nWe deem that the parties to all\nJudicial proceedings should be\ntreated with rigid impartiality. and\nthat injunctions should not be is\nsued in any cases in which injunc\ntions would not issue if no indus\ntrial dispute were involved.\n\n\nThe expanding organization OIL\nindustry makes it essential that\nthere should be no abridgment OF\nthe right of wage earners and\nproducers to organize for the pro\nlection of wages and the improve\nment of labor conditions to the enc\nthat such labor organizations and\ntheir members should not be re"
+    }
+  ]
+}

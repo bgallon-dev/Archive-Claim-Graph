@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-09-13 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-13",
+    "date_end": "1906-09-13",
+    "report_year": 1906,
+    "source_file": "22_1906-09-13_p1_sn88085947_00211108563_1906091301_1136",
+    "archive_ref": "22_1906-09-13_p1_sn88085947_00211108563_1906091301_1136",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1906-09-13_p1_sn88085947_00211108563_1906091301_1136",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 204,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1.-THE Northern Pacific has prom\nUsed me that the Howard street\ncrossing will be fixed up immediate\nly,\" said Commissioner ONO this\nmorning. New signal blocks will\nbe put in and kept in order\"\n\n\nAfter playing football with\nstreet car on the Howard street\ncrossing, the Northern Pacific\nseems inclined to consider the\ncity's mild request of months ago\nthat ordinary precautions be taken\nto avoid accidents at the crossing.\n\n\nNo compulsion has been used, of\ncourse. The railroad Is willing to\nmake some sort of repara ton for\ntaking such liberties with a w. w.\nP. street car. All of which lifts q\nvast burden from the commission\ner's backs for an unprotected rail-\nroad crossing in the heart of the\ncity is matter of some concern to\nfolks in Office. But If the COM\npany won't pay any attention to po-\nlite requests regarding the matter,\nwhat can the poor commissioners\ndo?\n\n\nMerely fold their arms and wait,\napparently, until something hap\npens, meanwhile hoping that it\nwon't be very serious. Fortunately,\nyesterdays collision falls in the\nlatter category, through no care of\nthe Northern Pacific nor the city.\n\n\nThis seems to be the sort Of\npolicy to be expected in Spokane"
+    }
+  ]
+}

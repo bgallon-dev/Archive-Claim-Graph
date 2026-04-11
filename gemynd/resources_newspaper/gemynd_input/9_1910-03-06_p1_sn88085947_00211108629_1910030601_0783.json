@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WONDERFUL SERIES OF CLOSE\nESCAPES FOR GREAT\n\n\nNORTHERN TRAIN.\n\nD0DGtD SLIDES, FLOOD\n\nBOULDER CRASHED THROUGH\n\n\nSMOKER, HURTING\nNONE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-06",
+    "date_end": "1910-03-06",
+    "report_year": 1910,
+    "source_file": "9_1910-03-06_p1_sn88085947_00211108629_1910030601_0783",
+    "archive_ref": "9_1910-03-06_p1_sn88085947_00211108629_1910030601_0783",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1910-03-06_p1_sn88085947_00211108629_1910030601_0783",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 151,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 375,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire)\n\n\nMINNEAPOLIS, March e.-Beset\nbefore and behind by snowslides\nwhich threatened almost momen-\ntarily to carry il to destruction,\nstopped by washouts, delayed and\nforced to retreat by wrecks ahead\nand at one time within few miles\nOF the great avalanche which crush\ned two trains at Wellington, WASH,\nwhat is officially known as train\nNo. 2 of the Great Northern, leav-\ning Seattle February 26, arrived in\nMinneapolis last night, the first\ntrain through from the coast in four\ndays. II train ever bore a charm\ned life II was this same No. 2. That\nis what every passenger says.\n\n\nNo. 2 left Seattle q week ago\nSaturday afternoon. Perhaps it\nwas an impromptu prayer meeting\nheld on the train last Sunday night\nby Jealous evangelist which gave\nthe train its freedom from real dis\naster, for onlya few hours later No.\n\n\n(Coptlnued on Pace 2.l"
+    }
+  ]
+}

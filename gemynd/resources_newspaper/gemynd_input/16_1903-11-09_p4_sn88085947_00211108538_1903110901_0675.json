@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-11-09 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-09",
+    "date_end": "1903-11-09",
+    "report_year": 1903,
+    "source_file": "16_1903-11-09_p4_sn88085947_00211108538_1903110901_0675",
+    "archive_ref": "16_1903-11-09_p4_sn88085947_00211108538_1903110901_0675",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1903-11-09_p4_sn88085947_00211108538_1903110901_0675",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 124,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 116,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is much conjecture among la\nDor union people today regarding the\noutcome of the meeting tomorrow night\nof the trades council. A very impor-\nliant matter will come up, which was\nlaid over last week. This, it is under\nstood, is the question of whether or not\nthe trades council will allow any of\nIt's officers to hold positions with the\nrity--in other words, it aims to keep\nIts affairs out of political positions.\n\n\nThe subject was brought up at the\nlast meeting and created much excite\nihent. There are now two officers of\nThe council holding such positions in\nuuestion-Messrs. Quinn and Garnet,\nnow in the employ Of the city as park\nDverseers. Quinn is the business agent\nand Garnet president. +."
+    }
+  ]
+}

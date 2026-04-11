@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G O N TIN y f D\n\n\nRO n g.\nP A GE O N Z\n\nCITY WATER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-26",
+    "date_end": "1910-05-26",
+    "report_year": 1910,
+    "source_file": "1_1910-05-26_p2_sn88085947_00211108630_1910052601_0779",
+    "archive_ref": "1_1910-05-26_p2_sn88085947_00211108630_1910052601_0779",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-05-26_p2_sn88085947_00211108630_1910052601_0779",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 130,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 637,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ment that the water rents have been\na little high. The council has low\ncred the rates to the consumers\nwith the large properties who are\nwilling to use meters, but has of\nfered no inducement to the owner\nof the small home, paying 80 cents\nto 81 per month. as the meter plan\noffers but little chance to save.\n\n\nHowever, the chief kick with the\ncity water plant is not so much in\nit's rates as in the continued short\nage of water each summer This\ncomplaint, it is believed, will not\nexist after present improvements,\ncalling for s550,000. are completed\n\n\nThe financial showing of the\nwater plant proves that the people\ncan own and operate public utility\nand make it pay if they set their\nheads to it."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ENOUGH FOR A KINGDOM.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-01-06",
+    "date_end": "1904-01-06",
+    "report_year": 1904,
+    "source_file": "14_1904-01-06_p4_sn88085947_00211108538_1904010601_0875",
+    "archive_ref": "14_1904-01-06_p4_sn88085947_00211108538_1904010601_0875",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1904-01-06_p4_sn88085947_00211108538_1904010601_0875",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "statehood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 264,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "statehood",
+            "weight": 2.5,
+            "offset": 941,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "TFrom the West Coast Trade Annual.\n\n\nEast and west the state of Wash\n\n\nington lies full 1853 miles long from\n\n\nmountain slopes to seashore; north\n\n\nand south its width il 23S miles from\n\n\nhis najestys dominion to where\n\n\nrolls the Oregon\" 1t has an area\n\n\nOF 69.994 square miles, or 44,796,1 60\nacres, larger than all of the New Eng\nland states, or Ohio and Indiana, COM\n\n\nbined This great state is an empire\n\n\nwithin itself containing, or capable\nof producing, all that Is needful for\nthe support or comfort of mankind\n\n\nIf Washington was completely land\nlocked, instead of being, as it happily\nis. blessed with more than 1000 miles\nforemost place among the greatest\nstates of America. The natural re-\nsources locked in its mountain\nbreasts or buried in Its endless fertile\nsoil are so vast and varied that no\nmeaner position could ever be posi-\nBILE. This Is splendidly proven by\nthe rapid strides to the forefront dur\ning the IA years OF statehood. Maine\nand Michigan together, ere they were\ndefowered OF their splendid forests\ncould not equal Washington in the\nimmensity and wealth Of its woods\nIts rivers and seas are of world wide\nrepute for their great and unfailing\nharvest OF food fishes; with the result\nthat today its position as lender of\nthe whole world IN lumber products\nmd fisheries is conceded without cayil\nby the most competent authorities\nThe state is also rich In mineral de-\nposits. though as yet they are unde'\nselopcd TO any very great extent Its\nmines Of coal and precious metals"
+    }
+  ]
+}

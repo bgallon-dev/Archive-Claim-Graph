@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-02-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-01",
+    "date_end": "1905-02-01",
+    "report_year": 1905,
+    "source_file": "7_1905-02-01_p1_sn88085947_00211108551_1905020101_0104",
+    "archive_ref": "7_1905-02-01_p1_sn88085947_00211108551_1905020101_0104",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-02-01_p1_sn88085947_00211108551_1905020101_0104",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 235,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 1312,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and referred to the section forbidding\ndiscrimination in the sale of trans\nportation. Then, as a creditor jeers\na debtor, he suggested that the bill\nbe amended so as to prohibit giving\nfree transportation to anybody. In\nfurther rubbing it in on those legis-\nlators who sat there and hypocritical-\nly laughed at the alleged funny re-\nmarks, the railroad lobbyist said:\n\n\nThis might hit some of you MEM\nbers of the Legislature, but then you\nknow we're all trying to get fair\nBILL\n\n\n\"Stil, I'm willing to furnish you\nmembers with passes as long as you\ndon't put it out of my power to do\nSo\"\n\n\nMany of the committee laughed at\nthese remarks and, growing still\nholder, Mr.. Cotton ended with the\nfollowing threat:\n\n\nI'VE want to keep out of politics,\nbut In such an event we would be\nvitality interested in the personnel\nof commission in this state\"\n\n\nThe outspoken admissions of rail-\nroad bribery by means of free passes\nto the legislature were tentatively\nadmitted by the members of the joint\ncommittee, not one of whom arose\nto protest against such disgraceful\nconditions. 1t was in the corridor\nlate that Representative Crane met\nMr.. Cotton and made the remark\nquoted above. to which Mr.. Cotton\nmade no reply.\n\n\nThere were four men present for\nthe railroads, to oppose any COM\nmission bin which would give the\nrailroad commission power, of its"
+    }
+  ]
+}

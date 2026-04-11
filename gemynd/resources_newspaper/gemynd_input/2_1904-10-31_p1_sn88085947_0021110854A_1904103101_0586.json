@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NEGLECT\n\n\nCOST LIVES",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-31",
+    "date_end": "1904-10-31",
+    "report_year": 1904,
+    "source_file": "2_1904-10-31_p1_sn88085947_0021110854A_1904103101_0586",
+    "archive_ref": "2_1904-10-31_p1_sn88085947_0021110854A_1904103101_0586",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-10-31_p1_sn88085947_0021110854A_1904103101_0586",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 190,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 39,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A victim Of the murderous wreck\non the Northern Pacific died at the\nSacred Heart hospital yesterday noon.\nHe was the Italian section hand who\nwas injured in the wreck of the\nNorth Coast Limited, about which\nrepresentatives of the Northern Pa\ncifc declared 1t made no difference\nto the public how many people the\nNorthern Pacific railroad killed.\n\n\nAs the man who died yesterday is\nan unknown Italian, with no friends\nor relatives in America SO far as\nknown, the railroad company appar-\nemily deems itself correct in announce\ning that II is none Of the public's s\nbusiness how many are killed in such\nfrightful wrecks as that of the North\nCoast Limited.\n\n\nThe unknown section hand was\ntaken to the hospital Saturday. He\nwas standing alongside the track\nagainst the bank when the heavy ex-\npress train left the rails near Lind\nand was crushed between the cars\nand the bank.\n\n\nThe wreck still cumbers the tracks\nnear Lind and the railway officials\nare still doing their best to convince\nthe public that the deaths and the\nwounding of the passengers Is none\nof the public's business."
+    }
+  ]
+}

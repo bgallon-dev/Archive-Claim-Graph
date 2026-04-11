@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-07-26 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-07-26",
+    "date_end": "1904-07-26",
+    "report_year": 1904,
+    "source_file": "14_1904-07-26_p2_sn88085947_0021110854A_1904072601_0234",
+    "archive_ref": "14_1904-07-26_p2_sn88085947_0021110854A_1904072601_0234",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1904-07-26_p2_sn88085947_0021110854A_1904072601_0234",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "arrested"
+        ],
+        "agriculture": [
+          "cattle"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 83,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 314,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 171,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 424,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 275,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "depression_era",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "with pistols and the entire party\nstarted on a run for the yards, firing\nright and left, creating a panic. The\npolice were summoned and after a\ndesperate fight eight were arrested,\nwhile other nonunionists throughout\nthe yard were disarmed.\n\n\nThe day opened with no apparent\nrelief to the situation. Three hundred\nstrike breakers arrived and were dis\ntributed about the yards. The indie\npendent packers received a supply Of\ncattle this morning because the brok-\ners and commission men acted as\ndrovers."
+    }
+  ]
+}

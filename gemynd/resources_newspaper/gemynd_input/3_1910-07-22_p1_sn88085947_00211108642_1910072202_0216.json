@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "THE COUNCIL MUST\n\n\nNOW TAKE A HAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-22",
+    "date_end": "1910-07-22",
+    "report_year": 1910,
+    "source_file": "3_1910-07-22_p1_sn88085947_00211108642_1910072202_0216",
+    "archive_ref": "3_1910-07-22_p1_sn88085947_00211108642_1910072202_0216",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-07-22_p1_sn88085947_00211108642_1910072202_0216",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 177,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 78,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 32,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Public demand today is that the city council take the\nfurther building of the Monroe street bridge in hand and\neither order the awarding of the balance of the bridge by\ncontract discharge the engineers in supervision of the\nwork and demand that the mayor place competent in\ntheir stead. III\n\n\nUnless this is done, the city viii have another monu\nmental failure it's hands compared wXa which the\nSprague fill will be toy. tolerance\nof chds play by the city engineer office in building\nof the Monroe street bridge should be terminated The\nbridge of the biggest undertakings of its kind\nattempted and the plan heretofore pursued of placing\ncub engineers in charge of the work win bankrupt the city\nif it is continued\n\n\nThe city engineers office estimates the loss caused by\nthe collapse at $27500 Former Chief Foreman of Con\nstruction Farney says that the loss is 100000\n\n\nCouncilmen being appealed to all sides to take\nthe bridge matter in hand and do something Action should\nbe taken at the meeting next Tuesday night"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "&c | T \"\n\n\nIN E w S,",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-30",
+    "date_end": "1909-08-30",
+    "report_year": 1909,
+    "source_file": "23_1909-08-30_p7_sn88085947_00211108605_1909083001_0765",
+    "archive_ref": "23_1909-08-30_p7_sn88085947_00211108605_1909083001_0765",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1909-08-30_p7_sn88085947_00211108605_1909083001_0765",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "indigenous": [
+          "colville"
+        ],
+        "railroads": [
+          "milwaukee road",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 597,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1458,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 1633,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 576,
+            "in_headline": false
+          },
+          {
+            "term": "milwaukee road",
+            "weight": 2.0,
+            "offset": 2134,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "f0eotln0 Will pc noIo IN Hill\nyard tonight to complete arrange\nments for Labor Day. It is pro-\nposed to hold the biggest celebra-\nton of the kind ever given there.\nPart Of the plan Is to have labor\nparade in the morning, in which\nthe unions Of Spokane will be ask\nID to participate.\n\n\nBishop Charles w. Smith will\neonsecrate the ground to be occu-\npied by the new st. Paul's M. e.\nchurch, Augusta avenue and Mon\nroe, September 6. The event will\ncall together the chief workers in\nthe Methodist faith In and around\nSpokane.\n\n\nThe suit Of Lewis Gray, an engi.\nneer, against the Northern Pacific\nfor $4,000 damages for oil burns re.\ncefwad while on duty, will be called\nIN the superior court September Is.\nThe criminal action against Gray\nfor throwing acid at Ida and Han\nnah Nelson, in which the state\nclaims his hands were burned, will\nbe called for trial September Fl.\n\n\nScotch songs and dances that\nvividly recalled to the minds OF\nthose present the good old days in\nthe land Of Bobby Burns, were the\nfeatures of an entertainment given\nto the Scots Of Spokane by Mr..\nand Mrs william Hamilton, S31S\nPine street.\n\n\nBY agreemnt, the case Of Howard\nCraig, charged with statutory Of.\nTense, has been continued until the\nOctober term of court. Craig was\nonce convicted after a trial lasting\ntwo weeks, but was given a new\ntrial by the supreme court. An in\nsanity defense will be made, the\nsame as in the former trial.\n\n\nJack WATSON and Joe Benton, the\nyoung men arrested In the north\nEnd Of Spokane county last week\nOn a charge of stealing a team OF\nhorses from Jerry Cooney OF\nEpringdale. entered a plea OF guilty\nbefore Judge Carey at Colville, and\nwere sentenced to the reform\nschool.\n\n\nJapanese residents of Spokane\nare planning to give the party OF\nJapanese commercial visitors a\nwelcome in the manner followed In\ntheir native land on Sunday after\nnoon, September II, at the new\nlining hall of the chamber Of com\nmerce.\n\n\nThe Spokane Traction Co. will\nbegin the work of rebuilding the\nburned portion of the Boone ave\nhue bridge as soon as timbers are\nreceived from the coast. The ma\nerials are expected by the last OF\nhe week.\n\n\nThe Milwaukee road has started\nproceedings to condemn lot IL\nblock 2 of Havermale's Second ad.\nlition, lying Just west Of the Sacred\nHeart hospital. The ground is own.\nI'D by Cyrus Happy and the Hol\nand bank.\n\n\nHeadquarters for the third Wash\nngton district in the taking of the\n$40 census will be located in Spo-\nIane. This district will contain 1s\ncounties In Eastern Washington\nhe wokr in which will be directed\nrom Spokane.\n\n\ne. l. Geer, for 10 years one Of\nSpokane's hustling \"drummers, '\nhas been made manager of the\nWholesale department Of John W.\nGraham & Co.\n\n\nRev. s. N. Ware, pastor Of the\nFourth Presbyterian church, scored\nhe Christian Science movement In\n\n\nsermon last night He pronounc.\nID most of the cures claimed by\nhe Scientists to be pure fakes.\n\n\nA new lodge Of the Moose will\nbe instituted here about September\n0. A charter membership Of SO\nas already been secured. The\nloose is a fraternal order paying\nlex and death benefits.\n\n\nA number Of additions have re.\nemily been made to the Great\nNorthern shops at Hlllyard, which\no not indicate that the Hill people\nave any serious intention Of aban.\noning their shop center there for\nhe present, at least."
+    }
+  ]
+}

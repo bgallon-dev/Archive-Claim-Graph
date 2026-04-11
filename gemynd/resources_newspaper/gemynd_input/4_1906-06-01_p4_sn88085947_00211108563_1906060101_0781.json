@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MAY BREAK THE FEDERATION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-01",
+    "date_end": "1906-06-01",
+    "report_year": 1906,
+    "source_file": "4_1906-06-01_p4_sn88085947_00211108563_1906060101_0781",
+    "archive_ref": "4_1906-06-01_p4_sn88085947_00211108563_1906060101_0781",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1906-06-01_p4_sn88085947_00211108563_1906060101_0781",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 153,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 302,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MAY BREAK THE FEDERATION.\n\n\nThe action of the delegates of the\nButte miners union in withdrawing\nfrom the convention of the West\nern Federation Of Miners at Den\nyer comes as surprise to local\nmembers of organized labor. The\nButte union was the first of the\nwestern unions to urge the forma-\nton of the Western Federation and\n1t has been the foundation stone\nof the big organization. The Butte\nminers are regarded as being con.\nsentative, and have had no trou.\nBILE of any kind for the last 20\nyears. When the big fight was on\nbetween Heinze and the Amalga.\nmated Copper company some years\nago the Butte union took $50, 900\nin Amalgamated stock to show the\noutside world their confidence in\nthe mines.\n\n\nJust what effect the action of the\nButte union will have on the fu-\nture Of the Western Federation,\nshould It adhere to its present reso-"
+    }
+  ]
+}

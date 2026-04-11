@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "Local Markets.\n\nPrices Paid to Producers.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-09",
+    "date_end": "1903-01-09",
+    "report_year": 1903,
+    "source_file": "16_1903-01-09_p4_sn88085947_00211108526_1903010901_0226",
+    "archive_ref": "16_1903-01-09_p4_sn88085947_00211108526_1903010901_0226",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1903-01-09_p4_sn88085947_00211108526_1903010901_0226",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay",
+          "wheat",
+          "livestock"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 93,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 406,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 71,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Wheat, per bushel, &c; barley, per\nton, $21; oats, per ton. $22; green hay,\nper ton. $11.50; timothy hay, per ton.\n$12; potatoes, per sack, 45c; onions,\nper sack, zoe; ranch butter, per pound\n20@25c; eggs, fresh, per dozen, 30 @\n35c; ROSTERS, per pound. DC; hens, live\nweight. per pound, lie; young chick,\nems, per dozen, $4,000; turkeys, live\nweight. per pound, 15c; ducks. live\nweight, per pound, lie.\n\n\nLivestock-Cows per cwt., $3.50:\nsteers, per cwt.. $4; sheep, per cwt.,\n$4,000; hogs. per cwt., $3.50 Q6;\ncalves, per pound, 10c and up."
+    }
+  ]
+}

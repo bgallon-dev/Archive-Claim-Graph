@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "SHOULD THROW\nOLD CHARTER\n\n\nIN RIVER",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-17",
+    "date_end": "1907-09-17",
+    "report_year": 1907,
+    "source_file": "7_1907-09-17_p4_sn88085947_00211108575_1907091701_1085",
+    "archive_ref": "7_1907-09-17_p4_sn88085947_00211108575_1907091701_1085",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-09-17_p4_sn88085947_00211108575_1907091701_1085",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 393,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 898,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The sentiment In favor of revis-\nIng the city charter and making 1t\nUP to date and practical from ey-\ncry standpoint is constantly on the\nincrease. Men who have had to\nwork under the charter as public\nofficials are unanimous in advocat-\ning reform in this particular\n\n\nCity Treasurer Eggleston said\nthe proper thing to do with the\npresent charter was to throw it\ninto the river at the earliest OPP\nportunity\n\n\n\"If the city charter was thrown\ninto the river and we had nothing\nin the shape of a charter to work\nunder we would be better off than\nat present.\" is the way Mr. Egg\ngleston put it when discussing the\nmatter.\n\n\nFormer Mayor Byrne said he was\nheartily in favor of revising the\ncharter. He intimated that at\npresent the mayor is blamed for\nmany things which was is unable\nto prevent. DR.. Byrne said the\nmayor should have the power to\nremove appointive officials without\nthe consent of the city council, and\nthat the council should also have\nthe same right. This would tend\n10 make appointive officials re-\nsponsible to the elected officers and\nwould increase efficiency of the city\ngovernment. The doctor said a\nmayor need not care so much who\nwas appointed to an Office provid-\ning he could remove the man at\nany time. He said the city would\nget pretty good service from any\nholder of a public position if that\nman knew he would be removed\nwhen he was not filing the bill.\n\n\n1t is generally conceded that un-\nder present conditions the charter\nIs useful only to politicians to\nwhack each other over the head. 1t\nis used for club every time new\nman assumes the Office of mayor.\nThe first thing he bumps up against\nis the city charter and when he\ngets through studying its various\nprovisions he has learned that he\nis practically devoid OF power and\nthat every one else connected with\nthe city government is in just\nabout the same boat. 1t seemed\nTO be the opinion of the trainers\nof the present charter that the city\ngovernment would flow along as\npeacefully as the St Joe river, anC\nthat the legislative executive\nbranches would never clash. 1t is\nonly when all departments are IL\ncomplete harmony that anything\ncan be accomplished for the public\ngood."
+    }
+  ]
+}

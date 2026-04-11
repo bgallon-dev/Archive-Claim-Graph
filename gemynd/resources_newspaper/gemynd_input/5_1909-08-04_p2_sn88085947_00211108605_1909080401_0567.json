@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "SLEPT BENEATH\n\n\nTHE BRIDGE\n\nBUT PickPocKET SOUGHT\nHIM EVEN THERE AND LEFT\nNOTHING ON HIM BUT HIS\nJAG.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-04",
+    "date_end": "1909-08-04",
+    "report_year": 1909,
+    "source_file": "5_1909-08-04_p2_sn88085947_00211108605_1909080401_0567",
+    "archive_ref": "5_1909-08-04_p2_sn88085947_00211108605_1909080401_0567",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-08-04_p2_sn88085947_00211108605_1909080401_0567",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "vagrancy"
+        ],
+        "indigenous": [
+          "indian land"
+        ],
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 255,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "vagrancy",
+            "weight": 1.5,
+            "offset": 1344,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "indian land",
+            "weight": 2.5,
+            "offset": 88,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 874,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 142,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Reports of pocket picking are\nmultiplying at the police station as\nthe registration for Indian land is\ndrawing to close. Even bed\nbeneath the Monroe street bridge\nafforded William Lund no exemp-\nton from the operations OF the vel\nvety fingered crooks las, night.\n\n\nWilliam had about SIS, ticket to\nst. Maries, Idaho. and good sup\nply of Supplying liquids aboard\nwhen he lay down under the high\nbridge to forget dull cares. He\nslumbersd peacefully only an hour\nor so, but that was too much for\nhim to sleep outside. of safety\nvault. The thieves had actually\ncut the pockets out of his trousers\nand everything was gone except\nthe holes.\n\n\nThomas K Bailey of Sedalfa,\nMo-, who came to register for a\nclaim, was relieved OF a iNGv York\ndraft on the Third National bank\nof Sedalia for $50. other papers\nvalued at about SIS and his ticket\nback home. This happened at the\nterminal depot, seemingly the ia\nvorfte stamping grounds of the\ndips\"\n\n\nGlen Perkins, rooming at the\nBrown hotel, is bemoaning the loss\nof his elegant gold watch. He says\n1t was slipped out OF his pocket by\npickpockets while on crowded\ntrain from Missoula. Numerous\nother reports of this same nature\nare being investigated by the plain\nclothes men in the police depart\nment. Many of the suspicious char\nacters have been ordered out of\nthe city and others have been\nlocked up for vagrancy, out the au-\nthorities are unable to catch any\nOf the dips\" at work."
+    }
+  ]
+}

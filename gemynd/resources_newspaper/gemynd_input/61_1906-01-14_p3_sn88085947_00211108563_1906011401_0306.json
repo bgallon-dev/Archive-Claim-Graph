@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-01-14 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-14",
+    "date_end": "1906-01-14",
+    "report_year": 1906,
+    "source_file": "61_1906-01-14_p3_sn88085947_00211108563_1906011401_0306",
+    "archive_ref": "61_1906-01-14_p3_sn88085947_00211108563_1906011401_0306",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "61_1906-01-14_p3_sn88085947_00211108563_1906011401_0306",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ],
+        "railroads": [
+          "right of way"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 64,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 7,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 298,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In the injunction proceedings in\nstituted in the federal court at\nNorth Yakima by the Wallula Paci-\nfic railway against the Portland &\nSeattle Railway company the allie\ncation is made that the latter COM\npany intends, if permitted to con-\ntinue it's construction work, to build\nupon the plaintiffs right of way\nfrom its beginning point at the\nmouth of the Columbia river."
+    }
+  ]
+}

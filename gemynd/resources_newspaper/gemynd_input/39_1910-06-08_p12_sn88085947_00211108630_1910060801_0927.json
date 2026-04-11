@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-06-08 — pp12",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-08",
+    "date_end": "1910-06-08",
+    "report_year": 1910,
+    "source_file": "39_1910-06-08_p12_sn88085947_00211108630_1910060801_0927",
+    "archive_ref": "39_1910-06-08_p12_sn88085947_00211108630_1910060801_0927",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "39_1910-06-08_p12_sn88085947_00211108630_1910060801_0927",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "indigenous": [
+          "spokane tribe"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 292,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1432,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "spokane tribe",
+            "weight": 2.5,
+            "offset": 1536,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 143,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1120,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "While going home to lunch,\nCharles Carter, a 9-year-old and a\nward Of the Washington Children s\nHome society, was struck by an en-\nCINE in the Great Northern yards\nand was removed to the home in a\ndying condition.\n\n\nMrs. II. L. Moody. 626 Cedar\nstreet, has postponed the reception\nto be given at her home Saturday\nnight on account of the death of\nher father, II. w. Foster, of Lin\ncoin, Ill.\n\n\nA former resident of Spokane,\nbut now of Los Angeles, Cal, G. A.\nBrock, a jeWeler, is now on visit\nto this city.\n\n\nA suit for $500 damages for In\njuries received while clearing a\nwreck, was brought against the\nGreat Northern Railway company\nby Carl A. Rulaeroff yesterday.\n\n\nMistaking the proprietor for a\nburglar, a call was sent in from\nthe Washington Wagon & Carriasc\nCo.'S store, 1l12 First avenue, and\nwhen the police arrived, they\nfound the owner taking nap in a\nhammock slung in the rear of the\nstore.\n\n\nRobert RiddeII and Howard\nDouglass of Calgary, Alberta, are\nin Spokane on their way to Black\nfoot, Mont, to take over the buff\nfalo herd purchased by the Do\nminion government from Michael\nPablo few years ago.\n\n\nThe city council has decided to\npurchase $4,000 in city warrants,\nwhich are drawing 6 per cent in\ntereSt.\n\n\nFriends are seeking to learn\nthe whereabouts of DR.. l. n. Robb,\nformerly of Newark, Ohio. DR..\nRobb came west a few years ago\nand has not been heard of since.\n\n\nE. Kennedy was sentenced to\nserve ten days in Jail by Justice\nS. c. Hyde Monday for an attempt\ned assault on Marie Paul, May 10.\n\n\nThe council of the Spokane tribe\nof Indians will be held at Fort"
+    }
+  ]
+}

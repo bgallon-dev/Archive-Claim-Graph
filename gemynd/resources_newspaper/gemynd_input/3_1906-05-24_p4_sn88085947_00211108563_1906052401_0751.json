@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABORS' 60 80 REALLY",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-24",
+    "date_end": "1906-05-24",
+    "report_year": 1906,
+    "source_file": "3_1906-05-24_p4_sn88085947_00211108563_1906052401_0751",
+    "archive_ref": "3_1906-05-24_p4_sn88085947_00211108563_1906052401_0751",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-05-24_p4_sn88085947_00211108563_1906052401_0751",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 157,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 109,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "doubt but what the Structural\nTrades would support the electrical\nworkers in their fight with the\nWashington Water Power COM\npany, and the fact that they have\ntaken the same action as the Cen\ntrail Labor Union and placed Nata-\nforum park and all the lines of the\ncompany that are paralleled by the\nTraction company and all products\nOf the company on the unfair list,\nhas greatly strengthened the posi-\nton of the striking linemen.\n\n\nThe fact should not be lost sight\nOF that the entire trouble could\nprobably be settled In a few days\nII the company would recognize the\nright OF the electricians to organize\nas a union. The company is a\nmember of one of the largest\nunions In the world, the Manufac.\nturers association, which has for\nits object the destruction of every\nunion in America. The right to\norganize, which the company\nclaims as It's privilege, it denies\nto its employees."
+    }
+  ]
+}

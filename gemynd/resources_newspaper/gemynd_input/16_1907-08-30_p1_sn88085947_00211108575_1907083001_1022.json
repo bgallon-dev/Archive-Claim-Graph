@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "If LATTER CORPORATION IS\nLEFT, LIGHTING MONOPOLY\nBIG DEAL WILL BE CONSUM.\nMATED, 1T Is RUMORED.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-30",
+    "date_end": "1907-08-30",
+    "report_year": 1907,
+    "source_file": "16_1907-08-30_p1_sn88085947_00211108575_1907083001_1022",
+    "archive_ref": "16_1907-08-30_p1_sn88085947_00211108575_1907083001_1022",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1907-08-30_p1_sn88085947_00211108575_1907083001_1022",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 227,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "II negotiations now pending are\nbrought to a successful conclusion\nthe street car lines of the Wash\nington Water Power Co. will be alb\nsorbed by the Graves interests.\n\n\nThe only hitch that exists over\nthe transfer Ia the desire of the\nw. w. p. Co. to continue dts light\nmonopoly in this city. The company\nis willing to sell its surface lines,\nbut wants to retain its water power\nplant and rights and to be assured\nOF clear field as far as lighting is\nconcerned.\n\n\nII the Graves people will not\nenter into conception In the light\ning business they can have the\nlines. This is the proposition as it\nis generally understood In business\ncircles.\n\n\n1t is stated that the w. w. P.\nhas not been able to show satisfac-\ntory profit for the money invested\nin Its car lines. 1t has kept up a\ncontinual war with organized labor.\nand has never appeared to be able\nto operate transportation In the\nsame class as its rival. Constant\nand heavy expenditures in extern\nslons and improvements have been\ndemanded in order to keep the sys-\nTEN abreast OF the Graves projects,\nand in this contest the latter COM\npany has come out on top, build\ning up great system although en-\ntirely dependent on the w. w. p.\nfor power.\n\n\nWith the completion Of the"
+    }
+  ]
+}

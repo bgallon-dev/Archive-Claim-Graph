@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-09-16 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-16",
+    "date_end": "1908-09-16",
+    "report_year": 1908,
+    "source_file": "6_1908-09-16_p8_sn88085947_00211108587_1908091601_1012",
+    "archive_ref": "6_1908-09-16_p8_sn88085947_00211108587_1908091601_1012",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-09-16_p8_sn88085947_00211108587_1908091601_1012",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 222,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 81,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "lature. Later developments made\nit appear that they intended to play\nboth to the temperance and liquor\nelements in the campaign, and for\nget all about county option after\nthe governor left office Jan. 1.\nThereby they aroused a fighting\nMethodist. Several matters that\nseemed to the governor urgent\nenough to require a special session\nprompted him to call one. And he\nindicated that county option should\nbe one of the laws passed. The\nparty bosses howled, roared and\nshrieked. The governor insisted.\nThey might as we'll have protested\nto one of the numerous bronze\nstatues in town. County option\ngoes-if the governor can make it\ngo\n\n\n\"If they were sincere when they\nadopted the PLATFORM he says,\nthey will have the power to exc\ncute the temperance plank. The\nLegislature will be in session. If\nit is a right thing to do in January\nit is right in September.\nThe governor was asked about\n\n\nthe story that he was stirring up\n\n\ntrouble because of his unpleasant\n\n\nexperience at the Chicago conven\n\n\nton.\n\n\nThat is absurd\" he said. Chi\n\n\ncago has nothing to do with my\nduties as governor\n| Would he take the stump fol\nTaft? He would make speeches in\nIndiana after the legislature ad\n| journed.\n\n\nAll of which explains Hanly, who\n| is not afraid of the cars."
+    }
+  ]
+}

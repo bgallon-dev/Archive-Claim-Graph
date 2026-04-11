@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-13 — pp20",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-13",
+    "date_end": "1910-03-13",
+    "report_year": 1910,
+    "source_file": "7_1910-03-13_p20_sn88085947_00211108629_1910031301_0912",
+    "archive_ref": "7_1910-03-13_p20_sn88085947_00211108629_1910031301_0912",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-03-13_p20_sn88085947_00211108629_1910031301_0912",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 2.5,
+        "spokane_development": 3.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "flour mill"
+        ],
+        "railroads": [
+          "depot",
+          "great northern"
+        ],
+        "spokane_development": [
+          "water power",
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 526,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "flour mill",
+            "weight": 1.5,
+            "offset": 978,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 175,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 190,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 1631,
+            "in_headline": false
+          },
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1075,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tue HtIc WclC\n\n\nmany of them. Most of them were\nfriendly, but some were bad and\nblOodthirsty, and a sort of block\nhouse was maintained over on\nHavermale island near where the\nGreat Northern depot is now for\nthe protection of the whites in case\nof threatened massacre.\n\n\nINDIANS HARD TO DEAL WITH.\nFew of the Redskins could\nspeak the American language,\nhence the merchants were com\nPEELED to learn to speak Chinook.\nIn that lingo 'estes-ch' meant sugar\nand semen was the name for to-\nbacco; these and their fire water\nand few other simple things were\nabout all they ever wanted. We\nfound the Indians were generally\nhonest and trustworthy, but it re-\nuuired considerable diplomacy in\ntrading with them. For instance,\nin weighing sugar for one of them\nshould the clerk let an overweight\nof it into a sack and then begin to\nremove some of it Mr.. Indian was\nangry. He suspected that he was\nbeing cheated and in many cases\nwould refuse to take the sugar.\nFREDERICK POST HAD A\nLITTLE FLOUR MILL.\n\n\nFrederick Post had a two burr\nflour mill on the present site of the\nnew Washington Water Power Co\nbuilding, just south of the Post\nstreet bridge, at that time and\n\n\nPost street was named in his honor.\n\"A. M. Cannon and a partner\nnamed Warner had little sawmill\nwith a daily capacity of 1000 or 5000\nfeet of lumber, right where the\nSawmill Phoenix is now, and they\nalso conducted little store at the\nnorthwest corner of Howard and\nFront. Soon afterward Frederick &\nBerg opened a new store. with a\ngeneral line of goods at the south\nwest corner of Main avenue and\nHoward street, and these were the\nonly two general stores in the vii\nlage of Spokane Falls.\n\n\ns. HEATH, NOW CAPITALIST,\n\n\nWAS A GROCERY CLERK.\n\n\nIS. Heath, owner of the Heath\nblock and Heath's addition on the\nnorth side, now one of the wealthy\nmen of the city, was a grocery clerk\nin Cannon & Warmers store. Be.\nfore the year of 70 was over, Spo-\nkane was experiencing its first\npromising building BOOM A man\nnamed Goldsmith and F. r. Moore,\n\n\nlater an extensive owner in the\nWardner mines and a director of\nthe First National bank, built\n\n\nwhat we thought then was very\n\n\nfine store at the southeast corner OF\n\n\nFront and Howard. on the present\n\n\nsite of the Occur d'Alene hotel. II\n\n\nwas a small affair, but it looked all\nto the good.\n\n\nSUPPLIES ALL BROUGHT\nACROSS THE PRAIRIE.\n\n\n\"All supplies for these trading\nplaces were freighted in. They\nwere shipped up the Snake river\nfrom the coast to Texas Ferry OF\nPenewawa and sometimes in the\nwinter we had to freight the stuff\nall the way over from Walla Walla\nThis made prices on some things\nfrom the east pretty high, though\nmany common lines of foodstuffs\nwere about as cheap as now. We\ndidn't even have nickles. Bits\n(12h cents) was the lowest price\nquoted on anything, and the early\nsettlers expected nothing better\n\n\nsince many OF them had been In\n! places where two bits (25 eents)"
+    }
+  ]
+}

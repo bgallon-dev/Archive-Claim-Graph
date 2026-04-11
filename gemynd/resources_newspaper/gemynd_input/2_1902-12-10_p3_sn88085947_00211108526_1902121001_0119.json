@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UORLD OF LABOR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-10",
+    "date_end": "1902-12-10",
+    "report_year": 1902,
+    "source_file": "2_1902-12-10_p3_sn88085947_00211108526_1902121001_0119",
+    "archive_ref": "2_1902-12-10_p3_sn88085947_00211108526_1902121001_0119",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1902-12-10_p3_sn88085947_00211108526_1902121001_0119",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 256,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 500,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A ladies' auxiliary is to be estab-\nlished in connection with the West\nern Federation of Miners. 1t is ex-\npected that this move will rebound\ngreatly to the progress of the min\ners' organization.\n\n\nClarence Smith writes that there\nIs not a spark of bitterness in the\nAmerican Labor union against the\nmembership of the American Fed\nGRAFTON of Labor. There are Just\nrs good and true men in the rank\nand file of one organization as in\nthe other\"\n\n\nWilliam Potter of Schenectady.\nwho recently secured an injunction\nagainst President Schaefer of the\npainters union. compelling him to\nreinstate him as a member. from\nwhich he was ousted on account\nof his membership in the national\nguard. was yesterday temporarily\nreinStated.\n\n\nIron Moulders' union, No. 33S,\nmet last evening at musicians\nroom, Central Labor hall No bust\nness of any Importance was trans\nacted except the installation of one\nofficer, J. c. Robertson, who was\nelected to the position of CORE\nspending representative The Union\nPark foundry, more commonly\nknown as the Spokane foundry,\nwas put on tho fair list. The iron\nmoulders claim to be tho oldest\nnational organization in the coun-\ntry having been first organized in\n1857.\n\n\nA large number of delegates at\ntended the meeting of the trades\ncouncil held last evening. The\nmeeting lasted for a longer time\nthan usual.\n\n\nThe district council of the car\npenters' union will meet tonight in\nthe musicians room. Central Labor\nhall. This council Is composed OF\ndelegates from the two local car."
+    }
+  ]
+}

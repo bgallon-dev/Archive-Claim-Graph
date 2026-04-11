@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "REVOLUTION SAYS C0MPERS\n\n\nIF LABOR IS TURNED DOWN\n\nBattle Over Anti-Injunction Plank\n\n\nRACES in Chicago Today.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-06-17",
+    "date_end": "1908-06-17",
+    "report_year": 1908,
+    "source_file": "25_1908-06-17_p1_sn88085947_00211108587_1908061701_0642",
+    "archive_ref": "25_1908-06-17_p1_sn88085947_00211108587_1908061701_0642",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1908-06-17_p1_sn88085947_00211108587_1908061701_0642",
+      "composite_score": 13.65,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 5.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "injunction"
+        ],
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 542,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 922,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 171,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 68,
+            "in_headline": true
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 2555,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "| loss of life suffered by employees. u\nJames Van Cleve, president OF\nthe National Association of Manu-\nfacturers is preparing to use des.\nperate means to defeat the anti\ninjunction plank. He insists that\n!, this plank will turn all others who\nhave money invested in this coun.\ntry against the republican party,\nand is busy with the telephone and\ntelegraph lining up big commercial\norganizations, urging them to bring\ninfluence to bear on delegates from\ntheir respective localities.\nGompers is equally busy on the\nother side, and there is little doubt\nbut that the battle for recognition\nof labor's demands for what labor\nconsiders just protection will be\nan event which will give the con-\nvention it's place in history.\n\n\nThe plank would provide that in\nfunctions cannot be issued without\nhearing, and would pledge the\nparty to change the law in such\nway as to prevent the issuance of\nsummary orders by federal judges\nin strike cases.\n\n\nIn presenting the plank Gompers\nsaid revolution would be the result\nin this country If labor unions are\ndestroyed or if they are treated on\nthe same plane as criminal trust\"\nmonopolies. He said:\n\n\n\n\n\n1--WE don't want to eat the en-\nplOyer as an appetizer before\nbreakfast, nor as dessert after, but\nWe want fair treatment and are 60\ning to get 1t. We are not anarch-\nlists nor destroyers Of property. We\ndo not represent that idea. We\nare as loyal to the institutions of\nAmerica as anybody, but we want\nto retain the right to organize and\ntake steps to meet encrouchments\nand oppression by capital\"\n\n\nWade Ellis, Ohio, asked Gompers\nIL 1t were true there had been only\n% injunctions against labor in the\nlast five years.\n\n\nII deny that\" said Gompers.\n\"The man who made that state\nment knows 1t Is untrue\"\n\n\n81 made that statement\" an\nnounced T. A. Emery, general\ncounsel Of the National Manufac.\nturers' association.\n\n\nAn exciting scene was here pre-\nvented by the action Of Chairman\nHopkins, OF the resolutions COM\nmittee, who told Gompers to pro-\ncoed. Gompers then produced a\ndocument from the records of the\nhouse of representatives, including\n23 injunction cases. explaining that\nthey were selected from hundreds.\nEmery then asked the committee\nto examine the injunction cases re-\nferred to by GOmpers. He said:\n\n\n\"Some are cases Of injunctions\nissued for the purpose of restrain\ning men from parading In mining\ncamps to prevent others from go\nIng to work\"\n\n\nThis ended the public hearing\nand the committee went into exc\ncutive session.\n\n\nThe plank demands law to ex-\ntend federal jurisdiction; to grant\nwoman's suffrage; to submit a con-\nstitutional amendment to the states\nfor ratification providing for abso-\nlutte suffrage of women equal to\nthat Of men; law creating de-\npartment of labor separate from\nany existing department, with a\nsecretary at the head holding a\nseat in the cabinet; a law creating\na federal bureau of mines and min\ning. preferably under the proposed\ndepartment of labor; law appro-\npriating sufficient funds for investi-\nCATION of causes of great dis\nasters for the purpose of recon-\nmending laws and regulations pre-\nventing loss OF life in mines, and\nlaws establishing United States\ngovernment savings bank."
+    }
+  ]
+}

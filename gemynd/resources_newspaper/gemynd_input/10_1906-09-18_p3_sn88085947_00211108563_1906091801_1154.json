@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CENTRAL LABOR\n\n\nUNION",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-18",
+    "date_end": "1906-09-18",
+    "report_year": 1906,
+    "source_file": "10_1906-09-18_p3_sn88085947_00211108563_1906091801_1154",
+    "archive_ref": "10_1906-09-18_p3_sn88085947_00211108563_1906091801_1154",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1906-09-18_p3_sn88085947_00211108563_1906091801_1154",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 230,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 724,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "If the sentiment of the delegates\nto the Central Labor union can\nbe accepted as evidence, the local\nunions still feel that Industrial\npeace in this city is not yet Sc\ncured. The Washington Water\nPower company, as usual, Is the\ncause of friction. That labor-fight-\ning concern was up for discussion\nagain last night, and the Central\nunion delegates expressed them\nselves in favor of attempting by ev-\ncry legitimate means to persuade\nthe public from patronizing the\ncars Of the local monopoly. This\nbrought up the question If any\nother car service could be secured\nto the fair grounds. Delegates\nfrom the Electrical Workers union\nstated that the Traction company\nwould run cars closer to the fair\ngrounds than the Washington\nWater Power company cars, and is\nal oil W SNC pSt-\nter service.\n\n\nOrganizer j. w. Schrader, of the\nCarpenters union, made an inter-\nesting address. e is organizer for\nWashington, Idaho and Oregon.\nAmong other things he was sur\nprised at the intelligent and ex-\npeditious manner in which the bust\nness coming before the central\nbody was handled The speaker\npredicted that if the central body\nwould always work with the same\ndispatch it would have time to take\nup other subjects than those per-\ntanning to local labor with the OBJ\nject of educating workingmen on\nthe great economic questions now\nconfronting the nation."
+    }
+  ]
+}

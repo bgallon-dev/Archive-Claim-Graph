@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-01-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-18",
+    "date_end": "1910-01-18",
+    "report_year": 1910,
+    "source_file": "42_1910-01-18_p1_sn88085947_00211108629_1910011801_0183",
+    "archive_ref": "42_1910-01-18_p1_sn88085947_00211108629_1910011801_0183",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "42_1910-01-18_p1_sn88085947_00211108629_1910011801_0183",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 108,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 596,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "information is positive that many\ninterviews have been held in Port\nland between the Hartman repre-\nsentative here and his counsel, and\nw. w. Cotton of Portland, the gen.\neral western counsel of the o. r.\n& ~, Union Pacific and other Har-\nriman lines, at which the business\nof the Hartman system as relating\nto the North Coast was considered.\n\n\nThe granting of the franchises\nwhich are sought by Robert e.\nStrahorn, under the guise Of the\nNorth Coast, means that the two\ngreatest railroad interests of the\nworld, the Hill and the Hartman\nsystems, are striving for the trade\nof the capital of the Inland Empire."
+    }
+  ]
+}

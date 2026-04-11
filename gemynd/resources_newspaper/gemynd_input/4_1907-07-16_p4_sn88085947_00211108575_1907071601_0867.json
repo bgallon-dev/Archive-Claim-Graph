@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "REFUSAL MEANS SHORT RE.\nNEWAL CONTRACT AND IN\nCREASED EFFORTS ON BE.\nHALF OF CITY PlANT-lAT-\nTER MEANS SAVING OF\nTHOUSANDS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-16",
+    "date_end": "1907-07-16",
+    "report_year": 1907,
+    "source_file": "4_1907-07-16_p4_sn88085947_00211108575_1907071601_0867",
+    "archive_ref": "4_1907-07-16_p4_sn88085947_00211108575_1907071601_0867",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1907-07-16_p4_sn88085947_00211108575_1907071601_0867",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 189,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 131,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The probability of a municipal\nlighting plant in the near future\nis more apparent than ever. The\n5-year contract of the Washington\nWater Power Co. to furnish the\ncity with lights expires August 81\nand the council, unless the w. w.\nP. gets particularly busy with a\nsubstantial reduction in it's 81 rate,\nwill limit the term of the next con-\ntsact to l year. In the meantime\nsome definite action toward the in\nstallation of a city piant may be\ntaken.\n\n\nFive years ago the board of pub\nlie works gave the w. w. p. fat\ncontract at 81 a month for each arc\nlight. There was no opposition\nfrom any other electric company\nbecause there is no other cleo\ntricity producing company in Spo-\nkane.\n\n\nAlthough extremely high, the\nboard let the contract. At that\ntime there were 249 arc lights dis\ntributed about the city at various\nstreet corners. But since then\nabout 100 more have been put in at\nvarious times. The council order\ned the board to install 8 additional\nat l time in each ward. In 1903, on\nrecommendation of l.. Frank Boyd"
+    }
+  ]
+}

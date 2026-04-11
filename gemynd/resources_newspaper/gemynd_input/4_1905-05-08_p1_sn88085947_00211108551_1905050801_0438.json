@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Employers Claim They Are WORKING\nUnder Normal Conditions With\nRegular Number of Men",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-08",
+    "date_end": "1905-05-08",
+    "report_year": 1905,
+    "source_file": "4_1905-05-08_p1_sn88085947_00211108551_1905050801_0438",
+    "archive_ref": "4_1905-05-08_p1_sn88085947_00211108551_1905050801_0438",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-05-08_p1_sn88085947_00211108551_1905050801_0438",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 178,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 20,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1095,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Burt Mckay, colored strike\nbreaker, was attacked by four pickets\n\n\non the elevated platform at State\n\n\nand Van Buren, streets at noon and\nwas severely beaten. His assailants\n\n\nescaped. Mckay was taken to the\n\n\nhospital. The assault created a panic\n\n\namong the hundreds of elevated pass\n\n\nengers who witnessed the affair.\nLawyers representing the Employ\n\n\ners' Teaming company and the 60 la\nDor leaders temporarily enjoined\nfrom interfering with the teaming\n\n\nconcerns argued before Judge Kohl\n\n\nsaat today the one question of fore\n\n\nIng labor men to testify before a\n\n\nmaster in chancery.\n\n\nThe labor attorney argued the con-\n\n\nGerm was merely subterfuge and\nhas no standing in the United States\n! courts, having been organized in\nWest Virginia, but did all their BUSH\nIf the men were forced to testify it\n\n\nwould be violation of their consti-\ntutional rights not to incriminate\nthemselves.\n\n\nDeputy Sheriff Robert Nuthall res\n\n\ncued IA driver of United States Ex-\nat Clark and Randolph streets,\n\n\nwounding four men, whom he arrest\n\n\ned for interference with property pro-\n\n\ntected by a federal injunction."
+    }
+  ]
+}

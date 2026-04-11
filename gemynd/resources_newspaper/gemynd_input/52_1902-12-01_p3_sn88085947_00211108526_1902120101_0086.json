@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "title": "RAILROAD NOTES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-01",
+    "date_end": "1902-12-01",
+    "report_year": 1902,
+    "source_file": "52_1902-12-01_p3_sn88085947_00211108526_1902120101_0086",
+    "archive_ref": "52_1902-12-01_p3_sn88085947_00211108526_1902120101_0086",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "52_1902-12-01_p3_sn88085947_00211108526_1902120101_0086",
+      "composite_score": 13.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 8.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern",
+          "oregon railroad",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "summer and the promoters are\nworking with that end in view. If\nthe line can be gotten through to\nSpokane, the Canadian Pacific\nwould be willing to take it over,\nwhile under the present circum.\nstances with the line only extended\nas far as Republic there is not\nenough inducement for the C. P. r\nto take 1t.\n\n\nFor the past \"a hours the com\nmercial wires and the various rail\nway telegraph lines have been un.\ncertain and have caused much de.\nlay to traffic.\n\n\nThe Big Four and Chicago &\nNorthwestern railways suffer the\neffects Of an open switch, causing\nthe derailment of passenger trains\nin both instances.\n\n\n1t appears the accident on the\nNorthern Pacific near Missoula was\ncaused by an empty engine getting\na start without being manned\nthrough the throttle's leaking\nsteam.\n\n\nThe Oregon Railroad G. Naviga.\nton companys steamers, which\nhave been tied sup for two months\non account of the engineers strike\nare again plying between San\nFrancisco and Portland on schedule\ntime.\n\n\nThe Northern Pacific railway is\nexperiencing no little annoyance in\nits fight to keep up the supply OF\ncoal for its engines and other i'm.\nmediate requisites. 1t is furnishing\ncoal for the Great Northern com\npany and will do so until the min.\ning on the Washington & Great\nNorthern railway has been thrown\nopen.\n\n\nThe Chicago, Rock Island & Pa\ncif1c Railway company up to the\npresent time have had no trace of\nthe robbers who held up the Kan\nsas City Express near Davenport,\nIowa, November %.\n\n\nThe elevated railroad employees\nOf Chicago will have a union form\ned by Wednesday and will immedi-\nately approach the management for\na schedule of wages to coincide\nwith the existing conditions.\n\n\nThe Santa Fee has purchased the\nCalifornia Il Nevada railway, UNI\ncompleted, for $4,000.\nThere was 1851, 246,S41 paid in\nsalaries to the various railway en-\nplOyes in 1900. The record of 1901\nthough yet incomplete, will be an\n| increase. There is movement\nwhich expects to prove that the\nraise in freight rates will offset the\nincrease in wages which have be-\ncome so popular of late.\n\n\nThe Southern Pacific has ordered\n100 chair cars from the Pullman\ncompany.\n\n\nThe Denver & Rio Grande have\nordered $50 cars from the American\nCar & Foundry company.\nThe sum of $S.000,000 will be\nspent on construction in Missouri\nby the Rock Island railway.\n\n\nThe Canadian Pacific has order\ne. so new coaches.\nThe Southern Pacific will spend\n100000 in colonization of south\nwestern Louisiana and southern\nTexas. Land is being sold at the\nrate of 100000 acres per month.\n\n\nGeneral Superintendent Sumner\nj. Collins of the Wisconsin Central\nrailway announces a raise of IS\nfor all telegraphers.\nThe Burlington is double tracking\nbetween st. Joe and Omaha.\n\n\nThe Washington & Great North\nl\\NnV'c tnrr,,ina1 h,i inc\nhave been completed at Republic,\nb. G,\n\n\nThe president of the o. r. & N.\nconfirms the statement that the\ntrainmen will receive a 10 per cent\nincrease.\n\n\nThe Denver. Northwestern & Pa\ncific railway, a proposed line from\nDenver to Salt Lake, is, according\nto reports, backed by the Rock\nIsland.\n\n\nThe Santa Fe may build a con-\nnection with the Denver & Rio\nGrande railway. If it is attempted,\nthe building of line $50 miles\nfrom Needles, Cal, to Cedar City,\nUtah, will be necessary.\nThe Oregon Short Line railway\nis to build a branch line from Co\nrhine, Utah, to Malad City. Idaho,\ndistance Of 40 miles\n\n\nThe interstate commerce has\nmade an attack on the rates in\neffect on the Santa Fee.\nThe railroads of Colorado have\nvirtually agreed to insist that pass\nengers coming into Colorado pro-\nduce certificates. at least from\nthose who appear to be invalids.\nThe object is to prevent the spread\nOf tuberculosis.\n\n\nThe latest thing in the way of a\nlasting tie for n railroad company\nIs just out and appears to be an eco.\nnomical invention. The new tie Is\nmade of leather and will be given\na trial by the Santa Fe and South\nern Pacific lines.\n\n\nGeneral Manager l.. NJ Johnson\nof the Mexican Central, with head.\nquarters at the City of Mexico, and\nwho has been in the service of that\nline for 10 years. has rendered his\nresignation and will retire from\nrailroad life"
+    }
+  ]
+}

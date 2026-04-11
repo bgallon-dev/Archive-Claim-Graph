@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-05-16 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-16",
+    "date_end": "1904-05-16",
+    "report_year": 1904,
+    "source_file": "29_1904-05-16_p4_sn88085947_00211108538_1904051601_1323",
+    "archive_ref": "29_1904-05-16_p4_sn88085947_00211108538_1904051601_1323",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "29_1904-05-16_p4_sn88085947_00211108538_1904051601_1323",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 108,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 111,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cidentally the promoters hope to open\nthe eyes of the world to the vast pos\nsibilities of the northwest.\n\n\nThe exposition is intended to demon\nstrate by its varied industries, many\nof them from foreign lands, the factor\nthe state is destined to become in the\ntrade which is sure to be built up dur\ning the next few years with the coun-\ntries of the orient.\n\n\nThe exposition will be held in this\ncity, which is the largest in the state\nand is admirably situated to success\nfully hold a big affair such as it is\nproposed to make the centennial.\n\n\nThe canital stock of the promoting"
+    }
+  ]
+}

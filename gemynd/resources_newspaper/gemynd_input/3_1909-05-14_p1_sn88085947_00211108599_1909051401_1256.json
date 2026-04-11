@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "PUTS ON\n\n\nM00RE'SROBE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-14",
+    "date_end": "1909-05-14",
+    "report_year": 1909,
+    "source_file": "3_1909-05-14_p1_sn88085947_00211108599_1909051401_1256",
+    "archive_ref": "3_1909-05-14_p1_sn88085947_00211108599_1909051401_1256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-05-14_p1_sn88085947_00211108599_1909051401_1256",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 299,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1242,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 788,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With no display of fireworks, the\npassing of Mayor Moore and in\nduction of Mayor Pratt took place\nin the council chamber this morn\ning in the presence of several hun\ndred citizens and the absence of\nany sign of partisan animosity. Re-\nfiring officers expressed their ap-\nprobation Of courtesies and reso-\nluton of kindly feeling was ten\ndered Fred Baldwin, the only re-\nfiring member of the council, after\nIL years service. Mayor Moore\nopened the way for his predecessor\nin a farewell message.\n\n\nThe appearance of Mr.. Pratt was\nvigorously applauded. Mr.. Pratt\nread his first message from manu-\nscript.\n\n\nTo work for the best interests\nof the whole city would be ehis sole\naim during his term of ONCE. said\nMayor Pratt, and in this he felt\nthat he would have the generous\nsupport of the city council. After\nreferring to the water situation,\nMr.. Pratt said the early constrpc-\nton of the bridges and viaducts in\ncontemplation was to be sought,\nand that the viaducts on Division\nand Washington streets should be\nbuilt this year.\n\n\nWork on the new bridge at Olive\navenue was ready to start, he said,\nand no delay should occur in clear\ning away the preliminary WORK\nleading to the building of the Mon\nroe street bridge. The old steel\nbridge at Monroe street should be\nmoved west to Cannon street, he\nthought. He suggested a vigorous\nfight to combat the epidemic of\nscarlet fever and the adoption of\nbetter sanitary regulations to pre-.\nvent the recurrence of such cpl\ndenies in the future. In conclu-\nsion, he expressed the hope that\nall would work together In har-\nmony for greater and better Spo-\nkane.\n\n\nAfter the approval of President\nLambert's committees the council\nadjourned until Tuesday night.\nMay 25."
+    }
+  ]
+}

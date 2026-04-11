@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-09-25 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-25",
+    "date_end": "1908-09-25",
+    "report_year": 1908,
+    "source_file": "37_1908-09-25_p2_sn88085947_00211108587_1908092501_1070",
+    "archive_ref": "37_1908-09-25_p2_sn88085947_00211108587_1908092501_1070",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "37_1908-09-25_p2_sn88085947_00211108587_1908092501_1070",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 5.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "monroe street",
+          "water power",
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 738,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 2595,
+            "in_headline": false
+          },
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 2850,
+            "in_headline": false
+          },
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 3712,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 622,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 199,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nbest serves the peoples Interests.\nThe amount agreed to be hsked in\na lump cash payment is one third\nthe cost of the bridge.\n\n\n| Corporation Counsel L. r. Ham\nblen, at the request of the board\nof public works, is preparing a con-\ntract to be submitted to Jay P.\nGraves, president of the Spokane\nTraction Co., on his return to the\ncity next week. The contract en-\nbodies the provisions of the pro-\nposed settlement with the Traction\ncompany for it's share of the cost\nof building the proposed new steel\nbridge at Olive avenue. The plan\nof settlement proposed was first\nrecommended by the special bridge\ncommittee of the city council and\nratified by the council last Tuesday\nnight.\n\n\nWhat the Traction company will\ndo in the matter of signing the\nagreement Is uncertain. Mr.. Graves\nmade an oyer of paying $4,000 in\ncash for steel bridge, but as the\nplan of settlement proposed calls\nfor nearly double this amount, he\nmay balk on signing and stand\npat\" as in the case of the Wash\nington street bridge. AS Mr.. Graves\n| is the great factotum in all his\nenterprises, none of his assistants\nwill venture an assertion as to his\nstand in the Olive avenue bridge\nsettlement. The bid of the Burrell\nConstruction Co. on the Olive ave-\nnue. bridge is $4,000.\n\n\nUnder the plan of settlement\nwith the street railway companies\nadopted by the city council for the\nOlive avenue steel and Howard\nstreet concrete bridges, the car\ncompanies are asked to pay a lump\nsum of one third the cost of the\nbridges in cash. In the event sthe\ncash settlement is not desired by\nthe car companies they are given\nthe alternative of paying Interest\non one third the cost of thes-Ee-\nspective bridges for a period of\nyears believed to cover the, life Of\nthe bridges, which is estimated at\nso years for steel and 100 years\nfor concrete. '7\n\n\nThis is the deferred payment\nplan. the rate of interest to be the\nsame as the city will pay on it's\nbonds issued to build the bridges.\nIn addition to this interest pay\nment the car companies are re-\nquired to provide for depreciation\nby paying into a sinking fund. to\nbe held intact for replacing the\nbridges, per cent of the total il\nthe case of the Olive avenue steel\nbridge and ! per cent for the How\nard street concrete bridge. AT the\nend of the period of the expectancy\nin the life of the bridges, so years\nfor steel and 100 years for con-\ncrete, these payments will have, it\nis figured, provided fund that will\nbe ample to build a new bridge If\nthe old one is worn out\n\n\nIn addition to the payment of\nshare of the cost of the bridge\n| the car companies are required, un-\nder the city charter, to provide for\nthe maintenance of the roadway be-\ntween their tracks and for two\n| feet on either side. This provision\ncovers the care of roadways on\nstreets and bridges.\n\n\nThe cost of the Howard street\nbridge is $4,000. AS the Wash.\nington Water Power Co. at one\ntime offered to pay $4,000 toward\nthe cost of this bridge, it is pre-.\nsumed that it will not seriously OBJ\n| ject now to paying a smaller\namount under the new order of the\ncity council. When the w. w. P.\nmade the 100000 offer there was\ntalk of the bridge costing from\n| $3.50 to 100000. Mr.. Huntington,\ngeneral manager of the w. W..Pr\n| tOlu lne special uIluBe COulluiIlCO\nthat he considered 20 to rs per\ncent enough for the street rail\nways to contribute on any bridge\n\n\nThe city council has adopted no\nplan of assessing the car companies\non the Washington street bridge or\nthe proposed new bridge at Monroe\nstreet. In the case of the Monroe\nstreet bridge the special bridge\ncommittee reported that no definite\nplan of settlement could be reach\ned until the cost of the bridge was\nascertained, but added that in the\ncase of concrete at Monroe street\ntheh street railway company should\nnot be asked to pay one third the\ncost for the reason that a con crete\nbridge at that point, it is estimated\nwill be so much more expensive\nthan steel bridge Of sufficient\nstrength to taket care of street rail"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-14",
+    "date_end": "1907-05-14",
+    "report_year": 1907,
+    "source_file": "39_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+    "archive_ref": "39_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "39_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "conspiracy"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 99,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 218,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 278,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "barrow was born in Kinsman, o.,\nand is so years old. He has been\nidentified with many notable caseSs\nagainst corporations, fighting the\nChicago gas trust and the coal trust,\nin Pennsylvania. He was counseE\nin the Debs strike case and served\nin many labor injunctions and la\nDor conspiracy cases on the side OF\nlabor.\n\n\nHe is well known as an author\non social and economic questions\nand as platform speaker. He\nwas a member Of the Illinois legis-\nlature in 1902 and has been active\nin politics as an independent demo-\ncrat. His home Is in Chicago."
+    }
+  ]
+}

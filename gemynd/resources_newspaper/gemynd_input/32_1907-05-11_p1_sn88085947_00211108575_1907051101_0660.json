@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "INDIAN on TRIAL\n\n\nFOR MURDER",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-11",
+    "date_end": "1907-05-11",
+    "report_year": 1907,
+    "source_file": "32_1907-05-11_p1_sn88085947_00211108575_1907051101_0660",
+    "archive_ref": "32_1907-05-11_p1_sn88085947_00211108575_1907051101_0660",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1907-05-11_p1_sn88085947_00211108575_1907051101_0660",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "colville",
+          "reservation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 79,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 148,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 157,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "a jury was secured in the fed\nersl court this morning to try Alex\nJennie, Indian, who is charged with\nshooting Noel Pierre, another In\ndian, on the Colville reservation\nlast Christmas during big cele-\nbration and dance. Wild Bill, an\nother Indian. will he star witness\nfor the prosecution. He was ar\nrested on suspicion of completely in\nthe murder. but the grand jury yes\nterday decided there was not evil\n,dence enough TO charge him with\nmanslaughter."
+    }
+  ]
+}

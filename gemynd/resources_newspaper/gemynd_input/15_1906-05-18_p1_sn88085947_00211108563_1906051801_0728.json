@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WALDO PAINE\n\n\nIS PROMOTED",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-18",
+    "date_end": "1906-05-18",
+    "report_year": 1906,
+    "source_file": "15_1906-05-18_p1_sn88085947_00211108563_1906051801_0728",
+    "archive_ref": "15_1906-05-18_p1_sn88085947_00211108563_1906051801_0728",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1906-05-18_p1_sn88085947_00211108563_1906051801_0728",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 73,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 137,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Waldo G.. Paine, formerly traffic\nmanager of the Occur d'Alene &\nSpokane railway, has been pro-\nNOTED to general passenger agent\nfor the Inland Empire railway sys-\nTEN. j, l.. Lothrop was named as\ngeneral freight agent.\n\n\nMr.. Paine has been connected\nwith the Occur dAlene line since\nit's iception and has had much to\ndue with the popularity of that\nline.\n\n\nThe Inland Empire company has\ntaken over the Occur d'Alene line."
+    }
+  ]
+}

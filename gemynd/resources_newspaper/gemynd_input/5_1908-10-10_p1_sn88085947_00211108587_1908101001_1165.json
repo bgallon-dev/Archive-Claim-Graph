@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "VICTORY UNDER\nnew LIABILITY\n\n\nSTATUTE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-10",
+    "date_end": "1908-10-10",
+    "report_year": 1908,
+    "source_file": "5_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+    "archive_ref": "5_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 196,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 195,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The first case tried under the\nemployers liability act in this state\nwas decided in a sealed verdict\nbrought in this morning by the\nfederal court jury in the case of\nCharles N. Roush against the\nGreat Northern In favor of the\nplaintiff. Roush sued for $4,000\ndamages and got a verdict for $6,-\n600. 1t was alleged by Roush that\nwhile coupling cars at Deer Park\nthe train backed and crushed him.\nCarelessness alleged to have been\ncaused by the drunkenness of the\nengineer was alleged.\n\n\nThe employers liability act was\npassed by the last session of con-\ngress and became a law in June.\n1t applies only to interstate COM\nmerce cases. 1t does away with\nthe negligence of fellow servants\nand modifies the doctrine of con-\ntributory negligence. Nearly every\ncase before the federal court here\nbefore has been thrown out on ac-\ncount of contributory negligence on\nthe part of the plaintiffs. The rail-\nway attorneys have not yet served\nnotice of any further action and it\nis believed the case will not be\nfought any further.\n\n\nA similar case Steven S. Shields\nVS.. Great Northern, was settled out\nof court today."
+    }
+  ]
+}

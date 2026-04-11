@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "title": "UNLAWFUL ASSEMBLY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-22",
+    "date_end": "1909-11-22",
+    "report_year": 1909,
+    "source_file": "9_1909-11-22_p2_sn88085947_00211108617_1909112201_0137",
+    "archive_ref": "9_1909-11-22_p2_sn88085947_00211108617_1909112201_0137",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-11-22_p2_sn88085947_00211108617_1909112201_0137",
+      "composite_score": 11.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "disorderly conduct",
+          "jail",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 118,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 35,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 74,
+            "in_headline": false
+          },
+          {
+            "term": "disorderly conduct",
+            "weight": 1.5,
+            "offset": 475,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 225,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nBecause his sympathies with\nthe I. w. W. in its fight against\nthe anti-street speaking ordi-\nnancme asserted themselves in\nenthusiastic handcIaps and\ncheers, F. Bordine, a we'll\nknown Swedish music teacher,\nis in the city Jail charged with\nunlawful assembly\" He is\nheld in default of a $500 bond\nfor release till his case comes\non for trial.\n\n\nHis arrest was made by Of\nFLYER Mcleod at the same time\nthat four street corner orators\nwere taken to the station on\ncharges of disorderly conduct.\nBordine is claimed to have\nbeen standing on the inside\nring Of the assembly of listen\ners to the speakers and is said\nto have been cheering them on\nwith their harangue."
+    }
+  ]
+}

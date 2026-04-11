@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-05 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-05",
+    "date_end": "1910-05-05",
+    "report_year": 1910,
+    "source_file": "7_1910-05-05_p10_sn88085947_00211108630_1910050501_0521",
+    "archive_ref": "7_1910-05-05_p10_sn88085947_00211108630_1910050501_0521",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-05-05_p10_sn88085947_00211108630_1910050501_0521",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "jail"
+        ],
+        "agriculture": [
+          "hay"
+        ],
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 467,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 1738,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1712,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 1582,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1207,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 2581,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "depression_era",
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "foot the bill for the same month\nthis year.\n\n\nFather Adams, the astronomer a,\nGonzaga college. says that after\nMay 20 Halley's comet will be Wis\nible in the evening in the eastern\nhorizon.\n\n\nCharles Reign Scovilie, the evan\ngelist conducting a revival at the\nCentral Christian church, under\nthe auspices of the churches of that\nfaith in the city, last night held\nhis second meeting and delivered a\nsermon on prayer.\n\n\nThe Spokane County conques,\ncampaign and convention was\n, launched this afternoon at the\nVincent NJ. E. church, and will con\ntinue until Saturday. There are\nzoo Sunday schools in the union\nwhich will be represented by soc\ndelegates.\n\n\nn. T. Robbins has sold the south\nwest corner of First and Maple\nhaving 100 feet of frontage on First\nby 1O7 on Maple, to Richard j\nHoward for $1S,5O0.\n\n\nFollowing trip by the mayor\nand Contractor Huetter to the Ken\nwood standpipe, it Is announced\nthat Huetter will now proceed tc\nfinish the job. The standpipe has\nyet to receive it's waterproofins\nand connecting mains must be laid\nThere has been nothing done to\nward completing the work in the\nlast few decks.\n\n\nThe official count Of the vote on\nthe park bond election will be made\nTuesday night by the city council\nThe tally sheets have been return\ned to the office of the city clerk\nwho says that the unofficial returns\nshow no variation from the figures\nfirst given out, and that the bond\nissue has carried by a majority OF\nIs. A change of few votes in the\n| official count might have a serious\nresult as to the outcome of the\nelection.\n\n\nPardons have arrived from Gov\nernor Hay for Hartwell Shippey\nOtto Justh and Thomas Whitehead\nthe last of the alleged !. w. W.\n\"conspirators,\" sentenced to the\ncounty Jail as the result of the\nstreet speaking campaign last No.\nvember. The release of the men is\npart of the compact entered into by\nthe prosecutors office, the police\nand the l. w. w.\n\n\nWalter n. Emerson has brought\nsuit for $1509 damages against the\nThompson Starratt Construction\ncompany, erecting the Old National\nbank building, for personal injuries\nreceived in January while employ.\ned in making the excavation for the\nbuilding.\n\n\nIn order that none bay be over.\nlooked, the census bureau, after\nchecking up its first figures, will\nsee that any omitted names are\nadded to the rolls.\n\n\nThe funeral Of Henrietta Hill\nwho died at S617 Division street\nMay 2, was held from the Smith un.\ndertaking establishment at 2:3O\ntoday. The Rev. Paul H. eros.\nchupf officiated and burial was at\nGreenwood cemetery.\n\n\nContractor John Huetter has\nagain been absolved by the board\nof public works from any RESPONSE\nbility for the delay of work on the"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-12-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-12-20",
+    "date_end": "1905-12-20",
+    "report_year": 1905,
+    "source_file": "10_1905-12-20_p1_sn88085947_00211108563_1905122001_0218",
+    "archive_ref": "10_1905-12-20_p1_sn88085947_00211108563_1905122001_0218",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1905-12-20_p1_sn88085947_00211108563_1905122001_0218",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 115,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 33,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Dennis sold this property to the\nspokane & Inland for terminal and\nshop purposes and as stated by Mr..\nJay Graves last night, knew what\n1t was going to be used for and\nknew that these vacations would be\nnecessary to such use. He took the\nmoney, a good price, it is stated,\nwith this knowledge planted away\nin his brain. And, yet, in spite of\nthis fact, Dennis, who poses as the\nmost extensive booster Spokane\nhas, was on the floor of the council\nchamber, swinging his arms and\npleading with the councilmen not\nto allow the very thing he had con-\nscented to when he sold the land.\n\n\nThe blandness with which the"
+    }
+  ]
+}

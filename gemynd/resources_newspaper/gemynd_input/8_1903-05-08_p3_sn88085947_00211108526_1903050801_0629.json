@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "PLANS FOR The GAS\n\n\nCOMPANY'S BUILDING",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-08",
+    "date_end": "1903-05-08",
+    "report_year": 1903,
+    "source_file": "8_1903-05-08_p3_sn88085947_00211108526_1903050801_0629",
+    "archive_ref": "8_1903-05-08_p3_sn88085947_00211108526_1903050801_0629",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-05-08_p3_sn88085947_00211108526_1903050801_0629",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 111,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 33,
+            "in_headline": false
+          },
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 217,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "w. \"A. Aldrich. secretary of the\nSpokane Falls Gas Light company,\nwhen asked today concerning the\naction of the council In accepting the\noffer Of the gas company for an ex-\nchange Of property at the intersec-\ntion Of Monroe street and Riverside\navenue, said:\n\n\n1.-THE passage Of the ordinance over\nthe mayors veto was no surprise,\nfor we considered the offer fair when\nwe made it, and still consider 1t so.\ny eve will be ready to fulfill our\npart Of the agreement as soon as our\norganization is completed.\n\n\n1--WE will first build the retaining\nwall, which will probably be of con-\ncrete and is estimated to cost $500."
+    }
+  ]
+}

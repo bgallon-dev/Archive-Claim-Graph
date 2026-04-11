@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "DEFENDS\n\n\nACTION OF\n+. GOOOAEl",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-18",
+    "date_end": "1909-12-18",
+    "report_year": 1909,
+    "source_file": "5_1909-12-18_p2_sn88085947_00211108617_1909121801_0403",
+    "archive_ref": "5_1909-12-18_p2_sn88085947_00211108617_1909121801_0403",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-12-18_p2_sn88085947_00211108617_1909121801_0403",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 238,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 823,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 388,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "w. w. Hindman the attorney, a\nnd member of the board of di-\nrectors of the Arcadia Orchards\nCo, defends the action of the com\npany in sending F. e. Goodall.\npresident of the chamber of COM\nmerce to New York city to adver-\ntise their lands. s-~\n\n\nMr.. Hindman says that the en-\nployment of Mr.. Goodall was made\non the same basis as the employ\nment of any other citizen. Goodall\nis in the real estate business, and\nthe line of work he will carry on\nin the east is in keeping with his\npresent occupation. -\n\n\nMr.. Hindman says that the New\nYork exhibit will work to the great\ngood of the entire apple growing\ndistrict, as it will place the apple\ndisplay before the eyes of the pub\nlie on the most important thor\noughfare in America. no.\n\n\nThe Arcadia Orchards Co, Mr.,\nHindman says, has purchased the\nholdings of the Arcadia Irrigation\nassociation. organized in 1906 by\nFloyd l.. Daggett, former mayor\n\n\nThe realty holdings of the original\ncompany have been doubled until\nnow the company owns 10000\nacres, $500 i acres of which are\nunder water. A gravity water sys-\nTEN is being installed with a ditch\nlarge enough to care for the entire\ndistrict when it is under cultiva-\nton. The company has already\nexpended 100000 on the project,\nand proposes to invest $500, 0G2\nmore in the next two years."
+    }
+  ]
+}

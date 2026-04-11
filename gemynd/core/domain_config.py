@@ -241,6 +241,37 @@ class CompositeDomainConfig:
     def claim_entity_relations(self) -> frozenset[str]:
         return frozenset(self.claim_entity_relation_precedence)
 
+    @property
+    def seed_entities(self) -> list[EntityRecord]:
+        """Union of seed entities across all member corpora, deduped by entity_id.
+
+        Retrieval-layer components (EntityResolutionGateway, DictionaryFuzzyResolver)
+        need vocabulary spanning every registered corpus so that cross-corpus
+        surface forms resolve at query time.
+        """
+        seen: dict[str, EntityRecord] = {}
+        for c in self.members:
+            for e in c.seed_entities:
+                if e.entity_id not in seen:
+                    seen[e.entity_id] = e
+        return list(seen.values())
+
+    @property
+    def preferred_entity_types(self) -> dict[str, list[str]]:
+        """Union of preferred_entity_types maps across all member corpora.
+
+        For each claim type, preserve ordering from the first member that
+        defines it, then append any additional types from later members.
+        """
+        merged: dict[str, list[str]] = {}
+        for c in self.members:
+            for claim_type, types in c.preferred_entity_types.items():
+                existing = merged.setdefault(claim_type, [])
+                for et in types:
+                    if et not in existing:
+                        existing.append(et)
+        return merged
+
     # ---- per-corpus helpers ---------------------------------------------
 
     def expected_claim_shares(self) -> dict[str, dict[str, float]]:

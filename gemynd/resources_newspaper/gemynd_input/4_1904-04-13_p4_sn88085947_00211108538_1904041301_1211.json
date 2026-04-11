@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "BIG WRECK ON\n\n\nGREAT NORTHERN\n\ntablishing a free employment bureau\n\n\nAgencies Roasted.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-13",
+    "date_end": "1904-04-13",
+    "report_year": 1904,
+    "source_file": "4_1904-04-13_p4_sn88085947_00211108538_1904041301_1211",
+    "archive_ref": "4_1904-04-13_p4_sn88085947_00211108538_1904041301_1211",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1904-04-13_p4_sn88085947_00211108538_1904041301_1211",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 6.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904,
+      "word_count": 169,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 49,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 771,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The matter was Lrou Int to the at\ntention of the trades council by c. A.\nFoster, who grilled the employment\nagencies numerically Mr.. Foster\nsaid:\n\n\n''You have all noticed the exposure\nof the vicious practices of the en-\nployment agencies which has been\nmade in The Spokane Press. We\nhave all known that these agencies\nwere dens of vice where crooked deal\ning flourished, but we, and the public\nat large, did not know of the depths\nof infamy into which they had sunk.\nThis exposure has been fearlessly\nmade by The Spokane Press. We now\nhave chance to help this paper in\nit's fight against these human mon\nsters and we should give The Press\nour undivided support\n\n\nThe speech was warmly received\nand President Martin appointed the\nfollowing committee to appear before\nthe city council: c. A. Foster, j. II.\nBrill and J. II. Stevens. The commit\ntee went to the city hall, but the\ncouncil had adjourned.\n\n\nResolutions adopted by the trades\ncouncil appear elsewhere."
+    }
+  ]
+}

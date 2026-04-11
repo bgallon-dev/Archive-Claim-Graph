@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THE PUBLIC SQUARE\n\nDedicated free speech everything\nand family fights Otherwise what think in\n800 words and sign your",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-21",
+    "date_end": "1909-04-21",
+    "report_year": 1909,
+    "source_file": "6_1909-04-21_p9_sn88085947_00211108599_1909042101_1110",
+    "archive_ref": "6_1909-04-21_p9_sn88085947_00211108599_1909042101_1110",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-04-21_p9_sn88085947_00211108599_1909042101_1110",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 7.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 191,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 29,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "all taxes upon land values, which\n| is a social fund, and watch the eff\nfects on land monopoly and social\nprogress.\n\n\nOur home, for all who so desire\ncould own one. would become\nmore commodious and attractive,\nlawns and gardens would double\n\n\nand quadruple in size, more mod\nern blocks and flats would be\nerected, the demand for all kinds\nof commodities would increase,\nnew factories and mills appear,\nrents and the price of all the ne\ncessaries of life would fall, while\nwages would greatly raise in re-\nSpouse to the stronger demand and\neasier access to natural opportuni-\n\n\nties.\n\n\n| will join with the greater Spo-\nkane committee, or any other COM\n\n\nmittee, to the full extent of my\nmeans, to start a boosting cam\n\n\npaign thus demanding equal rights\nto all, including our humblest citi-\n\n\nzen, and the abolition of privileges,\neven to the most lordly; but\n\n\nhaven't one peny for a boosting\n\n\ncampaign, the material benefits Of\n\n\nwhich will but go to enrich those\nof us who collect ground rents and\n\n\nprofit by the fictitious advance in\n\n\nland values in and around our\ncity. William Mathews"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "DENNIS DEAL\n\n\nKNOCKED OUT\n\nCITY HAS NO RIGHT TO GIVE\n\n\nBIG PIECE OF WORK ON\nSPRAGUE ST. TRESTLE TO\nINTERESTED CORPORATION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-03",
+    "date_end": "1907-10-03",
+    "report_year": 1907,
+    "source_file": "13_1907-10-03_p4_sn88085947_00211108575_1907100301_1123",
+    "archive_ref": "13_1907-10-03_p4_sn88085947_00211108575_1907100301_1123",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1907-10-03_p4_sn88085947_00211108575_1907100301_1123",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 297,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 995,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An opinion submitted to the\ncouncil last night by its legal ad-\nwiser, H. l.. Hamblen, settled the\nattempts of George E. Dennis to\nsecure payment of about $4,000\nfrom the city for the Improvement\nof property on E. Sprague av. by\nfilling in the trestle. The opinion\nwas to the effect that the city had\nno right to give Dennis company\nthe contract without bids first be-\ning called for.\n\n\nStill Mr.. Dennis was unsatisied\nand harangued the council for\nabout 20 minutes, repeating over\nand over again the financial re-\nliability of his corporation, sim\ncerity in the welfare of the city,\nand finally admitted that his de-\nsires were prompted mostly on ac-\ncount of enhancing of the value OF\nhis holdings. Despite the opinion\nof the corporation counsel, he ask\ned the council again to pay him\n$4,000 to put in the fill Someone\ntold him they were already aware\nthat this was illegal. He subsidized\nthen on that subject Dennis was\nasked how much of the expense\nwas to be borne by the w. w. P.\nand the Inland Empire system,\nand in reply said the former had\nagreed to pay $1,000 as its share\nand the latter would pay half the\nexpense of the steel trestle over\nits tracks, which would amount to\nabout $12 $500.\n\n\nThen arose the question Of how\nmuch the city could force those\ncompanies to advance if the city\ndoes the work. The corporation\ncounsel's opinion held that, accord\ning to the franchise of the w. w.\nP. it was compelled to pave, ma\ncadamize or otherwise improve\"\nthe bridge. From this the coun-\nsci took it that the company could\nbe forced TO pay the actual cost of\nthe work between its rails and for"
+    }
+  ]
+}

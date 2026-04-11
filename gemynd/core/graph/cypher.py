@@ -287,6 +287,50 @@ ORDER BY y.year, c.extraction_confidence DESC
 LIMIT $limit
 """
 
+
+@functools.lru_cache(maxsize=32)
+def build_document_anchor_query(anchor_label: str, anchor_relation: str) -> str:
+    """Build a document-level anchor claim query (no year/observation gate).
+
+    Returns all claims from documents that have a ``(d)-[anchor_relation]->(:anchor_label)``
+    edge to the supplied ``$anchor_id``. Unlike ``build_temporal_with_anchor_query``,
+    observations and years are optional — claims without observation bindings still
+    flow through. Used when a user's resolved entity is itself a corpus anchor
+    (e.g. asking "What do you know about Spokane?" when the newspaper corpus is
+    blanket-linked via ``ABOUT_PLACE`` to the Spokane Place node).
+    """
+    if not _CYPHER_IDENT_RE.match(anchor_label):
+        raise ValueError(f"invalid anchor_label for Cypher: {anchor_label!r}")
+    if not _CYPHER_IDENT_RE.match(anchor_relation):
+        raise ValueError(f"invalid anchor_relation for Cypher: {anchor_relation!r}")
+    return f"""
+MATCH (d:Document)-[:{anchor_relation}]->(ref:{anchor_label} {{entity_id: $anchor_id}})
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
+MATCH (c:Claim {{run_id: lr.run_id}})
+WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
+  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)
+           <-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
+  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       '{anchor_relation}' AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+"""
+
 MULTI_ENTITY_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE d.institution_id IN $institution_ids

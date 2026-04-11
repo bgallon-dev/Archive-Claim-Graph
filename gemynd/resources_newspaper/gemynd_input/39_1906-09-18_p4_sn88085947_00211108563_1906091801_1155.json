@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BY gibson GARDNER.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-18",
+    "date_end": "1906-09-18",
+    "report_year": 1906,
+    "source_file": "39_1906-09-18_p4_sn88085947_00211108563_1906091801_1155",
+    "archive_ref": "39_1906-09-18_p4_sn88085947_00211108563_1906091801_1155",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "39_1906-09-18_p4_sn88085947_00211108563_1906091801_1155",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 389,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 1043,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Politics In Idaho Is no pink tea\neffaffir. After ! had been talking\nwith Governor Gooding, native\nOf Boise turned to me and said,\npointing to the governor:\n\n\nHes a nervy proposition. They\nwill get him the same as they did\nSteuenberg. It's only a question\nof time, and he knows ii as well\nas anybody\"\n\n\nYou mean that he is marked\nfor assassination? asked in\nsome surprise.\n\n\nNO doubt Of It,\" the speaker re-\npiled at may be soon, and it\nmay be years, but they'll get him.\n\n\nBOISE CITY. Idaho, Sept. IS\nPolitics in Idaho is a strange mix\nup of Mormonism and labor trou-\nbles. Republicanism and democ-\nracy are but names.\n\n\nThe question whether United\nStates Senator Fred Dubois will\nbe returned to the senate is one\nof those to be determined at this\nfalls elections. Another matter is\nthe fate of the new anti-Mormon\nparty, which Senator Dubois has\nbeen chiefly instrumental in Great\ning.\n\n\nAnd third, and quite as import\nant question, Is that involved in the\neffort of organized labor to secure\nthe release and vindication Of\nMessrs. Meyer and Haywood. lead\ning officers of the Western Fedora\nton of Miners, who stand charged\nwith the terrible murder by a\nbomb of former Governor Steuen-\nberg of this state.\n\n\nThe state is rent with factiOnal-\nism and the people are very bitter.\n\n\nThe anti-Mormon or, as it has\nbeen named. the American party, is\nreally the creation OF Senator Fred\nDubois. The latter was first sent\n~ IHe Culltu STATES senate as d\nrepublican about IS years ago. In\nthe rise of silver as an issue in\n1896. Dubois became convert to\n16 to /, bolted Mckinley and re-\ntired to private life.\n\n\nFive years ago he was returned\nto the senate by a ombined vote\nOf the democrats, silver republicans\nand pOpulists. But now silver is\nnowhere and Dubois is without a\nparty.\n\n\nConfronted with this situation,\nand with return to private life\nagain staring him in the face, the\nastute Idaho senator attempted a\nbold stroke. He saw his state\nmade up of two-thirds gentiles and\none-third Mormons. He figured that\nIf he could raise the religious Issue\nhe could remain on top. Hence\narose the American party.\n\n\nThe game was good one and\npromised well for Dubois until it"
+    }
+  ]
+}

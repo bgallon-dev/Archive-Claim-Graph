@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": ".BAfTt|NC WITH\nTHE SNOW\nDRIFTS\nGREAT NORTHERN COMPLETE.\n~ TIED UP-PAssENGERs\n\n\nNOT SUFFERING ANY.\nTHING BUT DIS\n\n\nCOMFORT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-27",
+    "date_end": "1910-02-27",
+    "report_year": 1910,
+    "source_file": "8_1910-02-27_p1_sn88085947_00211108629_1910022701_0701",
+    "archive_ref": "8_1910-02-27_p1_sn88085947_00211108629_1910022701_0701",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-02-27_p1_sn88085947_00211108629_1910022701_0701",
+      "composite_score": 11.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 8.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "milwaukee road",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 185,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 311,
+            "in_headline": false
+          },
+          {
+            "term": "milwaukee road",
+            "weight": 2.0,
+            "offset": 443,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "= Omitted Press Leased Wire) .\n= SEATTLE, Feb. 26.-With Q\n\n\n. huge rotary snowplows bat .\n= tling desperately with enor- .\n\n\n. nous drifts In the Cascade .\n. mountains, the Northern Pa q\n\n\n. cific railroad 10 tonight able Q\n\n\n. to furnish an intermittent Q\n\n\n= train service to and from the .\n\n\n= east, but the Great Northern .\n. line 10 hopeIessIy blockaded, .\n. with miles Of track buried un- Q\n. der great avalanches Of snow, Q\n. while the Milwaukee road has .\n. abandoned all attempts to run .\n= trains for the present. .\n. Six overland trains on the Q\n. Great Northern are stalled In .\n\n\n= The Cascades, with small pros .,\n. poets Of their being liberated Z.\n. before another \"a hours. Pas .\n. sengers on these trains are .\n= not believed to be undergoing q\n. any hardships, as the weather q\n. continues mild and there is no .\n. shortage of provisions. q\n. 90 q 90 . = . . . Q 90"
+    }
+  ]
+}

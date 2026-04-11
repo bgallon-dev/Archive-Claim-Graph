@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-03-07 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-07",
+    "date_end": "1905-03-07",
+    "report_year": 1905,
+    "source_file": "12_1905-03-07_p1_sn88085947_00211108551_1905030701_0220",
+    "archive_ref": "12_1905-03-07_p1_sn88085947_00211108551_1905030701_0220",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-03-07_p1_sn88085947_00211108551_1905030701_0220",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 71,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 292,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the Palouse electric line, backed by\nJay Graves and f. Lewis Clark The\ngentlemen were driven about Spokane\nthis morning by Secretary White of\nthe Spokane Traction company.\n\n\nInquiry failed to develop much in\nformation as to the purpose of the\nvisit of these capitalists. Since the\nWashington Water Power company\nhas gotten into the Palouse electric\nfight reticence is the order of the\nday among the electric line pro-\nmoters."
+    }
+  ]
+}

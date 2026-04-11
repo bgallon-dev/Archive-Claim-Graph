@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "C. N. WILL PAY\n\n\n$4,000\n\nIncreases Reward for Bandits Who Have so\n\n\nFar Eluded Chance Of Capture.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-14",
+    "date_end": "1908-12-14",
+    "report_year": 1908,
+    "source_file": "16_1908-12-14_p1_sn88085947_00211108599_1908121401_0258",
+    "archive_ref": "16_1908-12-14_p1_sn88085947_00211108599_1908121401_0258",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1908-12-14_p1_sn88085947_00211108599_1908121401_0258",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 109,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern railroad this\nmorning posted an additional re-\nward of $4,000, making a total of\n$4,000 from the railroad for the cap\nture of the two bold bandits who\nheld No. mile and a half from\nHillyard and robbed the mail car\nof the registered matter sent\nthrough from Seattle.\n\n\nHoldups of Great Northern\ntrains have been frequent the last\nfew months and the company is\ninduced to post the larger reward\non that account. Although ac-\ncurate descriptions of both the\nbandits were telegraphed to all the\nsurrounding cities the detectives\nprofess to be no further in hopes\nof their capture.\n\n\nGeorge d. Linn, postofice in."
+    }
+  ]
+}

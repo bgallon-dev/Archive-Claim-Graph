@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-08-26 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-26",
+    "date_end": "1908-08-26",
+    "report_year": 1908,
+    "source_file": "9_1908-08-26_p2_sn88085947_00211108587_1908082601_0886",
+    "archive_ref": "9_1908-08-26_p2_sn88085947_00211108587_1908082601_0886",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-08-26_p2_sn88085947_00211108587_1908082601_0886",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 139,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 282,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nCHICAGO, Aug. 26.-\"Sweep the\ncountry\"\n\n\nManagers of the national pro-\nhibition campaign say this Is the\nyear they will actually turn the\ntrick. Certainly the blue ribboners\nare working this time to win.\n\n\nThe organization is now more\nperfected than at any time in the\nhistory of prohibition. There is\nan aggressive national organiza-\nton. There are state organizations,\ncounty organizations and, this\nyear, even ward organizations in\nevery city, and precinct organiza-\ntons in every ward.\n\n\nE. w. Chain, presidential nomi-\nnee. is a whirlwind fighter. He\nis prohibition candidate of a new\ntype.\n\n\nHe has a superb physique, is IS\nyears old, and is capable of turn\ning handspring. Chain claims he\ncan make more speeches than Bry-\nan without breaking down. He is\nnow in the West talking to big\ncrowds.\n\n\n1--WE want no prohibitionist to"
+    }
+  ]
+}

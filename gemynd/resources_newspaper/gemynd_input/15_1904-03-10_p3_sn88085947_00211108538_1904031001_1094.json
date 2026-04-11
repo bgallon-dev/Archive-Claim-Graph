@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BETTER Train\n\n\nSERVICE TO-DAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-10",
+    "date_end": "1904-03-10",
+    "report_year": 1904,
+    "source_file": "15_1904-03-10_p3_sn88085947_00211108538_1904031001_1094",
+    "archive_ref": "15_1904-03-10_p3_sn88085947_00211108538_1904031001_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1904-03-10_p3_sn88085947_00211108538_1904031001_1094",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 78,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 307,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "All eastern trains are running on\ntime today, but the eastbound Great\nNorthern has not yet been able to\nbring a train in all the way on its own\nline. The road is open to Adrian,\nwhere trains branch off and take the\nWashington Central line. Railway\nofficials think they will he able to bring\ntrains over the Great Northern tracks\ntomorrow or next day. not later than\nSaturday, at the outside. The tie-up\nhas lessened travel considerably."
+    }
+  ]
+}

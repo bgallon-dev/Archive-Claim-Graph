@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-12-12 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-12-12",
+    "date_end": "1903-12-12",
+    "report_year": 1903,
+    "source_file": "34_1903-12-12_p1_sn88085947_00211108538_1903121201_0788",
+    "archive_ref": "34_1903-12-12_p1_sn88085947_00211108538_1903121201_0788",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "34_1903-12-12_p1_sn88085947_00211108538_1903121201_0788",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 114,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 353,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is now every appearance that\nthe threatened rate war between the\nnewly built Occur d'Alene & Spokane\nelectric railway and the Northern Pa\ncifc has been averted by what might\nbe called traffic agreement between\nthe two lines. 1t has not been thor\noughly consummated as yet. but before\nthe electric line is opened for business\nit is, understood the Northern Pacific\nmay reduce its rates on some lines,\nWHICH will be of great advantage to\nshippers of the summer resort and pre-\nvent any material cut on the part of\nthe electric line. If an agreement is\nfinally consummated the same rates\nwill be effective on both the electric\nanss'the rail 'lines."
+    }
+  ]
+}

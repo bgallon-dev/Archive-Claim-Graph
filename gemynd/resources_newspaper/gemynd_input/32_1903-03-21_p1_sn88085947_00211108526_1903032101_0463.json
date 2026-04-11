@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-21 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-21",
+    "date_end": "1903-03-21",
+    "report_year": 1903,
+    "source_file": "32_1903-03-21_p1_sn88085947_00211108526_1903032101_0463",
+    "archive_ref": "32_1903-03-21_p1_sn88085947_00211108526_1903032101_0463",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "32_1903-03-21_p1_sn88085947_00211108526_1903032101_0463",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 217,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 457,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "daily rate of earnings compares fav-\norably with other industries requiring\nequal skill and training. The annual\nearnings of the contract miners are\nbetween $3.50 and $500 a year. Min\ning should, however be classed as a\ndangerous industry, ranking with the\nmost hazardous.\n\n\nRegarding lawlessness the report\nsays the governor was justified in\ncalling out troops. but that the mine\nworkers region as a whole was well\ndisposed. Good citizens characterize\nthe boycott as immoral, anti-social,\ncruel and cowardly where applied to\ndefenseless women and children.\n\n\n1t says the blacklist is equally bad\nand should be frowned down by all\nhonorable men.\n\n\n1t condemns the practice of en-\nploying deputies upon request and at\nthe expense of the employers. 1t IT.\nritates the men, secures the service\nof many unprincipled persons and is\nagainst the doctrine that the county\nand state officers are abundantly able\nto preserve the peace and protect\nproperty.\n\n\nThe employment of coal and iron\npolice is unwise.\n\n\nThe commission can not recommend\ncompulsory arbitration.\n\n\n1t does think, however, that the\nstate and feueral government should\nprovide machinery for what may be\ncalled a compulsory investigation of\ncontentious when they arise.\n\n\n1t condemns the operators in not\nagreeing to arbitration at first. The\ncommission could not see its way to\nmake a concession."
+    }
+  ]
+}

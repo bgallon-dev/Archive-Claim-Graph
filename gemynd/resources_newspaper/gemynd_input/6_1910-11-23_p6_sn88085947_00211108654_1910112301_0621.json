@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "THE HOMESTEAD GIRLS 7I1ANKSGIVING---\nE The Newspaper",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-23",
+    "date_end": "1910-11-23",
+    "report_year": 1910,
+    "source_file": "6_1910-11-23_p6_sn88085947_00211108654_1910112301_0621",
+    "archive_ref": "6_1910-11-23_p6_sn88085947_00211108654_1910112301_0621",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1910-11-23_p6_sn88085947_00211108654_1910112301_0621",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 4.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "agriculture": [
+          "land office"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 437,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": true
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 1725,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ter section. Just about as much as\nthe homesteader has to pay now\"\n\n\nNow If were a man, I'd\" be-\ngan Jane positively.\n\n\nYou don't have to be a man to\nget government land\" replied the\nMan from Omaha\" Then he told\nher all about the Dakota reserva-\nton openings and how to get a\nclaim there,\n\n\nAn idea was born there. 1t grew\nand developed. 1t called for Jane\nwith a promised reward which far\nexceeded her air castles of former\ndays. Here was something worth\nfighting for, planning for, some\nthing substantial and real-land,\nher land, her home, her future\n\n\nNights were spent in discussing\nthe idea with mother; for hours\nthey bent their heads over maps\nand glowing descriptions of the\nnew country. She drew nearer the\nidea when she again spent her va\ncation In the west; this time it\nmeant trip to Aberdeen, S. d.,\nwhere she became one of hun\ndred thousand applicants for gov\neminent land.\n\n\nAgain there was disappointment\nand hope was almost shattered, for\nthere were 10 applicants for every\nwinning ticket to be drawn in the\ngovernments land lottery. The\njourney back to the \"old country\"\nwas beclOuded with the fear of dis\nappointment.\n\n\nThen one day the sunshine all\ncame back. She had won. All win\nter long she lived two lives-the\nschool teacher and the woman\nfarmer-in the same person.\n\n\nThe next summer followed and\nthen the packing and the leave\ntakings of old friends and old GUS\ntoms. They started for the new\ncountry high in hope and with a\nfew necessary household furnish\nings. plain, warm clothes, and a\nbare handful of money, represent.\ning the savings of a 10-year toll\non the school rostrum.\n\n\nOn the night of October 81 they\narrived in Aberdeen and early next\nmorning Jane poined the line of\napplicants at the land office, each\nintent upon getting an early choice\nof land, and along in the afternoon\nshe selected her farm\" she picked\nout a claim next to one chosen by\nthe man in the line before her. He\nlooked like farmer and Jane con-\nstrued this to be valuable asset\nfor herself; she would have some\none to go to for advice.\n\n\nHastily tripping down the steps\nwith radiant face and dancing\neyes. Jane didn't even see the\nspan of mules until sudden\nWhoa\" prevented the prides of\nMissouri from being run over by\nthe thoughtless young woman.\n\n\nExcuse my driving. lady. L\nwell, if it ain't-what in the world\nare you doing here?\" And the\nMan from Omaha jumped from\nthe wagon seat.\n\n\n(COntinued tomOrrOw"
+    }
+  ]
+}

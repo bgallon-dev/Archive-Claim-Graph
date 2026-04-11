@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Cut Out Excursions.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-02",
+    "date_end": "1903-11-02",
+    "report_year": 1903,
+    "source_file": "4_1903-11-02_p2_sn88085947_00211108538_1903110201_0649",
+    "archive_ref": "4_1903-11-02_p2_sn88085947_00211108538_1903110201_0649",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-11-02_p2_sn88085947_00211108538_1903110201_0649",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 121,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 51,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Sunday excursion is no more\nIs the tale of the Northern Pacific\ntoday. On account Of the dropping off\nof the travel on Sundays to the beau\ntlful resort of Occur d'Alene, it is an\nticipated that the announcement will\nsoon be made by the officials of the\nNorthern Pacific that the Sunday train\nto Occur d'Alene city will be dscon-\ntinued. During the past summer the\ntravel to the lake has been quite I'M\nprecedented. But the weather now is\ncommencing to get cold and the evcur-\nsronist Is quite content to spend the\nday at his own fireside. When the\nseason again starts the excursionists\nwill be whisked away by the Occur\nd Alene q Spokane Electric line."
+    }
+  ]
+}

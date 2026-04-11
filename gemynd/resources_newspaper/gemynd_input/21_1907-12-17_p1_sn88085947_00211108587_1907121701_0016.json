@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MILITIA MAJOR\n\n\non The STAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-17",
+    "date_end": "1907-12-17",
+    "report_year": 1907,
+    "source_file": "21_1907-12-17_p1_sn88085947_00211108587_1907121701_0016",
+    "archive_ref": "21_1907-12-17_p1_sn88085947_00211108587_1907121701_0016",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1907-12-17_p1_sn88085947_00211108587_1907121701_0016",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 89,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 204,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, Dec. 17.-Edgar Wilson\ncontinued in charge of the defense\nof Pettibone today, as barrow is\nstill too i'll to appear in court. A.\nj. Naylor, major Of the Colorado\nnational guard and secretary of the\nMine Owners association, was on\nthe stand the greater part of the\nforenoon. He testified to investl-\ncations made after the explosion of\nthe Vindicator mine in which Beck\nand Mccormick were killed.\n\n\nThe state succeeded in keeping\nout all testimony relating to the\ndeportation of miners and the Grip.\npie Creek troubles."
+    }
+  ]
+}

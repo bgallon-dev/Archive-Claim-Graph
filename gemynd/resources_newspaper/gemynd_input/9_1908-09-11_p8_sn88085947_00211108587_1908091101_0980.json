@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "COUNCIL PR0DS\n\n\nRALSTON\n\nBRIDGE ESTIMATES ORDERED\nFAIL TO APPEAR, AND MON\nROE STREET AND OTHER\nSTRUCTURES ARE STILL\nTIED UP.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-11",
+    "date_end": "1908-09-11",
+    "report_year": 1908,
+    "source_file": "9_1908-09-11_p8_sn88085947_00211108587_1908091101_0980",
+    "archive_ref": "9_1908-09-11_p8_sn88085947_00211108587_1908091101_0980",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-09-11_p8_sn88085947_00211108587_1908091101_0980",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 355,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 352,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 85,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "For some reason City Engineer\nRalston seems to be delaying the\nduty of supplying the city council\nwith needed information as to the\nrelative cost of concrete and steel\nbridges. The record was produced\nin the city council last night to\nshow that Mr.. Ralston had on July\nIs been ordered to prepare plans\nand furnish estimates for a con-\ncrete bridge at Monroe street, on\na motion introduced by Councilman\nSchiller.\n\n\nNo report having been made by\nMr.. Ralston, the matter was again\nbrought up in the city council last\nnight in a resolution introduced by\nCouncilman Dalke, and Mr.. Ralston\nwas again ordered to furnish this\ninformation, and also an estimate\non steel bridge, without which\nthe city council is up in the air,\nfiguratively speaking, on the bridge\nquestion.\n\n\nCouncilman Mohr seemed to\nthink it was useless to ask the\nengineer to make an estimate on\nthe Monroe street bridge when he\nhad already expressed the belief\nthat it will cost about 100000\nMohr favord prodding the engineer\nalong If he thought it would result\nin any good, but he seemed to\nthink it would not. He thought\nanother resolution month hence\nwould be necessary before plans\nare secured.\n\n\nDalke said If the engineer will\nnot work, the council should get\none that will. Mr.. Reuterdahl, OF\nthe city engineers force, could pre-\npare Monroe street bridge plans il\nthe council ordered him to do so\nMr.. Dalke said. I'VE have been\nshooting into the air long enough\nand ii is time that the city council\nget busy and get some tangible\ninformation on the bridge ques\ntion,\" said Dalke. The resolution\nof Dalke was adopted, with the un\nderstanding that ii Engineer Rails\nton had gone to work on Schiller'f\nconcrete bridge request, he need\nnot pay any attention to the con\ncrete portion OF Dalke's motion.\n\n\nCouncilman Phillips, from the\npresiding officers chair, announced\nearly In the evening that all con\nsideration of bridges had been post\nponed until the meeting of the\ncommittee OF the whole next Tues\nday night, but the discussion or\nthe Dalke resolution cropped out"
+    }
+  ]
+}

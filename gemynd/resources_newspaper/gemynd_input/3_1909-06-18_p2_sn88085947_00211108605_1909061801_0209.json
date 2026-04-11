@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SCORES BALLOT\n\n\nFOR WOMEN",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-18",
+    "date_end": "1909-06-18",
+    "report_year": 1909,
+    "source_file": "3_1909-06-18_p2_sn88085947_00211108605_1909061801_0209",
+    "archive_ref": "3_1909-06-18_p2_sn88085947_00211108605_1909061801_0209",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-06-18_p2_sn88085947_00211108605_1909061801_0209",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 197,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 60,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "EMMETTSBURG, Md, June 49,\nIl am entirely opposed to woman's\nsuffrage, not because l hate wom-\nen-, for / love them and want them\nto fulfil the mission for which God\nintended them\" said Cardinal Glib\nbons last night in an address to\nthe girl graduates of st. Joseph's\ncollege. IF you play in the arena\nof politics you will be covered with\nits dust. II you grasp too much\nyou will lose everything. Nowhere\nis woman so honored as in the\nUnited States. This is largely due\nto the chivalry and courtesy of the\nmen, and If you are protected by\nthe male sex, what more do you\nwant?\n\n\nIl want to remind you that WON\nan has a great mission in life. You\nshould, therefore, have deep\nsense of your responsibility in the\ndomestic walks of life. You can\nnot hope to preach in the church,\nbut you can preach in your homes\nand reach those with whom you\ncome in contact in your daily lives.\nPreach to your fathers and broth\ners. Woe be to society if it had\nto depend upon the male sex alone\nit would certainly go to :: the\ndevil\""
+    }
+  ]
+}

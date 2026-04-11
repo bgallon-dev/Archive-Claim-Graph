@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "THOUSAND\nRECRUITS\n\n\nON WAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-01",
+    "date_end": "1909-11-01",
+    "report_year": 1909,
+    "source_file": "9_1909-11-01_p1_sn88085947_00211108605_1909110101_1251",
+    "archive_ref": "9_1909-11-01_p1_sn88085947_00211108605_1909110101_1251",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-11-01_p1_sn88085947_00211108605_1909110101_1251",
+      "composite_score": 18.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech",
+          "industrial workers",
+          "jail"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 406,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 706,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 465,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 198,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 797,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 362,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Nearly 5000 members and sym.\npathixers Of the Industrial Work\ners % the World are preparing\nhere today 20 launch I great fight\nagslnst 6pokane'a police depart\nment, which 10 attempting to abol-\nlsh street speaking. without OBJ\nservlnp the customary formality Of\nsxicket purchasing, 500 rescruits for\nepokane's 1000 revolufionists\nBoarded trains out Of Portland,\nOre, this morning and are now on\ntheir way here 70 assist IN the do\ntermlned and stubborn conquest\nFOR free speech that will begin\nhere tomorrow.\n\n\nA telegram was received this\nmorning by local officials Of the\n1 l. w. w. from #. II. Little, leader\nof band Of revolutionists In\nKalispell. Mont, stating that 500\nmembers and sympathizers of the\nIndustrial Workers OF the World\nwere ready and waiting there to\ncome taa Spokane and go to jail\n\n\nWith the rest Of them for the cause.\n\n\nThey will not advance to Spokane\n\n\nTIL the local officials issue a call\nfor them, however.\n\n\nIn police circles, preparations\nare also being made, and before\n\n\ntomorrow night both county and\ncity jails may be crowded to their\ncapacities with the radicals OF the\n\n\nrevolutionary forces. In case OF\nriot, city authorities threaten to\ncall on the state militia for as\neistance, and In such event there\nwill likely be bloodshed.\n\n\nI'VE are not figuring on rioting,\nbut we figure on fighting the po-\nlice with our tongues\" Secretary\nFilingo OF the local band of l. w.\nWIS announced to representa-\ntive Of The Press this morning.\nI'VE have both women and men to\nspeak. and as soon as the police\narrest one speaker for addressing\nthe crowds on the streets, hun\ndreds of others will be ready to\nmount the stand In their place. 1t\nIt's ridiculous for the police to think\nthat they can take away our\nrights to free speech, for that Is a\n\n\nliberty given every man in Ameri-\n\n\nca by the constitution of the\n\n\nUnited States.\n\n\n1 when we gave q demonstration\nagainst the city's anti-street speak\ning ordinance here a year ago. the\npolice effected truce with us by\n\n\nasking us to be quiet till they\n\n\ncould make a test case in the ar\nrest of Organizer Walsh. That\n\n\ncase has never been brought to\n\n\nthe supreme court. though we were\n\n\ngiven promises of expediency. Now\n\n\nWe are tired Of waiting and we are\ngoing in to fight the police until\n| we win our point"
+    }
+  ]
+}

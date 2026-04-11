@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "C0UNC|lMEN\nTALK WITH\n\n\nSTRAHORN\n\nGO TO HIS OFFlCES-COUN\nWILL INSIST ON UNION\n\n\nDEPOT AGREEMENT.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-27",
+    "date_end": "1910-05-27",
+    "report_year": 1910,
+    "source_file": "5_1910-05-27_p1_sn88085947_00211108630_1910052701_0792",
+    "archive_ref": "5_1910-05-27_p1_sn88085947_00211108630_1910052701_0792",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-05-27_p1_sn88085947_00211108630_1910052701_0792",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 256,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 846,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 79,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "For the last few days some MEM\nbers of the city council favorable\nto the passage of the railway fran\nchises have been in conference\nwith Robert E. Strahorn, president\nof the North Coast railway, at his\noffices in the Paulsen building.\n\n\nThe ostensible purpose was to\ntalk over matters of grade separa-\ntion and other phases of the fran.\nchises, and the excuse was offered\nthat this work could be done bet\nter there than elsewhere, because\nof all the plats, maps and charts\nbeing at Strahorn's office.\n\n\nOne member of the city council\nfavorable to the passage OF the\nfranchise, who was invited to tho\nStrahorn conferences, refused to\ngo. on the ground that If Mr.. Stra.\nnorm had any proposals to make\nto the city the proper place to pre-\nsent them was on the floor Of tho\ncity council.\n\n\ndo you think there is deal on\nfoot to knock out the union depot\nand a lot of other things?\" was\nasked this councilman.\n\n\n\"Oh, | think not They will\nnever get the franchise with my\nvote II this is done. There are\nseveral members of the city coun-\nGil just like l am, who are willing\nthat the franchises shall be grant.\ned, but want square deal for the\npeople at large. l want a union\ndepot, a common user clause and\nadequate grade separation: with\nout these things the franchises\nshall never receive my vote. And\n| think that least one-half Of the\ncity council are about of the same\nmind\""
+    }
+  ]
+}

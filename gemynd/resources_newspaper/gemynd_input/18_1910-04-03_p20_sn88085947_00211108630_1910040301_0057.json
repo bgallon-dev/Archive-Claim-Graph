@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COEUR D ALENE\n\n\nRIVER SCHEDULE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-03",
+    "date_end": "1910-04-03",
+    "report_year": 1910,
+    "source_file": "18_1910-04-03_p20_sn88085947_00211108630_1910040301_0057",
+    "archive_ref": "18_1910-04-03_p20_sn88085947_00211108630_1910040301_0057",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-04-03_p20_sn88085947_00211108630_1910040301_0057",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 160,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 102,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "According to TIE announcement\nmade last evening by Waldo G.\nPaine, traffic manager of the Spo-\nkane & Inland Empire railroad,\nregular steamer navigation will be\nopened up the Occur d'Alene river\nfrom Harrison on Monday, April T.\nOwing to logs in the river the SER\nvice will only be installed as far\nas Dudley. The service will be\nextended as soon as possible to the\nOld Mission, the same as last sea-\nson.\n\n\nThe Perry-Lyon Navigation COM\npany's steamer will leave Occur\nd'Alene upon the arrival of the 8\na. m. Shoshone electric flyer from\nSpokane, touching at Harrison and\nall points on Occur d'Alene river\nas far as Dudley. Returning, the\nfollowing morning, it will reach\nOccur d'Alene in time for the HIS\ntrain for this city.\n\n\nIn the afternoon the Perry-Lyon\ncompany's steamer leaves Occur\nd'Alene upon the arrival of the\nITO electric train from Spokane\nand makes all Occur dAlene lake\npoints as far as Harrison."
+    }
+  ]
+}

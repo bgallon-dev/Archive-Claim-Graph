@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "TeIegraphIc Briefs.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-13",
+    "date_end": "1903-10-13",
+    "report_year": 1903,
+    "source_file": "8_1903-10-13_p5_sn88085947_00211108538_1903101301_0520",
+    "archive_ref": "8_1903-10-13_p5_sn88085947_00211108538_1903101301_0520",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-10-13_p5_sn88085947_00211108538_1903101301_0520",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 1.5,
+        "agriculture": 2.5,
+        "railroads": 4.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "indigenous": [
+          "colville"
+        ],
+        "agriculture": [
+          "desert land act"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903,
+      "word_count": 598,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1483,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 2992,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "desert land act",
+            "weight": 2.5,
+            "offset": 2125,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1880,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 598,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "San Francisco. - Captain Boone.\nnoted trainer Of wild animals, is dead\nat the age Of So years.\nGem, Idaho.-Constable Nugent pro-\n| voked a row With a miner in a saloon\nhere and is pretty badly used up.\nOlympia, WaSh.-Hamilton Clean\nham was killed near Yelm by the ac-\ncidental discharge Of his gun while\nhunting deer.\n\n\n| 81. Paul.-It Is rumored that the\nHill roads will lay off 1000 men in\nthe mechanical departments on the\nfirst of January\n\n\n| Vancouver, y. C.-Johnny Birley. a\nwell known Jockey from Spokane was\nfatally kicked by a vicious horse on\nhis fathers rancho at Barnaby.\n\n\nSeattle.-The Great Northern has\ndecided to spend $1.OOO,O00 in i'm\nprovements at Smiths Cove to ac-\ncommodate the transatlantic Steam\nship line controlled by the road.\n! Portland, 0re.-Chief Hunts orders\nrequiring policemen to buy a military\ncloak as part of their uniform has\ncaused a number or designations and\n| more are expected.\n\n\n| Baltimore, Md.-Cardinal Gibbons\nhas announced Pope Plus brief ap-\nproving an annual collection for 10\nyears for the great Catholic univer-\nsity at Washington.\nColfax, Wash.-Willie West turns\nout to be John Smith, who burglar\nlied Palouse store f1ve years ago.\n| The lad Is once more in the reform\n| school for repeating his old crime\nChtcago.-The Burlington has gain\n| ed entry into San Francisco by pur-\nchasing the Moffatt road, from Den\nyer to Salt Lake, and the Western\nPacific, from Salt Lake to the coast\n| Seattle.-According to advices. J.\nB. Matthews, arrested for passing\n| bogus checks. is John B. Locke, for\n| merly of Governor David b. Hills\n| staff. who has since gained fame as\n| a swindler.\n\n\nPendleton, 0re-The quaker Doc\ntors\" have left town because Of\n| threats of old eggs and other forms\n| of entertainment if they persisted in\nselling medicines.\n\n\nEllensburg, wash.-A stranger,\n\n\n\n\n\n| ly beaten in thicket near here by\nman he says is a Northern Pacific\nbrakeman. who told him to give up\nhis money.\n\n\nButte, Mont.-All Cascade county\n| lands south of the Missouri and two\ntownships near Highwood. comprising\n1,150,000 acres of desert land. have\n| been withdrawn from entry under the\ndesert land act.\n\n\nLondon.-The announcement that\nthe czar has postponed his visit to\n| Rome because of circumstances over\n| which he has no control\" points to\n| more immediate expectations of Man\n| churian troubles.\n\n\nRiparia, wash.-Chief Engineer\nPearson of the Northern Pacific is\nhere with a party of engineers, and\nthe old story of the Lewiston-R iparia\ncutoff for both the Northern Pacific\n| and the Q. r. & N. is revived\nWalla Walla, wash.-Over so men\nwere thrown out of employment by\nthe burning of the Whitehouse- Grim\nMinis mill. and the chances are that\n| work can not be resumed before bad\n\n\n\n\n\nsible prior to winter.\nNotwithstanding to his constitu-\nents last night. Austen Chamberlain.\nthe new chancellor of the exchequer,\nsaid that. while he regretted the res\nignation of some cabinet members\nhe personally was in sympathy with\nPremier Balfour's views.\nColville, Wash.-The Pioneer and\nHistorical Society of Stevens County\nhas effected an organization with\nJacob Stitzel as president and 8. +.\nSherwood as secretary. All residents\nof the county prior to the adoption\nof the state constitution are eligible.\nWashtucna, wash.-A special cleo\nton on Incorporation will be held\nhere on the 27th. The following\nticket has been put up: Mayor. c.\nIl. Booth; councilmen. G. W. Bassett\nI. II. Laing. II. J. Dolbow, II. III.\nBrown, w. l.. Mustard: treasurer, w.\nA. Pcarce."
+    }
+  ]
+}

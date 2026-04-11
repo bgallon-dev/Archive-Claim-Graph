@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-09-13 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-09-13",
+    "date_end": "1904-09-13",
+    "report_year": 1904,
+    "source_file": "9_1904-09-13_p1_sn88085947_0021110854A_1904091301_0412",
+    "archive_ref": "9_1904-09-13_p1_sn88085947_0021110854A_1904091301_0412",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-09-13_p1_sn88085947_0021110854A_1904091301_0412",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 97,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 349,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tion to some of the apportionments\nwill develop.\n\n\nThe committee will also recommend\nthe addition of five patrolmen to the\nforce and it is understood that, for\nreasons of his own, Councilman Pratt\nwill fight the proposition, regardless\nof the need of the policemen, owing\nto his failure to trade over the heads\nof the five new men.\n\n\nThe Washington Water Power COM\npany's franchise for the Hangman\ncreek bridge is also slated for con-\nsideration again under the rider tack\ned on by Mr.. Pratt, which is expected\nto kill off the franchise at this time"
+    }
+  ]
+}

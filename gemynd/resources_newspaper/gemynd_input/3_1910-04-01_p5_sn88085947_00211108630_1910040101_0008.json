@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-01 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-01",
+    "date_end": "1910-04-01",
+    "report_year": 1910,
+    "source_file": "3_1910-04-01_p5_sn88085947_00211108630_1910040101_0008",
+    "archive_ref": "3_1910-04-01_p5_sn88085947_00211108630_1910040101_0008",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-04-01_p5_sn88085947_00211108630_1910040101_0008",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 267,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1398,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 581,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "council. The Review and certain\nbusiness interests have suggested,\nurged and by other means tried to\nforce organized labor into this\nfight.\n\n\nbelieve that the agitation has\naccomplished this, the awakening\nof the unions to the point that they\nwill use the right backed by union\nprinciple to take up this matter.\n\n\nMr.. Councilman-If all interests\nhad been noted in the franchise re-\nlection you would not have had the\npresent dissension and organized\nlabor would have had no occasion\nto complain.\n\n\nask you, Mr.. Councilman, in any\nfranchise granted, has there ever\nbeen one item, ore clause, where\nunion conditions have been sug-\ngested and lived up to? No, not\none.\n\n\nYes, Mr.. Councilman, organized\nlabor is going to enter this fight,\nand backed by the first principle of\norganized labor.\n\n\nThe successful union is based on\nthe good working condition of its\nindividual member, made possible\nby union hours and union wages, in\ntheir steady employment. The first\nprinciple then of organized labor\nis hours and labor; give these con-\nditions to the union man, and all\nother questions will be taken care\nof by the union men.\n\n\nThen in taking up this question\nlet organized labor say to the Mil\nwaukee and North Coast railroads,\nyou submit to the severa! unions\nof this city an agreement, granting\nunion conditions on all your work\nin this city and you will receive\nnot from the Review, not from the\ncity council, but from the union\nmembers of the organization,\nbacked by the principles OF organ\nlied labor, the sentiment Of the\nunion men. GEO. w. MILLER."
+    }
+  ]
+}

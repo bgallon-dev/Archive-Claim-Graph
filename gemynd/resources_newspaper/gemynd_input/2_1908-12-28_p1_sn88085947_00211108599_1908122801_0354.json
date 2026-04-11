@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "ALL GET READY\n\n\nFOR JAIL\n\nINDUSTRIAL WORKERS WILL\nHAVE 500 SPEAKERS ON TAP\n\n\nTO BE ARRESTED FOR MAX\n\n\nING TALKS ON CITY STREET",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-28",
+    "date_end": "1908-12-28",
+    "report_year": 1908,
+    "source_file": "2_1908-12-28_p1_sn88085947_00211108599_1908122801_0354",
+    "archive_ref": "2_1908-12-28_p1_sn88085947_00211108599_1908122801_0354",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1908-12-28_p1_sn88085947_00211108599_1908122801_0354",
+      "composite_score": 20.3,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 14.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "industrial workers",
+          "arrested",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1908,
+      "word_count": 341,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 357,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 709,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 754,
+            "in_headline": false
+          },
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 26,
+            "in_headline": true
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 20,
+            "in_headline": true
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 83,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Another problem similar to that\nof failing all the saloonkeepers in\ntown will be presented the police\ndepartment when an attempt Is\nmade to enforce the ordinance re-\nGently passed to prevent public\nspeaking on the street. The Indus\ntrial Workers of the World have\norganized systematic opposition\nand yesterday they asked the so\ncialists to join them.\n\n\nThe Industrial Workers already\nhave list of so speakers, and ex\"\npect to secure a total of 500 out\nof their membership Of 1900 in\nthis city. These speakers will be\nnumbered, a street meeting start\ned and as soon as one speaker Is\nconfiscated by the police another\nwill take his place. The Industrial\nsists hold the ordinance an inva-\nsion of the rights of free speech,\nand say they would rather go to\nJail than abide by its provisions,\n\n\nWhile planning this campaign a\nman who said he did not belong to\nthe organization but sympathized\nwith the movement offered his\nservices as a speaker and martyr.\nThe Industrialists stated later that\nthis volunteer was detective\nhired by the employment agents to\ncreate a disturbance and thus\nbring on a riot call. The indus\ntrialists say they intend nothing\nmore than to go peaceably to jail\nfor their rights and have the law\ntested in the regular manner,\nMany of their street orations are\ndirected against the employment\nagents and these latter are suspect\ned of being especially interested in\nthe passage and enforcement of the\nordinance. The industrialists have\nbeen thorn in the side of the\nemployment agents. although the\nlatter, except in few cases, have\nbeen able to escape the conse-\nQuences of sending men on wild\nhunts for work, collecting a fee\nfrom each man.\n\n\nThe socialists appointed COM\nmittee to take up the street speak\ning issue and make recommends\nlions. The industrialists are\nanxious to secure socialist help in\ntheir campaign II possible. The\nreading of the ordinance directs\n1t largely against the industrialists,\nas religious meetings are excepted.\n\n\nThe industrialist campaign will\nopen next week."
+    }
+  ]
+}

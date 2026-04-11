@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-05-05 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-05",
+    "date_end": "1909-05-05",
+    "report_year": 1909,
+    "source_file": "11_1909-05-05_p8_sn88085947_00211108599_1909050501_1199",
+    "archive_ref": "11_1909-05-05_p8_sn88085947_00211108599_1909050501_1199",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-05-05_p8_sn88085947_00211108599_1909050501_1199",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 126,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 466,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "state controls the sale of other poi\nsons, why not alcohol? 1t is the\nproper function of the state to legis-\nlate for the moral as well as the\nphysical betterment of the people.\nMajority rule is the keystone of the\nrepublic, and the question was to\nbe decided by the majority.\n\n\nIf putting the saloons out of bust\nness was to drive some citizens to-\nother places. let them go. Other\nand better people will come in. If\nproperty values are deprecated we\ncan stand it. Temperance, however,\nwill appreciate values. Money that\nhas been squandered over the bar\nwill go into Legitimate channels.\n\n\nWhisky, they said, makes pow\nerty, and they gave local statistics\nto prove it.\n\n\nA dry town is not dead town."
+    }
+  ]
+}

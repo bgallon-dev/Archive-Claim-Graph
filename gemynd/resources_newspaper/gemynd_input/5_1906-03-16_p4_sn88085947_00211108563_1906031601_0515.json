@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-03-16 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-16",
+    "date_end": "1906-03-16",
+    "report_year": 1906,
+    "source_file": "5_1906-03-16_p4_sn88085947_00211108563_1906031601_0515",
+    "archive_ref": "5_1906-03-16_p4_sn88085947_00211108563_1906031601_0515",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-03-16_p4_sn88085947_00211108563_1906031601_0515",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 165,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 257,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tect it!\n\n\nEight hours, beneath tropical\nsun, is sufficient toll for any man,\nbe he white, black, red, brown or\nyellow, Eight hours a day is con-\nducive to better work, better health\nand more complete satisfaction all\naround.\n\n\nMay President Gompers of the\nAmerican Federation of Labor,\nbacked by the moral support of\nevery intelligent workingman in the\nUnited States, protest LONG and\nLOUDLY, until President Roose-\nwelt reconsiders his decision in this\nmatter!\n\n\nEven before the brotherhood of\nunionism, comes the brotherhood Of\nman! Humanity's cry has a far,\nfar reach; it vibrates with a deep\nand bitter intonation!\n\n\nIn aiding their less fortunate\nbrethren, united labor adds\nstrength, dignity, tolerance and\ncompassion to it's cause!\n\n\nTrue unionism-to WIN OUT\nmust appeal to a mans morals and\na mans sanity-not to his UNREA-\nSON!\n\n\nWhen the test\" comes, union\nmen must prove themselves broth\ners to all men.\n\n\nHumanity first! Organized labor\nnext!\n\n\nThen must follow, as MONDAY\nfollows dawn, progress, comfort,\ncompetency."
+    }
+  ]
+}

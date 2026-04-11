@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "N0NuNI0N MEN STRIKE\nAGAINST OPEN SHOP",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-23",
+    "date_end": "1908-01-23",
+    "report_year": 1908,
+    "source_file": "12_1908-01-23_p4_sn88085947_00211108587_1908012301_0147",
+    "archive_ref": "12_1908-01-23_p4_sn88085947_00211108587_1908012301_0147",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1908-01-23_p4_sn88085947_00211108587_1908012301_0147",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 87,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 166,
+            "in_headline": false
+          },
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 110,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 13,
+            "in_headline": true
+          },
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 28,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE, Jan. 23.-Contractors\non the federal building, who have\nbeen largely instrumental in bring\ning on the open shop fight in this\ncity, are now confronted with a\nstrike of their nonunion brick\nlayers. The contractors blame the\nunion for this. One of the strikers\nis cousin of member of the CON\ntracing firm. The men had no\nobjection to the wages, but CON\ncluded to kick on the open shop\nrule. After striking they joined the\nbricklayers' union. Work on the\nbuilding is now tied up."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "EVERY JAIL IS CREATED\n\n\nOUT OF BRICKS OF SHAME",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-28",
+    "date_end": "1910-05-28",
+    "report_year": 1910,
+    "source_file": "1_1910-05-28_p2_sn88085947_00211108630_1910052801_0810",
+    "archive_ref": "1_1910-05-28_p2_sn88085947_00211108630_1910052801_0810",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-05-28_p2_sn88085947_00211108630_1910052801_0810",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 200,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 557,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Everything is cause and effect,\nnever beginning and never ending.\nThere is no soul separate from the\nbody. 1t is all substance and l be-\nlieve we bring forth new life In\nnew form; it may be only In flow\ners.\"\n\n\nDon't you believe 1t is rather dis\nceuraging to look toward the end of\nlie in that way?\" / ventured.\n\n\nmo. indeed, we people are made\ntoo self satisfied. We ought to look\nmore to the progression on earth.\nthe future on earth, not after life.\n\n\n\"Sin, why don't believe in sin.\nNo one Is good or bad of their own\nwill. ! would abolish jaiIs. Every\njail ls made out Of bricks Of shame\n\n\nMiss Goldman believes that laws\nare. an imposition. The restrictions\nmade by laws make criminals\" said\nMiss Goldman The cause of\ncrime is inequality of social posi-\nton. | would cure sin as we do dis\nease, would put the victim under\nmedical care\"\n\n\nwhat do | think of women and\nthe fight for the ballot? don't see\nany reason why II should be denied.\nWomen. mentally and physically,\nare, able to do the same work as\nmen.\n\n\nwithin the past GO years, with"
+    }
+  ]
+}

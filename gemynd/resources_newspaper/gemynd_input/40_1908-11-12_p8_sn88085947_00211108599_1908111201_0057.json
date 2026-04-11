@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL CIRCULATE THE PLEDGE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-12",
+    "date_end": "1908-11-12",
+    "report_year": 1908,
+    "source_file": "40_1908-11-12_p8_sn88085947_00211108599_1908111201_0057",
+    "archive_ref": "40_1908-11-12_p8_sn88085947_00211108599_1908111201_0057",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "40_1908-11-12_p8_sn88085947_00211108599_1908111201_0057",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 59,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 200,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "DIES MONIES, Iowa, Nov. ~\nAt the session Of the central dis\ntrict association OF the Anti-Saloon\nleague the announcement was\nmade that a crusade over the en-\ntire country win be made next year\nby the temperance pledge.\n\n\nThe temperance lessons in the\nAmerican Sunday school lesson\nleaflets were criticised on the\ngrounds that they were unattrac.\ntive."
+    }
+  ]
+}

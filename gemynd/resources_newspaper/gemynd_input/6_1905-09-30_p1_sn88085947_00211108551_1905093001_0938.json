@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-09-30 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-30",
+    "date_end": "1905-09-30",
+    "report_year": 1905,
+    "source_file": "6_1905-09-30_p1_sn88085947_00211108551_1905093001_0938",
+    "archive_ref": "6_1905-09-30_p1_sn88085947_00211108551_1905093001_0938",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1905-09-30_p1_sn88085947_00211108551_1905093001_0938",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 140,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 119,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Twenty-Five million dollars to be\ninvested and $4,000 men to be hired\nif the city of Spokane can furnish\nl.. Carr with water power enough\nto turn the wheels of his factory.\n\n\nSuch is the substance of a letter\nreceived by the mayor a few days\nago. The letter, as printed below,\nis written from Atchison, Kan, and\nsigned by l.. Carr. 1t reads as fol-\nlows:\n\n\nHAS your city got strong, fine\nwater power. If so what, if any.\nthing, would your people do to get\nany part or all of the nancy lines\nof Reliable Sound manufacturing\nrepresented by inclosed printed Cir\nculer-all Stable lines. Am now\nravling-looking over the CRATE\nwest with expectations of lokating\nin Some place.\n\n\n\"Your reply if any will find me III\nButte, Mont, about Oct. 3, general\ndelivery. BUSINESS will employ Is"
+    }
+  ]
+}

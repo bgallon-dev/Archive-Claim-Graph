@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-30 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-30",
+    "date_end": "1903-03-30",
+    "report_year": 1903,
+    "source_file": "4_1903-03-30_p4_sn88085947_00211108526_1903033001_0494",
+    "archive_ref": "4_1903-03-30_p4_sn88085947_00211108526_1903033001_0494",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-03-30_p4_sn88085947_00211108526_1903033001_0494",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 461,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1895,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 411,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "come null and void at any time within\nthat period when trackage facilities\nby one or more of the steam railroad\ncompanies now centered, or which\nmay hereafter center, in this city\nshall be afforded to the milling indus\ntries reached by said street railway\nline, including the c. G. c. mills, at a\nrate not to exceed two dollars $50\nper car, and when such facilities and\nrate are so extended and guaranteed,\nthe city council shall by resolution\ndeclare that the rights afforded by\nthis franchise shall absolutely cease\nand determine, and that portion of\nsaid line not used for the transporta-\nton of passengers under existing\nfranchises shall be removed from the\npublic streets, and If not so removed\nmay be torn up by the city of Spo-\nkane under the police powers of the\nsaid city.\n\n\nSection Z. Nothing herein con-\ntanned shall be deemed or construed\nas a REIMBURSEMENT by the city of\nany of it's rightful authority over the\nstreets or any part of them. The\nrights and privileges herein contain\ned are upon the express condition\n| that should the said company, or its\nsuccessors or assigns, neglect or re-\nfuse to exercise the same for a period\nof one year continuously then this\n| franchise shall lapse at the option of\nthe city council, and upon a resolu-\nton passed for that purpose. Pro-\nvided, that 1t shall not lapse or ter\ninmate If such failure to exercise the\n\n\nsame or any part thereof shall be on\n| account of the elements, strikes, act\nof God or the public enemy. or the\ndestruction Gin whole or in part) of\nthe mill or mills served or to be serv-\ned hereunder or in pursuance hereof.\n\n\nSection s. Nothing herein con-\ntanned shall be deemed or construed\nas allowing The Washington Water\nPower company to operate or move\nsteam railroad freight cars on the\n| streets and avenues mentioned in this\n| ordinance excepting as provided in\n\n\nSection 8 hereof, and should said\nThe Washington Water Power COM\n| pany, during the existence of this\n! franchise, allow a steam railroad\n| freight car upon said streets Except\ning as provided in Section 8 hereof)\n| such offense shall work a cancellation\nOf this franchise, and the same shall\n! become Immediately void upon a res-\nolution of the city council declaring\nthe same to be void.\n\n\nSection 0. The grantee herein may,\nbetween the hours of p. m. and\na. M, haul steam railroad freight\ncars oveS the route and for the pur-\nposes herein designated, by the use\nof suitable electric locomotives.\n\n\nSection 10. This ordinance shall be\nin effect and be in force ten days\nafter it's passage.\n\n\nPassed the city council."
+    }
+  ]
+}

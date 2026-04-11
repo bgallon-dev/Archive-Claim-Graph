@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRAIN PLUNGES\n\n\ninto A CULCH.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-02-11",
+    "date_end": "1903-02-11",
+    "report_year": 1903,
+    "source_file": "2_1903-02-11_p2_sn88085947_00211108526_1903021101_0332",
+    "archive_ref": "2_1903-02-11_p2_sn88085947_00211108526_1903021101_0332",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-02-11_p2_sn88085947_00211108526_1903021101_0332",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 160,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WALLACE. Idaho. Feb. 11.-A\nwreck in which seven men were in\njured took place on the Missoula\nbranch of the Northern Pacific. ii\nmiles east of here. yesterday morn\ning. The 50 bridge, on which a\npassenger coach, engine and caboose\nwere standing, was swept away by a\nsnowslide.\n\n\nThe engine and caboose We're\nthrown into the gulch rs feet below,\nwhile the passenger coach was left\nhanging over the end of the broken\nbridge.\n\n\nThe seven railroad men who were\nall seriously injured are;\n\n\nj. G. Phillips, engineer, injured\nabout the hips and body, nose broken\nand cut about face.\n\n\nA. Satersmoen. fireman, serious hip\nand spinal injury.\n\n\nC. Smith, conductor, cut about the\nface.\n\n\nf. f. Rice, fireman, injured hips.\n\n\nFred Grant, brakeman, badly bruis-\ned about the body\n\n\nW. j. Merritt, brakeman. badly\nshaken up and broken arm.\n\n\nBrakeman Maxwell badly bruised.\n\n\nPhillips and Satersmoen are in the\nhospital here. The others were taken\nto their homes"
+    }
+  ]
+}

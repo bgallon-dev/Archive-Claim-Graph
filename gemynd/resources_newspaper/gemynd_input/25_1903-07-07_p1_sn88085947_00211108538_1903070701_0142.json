@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-07 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-07",
+    "date_end": "1903-07-07",
+    "report_year": 1903,
+    "source_file": "25_1903-07-07_p1_sn88085947_00211108538_1903070701_0142",
+    "archive_ref": "25_1903-07-07_p1_sn88085947_00211108538_1903070701_0142",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1903-07-07_p1_sn88085947_00211108538_1903070701_0142",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 99,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern officials are\nbusy today getting up the new time\ncards made necessary by the installa-\nton of the new division on July 1.\nThe only changes in the passenger\nservice effected will be that Nos. l\nand 2, which now only make stops\nat the larger stations. will make more\nstops and thus accommodate a great\nmany more people. In the past Nos.\nand have always been heavily\nloaded while Nos. and 2. by making\nso few stops. do not carry their share\nof the travel. The new time cards\nWill also contain many freight\nchanges."
+    }
+  ]
+}

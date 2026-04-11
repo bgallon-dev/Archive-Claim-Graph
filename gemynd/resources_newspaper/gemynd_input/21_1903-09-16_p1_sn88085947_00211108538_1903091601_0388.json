@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "McF arIand a Deputy.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-16",
+    "date_end": "1903-09-16",
+    "report_year": 1903,
+    "source_file": "21_1903-09-16_p1_sn88085947_00211108538_1903091601_0388",
+    "archive_ref": "21_1903-09-16_p1_sn88085947_00211108538_1903091601_0388",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1903-09-16_p1_sn88085947_00211108538_1903091601_0388",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 58,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 79,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "E. G. Mcfarland, formerly of the\nSpokane schools, has been appointed\ndeputy by County Superintendent of\nSchools Watkins. The superintendent\nis holding off arrangements for the\nteachers institute until after the\nmeeting of the county superintend-\nents of the state at Olympia on the\nlast three days Of pep,emoer, when\nhe expects to secure distinguished\ninstructors for Spokane."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ON\n\n\nTHE JOB NOW",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-06",
+    "date_end": "1909-04-06",
+    "report_year": 1909,
+    "source_file": "7_1909-04-06_p6_sn88085947_00211108599_1909040601_1003",
+    "archive_ref": "7_1909-04-06_p6_sn88085947_00211108599_1909040601_1003",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-04-06_p6_sn88085947_00211108599_1909040601_1003",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 199,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 798,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Secretary Rice of the Greater\nSpokane committee hasn't been\nback in the booster harness very\nlong, but the big projects mapped\nout for the summer are already\noiled up and in running order. This\nmorning he mailed out the assess\nments fixed upon among. the real\nestate men of the city who have\nagreed to contribute $4,000 of the\n$1,000 that will be needed to carry\nout the Greater Spokane plans\nThe assessments range from SIS to\n$40.\n\n\nThese include the national irrl-\nCATION congress, the biggest and\nmost important public event in the\nwestern states; the national apple\nshow, which Spokane made fam\nGUS last year and which in turn\nadded to Spokane's fame: a pub\nlicity campaign on a bigger and\nmore systematic scale than before\nattempted and an advertising cam\npaign among visitors to the A. Y.\np. exposition that will skim a big\nshare of the cream of the western\nmovement on account of the fair.\n\n\nSpokane boosting has suffered\nsome since the old get-results\nworking combination has been out\nof 1t temporarily, but with the\nwork now outlined whatever lapse\nthere has been will be more than\nmade up before the year is ended."
+    }
+  ]
+}

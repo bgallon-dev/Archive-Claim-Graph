@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-02-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-14",
+    "date_end": "1905-02-14",
+    "report_year": 1905,
+    "source_file": "8_1905-02-14_p1_sn88085947_00211108551_1905021401_0148",
+    "archive_ref": "8_1905-02-14_p1_sn88085947_00211108551_1905021401_0148",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1905-02-14_p1_sn88085947_00211108551_1905021401_0148",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 276,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 739,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 313,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and the matter is certain to go over\nto special meeting.\n\n\nBecause of this there will not be\nso many to attend the meeting to-\nnight.\n\n\nThe Lidgerwood taxpayers will be\npresent to file their protest against\nthe abandonment of the Lidgerwood\nstandpipe and the committee from\nthe Joint meeting of the taxpayers\nand chamber of commerce, which\neliminated the water meter question\nfor the time being, will also be pres\nemit to hand in the joint resolution.\n\n\n1t may be that the report of the\nwith so much other business on hand\nthe council could hardly get through\nwith that discussion tonight.\n\n\nFrom every side there pours into\nthe office of The Press communica-\ntions and protests against the adop-\nton of the water commission report\nby the city council.\n\n\nSome of these protests are against\nthe water meter scheme, others\nagainst the uncalled for extrava-\ngances of the plans and others pro-\ntest against the propping out of the\nLidgerwood standpipe plans.\n\n\nIn this connection, DR.. p. S. Byrne\nhas the following:\n\n\nEditor of The Spokane Press: 1\nhave read with great care the report\nof the water commission, consisting\nof Messrs. Otto Weile, III. w Scott,\nassistant city engineer of Seattle,\nand Prof. Waller, of the engineering\ndepartment of the Washington agri-\ncultural college.\n\n\nThere are several statements in\nthis report that seem to me to be\nwrong 1t Is recommended to aban-\ndon the 100000 gallon steel tank\nthat was to be erected in Lidgerwood\nand the two reasons given are that\nii was an unnecessary expense, that\nit is some 20 feet lower than the\nstore site. AS the Lidgerwood tank"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BUILDING TRADES\nIL TO FORM COUNCIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-04",
+    "date_end": "1903-04-04",
+    "report_year": 1903,
+    "source_file": "33_1903-04-04_p1_sn88085947_00211108526_1903040401_0511",
+    "archive_ref": "33_1903-04-04_p1_sn88085947_00211108526_1903040401_0511",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "33_1903-04-04_p1_sn88085947_00211108526_1903040401_0511",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 56,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 93,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "building trades are so extensive that\nthey can not receive due attention at\nthe hands of the trades council\n\n\nThe building trades in all the large\ncities throughout the country have\nbeen compelled by force of circum-\nstances to resort to this plan on ac-\ncount of the same reasons that urge\nit's adoption in Spokane."
+    }
+  ]
+}

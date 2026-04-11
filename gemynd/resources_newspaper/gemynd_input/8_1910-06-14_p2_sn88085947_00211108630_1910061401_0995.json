@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "INLAND EMPIRE\n\n\nNEWS NOTES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-14",
+    "date_end": "1910-06-14",
+    "report_year": 1910,
+    "source_file": "8_1910-06-14_p2_sn88085947_00211108630_1910061401_0995",
+    "archive_ref": "8_1910-06-14_p2_sn88085947_00211108630_1910061401_0995",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-06-14_p2_sn88085947_00211108630_1910061401_0995",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 6.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern",
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 89,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 377,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WALLACE, Idaho, June IA\nThree ministers have gone fishing.\nThey are Rev. r. +. Carter of the\nCongregations church, Rev. P. w.\nWood of the Holy Trinity and Rev.\nG. w. Williams of the Methodist.\n\n\nREPUBLIC. Wash, June IA\nHarry Surrel, Jr.. II, fell from a\n25-foot bank and broke his neck.\nHe died instantly. The accident\nhappened in view of the miners.\n\n\nTRINIDAD, Wash, June IA\nGreat Northern engines Nos. 1927\nand 1928 met in head-on collision\nin the mountains here yesterday,\none engineer jumped, received\nminor injuries."
+    }
+  ]
+}

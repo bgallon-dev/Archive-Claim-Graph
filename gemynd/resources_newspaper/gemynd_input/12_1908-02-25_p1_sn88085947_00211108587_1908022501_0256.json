@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE AGENT\nFOR G. N. NAMED\n\n\nAS A REeATER",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-25",
+    "date_end": "1908-02-25",
+    "report_year": 1908,
+    "source_file": "12_1908-02-25_p1_sn88085947_00211108587_1908022501_0256",
+    "archive_ref": "12_1908-02-25_p1_sn88085947_00211108587_1908022501_0256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1908-02-25_p1_sn88085947_00211108587_1908022501_0256",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 234,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 639,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Under the ruling of the U. S. su-\npreme court yesterday in uphold\ning the Elkins act the Great North\nern Is compelled to pay total fine\nof $4,000 for rebating. Among the\nindividual officials indicted is D. G.\nBlack, general agent of the COM\npany in Spokane. The charge\nbrought was that the company,\nthrough it's agents, had granted re-\nbates on oats and corn shipped by\nthe Devereaux company from Min\nneapolis to Washington state\npoints. The company defended the\nrebates on the theory that the FL\nkins law had been repealed by the\nHepburn act, which last made a\nprovision for punishment as i'm\nprisonment The Elkins law, un-\nder which the Great Northern was\nprosecuted, fixes only fines, and the\nrailroad attorneys depended on the\nplea that the case had been prose\ncuted under a law that had been\ndisplaced by a new one. The SUI\npreme court held the contrary view\nand what the supreme court hap.\npens to think about stands.\n\n\nAS the company pays all the ex-\npense and there is no danger of i'm\nprisonment, Mr.. Black is naturally\nnot worrying. He says he has not\ngiven the matter enough attention\nto talk about it.\n\n\nThe great feature of the deck\nsion, however, is that it shuts the\nStandard Oils main loophOle for\nescaping the $29,000,000 fine i'm\nposed under the same law by Judge\nLands."
+    }
+  ]
+}

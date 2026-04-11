@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-10-11 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-11",
+    "date_end": "1905-10-11",
+    "report_year": 1905,
+    "source_file": "10_1905-10-11_p1_sn88085947_00211108551_1905101101_0978",
+    "archive_ref": "10_1905-10-11_p1_sn88085947_00211108551_1905101101_0978",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1905-10-11_p1_sn88085947_00211108551_1905101101_0978",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 163,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 476,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 491,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "few days, his views on the situa-\nton. The letter received today is\nthe promised letter, written from\nButte, October 5, to Mr.. Levey and\nby him transmitted to the mayor.\n\n\nMr.. Elliott begins by referring to\nthe request contained in a letter\nfrom w. B. Roberts, chairman of\nthe committee of IS business men\nof Spokane, which letter was pre-\nscented by Mayor Daggett. He says\nhe can not comply with the COM\nmittee's request to lower his tracks\nthrough the city nor to use the\nGreat Northern depot. Concerning\nthe latter proposition, he states the\nGreat Northern is none too large\nfor one road and would not be able\nto accommodate two.\n\n\nHe says he has three propositions\nto make.\n\n\nFirst: He will pay the expenses\nof a committee of five to visit east\nern cities and inspect subways,\nmethods of construction, feasibility.\nsightliness and safety. He wants\nthe committee to report on the pro-\nportions of expense borne by the"
+    }
+  ]
+}

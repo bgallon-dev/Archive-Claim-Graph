@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-03-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-03-18",
+    "date_end": "1907-03-18",
+    "report_year": 1907,
+    "source_file": "3_1907-03-18_p1_sn88085947_00211108575_1907031801_0472",
+    "archive_ref": "3_1907-03-18_p1_sn88085947_00211108575_1907031801_0472",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-03-18_p1_sn88085947_00211108575_1907031801_0472",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 224,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 142,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 66,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Every influence that can be\nbrought to bear on the members OF\nthe city council by opponents or\nthe initiative and referendum\namendment to the city charter is\nbeing mustered to keep the coun-\nGil from placing the amendment be-\nfore the people for their approval.\nThe liquor men without exception\nfear the amendment because they\nthink it would give the residents\nof any portion of the city the right\nto refuse a license for an objection\nable saloon.\n\n\nThe liquor men are not alone III\nmaking the fight against the initia'\ntive and referendum amendment\nUnder this amendment the fran\nchises granted by the council would\nhave to be approved by the people,\nas otherwise they could be voted\non and, if unpopular, defeated. The\ncorporations do not want to do\nbusiness with all the people. They\nprefer to deal with few individ-\nual members of the council.\n\n\nMr.. Pratt and several other mem\nbers of the council viii stand by\nthe proposed amendment, but ev-\ncry man who opposes saloon and\ncorporation rule will have to take\nan active interest in the proposed\namendment if it is to become a\nlaw.\n\n\nDutch Jake\" and others of his\nstripe are working in every way\npossible to defeat the amendment.\n1t is up to the moral citizenship to\nsay which element controls the\ncity."
+    }
+  ]
+}

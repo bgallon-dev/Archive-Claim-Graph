@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-14 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-14",
+    "date_end": "1903-03-14",
+    "report_year": 1903,
+    "source_file": "15_1903-03-14_p4_sn88085947_00211108526_1903031401_0442",
+    "archive_ref": "15_1903-03-14_p4_sn88085947_00211108526_1903031401_0442",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1903-03-14_p4_sn88085947_00211108526_1903031401_0442",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 85,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 215,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"A transcript from the superior\ncourt was entered in the federal court\nthis morning in the case of Howard\nGanson White, Adelaide White and\nw. S. McCrea, administrator of the\nestate of Hamilton S. White, against\nthe Great Northern Railway com\npany.\n\n\nThe plaintiffs have brought suit for\n$4,000 and interest as damages al\nlegged to have been done by the action\nof the company in laying it's main line\nof railway along the property of the\nplaintiffs near College avenue in Jen-\nkins' addition."
+    }
+  ]
+}

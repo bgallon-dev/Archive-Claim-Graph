@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-10",
+    "date_end": "1909-12-10",
+    "report_year": 1909,
+    "source_file": "2_1909-12-10_p1_sn88085947_00211108617_1909121001_0304",
+    "archive_ref": "2_1909-12-10_p1_sn88085947_00211108617_1909121001_0304",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-12-10_p1_sn88085947_00211108617_1909121001_0304",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 7.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "industrial workers",
+          "conspiracy"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 286,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 401,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 1510,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 73,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1559,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Even more far reaching than the\nmere trial of Elizabeth GurIey\nFlynn for conspiracy was the hear\ning in Justice Stocker's court yes\nterday afternoon.\n\n\nThe question developed into an\nacademic examination of the ef-\nfects on the public mind Of the\nteachings Of socialism. Expert tes-\ntimony was introduced by e. J.\nTambin, J. S. Lichty, socialists, as\nto the meaning OF the red flag, the\nbanner Of the Industrial Workers,\nand also recognized by socialists as\nthe international color of the move\nment.\n\n\nProsecutor Pugh had copy of\nsong book used in socialist meet\nings, some of the literature of the\nmovement, and copies of the publ\ncation issued by the !. w. w. in\nSpokane.\n\n\nThis material was used In an eff\nfort to show that the meetings\nwherein such songs were sung and\nsuch literature read were contrary\nto public order and tending to es-\ntablish the claim of the state that\nthe defendant was conspirator.\n\n\nAttorney Fred Moore. represent\ning the defendant, examined the\nwitnesses in detail as to meaning\nof the red flag and brought forth\nin each case responses in the ma\nture of short orations on socialism\nand the use of the, red flag as an\ninternational banner.\n\n\nOne of the witnesses said that\nhe had heard Miss Flynn in one\nof her meetings urge upon her hear\ners that the correct solution of the\nills that beset the workingmen at\nthis time was to follow the teach\nings of Jesus Christ.\n\n\nWhen an effort was made by the\nwoman's consel to show how she\nhad labored to secre a peaeeable\nadjustment of the street speaking\ncontroversy by pleading with the\ncity council for the adoption of a"
+    }
+  ]
+}

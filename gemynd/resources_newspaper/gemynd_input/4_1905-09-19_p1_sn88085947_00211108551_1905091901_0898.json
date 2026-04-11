@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "A|QH WAT[R\n\n\ni DAMAGING\n\n\nTIL cir HALL",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-19",
+    "date_end": "1905-09-19",
+    "report_year": 1905,
+    "source_file": "4_1905-09-19_p1_sn88085947_00211108551_1905091901_0898",
+    "archive_ref": "4_1905-09-19_p1_sn88085947_00211108551_1905091901_0898",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-09-19_p1_sn88085947_00211108551_1905091901_0898",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 116,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 132,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The elevations which have been\nbuilt on the dams in the Spokane\nriver opposite the c. & c. mill, the\nPhoenix mill and alongside the\nGreat Northern station has caused\nthe water to back up and flood the\ncity hall.\n\n\nc. j. Vedder, city boiler inspector,\nthis morning stated that he had\nto build a false platform in order\nto get at the boilers in the engine\nroom of the hall.\n\n\nEngineer Vedder stated the water\nhad been bothering him for the past\ntwo weeks, and something ought to\nbe done to remedy the difficulty He\nfears the boilers may be damaged\nor that some sudden rise might\ncause an accident of a serious ma\nture."
+    }
+  ]
+}

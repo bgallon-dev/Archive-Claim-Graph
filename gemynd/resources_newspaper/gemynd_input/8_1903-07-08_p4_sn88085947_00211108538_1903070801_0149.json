@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "Prices Paid to Producers.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-08",
+    "date_end": "1903-07-08",
+    "report_year": 1903,
+    "source_file": "8_1903-07-08_p4_sn88085947_00211108538_1903070801_0149",
+    "archive_ref": "8_1903-07-08_p4_sn88085947_00211108538_1903070801_0149",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-07-08_p4_sn88085947_00211108538_1903070801_0149",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "livestock",
+          "hay",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 83,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 390,
+            "in_headline": false
+          },
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 220,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 476,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "4 Vegetables--New potatoes, per lb.,\n2Tc; onions. per h.. &c.\n? Eggs and poultry-Eggs, fresh, per\ncase. 1850; ranch butter. per h., 1870\n25c; scalded hens and large yellow\nchickens. per H., lac; alive, per h..\n11012c.\n\n\nLivestock--Cows. on foot, 3@3hc:\ndressed. eh97c; steers, on foot. &c;\ndressed. &c; sheep. on foot, 3M64c;\ndressed. 7c; hogs. ON foot, SIC;\ndressed. 9@ehc; calves. Toe.\n\n\nWheat. no market, mills not buy\nIng; barley. per cwt.. S5c; oats, per\ncwtY ~; timothy hay, per ton. SIS."
+    }
+  ]
+}

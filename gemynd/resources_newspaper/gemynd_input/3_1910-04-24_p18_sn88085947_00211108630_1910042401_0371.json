@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "KEEN COMPETITION BETWEEN\n\n\nRIVAL LAMP POST DESIGNERS\n\nArchitects K. K Cutter and J. M Goodwin Both Have\nElectrolier and There May Be Trouble Before Spo-\n\n\nkane Decides Definitely on One the Other.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-24",
+    "date_end": "1910-04-24",
+    "report_year": 1910,
+    "source_file": "3_1910-04-24_p18_sn88085947_00211108630_1910042401_0371",
+    "archive_ref": "3_1910-04-24_p18_sn88085947_00211108630_1910042401_0371",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-04-24_p18_sn88085947_00211108630_1910042401_0371",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 537,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 491,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 189,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Trouble is promised before Spo-\nkane finally settles the street light\ning question and gets all the prop\nerty holders lined up for the same\nkind of electrolier. While the COM\nmittee of the chamber of commerce\nsupposed to have the power to Sc\nlect the kind of lamp post to be\nused exclusively has decided on\nwhat is known as the Cutter design,\nthe hackers of the Goodwin designs\nhave not laid down, and as the\nGoodwin people have about so per\ncent of the merchants and property\nholders along Riverside avenue al\nready signed up on contracts for\nthat design, it looks as though there\nis going to be two kinds of lamp\nposts put up.\n\n\nKeen rivalry between the design\ners of the two kinds of posts has\nmarked the street lighting move\nment from the first The Cutter\npost, recommended by Architect X.\nK. Cutter, is declared by j. M. Good\nwin, the designer of the other post,\nto be copied from the catalog of the\nj. l.. Mott Iron Works of New York\nHe says it is post No. 2005J in the\n1909 catalog of that company, and\ncharges Cutter with filching the\nidea bodily. On the other hand he\nclaims his own design is entirely\noriginal and would make a dis\ntinctively Spokane electrolier.\n\n\nAnother claim made by Goodwin\nfor his post is that it will be made\nin Spokane, while the Cutter de-\nsign will be made in Minneapolis\nGoodwin says the throwing of the\nplum by the chamber committee to\nCutter and the Minneapolis firm is\na frameup. The Cutter post will\ncost $115 set up ready to light on\nthe sidewalk, according to the Min\nneapolis firms bid, but Goodwin\ntook the wind out of the committee\nthe other day by offering to con-\nstruct the same post in Spokane\nand set it up on the sidewalk for\nSTA.\n\n\nThe Goodwin bid was 1925 per\nelectrolier set up on the sidewalk,\nbut this bid included the obtaining\nof the contracts from all the prop\nerty holders, a considerable work\nwhich must be paid for by some\none. And for that money Goodwin\nsays his post will be better, be-\ncause he says he does not have to\nfigure in freight from Minneapolis.\n\n\nSome of the rival posts can be\nh seen already set up. The Goodwin\n! post can be seen on the south side\nOf Riverside avenue between Stew\nems and Howard, and the Cutter de.\nsign in front of Davenport's cafe.\n\n\nThe chamber as body has not\nacted on the last report of the light\n! ing committee, which recommends\n/ that action be urged on the city\n! council at once to prevent the Good\nwin design from being put in. The\ncommittee wants the council to de\n! cree that the Cutter design shall\nbe the design Of the city. 1t has\n| been ascertained that the council\nhas no power to create lighting\ndistrict and assess property for the\nmprovement-the work must be\npaid for by the individual property\n\n\nholders, and the chamber can mere\n\n\nly recommend the kind of a lamp t.\n! be put in.\n\n\n1t is expected that the Goodwin"
+    }
+  ]
+}

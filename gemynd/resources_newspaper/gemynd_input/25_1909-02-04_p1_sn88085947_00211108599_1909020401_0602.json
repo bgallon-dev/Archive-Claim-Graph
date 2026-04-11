@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THREE\nTO STUDY\n\n\nPLAN\n\nSuggested That Committee\nFrom Spokane Visit\n\n\nDes Moines.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-04",
+    "date_end": "1909-02-04",
+    "report_year": 1909,
+    "source_file": "25_1909-02-04_p1_sn88085947_00211108599_1909020401_0602",
+    "archive_ref": "25_1909-02-04_p1_sn88085947_00211108599_1909020401_0602",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1909-02-04_p1_sn88085947_00211108599_1909020401_0602",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 607,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 2610,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is charter revision in the\nair, and something is bound to\ncome out of the meetings of the\ncivic commission in the way of a\nbetter city government for Spo-\nkane.\n\n\nSome differ as to the extent to\nwhich the charter should be. re-\nvised, and individual ideas differ\nas to what are the most important\nthings needing revision, but when\nall the good in the various\nschemes of revision are reduced to\na concrete basis, such reforms are\ncollectively found in the plan of\nmunicipal government now being\nsuccessfully carried ON in Des\nMoines, Galveston, Houston and\nother cities that have in recent\nyears adopted the commission plan\nof government.\n\n\nThe civic commission has set\naside its meeting Friday night for\nthe consideration of the Des\nMoines plan and individual plans\nof charter revision. Among several\nof the enthusiastic supporters OF\nthe commission plan, the feeling\nis that the Des Moines idea should\nbe put to a vote of the people at\nthe coming city election. Others\nfear that the submission of the\nquestion at that early date may be\ninopportune and cause the defeat\nof the plan because of lack of\nknowledge on the part of the peo-\npie as to it's good qualities.\n\n\nMayor Moore and Gordon C. Cor\nbailey believe that it would be adj\nvisable to send a committee of\nthree disinterested Spokane ctti-\nzens to Des Moines to study the\nnew plan of government in actual\noperation. Others to whom tins\nidea has been mentioned have en-\ndorsed 1t. In case the civic COM\nmission should vote to ask the\ncouncil to submit the question to\nvote Of the people, the report of\ncommittee of this character would\ncarry great weight.\n\n\nThe politicians who believe that\na nonpartisan commission plan of\ngovernment will endanger the con-\ntroll of certain men or cliques who\nhave had a hand in city affairs in\nthe past under the old party sys-\nTEN, are quietly but industriously\nthrowing all the cold water pos\nsible on the Des Moines plan. 1t\nhits at their control in politics and\nnaturally they resent this en-\ncroachment on their prerogatives.\nThese men are willing to make\nconcessions in the way of charter\namendments in order to stave off\nthe more radical plan of a non\npartisan commission, with the\ninitiative and referendum and\nright of recall. 1t may be that the\ncivic commission will be persuaded\nto take some less radical plan of\nmunicipal reform at this time and\nleave the question of the adoption\nof the Des Moines plan for later\nconsideration.\n\n\nThe commission plan without\nthe initiative and referendum and\nrecall would be dangerous and\nworthless.\n\n\nThe Central Labor union has\ngone on record for revision Of\nthe city charter, giving the people\nlarger powers in initiating legisla-\nton and invoking the referendum,\nand also favoring the right of re-\ncall, and in case the civic commits.\nsion does not adopt the Des Moines\nplan or some other plan giving\nthese things. a petition will at once\nbe placed In circulation asking\nthat these reforms be submitted\nto the people for their approval at\nthe coming election.\n\n\n1t may be that the labor men, II\nthey once go into the field of char.\nter reform. will ask for other\nthings now enjoyed by Des Moines\nand cities living under improved\nplan of city government.\n\n\nThe Seattle charter, after which\nthe proposed amendment favored\nby the Central Labor union Is nat.\ntermed. provides that 10 per cent\nof the voters of the city can initiate\nneeded legislation; that eight per\ncent can call for a referendum vote"
+    }
+  ]
+}

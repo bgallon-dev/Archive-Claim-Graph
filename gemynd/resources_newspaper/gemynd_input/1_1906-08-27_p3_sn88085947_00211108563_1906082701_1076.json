@@ -1,0 +1,115 @@
+{
+  "metadata": {
+    "title": "IN NUTSHELL",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-27",
+    "date_end": "1906-08-27",
+    "report_year": 1906,
+    "source_file": "1_1906-08-27_p3_sn88085947_00211108563_1906082701_1076",
+    "archive_ref": "1_1906-08-27_p3_sn88085947_00211108563_1906082701_1076",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-08-27_p3_sn88085947_00211108563_1906082701_1076",
+      "composite_score": 13.3,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 3.5,
+        "agriculture": 3.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian reservation",
+          "reservation"
+        ],
+        "agriculture": [
+          "orchard",
+          "land office"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1906,
+      "word_count": 359,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 1371,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 1378,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 821,
+            "in_headline": false
+          },
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 2000,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 149,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 572,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "From San Francisco comes the\ninformation that President Hill has\n| parties of surveyors at work In\nnorthern California. preparatory to\nextending the Northern Pacific to\n\n\nthe Golden Gate.\n\n\nNothing has thus far been heard\nof George Bowlus, who left Wash\n| tucna ten days ago. Dementia fol\n\n\nlowing heavy use of liquor is the\ntheory of his friends. He sacri\n| feed a valuable farm to his appe.\n| tite.\n\n\nMrs. Lottie McDermott, a resi-.\ndent of the vicinity of Forest, was\ninstantly killed by a tree her hus\nband was Telling. The stump of a\nlimb struck her head.\nFreewater, Ore, is the scene of\nthe latest local. option liquor war.\nJames McAlrath, to whom a license\nhas been granted, is under arrest\nfor selling liquor contrary to the\nlocal option law.\n\n\nAn Okanogan county socialist\nhas cut down 20 acres of bearing\nfruit orchard in order to dodge as\nsessment. He commenced cutting\nearly in the spring and the assessor\nfound only denuded land.\n\n\nA fire patrol employed by the\nWeyerhaeuser and Lewiston Ma\ntional bank interests has succeeded\nin saving a vast section of white\npine timber In the mountains above\nOrofino.\n\n\nA Tekoa hardware merchant, J..\ne. Reilly, is appealing from de-\ncision requiring him to pay poll\ntax. Mr.. Reilly claims that 1t is\nclass legislation and will test the\nlaw of 1905.\n\n\nIda Smith, half breed daughter of\nPioneer Abner Smith Of the Yakima\nIndian reservation, has married\nFrank Iyall, full blood. The bride\nis rich in her own name.\n\n\nAlbert w, Howard, one OF the\nLincoln bodyguard at the time of\nthe assassination, is dead at North\nYakima, aged \"a years. He was a\nnative of New York.\n\n\nDemocrats of Kootenai county,\nIdaho. are at Rathdrum today In\nconvention. Chief interest centers\nin the legislative candidates be.\ncause OF the Dubois candidacy for\nthe federal senate.\n\n\nNorth Yakima Is in a state OF ex-,\ncitement over the influx of those\nwho would file on land recently re.\nstored to entry along the Columbia\nriver. Many slept on boxes while\nwaiting in line at the land office\nfor the opening this morning."
+    }
+  ]
+}

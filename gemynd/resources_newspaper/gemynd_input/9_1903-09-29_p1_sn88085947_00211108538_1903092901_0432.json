@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-29 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-29",
+    "date_end": "1903-09-29",
+    "report_year": 1903,
+    "source_file": "9_1903-09-29_p1_sn88085947_00211108538_1903092901_0432",
+    "archive_ref": "9_1903-09-29_p1_sn88085947_00211108538_1903092901_0432",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-09-29_p1_sn88085947_00211108538_1903092901_0432",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 108,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 106,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Now that the definite announcement\nhas been made that the resignation\nOf G. 8. Mellen as president Of the\nNorthern Pacific railway is to take\neffect November /, the all-absorbing\ntopic of conversation and conjecturs\namong railway people is centered\nupon the question of who his success\nsor will be. .\n\n\nWithout any previous discussion\nof the matter the name Of James D..\nFarrell Of Seattle has suddenly been\nsprung in conjunction with the Of\nfee. and the report that he is to\nbe the new president has gained wide\ncirculation. Mr.. Farrell is now the\nhead of the Northern Steamship COM\npany, the Hill line Of steamers."
+    }
+  ]
+}

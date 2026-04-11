@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "ARE LOOKING INTO\n\n\nTIMBER CASES",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-20",
+    "date_end": "1909-07-20",
+    "report_year": 1909,
+    "source_file": "1_1909-07-20_p1_sn88085947_00211108605_1909072001_0448",
+    "archive_ref": "1_1909-07-20_p1_sn88085947_00211108605_1909072001_0448",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-07-20_p1_sn88085947_00211108605_1909072001_0448",
+      "composite_score": 13.72,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 3.5,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "indigenous": [
+          "indian reservation",
+          "reservation"
+        ],
+        "agriculture": [
+          "land office"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 124,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 575,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 523,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 530,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 62,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE, July 20.-Fred- Dem\nnett, commissioner of the general\nland office at Washington, D.. G., Is\nhere today on an investigation Of\ntimber matters in the west. A ao0n-\nference was held with Secretary\nBallinger. who is also here at\nwhich the matter was gone over\nthoroughly. 49,! 4\n\n\nAccording to Dennl one 81 the\nbiggest governmenta tiRber sales\never held is planned tor the near\nfuture, at which thes government\nwill dispose of $50, 000, 900 feet of\nyellow pine near Cass Lake.. in\nnorthwest Minnesota, on the Chip\npewa Indian reservation, which it\nis planned to open for homestead\npurposes. The money to be de-\nrived from the sale will be kept for\nthe Indians and used for their care\nand education."
+    }
+  ]
+}

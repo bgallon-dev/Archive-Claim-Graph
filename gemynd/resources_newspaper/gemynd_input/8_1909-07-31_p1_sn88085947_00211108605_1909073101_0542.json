@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CANADIAN PACIFIC BRANCH FROM\n\n\nSPOKANE TO VANCOUVER WITHIN YEAR",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-31",
+    "date_end": "1909-07-31",
+    "report_year": 1909,
+    "source_file": "8_1909-07-31_p1_sn88085947_00211108605_1909073101_0542",
+    "archive_ref": "8_1909-07-31_p1_sn88085947_00211108605_1909073101_0542",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-07-31_p1_sn88085947_00211108605_1909073101_0542",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 285,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 966,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The mysterious buying in Spo-\nkane, evidently designed to con-\nmeet the Canadian Pacific entrance\ninto Spokane over the Spokane Il\nInternational with the North Coast\nterminals on Front avenue. very\nlikely has a solution in the follow\ning United Press dispatch to The\nPress today:\n\n\nVANCOUVER, B. c., July 81\nII Is learned that the Canadian\nPacific is preparing to build a\nshort line between Spokane and\nVancouver. 1t recently acquired\nthe charter of road between Mid\nway and Vernon which was left\nunfinished by the promoters.\n\n\n1t is reported the new line will\nbe in operation within a year.\n\n\nThis Is considered a direct reply\nto Hills entrance into Canadian\nPacific territory.\n\n\nThe North Coasts present ter.\nminal on the coast is Seattle. AS a\nCanadian Pacific branch this gives\nthe latter road an entrance of its\nown into the principal coast port\nand the stronghold of the Pacific\nof the Hills. The Canadian line\nwill here come into direct competi.\nton with the Great Northern on the\nlatter roads own grounds.\n\n\nA road from Spokane to Vancou-\nyer would cover any point that\nmight be left open in this territory\nto the Hill lines, should they de.\neide to retaliate further.\n\n\nAt any rate the move makes\nSpokane the converging point for\nthe Canadian Pacific in the north.\nwest and the battle-ground of the\nbig lines in their struggle for com\nmercial advantage. 1t is the Ca.\nmadam Pacific that is spending\nmoney here now. It needs the yard\nroom. II Is already In town from\nthe west over the North Coast, un.\nless the Hill forces can swing the\ncouncil to shut the road out in final\nconsideration of the franchise."
+    }
+  ]
+}

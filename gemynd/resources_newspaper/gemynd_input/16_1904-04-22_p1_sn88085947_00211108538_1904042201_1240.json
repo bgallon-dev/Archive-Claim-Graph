@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MESSENGER\nIN SERIOUS\n\n\nCONDITION",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-22",
+    "date_end": "1904-04-22",
+    "report_year": 1904,
+    "source_file": "16_1904-04-22_p1_sn88085947_00211108538_1904042201_1240",
+    "archive_ref": "16_1904-04-22_p1_sn88085947_00211108538_1904042201_1240",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1904-04-22_p1_sn88085947_00211108538_1904042201_1240",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 81,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 17,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The wreck of the Northern Pacific\neastbound train, No. 4. in the YakI-\nma canyon, is reported cleared up and\nNo. is due in Spokane at 4 o'clock\nthis afternoon. Express Messenger\nAdams. who was hurt in this wreck,\nis reported in n serious condition. No\none else was injured.\n\n\nThe wreck was due to defective\nfish car The engine, two refriger-\nator, mail and express cars were de-\nrallied. A new train was made up in\nSpokane and sent east."
+    }
+  ]
+}

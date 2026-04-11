@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-04-15 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-15",
+    "date_end": "1907-04-15",
+    "report_year": 1907,
+    "source_file": "61_1907-04-15_p4_sn88085947_00211108575_1907041501_0571",
+    "archive_ref": "61_1907-04-15_p4_sn88085947_00211108575_1907041501_0571",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "61_1907-04-15_p4_sn88085947_00211108575_1907041501_0571",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 92,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 55,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "president Roosevelt's condInna-\nton of Dehs, Meyer and HAYWOOD,\nin his letter denouncing Hartman,\ncarried with it, in the minds of\nmany, an indictment of socialism.\n1t raised question of how the So\ncialists would use federal power if\nthey had it. and the answer is here\ngiven by one of the highest authori-\nties in the country. Gaylord Will\nshire, who has written the follow\ning article especially for this news\npaper, is millionaire advocate of\nsocialism, an author and the editor\nof a magazine publish to spread So\ncialist principles.("
+    }
+  ]
+}

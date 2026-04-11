@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-05-17 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-17",
+    "date_end": "1905-05-17",
+    "report_year": 1905,
+    "source_file": "14_1905-05-17_p1_sn88085947_00211108551_1905051701_0470",
+    "archive_ref": "14_1905-05-17_p1_sn88085947_00211108551_1905051701_0470",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1905-05-17_p1_sn88085947_00211108551_1905051701_0470",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "arrested"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 112,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 477,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 272,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 155,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The executive board of the team\nsters' brotherhood arrive today to\nlend their counsel to the strikers,\nwhile the committee appointed by\nthe mayor from the city council will\ndo all in their power to advance a\nsettlement.\n\n\nJesse Balling and James Jones,\nboth colored, were arrested this\nmorning, charged with the murder of\nEnoch Carlson, aged s years, who\nwas shot and killed last night in\nfront of his home. Young Carlson\nwas shot while deriding the two col\nored men for being strike breakers.\n\n\nPresident Gompers called on Mayor\nDunno at noon and held a short con-\nference on the strike situation. The\nmayor asked Gompers to use his in"
+    }
+  ]
+}

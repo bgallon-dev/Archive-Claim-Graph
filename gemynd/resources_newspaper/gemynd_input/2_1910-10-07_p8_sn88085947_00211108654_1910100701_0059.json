@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "TO ENLARGE\nWATER POWER\n\n\nOF THE CITY",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-07",
+    "date_end": "1910-10-07",
+    "report_year": 1910,
+    "source_file": "2_1910-10-07_p8_sn88085947_00211108654_1910100701_0059",
+    "archive_ref": "2_1910-10-07_p8_sn88085947_00211108654_1910100701_0059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-10-07_p8_sn88085947_00211108654_1910100701_0059",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 6.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 132,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 98,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 15,
+            "in_headline": false
+          },
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 11,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Members of the city council are\nbeing encouraged to proceed with\nthe plan of enlarging the city's\nwater power at the uprivtr pump\ning station. For the coming year\nthe city has set aside $4,000 to\npay the Washington Water Power\ncompany for auxiliary power at the\nwaterwOrks plant. This is in ad-\ndition to the 2,500-horsepower de.\nveloped by the city's own water\npower system. The proposed rails\ning of the daw will develop enough\nadditional power to take care of\nall of the city's needs, and it is\nestimated the cost will not exceed\n100000 to $150,000. Figuring a\n$4,000 power charge on an invest\nment of this size it will be readily\nseen that the proposed enlarge\nment of the dam will be a good\nching for the city,"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "title": "c, I 81\nIN E VS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-25",
+    "date_end": "1909-08-25",
+    "report_year": 1909,
+    "source_file": "27_1909-08-25_p6_sn88085947_00211108605_1909082501_0728",
+    "archive_ref": "27_1909-08-25_p6_sn88085947_00211108605_1909082501_0728",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1909-08-25_p6_sn88085947_00211108605_1909082501_0728",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 3.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "iww_labor": [
+          "arrested"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "spokane_development": [
+          "water power",
+          "city council",
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 731,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 1212,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 252,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1667,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 4068,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 3692,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 3407,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 3760,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "boom burglars gained access T.\nMS. Frank McKay's room in the\niPxarson hotel some time last night\nby the use of a passkey and es-\ncapped with jewelry valued at more\nthan 500. Four rings, a locket\naid lady's gold watch are miss\ning.\n\n\nTwo young men were arrested\nnear the north county line today\nb. authorities from Springdale,\ncharged with the theft OF two\nhorses from Jerry Cooney of\nSpringdale.\n\n\n\\ lodge Of the Loyal Order Of\nMoose will be instituted in Spokane\nsoon. A canvass for charter men,\nbership Is now being made by Hart\nley l.. Replogle, deputy supreme or\n-ganizer, and 1t is expected that the\nlodge will be able to start with a\nmembership of at least $50 to 200.\n\n\nStricken with typhoid fever, Gill\nbert Brewer died last night at the\nSacred Heart hospital on the eve\nof his 21st birthday. His home was\nin Morrison, ILL.,, where his body\nwill be taken for burial. Brewer\nhad been employed for some time\nas an advertising solicitor on the\nChronicle. His parents were at his\nbedside when he died.\n\n\n= The night motormen and conduc-\ntors of the Washington Water\nPower Co., to the number of $50,\nwith their wives and sweethearts,\nenjoyed great picnic yesterday\nafternoon and last night at Camp\nComfort at Medical Lake. There\nwas big basket dinner, a program\nof athletic sports and dancing at\nnight The company furnished spe-\ncial cars and the refreshments.\n\n\nA three-foot statue of David,\nmade from cast of the original\nmasterpiece by Verrochro, will be\ninstalled in the First Presbyterian\nchurch club. 1t was a gift to the\nJunior club of the church for pro-\nficiency in work in a contest with\nother church clubs Of the city.\n\n\nEngineer George e. Jones Of the\nGreat Northern, who went through\nthe burning bridge at Dart Siding,\nis recovering rapidly and will\nagain be able to resume his old\nposition in about two weeks.\n\n\nSamuel Isaac Gardner, who re-\nsided in the northwest since 1879,\nwas buried this afternoon in the\nPleasant prairie cemetery. Mr..\nGardner was a pioneer of the\nprairie, and is survived by wife\nand eight children.\n\n\nEngineer RaIston announces that\nthe plans for the paving Of the\nBrownies division district will be\nready in a few days The district\nembraces all of the city between\nFourth avenue and the river and\nHoward street and Hangman creek.\n1t is the biggest job of paving ever\nundertaken in the city.\n\n\nColonel Peyton denies that his pro-\nposed trip abroad next year means\nthat he intends to terminate his\nresidence in Spokane. The colonel\nhas been a resident and taxpayer\nof Spokane for 81 years, and will\nprobably hold his residence here to\nthe end. His son will go to the old\ncountry this fall to enter college.\n\n\nMrs. Jay p. Graves has pur-\nchased of A. L. White his one\nfourth interest in the building &C.\ncupied by the Grote-Rankin Co.,\ncovering a lot 50x1S0 feet, and run\nming through from Riverside ave-\nnue. to Sprague. The consideration\nis $47,50O. ]. p. Graves has decided\nto his wife the remaining portion of\nthe building.\n\n\nOr. M. 3. Grieve, city health Off\nGer, and the members of the board\nof health, Insist that the only way\nthat proper sanitary conditions can\nbe maintained in the matter or the\ncollection of garbage is for the\nwork to be paid for out Of the city\ntreasury. They have asked the cor\nporation counsel to draft an Ordi-\nnance to this effect\n\n\nA committee consisting Of n. L.\nBlocker, l.. Mclean and F. r. Gull\nbertson has been appointed by the\nchamber of commerce to have in\ncharge the matter of providing\nhalls for any more conventions or\nbusiness gatherings that may come\nto Spokane. The chamber of COM\nmerce takes kindly to the idea of\nmaking Spokane the convention\ncity of the northwest.\n\n\nResolutions were introduced In\nthe city council last night by Mel\nson and Ostrander that the board\n-of public works submit to the coun-\nGil plans and specifications, with\nthe estimate of cost, Of paving Di-\nvision street with trapoid from the\nnorth bank of the Spokane river to\nBoone avenue.\n\n\nJ. r. Lawrence has been sworn\nin as a special policeman, without\npay from the city, in the service of\nthe Washington Water Power Co."
+    }
+  ]
+}

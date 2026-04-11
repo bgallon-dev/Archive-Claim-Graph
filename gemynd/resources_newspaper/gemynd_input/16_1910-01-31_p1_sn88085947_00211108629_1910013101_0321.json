@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "REPORT Of\nCITY HALL\n\n\nLOCATIONS\n\nOPTIONS SAID TO HAVE BEEN\nTAKEN SOUTH OF N. p.\n\n\nRAILROAD TRACKS.\n\nNO ORDER OF COUNCIL\n\nREAL ESTATE FIRM DENY ANY\nPARTICIPATION IN EFFORT\n\n\nTO GET SITE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-31",
+    "date_end": "1910-01-31",
+    "report_year": 1910,
+    "source_file": "16_1910-01-31_p1_sn88085947_00211108629_1910013101_0321",
+    "archive_ref": "16_1910-01-31_p1_sn88085947_00211108629_1910013101_0321",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-01-31_p1_sn88085947_00211108629_1910013101_0321",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 263,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 877,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 121,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A report gained circulation\naround the city hall today that op-\ntions on a new site for the city hall\nwere being taken south of the NJ.\np. railroad. 1t was announced that\nan option had been taken on the\nsoutheast corner of Post and Sec\nand and on the G. 3. Dennis home\nproperty at Fourth and Howard on\nthe basis of 99-year lease.\n\n\nMcCrea & Merryweather, who, it\nwas inferred, were taking these op-\ntons for the city, this afternoon\nstated that they had received no Or\nder of this kind. They say they\nhave given the future location of\nthe city hall no attention and be-\nlieve the report as the southeast\ncorner of Second and Post origi-\nmated through the fact that they\nare agents for the property, which\nis not for sale.\n\n\nCouncilman Charles w. Mohr\nsaid that If any one is taking op-\ntions for the future site of the city\nhall he is doing it without any au-\nthority from the city council, as no\norde rto buy ground has been is\nsued to any one that he is aware of.\nAt the present the council is more\noccupied with what 1t is going to\ndo about the present city hall than\n1t is in building a new one, said\nMr.. MOhr.\n\n\nThe Hynotheekbank. owners OF\nthe Auditorium building have\nmade the city council proposition\non the sale of the Auditorium build\ning for city purposes, says Mr..\nMohr, but beyond this he has heard\nof no effort to locate the city hall\nat any point."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "metadata": {
+    "title": ".UMAT|LLA LANDS\nTHROWN Open\n|. FEB. 10\n\nThird Unit of Government\nIrrigation Project Is\n\n\nReady.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-07",
+    "date_end": "1910-02-07",
+    "report_year": 1910,
+    "source_file": "5_1910-02-07_p9_sn88085947_00211108629_1910020701_0425",
+    "archive_ref": "5_1910-02-07_p9_sn88085947_00211108629_1910020701_0425",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-02-07_p9_sn88085947_00211108629_1910020701_0425",
+      "composite_score": 20.02,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 8.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "agriculture": [
+          "reclamation",
+          "land office",
+          "irrigation"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 204,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 908,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 331,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 64,
+            "in_headline": false
+          },
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 172,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 65,
+            "in_headline": true
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 11,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "HERMISTON, Ore, Feb. THE\nthird unit of the Umatilla govern\nment irrigation project will be\nthrown open to settlement Febru-\nairy 10. Entries will be made at\nthe La Grande. land office. Less\nthan 100 homesteads of 10 to 40\nacres each are in the tract, while\nareas of privately owned lands will\nhave to be sold to settlers under\nthe reclamation law. Settlers will\nbe allowed to take from 10 to 40\nacres each, only, the size of the\nclaims being fixed by government\nengineers in accordance with the\nprospective value of the land.\n\n\nA large part of the lands under\nthe new unit are in private owner\nship, but under the reclamation\nlaw private land holders must sell\noff all their holdings in excess of\n100 acres. Homesteaders, who\nhave gone into the district since\nthe beginning of the work on the\nirrigation project, must relinquish\nall above the unit of from 10 to\n40 acres, at which the size of the\nirrigation homestead is fixed by\nthe secretary of the interior.\n\n\nWater rights under the third\nunit of the government project will\ncost the settlers $50 per acre. I'm\nder the order issued by Secretary\nBallinger the new settler must pay"
+    }
+  ]
+}

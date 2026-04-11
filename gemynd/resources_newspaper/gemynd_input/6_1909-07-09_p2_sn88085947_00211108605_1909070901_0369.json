@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-07-09 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-09",
+    "date_end": "1909-07-09",
+    "report_year": 1909,
+    "source_file": "6_1909-07-09_p2_sn88085947_00211108605_1909070901_0369",
+    "archive_ref": "6_1909-07-09_p2_sn88085947_00211108605_1909070901_0369",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-07-09_p2_sn88085947_00211108605_1909070901_0369",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 666,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 3110,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1062,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 174,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "building the Olive avenue concrete\nbridge. But the responsibility for\nthe economical construction of the\nbridge under this plan must be\nborne by Mayor Pratt and the\nboard of public works, and not by\nEngineer Ralston.\n\n\nAfter parliamentary battle of\ntwo hours last night, in which fuel\nwas added to the flames of bitter\nfeeling heretofore existing between\nCity Engineer Ralston and Council\nmen Lambert, Dalke, Mohr and\nFunk, resolution was adopted Or\ndering the mayor and the board of\npublic works to proceed with the\nbuilding of the bridge.\n\n\nA string was attached to the or\nder, however, this being in the ma\nture of a resolution introduced by\nMohr, and adopted, which requires\nthe board Of public works to file\nwith the council complete plans\nand specifications for the Olive\navenue bridge, with estimates of\ncost and quantities of material re-\nquired; the mayor and board to\nkeep correct tab on all items of\nexpense and make full report of\nthe same back to the council; that\nthere shall be no changes in the\nplans or specifications without the\nconsent of the city council, and\nthat Spokane labor and heads of\nfamilies shall receive preference\nin the work.\n\n\nLambert led in the fight against\nRalston having any further connec-\nton with bridge building under the\nday labor plan, and tried hard to\nsecure the passage of resolution\nrequesting Chairman Reuterdahl of\nthe board of public works, who is a\nconcrete engineer, to expert the\nOlive avenue bridge plans of Rails\nton. He said he was willing for\nthe work to proceed if Reuterdahl\nsaid the bridge could be built for\nanything near Ralston's estimate\nof $4,000. Lambert insisted that\nthe bridge will cost $150,000.\n\n\nDalke said the present council\nhad been accused of being rotten\ncouncil, and that people would\nhave reason to call it such if it\ngave Ralston a free hand in an\nother job of bridge building.\n\n\nCouncilman Funk said that he\nwas willing to stand or fall in his\nfight against Ralston building\nbridges 1t had been said that he\nwas opposed to labor because he\nfought the day labor idea under\nRalston, but he said there never\nwas a job where labor received\nworse treatment than it did on the\nMission avenue bridge at the\nhands of Ralston. He said that he\nhad been in the city council nine\nyears and was under no obligations\nto contractors or anyone else, and\nthat he was poorer today than\nwhen he went into office. Funk\nsaid that he was still carpenter\nemployed at his trade and that he\nfelt certain that there was not one\nman in his union of over 100\nmembers who would vote to build\nbridge under Ralston by day\nlabor. II the people of his ward\nwanted to start recall petition\nagainst him, under these circum-\nstances, he was ready to accept\nthe consequences.\n\n\nThe plans drawn by Ralston for\nthe Monroe tsreet bridge being\npresented. on motion of Lambert,\nstill apparently distrustful of Rails\nton, the plans were ordered sub\nmitted to Engineer William H.\nBurr of New York for exporting. 1t\nwas ordered that the exporting\nshould not cost to exceed one per\ncent of the estimate, S350,000. This\nmeans a leeway up to $500 for ex-\nporting the plans on Monroe street.\n\n\nJacob Schiller, who professed\ntime and again that he had no feel\ning in the matter, championed the\ncause of Mr.. Ralston, and at times\nwaxed very eloquent. He was aided\nby B. r. Ostrander, who sided with\nRalston on every point. Shaefer.\nNelson and Cartwright did not\ntake much part in the discussion.\nbut backed up Schiller and Os-\ntrander by their votes, giving Rails\nton one majority In all the divided\nballots.\n\n\nRalston was on hand himself and\nheard his ability roasted a frazzle\nand that Of Reuterdahl, whom he\ntired from his office q few months\nago. lauded to the skies. In the\nbuilding Of the Olive avenue bridge"
+    }
+  ]
+}

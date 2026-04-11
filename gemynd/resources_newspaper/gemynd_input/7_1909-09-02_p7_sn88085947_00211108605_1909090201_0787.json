@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "1T Y /\n\n\nIN E WIS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-02",
+    "date_end": "1909-09-02",
+    "report_year": 1909,
+    "source_file": "7_1909-09-02_p7_sn88085947_00211108605_1909090201_0787",
+    "archive_ref": "7_1909-09-02_p7_sn88085947_00211108605_1909090201_0787",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-09-02_p7_sn88085947_00211108605_1909090201_0787",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "agriculture": [
+          "hay",
+          "grange"
+        ],
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 460,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 707,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 274,
+            "in_headline": false
+          },
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 2425,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 310,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Theodore Adams, shot through\n\n\nthe head and permanently para\n\n\nlyzed by c. U. Smith, passenger\non a street car hey. attempted to\n\n\nhold up in Spokane, last New\nYears eve, is reported failing fast\n\n\nat his mothers home In Anaconda\nMont. Young Adams was pardon\ned by Governor Hay because of his\ncondition.\n\n\nThe Inland Empire system on\nSeptember 90 will advance the\nrates on the Palouse- Moscow\nbranch from IN to 3 cents per\nmile. The communication tickets tc\npoints 20 miles out will still con.\ntinue in force, giving the holder\nof the ticket rate Of IN cents per\nmile. 1t is claimed that the pas\nsenger traffic on the Palouse line\n\n\nhas not been paying.\n\n\nRev. F. A. Brown has resigned\nthe pastorate of the Medical Lake\nCongregational church and will\nmove to Hillyard.\n\n\nRev. w. J. Hindtey, pastor Of the\n\n\nPilgrim Congregational church.\nsays that until economic conditions\n\n\nchange Sunday base ball must be\n\n\ntolerated. He says that II he were\n\n\nto work eight or 10 hours a day\n\n\nfor six days in the week he would\n\n\nattend Sunday base ball games\n\n\nhimself.\nA social will be given tonight\nby the imperial lodge of Odd Eel\n\n\nlows at the l. o. o. F. building at\nWall and Main at which past\ngrandmaster's jewel will be pre-.\n\n\nscented to Attorney L. ]. Birdseye\nOf Spokane, who recently retired\nfrom the head of the order in the\nstate. The Imperial quartet, con\nsisting of H. A. Elwell, George\nDewey, Tom Heddle and .Larue\nPerrine will sing.\n\n\nSuperintendent Watson Of the\ncity schools In talk to his teach\ners said that it Is not proper for\nteachers to be seen smoking on\n\n\nthe streets or going fishing on\nSunday. Superintendent Watson\ncomes from the east.\n\n\nThe gang employed on the Great\nNorthern tunnel near the scene OF\nTuesday evenings catastrophe\n\n\nwhen J. H. Cook and Roy Davis\n\n\nlost their lives, have struck be-\n\n\ncause of fear of a repetition Of the\naccident. A new gang has been\nsent to work to clean the earth\n\n\nout of the caved portion of the\n\n\ntunnel and strengthen the roof\nwith new timbers.\n\n\nThe Palmer Chemical Co. has\n\n\nbeen organized as subsidiary cor.\nporation of the Spokane Drug Co.\n1t will manufacture various chemi-\nGals and farm and fruit compounds\nPresent indications are that the\n\n\nbanquet to be held tonight at the\n\n\nHall of the Doges in honor Of\n\n\nHenry George will be well attend.\n\n\ned. There will be a number OF\n\n\nspeakers, including Rev. Hfndiey,\n\n\nMayor Pratt, President Kegley of\n\n\nthe tSate Grange and others.\nA new record for bank clearinos\n\n\nin Spokane was made in August,\n\n\nwhen the total amounted to $780,\n\n\n694, 20S, or 100000 more than any\n\n\npreceding month."
+    }
+  ]
+}

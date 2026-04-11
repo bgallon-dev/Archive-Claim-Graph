@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Further Consideration of\nOrdinance Hung Up\n\n\nin Council.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-18",
+    "date_end": "1908-11-18",
+    "report_year": 1908,
+    "source_file": "13_1908-11-18_p1_sn88085947_00211108599_1908111801_0090",
+    "archive_ref": "13_1908-11-18_p1_sn88085947_00211108599_1908111801_0090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1908-11-18_p1_sn88085947_00211108599_1908111801_0090",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 324,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 1337,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Contrary to general expectation,\nthe proposed ordinance to regulate\nemployment on city work was not\ntouched by the council last night,\nand there is little prospect that 1t\nwill be taken up at all in present\nform.\n\n\nThomas Maloney of Federal\nunion No. 1924 played his joker\ncard before the session. and 1t\nproved to be the high trump. He\nhad an amendment ready, requiring\nthat none but citizens, or those\nwho had declared their intention\nof becoming such, be given employ\nment on city work.\n\n\nIn the course Of the day and\nevening, Maloney had secured as\nsurances from councilmen that the\nordinance would not be seriously\nconsidered unless the citizenship\nclause was incorporated. This\nclause counteracted that aimed at\nthe federal union plan.\n\n\nThat brought the whole proceed\ning to halt. for several of the\nbig contractors on city work prefer\napparently alien labor to any other,\nand are not inclined to attack con.\nditions that permit the employ\nment of this class Of labor. The\nclaim Is made that alien labor Is\npaid the wage scale required by\nthe city, but this is not credited.\n\n\nAS the matter stands, there Is\nlikely to be nothing more attempt\ned in the way OF scale regulation\nso far as the present ordinance is\nconcerned, at least by labor inter-\nests, but campaign is already un.\nsfer way to add n citizenship pro-\nvision to the city charter similar\nto that In force In Seattle. The\nsame fight will be carried into the\nlegislature In an effort to make the\nregulation apply to the entire state.\nThe Seattle rule requires that en-\nployes on public work must either\nbe citizens or have declared inten-\nton, and II IL further provided that\nthey shall have resided in the city\none year.\n\n\nThe sentiment Of a majority OF\nthe council was expressed last\nnight by Mr.. Phillips when he said\nafter the meeting that the council"
+    }
+  ]
+}

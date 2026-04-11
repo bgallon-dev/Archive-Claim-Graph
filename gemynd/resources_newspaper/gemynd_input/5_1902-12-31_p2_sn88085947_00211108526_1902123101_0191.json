@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Building in Spokane\n\n\nDuring Recent Years.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-31",
+    "date_end": "1902-12-31",
+    "report_year": 1902,
+    "source_file": "5_1902-12-31_p2_sn88085947_00211108526_1902123101_0191",
+    "archive_ref": "5_1902-12-31_p2_sn88085947_00211108526_1902123101_0191",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1902-12-31_p2_sn88085947_00211108526_1902123101_0191",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "building permit"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 182,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 443,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "building permit",
+            "weight": 1.0,
+            "offset": 14,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The number of building permits\nissued during the year closing today\nis HOP and the amount of money\nrepresented is $1,321,714. During 1901\nthere were 1899 permits issued. 63\nless than this year, and yet the value\nOf the buildings erected is S1,516.996,\na difference of Sl95.2S2 in favor of\n1901. This difference is accounted for\nby the fact that, while not so many\nbuildings were erected, several more\nexpensive ones such as the Great\nNorthern depot and the Spokane Club\nbuilding, We're included in last years\nlist. Six of the II months of this\nyear will show a substantial increase\nover last year.\n\n\nThe amount invested in residences\nthis year is fully third larger than\nthe amount invested last year. while\nthe number of business buildings\nerected is much smaller than last\nyear.\n\n\n1t is estimated by those in a posi-\nton to lG.ow that fully 500 dwellings\nhave been added 20 the city during\nthe past year, so that, while the\ntotal amount invested is somewhat\nsmaller, the real benefit to the city\nis fully equal to that of 1901."
+    }
+  ]
+}

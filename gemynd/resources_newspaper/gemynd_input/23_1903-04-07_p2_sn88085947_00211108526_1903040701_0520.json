@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-07 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-07",
+    "date_end": "1903-04-07",
+    "report_year": 1903,
+    "source_file": "23_1903-04-07_p2_sn88085947_00211108526_1903040701_0520",
+    "archive_ref": "23_1903-04-07_p2_sn88085947_00211108526_1903040701_0520",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "23_1903-04-07_p2_sn88085947_00211108526_1903040701_0520",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 292,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 248,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1347,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "drives and boulevards. the planting\nof trees. shrubs and flowers, and any\nother improvements that may by the\npark commission be deemed neces-\nidentifying of the public parks Of the\n\n\nPROPOSED AMENDMENT NO. 50.\nResolved, That Section No. 21S of the\ncity charter be repealed.\n\n\nPROPOSED AMENDMENT NO. so.\nResolved. That Section No. 223 OF the\ncity. charter be amended so as to read\nas follows:\n\n\nSection 22s. The following ma med\nofficers shall receive as full compen-\nsation for all services of every kind\nrendered by them the following sal\naries, payable in city warrants at the\nend OF each calendar month: The\nmayer, Twenty-Five hundred dollars\nsix hundred dollars (S60ol per annum\nprovided. that ten dofiars (S10) shall\nbe deducted from the salary of any\nmember for each failure to attend a\nexcused from such attendance. The\ncity comptroller. eighteen hundred\ndollars ($lSe0) per annum. The city\ntreasurer. eighteen hundred dollars\ncounsel. twenty-four hundred dollars\nS24OO) per annum; provided, that all\nappearance fees collected by the cor\nporation counsel in any case wherein\nan appearance Zee Is taxed ana allow\ned to the city shall be paid into the\ncity treasury for the use of the city.\nThe city clerk. fifteen hundred dollars\n&1b00) per annum. The chief of po-\nlice and chief of the fire department\nshall each receive such salary as the\ncity council may. by ordinance. fix.\nAll other officers of the city, except\nas provided I'm this charter shall re-\nceive as compensation for all services\nrendered by them of every kind such\namounts as may be fixed by ordi\nnance.\n\n\nProposed by the city council March\n5. 1902.\n\n\nConcurred in by the city council\nMarch 81. 1908. Il. w. HAND.\n\n\nPresident of the City Council."
+    }
+  ]
+}

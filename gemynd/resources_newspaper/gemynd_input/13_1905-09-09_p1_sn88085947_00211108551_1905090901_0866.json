@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-09-09 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-09-09",
+    "date_end": "1905-09-09",
+    "report_year": 1905,
+    "source_file": "13_1905-09-09_p1_sn88085947_00211108551_1905090901_0866",
+    "archive_ref": "13_1905-09-09_p1_sn88085947_00211108551_1905090901_0866",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1905-09-09_p1_sn88085947_00211108551_1905090901_0866",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 73,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 375,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "mate extraction from the clothing\nof people along the route of travel\nand on the avenues of the fair\ngrounds. The Spokane yell will be\nfreely distributed to the number Of\n100000. A great coup is expected\nand Mayor Daggett, Treasurer Eg-\ngleston, Fred E. Michaels and L..\nMcLain are in charge of the mat\ntiers which will make the complete\nSpokanization of the Lewis and\nClark exposition grounds possible\non Spokane day."
+    }
+  ]
+}

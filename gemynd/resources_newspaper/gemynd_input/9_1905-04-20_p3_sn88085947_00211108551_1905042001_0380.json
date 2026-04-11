@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-04-20 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-20",
+    "date_end": "1905-04-20",
+    "report_year": 1905,
+    "source_file": "9_1905-04-20_p3_sn88085947_00211108551_1905042001_0380",
+    "archive_ref": "9_1905-04-20_p3_sn88085947_00211108551_1905042001_0380",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1905-04-20_p3_sn88085947_00211108551_1905042001_0380",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat",
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 484,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 1743,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 1209,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There are many people In every\nstate who have little actual data\nat hand concerning their own COM\nmonwealth. To all such the fol-\nlowing will be of interest and\nvalue:\n\n\nOrganized as territory March\n2. 1853.\n\n\nAdmitted as a state November\nII, 1889.\n\n\nArea. square miles, 69,1S0.\n\n\nPopulation in 1860, 11,564.\n\n\nPopulation in 1903, $4,000.\n\n\nGold, silver, copper and lead,\n$1,163,321.\n\n\nFarm property, value, $4,000.\nSAT.\n\n\nFarm products, value, $43 1927 .495.\n\n\nLive stock, value, $22, 159, 207.\n\n\nManufactures, value, $S6,795 .051.\n\n\nOcean commerce in 1902 $46,000,.\n900.\n\n\nCoal. tons, 2,301,379.\n\n\nStanding timber. feet, 196,0O0,-\n100000.\n\n\nThe state of Washington COM\nprises two natural divisions. East\nern Washington, through which the\nColumbia river flows, includes the\nsection lying east of the Cascade\nRange. 1t is, in great part. com.\nposed of rolling plateaus, rising\nfrom its lowest portion. along the\nColumbia and Snake Rivers, at an\nelevation of from 800 to 700 feet\nabove sea level, to attitudes Of 1000\nfeet along the eastern boundary\nThe soil of this part Of the State is\ngenerally of volcanic origin and\nvery productive. The rainfall Is\nnot neavy, but commonly sufficient\nfor agriculture with irrigation.\nWestern Washington differs\nwidely in topography and climate\nfrom Eastern Washington. The\narabic lands lie in depression be-\ntween the Cascade Range on the\neast and the Coast Range and\nOlympic Mountains on the west. a\ndepression comprising Puget Sound\nand the valleys Of Cowlitz, Clark\nand other rivers. The whole Of\nWestern. Washington enjoys an am\npie rainfall and Is heavily forested.\nI Whitman, Lincoln. Walla Walla.\nSpokane and Adams counties, all\neast of the Cascades. reported 1868\nper cent. of the total area under\nwheat in the state in 1900.\nplace will be filled by white peo-\npie from distance. The only way\nthat we can prevent the industries\nslipping from the negro in all parts\nof the south is for all the educa-\ntors, ministers and friends Of the\nnegro to unite to push forward In\nwhole souled manner, the indus\ntrial or business development Of\nthe negro, either in school or out of\nschool, or both\n\n\nut is cruel in many cases to in\ncrease the wants Of the black\nyouth by mental development\nalone, without at the same time\nincreasing his ability to supply\nthese increased wants along. lines\nin which he can find employment.\n\n\nEvery white man will respect\nthe negro who owns two story\nbrick business block in the center\nof the town and has $4,000 in the\nbank When a black man Is the\nlargest taxpayer and owns and cul-\ntivates the most successful farm in\nhis country. his white neighbors\nwill not object very long to his vot-\ning and to having his vote honest\nly counted. The black man who Is\nthe largest contractor in his town\nand lives In two story brick\nhouse Is not likely to be lynched.\""
+    }
+  ]
+}

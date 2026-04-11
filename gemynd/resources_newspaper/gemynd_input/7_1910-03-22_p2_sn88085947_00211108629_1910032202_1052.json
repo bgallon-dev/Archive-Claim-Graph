@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "LABOR COMMITTEE WAS\n\n\nACTING ON INSTRUCTIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-22",
+    "date_end": "1910-03-22",
+    "report_year": 1910,
+    "source_file": "7_1910-03-22_p2_sn88085947_00211108629_1910032202_1052",
+    "archive_ref": "7_1910-03-22_p2_sn88085947_00211108629_1910032202_1052",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-03-22_p2_sn88085947_00211108629_1910032202_1052",
+      "composite_score": 1.68,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 418,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1758,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1143,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Regarding the frequent asser.\nlions that the committee of fifteen\nin its campaign was not represent.\ning organized labor and that some\nof the members exceeded their\nauthority, The Press gives below\nthe real truth about this cam.\npaign; it is official and exact and\nis given to make it useless for any\nfurther fancy lying to be done by\npolitical organs seeking to bolster\nup a crooked official clique.\n\n\nOn February % the Central La.\nDor council voted to demand in\ncreased wages for city laborers\nand three police matrons. The\ncouncil also instructed the presi.\ndent to appoint a committee of\nfifteen to have full charge of the\ncampaign, to present labor's de-\nmands to the council and to get up\na demonstration on March 8. The\nchairman appointed the following\ncommittee: w. Horn, w. j.\nCoates, Byron Vickerage, Fred\nCardamone, ]. w Gimson, J. c.\nGordon, w. j. Sullivan, w. A.\nCliff, Thomas Ivey, w. R. Owen,\nRobert Ronald, H. L. Hughes, d.\nc. Coates, A. w. Swenson and H.\nA. Jarvis.\n\n\nThat same evening this commit\ntee met and chose ID. G. Coates as\nchairman, he being absent at the\ntime. The committee also author\ni'm, tn loh IA\nmands to the city council, which\nwas done on that night of March\ns, when he was elected by two de-\ntectiveS at the request of the\npresident of the council.\n\n\nBut before, on the night before\nMarch s, the committee reported\nback to the labor council and re.\nceived not only its unanimous APP.\nproval of the campaign as begun,\nbut instructions to go ahead and\ndo exactly what was done, even to\nselecting the street speakers.\n\n\nThen, on March IA, the commit\ntee reported to the central council\nagain, and that body unanimously\nordered the committee to go ahead\nand demand of the council an in\nvestigating committee of seven\nfor the Jail probing and three po-\nlice matrons, and these demands\nalso were presented by the COM\nmittee to the council per instruc.\nton.\n\n\nFinally, last night the council\nplaced for the fourth time its in\ndorsement of every act of the com\nmittee and of its chairman, thus\nsettling the various false reports\nthat had been maliciously circu-\nlated by almost all labor leaders\nworking fox the city administra-\nton.\n\n\nAt no time since the campaign\nbegan on the city hall has any\nmember of the committee of fiji\nteen acted without the full knowl-\nedge and authorization of the en-"
+    }
+  ]
+}

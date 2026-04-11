@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Real Estate News.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-09",
+    "date_end": "1903-01-09",
+    "report_year": 1903,
+    "source_file": "6_1903-01-09_p4_sn88085947_00211108526_1903010901_0226",
+    "archive_ref": "6_1903-01-09_p4_sn88085947_00211108526_1903010901_0226",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-01-09_p4_sn88085947_00211108526_1903010901_0226",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 259,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Five years ago fully three-fourths\nof the business property in Spokane\nwas owned outside of the city and\nabout a third of these holdings were\nin the hands of foreigners.\n\n\nIn the five years just past a change\nremarkable even in a section where\ngreat changes are the rule has been\nwrought, and today only about 10\nper cent of the business houses pay\ntribute in rentals to outside parties,\nand very small fraction of this still\nremains in foreign hands.\n\n\nTaking the blocks fronting River\nside ave. as fair instance, from\nMonroe st. to Bernard, where the bus\nmess congestion is greatest and\nwhic his the center of the city's life\na gratifying state of affairs in owner\nship exists, as follows:\n\n\nNorthside of Riverside ave, begin\nming at Monroe: Block 2S is owned\nentirely in Spokane; block 20, adjoin-\ning, is owned by six parties, two of\nwhom are nonresident; block 10,\nseven owners, all in Spokane; block\nIA, five owners, one nonresident;\nblock Is, eight owners, one non-resi-\ndent; block 16, four owners, one non\nresident; block II, five owners, one\nnonresident.\n\n\nThis is up to Bernard ST., and on\nthe south sid of Riverside, beginning\nat Bernard: Block IS has six owners,\none nonresident; block 10, four own\ners, two nonresident; block 20, ten\nowners, one nonresident; block 81,\nseven owners, all of Spokane; block\n%. the entire block is also owned\nhere; Llock 23, three of the II owners\nare nonresident, and in block \"a 10\nof the ~ owners are residents of\nSpokane."
+    }
+  ]
+}

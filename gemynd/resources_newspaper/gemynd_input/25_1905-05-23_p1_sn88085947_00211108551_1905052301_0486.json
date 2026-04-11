@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "friction Is\n\n\nRAMPANT At\n\n\nf||h[QJ' Nit",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-23",
+    "date_end": "1905-05-23",
+    "report_year": 1905,
+    "source_file": "25_1905-05-23_p1_sn88085947_00211108551_1905052301_0486",
+    "archive_ref": "25_1905-05-23_p1_sn88085947_00211108551_1905052301_0486",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1905-05-23_p1_sn88085947_00211108551_1905052301_0486",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 66,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 115,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SALT LAKE, May 23.-Friction as\nto whate votes each delegate is en-\nTitled to cast prevented the conven-\nton of the Western Federation of\nMiners getting down to business to-\nday. The morning session was char\nacterized by speeches showing the\nd1scontent among the delegates and\nIn discussing the report of the Gre\nDental committee. The officers re-\nports and appointment of committees\nare expected tomorrow."
+    }
+  ]
+}

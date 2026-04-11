@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-01-30 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-30",
+    "date_end": "1910-01-30",
+    "report_year": 1910,
+    "source_file": "12_1910-01-30_p7_sn88085947_00211108629_1910013001_0305",
+    "archive_ref": "12_1910-01-30_p7_sn88085947_00211108629_1910013001_0305",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1910-01-30_p7_sn88085947_00211108629_1910013001_0305",
+      "composite_score": 13.44,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 4.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "orchard",
+          "irrigation"
+        ],
+        "railroads": [
+          "spokane & inland",
+          "inland empire"
+        ],
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 223,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 188,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 801,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 36,
+            "in_headline": false
+          },
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 46,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 931,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "minute service over the line of the\nSpokane & Inland Empire system\nrunning to Occur d'Alene City dur\ning the coming summer.\n\n\nDOUBLE TRACKING LINE.\n\n\nThe roadbed is already completed\npast Orchard Avenue for the double\ntracking Of the system through the\nmost thickly populated suburban\ndistrict The ties and steel, it is\ndeclared, will be laid as soon as\nthe roadbed has settled sufficiently\nto permit of it. Inconvenience of\ntravelling to and from Spokane out\nof this section heretofore has been\none of the greatest drawbacks to-\nward making it more on the order\nof summer and suburban home\ndistrict than of place for the rails\ning of fruit and garden truck.\n\n\nSpokane, like other inland cities\nof the northwest in general, owes\nmuch of its success and growth to\nthe wealth produced by its tribu\ntary irrigation projects, apd the\npromoters of the land in Spokane\nvalley are laying their plans for a\npermanent system of irrigation,\nelectric lighting and domestic wat\ner supply that is determined to\nmake the Spokane valley another\ngreat support to the City Beautiful,\ntaht shall in time to come be al\nmost as important to it's welfare\nand to it's showing of resources as\nthe mines in the adjacent hills has\nbeen in the past.\n\n\nFRUIT AND TRUCK GARDEN\n\n\nFruit growing and truck garden"
+    }
+  ]
+}

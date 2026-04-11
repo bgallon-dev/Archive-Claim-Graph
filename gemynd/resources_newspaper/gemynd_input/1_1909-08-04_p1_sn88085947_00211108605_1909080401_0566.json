@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "WHAT SPOKANE\n\n\nOVERLOOKED",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-04",
+    "date_end": "1909-08-04",
+    "report_year": 1909,
+    "source_file": "1_1909-08-04_p1_sn88085947_00211108605_1909080401_0566",
+    "archive_ref": "1_1909-08-04_p1_sn88085947_00211108605_1909080401_0566",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-08-04_p1_sn88085947_00211108605_1909080401_0566",
+      "composite_score": 12.74,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 3.5,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "indigenous": [
+          "indian reservation",
+          "reservation"
+        ],
+        "agriculture": [
+          "wheat"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 264,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 315,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 531,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 1099,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 371,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 641,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "mo, Spokane has not made the\nmost of this land rush.\" said an\nofficial of the government today in\ncommenting on the manner in\nwhich the visiting crowds were re-\nceived here during the registration\nperiod now about to close. when\nyou consider the immense amount\nof unoccupied government land,\nthat can be had on the homestead\nbasis without cost, and the vast\nstretches of wheat and other cheap\nlands for sale at nominal figures,\nSpokane had great opportunity\nto interest the land-hungry in this\nregion in something else besides\nthe Indian reservations.\n\n\nBut not much was done in this\ndirection by the commercial bodies\nand but little by the real estate\nmen, who were too intent on pick\ning up stray quarters as registra-\nton notaries to try to show lands\nto the visitors.\n\n\nThere Is a little town in North\nDakota where we once held land\nopening that can give Spokane\nsome good pointers in profiting\nfrom land rush. There every real\nestate man and large land owner\ngot busy and showed the visitors\naround and before the rush was\nover had sold or located the new\ncorners on nearly as much land as\nthe reservation to be opened con-\ntanned altogether.\n\n\nEvery acer of government land\nin Idaho or Washington on which\na settler is located will help Spo-\nkane, likewise all land sold for\nfarming purposes by private own\ners. Missoula and Occur d'Alene\nhave been much more active In\nthis respect than Spokane and have\nwaged a hot campaign for other\nlands than those included In the\nIndian reservations\""
+    }
+  ]
+}

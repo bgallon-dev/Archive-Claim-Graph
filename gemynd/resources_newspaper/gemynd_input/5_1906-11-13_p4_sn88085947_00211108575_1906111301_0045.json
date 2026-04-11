@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CENTRAL LABOR\n\n\nUNION",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-11-13",
+    "date_end": "1906-11-13",
+    "report_year": 1906,
+    "source_file": "5_1906-11-13_p4_sn88085947_00211108575_1906111301_0045",
+    "archive_ref": "5_1906-11-13_p4_sn88085947_00211108575_1906111301_0045",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-11-13_p4_sn88085947_00211108575_1906111301_0045",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 282,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 455,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The meeting of the Central La\nDor union last night was decided\nly tame. Any one who did not\nknow that the body was a labor\norganization would have had diff\nGuilty in deciding whether the\nmeeting was for the purpose of\nstudying political economy or was\na fraternal society.\n\n\nThe BARRIERS reported the Vic\ntoria Hotel, BensOn's and the O. K.\nshops as being unfair to their\nunion. The electrical workers re-\nminded the delegates present that\nthe Washington Water Power Co.\nwas still at war with union labor.\nThe cooks and kitchen helpers\nstated that the WOman's Exchange\nwas employing a full crew of\nChinese in the kitchen and was a\nplace to be avoided by all friends\nof white labor, irrespective of their\naffiliation with a labor union. The\nbartenders reported more trouble\nwith Kronenberg Bros. 1t was\nstated that the central body had\none Of the saloons owned by these\npeople on the unfair list, and the\nother one, located under the Ex-\nchange bank, had gone bad. The\ncentral body was asked to place\nthe house on the unfair list.\n\n\n| The central body decided to hold\nan open meeting on the fifth Mon\nday in every month. A committee\nOf five were appointed to arrange\na program and the meeting will be\nopen to all, union or nOn-union; in\nfact an effort will be made to have\nas many nCn-uniOn people attend\nas possible. in order that they may\n\n\nbetter understand the objects 0\norganized labor. 1t was suggested\n\n\nthat speakers be secured to lee\nture on these occasions, and if tht\ncentral body wishes to discuss\n\n\npolite it can do so at these meet\nings."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL NOT COOPERATE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-02",
+    "date_end": "1906-06-02",
+    "report_year": 1906,
+    "source_file": "33_1906-06-02_p1_sn88085947_00211108563_1906060201_0782",
+    "archive_ref": "33_1906-06-02_p1_sn88085947_00211108563_1906060201_0782",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "33_1906-06-02_p1_sn88085947_00211108563_1906060201_0782",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 55,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 257,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "TACOMA, June 2.-The report\nthat Hin and Hartman will coop\ncrate In the building of a double\ntrack down the north bank Of the\nColumbia river is not believed here\nby railroad men. The reason Is\nsaid to be that Hartman cannot\nprevent Hill from building as the\nNorthern Pacific already has it sur\nveyed."
+    }
+  ]
+}

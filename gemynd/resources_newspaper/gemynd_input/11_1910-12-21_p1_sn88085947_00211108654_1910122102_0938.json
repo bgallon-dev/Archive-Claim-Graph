@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT'S THE MATTER With\n\n\nTHIS OLD WORLD?",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-21",
+    "date_end": "1910-12-21",
+    "report_year": 1910,
+    "source_file": "11_1910-12-21_p1_sn88085947_00211108654_1910122102_0938",
+    "archive_ref": "11_1910-12-21_p1_sn88085947_00211108654_1910122102_0938",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "11_1910-12-21_p1_sn88085947_00211108654_1910122102_0938",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 2.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 137,
+      "match_details": {
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "He's only one of the down and\nout\"\n\n\nHe isn't working.\n\n\nHuh, must be hobo.\n\n\nWell, that's what he is. He says\nso himself, In a letter he has writ\nten to The Press.\n\n\nHe says that he has gone hum\ncry for days. That he hasn't\nworked. That he has begged.\n\n\noh, goodness, call the police!\n\n\nBut wait a minute! Read his\nletter, and see II you don't think\nthat maybe the fellow who wrote II\nmight be human being after all.\n\n\nHere's what he has to say:\n\n\nEditor Press: Having heard\nthat you have assisted other poor\nunfortunate people in getting jobs\nThought | would drop you a line\n| am a young man 80 years of age\nand broke. Have went hungry for\ndays. But heard through some\nother boys that they were giving"
+    }
+  ]
+}

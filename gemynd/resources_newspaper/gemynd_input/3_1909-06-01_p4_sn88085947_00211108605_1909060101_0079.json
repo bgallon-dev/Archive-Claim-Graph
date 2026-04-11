@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ONE FISH, FHE OTHER FOWL.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-01",
+    "date_end": "1909-06-01",
+    "report_year": 1909,
+    "source_file": "3_1909-06-01_p4_sn88085947_00211108605_1909060101_0079",
+    "archive_ref": "3_1909-06-01_p4_sn88085947_00211108605_1909060101_0079",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-06-01_p4_sn88085947_00211108605_1909060101_0079",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 396,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 161,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "struggle in process the great lakes that is entitled\nto the attention of thoughtful people in part of the\ncountry The Lake Carriers association has declared for\nopen shop that u.s. it and it's members decline to deal\nwith any labor organization and insist that they shall\nmake their contracts for employment entirely with each\nIndividual employee.\n\n\nMany ago there many vessels upon the great\nlakes owned by single man group of men. The pro\nof absorption and consolidation has progressed until\nindividual ownership has been almost obliterated. For\ninstance, subsidiary corporation of the United States\nSteel corporation great fleet OF carrying\nvessels Several of the large railroads have their\nfleets; other combinations have been made So that\nthe part of the vessel owners individual ownership has\nbeen almost eliminated and each fleet represents power\nfull organization But the vessel not content\nwith thus strengthening their side but all these powerful\nseparate organizations have been brought into single\norganization known the Lake Carriers association This\nassociation represents nearly the whole vesselowner\nship on the great lakes.\n\n\nYet this Lake Carriers association and its members\nrefuse to recognize any organization among their\npoyes. Thus, while the vessel have gone\nsodatng and combining until they have perfected all\npowerful organization they will not permit their employees\neven in separate groups (such engineers emen etc.\nto have any organization unon but insist that they will\ndeal with each empoye separately.\n\n\nThe who tolls for wages is inevitably at great dis\nadvantage He rarely has much ahead if he is of work\nhe and his family must suffer for the necessities of life\nOn the other hand capital represents accumulation of\nthat which is not necessary for present existence 1t\nwait ntrnscaly capital needs organization much less\nthan labor\n\n\nOn the other hand the Lake Carriers association\nsens the of organization the part Of capital\ndenying to the employee who most needs organization the\nright to organize at ALL\n\n\nCan anything more unfair be imagined?\n\n\nThe term open shop is catching phrase and deludes\nmany. 1t really that those most entitled\norganization denied it. and those least needing organic\nalton permitted to carry it to the utmost extreme of\npower.\n\n\nIf the Sherman anti trust law enforced as vgor-\nousy against captalistic organizations has been\nrecently against labor organizations, capitastc\norganizations, such the Lake Carriers association\nwould cease to exist."
+    }
+  ]
+}

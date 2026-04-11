@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GREAT DAYS\n\n\nFOR SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-03",
+    "date_end": "1909-08-03",
+    "report_year": 1909,
+    "source_file": "3_1909-08-03_p2_sn88085947_00211108605_1909080301_0559",
+    "archive_ref": "3_1909-08-03_p2_sn88085947_00211108605_1909080301_0559",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-08-03_p2_sn88085947_00211108605_1909080301_0559",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 175,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 757,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "people of Spokane have no idea\nOf the benefit the business of the\ncity has received from the land\nopenings\" said leading Sprague\navenue hotel keeper this morning.\nEvery man in the business of sup\nplying public wants, from the boot\nblack to the proprietor of the larg-\nest hotel in the city, has derived\nsome benefit from the registration\nrush. think the total left in the\ncity by strangers will amount to\n$1,000,000. The beauty of it all is\nthat this business came without\ncosting Spokane a dollar, and will\nin the end be one of the greatest\nadvertisements the city has ever\nhad\"\n\n\nNext week, it is expected that\nSpokane will see the greatest\ncrowd of strangers she has ever\nwitnessed within her borders. In\naddition to the thousands that will\ncome for the irrigation congress,\nmany thousands more who entered\nin the land openings, and then\nwent to Seattle or elsewhere in\nthe northwest. will return, to be\nhere for the dual attractions of\nthe land drawings and the irriga.\nton meeting."
+    }
+  ]
+}

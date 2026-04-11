@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "PRATT SCORED FOR\n\n\nHIGH HANDED ACTION\n\nContinued from PAGE One.\n\ncity council, Mr.. Robertson said:",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-26",
+    "date_end": "1910-10-26",
+    "report_year": 1910,
+    "source_file": "65_1910-10-26_p2_sn88085947_00211108654_1910102602_0257",
+    "archive_ref": "65_1910-10-26_p2_sn88085947_00211108654_1910102602_0257",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "65_1910-10-26_p2_sn88085947_00211108654_1910102602_0257",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 456,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 65,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "city council, Mr.. Robertson said:\n\n\nAFTER the decision Of the court\none would have thought that Mayor\nPratt would await the decision OF\nthe city council. Instead Of that he\ncaused copy of the charges to be\nfiled with the board Of police com.\nmfssioners, which is now attempt.\nIng to try them, without the testi.\nmony Of the plaintiff being heard\nI have never seen an act SO fla.\ngrant and in such open violation OF\nthe law. There is no politics In\nthis thing / don't care whether\nMayor Pratt is democrat or re.\npublican, this matter should be In.\nvestigated on its merits and the\ntruth heard. / appear here for J.\nH. Elliott, an honest and just old\nman, a defender of the Union, and\na member of the G.. A. R., who has\nfiled these charges. There are no\ngamblers, saloonmen or bad women\nbehind this case, and when 1t is\nheard we want priests and preach.\ners, and all other citizens, to be\npresent. We want only justice and\nthe fair name of the city of Spo-\nkane cleansed of the stain that has\nbeen applied to it through the &C\ntons set forth in these charges. No\nsubordinate board ought to have\nthe right to forestall justice in this\ncase\"\n\n\nThe board of police commission.\ners was ordered to make no find\nings in its present inquiry until\nafter the city council acted, and 1t\nwas further ordered to see that\nJohn T. Sullivan was on hand when\nthe official trial is called.\n\n\n|. At the outset there was talk Of an\nearly date for trial of the Sullivan\ncharges, and Councilman Lambert\nintroduced a resolution setting the\nhearing for October 81. On account\nof the absence from the city Of the\nsewer, water and light committee\nabout this time 1t was agreed to set\nthe date for a week later.\n\n\nWHAT LAMBERT SAID.\n\n\nIn support Of his resolution Coun.\nGilman Lambert said: \"The resig.\nnation under fire Of Acting Chief OF\nPolice Sullivan makes no difference\nin this case. This matter of the con.\nduct of the police has been before\nthe people for months and we have\nbeen asked to inquire into it. The\ncourt has decided that the right is\nours to hear the case, and l am In\nfavor of going ahead with the hear.\ning as originally intended.\"\n\n\nCouncilman Nelson seconded the\nLambert resolution. - 4.\n\n\nCouncilman Mohr wondered what\nwould happen II the council found\nSullivan guilty, but 1t was agreed\nthat that wa sa matter Of after con-\nsideration.\n\n\nCouncilman Shaefer objected to\nthe date, as being inconvenient for\nthe members Of the committee look\ning up the question of power site,"
+    }
+  ]
+}

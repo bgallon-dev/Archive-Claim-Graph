@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-04-17 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-17",
+    "date_end": "1909-04-17",
+    "report_year": 1909,
+    "source_file": "22_1909-04-17_p1_sn88085947_00211108599_1909041701_1078",
+    "archive_ref": "22_1909-04-17_p1_sn88085947_00211108599_1909041701_1078",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1909-04-17_p1_sn88085947_00211108599_1909041701_1078",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 463,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A personal check for $4,000 ten\ndered by M. j. Gordon. former\ncounsel for the Great Northern, as\na deposit in tax case brought by\nthe Hill road agaisnt Stevens\ncounty, has fallen into the hands\nof the grand jury.\n\n\nThe Stevens county officials\nhave learned that there is no\nmoney behind the check, which\nstill stands as a legal tender ON de-\npost with the treasurer of Stevens\ncounty, while the case is on appeal\nto the supreme court of the state.\n\n\n1t is believed that the Great\nNorthern set aside the funds rep\nresented by the deposit and the\nclaim will be made, as in other\nfinancial transactions involving\nJudge Gordon and the railroad,\nthat Gordon used the money for\nother purposes connected with the\nservice of his employers. The fact\nthat check without funds to back\n1t is on deposit In lawsuit that\nrequires tender of cash or its\nequivalent remains to be eX-\nplanned, either by the Great North\nern or Gordon.\n\n\nThe grand jury wanted to get an\nexplanation from Judge f. V.\nBrown, the new general western\ncounsel for the Great Northern,\nand issued subpoena to Brown to\nbring all the papers in the case to\ncourt. Judge Brown refused to\ncomply with the order and a cita-\ntion for contempt of court has\ngone to Seattle to compel his at\ntendance before Judge Huneke and\noffer an explanation why she\nshould not be punished for con-\ntempt of court.\n\n\nAn effort was then made yester-\nday afternoon to compel A. j.\nLaughon, in charge of the Great\nNorthern legal department in Spo-\nkane, to furnish the papers and\ncorrespondence in connection with\nthis Stevens county tax case, ana\nhe likewise refused and has been\ncited to appear for contempt next\nMonday.\n\n\nThe states Attorneys believe\nthat the Great Northern put up the\nmoney involved in the $2S,000\nStevens county tender. that the\nfunds were used by Gordon. and\nthat he railroad, as in the Sparrow\ncase, will assume the burden of\nthe loss and shield Gordon.\n\n\nTo unquestionably establish this\ncondition Of things the state is\nmaking every effort to bring evi\ndence to light. Two representa-\ntives Of the prosecuting attorneys\nOffice are out of the city today, and\nwhen the final showdown comes\nthe state hopes to have the evi\ndence that 1t seeks.\n\n\nThere were two tax cases in Ste\nvens county, involving the Spokane\nFalls 4 Northern branch OF the\nGreat Northern. In the case re\nlating to the taxes of 1906 a de\npost of $4,000 was put up while\nthe litigation was pending and the\nmatter was finally settled. Anoth\nor suit, the one under investiga\ntIon, related to the taxes for 1907\nand was begun last year and Il"
+    }
+  ]
+}

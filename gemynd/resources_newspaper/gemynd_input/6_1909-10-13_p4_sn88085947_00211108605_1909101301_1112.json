@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "title": "A reader of The Spokane\nPress, in comment on an\neditorial suggesting that\n\n\nthe chamber of commerce\n\nbring More Industries\n\n\nHere.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-13",
+    "date_end": "1909-10-13",
+    "report_year": 1909,
+    "source_file": "6_1909-10-13_p4_sn88085947_00211108605_1909101301_1112",
+    "archive_ref": "6_1909-10-13_p4_sn88085947_00211108605_1909101301_1112",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-10-13_p4_sn88085947_00211108605_1909101301_1112",
+      "composite_score": 14.28,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 3.5,
+        "spokane_development": 3.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "inland empire"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 170,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 507,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 896,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 507,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 87,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 80,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\npaign to industries for Spokane makes this\ntimely statement\n/. Yes a fat chance the chamber of commerce would\nand to get factories when the freight on\nra IS 50 high that manufacturer will invest except in\nthe lines already represented\n\n\nThe difficulties admitted but The Press does not\nbelieve In the policy OF laying down and going to sleep\nIN the path just because there brambes in the\nway.\n\n\nEvery inland city in the far west-northwest and south\nwest and central westhas the difficulties in regard\n70 freight rates The Spokane has attracted the\nwidest kind of attention. and every inland city is keeping\nits eyes on Spokane But these cities have not thrown\nto achieve They have their coats off and are\nworking hard to bring all sorts of industries them\nSpokane has taken the leadership in the movement to\nsecure better rates. Spokane has not thrown up any\nsponge Spokane, the center of the Inland Empire\nbound to be industrial center But she go after\nthe Industries."
+    }
+  ]
+}

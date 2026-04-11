@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-06 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-06",
+    "date_end": "1910-03-06",
+    "report_year": 1910,
+    "source_file": "7_1910-03-06_p9_sn88085947_00211108629_1910030601_0791",
+    "archive_ref": "7_1910-03-06_p9_sn88085947_00211108629_1910030601_0791",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-03-06_p9_sn88085947_00211108629_1910030601_0791",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 442,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 458,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "for the support of their families;\nthe dangers and loneliness became\na part of their lives, but the world\nseldom heard of it.\n\n\nOnly few members of that old\ncrowd still linger to tell of the tor\nturous fight with the. winter ele\nments and of the fate of luckless\ncomrades. Will Smith is one of\nthem. He was in charge of one of\nthe snow bucking crews which\nworked up and down the switch\nback about Wellington and Scenic,\nover the very spot in which the\n\n\ntwo Great Northern trains were\n\n\nburied with all on board the other\nday. Smith is division superintend-\nent up at Kalispell, Mont, now. He\nhas gained position in reward for\nservices rendered.\n\n\nA TERRIBLE DEATH ON RUN\nAWAY TRAIN.\nThen there was Conductor\nMitchell, who had charge of an\nother crew of men who spent their\n\n\nwinters up there in the deadly dan.\n\n\n\n\n\nglneer DAILY. Jack Lanahan and\nBilly Burke faced the dangers. too,\nand of them all Billy Burke, still\nat the throttle of a Great North\n\n\nern engine is about the only sur\nvivOr.\n\n\nDahlgren met the terrible fate\n\n\nthat is momentarily expected up\nthere in the hills. Part of his train\nof 40 cars broke away from the\nengine that was toiling up the hill\n\n\nwith them. and. with Dahlgren smil-\ning and waving his last farewell to\nold familiar comrades, standing\nwhite, almost petrified with horror\nat Wellington station, he plunged\nwith his train, running a hundred\nmiles an hour, down the steep grade\noff Windy Arm. His mangled body\n\n\nwas found weeks later under the\nhideous heap of shattered timbers\nand twisted iron remairYy Of his\n40 cars. His train actually doubled\nup into a stack less than 100 feet\n\n\nin length in the canyon.\n\n\nTWO COMRADES DIED ON SAME\nJO6.\n\n\nDAILY died some months ago after\nhis legs had been severed In a\n\n\nwreck of the Owl train. running\nbetween Seattle and Vancouver,\n\n\nand Lanahan, his old comrade, who\ntook his place. met a similar fate\n\n\nwithin 30 days afterward.\nThe old switchback. road had, a\ngrade of four per cent and an en-\n\n\nCINE consumed 5000 pounds of coal\nin going over it each trip, a dis\nlance of about IS miles. which has\n\n\nbeen cut to 1886 feet by the Cas-\n\n\ncade tunnel that was later built.\nDouble pay each month was oft\ntimes the reward for men who\n\n\nbraved the dangers of this old run.\n\n\nand they We're hard to get at that.\n\n\nRotary plows were kept humming\n\n\nup and down the winding tracks\nday and night. While night crews\nwere clearing the way. day crews"
+    }
+  ]
+}

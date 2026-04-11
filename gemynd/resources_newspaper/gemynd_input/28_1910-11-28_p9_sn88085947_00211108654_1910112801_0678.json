@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOMAN'S CIVICS CLUB TO\n\n\nFORM TONIGHT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-28",
+    "date_end": "1910-11-28",
+    "report_year": 1910,
+    "source_file": "28_1910-11-28_p9_sn88085947_00211108654_1910112801_0678",
+    "archive_ref": "28_1910-11-28_p9_sn88085947_00211108654_1910112801_0678",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1910-11-28_p9_sn88085947_00211108654_1910112801_0678",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 289,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 90,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WOMAN'S ClVlCS CLUB TO\n\n\nFORM TONIGHT\n\n\nA meeting of the former menn-\nbers of the Woman's Suffrage So\nciety will be held in the Cham\nDer of Commerce assembly rooms\ntonight at 1880. The COMMITTEES\nCHI n to frame q constitution and\nbylaws for the new club will SUBJ\nNIT their report, an organization\nwill be perfected, name chosen\nand officers elected. Also at the\nmeeting this evening will be de-\ncided the question as to whether\nthe club will be for women only OF\nfor the mutual benefit of men and\nwomen. A discussion of the com.\nmission form of government will be\nheld impromptu and the commits\nsion booklet will be read.\n\n\n. 4 q\n\n\nSPOKANE soRosIs MEETS TO.\n\n\nDAY.\n\n\nThe Spokane Sorosis will meet\nat the home of Mrs. Samuel Offner,\n1913 Third avenue, this afternoon.\nAmerican literature Is under dis\ncussion by the club and today two\nwriter's, Jewett and Freeman will\nbe discussed.\n\n\n= = =\n\n\nSCHUBERT CLUB IN Benefit.\nThe Schubert club, Spokane's\nlatest musical organization, viii\nmake its first appearance at the\nAuditorium theater Friday evening,\nthe proceeds being turned over to\nthe Associated Charities of this\ncity. Tonight a rehearsal will be\nheld in the Sherman Clay hall and\non Friday, between IL and I\no'clock, the final rehearsal will DO\nheld in the theater building.\n\n\n& & =\n\n\nRED MEN PLAN DANCE.\n\n\nThe Improved Order of Red Men\nwill dance at the Elk's temple on\nDecember s. The affair, which Is\nthe first of the season, will be in\nthe nature of benefit for the\nPeone tribe of Hillyard. The han\nis to be decorated in Indian style\nand prominent Indians of the past\nwill be portrayed by the members."
+    }
+  ]
+}

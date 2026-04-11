@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "LAND OFFICE CASE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-23",
+    "date_end": "1910-12-23",
+    "report_year": 1910,
+    "source_file": "16_1910-12-23_p2_sn88085947_00211108654_1910122301_0967",
+    "archive_ref": "16_1910-12-23_p2_sn88085947_00211108654_1910122301_0967",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-12-23_p2_sn88085947_00211108654_1910122301_0967",
+      "composite_score": 14.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 8.5,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "land office",
+          "final proof"
+        ],
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 56,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 45,
+            "in_headline": false
+          },
+          {
+            "term": "final proof",
+            "weight": 2.5,
+            "offset": 197,
+            "in_headline": false
+          },
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 304,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "REGISTER Hal l.. Cole of the Unit.\ned States Land office, was busy all\nsmorninge taking evidence ins the\n\n\ncontest filed by Edward, H. P6Met1\n\n\nagainst Sarah E. Froman, who Is\n\n\nattempting to make final proof On\n$50 acres 81 land in lincoln county\n\n\nnear the Little Falls power plant\n\n\nof the Washington Water Power\nCOMPANY."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GARRISON PRESIDENT ALLIED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-07",
+    "date_end": "1910-01-07",
+    "report_year": 1910,
+    "source_file": "12_1910-01-07_p10_sn88085947_00211108629_1910010701_0076",
+    "archive_ref": "12_1910-01-07_p10_sn88085947_00211108629_1910010701_0076",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1910-01-07_p10_sn88085947_00211108629_1910010701_0076",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 81,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 118,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "{. W. Garrison, a prominent\nmember of the local typographical\nunion, has been chosen president of\nthe Allied Printing Trades council\nfor the unexpired term of ]. r. Nor\nford, who is no longer a delegate\nfrom the typographical union to the\ncouncil. Mr.. Morford is the secre-\nsfary of the Central Labor council,\nand his work in that capacity took\nup SO much of his time that he was\nobliged to decline the office of dele\ngate from the typos."
+    }
+  ]
+}

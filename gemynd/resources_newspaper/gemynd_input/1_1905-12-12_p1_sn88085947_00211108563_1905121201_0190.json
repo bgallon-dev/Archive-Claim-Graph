@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CONNECT SPOKANE WITH GREAT\n\n\nALASKA COUNTRY, SAYS DONOVAN",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-12-12",
+    "date_end": "1905-12-12",
+    "report_year": 1905,
+    "source_file": "1_1905-12-12_p1_sn88085947_00211108563_1905121201_0190",
+    "archive_ref": "1_1905-12-12_p1_sn88085947_00211108563_1905121201_0190",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1905-12-12_p1_sn88085947_00211108563_1905121201_0190",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 176,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 66,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "abuot to see the greatest railroad\nboom since the building of the\nGreat Northern. 1t is certainty\nthat the Milwaukee and Northwest\nern roads are headed this way. The\nCorbin line will give this city an\nother ranscontinen,al road. | hope\nthe International will have no trou-\nBILE getting into the city. With the\nCorbin road coming into Spokane,\nand the Bellingham & Spokane run\nmin to Puget Sound, Spokane\nshould get In a magnificent posi-\nton. 1t Is reported that Mr.. Gould\nwill have something to do with a\nroad in this state, but l doubt It.\nHe has all he can handle to build\nthe greatest road in the world. His\ntranscontinental road between Bal\ntimore and San Francisco will take\nabout all his money. hardly think\nhe has anything to do with the Hill\nline into Portland or the Strayhorn\nline into Yakima\"\n\n\nMr.. Donovan feels sure the people\nof Bellingham will raise the neces.\nsary 100000 II the city of Spo-\nkane will give 100000,\n\n\nHe will leave for Bellingham to-\nnight"
+    }
+  ]
+}

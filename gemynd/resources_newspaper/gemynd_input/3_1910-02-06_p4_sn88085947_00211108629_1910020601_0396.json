@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Years Outlook\nfor Spokane.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-06",
+    "date_end": "1910-02-06",
+    "report_year": 1910,
+    "source_file": "3_1910-02-06_p4_sn88085947_00211108629_1910020601_0396",
+    "archive_ref": "3_1910-02-06_p4_sn88085947_00211108629_1910020601_0396",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-02-06_p4_sn88085947_00211108629_1910020601_0396",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire",
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 405,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 2083,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1103,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "serious attention.\n\n\nThe year is going to mean more for Spokane than any\nprevious year has meant The west is growing at\nrapid rate each succeeding Early dreams of poen\ntal greatness becoming realities This is period\nwhen immense projects conceived day and\nmated the next.\n\n\nFor one thing, the end of the year undoubtedly will\nshow that this city has population of 100000 people\nThis population of between 100000 and 100000\nwithin the next five years. In other words when time has\nthat course, Spokane will have many people\nPortland has today. This is something it would be well\nfor every citizen here to think and realize NOW\nIsn't it going to pay you to plan to stay right here and\ninvest every cent You in Spokane Think how the\ncity has grown during the past five years Think how\nmuch the value of property will be increased five\nyears from This is the time to lay the foundations\nof your fortune in Spokane\n\n\nThe year is going the practical completion of two\nbig new roads into Spokane-the Milwaukee and the\nNorth Coast Probably it is going to the completion\nof plans for the erection of great union depot and for\nthe erection of a splendid new city hall.\n\n\nThe year probably will see the adoption of new form\nOF municipal government-the commission form 1t will\nbe big change for the city, and if rightly done will mean\nthe unfit of civic conditions. If the charter adopted\nalong present lines it will be the finest model Of municipal\nyet submitted to the people of big American\ncity.\n\n\nThe year will the biggest building development yet,\nincluding the completion of the een-story sky scraper\nthe biggest hospital in the northwest the probable begin\nand the ton of great number of office buildings,\napartments and private dwellings, including four resi-\ndences to cost total of 100000.\n\n\n\n\n\nThe year will the founding of several big\nfeaturing businesses the additional development of the\nimmensely rich tributary country and the possible settle\nment of the terminal rate proposition\n\n\nAltogether, 1910 will be the most momentous twelve\nmonths in the history of the capital of the Inland Empire\n1t will be we'll worth the best efforts of every citizen of\nthis empire and Of capital to work shoulder to shoulder\nto make yet of it's mighty poentalities become real\ntiles\n\n\nHere's to the Greater Spokane and the Greater Inland\nEmpire."
+    }
+  ]
+}

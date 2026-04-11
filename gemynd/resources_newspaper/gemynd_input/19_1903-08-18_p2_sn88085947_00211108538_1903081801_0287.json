@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-08-18 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-08-18",
+    "date_end": "1903-08-18",
+    "report_year": 1903,
+    "source_file": "19_1903-08-18_p2_sn88085947_00211108538_1903081801_0287",
+    "archive_ref": "19_1903-08-18_p2_sn88085947_00211108538_1903081801_0287",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1903-08-18_p2_sn88085947_00211108538_1903081801_0287",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 102,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 73,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 370,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The program Of the principal feat\nures for the midsummer carnival Of\nThe trades council which is to b.\nheld next week, fairly bristles with\npossibflitles In the way Of entertain\nmenf. eomsthing win be doing every\naay Of the week The official out\nline a. planned By thu management\nq ~ f0llowsl\n\n\n1gsnlays--Down-town parade Of\nunions at1:s0 n m. escorting Mayor\nf3Sya anA city councilmen - the car\nnivai grpunds for the opening cere-\nr1ontog.\n\n\n1ueoGag. OereaAtiea Day. - The\nbrowning Of Miss Elisabeth Anderson\n1snueen o. shs carnivai at . p. m,\nwt1h masnincent ana gorgeous cos\n\n\nWe6nss1av. xAbes Dsv--Munici-"
+    }
+  ]
+}

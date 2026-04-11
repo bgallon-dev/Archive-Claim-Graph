@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "HOMESEEKERS\n\n\nARE COMING",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-09",
+    "date_end": "1906-04-09",
+    "report_year": 1906,
+    "source_file": "11_1906-04-09_p1_sn88085947_00211108563_1906040901_0592",
+    "archive_ref": "11_1906-04-09_p1_sn88085947_00211108563_1906040901_0592",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-04-09_p1_sn88085947_00211108563_1906040901_0592",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 92,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 79,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 437,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Some 400 homeseekers arrived in\nSpokane last night over the Great\nNorthern and Northern Pacific rail-\nways. They come from the middle\nwest-Minnesota. Wisconsin, Iowa,\nIllinois, Indiana and some from the\nDakotas. The work of the booster\nclub is responsible. Its work has\nbeen done we'll in these sections of\nthe country and the numerous re-\nquests for information has been fol-\nlowed by such influx of homeseek-\ners. They were met at the depot\nlast night by representatives of the\n100000 club and shown about the\ncity during their sojourn here."
+    }
+  ]
+}

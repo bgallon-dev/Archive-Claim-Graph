@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-26 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-26",
+    "date_end": "1903-03-26",
+    "report_year": 1903,
+    "source_file": "18_1903-03-26_p4_sn88085947_00211108526_1903032601_0482",
+    "archive_ref": "18_1903-03-26_p4_sn88085947_00211108526_1903032601_0482",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1903-03-26_p4_sn88085947_00211108526_1903032601_0482",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue",
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 100,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 264,
+            "in_headline": false
+          },
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t has developed that the strip of\nland at the junction of Main and\nRiverside avenues, west of the Mon\nroe street bridge, to be vacated by\nthe city according TO ordinance re-\nGently passed by the council, is in\ntended as a site for a fine office build\ning for the Spokane Falls Gaslight\ncompany.\n\n\nThe ordinance as passed made the\ngrant to the Washington Safe Deposit\nand Trust company, who were acting\nas agents for the gas company.\n\n\nAccording to the councilmen who\nsupported the measure the city gets\nthe best of the deal in every way. as"
+    }
+  ]
+}

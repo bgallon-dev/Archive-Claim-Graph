@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-12 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-12",
+    "date_end": "1910-05-12",
+    "report_year": 1910,
+    "source_file": "33_1910-05-12_p10_sn88085947_00211108630_1910051201_0613",
+    "archive_ref": "33_1910-05-12_p10_sn88085947_00211108630_1910051201_0613",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "33_1910-05-12_p10_sn88085947_00211108630_1910051201_0613",
+      "composite_score": 9.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ],
+        "spokane_development": [
+          "water power"
+        ],
+        "education": [
+          "school district"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 152,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 108,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 634,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 295,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 665,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "slipped, causing him to lose his\nbalance.\n\n\n]. E. Trabat, a minor, was given\na Judgment of $500 against the\nNorthern Pacific railway in Judge\nHinkle's court yesterday He was\ninjured November 2, 1909, at Pull\nman Junction.\n\n\nA suit to recover $4,000 dam.\nages was brought against the Wash\nington Water Power company by\nA. J. McFarlane for injuries re-\nceived on a derailed Hillyard car\nMarch %.\n\n\nTen suspended students from the\nSouth Central high school, who\nwere dropped Tuesday morning, re-\nmanned on the school campus all\nday without attending their classes.\nOne of. them, Horace Weber, will\nbe taken back today.\n\n\nThe case Of the Great Northern\nRailway against school district No\n81 was dismissed by Judge Hinkle\nin the superior court yesterday.\n\n\nA banquet will be given by the\nSpokane Ells at their temple,\nFront avenue and Post street, to-\nmorrow night in honor of J. U."
+    }
+  ]
+}

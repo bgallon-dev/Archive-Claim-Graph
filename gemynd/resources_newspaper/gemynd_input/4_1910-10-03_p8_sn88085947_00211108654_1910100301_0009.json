@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "lN|llAAT CHARTER :,\n\n\nREADY IN 50 DAYS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-03",
+    "date_end": "1910-10-03",
+    "report_year": 1910,
+    "source_file": "4_1910-10-03_p8_sn88085947_00211108654_1910100301_0009",
+    "archive_ref": "4_1910-10-03_p8_sn88085947_00211108654_1910100301_0009",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-10-03_p8_sn88085947_00211108654_1910100301_0009",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 148,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 53,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the first meeting of the COM\nmission to draft new city charter,\nheld Saturday night, It WIS agreed\nthat the work of preparing the\ncharter should be pushed through\nas rapidly as possible and that the\ncharter should be in readiness in\n80 days, If this can be done.\n\n\nAnother meeting of the charter\ncommittee will be held tonight in.\nthe office of H. M. Stephens. On\nWednesday night meeting will be\nheld, at which the members who\nran for the position OF charter\ncommissioners In the recent cleo\nton will be invited to be present.\n\n\nThe charter commission has or\nganized with DR.. Il. D. Olmstead\nas chairman, c. M. Fassett rs viceA\nchairman and John E. Bla:f as sec\nrotary. 1t was agreed that the\nwork of the commission should be\nsubdivided among committee on of.\nficial structure, elections, public\nimprovements. franchises and civil\nservice."
+    }
+  ]
+}

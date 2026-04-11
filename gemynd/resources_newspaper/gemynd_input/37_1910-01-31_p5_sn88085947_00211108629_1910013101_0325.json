@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "WOMAN'S CLUB WILL ENTER\n\n\nTAIN",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-31",
+    "date_end": "1910-01-31",
+    "report_year": 1910,
+    "source_file": "37_1910-01-31_p5_sn88085947_00211108629_1910013101_0325",
+    "archive_ref": "37_1910-01-31_p5_sn88085947_00211108629_1910013101_0325",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "37_1910-01-31_p5_sn88085947_00211108629_1910013101_0325",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 6.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "chamber of commerce"
+        ],
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 321,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 371,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 61,
+            "in_headline": false
+          },
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "AS a means of increasing the\nfund toward the erection of the\nWoman's club building the men,\nbers of the organization will give\na dancing party early in February\nfor all persons who took part in the\nmusical extravaganza in 1908 and\nthose who took part in the perform\nance of Mother Goose For the\nsame purpose the club members\nwill entertain at a card party to-\nday at the chamber of commerce.\nProgressive five hundred and\nbridge will furnish the entertain\nment and prizes will be awarded\nIn connection with these two af-\nfairs book reception will be held\nat Sanders hall Wednesday, by the\nWoman's club for the benefit Of the\npublic library.\n\n\nis SPOKANE GUEST.\n\n\nMrs. Minnie Grubbe, 1924 Sharpe\navenue. has as her guest Mrs.\nHarry n. May of Wenatchee, Wash.\nMrs. May will remain in the city\nuntil after the marriage of her\ndaughter, Grace, which takes place\nearly in February.\n\n\n4 4\n\n\nWHIST PARTY THURSDAY.\nMrs. J. r. Reinhardt has issued\ninvitations for an afternoon at\nhome next Thursday. The affair\nwill be informal and the guests\nwill be entertained at whist.\n\n\n4 = =\n\n\nSERIES OF INFORMAL TEAS\n\n\nAT DOW HOME.\n\n\nMrs. j. X. Dow will be hostess on\nThursday and Friday afternoons of\nthis week, when she will entertain\nat two informal teas at her home on\nTenth avenue. Eighty guests have\nbeen hidden for both affairs.\n\n\n4 4 =\n\n\nVALENTINE SOCIAL.\n\n\nThe members of the Epworth\nleague of the First Methodist\nchurch will entertain at Valen-\ntine social on the evening of Febru-\nAIRY at the church parlors on the\ncorner of Howard street and Third\navenue. A large crowd is expected\nand the committee in charge is\nmaking plans for a jolly good\ntime.\n\n\nMRS. BAKER ENTERTAlNS.\n\n\nMrs. Helen La Rene Baker en-\nertained few friends at a dinner\nparty Saturday evening at the Iio-\ntel Spokane. The affair was cele-"
+    }
+  ]
+}

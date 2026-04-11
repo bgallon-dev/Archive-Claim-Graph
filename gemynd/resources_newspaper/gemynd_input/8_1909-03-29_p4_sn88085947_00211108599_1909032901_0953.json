@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT QUESTION YE WITH THEM?''",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-29",
+    "date_end": "1909-03-29",
+    "report_year": 1909,
+    "source_file": "8_1909-03-29_p4_sn88085947_00211108599_1909032901_0953",
+    "archive_ref": "8_1909-03-29_p4_sn88085947_00211108599_1909032901_0953",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-03-29_p4_sn88085947_00211108599_1909032901_0953",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 105,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 256,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Hutchinson worked for the local option from the\ntime he became candidate for the state senate and voted\nfor first and last because he knew the people wanted it.\n\n\nHnkle, having sat under much pulpit thunder, offered\nto lead straight fight for uncompromsed prohibition in\nthis city\n\n\nBoth marked for political slaughter by organiza\nton composed largely of church clubs and minister's and\nconducting its campaign the economical system Of\nholding political meetings in churches.\n\n\nWas to this and purpose your edfces dedi-\nGated, gentlemen of the sanctuary9\n\n\nOr is there potent significance in the fact that of\nwealth and social power make the demand?"
+    }
+  ]
+}

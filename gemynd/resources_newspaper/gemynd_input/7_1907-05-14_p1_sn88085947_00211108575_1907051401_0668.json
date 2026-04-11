@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-14",
+    "date_end": "1907-05-14",
+    "report_year": 1907,
+    "source_file": "7_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+    "archive_ref": "7_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 366,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 452,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Central Labor union voted to\ntake Natatorium park off the UNI\nfair list of that body last night after\na stormy session. The report OF\nthe committee appointed last Mon\nday to investigate the lease held by\nthe lngersol Amusement Co. report\ned in favor of this action.\n\n\nDelegate Lundy, of the electrical\nworkers, said he had a number of\ncontracts for wiring and electrical\nwork at the park and as his union\nwas the organization which origin\nated the boycott and a number Of\nits members are employed there the\ndelegates from other unions voted\nto open the park to everyone.\n\n\nConsiderable dissatisfaction was\nexpressed at the action of the cleo\ntrical workers and motion to ask\nthat Mr. Lundy be withdrawn from\nthe central body by his union was\nliterally seconded. but President\nMaloney refused to put the motion.\nThe withdrawal of Lundy was ask\ned on the grounds that he is con-\ntractor and ineligible TO seat in\nthe central body.\n\n\nII was stated that the w. w. P\nCo. would meet with a committee\nfrom the Central Labor union and\nthe Structural Trades alliance any\ntime after Wednesday for the pur-\npose of making a settlement of the\ndifferences now existing between\nthe company and the unions, and a\ncommittee of was appointed by\nthe Central Labor union for this\nconference.\n\n\nThat the company will settle\nwith the unions is doubted by\nmany members of organized labor.\n1t is stated that the Musicians\nunion has been given until We'd\nnesday to sign up 10 play at the\npark. and unless this is done an\nItalian band is to be secured TO\n\n\nfurnish music this summer. There\nis no lack of labor men who say\nthat the offer to meet committees\nafter Wednesday is ruse and will\namount to nothing if the musicians\nagree TO play.\n\n\nHowever, ii Is certain the musi-\nclans will play at the park. This\nwas settled by the action OF the\nCentral Labor union last night, 1t\nIs the intention of the unions to\nkeep the lines of the company on\nthe unfair list. but it is doubtful if\nsuch a boycott can be made eff\nfective."
+    }
+  ]
+}

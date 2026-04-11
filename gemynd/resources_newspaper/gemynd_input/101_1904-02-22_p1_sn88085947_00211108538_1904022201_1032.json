@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-02-22 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-22",
+    "date_end": "1904-02-22",
+    "report_year": 1904,
+    "source_file": "101_1904-02-22_p1_sn88085947_00211108538_1904022201_1032",
+    "archive_ref": "101_1904-02-22_p1_sn88085947_00211108538_1904022201_1032",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "101_1904-02-22_p1_sn88085947_00211108538_1904022201_1032",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 225,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 160,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 10,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Immediate relief from the dangers\nof the Division street crossing or death\ntrap, was this morning promised the\ncity officials by General Manager Coop\ner of the Northern Pacific. His plan\nis to stop all switching at Division\nstreet, throwing it all farther east.\n\n\nFor a long time this crossing has been\none of the most dangerous places with\nin the city limits. Lawsuit after law\nsuit has resulted for the railroad peo-\npie and several deaths have occurred.\nThe road will attempt to eliminate\nall this, and to do it Immediately.\n\n\nThe solution proposed was offered\nby the ingenius brain of Manager\nCooper and it took the breath both\nfrom the officials of the line and of the\ncity.\n\n\nThe proposition advanced by the\ncity was to change the track and run\nfarther south, in the event of the chief\nengineer of the railroad finding it inn\npracticable to figure on either sub\nway or a viaduct on Division street\nat the Sprague crossing.\n\n\nBuild More sidetracks.\n\n\nMr.. Coopers plan is that the Nor\nthern Pacific build an additional side\ntrack, and contine all of its switching\nto the east side of the street crossing,\nonly coming over Division street with\ncars which would be distributed to\nto the various business firms of the\ncity. If one additional sidetrack can\n\n\na, I, Il hn"
+    }
+  ]
+}

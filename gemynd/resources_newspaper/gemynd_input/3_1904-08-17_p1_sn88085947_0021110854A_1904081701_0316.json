@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "OBEYS\n\n\nRAILROADS",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-17",
+    "date_end": "1904-08-17",
+    "report_year": 1904,
+    "source_file": "3_1904-08-17_p1_sn88085947_0021110854A_1904081701_0316",
+    "archive_ref": "3_1904-08-17_p1_sn88085947_0021110854A_1904081701_0316",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1904-08-17_p1_sn88085947_0021110854A_1904081701_0316",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 110,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 432,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 79,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Obedient to the behests of the rail-\nroad attorneys and railroad lobbyists\nthe city council last night passed the\nanti-scalping ordinance designed to\ndrive the railroad ticket brokers out\nof business in Spokane. The ordi-\nnance was passed despite the showing\nby attorneys that the measure Is un-\nconstitutional and would result II\ncostly litigation for the city.\n\n\nToday Attorney Alex Winston gave\nnotice that he would apply for ar\ninjunction against the mayor and\nchief of police prohibiting them from\ninterfering with the ticket brokers\nThe case will be carried to the SUI\npreme court. The city, not the rail-\nroad companies, will be forced to pay\nthe bills."
+    }
+  ]
+}

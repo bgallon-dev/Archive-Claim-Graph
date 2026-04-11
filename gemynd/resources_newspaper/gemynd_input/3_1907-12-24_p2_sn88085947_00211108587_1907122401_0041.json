@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOW TO MAKE HARD TIMES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-24",
+    "date_end": "1907-12-24",
+    "report_year": 1907,
+    "source_file": "3_1907-12-24_p2_sn88085947_00211108587_1907122401_0041",
+    "archive_ref": "3_1907-12-24_p2_sn88085947_00211108587_1907122401_0041",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-12-24_p2_sn88085947_00211108587_1907122401_0041",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 176,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 170,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is wealth of wisdom in the address of Samuel\nGompers, before the National Civic Federation urging\nemployers not to reduce wages at this time\n\n\nThe president of the American Federation of Labor de-\nced that he had been approached by Of money who\nhad declared that wages must come down.\n\n\n'.And turned to these men,, said Gompers, 'and\nasked them whether the soil of country is less fertile\nthe treasures beneath the soil less valuable mems minds\nless active the laborng less Industrious Wherefore\nasked Them is there reason necessity to thus attack\nthe American stanandard of our workingman?'\n\n\nWe make hard times, just have made our\nprosperity, if determined to have them. If cut\noff reduce the purchasing power Of the aborer will\ncut off sales.\n\n\nThe wise and patriotic employer is the who real\nlies that the foundations of countrys prosperity\ntoday they year ago, and that it is\nthe verest folly to be frightened into hard times by the\ncries of the New York wolves.\n\n\nNow is the time to stand pat"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "title": "CONFER With LUMBERMEN",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-01",
+    "date_end": "1903-10-01",
+    "report_year": 1903,
+    "source_file": "25_1903-10-01_p1_sn88085947_00211108538_1903100101_0440",
+    "archive_ref": "25_1903-10-01_p1_sn88085947_00211108538_1903100101_0440",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1903-10-01_p1_sn88085947_00211108538_1903100101_0440",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "s. l.. Fulton. general freight agent\n. of the Northern Pacific of Portland;\n\n\nr. h. M?ler, general freight agent of\nthe 0. r. & N; and J. c. Eden, west\nern traffic agent of the Great Northern\nut Seattle, arrived in the city this\nmorning. The railroad men are here\nat the request of the Western White\nPine Shippers association to discuss\na reduction in freight rates, so as to\npermit the shippers to extend their\nterritory to the east and central west\nern states. The Mmbermen have an\nover-production on their hands, and\nall are seeking new fields, but are up\nagainst railway freight tariff that"
+    }
+  ]
+}

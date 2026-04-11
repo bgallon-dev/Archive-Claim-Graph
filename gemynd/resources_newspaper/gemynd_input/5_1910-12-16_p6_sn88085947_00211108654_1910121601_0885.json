@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Ninety and Nine",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-16",
+    "date_end": "1910-12-16",
+    "report_year": 1910,
+    "source_file": "5_1910-12-16_p6_sn88085947_00211108654_1910121601_0885",
+    "archive_ref": "5_1910-12-16_p6_sn88085947_00211108654_1910121601_0885",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-12-16_p6_sn88085947_00211108654_1910121601_0885",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 108,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 32,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "President Howard Elliott of the Northern Pacific is\nquoted saying that there 100000 persons holding\nrailroad stocks. averaging $4,000 each.\n\n\nThere are of course nearly 10000O0O0 using the rail\nroads, directly indirectly and paying in one form or\nanother all expenses of their operation including dvl\ndends stocks.\n\n\n! Up to recent date the laws made and admins\ntered for the benefit of the in hundred owning the\nrailroads.\n\n\nNow it is proposed to- revise that policy and have rail\nroads conducted for the benefit of the ninety and nine\nwho use the railroads, but do not own them\n\n\nThe policy is the better by SO to 1."
+    }
+  ]
+}

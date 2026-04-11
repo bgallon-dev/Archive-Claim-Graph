@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Local Brevities",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-24",
+    "date_end": "1906-05-24",
+    "report_year": 1906,
+    "source_file": "5_1906-05-24_p2_sn88085947_00211108563_1906052401_0749",
+    "archive_ref": "5_1906-05-24_p2_sn88085947_00211108563_1906052401_0749",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-05-24_p2_sn88085947_00211108563_1906052401_0749",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 94,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 17,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 69,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Officials of the Northern Pacific\nrailroad have made plans for a new\ndepot at PaSco.\n\n\nCompanion court of the indie\npendent Order of Foresters gave a\nliterary and musical program at\nFraternal hall last night.\n\n\nE. c. Kyle, a retired farmer of\nthe Spokane Bridge district, died\nyesterday at his residence, age Sc\nyears.\n\n\nInstead Of meeting the second\nand fourth Wednesdays of each\nmonth, Tyrian Masonic lodge will\nhereafter meet on the second and\nfourth Thursdays.\n\n\nR. E. Strahorn, head of the North\nCoast railroad project, returned\nfrom the coast yesterday, where he"
+    }
+  ]
+}

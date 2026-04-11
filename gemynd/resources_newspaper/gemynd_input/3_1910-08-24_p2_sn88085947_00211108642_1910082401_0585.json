@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "CAMP NEAR STANDPOINT\n\n\nENTIRELY DESTROYED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-24",
+    "date_end": "1910-08-24",
+    "report_year": 1910,
+    "source_file": "3_1910-08-24_p2_sn88085947_00211108642_1910082401_0585",
+    "archive_ref": "3_1910-08-24_p2_sn88085947_00211108642_1910082401_0585",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-08-24_p2_sn88085947_00211108642_1910082401_0585",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 2.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "turnbull"
+        ],
+        "agriculture": [
+          "orchard",
+          "hay"
+        ],
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 241,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "turnbull",
+            "weight": 2.5,
+            "offset": 583,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 957,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 900,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 808,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "in the terrible conflagration. A\ncommittee consisting of Byron B.\nDefebach, as chairman; Mayor c.\nf. Riggs, T. C. Bell, E. d. Farmin\nand H. H. Maggie has been named\nby the mayor. The committee had\na meeting yesterday morning, and\nsince that time a canvass has been\npartially made to determine what\nis most needed in the way of re-\nlief AS the fire progresses and\nmore homes are lost as Is sure to\nbe the case, the committee will\nhave a better idea of how enor-\nnous is their task.\n\n\nLOSS AT SA0lE.\n\n\nThe following is list of the\nproperties lost near Sagle during\nthe fires:\n\n\nOliver Turnbull. storekeeper at\nSagle; store and contents, besides\nresidence, which was occupied by\nhis clerk, Mr.. Crumb; stock valued\nat $500; partially insured.\n\n\nw. E. Kinney, $4,000 feet Of\nwhite pine lumber in piles along\nthe Northern Pacific tracks; also\nabout 10000 posts.\n\n\nGeorge Matthews house and out\nbuildings; orchard ruined\n\n\nT. P. Craig; house and barn, 10\ntons of hay\n\n\nAugust Anderson; barn, 20 tons\nof hay.\n\n\nClaude Studebaker; house and\nfurniture all burned.\n\n\nAndrew Turnbull; two barns\nwith hay burned.\n\n\nTwo county bridges, one nearly\n200 feet long and the other over\n100 feet, were completely destroyed\nmaking traffic impossible.\n\n\nFrank Leick lost two barns and\nnearly so tons of hay.\n\n\nTom Longworth lost his barn\nand hay.\n\n\nNick Pontious lost about $4,000\nin posts and poles in the woods."
+    }
+  ]
+}

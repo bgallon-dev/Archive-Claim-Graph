@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "RALSTON LOCATES\nCAUSE Of FALL",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-16",
+    "date_end": "1910-03-16",
+    "report_year": 1910,
+    "source_file": "8_1910-03-16_p11_sn88085947_00211108629_1910031601_0957",
+    "archive_ref": "8_1910-03-16_p11_sn88085947_00211108629_1910031601_0957",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-03-16_p11_sn88085947_00211108629_1910031601_0957",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 138,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 138,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 52,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "City Engineer Ralston has filed\nhis report with the city council, in\nresponse to resolution by COun-\nGilman Charley Mohr, telling why\nthe Monroe street bridge fell down\nwards\" and not otherwise Ralston\nblames it all on nature and says\nthat he did nothing that contrib\nuted to the collapse of the bridge.\n\n\nHe says the sliding hillside.\nwhich he traces as far back as the\noffice of the Spokesman-Review, is\nresponsible. According to Ralston\nthe slide started at the Review and\nkept going on until the bridge fell.\n\n\nThe report was not what Coun-\nGilman Mohr wanted, but in the\nabsence of desire to prolong the\ncontroversy he permitted the coun-\nGil to lay it on the shelf.\n\n\nHence, the collapse of the\nbridge is a closed incident and an\nother victory has been scored by\nRalston."
+    }
+  ]
+}

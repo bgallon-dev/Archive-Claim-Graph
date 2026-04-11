@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE union MEN To\n\n\nOPPOSE CONVICT LABOR\n\nWant State Roads Builded by the Labor Of Taxpayer\n\n\nand Free Citizens.\n\nCommissioner Bowlby Plans to Use Free Men Only in\n\n\nPreparing for Men From Prison.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-13",
+    "date_end": "1910-02-13",
+    "report_year": 1910,
+    "source_file": "18_1910-02-13_p15_sn88085947_00211108629_1910021301_0507",
+    "archive_ref": "18_1910-02-13_p15_sn88085947_00211108629_1910021301_0507",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-02-13_p15_sn88085947_00211108629_1910021301_0507",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 324,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 916,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "I'VE are going to use convict\nlabor in the building of the state\nroads this summer and we are go\ning to have them at work at the\nstone Quarries and rock crushers\nnear Marshall Junction, but l don't\nthink organized labor should COM\nplain, as the work Is generally of a\nnature for which free common la\nboring men care little. State\nHighway Commissioner Henry l..\nBowlby.\n\n\nThere is something radically\nwrong. State Highway Commits\nsioner Bowlby's view of the road\nbuilding problem is badly in error,\naccording to the thinking of the\nlaboring people, and he may have\ntrouble in keeping within the good\ngraces of the states organized labor\nbodies. should he go ahead with the\nplans to build the state roads with\nthe help of the convicts.\n\n\nWILL USE FREE MEN FIRST.\n\n\n1t is the plan of Mr.. Bowlby at\nthe present time to use free men\nonly in the construction of the\nstone quarry buildings and stockade\non the line Of the Northern Pacific\nnear Marshall Junction After that\ncrushed rock will be loaded by the\nconvicts on the cars for shipment\nto different parts Of central Wash\nington. They will be unloaded by\nconvict labor and the crushed rock\nwill be put into the roads by con-\nvict labor.\n\n\nMuch opposition to this plan is\nalready voiced among the labor I'M\nionists here. and 1t is likely that the\nmatter will be carried before the\nSpokane Sectional Central Labor\nbody. where in all probability reso-\nlutions condemning the use Of con-\nvict labor will be passed and for\nwarded to those in charge of the\nwork of improving the roads\nthroughout the state.\n\n\nLABoR's HOTTEST FIGHT.\n\n\nOpposition of convict labor has\nbeen one of the chief issues before\nthe convention of the state fedora\nton of labor for several sessions\nOrganized labor's greatest fight In\nall parts of the United States has\nbeen waged against the plan and"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "DRY FARMING CONGRESS WANTS\n\n\nTo HELP THE AVERAGE FARMER",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "4_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+    "archive_ref": "4_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 6.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 189,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 46,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "these men not only in every COM\nmunity in the Inland Empire, but\neverywhere throughout the dry\nfarming states, should regard it\nas a duty and privilege to attend\nthe next sessions.\n\n\nThe five talent men and the ten\ntalent men cannot escape the obi.\ncation of community leadership.\nThey need the information and the\ninspiration Of the great gathering\nof fellow workers. They are capa-\nBILE of hearing the scientists at the\ncongress. not only with profit to\nthemselves, but often with dis\ncorning ability to translate that\ninformation and to transmit that in\nspiration In language and methods\nadapted to their own neighbor-\nhoods.\n\n\nIn this extension work the local\nleaders can find no aid more will\ningly given or of greater effective\nness than that of the newspapers,\nand more especially the country\npress, editors of which are in the\nclosest touch with the farmers.\n\n\nDoing this great work in an ade.\nquate way, | believe the Dry Farm\ning congress deserves the fullest\nsupport, in time and money, of pub\nlie spirited men of each community,\nas well as of men of national lead\nprShin"
+    }
+  ]
+}

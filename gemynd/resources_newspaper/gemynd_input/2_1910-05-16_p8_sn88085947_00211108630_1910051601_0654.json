@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PRIZE-W WINNING\nFRUIT HERE TO\n\n\nco TO CHICAGO",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-16",
+    "date_end": "1910-05-16",
+    "report_year": 1910,
+    "source_file": "2_1910-05-16_p8_sn88085947_00211108630_1910051601_0654",
+    "archive_ref": "2_1910-05-16_p8_sn88085947_00211108630_1910051601_0654",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-05-16_p8_sn88085947_00211108630_1910051601_0654",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 187,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 142,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Official announcement was made\nby the trustees of the National\nApple Show, Inc, this morning that\nthe prize-winning fruit at the third\nannual exposition in Spokane, next\nNovember, and district and general\ndisplays from the commercial apple\nbelts in Washington, Oregon, Idaho\nand Montana, will be sent to Chi\ncago for exploitation purposes in\nthe First Regiment armory during\nthe week of the International Live\nstock exhibition.\n\n\nThe Chicago plan involves an ex-\npenditure of $4,000 exclusive or\nthe cost of the Spokane show,\nwhich is estimated at $4,000. A\nband of national reputation will be\nengaged to present programs or\nconcert and promenade music, and\nthe show will be advertised In cir\nGus style in a territory containing\nmore than 3O,OOO,O0O population.\n\n\nTour by Rem Rice.\n\n\nRem H. Rice, secretary and man.\nager of the apple show, Is arrang-\ning for a tour of Montana and\nSouthern Idaho to interest fruit\ngrowers there in the Chicago show.\nHe has already visited many of the\nprincipal apple districts in Wash\nington, Oregon and Idaho, where\nhe says, the prospects were never\nbetter for enormous yields of fruit."
+    }
+  ]
+}

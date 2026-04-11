@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-08-16 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-08-16",
+    "date_end": "1904-08-16",
+    "report_year": 1904,
+    "source_file": "4_1904-08-16_p2_sn88085947_0021110854A_1904081601_0312",
+    "archive_ref": "4_1904-08-16_p2_sn88085947_0021110854A_1904081601_0312",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1904-08-16_p2_sn88085947_0021110854A_1904081601_0312",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 233,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 559,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1054,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "it is generally the custom of the cor\nporation counsel to draw up city\nordinances, but that the one to be\nconsidered tonight is drawn by railroad\nattorneys, not to regulate the scalping\nbusiness, but to stop it.\n\n\nThen he declares the council should\nrequire the written declaration of the\nrailroad officials that they will supply\nthe rates talked of, pointing out that\nin the past the railroads have swindled\nthe people of Spokane out of millions\nof dollars on right of-way propositions\nwithout giving single instance OF\nreduced rates except after the famous\nboycott.\n\n\nSince then, AYERS Mr.. Winston. the\nrailroads have evaded the laws, failed\nto pay taxes, purchased legislators and\ndone things awful, to the point where\nit is evident that respectable and &C.\nsponsible business men were buncoed\nby shrewd agants, high salaried at\ntorneys and higher salaried lobbyists.\n\n\nThe paper ends with a threat to car\nry the matter to the supreme court\non constitutional grounds and shows\nthat the brokers save to Spokane\npeople at least 500 a day, and that\nthe city council is asked to take $780,\n600 year out of the pockets of the\ncity's travellers to give to the rail\nroads, besides confiscating the property\nof honest, lawabiding taxpayers, who\nare in business and live here.\n\n\nAll of which will be read to the\ncity councilmen tonight in opposition\nto the anti-scalping bill."
+    }
+  ]
+}

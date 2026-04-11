@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-09-12 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-12",
+    "date_end": "1910-09-12",
+    "report_year": 1910,
+    "source_file": "4_1910-09-12_p2_sn88085947_00211108642_1910091202_0763",
+    "archive_ref": "4_1910-09-12_p2_sn88085947_00211108642_1910091202_0763",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "4_1910-09-12_p2_sn88085947_00211108642_1910091202_0763",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 215,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1026,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Paul might mislead some not &C.\nQuainted with western conditions,\nand without knowledge of that gen.\ntleman's conservation methods in\nthe west.\n\n\n\"Mr. Hill says: The attempted\nfederal control Of waterpowers is\nillegal because the use of the wa\nters within state is the property\nof the state and cannot be taken\nfrom it. Mr.. Hill would no doubt\nbe delighted to have the WATERPROOF\nerr sites in the state of Washington\nput into the hands of the state, so\nhe could easily gain control OF\nthem. Mr.. Hill, as we all well\nknow, has been one of the principal\nfactors in controlling legislation In\nthe state of Washington, by every\ncorrupt method known to special\ninterests\" for the last 20 years.\n\n\nHe, at the present time, controls\nthe Kettle Falls on the Columbia\nriver. if reports speak true. He Is\nnot developing said power, but Is\nholding it for speculation or future\nuse. He has for years had his en-\ngineers estimating waterpowers on\nvarious streams with an idea of Sc\ncuring the same for the benefit of\n\n\nMr.. Hill and his Great Northern\nrailroad, and it no doubt gives him\npain to think that under the pres\nent idea of national conservation he\nmight lose the opportunity to Sc\ncure the power SITES\""
+    }
+  ]
+}

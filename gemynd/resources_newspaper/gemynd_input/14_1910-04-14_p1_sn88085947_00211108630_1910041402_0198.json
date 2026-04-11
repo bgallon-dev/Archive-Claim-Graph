@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BROKEN WHEEL \"\n\n\nis The CAUSE\n\nFOURTH LOCAL WRECK In A WEEK\n\nLumber Train Gets All Tangled Up\nMEMS Legs and Arms Torn\n\n\nOff--Pathetic Scenes.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-14",
+    "date_end": "1910-04-14",
+    "report_year": 1910,
+    "source_file": "14_1910-04-14_p1_sn88085947_00211108630_1910041402_0198",
+    "archive_ref": "14_1910-04-14_p1_sn88085947_00211108630_1910041402_0198",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "14_1910-04-14_p1_sn88085947_00211108630_1910041402_0198",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 173,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 65,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Four tramps probably dead and eight injured in\nfreight wreck the Northern Pacific this morning\nhalf mile west of the Hangman creek bridge. Incoming\nfreight No. 602 thrown into the ditch by broken\nwheel on the third car from the engine.\n\n\nNo tranmen hurt. The unidentified body Of one\ntramp youth of about 25 horribly mutilated has been\nrecovered and the and legs of probably three\nvictims all tramps far is known, be under\nthe wreckage of the sixth\n\n\nThe locomotive of the train and the two following\ndid not leave the rails but the remainder of the ra\nover 20 cars loaded mostly with lumber piled up in\nspace of about 10 rods.\n\n\nWhen the wheel broke the third car, according to\nwitnesses of the accident that turned sdewse after\nrunning several yards the ties and the train piled up\non top of it.\n\n\nThe train crew. all unhur consisted of Conductor R. J.\nMcdonald George Howarth, the brakeman, and\nother brakeman. Engineer R. j. Lewis and his fireman\nalso escaped injury."
+    }
+  ]
+}

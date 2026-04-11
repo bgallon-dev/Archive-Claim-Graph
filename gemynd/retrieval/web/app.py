@@ -66,6 +66,7 @@ from gemynd.core.graph.cypher import (
     ENTITY_DETAIL_QUERY,
     ENTITY_NEIGHBORHOOD_QUERY,
 )
+from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
 from ..entity_gateway import EntityResolutionGateway
 from ..executor import Neo4jQueryExecutor
 from ..models import RetrievalStats, SynthesisResult
@@ -545,6 +546,25 @@ def _build_history_context(
     }
 
 
+def _apply_composite_scope(
+    user: UserContext,
+    composite: Any,
+    *,
+    admin_only: bool,
+) -> UserContext:
+    """Rebind ``user.permitted_institution_ids`` to every registered corpus.
+
+    When ``admin_only`` is True, non-admin callers are returned unchanged to
+    preserve tenant isolation. The update is in-place on a fresh per-request
+    ``UserContext`` so there is no cross-request mutation hazard.
+    """
+    if admin_only and user.role != "admin":
+        return user
+    if composite is not None:
+        user.permitted_institution_ids = list(composite.institution_ids)
+    return user
+
+
 # ---------------------------------------------------------------------------
 # App factory
 # ---------------------------------------------------------------------------
@@ -713,7 +733,17 @@ def create_app(
                 for inst_id in _composite.institution_ids
             },
         )
-        state["gateway"] = EntityResolutionGateway()
+        # Build the gateway with a resolver whose vocabulary spans EVERY
+        # registered corpus. Without this, ``EntityResolutionGateway()`` would
+        # fall back to ``default_seed_entities()`` which reads only the default
+        # resources_dir (Turnbull), leaving Spokane surface forms unresolvable
+        # at query time and causing cross-corpus queries to return nothing.
+        state["gateway"] = EntityResolutionGateway(
+            resolver=DictionaryFuzzyResolver(
+                config=_composite,
+                policy=ResolutionPolicy(),
+            ),
+        )
         synthesis_ctx = _composite.synthesis_context()
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,
@@ -754,6 +784,20 @@ def create_app(
             "user_initials": initials,
             "is_admin": user.role in ("admin", "indigenous_admin"),
         }
+
+    def require_user_scoped(user: UserContext = Depends(require_user)) -> UserContext:
+        """Expand ``permitted_institution_ids`` to every registered corpus for
+        admin callers. Non-admin roles remain pinned to their home
+        institution for tenant isolation.
+        """
+        return _apply_composite_scope(user, state.get("composite_config"), admin_only=True)
+
+    def require_admin_scoped(user: UserContext = Depends(require_admin)) -> UserContext:
+        """Admin-gated counterpart of :func:`require_user_scoped`; callers are
+        already guaranteed to be admins, so the composite corpus list is
+        always applied.
+        """
+        return _apply_composite_scope(user, state.get("composite_config"), admin_only=False)
 
     from gemynd.auth.setup import is_setup_needed
 
@@ -836,7 +880,7 @@ def create_app(
     # POST /query
     # ------------------------------------------------------------------
     @app.post("/query", response_model=QueryResponse)
-    def query(req: QueryRequest, request: Request, user: UserContext = Depends(require_user)) -> QueryResponse:
+    def query(req: QueryRequest, request: Request, user: UserContext = Depends(require_user_scoped)) -> QueryResponse:
         # Rate limiting: admins are exempt; all other users are limited to
         # QUERY_RATE_LIMIT_MAX requests per QUERY_RATE_LIMIT_PERIOD seconds.
         if user.role != "admin":
@@ -1064,7 +1108,7 @@ def create_app(
     # POST /query/provenance
     # ------------------------------------------------------------------
     @app.post("/query/provenance")
-    def query_provenance(req: ProvenanceRequest, user: UserContext = Depends(require_user)) -> dict[str, Any]:
+    def query_provenance(req: ProvenanceRequest, user: UserContext = Depends(require_user_scoped)) -> dict[str, Any]:
         """Return the full raw provenance chain for a known *claim_id*.
 
         Does not invoke the synthesis engine — useful for citation
@@ -1106,7 +1150,7 @@ def create_app(
     # GET /stats  — collection statistics dashboard
     # ------------------------------------------------------------------
     @app.get("/stats", response_class=HTMLResponse, include_in_schema=False)
-    def collection_stats(request: Request, user: UserContext = Depends(require_user)):
+    def collection_stats(request: Request, user: UserContext = Depends(require_user_scoped)):
         executor: Neo4jQueryExecutor = state["executor"]
         params = {
             "institution_ids": user.permitted_institution_ids,
@@ -1125,7 +1169,7 @@ def create_app(
     # GET /gaps  — collection gap analysis dashboard
     # ------------------------------------------------------------------
     @app.get("/gaps", response_class=HTMLResponse, include_in_schema=False)
-    def collection_gaps(request: Request, user: UserContext = Depends(require_admin)):
+    def collection_gaps(request: Request, user: UserContext = Depends(require_admin_scoped)):
         executor: Neo4jQueryExecutor = state["executor"]
         params = {
             "institution_ids": user.permitted_institution_ids,
@@ -1169,7 +1213,7 @@ def create_app(
     def entity_search(
         q: str = Query("", min_length=0),
         limit: int = Query(15, le=50),
-        user: UserContext = Depends(require_user),
+        user: UserContext = Depends(require_user_scoped),
     ) -> list[dict]:
         if not q.strip():
             return []
@@ -1190,7 +1234,7 @@ def create_app(
     def entity_neighborhood(
         entity_id: str,
         limit: int = Query(15, le=30),
-        user: UserContext = Depends(require_user),
+        user: UserContext = Depends(require_user_scoped),
     ) -> dict[str, Any]:
         if not _ENTITY_ID_RE.match(entity_id):
             raise HTTPException(status_code=400, detail="Invalid entity_id format")

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "0. R. ON. PLANS\n\n\nBIG WORK",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-20",
+    "date_end": "1907-02-20",
+    "report_year": 1907,
+    "source_file": "11_1907-02-20_p4_sn88085947_00211108575_1907022001_0387",
+    "archive_ref": "11_1907-02-20_p4_sn88085947_00211108575_1907022001_0387",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1907-02-20_p4_sn88085947_00211108575_1907022001_0387",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 140,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 119,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Within 80 days, it is announced,\nthe o. r. & N. will begin leveling\nthe tract of land lying between\nMallon av. and the Great Northern\nrighto f way, extending from JEFF.\nferson st. on the west and to within\na few feet of Howard st. on the\neast, at an expense of $4,000.\nThis tract is covered with many\nrocky cliffs and mounds and is one\nof the largest pieces of contract\nwork let in this city for years. 1t\nis intended as a site for warehouses\nand yards.\n\n\nThe o. r. & N. purchased this\nstrip of land last spring from D. p.\nJenkins. for $158,000.\n\n\nThe plans are completed and\nprovide for the construction of a\nvast amount of trackage and sever\nal large warehouses, each to be 600\nfeet long and 100 feet wide. ]. P."
+    }
+  ]
+}

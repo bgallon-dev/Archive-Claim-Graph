@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HOW ABOUT\n\n\n|LSERV|CE\n\n\nSYSTEM, Ell?\n\nPolice and Fire Departments\n\n\nAre Asking About It.\n\nIN COMMISSION PLANS\n\nWant It Incorporated in the\nNew Charter-No Pro-\n\n\nvision Yet.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-30",
+    "date_end": "1910-01-30",
+    "report_year": 1910,
+    "source_file": "5_1910-01-30_p2_sn88085947_00211108629_1910013001_0300",
+    "archive_ref": "5_1910-01-30_p2_sn88085947_00211108629_1910013001_0300",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-01-30_p2_sn88085947_00211108629_1910013001_0300",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 363,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 42,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Not having been cared FOR in the\nproposed city charter as far as it\nhas been written, members Of the\npolice and fire departments yester-\nday announced their intention to\nfight the charter If it should come\nbefore the people in its present\nform.\n\n\nEarlier in the stage of the DELHI\neratiOns of the charter revision\ncommission selected by the mayor\nthe question of a civil service com\nmission was considered and yo;ei\ndown, and the charter was left\nWithout any provisions along that\nme. The subcommittee that pre-\npared the final draft of the charter\nnow being considered by the com\nmission has added no clause look\ning to the retention of the present\nPolice or fire departments, and\nAencc the kick.\n\n\nAt the present time there is a\ncivil service provision concerning\nthe discharge of policemen and fire\nmen, but none regarding how or\nin what name\" they shall be\nhired. In this way politicians can\nfill the police force or fire depart\nnent with their favorites, but they\ncannot be removed without the fill\ning of charges and trial before\nthe police or fire boards.\n\n\n1t seems that the matter of the\nrelation of the police to the pres\nent charter was sleeping quietly\nuntil the last meeting Of the com\nmission this week, when the draft\nof the charter as thus far adopted\nwas placed in the vault at the pO'\n! lice department for safe keeping\nThe following day, when the copy\nof the proposed charter was called\nfor. the police had it inspected fol\nits position in relation to the pc\nlice department, but nothing with\nin the limits of the charter was\nfound on the subject. A quiet\nstorm of protest was then started\nand it has grown right along evel\nsince, until there are a number Of\nhammers\" in motion for the pro\nPOSED constitution laws of the mu\nnicipality.\n\n\nChief of Police Sullivan say:\nthat he thinks the necessity fol\npolice hostility to the charter will\nnot present itself, for the reason\nthat two members of the commits\nsion have informed him that some\nprovision for the protection of the\npolice will be inserted."
+    }
+  ]
+}

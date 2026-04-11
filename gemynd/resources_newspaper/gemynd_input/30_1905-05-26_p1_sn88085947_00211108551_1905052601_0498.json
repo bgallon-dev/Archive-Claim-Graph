@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MINERS GET\n\n\nIN LINE FOR\n\n\nNEW MOVEM",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-26",
+    "date_end": "1905-05-26",
+    "report_year": 1905,
+    "source_file": "30_1905-05-26_p1_sn88085947_00211108551_1905052601_0498",
+    "archive_ref": "30_1905-05-26_p1_sn88085947_00211108551_1905052601_0498",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "30_1905-05-26_p1_sn88085947_00211108551_1905052601_0498",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 80,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 47,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SALT LAKE, May 26.--In the con-\nvention of the Western Federation of\nMiners today members of the execu-\ntive committee were named as dele\ngates to the Chicago convention of\nindustrial unions, June 81, with full\npower to act and become a working\npower in the new movement. Organ\nizer Kennison reported on the condi-\nton in Michigan copper and lead dis\ntricts. He declares skilled miners,\ncarpenters and blacksmiths are re-\nceiving only $3.50 per day of IL\nhours."
+    }
+  ]
+}

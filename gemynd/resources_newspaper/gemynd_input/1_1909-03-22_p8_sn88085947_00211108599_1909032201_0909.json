@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "100000 |\n\n\nTO VOTE OF",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-22",
+    "date_end": "1909-03-22",
+    "report_year": 1909,
+    "source_file": "1_1909-03-22_p8_sn88085947_00211108599_1909032201_0909",
+    "archive_ref": "1_1909-03-22_p8_sn88085947_00211108599_1909032201_0909",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-03-22_p8_sn88085947_00211108599_1909032201_0909",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 172,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 116,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 268,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There will be amendments ga1Of\nfor the voters at the coming el0e\nton to pass upon. After consider\nable sparring the city council Sat.\nurday night passed every one of the\npropositions placed before that\nbody, including the Lambert amend.\nment which leaves the board Of\npublic works as it now is but gives\nthe mayor power to appoint and re-\nmove his men.\n\n\nThe amendments all went\nthrough without opposition except\nthe two relating to the board of\npublic works. Watkins and Gray\nvoted against the charter revision.\nlists amendment while 0strander\nand Baldwin opposed the sLambert\namendment The nonpartisan mu.\nnicipal election amendment was q.\nso Dassed.\n\n\nConsiderable discussion arose\nover the bridge bonds, Councilmen\nNelson and Ostrander attempted to\ninclude provision to cover the\nyiaducts but after a lengthy debate\nthe council refused to support this\namendment - = =\n\n\nAS the bond matters now. stand\nthe public will have $4,000 in\nbonds. to vote upon, $1,000, 1000 for\nparks. 100000 for bridge fund\nand 100000 for water extension."
+    }
+  ]
+}

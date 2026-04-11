@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "IRRIGATED LANDS\n\n\nNOT FOR POOR NAN\n\nSecretary Ballinger Declares He is Strong\n\n\nfor Private Enterprise ellis Address.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-11",
+    "date_end": "1909-08-11",
+    "report_year": 1909,
+    "source_file": "16_1909-08-11_p1_sn88085947_00211108605_1909081101_0614",
+    "archive_ref": "16_1909-08-11_p1_sn88085947_00211108605_1909081101_0614",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1909-08-11_p1_sn88085947_00211108605_1909081101_0614",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 55,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 108,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Declaring that he did not be-\nlieve the government should enter\ninto competition with private con-\nGerms in reclamation work, and\nstating that the irrigated lands Of\nthe government projects are not\nfor the poor man, Secretary of the\nInterior Ballinger today defended\nhimself before the national irriga\nton congress.\n\n\nHis declaration that the govern"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-08-11 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-11",
+    "date_end": "1909-08-11",
+    "report_year": 1909,
+    "source_file": "25_1909-08-11_p1_sn88085947_00211108605_1909081101_0614",
+    "archive_ref": "25_1909-08-11_p1_sn88085947_00211108605_1909081101_0614",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1909-08-11_p1_sn88085947_00211108605_1909081101_0614",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 58,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 266,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ment irrigated lands are not tor\nthe poor man is taken as an ex-\nPLANTATION of his act In declaring\nillegal the scheme whereby settlers\nwere allowed, under Garfield, to\nwork off part Of the payment for\nthe land.\n\n\nAlthough he declared himself In\nfavor of government irrigation,\nBallinger stated that he IL strong\n\n\nCONTINUED on page 81"
+    }
+  ]
+}

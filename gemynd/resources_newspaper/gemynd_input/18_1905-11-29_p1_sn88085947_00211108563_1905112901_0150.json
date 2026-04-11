@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "MAYOR SETS F0RTHP[AN\n\n\nF0R0PEN|NG C|TYSTREETS",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-11-29",
+    "date_end": "1905-11-29",
+    "report_year": 1905,
+    "source_file": "18_1905-11-29_p1_sn88085947_00211108563_1905112901_0150",
+    "archive_ref": "18_1905-11-29_p1_sn88085947_00211108563_1905112901_0150",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1905-11-29_p1_sn88085947_00211108563_1905112901_0150",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 70,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 147,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 272,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mayor Daggett and City Engin-\neer Mcintyre returned to this city\nthis morning from their trip to the\nSound where they were in confer\nence with the Northern Pacific\nrailroad officials over opening city\nstreets in U1lJn Park.\n\n\nThe mayor has written recon-\nmendation to the city council about\nthe entire work. The following\nembraces Mr.. Daggett's ideas:\n\n\nRailway to take care of Erie\nand Madelia streets, both as to"
+    }
+  ]
+}

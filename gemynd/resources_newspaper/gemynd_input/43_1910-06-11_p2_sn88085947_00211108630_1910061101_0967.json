@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRAIN DLSPATCHERS TO\n\n\nHOLD CONVENTION HERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-11",
+    "date_end": "1910-06-11",
+    "report_year": 1910,
+    "source_file": "43_1910-06-11_p2_sn88085947_00211108630_1910061101_0967",
+    "archive_ref": "43_1910-06-11_p2_sn88085947_00211108630_1910061101_0967",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "43_1910-06-11_p2_sn88085947_00211108630_1910061101_0967",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 75,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 91,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "parts of the United States because\nof the use of the telephone in this\nline of work on the Great Northern.\nThe telephone has been under tI1ai\non the Spokane division for several\nweeks now and is said to be giving\nexcellent service and has cut out\nthree dispatchers between kallspeil,\nMont. and LeavCnworth, Wash.\nShould this system finally supplant\n\n\nthe telegraph, hundreds of train\n\n\ndispatchers throughout the country\n\n\nwill be thrown out Of employment."
+    }
+  ]
+}

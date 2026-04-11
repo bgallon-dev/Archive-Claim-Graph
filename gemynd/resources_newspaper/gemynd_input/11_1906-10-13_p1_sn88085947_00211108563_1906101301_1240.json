@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "after MACHO'S LICENSE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-13",
+    "date_end": "1906-10-13",
+    "report_year": 1906,
+    "source_file": "11_1906-10-13_p1_sn88085947_00211108563_1906101301_1240",
+    "archive_ref": "11_1906-10-13_p1_sn88085947_00211108563_1906101301_1240",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-10-13_p1_sn88085947_00211108563_1906101301_1240",
+      "composite_score": 2.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 110,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 110,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 50,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Local employment agents at the\nnet meeting of the city council, will\nattempt to have the license of the\nMacho Employment agency taken\naawy. They charge that the Macho\nOffice does crooked\" business and\nthereby is injuring their business.\nChief Of Police Waller, they claim,\nwill also recommend that the\nMacho license be revoked. Yester-\nday II Austrians complained to the\nchief that they had engaged to be\nsent by Macho to Saltese, Mont.\nInstead of being sent there, they\nclaim that Macho sent them to\nNoxon, Mont, hundred miles from\nwhere they wanted to go. There\nwere no railroad Jobs there for\nthem so they returned to the city"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-10-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-18",
+    "date_end": "1905-10-18",
+    "report_year": 1905,
+    "source_file": "20_1905-10-18_p1_sn88085947_00211108563_1905101801_0006",
+    "archive_ref": "20_1905-10-18_p1_sn88085947_00211108563_1905101801_0006",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "20_1905-10-18_p1_sn88085947_00211108563_1905101801_0006",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 90,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 485,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "franchise across that bridge.\n\n\nThe men who voted to postpone\naction were: Funk, Gray, Baldwin,\nHoss, Pratt and Phillips.\n\n\nThe men who acknowledged the\ncollar Of the Washington Water\nPower company were: BaInes, Ea\ntep, Snyder and koontz.\n\n\nThe matter is at least at stand.\nstill and the people will at least be-\ngiven chance to protect them-\nselves. 1t is to be hoped that the\nIndependent citizenship of this city\nwill now make itself heard on this\nvital matter before the Washington\nWater Power company consume\nmates its steal."
+    }
+  ]
+}

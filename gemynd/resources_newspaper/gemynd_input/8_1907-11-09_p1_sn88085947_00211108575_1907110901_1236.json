@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "new ORDINANCE PLANNED\n\n\nFOR WATER MAINS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-11-09",
+    "date_end": "1907-11-09",
+    "report_year": 1907,
+    "source_file": "8_1907-11-09_p1_sn88085947_00211108575_1907110901_1236",
+    "archive_ref": "8_1907-11-09_p1_sn88085947_00211108575_1907110901_1236",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-11-09_p1_sn88085947_00211108575_1907110901_1236",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 142,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 115,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Councilman N. s. Pratt has\nplan to do away with the difficulties\narising from the adoption of the\namendment to the city charter pro-\nviding for the laying of water\nmains by petition the same as 9TH\nerr public improvements are made.\n1t has been almost impossible to\ndo any work under the charter\namendment and only work author\nlied under the old arrangement\nwhereby the property owners guar\nanteed the revenue to the city has\nbeen attempted.\n\n\nMany people have laid private\nmains and refuse to be taxed twice\nfor the same thing. They will sue\nthe city rather than pay second\ntime for water. This has had the\neffect of practically trying up water\nextensions and has made impera-\ntive some method Of extending\nmains that will be on a more eQuit-\nable basis.\n\n\nCouncilman Pratt has had an Or"
+    }
+  ]
+}

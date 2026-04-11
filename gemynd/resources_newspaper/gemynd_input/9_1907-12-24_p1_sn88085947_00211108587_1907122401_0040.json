@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL EMBRACE\n\n\nALL UNIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-24",
+    "date_end": "1907-12-24",
+    "report_year": 1907,
+    "source_file": "9_1907-12-24_p1_sn88085947_00211108587_1907122401_0040",
+    "archive_ref": "9_1907-12-24_p1_sn88085947_00211108587_1907122401_0040",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1907-12-24_p1_sn88085947_00211108587_1907122401_0040",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 202,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 705,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There Is every reason to expect\nthat inside the next few weeks all\nlocal unions will be gathered into\nthe Central Labor union in a trades\nsection organization. This is the\nsubstance of the report of the COM\nmittee of the central body that ex-\ntended to the building trades an in\nvitation to join the big central or\nganization.\n\n\nIn the city of Seattle the trade\nsection system has been an un-\nqualified success. Occasionally a\nunion gets disgruntled and pulls\nout, but as rule they return in\nshort order when their situations\nare declared open to nonunion\nworkmen. This is the way In which\nthe building trades work in that\ncity. The moment a union pulls\nout OF its trade section their work\nis declared an open shop\" propo-\nsition and the other trades work\nwith any kind of labor il may suit\nthe contractor or employer TO Sc\ncure\n\n\nThere will be enough unions rep\nresenting the building trades in the\nCentral Labor union, with the\nunions which now constitute the\nstructural alliance, to form a good\nbuilding trades section When this\nis accomplished 1t is likely that all\nother unions will find it to their\nadvantage to affiliate."
+    }
+  ]
+}

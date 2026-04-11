@@ -1,0 +1,38 @@
+version: "1"
+# Indigenous Cultural Sensitivity Vocabulary
+#
+# This file is populated through tribal consultation before ingestion.
+# Categories reflect CARE Principles sensitivity levels.
+#
+# Ship empty: the detector returns no indigenous_sensitivity proposals when
+# all term lists are empty.  Institutions populate this file during onboarding
+# in consultation with the relevant tribal nations.
+#
+# For the Spokane newspaper corpus, consultation with the Spokane Tribe
+# of Indians, Coeur d'Alene Tribe, Kalispel Tribe, and Colville
+# Confederated Tribes is recommended before populating these terms.
+
+ceremonial:
+  - terms: []
+    sensitivity: high
+    nations: []
+
+sacred_sites:
+  - terms: []
+    sensitivity: high
+    nations: []
+
+traditional_knowledge:
+  - terms: []
+    sensitivity: medium
+    nations: []
+
+burial_funerary:
+  - terms: []
+    sensitivity: high
+    nations: []
+
+traditional_ecological_knowledge:
+  - terms: []
+    sensitivity: medium
+    nations: []

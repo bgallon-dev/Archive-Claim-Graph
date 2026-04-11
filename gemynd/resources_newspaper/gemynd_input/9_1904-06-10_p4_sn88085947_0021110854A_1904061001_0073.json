@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CANADIAN PACIFIC\nOPERATES WITH\n\n\nCORBIN",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-06-10",
+    "date_end": "1904-06-10",
+    "report_year": 1904,
+    "source_file": "9_1904-06-10_p4_sn88085947_0021110854A_1904061001_0073",
+    "archive_ref": "9_1904-06-10_p4_sn88085947_0021110854A_1904061001_0073",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-06-10_p4_sn88085947_0021110854A_1904061001_0073",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 155,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 525,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE, June l0.-It is now be-\nlieved in local railroad circles that\nthe recent recognition by high Canadian\nPacific officials OF the proposed Corbin\nroad from Spokane to the British Co\nlumbia line, as a Spokane connection\nNpf the Canadian Pacific indicates that\nthe latter line has practically ADAM\ndoned its plan of constructing branch\nlines to Spokane and Seattle through\nq company organized for that purpose.\n\n\nThe Canadian Pacific has, since the\nformation of the Washington company,\neffected traffic agreement with the\nNorthern Pacific extending over a long\nperiod of years, by which it is able to\noperate both passenger and freight\ntrains between Vancouver and this\ncity. This arrangement removes the\nnecessity for the construction of the\nSeattle branch. The Spokane connec-\nton scheme has been replaced by the\nproposed Corbin line, thus giving the\ncompany facilities for caring for its\nbusiness without the necessity of build\ning either of the proposed branches."
+    }
+  ]
+}

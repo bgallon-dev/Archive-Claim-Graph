@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GREAT FIRE IN\n\n\nROCHESTER",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-13",
+    "date_end": "1909-04-13",
+    "report_year": 1909,
+    "source_file": "26_1909-04-13_p1_sn88085947_00211108599_1909041301_1046",
+    "archive_ref": "26_1909-04-13_p1_sn88085947_00211108599_1909041301_1046",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "26_1909-04-13_p1_sn88085947_00211108599_1909041301_1046",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 7.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "great fire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 71,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "great fire",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A thickly populated section is in\nthe path of the flames. II the wind\ncontinues and assistance does not\narrive it will certainly be wiped\nout. Four firemen, caught in fall\ning walls, were removed to a hos\npital. The loss will be enormous.\n\n\nAt 1:25 Captain Hoffman, of the\nFirst separate company of the ma\ntional guard, ordered his men to\nreport at the armory to patrol the\nburned district."
+    }
+  ]
+}

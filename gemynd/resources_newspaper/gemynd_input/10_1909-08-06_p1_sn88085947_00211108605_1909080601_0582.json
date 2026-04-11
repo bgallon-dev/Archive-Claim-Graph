@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "RED HOT SESSION\n\n\nAT SPOKANE\n\nIrrigation Congress Going Into Balinge1s\n\n\nReclamation Policy Il Is Rumored.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-06",
+    "date_end": "1909-08-06",
+    "report_year": 1909,
+    "source_file": "10_1909-08-06_p1_sn88085947_00211108605_1909080601_0582",
+    "archive_ref": "10_1909-08-06_p1_sn88085947_00211108605_1909080601_0582",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-08-06_p1_sn88085947_00211108605_1909080601_0582",
+      "composite_score": 14.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 10.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation",
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 134,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 251,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 66,
+            "in_headline": false
+          },
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 73,
+            "in_headline": true
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 30,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "From opinions expressed by dele\ngates to the seventeenth national\nirrigation congress, which meets\nhere Monday morning, the sessions\nin this city next week will be men,\n.orable. The policy of the present\nsecretary of the interior with re-\ngard to the reclamation service and\nthe administration of the public\ndomain in general, is to be called\ninto question, according to the talk\nin hotel Hobbies and clubs where\ndelegates are congregating today.\n\n\nFinal arrangements for the ham\nding of the meetings are to be\nmade at a meeting of the executive\ncommittee tomorrow. morning. w.\nA. Beard of Sacramento, Cal, is ex-\npected early tomorrow and the COM\nmittee will at once go into session.\n\n\nB. A. Fowler of Phoenix, Ariz.,\nsecretary of the congress, will ar\nrive tonight. A delegation of %"
+    }
+  ]
+}

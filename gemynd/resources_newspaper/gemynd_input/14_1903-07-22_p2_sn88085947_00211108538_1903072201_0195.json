@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-22 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-22",
+    "date_end": "1903-07-22",
+    "report_year": 1903,
+    "source_file": "14_1903-07-22_p2_sn88085947_00211108538_1903072201_0195",
+    "archive_ref": "14_1903-07-22_p2_sn88085947_00211108538_1903072201_0195",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1903-07-22_p2_sn88085947_00211108538_1903072201_0195",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 121,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 147,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 642,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An ordinance approving and confirm.\ning the assessments ana assessment\n\n\nroll for the Improvement OF Elev-\n\n\nenth avenue from the center line OF\n\n\nMonroe street to the center line OF\n\n\nAdams street. by grazing. curbine\n\n\nand parking the same, and to pro-\n\n\nvide for the collection of assess\n\n\nments and the payment of the bonds\n\n\nissued therefor.\n\n\nWhereas. the assessment roll for\nthe assessment district established\nfor the payment Of improving Elev-\nenth avenue. in the city of Spokas !.\nfrom the center line of Monroe str\\.\nto the center line of Adams street,\nby grading curbing and parking the\nsame. came duly and regularly be-\nfore the city council on the I'd day of\nJune, 1908. for approval and confirma-"
+    }
+  ]
+}

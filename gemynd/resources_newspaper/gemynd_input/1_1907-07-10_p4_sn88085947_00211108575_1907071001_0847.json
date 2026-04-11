@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COUNCIL. ROUTINE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-10",
+    "date_end": "1907-07-10",
+    "report_year": 1907,
+    "source_file": "1_1907-07-10_p4_sn88085947_00211108575_1907071001_0847",
+    "archive_ref": "1_1907-07-10_p4_sn88085947_00211108575_1907071001_0847",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-07-10_p4_sn88085947_00211108575_1907071001_0847",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 185,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 613,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The council last night confirmed\nthe appointment of Steve Johnston\nto the position Of plumbing inspec.\ntor to succeed Ethal Allen, jr.,\nwhom the board of health ousted.\n\n\nThe corporation counsel was in\nstructed to draft an ordinance pro-\nviding increase from $3.50 to $2.75\na day in the pay of chaihmen in the\nengineers office. Ss e5\n\n\nSalary boosts were given to the\nbuilding inspector. who Is praised\nfrom $110 to 1925 a month, and to\nthe free employment agent from $40\nto $75 a month.\n\n\nThe following ordinances were\npassed: ~.\n\n\nTo pay street car fare of en-\nployes to the city engineers Office;\ngranting the Northern Pacific Rail-\nroad Co. the right to build spur\ntrack between Front av. and Main\nav., Colfax ST. to Market ST.; paving\nalley between Stevens st. to Wash\nington ST.; prohibiting the establish\nment Of livery stables or the main\ntenance of more than head OF\nhorses in a block where two-thirds\nof the buildings are residences, un-\nless a majority OF the property own\ners consent in writing to the es-\ntablishment of such stable."
+    }
+  ]
+}

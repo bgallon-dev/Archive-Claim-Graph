@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "NEWEST BOYCOTT\nDECISION.\nSTATE PACKING\n\n\nPLANT.\n\n\nANOTHER\nTRACTION STRIKE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-18",
+    "date_end": "1910-03-18",
+    "report_year": 1910,
+    "source_file": "3_1910-03-18_p15_sn88085947_00211108629_1910031801_0989",
+    "archive_ref": "3_1910-03-18_p15_sn88085947_00211108629_1910031801_0989",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-03-18_p15_sn88085947_00211108629_1910031801_0989",
+      "composite_score": 13.3,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "boycott",
+          "picketing"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 184,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "picketing",
+            "weight": 2.0,
+            "offset": 971,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 306,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 67,
+            "in_headline": true
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 7,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The British courts appear to be\ncooperating with tae American\ncourts IN the effort to put organized\nlabor out of business-organize Ia\nDor of America-rot Great Britain.\n\n\nThe plumbers union at Winnipeg\nhas been assessed $4,000 damages\nfor boycotting the shops of the\nmaster plumbers combine, and So\nLetting strike breakers to quit\nwork. The master plumbers com.\nbine is not compelled to pay dam.\nages for boycottii G the union and\nsoliciting members to desert the\nunion and come to work.\n\n\nSc says in effect the privy coun.\nGil of Great Britain, the highest\ncourt (next to the house of lords\nin King Edwards domain in de.\ncision just handed Gown in London.\nThe plumbers, and. in fact, pratic.\nally all unionists o. Canada, are\nmembers of the American Fedora\nton of Labor, having the same\nrights and privileges as the union.\nlists of New York or San Francisco\n\n\nWhen the celebrated Taft-Vale\ndecision was rendered by the Brit.\nish hose of lords, declaring boy.\ncott!ng and picketing illegal, parlia.\nment passed law over the head of\nthe house of lords iega.izing boy"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Newspaper Honor\n\nFAIR PLAY!",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-01",
+    "date_end": "1905-05-01",
+    "report_year": 1905,
+    "source_file": "12_1905-05-01_p2_sn88085947_00211108551_1905050101_0415",
+    "archive_ref": "12_1905-05-01_p2_sn88085947_00211108551_1905050101_0415",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-05-01_p2_sn88085947_00211108551_1905050101_0415",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 370,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 631,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "FAIR PLAY!\n\n\n1t is a jewel. 1t is the HONOR of a newspaper\nToo often it is twisted contorted flung into strange\nshapes, hammered into\n\n\n\"FOUL PLAY!''\n\n\nFor two days the Spokesman Review has used up valu\nable space in screaming its claim to be called \"Fair''\nBut the Spokesman Review is-Unfar\n\n\n1t is not only 'unfair' in its editorial claims and utter\nances. 1t is unfair from labor's point of view\n\n\ndlstorts mutiates refuses to print statements which\nare not strictly in accord with it's efforts to fool the people\n1t fights, seeks to destroy, sabs union labor by word\nand by deed.\n\n\n1t hires nonunion wherever it can crowd in\nt'scab'\n\n\n1t loses opportunity misrepresent men who refuse\nto submit to its dictation.\n\n\n1t is not only unfar-t is\n\n\nDISHONEST!\n\n\nSunday morning the Spokesman Review revealed it's\ndishonesty 1t declared that it had time declined to\nopen It's columns to statements the candidates desired\nto make.\n\n\nGREAT, BIG LIE!\n\n\nThat lie printed to counteract the effects of the ex\npose of its narrowness its meanness its reputation Of\nsigned contract for advertising which showed up the\ncrooked deal between it and Lilienthal.\n\n\nThis morning the Spokesman Review took pains to de\nclare in black type its first page that it indie\npendent republican newspaper.\n\n\nANOTHER LIE!\n\n\nThe Spokesman-Review has never been republican, or\ndemocratic, popuist prohbitionist, or socialist\n1t has just been for the tall tower Nothing else.\nA candidate, to the support of the Spokesman\nReview must pledge himself to carry out the deals backed\nby the tall tower owner, REGARDLESS OF RIGHT OR\nWRONG.\n\n\ncandidate who goes to the Spokesman Review for\nsupport is not asked what party what principles he will\nsupport\nHe is asked if\n\n\nHE WILL SUPPORT THE SCHEMES OF THE\nSPOKESMAN-REVIEW\n\n\nOnce that pledge is made the Spokesman Review\nundertakes to beoo the people by declaring for the\ndate regardless of party platform.\n\n\nThis is the reason why every supported by the\nSpokesman-Review is SURE TO BE DEFEATED.\nThe Spokesman Review never does\n\n\nPLAY FAIR.\n\n\n1t is because of this knowledge of the slipper methods\nof the seeking Spokesman Review which to label\nevery candidate its slave, that\n\n\nACUTE WILL BE DEFEATED."
+    }
+  ]
+}

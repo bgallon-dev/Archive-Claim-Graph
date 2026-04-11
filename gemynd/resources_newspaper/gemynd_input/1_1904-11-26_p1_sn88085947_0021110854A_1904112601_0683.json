@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PRESIDENT AT The FAIR",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-26",
+    "date_end": "1904-11-26",
+    "report_year": 1904,
+    "source_file": "1_1904-11-26_p1_sn88085947_0021110854A_1904112601_0683",
+    "archive_ref": "1_1904-11-26_p1_sn88085947_0021110854A_1904112601_0683",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1904-11-26_p1_sn88085947_0021110854A_1904112601_0683",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 216,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 386,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "position grounds. Despite the hour\nneighborhood and greeted the appear\nancc of the train with shouts pro-\nlonged. The steam whistles and bells\ntook up the acclaim and for few\nminutes the air resounded with a\nperfect medley of discordant sounds.\nThe members of the reception COM\nmittee had met the train before 1t\nreached the city and President Fran\nels and other representatives of the\nexposition were on hand to welcome\nthe president az soon as the party\nhad finished breakfast.\n\n\nAfter greetings had been exchanged\nthe distinguished visitors were taken\nIn tow and a tour OF the exposition\ngrounds was begun. The morning\nwas devoted to a tour OF the exhibit\npalaces of the northern tier, begin\nming with the Transportation build\ning and winding up at the Govern\nment building, where special arrange\nmeats had been made for the recep-\ntion of the president. in which fed\neral troops participated. Luncheon\nwas served at 1 o'clock In the west\npavilion. After luncheon the build\nings on the south tier were visited.\nincluding Mines and Metallurgy. Edu-\ncation. Electricity and Machinery. An\nhour was spent on tho plateu OF\nstates and the president also found\ntime to visit the Stadium where a\nfootball game was In progress be-\ntween tho Haskell Indians and the"
+    }
+  ]
+}

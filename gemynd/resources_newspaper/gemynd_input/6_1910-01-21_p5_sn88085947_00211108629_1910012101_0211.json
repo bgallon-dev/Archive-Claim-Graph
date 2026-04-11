@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "and most enjoyable events of the",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-21",
+    "date_end": "1910-01-21",
+    "report_year": 1910,
+    "source_file": "6_1910-01-21_p5_sn88085947_00211108629_1910012101_0211",
+    "archive_ref": "6_1910-01-21_p5_sn88085947_00211108629_1910012101_0211",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1910-01-21_p5_sn88085947_00211108629_1910012101_0211",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 300,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 476,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and most enjoyable events of the\nweek. s-ta---.-'-s\n\n\n& & & -\nThe last and one of the most sue\neessful of the winter series of dane\ning parties given by the American\nBankers institute occurred last\nevening when they entertained at\nthe Elks' temple. Arthur Blum, j..\nO. Tiffany and Charles Ham had\ncharge of the committee and sue\nceeded in making the event most\nenjoyable. About Is couples at\ntended.\n\n\nMrs. E. M. Denny entertained the\nmembers of the Central Woman's\nChristian Temperance union yester-\nday at her home, 1914 Third avenue.\nA number of the ladies assisted on\nthe program and gave interesting\ntalks along temperance lines.\n\n\ne & &\n\n\nThe ladies' auxiliary of the\nEastern Star held a social meeting\nyesterday afternoon at the parlors\nof the Masonic temple. STA '.t\n\n\n4 4 4\n\n\nMr.. and Mrs. Fred B. Grinnell\nand Miss Hazel Grinnell left yes\nterday for New York. They will\nsail January 20 for Europe.\n\n\n& & & ''ts\nMrs. G.. M. Fassett and daughter,\nMiss Kate, left yesterday en- route\nfor California. After spending a\nfew weeks at the coast cities they\nwill return home by way of Ne\nvada.\n\n\n& & &\n\n\nA jolly crowd of the young people\nof the First Evangelical church\nspent a most enjoyable time at the\nhome of Mr.. and Mrs. Ed Kienholz,\nE504 Highland avenue, last night.\nGames and contests were the\namusements of the evening. The\nsinging of Mrs. Bertha Darling, who\ndirects the choir at the church, was\nthoroughly appreciated. Refresh\nments were served.\n\n\n& 4 &\n\n\nThe members of the Roycroft\nclub held their regular meeting last\nevening in the Theosophical club\nrooms. Mr.. Benefiel talked on the\nsubject, Are We Our Own Free\nWill Agents?\" An interesting dis\ncussion followed the address."
+    }
+  ]
+}

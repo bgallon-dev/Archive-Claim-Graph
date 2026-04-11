@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "ISSUE\n\n\nIS CREASED",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-26",
+    "date_end": "1909-01-26",
+    "report_year": 1909,
+    "source_file": "4_1909-01-26_p1_sn88085947_00211108599_1909012601_0546",
+    "archive_ref": "4_1909-01-26_p1_sn88085947_00211108599_1909012601_0546",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-01-26_p1_sn88085947_00211108599_1909012601_0546",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 157,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 341,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 142,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One million dollars additional\nIndebtedness will be saddled on\nthe city il two ordinances filed to-\nday with the city clerk are passed\nby the city council\n\n\nOne of the ordinances is for the\npurpose of issuing bonds for the\namount of 100000 to be used to\nbuild and repair bridges across the\nSpokane river, another way of\nsaying ito build the Monroe street\nbridge\n\n\nThe other ordinance is to issue\nbonds for 100000 TO pay of all\noutstanding bonds issued by the\nwater extension department of the\nmunicipality. The argument in\nfavor of the latter issue Is the\nfact that the old bonds now draw\n6 per cent interest, while the new\nbond issue would draw in the\nne,ghborhood of \"A per cent.\n\n\nBoth of the ordinances We're pre-.\npared by Corporation Counsel\nHamblen-n accordance with the\nresolutions passed at recent\nmeeting cf the council.\n\n\nTho bridge fund ordinance speci-\nfes no bridges in particular for"
+    }
+  ]
+}

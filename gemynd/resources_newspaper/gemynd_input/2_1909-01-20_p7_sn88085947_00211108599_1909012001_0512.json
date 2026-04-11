@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "BIG DEALS BEGIN\n\n\nTO MATERIALIZE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-20",
+    "date_end": "1909-01-20",
+    "report_year": 1909,
+    "source_file": "2_1909-01-20_p7_sn88085947_00211108599_1909012001_0512",
+    "archive_ref": "2_1909-01-20_p7_sn88085947_00211108599_1909012001_0512",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-01-20_p7_sn88085947_00211108599_1909012001_0512",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 119,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 555,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 428,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The two-story building adjoining\nthe Zeigler block on the east has\nbeen sold by the owners, the\nAntlers' Investment Co., to w. H.\nLinney, a Occur d'Alene mining\nman, for $4,000. The ground\narea is 30x142 feet, and is entirely\ncovered by the building, which is\nunder lease for period of 10 years\nat $3.50 per month for the first five\nyears and $3.50 per month for the\nlast five years.\n\n\nThe Railroaders' Home property,\ncorner of Riverside avenue and\nBrowne street, has been sold by\nWilliam Quinn, nonresident, to\nthe Dorman brothers, who made a\nfortune in wheat growing in Whit\nman county. The consideration\nwas 100000. The property has a\nfrontage of 100 feet on Riverside\navenue."
+    }
+  ]
+}

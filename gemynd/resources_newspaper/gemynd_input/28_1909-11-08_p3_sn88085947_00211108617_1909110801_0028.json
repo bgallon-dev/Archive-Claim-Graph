@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-08 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-08",
+    "date_end": "1909-11-08",
+    "report_year": 1909,
+    "source_file": "28_1909-11-08_p3_sn88085947_00211108617_1909110801_0028",
+    "archive_ref": "28_1909-11-08_p3_sn88085947_00211108617_1909110801_0028",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1909-11-08_p3_sn88085947_00211108617_1909110801_0028",
+      "composite_score": 17.64,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "jail",
+          "industrial workers",
+          "arrested",
+          "i. w. w."
+        ],
+        "spokane_development": [
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 415,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 74,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 2251,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 2111,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1526,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1874,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1436,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor Spokane Press In an edi-\ntorial in the Sunday Spokesman\nReview the Industrial Workers of\nthe World are referred to as anar-\nchistic: that they are hoboes and\nloafers; that their fundamental\ndoctrine is the reputation of all\nlaw and human authority. etc. OF\ncourse the Review itself is the\nauthority\" | do not belong to\nthe Industrial Workers of the\nWorld. but l can say that the\ncharge against them in that par\nticular editorial Is false.\n\n\nattended a meeting in their hall\nSaturday evening. The hall was\nfilled with an orderly, clean, intel\nligent bunch of laboring men.\nThey are not broke, either. When\nthe collection was taken up they\nall responded literally. The result\nwas nearly hundred dollars.\n\n\nThe speakers declared they\nstood for law and order and not\nagainst it. 1.-THE constitution of\nthe United States Is good enough\nfor me-\" said the chief speaker,\nand l am ready to die for it.\" OF\ncourse there are some foreigners\namong them. What of 1t? Are\nthere not foreigners on the police\nforce? If 1t is crime to be for\ntigner, is 1t not something of a\ncrime to be a descendant of for\neigner?\n\n\nThis thing of domineering or\nlauding 1t over laboring men is\ngetting stale. The Review seems\nto imagine itself the great and\nonly thing with a right to exist.\nhope the people Of Spokane\nwill waken to the fact that they\ncan conduct the affairs of the city\nwithout being bossed by that\nbunch on the corner of Riverside\navenue and Monroe street.\n\n\nThese men want nothing more\nthan their equal rights. Those con-\nfined in jail have committed no\ncrime. Many Of them have fami-\nlies and have no time tc spend In\nJail. Very truly yours.\n\n\nf. III. SANDERS,\nWHO'S Fourth Avenue.\n\n\n\nEditor The Spokane Press: The\npresent situation in Spokane is\ndisgraceful. l am visitor to Spo-\nkane. One evening, walking on\nthe main street. | was dubbed In\nthe back by policeman and near\nly arrested because did not walk\nfast enough, and another evening\nsaw the fire department, with\nhoses attched to the mains. soaking\nmen and women for not scattering\nand leaving the premises, simply\nbecause the |. w. w. demands lib\nerty and free speech as upheld by\nbhe constitution of the United\nStates. have been through Alas\nka and the United States. Also in\nSeattle during the I. w. w. fight\nfor free speech, and saw many con-"
+    }
+  ]
+}

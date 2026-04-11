@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-09-02 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-02",
+    "date_end": "1908-09-02",
+    "report_year": 1908,
+    "source_file": "9_1908-09-02_p8_sn88085947_00211108587_1908090201_0916",
+    "archive_ref": "9_1908-09-02_p8_sn88085947_00211108587_1908090201_0916",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-09-02_p8_sn88085947_00211108587_1908090201_0916",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 424,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 527,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 124,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "build for permanency, saying con.\n\n\ncrete was the only material with\n\n\nwhich this could be done. He sug-\ngested that if the city council will\nrefer the matter to referendum\nvote of the citizens it will learn\n\n\nthat 80 per cent favor concrete.\nG. B. Dennis said he was for\nseel, but would stand for concrete\nif the concrete advocates will guar\nantee such bridges do not cost over\n% per cent more than steel.\nCity Commissioner OBrien, who\nfavors concrete, said Engineer Rails\nton had made an off hand estimate\nof $706,000 on the Monroe street\nbridge, but that he believed Mr.\nRalston would be surprised at how\nmuch less the cost will be when he\nmakes his estimate IN detail.\n\n\nw. S. Norman urged temporiz\nig policy, holding down to Ne orig.\ninal 100000 estimate. He favored\nstopping work on the Mission ave-\nnue. bridge. His argument aroused\nprotest from the audience. Mr..\nNorman urged the water isue for\nprior consideration.\n\n\nd. T. Ham viewed the question\nfrom the standpoint of financial\nconditions. The present bonded\ndebt enlarged by the loans needed\nto carry on water and sewer eX\ntensions now facing the city, would\nbring the total to point where\na city cannot issue bonds for ex-\npensive concrete bridges, he said,\nand have sufficient funds left to\nsecure a permanent water supply\nwhen it becomes necessary. He\nwas willing that the laboring man\nshould have every dollar for public\nImprovements that can be raised\nby bonding the city, but he would\nadvise close management until the\nneeds of the next few years had\nbeen weighed carefully.\n\n\nMr.. Ham spoke OF the present\nburdens of taxation to men of fair\nmeans, when some one in the audi\nence cried out, Don't you think\nwe laboring men pay any taxes at\nALL\" Mr.. Ham said he knew the\nburden of heavy taxation was as\nhard on the man with $500 home\nas on J. J. Browne, who paid $685.\n600 in taxes every year.\n\n\nJudge George Turner arose to\ndeny an imputation on his cOnnec-\nton with the bridge question. He\nsaid he represented no corporation\nor private interest in his stand on\nthe bridge question, simply enter\ning into the matter in his capacity\nas a citizen and a taxpayer. He\nurged caution in proceeding with\nconcrete construction and ques-\ntoned the advisability of building\nof concrete until it's stability in\nhigh bridge construction is more\nestablished.\n\n\nR. F. Collins, Charles Liftchild\nand Professor Blair also argued in\nfavor of concrete."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "UNION DANCE STOPPED\n\n\nBY POLICE YESTERDAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-09",
+    "date_end": "1906-07-09",
+    "report_year": 1906,
+    "source_file": "11_1906-07-09_p1_sn88085947_00211108563_1906070901_0906",
+    "archive_ref": "11_1906-07-09_p1_sn88085947_00211108563_1906070901_0906",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-07-09_p1_sn88085947_00211108563_1906070901_0906",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 204,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 529,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There must be no more public\ndances in the city for personal\ngain, but when conducted under\nthe management of some lodge or\norganization it will not be\nmolested.\n\n\nFollowing these instructions\nfrom Daggett, Chief Waller issued\npermit on Saturday to the Cen\ntrail Labor Union and the dancing\nwas we'll under way when Sergeant\nMcPhee, Detectives Weir and Mac\ndonald arrived and stopped it.\n\n\nThis actions of the socalled union\nman, Funk, has caused unionists to\nopenly charge Funk with being a\ntool in the hands Of the Washing\nton Water Power company.\nj. 4. Conner, an employe Of the\ncity, openly charges Funk with be-\ning a personal representative of\nthe Washington Water Power com\npany. Conner owes his job to\nFunk's influence, and on account of\nhis bold assertion will in all prob\nability lose 1t.\n\n\nA campaign started among union\nmen this morning to force the clos\ning of the attractions at Natatorium\npark owned by the Washington\nWater Power company. They say\nthe roller skating rink runs there\nat full btst on Sundays and is\nmuch mofe noisy than the dancing\nheld at Mantle park. Efforts will\nbe made to stop this and all other\nSunday amusements out there."
+    }
+  ]
+}

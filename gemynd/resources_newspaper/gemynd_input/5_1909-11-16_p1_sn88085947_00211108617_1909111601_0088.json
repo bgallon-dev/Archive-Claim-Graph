@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-16 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-16",
+    "date_end": "1909-11-16",
+    "report_year": 1909,
+    "source_file": "5_1909-11-16_p1_sn88085947_00211108617_1909111601_0088",
+    "archive_ref": "5_1909-11-16_p1_sn88085947_00211108617_1909111601_0088",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-11-16_p1_sn88085947_00211108617_1909111601_0088",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "free speech",
+          "industrial workers",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 196,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 270,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 50,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 613,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 330,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The effort to cause 4 peaceable\nsettlement Of the free speech con-\ntroversy by forcing the adoption Of\nfair free speech ordinance\nthrough the medium Of the initia.\ntive charter amendment adopted\nlast May 10 meeting with support\n40 Il 10 becoming fully understood.\n\n\nThe Industrial Workers of the\nWorld, whose members have gone\nto Jail as protest against the pres\nent ordinance, are taking no hand\nin the matter and are leaving It en-\ntirely to citizens and the different\nlabor organizations to push along.\nThe l. w. w. feel that by filling\nthe jails and courts they may be\nable to secure a reconsideration OF\nthe street speaking ordinance. The\nmembers of the labor unions are\ness militant and feel that the peo-\npie, when they adopted the charter\namendment last May providing for\nthe initiative and referendum.\nplaced q weapon In the hands Of\nthe people by which they can COM\npei the officials at the city hall to\nexercise judgment in handling such\nmatters.\n\n\nAt the meeting of the Central\nLabor council last night the matter\nof adjusting the street speaking\ncontroversy by an appeal to the\ninitiative was discussed and met"
+    }
+  ]
+}

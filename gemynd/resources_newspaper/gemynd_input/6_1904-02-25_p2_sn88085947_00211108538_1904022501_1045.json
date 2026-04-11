@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-02-25 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-25",
+    "date_end": "1904-02-25",
+    "report_year": 1904,
+    "source_file": "6_1904-02-25_p2_sn88085947_00211108538_1904022501_1045",
+    "archive_ref": "6_1904-02-25_p2_sn88085947_00211108538_1904022501_1045",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1904-02-25_p2_sn88085947_00211108538_1904022501_1045",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 534,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 1268,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 13,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The board Of public works Of the\ncity of Spokane will receive bids in\nduplicate, until March II, 1904, at the\nhour OF 2 o'clock p. m, for the i'm\nprovement Of First avenue from the\neast line Of Madison street to the\neast line of Walnut street by paving.\nguttering, curbing, according to the\nplans and specifications on file in the\nOffice Of the city engineer, and re-\nferred. to In Ordinance No. ALAS.\nwhich ordinance and said map, plans\nand specifications shall govern said\nare hereby referred for further par\nticulars. All bids must be made in\nduplicate on printed forms to be fur\nnishsd by the board, sealed. and one\ncopy left with the clerk of the board,\nthe other with the mayor.\n\n\nThere must be written upon the\noutside Of the envelope the words.\nProposal for the paving Of First\navenue\" together with the name Of\nthe bidder. and the copy OF the bid\nsent to the board must be accom-\npanied with a certified check for not\nless than 10 per cent of the amount Of\nthe bid and made out to the order Of\nthe president of the board of public\n\n\nworks, and no bid shall be considered\nunless accompanied by said check.\n\n\nThe successful bidder shall be re-\n\n\nquired to enter into a contract and\n|\n\n\ned by said Ordinance No. A1448. the\n\n\nlaws of the state Of Washington, the\ncity charter and ordinance pertaining\n\n\nupon the subject within five days\nafter he has been notified that the\ncontract has been awarded to him.\nSpecial attention Is called to Ordi-\n\n\nnance No. A1o31. governing contracts\nfor public work. Where any material\nused Is Of the kind that is produced\nhere the same shall be Of home pro-\nductton when prices and quality are\nequal to foreign production.\n\n\nject any and all bids. Successful\n\n\nbidder on the above proposal will be\nrequired to furnish a guarantee or\nindemnity company bond satisfactory\nMaintenance\n\n\nBids in the manner and under the\n\n\nconditions and at the time above\nstated will be received by the board\nOf public works for maintaining the\nabove described pavement and i'm\nprovement in the manner and accord\n| ing to the terms and conditions stated\nplans and specifications for a period\nof ten years from and after the COM\n| pletion of the said work. and it's &C\n| ceptance by the city. and the sue\ncessful bidder will be required to\nenter into such contract and bond as\n| Ia required by law and charter and\nordinance Of said city. and particular\n\n\nly as required by said Ordinance No\n\n\n1448. within five days after he shall\n\n\nhave been notified Of the fact that\n\n\nhe has been awarded the said con.\n| tract\n\n\n| Such proposals shall be made ir\nduplicate and in sealed envelopes\nmarked Proposals for Maintaining\nFirst Avenue Pavement\" and shall\n\n\nbe accompanied by certified check\n| for not less than 10 per cent Of the\namount of the bid. made out to the\n| order of the president Of the board\nof public works.\n\n\n| The board expressly reserves tn,\n| right to reject any and all bids.\nL. B. HANDLEY, Secretary."
+    }
+  ]
+}

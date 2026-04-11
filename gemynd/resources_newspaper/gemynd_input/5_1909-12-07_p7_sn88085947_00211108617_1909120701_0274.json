@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-07 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-07",
+    "date_end": "1909-12-07",
+    "report_year": 1909,
+    "source_file": "5_1909-12-07_p7_sn88085947_00211108617_1909120701_0274",
+    "archive_ref": "5_1909-12-07_p7_sn88085947_00211108617_1909120701_0274",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-12-07_p7_sn88085947_00211108617_1909120701_0274",
+      "composite_score": 11.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ],
+        "spokane_development": [
+          "water power",
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 393,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1898,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1356,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1153,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 617,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 365,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "n J. c. Cunningham, z. J. Hyde,\nDan Morgan and Charles Larkin\nKill leave Christmas day for a\nmonths trip to Hawaii.\n\n\nIn order to unravei'the tang!e into\n'Yhich paving matters have become\ninvolved at the city hall because of\nhe Hbhding companies refusing to\n1ond the work for maintenance\nIMPOSES for longer period than\ni've years, it is probable that the\noard, 1Qf public works will recon-\nmend that five-year bonds be ac-\ncepted. Heretofore the city has ex-\nacted. lAsyear maintenance bonds,\nmd the refusal of the surety COM\npaniesr to- ienger continue to- issue\nlondS. Of this character has caused\nhe mixup, as the city council has\naiken \"a, stand against the, shorter\nlime BONDS.\n\n\nTomake the National Apple show\n# 1910 q bigger and better affair\n! than ever before was the agreement\n> reached by the directors of the 1909\nshown at their meeting yesterday.\nThe question of moving the exhibits\nTO Chicago after the close of the\nahowsMas considered, but no action\nvas taken.\n\n\nA dinner at o'clock will pre-\nEIDE the annual meeting at All\nSaints parish house tomorrow eve-\naing..A' \"ff\n\n\nNJ; C. Osborn, one Of the heads\nIf departments of the Washington\nWater Power company, was fined\nIl by Justice Stocker for striking\nVictor Cosedge. whom he had dis\nmissed from the company's service.\nAn argument followed Cosedge's\ndischarge, leading to an alteration.\n\n\nGreat Northern officials have\nagreed to open Seventh and Eighth\navenues under the extension to be\nbuiltfto the tracks of the S., p. & S.\nTwo, other streets will also be\nopened. thus giving the people on\nthe west side of the city four cross\nngs, more than originally planned.\n\n\nTHE n. j. Shinn commission\n.ouse has moved to its new location\n1T Howard street and the Northern\nPacific railroad, into one of the\nmost tcanyenient buildings of its\nkind In the city. The Spokane\nWholesale Grocery Co. has occupied\nhe building at Post street and the\nNorthern Pacific, vacated by Shinn.\n\n\nRs'N'oad officials here have been\n'nfor-.ed of the signing of an agree\nment by the Union Pacific and the\nNorthern'Paoific for the joint use of\nhe Northern Pacific tracks between\n\n\n\nPacific will begin to run it's through\nrains from San Francisco into Sc\nattic January I.\n\n\nPresident Taft has acknowl do d,\nma letter to Manager Rem II. Rice"
+    }
+  ]
+}

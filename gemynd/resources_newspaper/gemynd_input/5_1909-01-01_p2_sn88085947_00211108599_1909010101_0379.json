@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "SPOKANE TELLS\nNO HARD LUCK\n\n\nHISTORY\n\nCity Maintained Progress\nin Splendid Style\n\n\nLast Year.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-01",
+    "date_end": "1909-01-01",
+    "report_year": 1909,
+    "source_file": "5_1909-01-01_p2_sn88085947_00211108599_1909010101_0379",
+    "archive_ref": "5_1909-01-01_p2_sn88085947_00211108599_1909010101_0379",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-01-01_p2_sn88085947_00211108599_1909010101_0379",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "wheat"
+        ],
+        "spokane_development": [
+          "building permit"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 295,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 951,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "building permit",
+            "weight": 1.0,
+            "offset": 608,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane banking records for the\nyear 1908, as registered in the\nclearing house show a total clear\ning of 1907, 791, 4S2. This repre-\nsents a gain of $6,372,460 for the\nyear. or an average gain of $780,\n03S per month for the entire period.\nThis financial showing for the\ncity was made in what is regarded\nthe country over as one of the\ntightest years from a monetary\nstandpoint that the country has ex-\nperienced in the past decade and\nmore.\n\n\nThe same tone is apparent in all\nlines of local industry. Manufac-\nturing marks a 10 per cent general\nincrease and 20 per cent gain is\nnoted in the jobbing trade.\n\n\nBuilding permits for the year\nshow an increase of $14S,672 in\nvalue. From directory estimates\nthe population is figured today at\n10000. an increase of $4,000 over\nlast year.\n\n\nPostal revenues increased from\n$302,3SS in 1907 to $34S,944 in 1908\n\n\nValue of farm products in the\ncountry tributary to Spokane is\nestimated at $51,410,000, of which\nwheat is worth $36,160.000. This is\n. crop value gain of 20 per cent\nover last year The value of the\nlumber production in the same gen.\neral territory was $1S,00O,000, this\nbranch of industry showing a loss\non account Of the long prevailing\ndullness of the eastern building\nmaterial market.\n\n\nNew stores and a marked expan-\nsion in many already established\nIn Spokane prove a substantial\ngain in the retail trade.\n\n\nIn every line conferred in Spo-\nkane, there is nothing but the\nspirit of better prospects than ever\nfor the year opening today. From\nall indications the story the rec\nords for 1909 will tell one year\nfrom today will be the grandest\none of progress the life of the city\nhas yet written."
+    }
+  ]
+}

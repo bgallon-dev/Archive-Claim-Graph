@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "SINGING \"AULD LANG SyNE\" :\n\n\nDRY FARMING CONGRESS ENDS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-07",
+    "date_end": "1910-10-07",
+    "report_year": 1910,
+    "source_file": "7_1910-10-07_p8_sn88085947_00211108654_1910100701_0059",
+    "archive_ref": "7_1910-10-07_p8_sn88085947_00211108654_1910100701_0059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-10-07_p8_sn88085947_00211108654_1910100701_0059",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 6.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 114,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 48,
+            "in_headline": false
+          },
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 29,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 306,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With the singing of \"Auld Lang\nSyne,\" the fifth Dry Farming con-\ngress passed into history last night\nas the best meeting yet held by\nthe congress. With the exception\nof little furry at the close, when\nan effort was made to force\nthrough an Endorsement of San\nFrancisco as the place for holding\nthe Panama exposition in 1915, the\nproceedings were entirely harmon\nious and practical results were the\npredominating note of the session.\nThe flare-up over the San Fran\ncisco matter was of but short dura-\nton\n\n\nColorado Springs was given the\n1911 convention. Resolutions were\nadopted favoring the distribution of\nmemberships among worthy farm\ners in order to afford them the"
+    }
+  ]
+}

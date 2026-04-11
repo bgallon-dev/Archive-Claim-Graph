@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Will Sign a Light Contract That\n, Merely Permits Indefinite\n\n\nContinuation.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-10-09",
+    "date_end": "1907-10-09",
+    "report_year": 1907,
+    "source_file": "10_1907-10-09_p1_sn88085947_00211108575_1907100901_1140",
+    "archive_ref": "10_1907-10-09_p1_sn88085947_00211108575_1907100901_1140",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-10-09_p1_sn88085947_00211108575_1907100901_1140",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 152,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 84,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "As soon as Commissioners ]. T.\nO'Brien can corral representatives\nof the Washington Water Power\nCo., a contract for lighting the city,\nas authorized by the council last\nnight, will be made For the past\ntwo weeks the commissioners have\nhad trouble with the company over\na clause designed to give the COM\npany exclusive right to the privi-\nlege. Finally the corporation coun-\nsci was appealed to and rendered\nan opinion that 1t was unlawful for\nthe city to grant an exclusive\nprivilege to anyone. Fortified with\nthis opinion, O'Brien last evening\nmet representative of the COM\npany and they agreed that the\nclause should be left out, thus CIV\ning competing company, when\never ready to enter the field, a\nchance to bid on additional lights.\n\n\n1t is stated that representatives\nof the Traction Co. were instru-\nmental in holding up the contract\nSo long in an endeavor to force"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-02-04 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-04",
+    "date_end": "1905-02-04",
+    "report_year": 1905,
+    "source_file": "2_1905-02-04_p1_sn88085947_00211108551_1905020401_0116",
+    "archive_ref": "2_1905-02-04_p1_sn88085947_00211108551_1905020401_0116",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1905-02-04_p1_sn88085947_00211108551_1905020401_0116",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "orchard"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 272,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 1075,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 250,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Water meters, expensive standpipes and big costly\nreservoir.\n\n\nThat's what the experts sitting the water commission\nhave evolved for Spokane.\n\n\nThe commission turned in the report at o'clock this\nafternoon to the mayor Tonight it will be read to the\ncity council.\n\n\nMoney galore will be needed if all the recommendations\nOF the commission carried out It would look this\nearly in the movement that the city hall and the\nhalf built library would have to be mortgaged\n\n\n1t looks too the water Meter Gang would be able\nto fight for the fosting of expensive meters\non the burdened taxpayers.\n\n\nThe details of the plans are of course not open to the\npublic until after they have been read to the council\ntonight But enough is learned to warrant the statement\nthat it's going to be an expensive proposition.\n\n\nThe water commission has practically thrown away the\nplans submitted by City Engineer Gill and Water Com\nmissioner Weymouth. In their stead plans pre-\npared by the commission experts.\n\n\nThese plans embrace 20 million gallon reservoir to be\nlocated at what is known Stages orchard\" near the\nSoutheast boulevard and and one half miles south of\nSprague avenue, west of the old Country club site.\n\n\nIn addition to this reservoir the commission recon-\nmends expensive standppe which will about $1,000\nyear to\n\n\nOn top of all this burden the commission recommends\nthat the people be compelled to put in water meters\n\n\nAll this will be the result of the extraordinary sitting\nof the experts who hired without stipulated salary\nto give Spokane water system cheaper than that pro-\nposed by Gill and Weymouth."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABOR\nUNION SAYS\n\n\nSHOW Up",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-02",
+    "date_end": "1907-04-02",
+    "report_year": 1907,
+    "source_file": "7_1907-04-02_p4_sn88085947_00211108575_1907040201_0527",
+    "archive_ref": "7_1907-04-02_p4_sn88085947_00211108575_1907040201_0527",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-04-02_p4_sn88085947_00211108575_1907040201_0527",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 283,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 253,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An effort was made last night by\nseveral delegates to the Central\nLabor union to shut off the publ\ncation of answers of candidates for\nOffice with reference to the city in\nstalling light and power plant\nand the insertion of an arbitration\nclause in all public utility fran\nchises. The propounding of these\nquestions was for the purpose of\ncrystalizing sentiment in favor of\nthese improvements.\n\n\nThose oEGosed to publishing re-\nplies of candidates said a number\nof the staunch friends of organized\nlabor now in Office had requested\nthat such action be taken by the\ncentral body, as they did not want\npublicity, being afraid they would\nlose some votes if they went on\nrecord for these propositions.\n\n\nE. A. Cooney, candidate for coun-\nGilman in the Fourth ward, said he\nwas not in favor of the motion and\nwanted every candidate to be COM\nPEELED to place himself on record\non these questions. Others held to\nthe same view and the motion was\nlost, with the result that some of\nthe 'gumshoe\" politicians will have\nto go on record publicly one way\nor the other.\n\n\nThe Central Labor union also\nvoted down proposition to try to\npledge candidates for Office to sup\nport any move sanctioned by the\nCentral Labor union and the\nStructural alliance.\n\n\nJohn McChessney, candidate for\nthe nomination for comptroller on\nthe republican ticket, said he was\nto the entire proposition,\nthat no man would want to pledge\nin advance for measure of\nwhich he knew nothing.\n\n\nThe Clerks union reported max\ning progress. The demand for\nservice by union clerks on the\npart of union men is having\ngood effect in building up the local\nunion"
+    }
+  ]
+}

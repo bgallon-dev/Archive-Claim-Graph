@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "GREAT VICTORY FOR\n\n\nREFERENDUM LEAGUE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-06-08",
+    "date_end": "1906-06-08",
+    "report_year": 1906,
+    "source_file": "20_1906-06-08_p1_sn88085947_00211108563_1906060801_0802",
+    "archive_ref": "20_1906-06-08_p1_sn88085947_00211108563_1906060801_0802",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "20_1906-06-08_p1_sn88085947_00211108563_1906060801_0802",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 112,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the grange was present.\n\n\nMr.. Blackman made an address.\nwhich was enthusiastically receiv-\ned and the grange unanimously de-\ncided to cooperate with the State\nFederation Of Labor in its efforts\nto secure legislation looking toward\nclean politics..\n\n\nA committee was appointed\nwhich will meet with a committee\nfrom organized labor and bills for\nthe desired laws will be formulated.\nAn active working partnership has\nbeen formed between the grange\nand the State Federation Of Labor\n\n\nThe individual members of the\ngrange were so enthusiastic about\nthe results desired to be secured\nby the State Federation Of Labor\nthat they promised when they ar\nrived at home to institute local\nreferendum leagues."
+    }
+  ]
+}

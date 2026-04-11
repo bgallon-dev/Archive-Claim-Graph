@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-24 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-24",
+    "date_end": "1909-12-24",
+    "report_year": 1909,
+    "source_file": "7_1909-12-24_p5_sn88085947_00211108617_1909122401_0476",
+    "archive_ref": "7_1909-12-24_p5_sn88085947_00211108617_1909122401_0476",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-12-24_p5_sn88085947_00211108617_1909122401_0476",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 176,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 925,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "for themselves and done nobly by\nother peoples children.\n\n\nMen have made the laws in all\nthe ages, and women have borne\nthe races of the world-as meekly\nas possible under existing condi-\ntions-but men will do better work\nwith women helping them as moth\ners, wives and sisters, who would\nnot shun career. She may not be\neager for fame or so-called free\ndom, but any sphere she can fill\nacceptably it is not possible for her\nto disgrace more thoroughly than\nher brother has done.\n\n\nThe Prince of Peace will never\nreign without the assistance of\nwomen, and for one pray without\nceasing for the suffraget movement.\nWe cannot agree with Mrs. Bacon\nthat women have no talent for law\nmaking Neither can we indorse the\nextracts from mans love letters;\nas it shows him up in the light of\nsupreme selfishness.\n\n\nA MOTHER.\n\n\nDon't Forget Mind.\n\n\nTo the Editor OF The Press: The\nexpression, \"women's rights\" is OBJ\njectionable, and word suffrage\"\nas applied to wOmankind, is hui\ninitiating. A woman should have"
+    }
+  ]
+}

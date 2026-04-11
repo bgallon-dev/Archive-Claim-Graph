@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-05-05 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-05",
+    "date_end": "1903-05-05",
+    "report_year": 1903,
+    "source_file": "3_1903-05-05_p3_sn88085947_00211108526_1903050501_0617",
+    "archive_ref": "3_1903-05-05_p3_sn88085947_00211108526_1903050501_0617",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-05-05_p3_sn88085947_00211108526_1903050501_0617",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 132,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern railway, ac-\ncording to an official announcement.\nis preparing to issue a circular ex-\ntending the homeseeker or low round\ntrip rates to the Pacific coast which\nare due to expire June 16, into Sep\ntember and October. The settler\nrates, or one way low fares from the\neast to the coast, will terminate June\n10 and by that time 1t is expected all\nof this class of business will be over.\nIn fact. it is said greater portion\nof it has been finished at the pres\nent time and the trains which since\nthe middle of February have been\ncarrying farmers from the east to\nWashington in crowds are now about\ndevoid of them.\n\n\nBut this is not the case with the\nhomeseekers. They are of the class"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "Puts Man in Field to Fight\nAgainst \"Sweat Shop\"\n\n\nGoods.\nOPPOSE CHILD LABOR\nWoman's Club Will Aid in\nMovement in Behalf of\n& Union Labor.\n\nOPPOSE CHILD LABOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-27",
+    "date_end": "1910-02-27",
+    "report_year": 1910,
+    "source_file": "4_1910-02-27_p18_sn88085947_00211108629_1910022701_0718",
+    "archive_ref": "4_1910-02-27_p18_sn88085947_00211108629_1910022701_0718",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-02-27_p18_sn88085947_00211108629_1910022701_0718",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 6.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ],
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 141,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 79,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 76,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One of the greatest and most i'm\nportant labor movements in the\nhistory of the Inland Empire is\nnow on. The Union Card and La\nbel league, which has been organ\nlied for the purpose of establish\ning the union card and a strictly\nunion line of articles of merchan-\ndisc. bearing the union label, is be-\nhind the movement. The league\nwin fight against child labor and\nthe sweat shop and will endeavor\nto bring about more sanitary work\ning conditions.\n\n\nA melting Of the league was held\nFriday night and Lewis LeClair, a\nmember of the electrical workers\nunion and one of the best and\nmost enthusiastic hustlers in Spo.\nkane's organized labor world, was\nplaced on steady salary to can\ntyass the city for the purpose of\ncarrying out the purposes of the\norganization.\n\n\nLeClafr, whose official position"
+    }
+  ]
+}

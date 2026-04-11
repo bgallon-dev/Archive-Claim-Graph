@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SCHOOL FOR\nSUFFRAGETS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-07",
+    "date_end": "1910-04-07",
+    "report_year": 1910,
+    "source_file": "1_1910-04-07_p4_sn88085947_00211108630_1910040701_0101",
+    "archive_ref": "1_1910-04-07_p4_sn88085947_00211108630_1910040701_0101",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-04-07_p4_sn88085947_00211108630_1910040701_0101",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 426,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 1473,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nIhe course as outlined will include instruction the\nevolution of womanknd of the woong with rocks in the\nStone of the chae days of the Middle ages of her\npresent condition in most states where, equipped with\nlearning fnsh brains, integrity and conscience she is\ndenied a vote\n\n\nThe idea fine 1t should be broadened the course wild\nened, with every woman instructor.\n\n\nThe greatest crusaders to the real cause of woman\nrights will not be found in the school room.\n\n\nThey will be found in the kitchens of humble homes\nhaired perhaps and with faces that show the marks\nOF loving sacrifice They will be found grooming love\ncradles and instillng into baby minds so strongly\nand so sweety that it will be forgotten, the\ngreat fact that in the Divine scheme of affairs woman\nthe greatest OF Gods creations to be denied nothing that\nshe wishes whether it be votes just love.\n\n\nThey will be found perhaps, taking up the burdens of\nlife where some weak brutal husband has left them\nThey will be found too in the sisters who teach their\nboisterous brothers that the genteness of s heart\ngreater than the of the most lion hearted and\nmore powerful for good than the most ponderous phrases\nfrom pulpit.\n\n\nThey will be found in the sweethearts who will lead their\nsutors to the high realms of ideals and teach the great\ntruth that between there is dfferenc in mOras\nwho will demand from their husbands that same standard\nOF virtue which is asked of them.\n\n\nWith such of training, the suffrage question\nwould be solved.\n\n\nWhen the babe who grows to manhood with the song of\nthe young mother ringing in his memory when the youth\nbearded but harks back the DAYS when his mother\npatiently patched his trousers and breathed prayer that\nhe grow up into \"gOod man, when the brother burn\nshes the glass of memory and the sweetaced smiling\nsister; when the husband thanks his God that HE\nable to to the high standards of righteousness\ndemanded by the sweetaced woman who became his bride\nwhen these come to the real objects of the suf\nfragets will have been\n\n\nFor when these happen there will be faces in\nsweatshops children sent out to labor before their fra\nbodies have taken strength their minds equip\nfor the future crowding of girls into unheathfu\noccupations, no debauchery by brutal employers.\n\n\nPerhaps the school for suffrage alone bring these\nresults With the womanhood of America giving these\nsubsidiary courses it is bound to."
+    }
+  ]
+}

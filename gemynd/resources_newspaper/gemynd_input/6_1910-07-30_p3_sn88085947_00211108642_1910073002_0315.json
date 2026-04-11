@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COMBATING PARK\n\n\nBOND ISSUE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-30",
+    "date_end": "1910-07-30",
+    "report_year": 1910,
+    "source_file": "6_1910-07-30_p3_sn88085947_00211108642_1910073002_0315",
+    "archive_ref": "6_1910-07-30_p3_sn88085947_00211108642_1910073002_0315",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "6_1910-07-30_p3_sn88085947_00211108642_1910073002_0315",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 130,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 458,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Joseph Murphy. who is combat.\nting the 100000 issue of park\nbonds voted last May, has taken\nthe case into court through his at\ntorneys, Birdseye & Smith. He\nhas not asked for a temporary re-\nstraining order, as the corporation\ncounsel has agreed that the bonds\nshall not be issued. until the out\ncome of the suit is determined.\n\n\nThe complaint alleges that the\nelection by which the bond issue\nwas decided was not legal for the\nfollowing reasons:\n\n\nThat the city charter did not\ngive power for the election as\nheld; that TIE election officials\nwere not properly sworn and quail\nfled and that number of the\njudges were appointed according to\nthe wishes of citizens who paid for\nthe services, instead of having i'm\npartial election officials."
+    }
+  ]
+}

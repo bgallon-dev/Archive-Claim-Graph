@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "title": "TWO WEEKS PROGRAM\n\n\nFOR J. Z. WHITES VISIT",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-10",
+    "date_end": "1909-12-10",
+    "report_year": 1909,
+    "source_file": "3_1909-12-10_p2_sn88085947_00211108617_1909121001_0305",
+    "archive_ref": "3_1909-12-10_p2_sn88085947_00211108617_1909121001_0305",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-12-10_p2_sn88085947_00211108617_1909121001_0305",
+      "composite_score": 19.11,
+      "domain_scores": {
+        "turnbull_prehistory": 1.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 3.0,
+        "womens_civic": 4.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney"
+        ],
+        "iww_labor": [
+          "injunction"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ],
+        "education": [
+          "cheney normal"
+        ],
+        "womens_civic": [
+          "suffrage",
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 330,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 1030,
+            "in_headline": false
+          }
+        ],
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1214,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 1617,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "cheney normal",
+            "weight": 3.0,
+            "offset": 1030,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 410,
+            "in_headline": false
+          },
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1787,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education",
+        "iww_labor",
+        "spokane_development",
+        "turnbull_prehistory",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A two weeks program that will\nmake the forthcoming visit of John\nz. White of Chicago, representing\nthe Henry George national lecture\nbureau, one of the busiest of the\nkind ever made to Spokane, has\nbeen arranged by the friends of the\ndistinguished lecturer.\n\n\nMr.. White will arrive next. Tues\nday, December IA, at 10 a. m. and\nwill speak at the following times\nand places: &C.,\n\n\nDec. IA, p. M, Spokane Equal\nSuffrage club, basement of the Hut\nton building. A..\n\n\nDec. Is, IL a. m, South Central\nhigh school; 3 p. m, Occur dAlene\ncollege at Occur d'Alene; 8 p. M,\nthe public Of Occur d'Alene.\n\n\nDecember 16, afternoon and even\ning, Washington state. college. at\nPullman.\n\n\nDecember II, 3 p. M, Blair BUSH\nness college; s p. m, the charter\nrevision committee.\n\n\nmer's pulpit, First Baptist church,.\nIn the evening at some other\nchurch yet to be selected. At 8 p.\nM, Economic club.\n\n\nDec. 20, 9 a. m, Northwestern\nBusiness college; 1880 p. M, Cen\ntrail Labor union, on \"The Dignity\nof Labor\"\n\n\nDecember 81, afternoon and even\ning, Cheney Normal.\n\n\nDecember %, s p. m, first lee\nture before the Y. M. G. A. ..\n\n\nDecember %, II a. M, Spokane\ncollege; p. m, Carpenters union,\n8 Madison street; subject, Govern\nment by Injunction\" This is an\nopen meeting.\n\n\nDecember \"a, luncheon by the\nCollege Equal Suffrage club will be\ngiven. 80 +\n\n\nDec &c, p. m, Mr.. White will\nagain address the Economic club\non Land Value Taxation\" In the\nevening he will speak at the Pill\ngrim Congregational church, Rev.\nHindley's pulpit.\n\n\nDecember 27, 8 p. m, Mr.. White\nwill address the Young Mems demo\ncratic club at the assembly room\nof the chamber Of commerce, to\nwhich meeting the Young Mens\nRepublican club has been invited.\nAt 2 p. IN. the same day he will\nspeak before the political economy\nsection of the Woman's club.\n\n\nDecember %, 8 p. M, open ses-"
+    }
+  ]
+}

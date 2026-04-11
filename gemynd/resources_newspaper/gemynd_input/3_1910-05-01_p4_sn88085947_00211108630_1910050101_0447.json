@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "POOLING THE PEOPLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-01",
+    "date_end": "1910-05-01",
+    "report_year": 1910,
+    "source_file": "3_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+    "archive_ref": "3_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-05-01_p4_sn88085947_00211108630_1910050101_0447",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 326,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 779,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "If the people don be robbed as never before\nis time for them to get busy with their representatives in\ncongress.\n\n\nIn one of his last messages--January 15 1909-Pres-\ndent Roosevelt said:\n\n\n1.-The great corporations are acting with foresight\nsngleness of purpose and vgor to control the water pow\ners of the country\n\n\nDaylight STEALING OF PUBLIC DOMAINS did not\nflourish under the Roosevelt regime, and the Ballnger\nracket has made 1t unwlse to try it during Tafts term\nthus far So the great corporations have decided to try\nto egalize the robbery and FOOL THE PEOPLE.\n\n\nThe game is to make the people believe that the states\ncan the public domain wisely and periodically\nthan can the federal government\n\n\nSenator Smoot of Utah is pushing bill which would\ngrant to the states all water power sites in federal\nownership That is the Smoot scheme is take property\nthat belongs to all of and turn it to the of\nthe gangs owned and ruled by the Guggenhes, the Nor\ngans the Southern Pacific political caba and their ilk\n\n\nIn the house. Representative Smith of California has\nsimilar BILL while Engebrght of the state has pre-\nsented which would subject the lands of the\nUnited States to condemnation under state laws.\n\n\nThe purpose of these is clear IT IS ROB\nBerry.\n\n\nThe aim is plainly immunity from federal regulation\nand control the putting into the custody of Guggenhem\nowned corporaonb bought legislatures property of\nfuture value and necessity which belongs to people\nof the whole nation Depletion of the forests coal and\nelectric power will be about all the power the people of this\nnation have.\n\n\nAre you against this ievery of your present and future\nprogress? If you write your senators and congress\nkill bills 57O4 and 1882 and house bills 1856\nand 1882. Write today! Let your representatives\nthat they going to stand in with robbers they not\ngoing to do it and FOOL YOU."
+    }
+  ]
+}

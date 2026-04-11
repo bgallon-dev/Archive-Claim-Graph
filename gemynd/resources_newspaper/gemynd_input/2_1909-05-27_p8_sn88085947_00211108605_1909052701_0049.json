@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WICKERSHAM GIVES.\n\n\nSUPREME COURTPAN",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-27",
+    "date_end": "1909-05-27",
+    "report_year": 1909,
+    "source_file": "2_1909-05-27_p8_sn88085947_00211108605_1909052701_0049",
+    "archive_ref": "2_1909-05-27_p8_sn88085947_00211108605_1909052701_0049",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-05-27_p8_sn88085947_00211108605_1909052701_0049",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 139,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 586,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "right, but he had never heard of\nsuch a thing as STIMULATING that a\ncompany building p railroad into\ncity should hold those tracks\nopen for rental to another line\nthat might also want to get into\nthe city and that the city might\nwant.\n\n\nNorth Coast representatives\nwere not particularly fighting the\ncommon user, in fact Attorney\nHamblen said that If the city\ncould compel the S. P. & s. to\nuse the, North Coast tracks it\nwould simplify a good many prob\nlens. .sa .,ssis,, Ill\n4 But Mohr couldn't see into 1T\nat all and neither could he see\ninto the justice of the city requir-\ning the Great Northern to pay 25\nper cent of the cost of the Wash\n.ington street viaduct before grant\ning 1t another franchise. Mohr\nargued against the proposition of"
+    }
+  ]
+}

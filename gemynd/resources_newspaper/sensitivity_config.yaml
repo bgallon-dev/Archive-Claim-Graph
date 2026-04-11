@@ -1,0 +1,26 @@
+version: "1"
+# Sensitivity Monitor Configuration
+#
+# Controls which detection categories are enabled, their auto-quarantine
+# thresholds, and institutional governance requirements.
+
+pii_detection:
+  enabled: true
+  auto_quarantine_threshold: 0.85
+  patterns:
+    phone: true
+    ssn: true
+    email: true
+    address: true
+    date_of_birth: true
+
+living_person:
+  enabled: true
+  year_threshold: 100
+  auto_quarantine_threshold: 0.70
+
+indigenous_sensitivity:
+  enabled: true
+  vocabulary_file: indigenous_cultural_terms.yaml
+  auto_quarantine_threshold: 0.90
+  require_tribal_consultation_before_clear: true

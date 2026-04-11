@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-05-19 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-19",
+    "date_end": "1908-05-19",
+    "report_year": 1908,
+    "source_file": "14_1908-05-19_p1_sn88085947_00211108587_1908051901_0542",
+    "archive_ref": "14_1908-05-19_p1_sn88085947_00211108587_1908051901_0542",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1908-05-19_p1_sn88085947_00211108587_1908051901_0542",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ],
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 332,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 1475,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 53,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "| AVo8\nWASHINGTON, D. c., May 49,\n\n\nWhat effect does prohibition have\n\n\non city of 100000 inhabitants, in\n\n\nwhich it has been the custom to\nspend $2,5OO,OO0 annually for\nliquor?\n\n\nThe saloon men and the prohibi-\ntionists have been carrying on a\nred hot controversy over this ques-\nton before the house committee on\nthe District of Columbia ever since\nthe sixtieth congress has been in\nsession.\n\n\nThe prohibitionists have proven\ndecisively that prohibition de-\ncreases crime and increases saw\nings accounts.\n\n\nKansas City, Kas., has been on\ntrial. 1t is the largest prohibition\n\n\ncity in the United States. The\nliquor men made Kansas City take\nthe center of the stage by introduce\ning as evidence to show why Wash\nington should not be made dry\" a\nnewspaper article representing\nKansas City to be hopelessly ban\n\n\nkrupt. 1t declares houses once fill\ned are empty, that murders have\nbecome numerous with prohibition,\nthat thieves operate at will and\nthat it is necessary for the pack\ning firms to pay the salaries of pO-\nlicemen and firemen. The picture\nof desolation seemed on the face\n\n\nof it a mighty argument for sa-\nlooms.\n\n\nMatthew O'Brien, representing\nthe national prohibition party,\nshowed that the article had been\nwritten at the order of the brewers,\n\n\nand had been supplied fee to news\n\n\npapers all over the country through\n\n\ntainted news bureau.\nO'Brien showed that the assess\ned valuation of the city in 1906 was\n1881, 1850, and in 1907 $685.\n$40, showing gain in real estate\nvalues instead of decrease because\nof closed saloons. The total city tax\nfor all purposes for 1906 was $40\non each 800 of assessed valuation,\n\n\nwhile for 1907 the city tax rate was\n$500, a reduction OF 20 cents with\nall Joints\" closed.\n\n\nThe population of Kansas City,\n\n\nKas., at present, is estimated at\n100, 1886, an increase over 1906 of\n11,1S0.\n\n\nIn direct contrast to a showing\nmade in tainted\" article printed\nin the Washington Post, March 2,"
+    }
+  ]
+}

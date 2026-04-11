@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CALLS EXPERT REPORT\n\n\nLABYRINTH OF MYSTERY",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-11",
+    "date_end": "1908-11-11",
+    "report_year": 1908,
+    "source_file": "9_1908-11-11_p8_sn88085947_00211108599_1908111101_0049",
+    "archive_ref": "9_1908-11-11_p8_sn88085947_00211108599_1908111101_0049",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-11-11_p8_sn88085947_00211108599_1908111101_0049",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 191,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "However, he pleads guilty to\nviolating the city charter. We have\nwondered how this city has been\nkept on cash basis. He has vio-\nlated the charter to do it, and has\nsaved the city thousands of dollars\nin interest. Since the panic of .Octo.\nDer, 1907, he saved the city $357.65\ninterest on crematory warrants;\n$1,222.01 interest on bridge war\nrants and $2,42779 interest on\nwater warrants, total of $4,007.45.\n1t is a pity this city has not more\nofficers like him.\n\n\n\"The whole exporting has been\nshrouded in mystery, and is stig-\nmatism of the treasurer. 1t is I'M\ndemanded chicanery chasing the\ntreasurer through a labyrinth of\nmystery\"\n\n\nCouncilman Mohr took the part\nof the experts by sarcastically re-\nmarking that they were not to\nblame for not reporting direct to\nthe council because they had been\nhired by an individual to whom\nthey reported Mayor Moore was\nthe direct agent in their hiring,\nbut Mohr wouldn't state who hired\nthem.\n\n\nEggleston's saving of interest\nwas effected by close financiering\ncarrying the city on a cash basis\nin his own Office instead of follow\ning the warrant custom."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "BIG FEATURES FOR FAIR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-28",
+    "date_end": "1903-09-28",
+    "report_year": 1903,
+    "source_file": "9_1903-09-28_p4_sn88085947_00211108538_1903092801_0431",
+    "archive_ref": "9_1903-09-28_p4_sn88085947_00211108538_1903092801_0431",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1903-09-28_p4_sn88085947_00211108538_1903092801_0431",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition",
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 147,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 342,
+            "in_headline": false
+          },
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 514,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A week from today and Spokane's\ntenth annual Interstate fair, more\ncommonly known as the Fruit fair,\nwilt be open. :\n\n\nThe opening day will be hera}ded\nwith a. parade, for which several\nhandsome prizes have been donated.\nG. A. Yancey, the grand marshal.\npurposes innovating something en-\ntirely new in parades. The process\nsion will traverse Riverside avenue\nand wend its way out to the fair\ngrounds, where President Howell W.\nPeel of the Interstate Fair associa-\nfion will formally declare the fair\nopened in the exposition building.\n\n\nIn advance it may be stated that\nthis year visitors will be entertain\ned with the finest class of running\nand harness racing yet held in east\nern Washington. In the exposition\nhall the displays of mineral, fruits\nand art work will exceed in extent\nand variety those of former years\nEspecially is this true of the mineral"
+    }
+  ]
+}

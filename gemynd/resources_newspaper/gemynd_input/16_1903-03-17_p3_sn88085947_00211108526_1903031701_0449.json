@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-03-17 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-17",
+    "date_end": "1903-03-17",
+    "report_year": 1903,
+    "source_file": "16_1903-03-17_p3_sn88085947_00211108526_1903031701_0449",
+    "archive_ref": "16_1903-03-17_p3_sn88085947_00211108526_1903031701_0449",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1903-03-17_p3_sn88085947_00211108526_1903031701_0449",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 121,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 423,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 190,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Notice is hereby given that the\nundersigned will at the hour of 1880\np. m. of the 18th day of March. 1908.\nIn the council chamber at the city\nhall in the city of Spokane. Wash.\napply to the city council for the pass\nage of the following ordinance. to-\nwit:\n\n\nAN ORDINANCE granting to the\nSpokane Light and Power Company,\nit's successors and assigns, the\nright to erect. maintain and use\nwires for conveying electricity for\nelectric light electric heat and cleo\ntrio power purposes and the neces-\nsary poles or conduits for the sup\nport of the same, and all necessary\nappurtenanceS thereto, on, over.\nalong and under all the streets and\nalleys of the city of Spokane. Wash."
+    }
+  ]
+}

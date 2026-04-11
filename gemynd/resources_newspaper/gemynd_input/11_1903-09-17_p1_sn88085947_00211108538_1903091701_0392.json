@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-09-17 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-17",
+    "date_end": "1903-09-17",
+    "report_year": 1903,
+    "source_file": "11_1903-09-17_p1_sn88085947_00211108538_1903091701_0392",
+    "archive_ref": "11_1903-09-17_p1_sn88085947_00211108538_1903091701_0392",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-09-17_p1_sn88085947_00211108538_1903091701_0392",
+      "composite_score": 2.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 176,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 96,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "development and surface improve\nments. The ore shipments to date\nhave netted 5000.\n\n\nThe recent strike wns made in the\nthird crosscut in the No. tunnel.\nThree crosscuts run from this tunnel\nhave encountered the vein, showing a\nwidth of 80 inches. or which a foot\nwas high grade ore, running 230\nounces In silver. The vein is we'll\ndefined and has been opened up for\nover 80 feet in length. So far 215\nsacks Of ore have been taken out\nready for shipments. A car shipment\nof this grade Of ore will run over\n$4,000. In the No 4 tunnel immedi-\nately above the same shoot was\nfound to be over 100 feet in length\nand there is every prospect Of this\nshoot carrying the values for an equal\nII not longer distance.\n\n\nc. M. Fassett and H. s. Stoolhre\nhave gone to the mine to make an\nexamination for Ohio people.\n\n\nThe directors WIN issue to the\nshareholders a statement Of the finan-\ncial condition and the superintend-\nent's report on the mine today."
+    }
+  ]
+}

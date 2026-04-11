@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "\". W. p. 70 CHANGE\n\n\nStreet CAR SYSTEM",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-01",
+    "date_end": "1907-07-01",
+    "report_year": 1907,
+    "source_file": "25_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+    "archive_ref": "25_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 103,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Washington Water Power\nCo. contemplates making q COM\nplete change in its system. Almost\nevery line will be affected. HILL\nyard cars will be not only run to\nthe corner of Howard st. and Riv-\nerside av., as now, but will be con-\ntinued through the city to some\nterminal and back. The Aston\nPacific av. line will also be\nchanged. Liberty park-Boone av.,\nBroadway-Second av cars will also\nbe run differently. Since the new\ncurves and crossings we're installed\nat the busy corner Of Riverside av.\nand Howard st., the company win\nbe enabled to make many much de-\nsired alterations."
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "WOMEN FIGHTING SUFFRAGE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-26",
+    "date_end": "1908-05-26",
+    "report_year": 1908,
+    "source_file": "5_1908-05-26_p3_sn88085947_00211108587_1908052601_0568",
+    "archive_ref": "5_1908-05-26_p3_sn88085947_00211108587_1908052601_0568",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-05-26_p3_sn88085947_00211108587_1908052601_0568",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 8.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 200,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 266,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 129,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "NEW YORK, May 26-\"WOmen\nof America, your attention, please.\nDon't be deluded into believing you\nshould be allowed to vote. Equal\nsuffrage leads to an unseen peril\n\n\nThis is the battlecry of an asso-\ncitation of prominent women that\ncomes upon the field to fight the\nwoman suffrage movement\n\n\n1t is the League OF the Civic Edu-\ncation of Women, and is affiliated\nwith another bigger organization\nhaving similar object, the New\nYork State Association Opposed to\nWoman Suffrage.\n\n\nThe members of these organiza-\ntons are the wives and daughters\nof some Of the most prominent men\nin New York. They are avowed\nenemies Of woman suffrage. Their\nreason for organizing is to beat the\nsuffragists to the average silent\"\nwoman. who has not yet made up\nher mind whether it would be a\ngood thing to be allowed access to\nthe ballot box.\n\n\nAn active campaign for 1908 and\n1909 was mapped out at meeting\nat which Mrs. Richard Watson Gid\ner was elected president of the\nleague and Miss Eleanor Hewitt,\nMrs. VIM. Putnam and Mrs. Samuel\nUntermyer, vice presidents.\n\n\nThere will be two courses of anti\nsuffrage lectures for women, one\nat Berkeley Lyceum and another at"
+    }
+  ]
+}

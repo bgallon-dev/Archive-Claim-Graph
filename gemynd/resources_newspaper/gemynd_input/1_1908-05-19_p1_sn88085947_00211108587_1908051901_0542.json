@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FRAMEUP TO\n\n\nGUST ONO",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-19",
+    "date_end": "1908-05-19",
+    "report_year": 1908,
+    "source_file": "1_1908-05-19_p1_sn88085947_00211108587_1908051901_0542",
+    "archive_ref": "1_1908-05-19_p1_sn88085947_00211108587_1908051901_0542",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-05-19_p1_sn88085947_00211108587_1908051901_0542",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 311,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1164,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Civic league has entered into\nthe job of ousting Commissioner\nONO and this afternoon every sign\nis that before the day is over\nMayor lAoore will have secured a\nsuccessful frameup of the council\nwhereby he can secure the six\nvotes necessary OF eliminate ONO.\nA special meeting for that purpose\nwill probably be called for tonight.\n\n\nSeveral caucuses of republicans\nwere held this morning The first\nwas on the street corner between\nJake Schiller and e. V. Lambert\nof the Third ward. and r. l.. Dalke\nof the Fourth. 1t was agreed be-\ntween them that If Joe Phillips,\nof the Fifth, who has been stead\nfast friend to ONO, was agreeable\nthey would vote for the mayors\nappointee. But IL was necessary\nto secure the aid Of the Civic\nleague to fix Phillips mind, 1t Is\nsaid.\n\n\nThe four then got after Capt.\nJohn Gray Of the Second ward, and\nthe latest report was that the cap.\ntain, under the pressure brought to\nbear. was weakening. All of those\nfive were staunch friends to ONO\nand have practically agreed among\nthemselves to allow him to go.\n\n\n1t is now up to the mayor to pro-\nvide suitable man for Omo's\nshoes. And where does he go? No\nwhere but to the Washington\nWater Power Co. and secured God.\nfrey Murphey, chief foreman Of\nconstruction with the company. 1t\nhas always been limited that the\nw. w. p. Co. could get anything\nIt wanted around the city hall from\nthe mayor or any Of the rest. If\nMurphey takes Omo's place 1t will\nstill have more Of cinch.\n\n\nJohn Wetzel and the mayor have\nkissed and made up, figuratively,\nafter the breach that occurred. and\nalong with Murphey's name, when\nthe frameup Is complete. Wetzel's\nwill be submitted again for Roy s\nplace instead of Omo's, as pre-\nyiously,"
+    }
+  ]
+}

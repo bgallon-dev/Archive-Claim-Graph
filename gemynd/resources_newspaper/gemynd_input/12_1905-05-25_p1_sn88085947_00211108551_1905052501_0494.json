@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "WANT TRACK\n\n\nELEVATED",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-25",
+    "date_end": "1905-05-25",
+    "report_year": 1905,
+    "source_file": "12_1905-05-25_p1_sn88085947_00211108551_1905052501_0494",
+    "archive_ref": "12_1905-05-25_p1_sn88085947_00211108551_1905052501_0494",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-05-25_p1_sn88085947_00211108551_1905052501_0494",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 95,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 182,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 120,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Property owners and residents in\nthe southeastern portion of the city\nhave been fiocking to the Offices of\nthe board of public works to protest\nagainst the grade crossing of the new\nSpokane & Inland line.\n\n\nPeople above the streets to be\ncrossed declare grade crossings will\nendanger the lives of the school chill\nlren and ask the board to stop the\nwork on the new railroad.\n\n\nThe board has taken the matter\nunder advisement and will probably\nlake steps to have the tracks elevat-\nI'D at the crossings so as to permit\nof ,subways."
+    }
+  ]
+}

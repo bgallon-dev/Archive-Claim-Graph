@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRANSFERS MAY\n\n\naffiliate AGAIN",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-16",
+    "date_end": "1906-10-16",
+    "report_year": 1906,
+    "source_file": "5_1906-10-16_p1_sn88085947_00211108563_1906101601_1248",
+    "archive_ref": "5_1906-10-16_p1_sn88085947_00211108563_1906101601_1248",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-10-16_p1_sn88085947_00211108563_1906101601_1248",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 139,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 643,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "1t is not unlikely that the Inter\nnational Transfers union will be\nrepresented in the Central Labor\nunion again in the near future. The\nuion withdrew from the central\nbody some time ago because that\norganization would not endorse the\ntruckmen's scale Of wages. 1t is\nalso reported that some of the\ntrucking firms that have been fight\ning the truck drivers and teamsters\nfor several years past may sign the\nscale and hire union teamsters\nhereafter. In regard to the action\nof some of the transfers in organ\nizing another union last Sunday\nBusiness Agent Clifford did not\nseem to be greatly alarmed, as he\nsaid his union was the only one in\nthe city chartered by the Interna-\ntional transfers and he did not\nthink there was any likelihood of\nanother charter being granted in\nthis city."
+    }
+  ]
+}

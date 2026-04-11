@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "PRo4osED A111NDMEHrs TO TY1\nCITY 0HA1T1D or IKE 0ITY\nOF 1Y0KANE, ADOPTED BY TIE\nCITY COHNNYI.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-04",
+    "date_end": "1903-04-04",
+    "report_year": 1903,
+    "source_file": "12_1903-04-04_p2_sn88085947_00211108526_1903040401_0512",
+    "archive_ref": "12_1903-04-04_p2_sn88085947_00211108526_1903040401_0512",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1903-04-04_p2_sn88085947_00211108526_1903040401_0512",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 226,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 206,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 598,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "To be submitted to the qualified\nelectors of said city at the municipal\nelection to be held May 6, 1908, for\ntheir ratification or rejection,\nPROPOSED AMENDMENT NO. \"a,\nResolved, That Section No. is OF the\ncity charter be repeated\n\n\nPROPOSED AMENDMENT NO. IS.\nResolved, That Section No. 10 Of the\ncity. charter be amended 80 az 20\nread as follows:\n\n\nSection 70. A corporation counsel\nshall be appointed by the mayor and\nconfirmed by the council, and shall\nhold office for the term Of two years.\nHe may be removed upon the recon-\nmendation of the mayor by q major\nity vote Of all the members of the\ncity council. or may be removed by a\nvote of two-thirds of the members OF\nthe council. after charges have been\npreferred. The corporation counsel\nmust be an attorney Of the supreme\ncourt of this state, and must have\nbeen engaged In the practice of his\nProfession for at least i've years. He\nshall give q sufficient bond to the\ncity tn the sum OF 5000 conditioned\nfor the faithful performance Of his\nduties The city council may by or\ndinance, two-thirds voting therefor,\nauthorize the corporation counsel to\nappoint one or more assistants. when\never the intereste OF tho city demand\n\n\nPRoPosED AMENDMENT NO. So.\nResolved. That 6ectien No. 96 OF the\ncity charter be repealed"
+    }
+  ]
+}

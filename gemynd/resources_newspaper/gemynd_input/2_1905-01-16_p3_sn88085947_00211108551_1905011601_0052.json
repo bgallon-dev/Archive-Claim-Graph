@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FRANCHISE FIGHT",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-16",
+    "date_end": "1905-01-16",
+    "report_year": 1905,
+    "source_file": "2_1905-01-16_p3_sn88085947_00211108551_1905011601_0052",
+    "archive_ref": "2_1905-01-16_p3_sn88085947_00211108551_1905011601_0052",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1905-01-16_p3_sn88085947_00211108551_1905011601_0052",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 154,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 283,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Citizens for and against the propos-\ned franchise of the Spokane Traction\ncompany on Washington street from\nSixth avenue to Bernard street, to\nEighth avenue, to Mantle Park. APP\npeared before the special council\nmeeting Saturday night.\n\n\nColonel BILLY\" Ridpath joined the\nWashington Water Power company\nopposition by protesting that he\nwanted to build houses on Sixth ave-\nnue. and his tenants couldn't sleep\nwith a noisy trolley line on the\navenue.\n\n\nFrank Graves led the fight for the\nTraction company and charged that\nthe water power company was insti-\neating the attack on the franchise.\nThe entire matter went over to the\nmeeting to be held tomorrow night\n\n\nThe emergency ordinance for build\ning the Olive avenue bridge was Of\nfered through a resolution by Coun-\nGilman Pratt without advertising the\nfull 20 days. The bill provides for\n$4,000 for the cost.\n\n\nThe mayors message was referred\nto the committee of the whole."
+    }
+  ]
+}

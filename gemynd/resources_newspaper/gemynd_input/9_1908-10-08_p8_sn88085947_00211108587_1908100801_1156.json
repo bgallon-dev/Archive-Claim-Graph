@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "INTERSTATE\n\n\nFAIR EXHIBIT\n\nThe Union Fuel & Ice Compmy\n\n\nShows Public Spirit.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-08",
+    "date_end": "1908-10-08",
+    "report_year": 1908,
+    "source_file": "9_1908-10-08_p8_sn88085947_00211108587_1908100801_1156",
+    "archive_ref": "9_1908-10-08_p8_sn88085947_00211108587_1908100801_1156",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-10-08_p8_sn88085947_00211108587_1908100801_1156",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 326,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1618,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Union Fuel & Ice Co. are\nfurnishing free to the Interstats\nfair the coal being used in the az\nfees of the fair in the Manufac-\nturers' building, and on the stesm\nrollers, as well as the coal f0r\nthreshing machine engines dis\nplayed on the ground. This coal\nis given Jointly by the Union Fuel\n& Ice Co. and the Hillcrest Coal\n& Coke Co. They have the finest\nfuel exhibit on the grounds, show\ning:\n\n\nHillcrest steam COAL\n\n\nHillcrest screened coal.\n\n\nHillcrest slack coal.\n\n\nCanada West coal.\n\n\nGait lump coal.\n\n\nBanff anthracite coal.\n\n\nSmith lump coal.\n\n\nSheridan lump coal.\n\n\nPennsylvania anthracite coal\n\n\nkeystone Lilly blacksmith coal.\n\n\nThe different kinds of coal arc\ntastefully exhibited in baskets.\nand they have large block Of\nCanada West coal on which they\nhave guessing contest as to the\nweight of the coal. This exhibit\nis in charge of e. T. Fitzsimmons\nof the sales department of the\nUnion Fuel g. Ice Co.\nCement Exhibit\n\n\nThey are exhibiting Exshaw inn\nported cement in very interest\ning and instructive way, showing\nthe different stages of the process\nes of manufacture from the raw\nmaterial to the finished product,\nshowing cement blocks and trim\nmings manufactured by the Spo-\nkane Concrete Co. and cement\nbricks In the fireplace exhibited\nby the Spokane Tile & Mantel Co.\nThis exhibit is in charge of j. g.\nDean, chemist in chief of the\n/ Western Canada Cement & Coal\nCo. of Exshaw, Alta.\n! Contractors, architects and civil\nengineers will find the cement ex-\nhibit very interesting and instruc-\ntive. The city of Spokane is pur-\nchasing this cement for city con-\ncrete work, and the Washington\n| Water Power Co. are using 1t in\nthe construction of their dam at\nLittle Falls, 20 miles below Spo-\nkane, in the Spokane river. The\nUnion Fuel & Ice Co. are the\nlargest Wholesale and retail deal\ners of fuel and cement In eastern\nWashington."
+    }
+  ]
+}

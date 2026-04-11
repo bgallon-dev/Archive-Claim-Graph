@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "DIR. KRAMER\nPLACED IN\n\n\nA BAD HOLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-25",
+    "date_end": "1910-04-25",
+    "report_year": 1910,
+    "source_file": "7_1910-04-25_p2_sn88085947_00211108630_1910042502_0377",
+    "archive_ref": "7_1910-04-25_p2_sn88085947_00211108630_1910042502_0377",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "7_1910-04-25_p2_sn88085947_00211108630_1910042502_0377",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 108,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 29,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mrs. House, president Of the\nWoman's club, today asked\nOr. Kramer, pastor Of the First\nBaptist church, for the use Of\nhis temple to reply to his de-\nTense of the police. She held\nthat since he had attacked and\nimpuoned the motives Of the\nWomsn's club they had right\nto appear and defend them.\nselves.\n\n\nDr.. Kramer hemmed and\nhawed and said that he would\nhave to see his trustees. The\nanswer has not been given.\n\n\nII he will open his pulpit to\nthe women they will give the\npolice of Spokane one Of the\nworst trimmings down that\nbody has received in Spokane\nin 20 years."
+    }
+  ]
+}

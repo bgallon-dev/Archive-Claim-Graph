@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "that COMIC OPERA WAR AT zE|CLER\n\n\nLOOKS LIKE A TIN SOLDIER PICNIC",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-12-13",
+    "date_end": "1904-12-13",
+    "report_year": 1904,
+    "source_file": "2_1904-12-13_p4_sn88085947_0021110854A_1904121301_0751",
+    "archive_ref": "2_1904-12-13_p4_sn88085947_0021110854A_1904121301_0751",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-12-13_p4_sn88085947_0021110854A_1904121301_0751",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 273,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1002,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The governor sent two companies of\nthe national guard.\n\n\nThe second call was made Deem\nDer 4. On that day a soldier came\ninto camp with an armful of frozen\ndynamite sticks with a partially burn\ned fuse attached. He had found the\nsticks piled above water main. 1t\nwould be contended by some that a\nMINER accustomed to the use of ex-\nplosives. would not try to blow up\nanything with frozen dynamite, and,\nif he was in the blowing-up business,\nthat he would select some object more\nimportant than water pipe that\ncould be repaired in a few hours, but\nthe authorities did not take that view\ngovernor foa two more companies of\nthe national guard.\n\n\nThis sending of the soldiers has re-\nlieved Letter of n heavy expense. AT\none time last summer his force of\nguards is said to have comprised sew\neral hundred men. Then the number\nof civilian guards was greatly re-\nuuc@u ana % SneflT1 s deputies placed\nin service. The latter were succeed\ned by 40 deputy United States mar\nshals sworn in to enforce a federal\ninjunction restraining folks from in\nterfering with the operation of the\nmines. While the soldiers are there\nthe state bears the expense of guard\ning the property.\n\n\nComplaint Is made by some men\nwho have occasion to use the county\ndomain. A man in a buggy at dusk\nwas held up by a guard. After hav-\ning proved his peaceable disposition\nhe was given this cheering advice:\nYou better whistle as you go along,\nbecause if you happen to come on one\nof the guards Unexpectedly he may"
+    }
+  ]
+}

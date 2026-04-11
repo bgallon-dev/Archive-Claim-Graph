@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-11-26 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-26",
+    "date_end": "1904-11-26",
+    "report_year": 1904,
+    "source_file": "22_1904-11-26_p1_sn88085947_0021110854A_1904112601_0683",
+    "archive_ref": "22_1904-11-26_p1_sn88085947_0021110854A_1904112601_0683",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1904-11-26_p1_sn88085947_0021110854A_1904112601_0683",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 106,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 460,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "completing the arrangements for the\nconvention. Tuesday morning the\nbusiness of the convention will begin\nand continue morning, afternoon and\nevening until Saturday night. All\nthese meetings will be held in the\nTemple, except the one on Thursday\nevening, which will be a great tenn\nperance demonstration by 1000 chill\ndren, This meeting will be held in\nthe Academy of Music.\n\n\nProminent among the speakers to\nbe heard during the week, In addition\nto the noted temperance workers of\nthis country, are the Countess Car\nIsle, president of the British Wom-\nans Temperance association; Mrs.\nHarrison Lee of Australia and Miss\nEllen Stone, the noted missionary."
+    }
+  ]
+}

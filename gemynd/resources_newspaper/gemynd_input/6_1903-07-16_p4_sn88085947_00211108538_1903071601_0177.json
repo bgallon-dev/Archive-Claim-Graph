@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Railroad Notes.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-16",
+    "date_end": "1903-07-16",
+    "report_year": 1903,
+    "source_file": "6_1903-07-16_p4_sn88085947_00211108538_1903071601_0177",
+    "archive_ref": "6_1903-07-16_p4_sn88085947_00211108538_1903071601_0177",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-07-16_p4_sn88085947_00211108538_1903071601_0177",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 223,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An examination Is being held by\nthe Northern Pacific today at which\nthe eyesight and hearing Of the en-\nployes are being tested.\n\n\nA. P. Bryan. superintendent of the\no. r. & N, is in the city.\n\n\nOfficials of the Q. r. & N. here\nhave received notification that the\ncompany will take care of and edu-\ncate the three children Of J. M. Ker-\nnan, one of their agents at Heppner,\nwho persisted In the recent floods. He\nremained at his telegraph instrument\nto warn the people down the valley\nand was caught at his post.\n\n\nSuperintendent A. Beamer OF the\nNorthern Pacific has posted a new\nlist of rules for the disregarding of\nwhich the employees will be discipiin-\ned by being laid of from five to\n80 days and by dismissal from the\nservice Of the company.\n\n\nJohn s. Mercer local agent OF the\nWisconsin Central system, leaves for\nNorth Yakima tonight.\n\n\nIII. s. Collins OF the Northwestern\nline leaves for Kalispsll, Mont, to-\nnight.\n\n\nJ. F. Hannaford. second vice presi-\ndent and general traffic manager Of\nthe Northern Pacific. left last night\nfor Tacoma.\n\n\nSeveral changes have been made in\nthe freight department Of the Great\nNorthern. Cashier Dutton has been\nappointed to the position Of chief\nclerk and a new man named Thomp-\nson has been made cashier."
+    }
+  ]
+}

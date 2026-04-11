@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BRIEF CITY NEWS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-05",
+    "date_end": "1907-08-05",
+    "report_year": 1907,
+    "source_file": "1_1907-08-05_p4_sn88085947_00211108575_1907080501_0935",
+    "archive_ref": "1_1907-08-05_p4_sn88085947_00211108575_1907080501_0935",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-08-05_p4_sn88085947_00211108575_1907080501_0935",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 164,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 539,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Yesterday was the 18th anniver-\nsary of the big fire that wiped out\nthe business district of Spokane.\nThe date occasioned great deal Of\nRenaissance among citizens who\nwere here at the time.\nc. F. Waldron, of Occur d'Alene,\nfound his little son and daughter\nhere yesterday in care of Attorney\nFred Miller. He had expected\nthem on another train from Boise\nand failed to meet them. Miller was\ncoming home and assumed charge\nOf the youngsters. Their mother is\ndead.\n\n\nTeachers examinations for state\nand county certificates begin today\nin the county superintendent Office\nat the courthouse. Tie first days\nwill be devoted to state examina-\ntions and the next 3 to county\ngrades.\n\n\nDR.. w. H. Appleton and Miss\n! Adelaide Laird, of the Shirley Co.,\nwere married yesterday at Occur\nd'Alene, Idaho. Miss Laird played\nher part as leading lady with the\nShirleys Saturday night.\nMiss Adeline Smith, who will\nleave in September for missionary\nwork In China, addressed the Wom-"
+    }
+  ]
+}

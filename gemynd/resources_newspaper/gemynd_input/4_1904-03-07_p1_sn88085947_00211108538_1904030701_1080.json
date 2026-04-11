@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "DANGER\n\ntscripps News Association, }",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-07",
+    "date_end": "1904-03-07",
+    "report_year": 1904,
+    "source_file": "4_1904-03-07_p1_sn88085947_00211108538_1904030701_1080",
+    "archive_ref": "4_1904-03-07_p1_sn88085947_00211108538_1904030701_1080",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1904-03-07_p1_sn88085947_00211108538_1904030701_1080",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian territory"
+        ],
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 199,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian territory",
+            "weight": 1.5,
+            "offset": 141,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 807,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON. March THE re-\nport of Charles ]. Bonaparte, special\ncommissioner to investigate the\ncharges made against the administra-\ntion of Indian Territory affairs, was\nfiled with congress this afternoon. He\nfinds the conditions involve imminent\ndanger of wrong doing to the general\nIndian population which would be a\nprofound discredit to the United\nStates. He demands drastic remedies\nand recommends that the Indian COM\nmission be abolished. He also recon-\nmends that agents be kept independ-\nent of each other and that the admin\nistration of affairs In the territory be\ncommitted to officers on the spot,\ncarefully superintended but not con-\ntrolled from Washington. Special\nallegations respecting the federal Of\ntrue.\n\n\nHe finds that Tams Bixby, chairman\nof the Dawes commission. was inter\nested in a real estate transaction In\nthe territory to the prejudice of the\nbest interests of the Indians. c. II.\nbreckenridge, Thomas Needles, a. l..\nAylesworth chief clerk of the com\nmission, and ii. V. Smith. dlsbursing\nagent, are found also to have been\nconnected I'm these operations. He\nrecommended that the practice be for\nhidden and that the federal officials\nconnected Herewith be separated\nfrom office. Secretary Hitchcock APP\nproves the report."
+    }
+  ]
+}

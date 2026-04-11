@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-24 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-24",
+    "date_end": "1909-12-24",
+    "report_year": 1909,
+    "source_file": "14_1909-12-24_p3_sn88085947_00211108617_1909122401_0474",
+    "archive_ref": "14_1909-12-24_p3_sn88085947_00211108617_1909122401_0474",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1909-12-24_p3_sn88085947_00211108617_1909122401_0474",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 522,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 1343,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "step in the right direction, but far\nfrom what is needed\n\n\nMY order for valuation and class\nitication could not apply to the coal\nlands of Alaska, as by law their\nvalue was fixed at $40 per acre, but\n| continued Secretary Hitchcocks\norder, as | believed that most OF\nthe attempted locations or entries\nin Alaska (including the Cunning\n!, ham claims) We're fraudulent or IL\nlegal,\n\n\nThe Alaska coal fields are of pc\nculiar interest They are centered\nin two great Alaska fields, compar-\natively small in area, but enormous\n| ly valuable. found that some\ngreat interests were trying to ac-\nquire control of the Alaska fields.\nand some bills were pending in con\ngress which, If passed, would have\nvalidated many fraudulent entries.\n| opposed, by report and oral\nhearing, the bills that proposed to\nvalidate fraudulent or illegal en-\ntries, and pointed out the danger of\nthose fields passing under monopo-\nlistic control, and urged that the\nproposed law apply only to bona\nlide entries or claims.\n\n\nIllegal and fraudulnt acquisition\nof coal lands was stoppd, the great\ner part of the main land coal was\nclassified, much coal land illegally\nacquired was recovered, the dan\ngers of waste and monopolies were\nexposed, and definite suggestions\nwere made for a system of lease or\nconditional sale.\n\n\nThe enormous increase in the use\nof water for power, irrigation and\ndomestic consumption has induced\ngreat activity on the part of big in\nterests to acquire as many avail\nable reservoir and power sites as\npossible.\n\n\nThere was imminent danger that\nsuch sites left on the public domain\nwould be filed upon and obtained\nunder conditions that would in no |\nwise protect the public, but would |\nmake monopoly possible in the near\nfuture.\n\n\nPresident Roosevelt brought the |\nquestion Of control of power de. |\nvelped on navigable streams direct |\nly to the attention of congress and |\nstated the policy he believed neces-\nsary to protect the public interests. |\nThe essential features of that pol |\nicy were that power sites should be |\ngranted only under conditions that |\nwould limit grants to a definite\nperiod and yield fair compensation\nto the government.\n\n\nThe work under the reclama\nton law is directly connected with\npower Development. Wherever\nreservoirs and dams are needed\nfor irrigation projects there may\nbe opportunity for power. Hence\nboth objects may be often com\nbined with advantage to the pub\nlie.\n\n\nThe irrigation work done by the\nfederal government during the\npast eight years is practical con\nservation ~ the highest order.\nThe intensive cultivation required\nupon irrigated land results in an\nenormous increase Of the yield per\nacre.\n\n\nThe policy of PRESIDENT Roose-\nwelt in dealing with water includ-\ned all its uses from source to sea.\n1t showed the necessity of consid-\nering a stream as a unit and as an\nessential part OF a great watershed.\nThe storage of water for power.\nirrigation and domestic supply has\ndirect influence upon navigation\nand flood control, The mere\nstatement of the problem shows\nthe need of strict government res"
+    }
+  ]
+}

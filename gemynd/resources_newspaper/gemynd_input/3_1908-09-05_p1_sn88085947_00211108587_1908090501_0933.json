@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PHONE GRAFT\n\n\nCONTINUES",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-05",
+    "date_end": "1908-09-05",
+    "report_year": 1908,
+    "source_file": "3_1908-09-05_p1_sn88085947_00211108587_1908090501_0933",
+    "archive_ref": "3_1908-09-05_p1_sn88085947_00211108587_1908090501_0933",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-09-05_p1_sn88085947_00211108587_1908090501_0933",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 479,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 329,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Probably no public service cor.\nporation in Spokane has less regard\nfor the general public than the\nlocal arm OF the Bell telephone\nmonopoly, the Pacific States Tele-\nphone Co.\n\n\nThe attitude of this corporation\ntoward its patrons or those seeking\nthe use of telephones is clear\ndemonstration of the harmful eff\nfects of issuing public utility fran\nchises containing no restrictions as\nto rates or means Of compulsion as\nto giving service. In no other city\nprobably has this company the alb\nsolute cinch it has here.\n\n\nThe Pacific States Telephone Co.\nin Spokane is operating under a\nfranchise of questionable title, con-\ntanning no provision limiting phone\ncharges or other restrictions calcu-\nlated to give the city check over\nits operations.\n\n\nContracts made with patrons of\nthe company seem to be binding\nonly on the patron and not on the\ncompany. The company is ever\nready to sign up all applicants for\ntelephone service, but the installa-\nton of the phone is another con-\nsideration. The contract provides\nthat the patron shall be taxed $3.50\nin case he desires it cancelled, but\ncontains no provision compelling\nthe company to give service in one\nmonth, one year or 10 years. These\ncontracts simply bind the applicant\nfor telephone service to the extent\nof obligatipg him to use the COM\npany's phone if they choose to give\nhim one, and complexities matters\nsomewhat for the prospective\nphone user II any other company\nshould come along that meant bust.\nness.\n\n\nWhile this failure to give service\nhas been experienced in all sections\nof the city, 1t Is more particularly\nfelt in the outlying districts. An\ninstance that has j,\\t come to light\nillustrates the way the Spokane\narm of the Bell does business. A\ncontract was entered into with a\nman In Heaths addition for the use\nof phone twelve months at $3.50\nper month on four party line\nAfter six months had elapsed the\nman moved to Lidgerwood and put\nin request for change of his\nphone. The fact that it had signed\ncontract TO give this patron tele,\nphone service for one year at $1.5O\nper month had no weight with the\ncompany, and the patron was asked\nto sign a new contract for a year\nat an increase of 25 cents per\nmonth for the same class of ser.\nvice. The telephone patron objected\nfor time on the ground that the\ncompany had obligated itself to\ngive him phone service for a year\nat $50 per month, but finding that\nhis protest would be of no avail he\nsigned new contract agreeing to\npay tho $175 rate. Time went on\nand no phone came. At the end\nof the first month he was told IL\nwould come in the next 30 days\nbat no phone was seen.\n\n\nThings dragged on In this way\nthe telephone company making"
+    }
+  ]
+}

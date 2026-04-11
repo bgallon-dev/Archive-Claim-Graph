@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-29 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-29",
+    "date_end": "1910-03-29",
+    "report_year": 1910,
+    "source_file": "4_1910-03-29_p1_sn88085947_00211108629_1910032901_1157",
+    "archive_ref": "4_1910-03-29_p1_sn88085947_00211108629_1910032901_1157",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-03-29_p1_sn88085947_00211108629_1910032901_1157",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 198,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 874,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 1029,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "cause the funds were running low\nand that the water extensions were\ngoing to cost great deal more\nthan calculated when first planned.\nThis was put out as feeler.\n\n\nThen followed detailed state\nment from the water department\ntelling of total cost for the water\nextensions of some $3.50, 900, which\ninto the councilmen, but 1t did not\nwork. AS a matter of fact a lot\nOF mains are included in the esti-\nmate that We're not in the original\nplans at all, and these mains, usu-\nally laid out of what is called the\nannual water extension fund, were\nnot chargeable to the water better\nments started last summer but are\nnew work since planned.\n\n\nHuetter took the building of the\nfour standpipes for $4,000 II he\nhas bitten off hard contract it\nIs worth something to him to be re-\nleased and the proposition now\narises, how is the deal to be work\ned through and escape the ire of\nthe city council.\n\n\nThe council has ordered that the\nstandpipes be built, and any effort\nto defeat this order is violation\nof duty on the part of the board\nof public works and engineers of\nfico"
+    }
+  ]
+}

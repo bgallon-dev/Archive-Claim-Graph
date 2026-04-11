@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-11-01 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-01",
+    "date_end": "1910-11-01",
+    "report_year": 1910,
+    "source_file": "4_1910-11-01_p6_sn88085947_00211108654_1910110101_0333",
+    "archive_ref": "4_1910-11-01_p6_sn88085947_00211108654_1910110101_0333",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-11-01_p6_sn88085947_00211108654_1910110101_0333",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 462,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 449,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Kootomol county, Idaho, gives suf-\nficteqe violence against w. b. Dish\nman TIT were the voters of Spo-\nkan1 0oUnty c0nversant with the\nfacs Ulshman would be showed\nua4@f 70 deeply that he would never\na&4ln thrust his head up for office.\n\n\nmans opponent, Warner Cobb.\n\n\n0ne Of Spokane county's grand\n~ pioneers, having come to the\nUnity over 80 years ago.\n\n\nQ1shman's weakness while a\nmember of the official board of\nkOotenai county was to favor the\nNorthern Pacific railroad in the\nmatter of taxation on its lands, of\nwhich the railroad then held large\namount. Dishman voted with the\nrailroad on every proposition in\nwhich it was interested in in the\ntwo years in which he was in office.\nDishman went into office a compar-\natively poor man and came out with\nmoney He then moved across the\nborder into Spokane county, bought\nland here, changed his politics and\nis now referred to, in the campaign\nbooklet, as lone of our prominent\nbusiness men,\"\n\n\nIn July, 1898, when again equaliz-\ning the land values for that year,\nthe only taxpayer save one in Koot-\nenai county to kick was the North\nern Pacific, which knew that it had\na friend at court in Dishman. This\nman voted to cut the Northern Pa\ncific assessment in some instances\nfrom listed valuation of Is cents\nper acre to 25 cents per acre. Some\nlands were cut from 81 to 75 cents;\nfive sections from 81 to $3.50 per\nacre; and SO sections from $3.50 to\n$1.25 per acre. In all, the reduc-\ntions granted the Northern Pacific\nthat year amounted to $9743. Smith,\nhonest man, went on record\nagainst 1t.\n\n\nFor nearly 10 years the Northern\nPacific had failed to pay Kootenai\ncounty any taxes whatever on its\nland holdings, and the land had\nbeen sold for taxes and bought in\nby the county. In 1898 fasteners\nwere coming into the northwest,\nprospects were beginning to\nbrighten and the Northern Pacific\nthought that the time had arrived to\nregain the title to it's land. They\nlooked to Dishman and Cable to\nturn the trick, and the trick was\nturned. Smith, however, was not in\non the play, and called the roll, as\nusual.\n\n\nThe back taxes on this land then\namounted to $10,323. The railroad,\nwith the vote of Dishman, settled\nfor $4,000, was decided back it's land\nand the whole incident closed. The\nland was then worth tens of thou\nsands of dollars and the railroad\nshould have lost it the same as any\nother of the thousands of private\ntaxpayers who were sold out for\ntaxation in the hard times. The PR.\nvate taxpayers had no friends on\nthe board of county commissioners;\nthe railroad had-there was the diff\nference."
+    }
+  ]
+}

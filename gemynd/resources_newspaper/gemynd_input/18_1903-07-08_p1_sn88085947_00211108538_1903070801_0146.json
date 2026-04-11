@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "TRADES COUNCIL |\n\n\nBOYCOTT PHONES",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-08",
+    "date_end": "1903-07-08",
+    "report_year": 1903,
+    "source_file": "18_1903-07-08_p1_sn88085947_00211108538_1903070801_0146",
+    "archive_ref": "18_1903-07-08_p1_sn88085947_00211108538_1903070801_0146",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1903-07-08_p1_sn88085947_00211108538_1903070801_0146",
+      "composite_score": 10.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 10.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "boycott",
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1903,
+      "word_count": 266,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 1009,
+            "in_headline": false
+          },
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": true
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 19,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "newly appointed superintendent, moth\ning will be done.\n\n\nThree Of the girl strikers return\ned to us this morning.\" said Mr..\nBush, land they were given their old\npositions. We hold no feeling towards\nthem whatever and they can have\ntheir positions whenever they are va\ncant.\n\n\nmo, they have made no advances\nto us regarding a settlement ana their\naction in boycotting the company\nsurprises me. I don't know what ef-\nfeet 1t will have. There are many\ncontracts that have run out and IL\nthey order their telephones out they\nwill have to be taken out, that is all.\n\n\n\"The rules we have are only those\nin effect in most telephone offices. and\nthere must be rules to govern such\na large body of girls. The rules en-\nacted seem to be the chief cause of\nthe trouble\"\n\n\nThe Pacific States Telephone &\nTelegraph company has its hands full\nOf trouble all along the coast With\nthe exception of Seattle the linemen\nare out along the entire system. In\nSan Francisco the 26 collectors en-\nployed by the company are also on\nstrike. In Fresno the 40 girl oper-\nators have walked out because the\nmanager forbid them attending la\nDor lecture.\n\n\nJohn l. Sabin, president of the Pa\ncific States Telephone & Telegraph\ncompany, in San Francisco inter-\nview states that there will be no\ncompromise between the company\nand the striking linemen. He says\nthe company is losing money by the\nstrike, but it could AFFORD to bide it's\ntime and wait until the men who\nwalked out returned to their. work."
+    }
+  ]
+}

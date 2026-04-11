@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "TRYING THE\n: |. v. v. IN\nBUNCH\n\nSIX \"coNsPIRAToRs\" IN THE\nFIGHT FOR THE RIGHT OF\n\n\nFREE SPEECH ARE\nARRAiGNED.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-21",
+    "date_end": "1910-01-21",
+    "report_year": 1910,
+    "source_file": "2_1910-01-21_p2_sn88085947_00211108629_1910012101_0208",
+    "archive_ref": "2_1910-01-21_p2_sn88085947_00211108629_1910012101_0208",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-01-21_p2_sn88085947_00211108629_1910012101_0208",
+      "composite_score": 16.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 11.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "conspiracy",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 223,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 151,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 819,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 83,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With a we'll filled courtroom OF\nspectators on hand, but the intense\ninterest Of the former trials no.\nticeably absent, the trial of the six\nremaining I. w. w. \"conspirators'\ncommenced this morning before\nJustice George w. Stocker.\n\n\nWith Fred III. Moore and Thomas\nj. Symmes of Chicago represent.\ning the prisoner, and Deputy Prose.\ncutor Don F. Kizer and Deputy Cor\nporation Counsel John f. Blair\nprosecuting the cases, seceral lively\ntilts were INDUCED in, although the\nenmity of counsel that marked the\nfirst trials before Judge Stocker is\nlacking.\n\n\nThe morning was spent in intro.\nducing l. w. w. literature as evi.\ndence and the reading of articles\nposters, etc, to the jury. Detective\nBurns was placed on the stand, but\nhad given little testimony before\nthe noon recess.\n\n\nThe six l. w. w. leaders charged\nwith conspiracy are George Speed\nwho came here from San Francis.\nCO; John Nj. Foss, Otto Justh, Hart\nwell Shippey, Charles Grant and\nThomas Whitehead.\n\n\nThe six jurors who are hearing\nthe evidence in the case are J. H.\nTilsley, w. H. Wiscomb. A G. An\nsell, NJ. G. Duncan, NJ. NJ. Dickson\nand Z. A. Winchester. Thomas J.\nSymmes of Chicago was sent here\nto take the place of David K Tone\nwho was due here today to assist\nAttorney Moore in the fight."
+    }
+  ]
+}

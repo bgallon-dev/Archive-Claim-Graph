@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Big PUSH OF\n\n\nnOMESEEkElS",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-03",
+    "date_end": "1906-03-03",
+    "report_year": 1906,
+    "source_file": "18_1906-03-03_p2_sn88085947_00211108563_1906030301_0469",
+    "archive_ref": "18_1906-03-03_p2_sn88085947_00211108563_1906030301_0469",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1906-03-03_p2_sn88085947_00211108563_1906030301_0469",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 61,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 197,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Owing to the great influx of\nhomeseekers into the northwest, Or\nders have been given to extend\nthe home seekers rate 10 days,\nwhich brings it up to April 16.\nEvery train coming into Spokane\non the Great Northern and North\nern Pacific is crowded with people\nfrom the east and middle west, in\nsearch of new homes and business\nlocations."
+    }
+  ]
+}

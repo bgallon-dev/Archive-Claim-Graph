@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STATE PAYS AFTER\n\n\nFIFTY YEARS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-10",
+    "date_end": "1909-07-10",
+    "report_year": 1909,
+    "source_file": "10_1909-07-10_p1_sn88085947_00211108605_1909071001_0380",
+    "archive_ref": "10_1909-07-10_p1_sn88085947_00211108605_1909071001_0380",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-07-10_p1_sn88085947_00211108605_1909071001_0380",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian war"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 147,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian war",
+            "weight": 2.0,
+            "offset": 169,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ". KALAMA, Wash, July TO- 4\n. Hon. James Burke received Z\n. today check for $372.S7 from I\n. the state treasurer, the\n. amount being due for services I\n. rendered In the Indian war of Z\n= 1856.\ny Taking his own horse. sad Z\n. die and bride. Burke went Z\n. into war at the beginning and Z\n. served to the end. 30S days. Z\n. He was entitled to 1916, but Z\n= the state charged him with his Z\n. own saddle and bride, max Z\n. ing The difference between the Z\n. draft and his claim. Burke Z\n. served as representative Z\n= and county commissioner. Z\n. After waiting for over half Z\n. a century few other veterans Z\n= are now receiving pay. Z\nQ 80 q . 90 . 80 800 Z"
+    }
+  ]
+}

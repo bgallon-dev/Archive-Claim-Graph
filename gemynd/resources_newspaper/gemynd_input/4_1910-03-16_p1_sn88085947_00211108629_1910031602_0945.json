@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-16 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-16",
+    "date_end": "1910-03-16",
+    "report_year": 1910,
+    "source_file": "4_1910-03-16_p1_sn88085947_00211108629_1910031602_0945",
+    "archive_ref": "4_1910-03-16_p1_sn88085947_00211108629_1910031602_0945",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "4_1910-03-16_p1_sn88085947_00211108629_1910031602_0945",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 265,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1348,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "why ii is that politicians who usu-\nally fight each other are so much\nin unison in denying a fair investi-\ncation, or three police matrons\n\n\nMeanwhile, labor has notified its\nmember of the latest mayor com\nmittec to withdraw, as the leaders\nwill have nothing to do with any\nprobing committee that is domin-\nated by Sullivan, or soon-to-be\n(maybe) Corporation Counsel\nBlair anL unless there is fair\ncommittee appointed by the mayor,\nsaid committee being chosen not by\nthe official clique now hunting\ncover. but by the organizations di-\nrectly concerned. then secret\ncommittee will be authorized and\nits final findings and the evidence\nthat caused them will be printed.\nThe public will discover many\nthings of interest if it reads The\nPress these next few weeks. 1t\nwill also discover the real truth\nabout municipal and county condi-\ntionS.\n\n\nThe attitude of the German so.\ncieties is about that of labor.\n\n\nwhile we feel that the mayor s\nselection for us was a good one,\nand that Mr.. Gundlach will always\nbe on the right side, we feel that\nthis is a six to one committee. with\nthe six probably welded to the ad-\nministration program as were the\ntwo out of the three on the original\ncommittee. We, with labor, asked\nfor committee of five to be chos-\nen- by the organizations concerned.\nInstead we get committee of\nseven chosen by the mayor with\nthe Woman's club left entirely out\nof the work\" That was the state\nment of Karl Riedelsberger. presi-\ndent of the United German Socie-\nties this morning."
+    }
+  ]
+}

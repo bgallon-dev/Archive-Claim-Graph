@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "Will CITY COUNCIL\n\n\nCAN ATTORNEY BLAIR",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-23",
+    "date_end": "1910-03-23",
+    "report_year": 1910,
+    "source_file": "23_1910-03-23_p1_sn88085947_00211108629_1910032302_1067",
+    "archive_ref": "23_1910-03-23_p1_sn88085947_00211108629_1910032302_1067",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "23_1910-03-23_p1_sn88085947_00211108629_1910032302_1067",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 617,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 18,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 5,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Back again to the city council\ngoes the scrap in the corporation\ncounsers office. II is now up to\nthe city council to say whether they\nwere really in earnest when they\napproved the sensational report Of\nthe special committee last night in\nthe Blair investigation.\n\n\nMayor Pratt this morning refused\nto name new corporation counsel,\nas requested by the special COM\nmittee, and approved by the city\ncouncil, and will stand by Blair.\nThe city council asked for a new\nman, in order to settle the contro-\nversy, but Pratt has refused to\nfire\" Blair. In fact, he exonerated\nBlair before the investigating COM\nmittee made its report at all.\n\n\nBlair was still on the job this\nmorning, silent but eagerly watch\ning which way the cat will jump.\nHe had nothing to say beyond the\nfact that it made him feel good to\nknow that Pratt was standing with\nhim.\n\n\n1t is believed that the city council\nwants to tie a can to Mr.. Blair. but\nthe question arises, has the council\nthe moral courage to do the trick.\nThat remains to be seen. The coun-\nGil will meet again tomorrow night\nand at that time will find Mr. Blair\nis st'll with them.\n\n\nThe findings of the special inves-\ntigating committee appointed by\nthe city council was read to that\nbody last night. The findings were\nthe btterest arraignment ever\nmade Of city official in like ca\npacity by a committee appointed to\ninquire into official misconduct.\n\n\nThe findings of the committee up\nheld the contention of the former\ncorporation counsel. e. O. Connor,\nthat Blair had thrown down\" the\ncity in two big damage suits; that\nhe had wholly neglected his duties\nas an assistant to the corporation\ncounsel and refused to take orders\nfrom his chief; that he did every\nthing in his power to hamper and\ninterfere with the legal department\nof the city in order to force Connor\nfrom the office. and that in this\nwork he had the aid and conniv-\nance of Mayor Pratt: that Blair\ngave the bulk of his time for the\nlast three months to work of the\ncharter revision committee. instead\nof helping work out the affairs of\nthe city under the existing charter;\nthat Blair's law partner. James T.\nBurcham. maintains an office in the\ncorporation counsers office in order\nTO aid Blair in looking after private\nbusiness while ostensibly transact\ning public business. and that\nBurcham had said office at a nom\n.inal rental: in fact. every charge\nmade by f. O. Connor and Bruce\nBlake were upheld.\n\n\nThe present force Of assistants to\nBlair, Messrs. Wiley. Tustin and\nMcWilliams, were exempted from\nthe general condemnation, as new\nmen in the office about whom\nnothing but good can be said\n\n\nThe report of the committee was\ndrawn by G.. w. Shaefer, an attor\nney. as chairman, and signed by\nLeonard Funk. Jacob Schiller\nCharles w. Mohr and Peter Nelson\nShaefer has his office next door In\nthe Hyde block to the one occupied\nby Blair.\n\n\nThe committee report was\nadopted by the city council without\ndissenting vote.\n\n\nMr.. Blair arose and read an an\nswer of general denial to the\ncharges, which the council permit\nted to be added to the report of the\ncommittee. After this he conferred\nwith John Lee, the mayors secre\n] tary, and Ernest Sargent. former\nassistant city attorney.\n\n\nIn addition to = the censure o\nBlair, the council ordered thai\nBpvham be fired out OF the office\nJof the corporation counsel and thai\non and after April less pretentious\nquarters he used. at not to exceed\n$50 per month. The present rent Ii\ns125 per month."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-12-03 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-03",
+    "date_end": "1906-12-03",
+    "report_year": 1906,
+    "source_file": "14_1906-12-03_p1_sn88085947_00211108575_1906120301_0114",
+    "archive_ref": "14_1906-12-03_p1_sn88085947_00211108575_1906120301_0114",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1906-12-03_p1_sn88085947_00211108575_1906120301_0114",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 151,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 12,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 608,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Ed Farrell, Northern Pacific en-\ngineer, was instantly killed, his\nengine badly damaged, a freight\ncar smashed to kindling wood and\nthe cowcatcher ON another engine\nsmashed in a wreck at the N. P.\ntracks and Jefferson st. at 9\nO'Clock this morning. No one be-\nsides Farrell was injured. The\nfiremen are unable to account for\ntheir escapes. Engineer Farren's\nbody was badly mangled. The dead\nman resided on Indiana av. and\nleaves family.\n\n\nSwitch engine No. 954, in charge\nof Farrell, was standing on the\neast bound main track at Jefferson\nSt, headed to the west, and had\njust started to back down toward\nthe depot when suddenly, without\nwarning, a heavy mogul freight en-\nCINE rawing a heavy train dashed\nout of the fog, coming from the\nwest, and crashed into the little\nswitch engine.\n\n\nThe freight train drawn by en-\nCINE No. 1549 was in charge of"
+    }
+  ]
+}

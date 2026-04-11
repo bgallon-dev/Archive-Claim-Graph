@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "WOMEN WIN\nFIGHT FOR\n\n\n3 NATIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-24",
+    "date_end": "1910-02-24",
+    "report_year": 1910,
+    "source_file": "11_1910-02-24_p2_sn88085947_00211108629_1910022402_0650",
+    "archive_ref": "11_1910-02-24_p2_sn88085947_00211108629_1910022402_0650",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "11_1910-02-24_p2_sn88085947_00211108629_1910022402_0650",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "conspiracy",
+          "arrested",
+          "jail"
+        ],
+        "spokane_development": [
+          "water power",
+          "city council"
+        ],
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 247,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1167,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1228,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 1250,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 680,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 65,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 173,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OF course, there Will be a police\nratron-not one, but three.\n\n\nA city council that would have re-\nsisted the stirring pleas made be.\nfore 1t last night by the ladies OF\nthe Woman's club would have been\nt1ard-hearted indeed. And further\nmore, the women, through their\nspokesman, Mrs. p. p. Stafford,\nsaid they had the \"dope\" that indi-\nGated the need Of the matron and\nwould spring 1t unless the council\ngranted the request for the matron.\nFurthermore, Mrs. Stafford told\nthe city council what she thought\nOf their body as whole, called\nthem lot of turncoats, change-of.\nfront men, and said that she had\nheard that some of them wore a\ndollar sign, back of which was the\nWashington Water Power company,\nthe Spokesman-Review and other\nforces.\n\n\nShe chided the councilmen for be-\ning led around by the nose by Chief\nof Police Sullivan. and asked:\n\n\n'Who is this man Sullivan, any,\nway, that you have to consult his\nwishes in preference to what Is\nwanted by thousands of taxpay-\ners?\"\n\n\nMrs. Stafford ripped up the police\ndepartment from stem to stern, and\nsaid that she had learned from UNI\nquestioned sources that women\nprisoners were mistreated within\nthe walls Of the jail, and it was not\nfrom the I. w. WIS, either.\n\n\nII may be arrested for criminal\nconspiracy in the morning for say.\ning this. but l am not afraid\" she\nremarked.\n\n\nThe council tried to head off\nMrs. Stafford by interfering re-"
+    }
+  ]
+}

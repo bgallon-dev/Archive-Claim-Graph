@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-12-12 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-12",
+    "date_end": "1908-12-12",
+    "report_year": 1908,
+    "source_file": "13_1908-12-12_p1_sn88085947_00211108599_1908121201_0250",
+    "archive_ref": "13_1908-12-12_p1_sn88085947_00211108599_1908121201_0250",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1908-12-12_p1_sn88085947_00211108599_1908121201_0250",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 229,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 926,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Many OF the exhibits will 60\neast, however, but not as the apple\nshow, but for further advertising\nof this section of the county al\npoints the chamber trustees de\nsire. Many shippers will send boz\nexhibits east, also.\n\n\nFollowing are the official attend\nance figures for the week, as com\npiled by Mr.. Jones:\n\n\nMonday, 1852; Tuesday, 1850;\nWednesday, 1880; Thursday, co.,\n021; Friday, 1920.\n\n\nAdded to the total attendance\nthus far, Mr.. Jones estimate Of\n10000 for today will bring the at\ntendance to approximately 10000\n\n\nEarly in the week the trustees\nexpressed themselves as pleased\nIf the total attendance reached\n100000. This number will be ex-\nceeded. which is a matter of much\nsatisfaction to those who have\nworked for the success of what is\nadmitted by publicity experts ia\nbe the greatest and most far-reach.\ning undertaking from a standpoint\nof publicity, ever undertaken in\nthe northwest, except the Lewis &\nClark exposition, and the greatest\nfor the amount of money expend-\ned. There was no government,\nstate or county aid. 1t was all a\nmade in Spokane\" project, and all\nthe bills were footed by private\ndonation.\n\n\nI. A. Nadeau, director general of\nthe A-Y-P exposition, arrived from\nSeattle this morning.\n\n\nA special train carrying about\n100 Portland people arrived at\n1880 and were rendered break.\nfast at 8 o'clock at the Silver Grill."
+    }
+  ]
+}

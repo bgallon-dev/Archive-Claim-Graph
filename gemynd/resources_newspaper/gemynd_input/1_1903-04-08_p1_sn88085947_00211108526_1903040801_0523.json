@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "h0htT lost By,\n\n\nb0AQD'5 D[LA1\nFails to Act on Plans for\nBuilding New Pier\n\n\nfor Bridge.\nINDIVIDUALS GAMERS.\nHundreds of Loads of Earth\nBelonging to City Dumped\n\n\non Private Ground.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-08",
+    "date_end": "1903-04-08",
+    "report_year": 1903,
+    "source_file": "1_1903-04-08_p1_sn88085947_00211108526_1903040801_0523",
+    "archive_ref": "1_1903-04-08_p1_sn88085947_00211108526_1903040801_0523",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1903-04-08_p1_sn88085947_00211108526_1903040801_0523",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 208,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 153,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 805,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 13,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The board of public works is being\npublicly criticized by property own\ners for unnecessary delay in putting\nthrough plans for building piers I'M\nder the Monroe street bridge.\n\n\nBecause of this delay 1t is said\nhundreds of loads of earth that should\ngo to the city and be used in filling\nin Main avenue from Lincoln street\nto Monroe street are being dumped\non private proportion property\nowned by the Hypotheekbank. 1t is\nestimated that 5000 loads of this\nearth have already gone onto the\nproperty of the bank. At rs cents\nper load. fair valuation, it can be\nunderstood how much the city is\nlosing by the tardy methods of the\nboard of public works.\n\n\nMore than two months ago the city\nengineers office drew plans for the\npiers and submitted them to the\nboard. Since then the plans have\nbeen held up in the city council be-\ncause the board of public works has\nnot been present at the meetings to\nexplain the plans and to tell what is\nwanted.\n\n\nThe continued procrastination is\nadding daily to the value of the prop\nerty of the bank, and is proportion\nately delaying a public improvement\nthat must be made sooner or later\nthe sooner the better."
+    }
+  ]
+}

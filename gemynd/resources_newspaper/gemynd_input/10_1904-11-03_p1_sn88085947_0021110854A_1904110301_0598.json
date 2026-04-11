@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-11-03 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-03",
+    "date_end": "1904-11-03",
+    "report_year": 1904,
+    "source_file": "10_1904-11-03_p1_sn88085947_0021110854A_1904110301_0598",
+    "archive_ref": "10_1904-11-03_p1_sn88085947_0021110854A_1904110301_0598",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1904-11-03_p1_sn88085947_0021110854A_1904110301_0598",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 238,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 575,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 850,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ell that all the objections Of the\nproperty owners were withdrawn and\nthus deceiving the officers of the city\n\n\nThat the street car company, pre-\ntending to act under said franchise,\ntore up that portion OF Maxwell ave-\nnue. and laid the car tracks from\nthree to IL inches below the grade\nof the street at which 1t had re-\nEmained for more than two years. The\ncompany was notified to raise the\ntracks, but the time expired without\nthe nuisance being abated and at all\ntimes the company ignored and re-\nfused to obey.\n\n\n/ 1t Is charged that at the present\ntime the Washington Water Power\ncompany, without right or authority.\nhave entered said street and are dig\nslng and plowips 1t up and threaten.\ning 20 alter the grade. II Is pointed\n!!\nhas no right to authorize change\nof grade without it's being passed\nupon by the council, and that the\nboard Of public works is acting ilie-\neaily in attempting to act for the\ncity.\n\n\nThe petition sets forth that there\nWAS no public necessity for car line\non Maxwell avenue and that II Is a\ncontinual menace to the school chill\ndren and that the. property owners\npurchased their property on that\nstreet and built homes for the pur-\npose of being n sufficient distance\naway from the noise and danger OF a\nstreet railway.\n\n\nThe plaintirfs say that by the lay"
+    }
+  ]
+}

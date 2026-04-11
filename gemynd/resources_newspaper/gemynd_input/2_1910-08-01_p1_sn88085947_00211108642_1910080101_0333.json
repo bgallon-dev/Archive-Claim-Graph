@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-08-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-01",
+    "date_end": "1910-08-01",
+    "report_year": 1910,
+    "source_file": "2_1910-08-01_p1_sn88085947_00211108642_1910080101_0333",
+    "archive_ref": "2_1910-08-01_p1_sn88085947_00211108642_1910080101_0333",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-08-01_p1_sn88085947_00211108642_1910080101_0333",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "industrial workers",
+          "street speaking"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 270,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 572,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 1254,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Industrial Workers have been\nfound guilty of Iese majeste BY the\nacting chief Of police, John n Sui\nlivan. M\n\n\nJoining in the accusation and pre-.\nsenting proofs of alleged, epithets\nhurled at him under cover is the\nchief of detectives, Martin j. Burns,\nchief counselor ana advisor, Il\n\n\nThese things developed at a con-\nference held Sunday morning In\nChief Sullivans. office. at the re-\nquest of the chief, when the sllti-\nmatum was handed out to a com\nmittee from the L. w. w. that all\nfurther disrespectful references to\nthe police had to be. cut. or the priv\nilege of free speech enjoyed by the\nWorkers for a limited area on Stew\nems street would be forever re-\nvoked.\nIn the committees were Franklin\nJordan. general organizer; r. II.\nDixon, secretary: Otto Justh, akE0.\nciate editor OF the. Industrial\nWorker, and a Mfs Mitchell, q ipeiA-\nber OF the transportation branch.\n\n\nWith Chief sullivan were Chtkf OF\ndetectives Burns and a bunch pf\npolicemen. The conference was\nheld at the chiefs office between\nthe hours of 10 and IL Sunday\nmorning.\n\n\nSullivan said that reports had\ncome to him that speakers had\nbeen saying harsh things ahont the\npolice and himself. personally. and\nthat this had to stop or he wonld\narrest the whole bunch and end\ntheir street speaking. Among other\nthings the chief said one speaker\nhad called him \"a long stream or\nmisery\"\n\n\nChief of Detectives BURNS testi-\nfled that he had heard one speaker\nrefer to himself as sherlock\nBones. chief Of the defecuves.t and\nthis tiNe did not please him at all."
+    }
+  ]
+}

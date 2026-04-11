@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-01-07 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-07",
+    "date_end": "1907-01-07",
+    "report_year": 1907,
+    "source_file": "3_1907-01-07_p4_sn88085947_00211108575_1907010701_0235",
+    "archive_ref": "3_1907-01-07_p4_sn88085947_00211108575_1907010701_0235",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-01-07_p4_sn88085947_00211108575_1907010701_0235",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 147,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 206,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 424,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "her, carrying her all the time, for\nfresh air, hoping thereby that her\nhealth might be restored. The wife\nwas assured of her daily outing\nthrough the efforts of the kind and\nfaithful husband.\n\n\nAfter dark, Haywood attended a\nnight school of the community. This\nroutine continued for tire years I'M\ntil the family moved to this city in\n1901, where Haywood came to take\nthe secretaryship of the miners fed\nGrafton.\n\n\nFrom the Jail cell in Idaho comes\ndaily letter to the wife. There\nHaywood is continuing his studies,\nand among the books he most close\nly peruses are law books and text\nbooks of history and literature. Mrs.\nHaywood will not be able to attend\nthe trial of her husband early in the\nnew year, and her daughters must\nbe with her to attend her. So her\nhusband must face court and ac-\ncusers alone."
+    }
+  ]
+}

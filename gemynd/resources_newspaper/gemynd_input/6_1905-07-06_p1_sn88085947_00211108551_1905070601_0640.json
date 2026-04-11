@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-07-06 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-06",
+    "date_end": "1905-07-06",
+    "report_year": 1905,
+    "source_file": "6_1905-07-06_p1_sn88085947_00211108551_1905070601_0640",
+    "archive_ref": "6_1905-07-06_p1_sn88085947_00211108551_1905070601_0640",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1905-07-06_p1_sn88085947_00211108551_1905070601_0640",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 235,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 953,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 231,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The league will hold it's regular\nmeetings on the first Wednesday Of\neach month. Semi-annual meetings\nWill be held during the month Of\nJanuary and July.\n\n\nThe first petition Of the newly or.\nganized league will be presented to\nthe city council at the next meeting\nOf that body on July II.\n\n\nThe petition asks that the city\nfathers at once take steps to utilize\na sufficient portion Of the water be-\nlonging to the city and which is now\ngoing to waste for the purpose of in\nstalling and operating an electric\nlighting plant for lighting the public\nstreets and city buildings and to fur\nnish light for private residents in\nthe city\n\n\nPresident Winfree. in speaking Of\nthe purposes of the league, stated to\na representative Of The Press this\nmorning that the league would take\nup the question of municipal owner\nship of other public utilities as soon\nas the matter now before the body\nwas brought to a settlement.\n\n\n1T Is our purpose to have the city\ngas, electric light, city water and\nstreet railways controlled by the PEG.\npie whose money will be paid out for\nIts support Under this state Of at\nfairs the voice of the public will rule\nand all attempts to overrun the PEG.\npie will be at an end\n\n\nThe election of the officers OF the\nleague will take place at the regular\nsemi-annual meetings."
+    }
+  ]
+}

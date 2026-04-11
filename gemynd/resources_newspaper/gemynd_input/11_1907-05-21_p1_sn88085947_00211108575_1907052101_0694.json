@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-21 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-21",
+    "date_end": "1907-05-21",
+    "report_year": 1907,
+    "source_file": "11_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+    "archive_ref": "11_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 138,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 56,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 718,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "On account of the republican plat\nform declaration that public utility\ncorporations should pay fair share\nof the cost and maintenance of city\nbridges, much inquiry has been\nstarted on what course will be\npursued by the new administration\nin regard to the bridge tangle it in\nherited from Mayor Daggett.\n\n\nMayor Moore stated this morning\nthat he had not yet given the fail\nure of the Washington Water\nPower Co. to pay it's share of the\nrepairs to the Howard st. bridge\nany attention. Although under con-\ntract to maintain this bridge the\ncompany permitted the timbers to\nrot until the srucure collapsed, and\nit was only by marvellous good for\ntune a carload Of people were not\nprecipitated to the rapids below.\nThe old city council at once order\ned the bridge replaced by the pres"
+    }
+  ]
+}

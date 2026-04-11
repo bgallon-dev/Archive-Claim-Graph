@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THINK G0MPERS\nHAS MADE\n\n\nERROR",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-01-29",
+    "date_end": "1908-01-29",
+    "report_year": 1908,
+    "source_file": "5_1908-01-29_p4_sn88085947_00211108587_1908012901_0167",
+    "archive_ref": "5_1908-01-29_p4_sn88085947_00211108587_1908012901_0167",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-01-29_p4_sn88085947_00211108587_1908012901_0167",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 350,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 99,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Congressman Jones' reply to the\nattack made on him recently by\nc. o. Young, state organizer of the\nAmerican Federation of Labor, has\ncreated quite a stir among local\nunion men. That Young has in\nstructions to offer opposition to\nJones is not doubted here. In fact\nsome of the delegates to the meet.\ning of the State Federation of La\nDor are reported to have seen the\nletter from Gompers instructing\nYoung to make fight on Jones.\n\n\nThere are many local union men\nwho believe Gompers' fight Is a\npersonal one. They say that Jones\ndid not make suitable reply to a\nletter from Gompers, thus causing\nthe head of the big labor organiza-\nton to take umbrage and to single\nhim out for determination.\n\n\nBY many members of local\nunions Jones is regarded as the\nmost capable representative the\nstate has in congress. They also\nclaim that he Is the most friendly\nto labor of any of the delegation\nfrom this state. 1t is known that\nhe has at various times done the\nunions service, even to securing\nthe removal of government repre-.\nsentatives who he found were dis\neliminating against the organized\nworker, this action being taken at\nthe request of the unions.\n\n\n1t is pointed out that Gompers\nhas made no mention of Cushman.\nthe Tacoma congressman who at\ntimes has announced himself ready\nto wade in blood to his knees IL\nthe labor unions continued a course\nwhich, in Cushman's estimation,\nmeans destruction to everybody.\nAnd anybody who has gazed upon\nCushman will instantly realize that\nthe food of blood that reached to\nhis lofty knee joints would have\nto be high tide in the history of\nhuman gore.\n\n\nThere is no mention made of\nHumphreys record either in be-\nhalf Of labor and the elevation OF\nSen. Ankeny as champion of or\nganized labor is also just little\nbit sudden.\n\n\nWhile the local unionists have\ngreat respect for Gompers, they\nfully realize that he can make mis-\ntakes, and many there are who be-\nlieve he has made big one in at.\nlacking jones."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "COUNCIL NAN .WOYDT\n\n\nDEFENDS HIS ACTIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-01",
+    "date_end": "1903-04-01",
+    "report_year": 1903,
+    "source_file": "4_1903-04-01_p3_sn88085947_00211108526_1903040101_0501",
+    "archive_ref": "4_1903-04-01_p3_sn88085947_00211108526_1903040101_0501",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-04-01_p3_sn88085947_00211108526_1903040101_0501",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 510,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 286,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 23,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "{ ~ the session Of the city council\nlast night franchise was granted\n10 Che Spokane Light q Power CON-\npeny. the company formed By ssna-\ntor Turner, Frank Hogan and J. c.\nWilliams. BY the charter OF tho new\ncompany II IL subject to the same\nconditions as those governing the\nWashington Water Power company.\nWires and poles for carrying light\nand power are to be placed in the\ncity streets. The grant is. for a.\ngears. $50\n\n\nHenry Root was confirmed ~ city\nconmissioner to succeed Henry L.\nLiliehthal. who retired from the Of\nice yesterday.\n\n\nConfirmation was given to the big\nFourth ward sewer district. 1t was\nstated by City Engineer Gill that out\nof $50 lots only 63h were opposed to\nthe district being established.\n\n\nThe matter Of P. F. Byrne succeed\ning Allen r. Gill as city engineer\nagain came UP in committee, and Mr..\nOil said he had offered to pay Mr..\nByrne $3.50 out Of his own pocket,\nalthough he had done the work. Cor\nporation Counsel Judson reported an\no1snoe providing for the payment\n\n\nNer routine business was traAs<\nacted.\n\n\nNJ Woydt rose to a question Of\nprivilege and spoke at length in de-\nTense of himself and the council on\nthe personal attacks made by the\nSpOkesman-Review on account Of the\nMain street vacation deal.\n\n\nElm answering these attacks\" said\nMr.. Woydt, II shall call spade a\nspade. for in dealing with this treach-\nerous and villainous sheet one is not\nsupposed to use the usual civilities.\nWhen one is attacked by snake any\nclub will do In defense.\n\n\n\"Mr. President. In answering the\nslanderous articles printed by the\nReview against the members of this\ncouncil. l shall not explain my ac-\ntions, as l have no explanation or\nexcuses to make. Anyone at all con-\nversant with business methods and\nrules governing this council will know\nthat this council can act only by mo-\ntion or resolution, reference to and\nreports of committees and the pass\nage OF ordinances, therefore the rec\nord shows every move we have made.\n\n\n\"In answer to published statements\nI wish to say they are falsehoods\nfrom beginning to end. In this case\nthe motive for the Misrepresentation\nis apparent. and state 1t to show\nthat there is one man who dares to\nsay his soul Is his own and who\nneither fears the papers influence or\nasks a favor of it, but does demand\nJustice.\n\n\n'The Review had an opportunity to\nbe heard on March g. the date set by\nthis council for the hearing of pro-\ntests and objections against the pro-\nposed Main street vacation deal. This\nmatter has been before the council\nfor months and this papers reporters\nwere present at each meeting. and\n1t kept close watch Of what was being\ndone.\n\n\n'Tf the public is being defrauded.\nas the Review says. why has the\npaper been silent all these weeks\nand months? Why does It withhold\nits protest and acquiesce in the pro-\nceedings until after the matter has"
+    }
+  ]
+}

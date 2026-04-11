@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-02",
+    "date_end": "1909-11-02",
+    "report_year": 1909,
+    "source_file": "16_1909-11-02_p1_sn88085947_00211108605_1909110201_1259",
+    "archive_ref": "16_1909-11-02_p1_sn88085947_00211108605_1909110201_1259",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1909-11-02_p1_sn88085947_00211108605_1909110201_1259",
+      "composite_score": 20.02,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "street speaking",
+          "industrial workers",
+          "arrested",
+          "i. w. w."
+        ],
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 336,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 249,
+            "in_headline": false
+          },
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 1388,
+            "in_headline": false
+          },
+          {
+            "term": "street speaking",
+            "weight": 3.0,
+            "offset": 52,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1315,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 1597,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Declaring the revised city ordI.\nnance, relative to street speaking,\nunconstitutional, In that It 10 pro.\nhibitive, instead OF merely regu.\nlative, Judge s. A. Mann Of the pc.\nlice court dismissed the case\nagainst James p. Thompson, .\nmember Of the industrial Workers\nOf the World, this morning. His\ndecision placed the old ordinance,\nover which the Industrial Workers\nOF the World and the police were\nat war Z year ago, into effect\nagain, and the reyolutionists I'm\n. nrediateIy began preparations to\nviolate that ordinance, to bring an\nother hest case before the COURTS.\n\n\nThe ordinance which has again\nbeen made effective by the decided\ninvalidity OF the new one, is iden,\ntical to the new one with the ex-\nception Of one clause. That clause\nwas inserted after the trouble\nwith the |. w. VS., and the SUBJ\nsequent abolition of street speak.\nIng by the police, apparently, for\nthe special benefit Of the Saliva\ntion Army and other religious or\nCARNATIONS. 1t gave the mayor the\narbitrary power to permit regular\nly organized religious bodies to\nhold meetings on the street. Like\nwise 1t extended to him the power\nto refuse permits to other organ\nizatlOns and to suppress their\nmeetings should they attempt to\n| hold them.\n\n\nSays City 10 Doing Wrong.\nAttorney Fred H. Moore, coun.\n|fel for James Thompson, who was\nARRESTED for announcing a meeting\nTHAT was about to take place In\n1.-THE I. w. w. halls, about a month\n|ago, declared this morning that\nthe city had no right to discrimin-\n|ate against certain bodies. as had\n|been done by the new ordinance.\n\n\nHe contended that 1t carried a\nblanket prohibition and made not\nthe slightest pretense at regula-\ntion.\n\n\n1T gives a special right to the\nmayor to give special permit\n10 a special organization to hold\nspecial meetings and the police de-\npartment furnishes special police\n10 give them special protection\n\n\nwith the result that there Is a spe-\ncial taxation to give these special"
+    }
+  ]
+}

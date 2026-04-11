@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BARRIERS UNION\n\n\nMAKES BENSON\n\n\nSHOP UNFAIR\"",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-11",
+    "date_end": "1904-02-11",
+    "report_year": 1904,
+    "source_file": "13_1904-02-11_p4_sn88085947_00211108538_1904021101_0999",
+    "archive_ref": "13_1904-02-11_p4_sn88085947_00211108538_1904021101_0999",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1904-02-11_p4_sn88085947_00211108538_1904021101_0999",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 121,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 162,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "is considerably wrought up over the\ntrouble and his only hope from being\nput on the unfair list of the BARRIERS\nunion is by waiting until the next\nmeeting Of the Trades Council. Tues\nday night, when the action of the bar\nbers will be brought up for endorse\nment.\n\n\nThe BARRIERS claim the council will\nuphold them in the matter.\n\n\nMembers of the Trades Council say\nthat they have had a committee at\nwork for the past two weeks, endeavor-\ning to adjust the differences between\nBenson and the BARRIERS union. but\nwithout success. They now assert that\nthe council will without doubt endorse\nthe action of the union, as the latter\nhas been perfectly regular in all its\nactions."
+    }
+  ]
+}

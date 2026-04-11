@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-25 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-25",
+    "date_end": "1910-03-25",
+    "report_year": 1910,
+    "source_file": "11_1910-03-25_p7_sn88085947_00211108629_1910032501_1099",
+    "archive_ref": "11_1910-03-25_p7_sn88085947_00211108629_1910032501_1099",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-03-25_p7_sn88085947_00211108629_1910032501_1099",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 92,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 364,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A meeting was held yesterday\nafternoon in the offices Of the\n100000 club in the Hutton building\nto discuss plans for displaying in\nthis city the state exhibits to Illus\ntrate methods of preventing tuber-\nculosis and to promote the move\nment of the National Red Cross as\nsociation of New York city to pre-\nvent the disease.\n\n\nThe health officers and members\nof the Woman's club are very much\ninterested in the movement and will\nhold another meeting Monday after\nnoon at the same place to discuss\nfurther the present plans."
+    }
+  ]
+}

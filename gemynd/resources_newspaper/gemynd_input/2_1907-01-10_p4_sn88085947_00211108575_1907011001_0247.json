@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "HlLLYARD FOLKS ARE\nSORE AND SARCASTIC",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-10",
+    "date_end": "1907-01-10",
+    "report_year": 1907,
+    "source_file": "2_1907-01-10_p4_sn88085947_00211108575_1907011001_0247",
+    "archive_ref": "2_1907-01-10_p4_sn88085947_00211108575_1907011001_0247",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-01-10_p4_sn88085947_00211108575_1907011001_0247",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 125,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 89,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 244,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Hillyard folks are wrathy at the\nstreet car service they are getting\nfrom the Washington Water Power\nCo. They say it is so slow they\nare in danger of freezing to death\nen- route and have considered the\nsubject in mass meeting. A mem\nDer of the relief committee APP\npointed has stated that the com\npany may add sleeping cars and\nwarming station to its present SER\nvice, but Hillyard accepts the prop\nosition with scOrn.\n\n\nFor several months express cars\nwere run which made no steps be-\ntween Howard and Riverside and\nNorth Centre St, landing passen-\ngers in Hillyard in about 30 min\nutes. Under the present system the\ncars stop wherever necessary to\npermit taking on or letting off pas\nsengers."
+    }
+  ]
+}

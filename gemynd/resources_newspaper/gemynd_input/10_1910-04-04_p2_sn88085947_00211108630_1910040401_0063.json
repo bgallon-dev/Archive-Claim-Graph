@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-04 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-04",
+    "date_end": "1910-04-04",
+    "report_year": 1910,
+    "source_file": "10_1910-04-04_p2_sn88085947_00211108630_1910040401_0063",
+    "archive_ref": "10_1910-04-04_p2_sn88085947_00211108630_1910040401_0063",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1910-04-04_p2_sn88085947_00211108630_1910040401_0063",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 211,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 660,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "big CIRCUS WAR'-SUN FEAT\n\n\nA PICTURESQUE circus war,\n\n\n~ the like of which has never\n- - been seen since the Barnum\n& Bailey show declared war on the\nRinging Brothers several years\nago, is now impending, and Spo-\nkane is sure to feel the effects of it\nthis year, according to Harold\nBushea. publicity man of the AL G..\nBarnes show, the \"made-in-Spo-\nkane\" circus which will be one of\nthe big features of carnival week\nnext month.\n\n\nMr.. Bushea. an old man in the\ncircus business, came to Spokane\na few weeks ago to take up his\npresent work. He is cooperating\nwith the merchants and travelling\nmems committees which are pro-\nnoting the big Spokane carnival\nand exposition. OF the impending\ncircus war he said to The Press\nlast week:\n\n\nRinging Brothers and the shows\nthey control form what might be\ntermed the circus trust and they\nfigure on exerting every effort this\nyear to crush out the Sells-Floto\npeople, one of the remaining few\nbig circuses not in the combine.\nSpokane is going to notice the gil\ngantic fight by the record-breaking\nadvertising campaign which will be\nwaged here this summer and by\nthe contest between the two fac\nton of the circus world to see which"
+    }
+  ]
+}

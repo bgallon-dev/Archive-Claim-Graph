@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-08 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-08",
+    "date_end": "1910-04-08",
+    "report_year": 1910,
+    "source_file": "26_1910-04-08_p2_sn88085947_00211108630_1910040802_0111",
+    "archive_ref": "26_1910-04-08_p2_sn88085947_00211108630_1910040802_0111",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "26_1910-04-08_p2_sn88085947_00211108630_1910040802_0111",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 104,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 51,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mrs. Dayton A. Stewart, a prom\ninent member of the WOman's club,\nis standing loyal to the reelected\npresident, Mrs. A. E. House. She\nfirmly believes that Mrs. House is\nthe only one who could carry the\nprojects of the club through the\ncoming year as they have been\nstarted\n\n\nFrom the success of the club and\nthe things which 1t has accom-\nplished under the leadership of Mrs.\nHouse, she feels that it has acted\nwisely in her selection for another\nyear. Although herself \"conserv-\native.\" she fully endorses the\ncourse of Mrs. House in all matters\nIn which the club has figured."
+    }
+  ]
+}

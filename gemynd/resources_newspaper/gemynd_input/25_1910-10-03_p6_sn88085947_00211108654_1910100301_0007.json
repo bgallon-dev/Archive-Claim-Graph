@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "G O N TIN u E D\n\n\nh o -\np A G F. 0 n F.\n\nHISTORY Of",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-03",
+    "date_end": "1910-10-03",
+    "report_year": 1910,
+    "source_file": "25_1910-10-03_p6_sn88085947_00211108654_1910100301_0007",
+    "archive_ref": "25_1910-10-03_p6_sn88085947_00211108654_1910100301_0007",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "25_1910-10-03_p6_sn88085947_00211108654_1910100301_0007",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 537,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 920,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "gage to organized labor and the\ntypographical union in particular\nthe unions accepted thechallenge.\n\n\nThe real struggle, which has\nwaged with the greatest bitterness\nsince, began.\n\n\nGeneral Otis went to the manu-\nfacturers and stOrekeepers and,\ngathering the employers, preached\nthe doctrine of industrial freedom\"\nLos Angeles differs FROM most\nother American cities. Here rich\nmen congregate and Otis had\nwide audience to which TO appeal\nHe kept on his individual freedom\npropaganda, and added the free\ndom of contract idea, declaring\nthat laboring men had right to\nsell their labor to anyone they\nchose, and that capital had a right\nto hire according tC its needs\n\n\nOut of his crusade grew the Mer-\nchants and Manufacturers assOcia-\nton, backed by the Times, waged\na relentless war On the unions. IT\nwas their openly avowed intention\nto make not only the Times and\nthe concerns in the organization,\nbut the whole city open shop.\nThe Times took a leading part in\nthe fight. 1t cartooned end lam\npooned; attacked and assaulted la\nDor unions and their leaders. The\npaper established a linotype school\nto teach non-union men how to op-\ncrate machines.\n\n\nFIGHT GROWS ACUTE.\n\n\nDuring the wonderful expansion\nof Los Angeles in 1901 the fight on\nthe building trades was particularly\nacute. The Merchants association\n| joined in the battle, and as a re-\nsuit the unions had one of the bit\nterest struggles in the history of\nthe city on their hands. After this\nthe Times began to exert power\nfull Influence and this influence,\nwhich for a time was very great,\nwas turned, as every other factor\nthe paper could summon, against\nunionism. ,.\nThe attacks have sometimes been\ngeneral, sometimes bitterly per-\nsonal. They have included not\nonly unions themselves, bus almost\nevery one who has had word to\nsay for the unions.\n\n\nOUTSIDE UNIONS JOIN.\nThe unions outside Los Angeles,\nwhich are powerful in other Pa\ncific coast cities, were brought into\nthe fight and they came to the aid\nof the local unions. A movement\nhas been under way to unionize Los\nAngeles and they have brought\ntheir powerful influence to bear on\nthe situation. The Merchants as\nISOLATION has resented this outside\ninterference\"\n\n\nThe Times was the leader of this\nsentiment and attacks on state la\nDor leaders followed. which result\ned recently in charge of criminal\n| libel brought against Otis by An\ndrew Gallagher, secretary of the\nSan Francisco Labor Council. The\nsuit was dropped on a techuicality,\n| but the bitter feeling it engendered\nsurvived.\n\n\nThere have been strikes recently\namong the metal workers and the\n| brewery workers. The outside\nunions joined in, and more bitter\nness followed\n\n\nJames Fielder, local labor lead\ner, was recently assailed as re-\nsuit of the incidents of one of the\nstrikes. The bitterness o. the at\n| tacks aroused great feeling among\nthe unions. No open rely was\nmade. Other leaders were attacked\nin terms almost as strong. A few\ndays ago the state labor federation\nannounced a great meeting in Los\nAngeles. 1t opens today. A great\nparade was to be held and dele\ngates to the meeting were already\narriving when the disaster at the\nTimes occurred."
+    }
+  ]
+}

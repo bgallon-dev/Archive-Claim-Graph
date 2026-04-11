@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-21 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-21",
+    "date_end": "1903-07-21",
+    "report_year": 1903,
+    "source_file": "6_1903-07-21_p3_sn88085947_00211108538_1903072101_0192",
+    "archive_ref": "6_1903-07-21_p3_sn88085947_00211108538_1903072101_0192",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1903-07-21_p3_sn88085947_00211108538_1903072101_0192",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 293,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 621,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "London.-The prince and princess\nOF Wales have accepted PRESIDENT\nRsosevelt,s invftstion for = trip TO\nAmer1ca and win sail IN the cruiser\nKing Alfred as soon as the naval\nuaaneuvefy ere over. s~\n\n\nTaooma.-The state grain commits\nsioner reports advices from east of\nthe Cascades to the effect that con-\ntinued good weather WIN bring the\ntetai crvp up to nearly that OF the\n100000 bushels OF last year.\n\n\nyGsw Orleans, IA.-J. Ward Gurley,\ndistrict attorney. WAS assaasinated In\nhis office by l.. w. Lyons. = clerk.\nwho then pnt two bullets IN has own\nbad. An old srudge prompted the\naok.\n\n\nNsw xo9k.--A million ana half OF\nNorthern Pacific beads ~ 81 ana\npsr ceEk have bsen thrown On the\nmarket to raise money for the pur-\nchase Of the Bellingham Bay Eastern.\nwashington q Oregon and the Port\nTownsend lines. Tho bonds were\ntaken nearly at par.\n\n\nAeot1n, Wash.--In runaway acc1-\ndent iisar Anatone. George A. Keick-\nor had his neck broken. his wife re-\ncsivsd scalp wound aAd his AaugA-\nter = broken leg. while his hired man\nhad both legs brulesn. A driving rein\nbroke ana caused the horses to be-\ncome uncomfortable.\n\n\nTaooma.--Dfrector d. o. Mills of\nthe Hartman system ana controller\nOf the Bel1ingham Bay & British CO.\nlumbia railroad. has ordered the ex-\ntension of the latter road over the\nCascades 70 Spokane, giving Harri-\nman entrance to salt water at point\nopposite the Straits Of Fuca.\n\n\nWAshlngten.--W. H. Miller, FORE\nman for the public printer. removed\nlast May because Of expulsion from\nthe international Brotherhood OF\nBookbinders. has been reinstated by\norder of the president. It being held\nthat the laws of the United States\nare paramount to membership or nom\nmembership in any organization."
+    }
+  ]
+}

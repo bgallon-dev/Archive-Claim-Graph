@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CITY PARK PROPOSITION\n\n\nAWAKES CRITICISM",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-04",
+    "date_end": "1907-01-04",
+    "report_year": 1907,
+    "source_file": "1_1907-01-04_p1_sn88085947_00211108575_1907010401_0224",
+    "archive_ref": "1_1907-01-04_p1_sn88085947_00211108575_1907010401_0224",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-01-04_p1_sn88085947_00211108575_1907010401_0224",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 139,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 559,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Councilman N. 8. Pratt's propo-\nsition to take city parks out Of\npolitics and elect the commissions\nat the same time school election\nis held is being criticized on &C.\ncount Of fear that the combination\nwill allow political trading between\nthose interested in the two boards\nconcerned in the election.\n\n\nBut the 100000 clubs PROPOSE\nton is creating more adverse critic\nism even than Pratt's proposition\n1t is. doubted if many of the several\nthousand people read the petition\nthey signed to have the 100000\nclubs proposition put to vote as\nan amendment to the city charter.\nThis proposition would perpetuate\nin complete charge of park affairs\n10 men named by the club. 1t al\nlows these men to appoint their\nsuccessors. Appointments are for\n10 years.\n\n\nIn voting this charter amend\nment the people would have no"
+    }
+  ]
+}

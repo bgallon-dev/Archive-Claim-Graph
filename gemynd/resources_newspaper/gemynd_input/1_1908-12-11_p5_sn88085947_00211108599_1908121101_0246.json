@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "APPLE SHOW IS\nESTABLISHED\n\nGROWERS DEMAND THAT sPo-\nKANE IDEA BE MADE PER-\nMANENT INSTITUTION AND\nPROMISE STILL GREATER Co\nOPERATION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-11",
+    "date_end": "1908-12-11",
+    "report_year": 1908,
+    "source_file": "1_1908-12-11_p5_sn88085947_00211108599_1908121101_0246",
+    "archive_ref": "1_1908-12-11_p5_sn88085947_00211108599_1908121101_0246",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1908-12-11_p5_sn88085947_00211108599_1908121101_0246",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "fruit grower"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 172,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "fruit grower",
+            "weight": 1.5,
+            "offset": 454,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\\ Substantial encouragement for\nThe continuance of the national ap-\npie show as a permanent Spokane\nand national feature was given\nlast night at meeting of the APP\npie growers in the armory. The\nappreciation of the growers was\nextended the apple show manage.\nment and promise of still better\nexhibits next year made In a mo-\nton offered by III. M. Gilbert OF\nNorth Yakima.\n\n\nEncouragement and promise of\ncooperation also came from H.\nDunlap, an Illinois fruit grower\nand one of the show judges. He\npointed out that the northwest or\nchardists have a great field in the\neast in spite of the fact that the\neast grows apples, and suggested\nthat holding an apple show in Chi.\ncago would be great means OF\nattracting more universal interest\nin the horticultural possibilities of\nthis section OF the country.\n\n\nThe executive board of the ap-\npie show formally decided to hold\nanother show next year at today's\nmeeting, but no action will be\ntaken for some time on the loca-\nton."
+    }
+  ]
+}

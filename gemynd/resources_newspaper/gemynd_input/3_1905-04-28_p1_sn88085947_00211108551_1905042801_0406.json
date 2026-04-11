@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "CHICAGO IS FACING MOST\n\n\nSERIOUS LABOR TROUBLES",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-28",
+    "date_end": "1905-04-28",
+    "report_year": 1905,
+    "source_file": "3_1905-04-28_p1_sn88085947_00211108551_1905042801_0406",
+    "archive_ref": "3_1905-04-28_p1_sn88085947_00211108551_1905042801_0406",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1905-04-28_p1_sn88085947_00211108551_1905042801_0406",
+      "composite_score": 11.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "labor trouble",
+          "injunction"
+        ],
+        "spokane_development": [
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1905,
+      "word_count": 160,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 811,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 511,
+            "in_headline": false
+          },
+          {
+            "term": "labor trouble",
+            "weight": 2.0,
+            "offset": 33,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 241,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the strikers this morning when one\nof their number was discharged for\nrefusing to deliver goods to Marshall\nField & Co. A number of cases of\nviolence have been reported. H. r.\nBrown, a nonunion teamster, was\nbeaten until unconscious on West\nMonroe street. He was driving a\nwagon for the Forbes Carriage COM\npany. A hundred and ten drivers\nOf the Peabody Coal company re-\nfused to go to work this morning,\nadding to the prospect of coal\nfamine.\n\n\nThe teaming company which ask\ned for and was granted a temporary\ninjunction is a new corporation\nformed for the purpose Of delivering\ngoods for firms against which strikes\nare in effect. The order is a tenn\nporary one, but will doubtless be\nmade permanent as soon as evidence\ncan be presented to the court. 1t\nis the most sweeping injunction ever\nissued in a local strike The order\nenjoins President Dolh of the Chi\ncago Federation of Labor, President"
+    }
+  ]
+}

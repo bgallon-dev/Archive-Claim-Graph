@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "STEPHENS AGAIN\n\n\nGIVES STAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-07",
+    "date_end": "1910-04-07",
+    "report_year": 1910,
+    "source_file": "2_1910-04-07_p2_sn88085947_00211108630_1910040701_0099",
+    "archive_ref": "2_1910-04-07_p2_sn88085947_00211108630_1910040701_0099",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-04-07_p2_sn88085947_00211108630_1910040701_0099",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 5.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "rate case",
+          "freight rate",
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 173,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 782,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 871,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 782,
+            "in_headline": false
+          },
+          {
+            "term": "rate case",
+            "weight": 2.0,
+            "offset": 39,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "H. M. Stephens, attorney in the\nfamous rate case, when interro-\ngated this morning as to the FEAST\nbility and practicability of the rail\nroads accepting a terminal rate\nfranchise, said:\n\n\nIl reiterate that which I have\nmany times said. that there is no\nlegal or practical reason why the\nrailroads cannot accept franchises\nwith terminal rate provisions.\n\n\nANY decision by the interstate\ncommerce commission will require\nreadjustment of rates at least\nfrom st. Paul west. The rates from\nST. Paul west are the ones which\nreceive excessive rates that are\npaid by this city and the Inland\nEmpire.\n\n\nIl wish that you would inform\nthe public that my course in this\nmatter has been determined and is\nfollowed by reason of the facts and\nthe law as | have learned them in\nconnection with the freight rate\ncase. l feel so thoroughly convinced\nthat terminal rates to Spokane and\nthe Inland Empire would be equit-\nable and just that they ought to be\nsecured by any means that are\nlegal or legitimate\""
+    }
+  ]
+}

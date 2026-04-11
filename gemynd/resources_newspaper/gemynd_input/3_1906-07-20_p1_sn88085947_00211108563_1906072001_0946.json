@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-07-20 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-20",
+    "date_end": "1906-07-20",
+    "report_year": 1906,
+    "source_file": "3_1906-07-20_p1_sn88085947_00211108563_1906072001_0946",
+    "archive_ref": "3_1906-07-20_p1_sn88085947_00211108563_1906072001_0946",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-07-20_p1_sn88085947_00211108563_1906072001_0946",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 141,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 844,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 544,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 155,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There seems to be something\nrather peculiar In the Howard\nstreet bridge matter now incubat-\ning at the city hall.\n\n\nAnr Chairman w. r. Roy of the\nboard of public works seems to\nbe peculiarly interested in what\never is going on.\n\n\nThe board displayed no percept-\nible reluctance in agreeing that the\ncity bear half the cost of the Wash\nington Water rover company's\ncarelessness in letting the bridge\ntotter into the river.\n\n\nWhen this astonishing demon\nstration of municipal benevolence\nand charity toward corporation sins\nwas repudiated by the city council\nthe board of public works seems\nto have developed pronounced\ncase of reluctance.\n\n\n1t did not know whether 1t could\ncarry out the councils instructions\nor not. 1t experienced a desire\nfor conference. Soon afterwards\nChairman Roy became authority\nfor the announcement that the\nWashington Water Power company"
+    }
+  ]
+}

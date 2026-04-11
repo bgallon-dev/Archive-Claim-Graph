@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "FRAUD\nW0RK|NGMEN\n\n\nSUFFER\n\nEMPLOYMENT OFFICE JOBS\nNOT AS REPRESENTED, AND\nMEN ARE UNABLE TO EARN\nMONEY THEY SPENT TO OBJ\nTAIN THEM.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-03",
+    "date_end": "1908-02-03",
+    "report_year": 1908,
+    "source_file": "14_1908-02-03_p4_sn88085947_00211108587_1908020301_0183",
+    "archive_ref": "14_1908-02-03_p4_sn88085947_00211108587_1908020301_0183",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1908-02-03_p4_sn88085947_00211108587_1908020301_0183",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "employment agency",
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 496,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "employment agency",
+            "weight": 1.5,
+            "offset": 612,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1683,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Complaints from working men\nwho are sent by Spokane employ\nment agents to jobs that are not\nwhat they are represented to be\nand where conditions prevail that\nmake it impossible for the men to\nstay long enough to earn what they\nhave expended in reaching the\nwork continue to come in. The\nfollowing is submitted as a version\nof such an instance that can be\nverified absolutely:\n\n\nEditor. Press-I would be much\nobliged if you would kindly insert\nthe following for the information\nof the general public and working\nmen, who are fleeced by the en-\nployment agents of Spokane.\n\n\n| was shipped out by the Scan\ndinavian employment agency to\nRockfort, Wash. to work on an ex-\nira gang. paid $3.50 to the agent\nas office fee. The slip he gave me\ncalled for $160 per day. When l\narrived at Rockfort | ascertained\nthat the wages were only $1.44 per\nday and was ultimately paid off\nat this last rate The number of\nmen shipped out to this job were\nfar in excess of the sleeping &C.\ncommodations provided, so that /,\nwith many others, was compelled\nto sleep on the floor of a boxcar\n\n\nduring the recent spell of severe\nweather.\n\n\nMany were unable to stay with\nthe job on account of the hard\nships and were compelled to leave\nwithout even recuperating the\nmoney they had paid out to get\n\n\nwork. One man, personal friend\n\n\nOf mine, was compelled to walk the\n\n\nwhole way back to Spokane, dis\n\n\nlance of 100 miles, having no\n\n\nmoney to pay his fare. Some left\n\n\non freight trains.\n\n\n| was recounting my experience\nto other working men at $40 Front\nav., where there is an employment\n\n\nagency, last Saturday night. EN-\nployment Agent Jones, who over\n| heard my account, threatened\n\n\nabusively to have me arrested if\n\n\n| did not desist, at the same time\nthreatening others who were only\n\n\nrepeating an article on the same\n| question from your paper.\n| was recently talking to an en-\nployer of labor and he told that I'M\nder existing circumstances a man\n\n\ncannot obtain work except through\nthe medium of the employment\nagencies.\n\n\nWith reference to recent ar\nticle in a Spokane paper, inserted\n| by the Red Cross employment\n\n\nagent, | wish to fatty contradict it.\n\n\n! am acquainted with and live\n| amongst the men whom he says\n\n\nwill not work. | know this to be\nfake. But what they will not dc\n\n\nis to pay him from So to S. office\n| fee, also pay their railroad fare\n\n\nout to some job where, when they\n\n\narrive they are allowed to work\n| but a short time and then are OBJ\nliged to make room for another\ngang, the contractors being in\n\n\nsome scheme with the employment\n| agents.\n\n\nTrusting that you will grant me\n\n\nthe favor of inserting this for the\nbenefit of the working class, Yours\n\n\nrespectfully, Frank Schultz, 51(\n\n\nFront av."
+    }
+  ]
+}

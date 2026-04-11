@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "title": "HOW FREE SPEECH\n\n\nFIGHT APPEARS TO\n\n\nTHE NEW WORKERS\n\nEditorial Printed in New York\n\n\nPress.)\nSUPPRESSION OF FREE SPEECH",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-02",
+    "date_end": "1910-01-02",
+    "report_year": 1910,
+    "source_file": "11_1910-01-02_p4_sn88085947_00211108629_1910010201_0013",
+    "archive_ref": "11_1910-01-02_p4_sn88085947_00211108629_1910010201_0013",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1910-01-02_p4_sn88085947_00211108629_1910010201_0013",
+      "composite_score": 19.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 14.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "elizabeth gurley flynn",
+          "gurley flynn",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1910,
+      "word_count": 554,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 151,
+            "in_headline": false
+          },
+          {
+            "term": "elizabeth gurley flynn",
+            "weight": 3.0,
+            "offset": 200,
+            "in_headline": false
+          },
+          {
+            "term": "gurley flynn",
+            "weight": 3.0,
+            "offset": 210,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 99,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 4,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "! Many more men have been ar\nrested in Spokane, WASH, for\n\n\nspeaking in the strets and thrown\ninto Jail since our last comment on\n\n\nthe suppression of free speech in\n\n\nthat city. And now one woman,\n\n\nElizabeth Gurley Flynn, has been\nconvicted on the charge of con-\n\n\nspiracy against the laws of Spo-.\n\n\nkane\" and sentenced to three\n\n\nmonths imprisonment in the county\njail.\nThis young woman-she is not\nyet u years old-was acting editor\n\n\nof the Industrial Worker, a Spo-\n\n\nkane newspaper. She wrote edi-\ntorials condemning the arrest of the\n\n\nmen who were. in speeches in the\nstreets. trying to express the alleged\ngrievances against the employment\nagencies. On the day she was ar\n\n\nrested while walking in the street\nthere appeared an editorial in the\npaper bitterly condemning the sup\n\n\npreston of free speech and full of\n\n\nan intensely radical\" spirit. There\nis no doubt of the general extreme\nness of the editorial expression.\nShe tried to arouse the workers\nfrom their apathy\" in regard to\nfree speech, and that the editorial\nhad a revolutionary quality there\ncan be no doubt. So much must be\ngranted.\n\n\nIn her trial there was testimony\nto the effect that she had been\n\n\noverheard to say: eff Jesus Christ\nwere still alive He would be ar\n\n\nrested for making a speech in Spo-\n\n\nkane\" Her conviction and sentence\n\n\nwere based upon evidence that she\n\n\nhad written and expressed in\n\n\nspeech opinions OF a certain kind.\n\n\n1t was by expressing opinions that\nshe had committed crime, and for\nher opinions she has been shut up\nin Jail for three months. Since then,\n\n\non December IL, the city authorities\nseized every copy of the Industrial\nWorker, charging that it was a\nlibelous publication. In that num-\n| Der of the paper there appeared an\n\n\narticle by Miss Flynn relating her\n\n\nexperience in the county Jail.\n\n\n| Free speech has no meaning if\n\n\nonly desirable\" opinions are to be\n\n\ntolerated by the government. If\n\n\nopinions which condemn actions by\n\n\nthe police, or even which condemn\n\n\ncertain laws or. regulating ordi-\n\n\nnances, are to be suppressed. it is\n\n\ndifficult to see wherein lies the vi\n\n\ntally of the principle of free\n\n\nspeech. The Spokane incident Is a\n\n\nstriking instance Of the tendency,\nfor the sake of immediate, govern\n\n\nmental effectiveness, to drift away\nfrom the fundamental principles\n\n\nwhich are the bases not only of\n\n\nAmerican conceptions of liberty,\nbut of liberty as understood by all\nenlightened people the world over.\n\n\nAbraham Lincoln said to some\nfriends who desired him to sup\npress the Chicago Times in the civil\nwar time: Il fear you do not fully\n\n\ncomprehend the danger of abridgina\n\n\nthe liberties of the people. A gov\neminent had better go to the very\n\n\nextreme of liberation than to do\n| aught that could be construed into\n| an interference with or to leopard\n\n\nize in any degree the common\n| rights of the citizen\"\n\n\nSuch tendencies to suppress free\n| speech as are witnessed now in\n| Spokane ought powerfully to be COM\n| bated, not only in order to retain\n\n\nthe principles which Abraham Lin\n\n\ncoin and all true Americans loved,\n| but also in order to preserve indus\n| trial peace, which in the long run\n\n\nwill not be helped by such meas\nurpg"
+    }
+  ]
+}

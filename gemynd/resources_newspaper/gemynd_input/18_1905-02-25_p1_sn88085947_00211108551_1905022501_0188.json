@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-02-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-25",
+    "date_end": "1905-02-25",
+    "report_year": 1905,
+    "source_file": "18_1905-02-25_p1_sn88085947_00211108551_1905022501_0188",
+    "archive_ref": "18_1905-02-25_p1_sn88085947_00211108551_1905022501_0188",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1905-02-25_p1_sn88085947_00211108551_1905022501_0188",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 680,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 3,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nrailroad commission in Washington,\nthrough?\n\n\nl am asked this question repeated\nIy, regardless of the fact that the\nmeasure known as the Crane-Dickson\nbill, which is not expected to pass\nthe senate, defines the powers and\nduties of the commission, even to the\npoint of the initiative\n\n\nMany letters have been received\nduring the past few days bearing\nquestions on what the commission\ncould do. Some of them are based\non common sense and others verge\non nonsense.\n\n\nBut through them appears to wind\nthe one mistaken belief, pounded into\nthe people by the politicians and the\npolitical newspapers, that the COM\nmission will be all-powerful and thus\nbe able to do as they please when it\ncomes to rate making.\n\n\nThis extract from one letter is a\nsample of how the people at large\nmisunderstood the conditions, chiefly\n\n\n\n\n\nsentations:\n\n\nyou say the shippers of Spokane\nhave to be favored by railroads so\nthey can compete with the coast be-\ncause the rates are against them.\nNow, isn't that Just what commits\nsion is for? Won't the railroad COM\nmission protect the little fellow\ninc J.\nGoodall and Comstock who went to\nOlympia to defeat the bill? Did any\nlittle fellow go there?\n\n\nNow If the commission gets to\nwork can 1t not say here, when those\ngoods come to this state we tell you\nwhat the rates are? The minute the\ngoods reach Spokane can't the COM\nmission say the rate on those goods\nshall be so much to points in the\nstate up to middle spot in the state\nand when the point is reached, the\nrates being more as the haul is\nlonger won't they be so that up to\nthat middle point Spokane can ship,\nand then from the coast those rates\nwill be scaled so that up to that\n\n\n\n\n\nthe coast man can sell in half the\nstate?\n\n\n''rhis is what the commission\nwould have control and would draw a\nline which would divide the state\nfor Spokane and the coast to trade\nin. The railroads would have to\ncharge that rate as soon as the goods\ntoto h. nv.\nSpokane and the coast equal rates\"\ni overheard this same arguement\nused orally yesterday. 1t demon\nstrates the manner In which the\nquestion has been garbled by the\npoliticians and the political news\npapers before being handed out to\nthe people.\n\n\nOn such a line OF reasoning the\n\"little fellow\" the small merchant,\nis to be benefited and protected\nagainst the big fellow\" All the\ncommission has to do is to say to\nthe railroads: You must charge\njust so much from the eastern border\nof the state to the town in the CEN\nter and so much, or like amount,\nATonl tHe coast 10 tIldt central punt.\nBut let me tell you that very\nequalization of rates is what would\ndestroy the Spokane jobbing business.\n1t would not protect the little fell\nlow\" by whom. l presume, is meant\nthe small retailer. And 1t would de-\nstroy the big wholesaler.\n\n\nLet us assume that railroad COM\nmission Is I'm existence with the\npower to initiate rates. Let us say\nthat the commission does follow out\nthis argument OF the politicians and\nthe political newspapers and estab-\nfishes equalizing rates from Spokane\nand the coast to- equi-distant points\nIn the state.\n\n\nTake the present distributing rate\nof $1.4S across the state and cut 1t\nIn two. Say the charge for hauling\nfrom Spokane to Yakima, or We\nnatchee, from the coast, or Spokane,\nshall be \"a cents. Make II lower IL\nyou wish. but these figures will serve\nto illustrate.\n\n\nThe railroad company is told that\nwhen goods reach the state line they\nmust be hauled the distance equal to\nthat from Spokane to Yakima or We\nnatchee for \"a cents a hundred\npounds.\n\n\nThe railroads will acquiesce. On\nstate hauls they can do no less than\nobey the commission. provided that\ncommission Is vested with the power\nTO 80 order.\n\n\nOn the surface 1t would look us II\nmatters were evened up between Sc"
+    }
+  ]
+}

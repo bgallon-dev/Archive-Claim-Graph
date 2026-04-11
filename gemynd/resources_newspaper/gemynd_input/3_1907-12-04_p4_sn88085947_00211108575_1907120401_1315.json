@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MORE EXPENSE\nON OLIVE ST.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-04",
+    "date_end": "1907-12-04",
+    "report_year": 1907,
+    "source_file": "3_1907-12-04_p4_sn88085947_00211108575_1907120401_1315",
+    "archive_ref": "3_1907-12-04_p4_sn88085947_00211108575_1907120401_1315",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-12-04_p4_sn88085947_00211108575_1907120401_1315",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 256,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 193,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A serious stumbling block has\nbeen thrown in the way of imme-\ndate construction of the new Olive\nst. bridge, the plans for which have\nbeen approved by the board OF\nworks. For several years the\nNorthern Pacific railroad has al\nlowed the county the use of 60 feet\nalong the south of its right-of-way\nfor the Trent road. This does not\nbelong to the county and there is\nno agreement in writing between\nthe county and railroad officials.\nWith the building of the Napa st,\nviaduct the Trent road was cut In\ntwo at that point and if it is to be\ncontinued in use it will be neces-\nsary to bridge over the south end\nof the viaduct.\n\n\nThe county commissioners refuse\nto build such a bridge. They have\nagreed, however. to pay $4,000 as\ntheir share of the cost of the pro-\nposed new olive ST. bridge. IhlS\nsum. with the $4,000 the Traction\nCo. has agreed to pay, will leave\nabout $4,000 as the city's expense.\nCharles Liftchild, the principal\npromoter of the Olive st. bridge\nand a large property owner on\nOlive St, who plans to erect bust\nness houses similar to those on\nE. Sprague av., will probably en-\ndeavor to have the city build the\nTrent road bridge if the county\ncommissioners do no, finally con-\nsent to its being done at the\ncounty's expense. Property in the\nvicinity of the Olive st. bridge, it\nis stated, has almost doubled in\nvalue since the bridge work was\ntaken up."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Officers Uncover Hiding Place Of\n\n\nTrain Robbers at Trent.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-17",
+    "date_end": "1907-12-17",
+    "report_year": 1907,
+    "source_file": "7_1907-12-17_p1_sn88085947_00211108587_1907121701_0016",
+    "archive_ref": "7_1907-12-17_p1_sn88085947_00211108587_1907121701_0016",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-12-17_p1_sn88085947_00211108587_1907121701_0016",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 482,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 2291,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "his revolver as warning to others\nof the party. Three men arose\nfrom the bushes near him and\nstarted to run. Draper fired two\nshots at them, but fear of wounding\nsome of his own party compelled\nhim to withhold any more accurate\nshots. One of the three men stop\nped at the first shot and held up\nhis hands. He was quickly hand\ncuffed. BY this time others of the\nparty ran up and after turning the\ncaptive over to Deputy Long the\nrest of the posse set off in the di-\nrection taken by the other two men.\n\n\nLong, the prisoner and Tom\nSmith returned to town this morn\ning. The man gave the name of\nH. d. Murphy. He is only boy,\nscarcely Of age, five feet seven\ninches in height and weighs about\n$50 pounds. On his right arm is\ntattooed the bust of a woman and\n\"W. W.\" is tattooed on the left\nforearm. He denies that he and\nhis friends were preparing to hold\nup the overland and says they were\ncamped near the bridge to wait for\na freight train to bring them to\ntown. He is being kept in solitary\nconfinement and later today will be\nsweated in hopes that he will con-\nfess.\n\n\nThe evidence duplicating Muir\nply is given by the station agent\nat Trent, who identified his descrip-\nton as that of a man who came\ninto the Office few days ago and\nmade inquiry about the trains.\nWhen he left the agent noted the\ndisappearance of quantity of fuse\nthat had been kept there and was\ncertain his visitor took it.\n\n\nBY the merest chance the at\ntempted holdup was foiled. During\nthe past week three attempts have\nbeen made near Trent to flag the\noverland. Saturday the supposed\nbandits stopped freight by mis-\ntake This has caused suspicion\nthat all was not right and when\nlast night another attempt to flag\nthe train was made Engineer\nFields threw the throttle wide open\nand sped past man who was way\ning red light as a danger signal.\nOn the arrival of the train here\nSpecial Agent Joel Hindman was\nnotified. He decided that there was\npossible chance to capture the\nmen and hurriedly called together\nthe posse,\n\n\nIn searching for the two men who\nescaped last night the officers\nstopped the first inbound Occur\nd'Alene train ON the Inland. They\nsearched two men who got on at\nGreenacres but were satisfied of\ntheir innocence.\n\n\nAfter daylight this morning the\nposse trailed the other two suspects\nas far as the Spokane & Inland\nelectric line. 1t is now believed they\nboarded a train and came to town.\nLocal police have been furnished\nwith their descriptions. Tie posse\nhas returned to town. Harry\nDraper says he believes he hit one\nof the men. as he stumbled when\nshot at but quickly recovered."
+    }
+  ]
+}

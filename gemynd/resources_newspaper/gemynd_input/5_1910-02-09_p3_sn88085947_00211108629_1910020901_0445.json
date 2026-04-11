@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "CITY NE vs.\n\n\nOlN BRIEFO",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-09",
+    "date_end": "1910-02-09",
+    "report_year": 1910,
+    "source_file": "5_1910-02-09_p3_sn88085947_00211108629_1910020901_0445",
+    "archive_ref": "5_1910-02-09_p3_sn88085947_00211108629_1910020901_0445",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-02-09_p3_sn88085947_00211108629_1910020901_0445",
+      "composite_score": 10.78,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.5,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "kalispel"
+        ],
+        "agriculture": [
+          "hay"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 586,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "kalispel",
+            "weight": 2.5,
+            "offset": 193,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 3181,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 1905,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Final action was taken last night\nby the city council on the ordinance\nprohibiting the discharge of cannon\ncrackers and bombs within the city\nlimits.\n\n\nDavid r. MacGinnis, a wealthy\ncitizen of Kalispel, Mont, who y\nin the city, reports that the state\nof Montana has taken on new life\nand that settlers are rushing in\nthere by the thousands without\nwaiting for the coming of the re-\nduced fares. He says the bulk OF\nThe newcomers are from across the\nCanadian observation-disclosures re-\nturning to this side of the line\nand from Dakota, Minnesota and\nthe near-west states.\n\n\nThe Milwaukee has asked for the\nvacation of Bernard, Browne Grant\nand Sherman street, between Front\navenue and the first alley north.\nThey claim that the ground wanted\nis of but little value because it has\nno outlet across the tracks to the\nnorth.\n\n\nOrdinances have been passed by\nthe city council amending various\npaving improvements so as to call\nfor only a five-year maintenance\nbond instead of 10.\n\n\nThe new water we'll at the up\nriver pumping station will be com\npleted this week. Brick work will\nthen begin on the addition to the\npumping station as soon as the\nlarge main connecting the new wei\nwith the waterworks plant is laid.\nCommissioner Weymouth hopes to\nhave the water extensions in readi-\nness for operation by June 1.\n\n\nA resolution was adopted by the\ncity council last night ordering\nplans prepared for the construction\nof a new trunk sewer system for\nthe First ward, to be laid on Olive\navenue, between Madelia and Lee;\nON Lee, between Olive and Spring\nfield; on Springfield, Lee to Alta\nmont: on Altamont, Springfield to\nBroadway, and on Broadway, Alta\nmont to Nelson.\n\n\nLouis Csaszi will erect an apart.\nment house to cost $4,000 on Third\navenue, near Walnut. 1t will be\nthree stories high and cover the\nentire ground, 50x142 feet.\n\n\nThe Ephrata water tank case has\nbeen decided by Judge Whitson in\nfavor of the Great Northern rail\nway. w. II. Tolliver and wife tried\nto enjoin the Great Northern from\ndrawing water from an Overlooking\nspring on their land on the ground\nthat the railroad had no right or\ninterest in the spring. The rail.\nroad claimed that 1t had derived a\nright from the former owners, and\nshowed to the court that it had\nused the water without interrupt\nton for over 10 years.\n\n\nThe council last night passed an\nordinance cutting the peddlers II.\ncense fee from $140 to 500 and\ngiving the right to pay the license\nquarterly.\n\n\nThe business of the veteran In.\nsurance man, p. A. Daggett, father\nCT ex-Mayor Floyd Daggett, has\nbeen taken over by McCrea & Mer,\nryweather.\n\n\nAn ordinance was introduced In\nthe city council last night to pro-\nbibit the cutting of new paving for\nsewer, water or other purposes un,\ntil two years after it has been laid\n\n\nSherman street property owners\nwill meet at No. 6 fire station, Rusk\nand Sherman, Friday evening to\nconsider the kind of paving wanted\non taht street.\n\n\nThe license committee has put ur\nto the city council the question oil\nthe passage of an ordinance closing\nsaloons at midnight. The license\ncommittee has recommended that\n1t be passed.\n\n\nDavid Brown, president Of the\nHazelwood company, has written q\nletter to Governor Hay, agreeing t.\nthe appointment of government\nofficer to be stationed at their plant\nand fix the prices Of their products\nfor three months, or one year, Il"
+    }
+  ]
+}

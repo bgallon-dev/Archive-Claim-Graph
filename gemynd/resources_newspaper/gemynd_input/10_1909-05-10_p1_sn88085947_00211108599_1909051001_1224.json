@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LOCAL COMMITTEE\n\n\nGETS RESULTS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-10",
+    "date_end": "1909-05-10",
+    "report_year": 1909,
+    "source_file": "10_1909-05-10_p1_sn88085947_00211108599_1909051001_1224",
+    "archive_ref": "10_1909-05-10_p1_sn88085947_00211108599_1909051001_1224",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-05-10_p1_sn88085947_00211108599_1909051001_1224",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 91,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 262,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "EAST LAS VEGAS, May 10\nTerritorial Governor George Curry\ntoday appointed w. 8. Hopewell,\nColonel R. Twitchell, DR.. E. r. Nc\nBride, G. A. Richardson and w.\nGoff Black special advisory COM\nmittee to aid in securing repre-\nsentation for New Mexico at the\nnational irrigation congress, which\nwill meet in Spokane in August.\n\n\nThe appointment was made at\nsuggestion of the Spokane board\nof control, members of which are\nanxious for a showing from New\nMexico at the congress. Curry and\nstaff received an invitation to at\ntend governors day."
+    }
+  ]
+}

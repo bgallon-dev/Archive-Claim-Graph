@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-05-03 — pp6",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-03",
+    "date_end": "1909-05-03",
+    "report_year": 1909,
+    "source_file": "1_1909-05-03_p6_sn88085947_00211108599_1909050301_1181",
+    "archive_ref": "1_1909-05-03_p6_sn88085947_00211108599_1909050301_1181",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-05-03_p6_sn88085947_00211108599_1909050301_1181",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 367,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 1820,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON, May lis\nRoosevelt's policy of conservation\nto be thrown to the dogs of monop-\noily? Are the ungrabbed natural re-\nsources of the nation to be handed\nover to the moneyed looters to be\nexploited against the American peO-\npie during all future time?\n\n\n| fear so, but took my fears to\nSecretary r. A. Ballinger of the\ninterior department, haping that he\nwould explain them away.\n\n\nBallinger is the man for whom J.\nA. Garfield was displaced in Taft s\ncabinet. He is charged with that\ngreat task which was so well begun\nby the sturdy veteran Ethan Allen\nHitchcock. He is the man on whom\nthe public relies to hold in check\nthe predatory interests-the thiev-\ning railroads and the grabbing cor\nporations. He is chief custodian of\nthe public lands. put my question\nsquarely:\n\n\n\"Mr. Secretary, it is said that\nthere has been complete reversal\nof your predecessor policies. The\nnumerous reservations to the public\ndomain of land previously with\ndrawn appears to support that no.\nton. l would be glad to know au-\nthoritatively what are the present\npolicies\"\n\n\nThe secretary said he did not\nwish to talk for publication, and\nthat he would not consent to be\nquoted. This he later modified, per-\nhitting this much to quotation\nmarks:\n\n\nut is not true that | am not for\nconservation policies. Conservation\nis regarded by this Office as of the\nhighest moment. Everything is be-\ning done looking to a proper con-\nservation of the public wealth\"\n\n\ni called the attention of Secre-\ntary Ballinger to the fact that there\nwere almost daily restorations of\nlands which had been withdraw,\nfor power site examination. Also\nthat 100000 acres of Ignite land\nin North Dakota were thrown open\nto entry. Also that lands in Wyo-\nming and Idaho supposed to con-\ntain phosphate had been restored.\nAnd finally that lands withdrawn\nfor future reclamation works were\nbeing sent back again to the public\ndomain.\n\n\nThe secretary then explained\nthat he had given orders for a\ngeneral examination of lands suit\nable for power site purposes and\nvaluable for other reasons, and\nhad recommended that congress\npass some law for their future dis\nposition"
+    }
+  ]
+}

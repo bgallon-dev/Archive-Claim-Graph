@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Long Electric Line\n\n\nNearing cornpIetIo",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-24",
+    "date_end": "1903-06-24",
+    "report_year": 1903,
+    "source_file": "5_1903-06-24_p1_sn88085947_00211108538_1903062401_0098",
+    "archive_ref": "5_1903-06-24_p1_sn88085947_00211108538_1903062401_0098",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-06-24_p1_sn88085947_00211108538_1903062401_0098",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 144,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 43,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Manager II. NJ. Richards of the\nWashington Water Power company\nstated today that If nothing happen\n\n\ned the current would be turned on\nthe long distance wires to the Occur\n\n\nd'Alenes early next month.\nI'VE have 1870 men and many teams\n\n\nstringing wires and putting on the\nfinishing touches over in Idaho. The\nwires will be on the poles in Spokane\n\n\nwithin few days. Power will then\n\n\nbe turned on and we will be ready for\n\n\nbusiness.\n\n\nI'VE are pushing our work at Post\n\n\nFalls. That power, when developed,\n\n\ncan be used either i'm Spokane or the\n\n\nOccur d'Alenes. We may need some\n\n\nof it here, depending upon, the de-\n\n\nvelopment Of spokanes business in\nterests. {\n\n\n81 We have mo- plans made for the\ndevelopment of the upper falls in\nSpokane, but they will be utilized as\nsoon as the power Is needed\""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-06-13 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-06-13",
+    "date_end": "1904-06-13",
+    "report_year": 1904,
+    "source_file": "14_1904-06-13_p1_sn88085947_0021110854A_1904061301_0078",
+    "archive_ref": "14_1904-06-13_p1_sn88085947_0021110854A_1904061301_0078",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1904-06-13_p1_sn88085947_0021110854A_1904061301_0078",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 106,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 490,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(Dcripps News Association.)\n\n\nORAPPLE CREEK, Col, June IA\nThe situation In this district this\nmorning IL practically normal. The\nauthorities, both civil and military,\nexpect no further trouble.\n\n\nAnother batch of unionists will be\ndeported tomorrow and this will wind\nup the military's campaign of drtvina\nmen from the district.\n\n\nTomorrow the mineowners will is\nsue statement defining their posi-\ntion regarding unionism In this dis\ntrict. 1t is expected the ban win only\nbe placed ON the Western Federation\nof Miners and any other organiza-\ntion to which the metalliferous min\ners belong.\n\n\nThe troops will probably be with\ndrawn from the district this week."
+    }
+  ]
+}

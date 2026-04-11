@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Especial to The Press.)",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-08-08",
+    "date_end": "1906-08-08",
+    "report_year": 1906,
+    "source_file": "11_1906-08-08_p4_sn88085947_00211108563_1906080801_1009",
+    "archive_ref": "11_1906-08-08_p4_sn88085947_00211108563_1906080801_1009",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-08-08_p4_sn88085947_00211108563_1906080801_1009",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 105,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "DENVER, Aug. SIN this state,\nwhere equal suffrage for women\nwas expected to be a civic safe\nguard, it has proven necessary to\ndiscredit the highest court in order\nto arouse the public to the fact\nthat free government is stifled.\n\n\nTo dissipate aparty is now the\nreal battle Oh the League for Honest\nElections, whose sincerity for re-\nform is as marked and aggressive\nhs the evil to which ii is opposed.\n\n\n1t may have been expected that\nwomanhbod with its high ideals, its\nlove of purity, and its quick con-\nScience would long ago have cured\ncolorado of its public ills. On the"
+    }
+  ]
+}

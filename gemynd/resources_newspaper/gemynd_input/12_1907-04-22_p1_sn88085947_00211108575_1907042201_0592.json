@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WON'T Be PLEDGED",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-22",
+    "date_end": "1907-04-22",
+    "report_year": 1907,
+    "source_file": "12_1907-04-22_p1_sn88085947_00211108575_1907042201_0592",
+    "archive_ref": "12_1907-04-22_p1_sn88085947_00211108575_1907042201_0592",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1907-04-22_p1_sn88085947_00211108575_1907042201_0592",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 104,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 209,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Thomas ID. Gamble, candidate for\ncouncilman from the Second ward.\nin a letter tot Thomas Maloney, re-\nfuses to pledge himself in favor of\nthe city owning its own lighting\nplant or for an arbitration clause\nin public utility franchises. He\nsays:\n\n\nLAS I am not pledging myself. l\nmust respectfully decline to give\nan answer either in the affirmative\nor negative.\n\n\nThis. however. will not prevent\nme, If elected. in giving both these\nmatters some thought and consid-\nGrafton. | expect. if elected. to give\nmy best thought and work for the\n. years am in Office for the up\nbuilding Of Spokane\""
+    }
+  ]
+}

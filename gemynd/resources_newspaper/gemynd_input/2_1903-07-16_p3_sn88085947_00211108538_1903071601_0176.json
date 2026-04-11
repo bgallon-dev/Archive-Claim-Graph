@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-16 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-16",
+    "date_end": "1903-07-16",
+    "report_year": 1903,
+    "source_file": "2_1903-07-16_p3_sn88085947_00211108538_1903071601_0176",
+    "archive_ref": "2_1903-07-16_p3_sn88085947_00211108538_1903071601_0176",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-07-16_p3_sn88085947_00211108538_1903071601_0176",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.5,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "placer"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 220,
+      "match_details": {
+        "mining": [
+          {
+            "term": "placer",
+            "weight": 1.5,
+            "offset": 710,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Ing being done. anA gfound that was\nthought to be worked out years ago\n~ primstivs methods y being gone\nover ana placsfed With modern appli-\nancss. The Rich Hill company own\nsoe acres, ana have spent thousands\nOF dollars In machinery. Since the\nground proposed to be worked II\nabove the reach Of the giants\" the\ncouapAny has brought in a steam hy-\ndraulic plant to obtain additional\nforce to wash down the rich bearing\ngravel\n\n\nx1nr1A0EXD xxHCoxN.\n\n\nPierce City itself Is a camp Of from\n$50 to 200 people. 1t has many his\ntorical associations. The court house.\nbuilt OF logs in the carly SOS, Is In\nuse to the present day 1t was here\nthat the first grand jury Of idaho\nterritory. composed largely of south\nern placer miners impeached Presi-\ndent Abraham Lincoln. The citizens\nare also Ia possession Of union flag\nthat the northerners in camp during\nthose stirring days attempted to raise\nabove the courthouse, but could not\n\n\nThe activity in the surrounding\ncamps il being felt in Pierce City.\nand the brick for It's first brick block\nb now being made. It 10 Noticeable\nthat Seattle wholesalers and jobbers\ncontrol the trada. with the sxcep-\ntion Of one line-liquors-and Mr..\nGreenberg wonders why Spokane has\npassed up what is rightfully within\nits territory."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "IMPORTANT MEETING OF CLUB\n\n\nWOMEN.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-22",
+    "date_end": "1910-08-22",
+    "report_year": 1910,
+    "source_file": "51_1910-08-22_p5_sn88085947_00211108642_1910082201_0572",
+    "archive_ref": "51_1910-08-22_p5_sn88085947_00211108642_1910082201_0572",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "51_1910-08-22_p5_sn88085947_00211108642_1910082201_0572",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 164,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's club",
+            "weight": 2.0,
+            "offset": 42,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Women representative from all\nthe various women's clubs In this\nthis are requested to meet tomor.-\nrow afternoon at $3.50 p. m. at the\nI. w. C. A. parlors, when arrange\nnGAts will be made fors the\nwilkins day program, October a.,\nat the Interstate fair.\nThe women are urged to be pres\nemit. as the meeting will be an Inn\nportant one and the committee Will\nbe appointed at that time.\n\n\nWILL ENTERTAIN LADIES'\n\n\nDAY.\n\n\nMrs. ]. c. Cunningham will en-.\ntertain the members of the Ladies'\nAid society of the First Methodist\nchurch Thursday afternoon at her\nhome. 1915 Grand avenue.\n\n\nRECITAL POSTPONED.\n\n\nThe first of series of recitals\nto be given by the Columbian UNI\nversity will be given Tuesday, Sep\ntember s. instead of September o.\nThe change of date was mace on\naccount of Monday being LABOR\nday.\n\n\nMiss Lulu UrmstOn, the latest\naddition to the faculty, VIII make\nher first public appearance IN TINS\ncity at that time."
+    }
+  ]
+}

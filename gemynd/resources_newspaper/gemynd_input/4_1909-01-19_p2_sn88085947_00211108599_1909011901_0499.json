@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TO BRAND DICK\n\n\nBLACK SHEEP\n\nCOMING CITY CAMPAIGN IN\nFLUENcE DEVELOPS IN MIR,\nING POLITICS WITH BILLY\n\n\nSUNDAY REVIVAL SERVICES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-19",
+    "date_end": "1909-01-19",
+    "report_year": 1909,
+    "source_file": "4_1909-01-19_p2_sn88085947_00211108599_1909011901_0499",
+    "archive_ref": "4_1909-01-19_p2_sn88085947_00211108599_1909011901_0499",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-01-19_p2_sn88085947_00211108599_1909011901_0499",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 277,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 1405,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane observers are mingling\namusement with disgust today at\nthe political use that is to be made\nof Billy Sunday here, according to\nthe forecast in morning paper.\nBilly, it appears, has been furnish\ned with a list of the sheep and the\ngoats among the Spokane delega-\nton in regard to saloon regulation\nlaws and he is going to separate\nthe flock at the mems meeting next\nSunday.\n\n\nIn this list Senator Hutchinson,\nbluff old Dick, is named as doubt\nfull\" This does not suit the pur-\npose of the morning papers next\nmayor making project and occasion\nis taken to put Hutchinson entirely\nin the wrong\" class.\n\n\nInterested parties who have en-\ndeayored to persuade Dick as to\nhow he should interpret the last\nrepublican platform will read this\ngrimly. Hutchinson is possessed\nof the notion that the people elect\ned republicans to Office because\nthey wanted the platform prin-\nciples of that party carried out.\nHe even believes it to the extent\nof standing solidly for bank guar\nanty law. Although one of the\nwealthy men of the country, he is\nalso an earnest advocate of the\ninitiative and referendum, as well\nas any other sound principle of\npopular government.\n\n\nr Hutchinson's position on local\noption is that Of the republican\nparty and he has never attempted\nto conceal it. The result of the\nelection indicates that the republi.\ncan plan is what the people of the\nstate want. They rejected the\ndemocratic prohibition plank by a\nmajority that left nothing to argue\nover\n\n\nIf every other legislator is as\ntrue to the platform as Hutchinson\nwill be, the state will get just ex-"
+    }
+  ]
+}

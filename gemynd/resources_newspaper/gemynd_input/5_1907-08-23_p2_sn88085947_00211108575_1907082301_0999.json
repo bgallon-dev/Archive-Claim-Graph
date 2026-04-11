@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "n. P. IGNORES\n\n\nSTATE ORDER",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-23",
+    "date_end": "1907-08-23",
+    "report_year": 1907,
+    "source_file": "5_1907-08-23_p2_sn88085947_00211108575_1907082301_0999",
+    "archive_ref": "5_1907-08-23_p2_sn88085947_00211108575_1907082301_0999",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-08-23_p2_sn88085947_00211108575_1907082301_0999",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 186,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 169,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "OLYMPIA, Aug. pa. w. Per-\nley, inspector of tracks and safety\nappliances for the railroad commits\nsion, has filed report in which he\ncomplains about the practice Of\nthe Northern Pacific railroad of\nhauling bad order cars, even after\nreceiving notification not to do so.\n\n\nIn his report Inspector Perley\nsays that on July chained-up\ncars were hauled out Of Seattle, the\ntrain being in charge of Conductor\nMckinley and Engineer Reed. Aft\ner this train had pulled out, Inspec-\ntor Perley says he notified the\nmaster mechanic, w. B. Norton, of\nthe practice of hauling bad order\ncars contrary to the law, but in\nspite of that notification the same\ncrew was sent out on July with a\ntrain In which there were 10 chain\ned-up cars, Gin defiance\" says the\ninspector, \"of my protest\"\n\n\nInspector Periey also gives a list\nof 13 bad order cars hauled from\nPasco to Ellensburg on Aug. 4, and\nII bad order cars hauled out of Ell\nlensburg on Aug. 6. Car foremen\nand master mechanics have been\nnotified by Inspector Perley of\nthese movements of bad order cars."
+    }
+  ]
+}

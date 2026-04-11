@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WOULD LAUNCH.\nLABOR PARTY\n\n\nHERE\n\nRESOLUTIONS TO THIS EFFECT\nINTRODUCED BY SPOKANE\nMAN AT LABOR CONFER\nENCE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-11",
+    "date_end": "1910-01-11",
+    "report_year": 1910,
+    "source_file": "13_1910-01-11_p2_sn88085947_00211108629_1910011101_0124",
+    "archive_ref": "13_1910-01-11_p2_sn88085947_00211108629_1910011101_0124",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1910-01-11_p2_sn88085947_00211108629_1910011101_0124",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 438,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 1112,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane may he the birthplace\nof the new state labor party. Reso-\nlutions have been introduced today\nby A. w. Swenson of this city, at\nthe convention Of the State FEEDER\nalton Of Labor at l4oquam, stpu-\niating that the first meeting of the\nstate reform party be held at Spo.\nkane July 4, 1910.\n\n\nThe organization of the new par\nty now seems assured. The labor\ning class has grown weary of the\nmanner in which the old parties\nhave made promises andfforgotten\nthem. A. W. Swenson, who is in\nProducing the resolution, which fol-\nlows, is a prominent member of\nthe local typographical union, and\nis the president of the Northwest\ndistrict Typographical union. He\nrepresented the state federation of\nlabor at the recent convention of\nthe A. F. of l.. at Toronto. The res\nolution reads:\n\n\nWhereas, Legislation and other\npolitical action is most important\nfor the advancement of labor, from\nthe fact that every industrial ques-\nton is finally a political question:\nas demonstrated by the efforts of\nemployers to destroy labor organ\nizations and their influence through\ndenial of freedom of speech, free\npress, right to boycott, by the issu-\nance of iniunctions against labor,\nthe use of the police, militia, army\nand private detectives to defeat the\nefforts of labor to better it's indus\ntrial condition; and\n\n\nWhereas, All efforts of the wage\nworkers to secure labor legislation\nthrough pledges from candidates of\nthe republican and democratic po-\nlitical parties, and lobbying at leg\nislative sessions have proven COM\nplete failures, owing to the fact\nthat the old parties stand as repre-\nsentatives of business and proper\ntied interests as against labor;\ntherefore be it\n\n\nResolved, That for labor's own\nbest interests, the Washington\nState Federation of Labor urges all\naffiliated and unaffiliated labor Or\nSodlllLdLlOHS III llle Stdle 10 SoIlu\ndelegates to a convention to be held\non July A. 1910, in the city of Spo-\nkane, for the purpose of orgaHiz-\ning labor party. separate and dis\ntinct from the democratic and re-\npublican parties, and without fusion\nor trading with them, with the view\nof placing labor candidates in the\nfield for congressional, state, dis\ntrict and county offices; be it fur\nTheir\n\n\nResolved, That upon the adop-\nton of this resolution by the State\nFederation of Labor that the same\nbe forwarded through it's secretary\nto every labor organization in the\nstate for endorsement and election\nOf delegates to said convention, the\nnumber of delegates of each organ\nization in such political convention\nto be the same as provided for rep,\nresentatiOn in the,State Federation\nof Labor convention\""
+    }
+  ]
+}

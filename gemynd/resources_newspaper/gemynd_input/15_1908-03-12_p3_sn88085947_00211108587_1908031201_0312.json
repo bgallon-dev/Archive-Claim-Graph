@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "FIVE DEADLY BLOWS AT LABOR\n\n\nOR GOVERNMENT BY COURTS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-03-12",
+    "date_end": "1908-03-12",
+    "report_year": 1908,
+    "source_file": "15_1908-03-12_p3_sn88085947_00211108587_1908031201_0312",
+    "archive_ref": "15_1908-03-12_p3_sn88085947_00211108587_1908031201_0312",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1908-03-12_p3_sn88085947_00211108587_1908031201_0312",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott",
+          "injunction"
+        ],
+        "indigenous": [
+          "treaty"
+        ],
+        "mining": [
+          "mine workers"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 380,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1443,
+            "in_headline": false
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 658,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "treaty",
+            "weight": 1.5,
+            "offset": 1874,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine workers",
+            "weight": 2.0,
+            "offset": 1695,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": ", succeeding this one. 1t will suffice\nhere to enumerate these decisions\n\n\nFirst in sequence of effect was\nthe annulment of the employers liza\nbility act, known as the act of July\nIL, 1906. The decision was rem.\ndered Jan. 6, and only three of the\nnine justices composing the U. S.\nsupreme court dissented.\n\n\nSecond, on Jan. 81, the Erdman\nact, prohibiting employers engaged\nin interstate commerce from dis.\nmissing union men, was declared\nby the supreme court to be uncon.\nstitutional; six judges Affirming,\ntwo dissenting and one, Mr.. Justice\nMoody, not participating.\n\n\nThird, Feb. 2, in the Loewe, or\nDanbury halter case, a unanimous\ncourt declared the boycott a con.\nspiracy in restraint Of trade, sub.\njecting the boycotters to action for\nthreefold the damages sustained by\nthe boycotted, and also to punish\nment under the criminal features\nof the Sherman antitrust act, the\nmaximum penalty Of which is a\nfine of $4,000 and Imprisonment for\none year.\n\n\nFourth in sequence of effect, but\nearlier than any of the others in\ndate-Occurring Dec. II last-was\nan order by Mr.. Justice Gould in\nthe supreme court of the District\nof Columbia, in the Buck stove\n| case, defining boycott as a con-\nspiracy and temporarily enjoining\nPres. GOmpers and many others,\nnamed and unnamed, from naming\nthe Buck Stove Co. in print or Gin\nany other manner\" in connection\nwith boycott.\n\n\nFifth In this order, but first in\ndate-occurring Nov. 26, 1907-was\nan injunction issued in the United\nStates circuit court for the north.\nern district of West Virginia. by\nMr.. Justice Dayton, in response to\nIAN ex parte statement and petition\nby the Hitchman Coal & Coke Co\nThe order enjoined John Mitchell\nof the United Mine Workers of\nAmerica and multitude Of other\nnamed and unnamed persons from\ninterfering Gin any manner what\nsoever, either by threats, violence,\nintimidation, persuasion or en-\ntreaty, with any person =\nwho has contracted with and is in\nthe actual services of the Hitch.\nman Coal & Coke Co.\n\n\nThese five acts of federal courts\nhave made a sensation unparallel-\ned in trade uniondOm. and are like\nly to have marked results in gen.\neral politics for reasons that will\n| be explained in the articles to fol-\nlow this."
+    }
+  ]
+}

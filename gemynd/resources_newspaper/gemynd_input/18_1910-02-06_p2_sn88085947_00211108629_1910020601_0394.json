@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "N, K. 8 7. ROAD\ns. ENJ0|NS STATE\n\n\nOf OKLAHOMA",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-06",
+    "date_end": "1910-02-06",
+    "report_year": 1910,
+    "source_file": "18_1910-02-06_p2_sn88085947_00211108629_1910020601_0394",
+    "archive_ref": "18_1910-02-06_p2_sn88085947_00211108629_1910020601_0394",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-02-06_p2_sn88085947_00211108629_1910020601_0394",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ],
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 113,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 70,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 561,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 561,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(By United Press Leased Wire)\n\n\nST. LOUIS, Mo-, Feb. 5.-A tenn\nporary injunction against the state\nof Oklahoma preventing the en-\nforcement of the 2 cent passenger\nrate law and certain maximum\nfreight schedules, was granted to-\nday to the Missouri, Kansas &\nTexas and the Santa Fee railroads\nby Judge William G. Hook of the\nUnited States circuit court here, in\na decision forwarded tonight to the\nclerk of the federal court at\nGuthrie, Oklahoma.\n\n\nThe cent passenger rate and a\nprovision giving the Oklahoma cor\nporation commission power to es-\ntablish maximum freight rates are\nembodied in the Oklahoma state\nconstitution. These rates are sus-\npended by the injunction granted\ntoday."
+    }
+  ]
+}

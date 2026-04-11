@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "NEW OREGON RAILROAD",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-21",
+    "date_end": "1909-06-21",
+    "report_year": 1909,
+    "source_file": "20_1909-06-21_p1_sn88085947_00211108605_1909062101_0230",
+    "archive_ref": "20_1909-06-21_p1_sn88085947_00211108605_1909062101_0230",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "20_1909-06-21_p1_sn88085947_00211108605_1909062101_0230",
+      "composite_score": 14.56,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.0,
+        "agriculture": 0.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation"
+        ],
+        "railroads": [
+          "oregon railroad"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 84,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 348,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "oregon railroad",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": true
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 7,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SALEM, Ore, June 21.--Articles\nof incorporation for the new coast\nrailway, known as the Independ-\nence-Siletz Pacific railway, were\nfiled with the secretary of state to-\nday by Independence capitalists. 1t\nIs capitalized at a half million.\n\n\nThe road will run from a point\nnear Simpson. Polk county. to the\nPacific coast through the Siletz In\ndian reservation. Cape Foul\nWeather, Lincoln county, will be\nthe western terminus. The incor-\nporators are o. w. Taylor, d. w.\nSears and M. Mirschberg, Independ.\nence capitalists."
+    }
+  ]
+}

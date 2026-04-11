@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Who Will Go From Spokane to the\nChicago Conference and Bring\nBack the Concessions Which the\nRailroads Are Anxious to Maker\nmot l.\" Says Mr.. Schiller\" mot\nl.\" Says Mr.. Gooda||.\"",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-03",
+    "date_end": "1904-05-03",
+    "report_year": 1904,
+    "source_file": "1_1904-05-03_p1_sn88085947_00211108538_1904050301_1276",
+    "archive_ref": "1_1904-05-03_p1_sn88085947_00211108538_1904050301_1276",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1904-05-03_p1_sn88085947_00211108538_1904050301_1276",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 191,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 330,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "who is going to attend the Chicago\nmeeting and represent the Spokane\nshippers and argue their case? This\nquestion was propounded to a num-\nDer of Spokane merchants today, but\nprovoked no answer. No meeting Of\nthe shippers association has occurred\nsince the memorable one when the\njobbers betrayed the retailers and de-\nclared the boycott off. No one knows\nwhether the association is still in ex-\nistence. Its former president says he\nis taking no interest in it's affairs and\nis not going to Chicago and does not\nknow who is. President Schiller\nfought for the continuance of the\nboycott and says he is still shipping\nover the o. r. & ~, and will con-\ntinue to do so regardless Of the\nothers. but that he will have nothing\nto do with the Chicago meeting.\n\n\nFrom all that can be learned by\nrepresentatives of this paper only\nthose will go to Chicago who have\npersonal grievances which they think\nwill be remedied because they were\nincluded among the friends\" of the\nrailroads mentioned in Vice Presi-\ndent Blabon's famous congratulatory\nmessage to Jackson of the Great\nNorthern. From present indications"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "VALLEY FLOOD\n\n\nSUFFERERS SUE THE CITY\n\n= These things don't happen .\n. under the Des Moines plan. .\nq 80 . . q y q . 80 90",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-21",
+    "date_end": "1908-10-21",
+    "report_year": 1908,
+    "source_file": "7_1908-10-21_p1_sn88085947_00211108587_1908102101_1237",
+    "archive_ref": "7_1908-10-21_p1_sn88085947_00211108587_1908102101_1237",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1908-10-21_p1_sn88085947_00211108587_1908102101_1237",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "riverside avenue"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 247,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 452,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 1206,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With their residence filled with\ngravel, sand and mud. windows\nbroken, foundations destroyed, gar\nden ruined, and the yard cut into\ngullies by torrents from an over\nflowed sewer which drove them\nfrom their beds at night to seek a\nresting place elsewhere, Ernest\nHess and wife have brought suit\nagainst the city of Spokane for\n$4,000 damages.\n\n\nThe plaintiffs are 10 and II years\nof age, respectively. and live In\nPeaceful valley at the intersection\nof Riverside avenue and Oak street,\ntheir four lots situated ON the\nsloping hill on the lower side OF\nRiverside.\n\n\nOn July %, during heavy rain.\nthe sewer drain of both Oak street\nand Riverside avenue blocked in\nthe street Immediately in front OF\nthe plaintiffs house. and the water\noverlooked the curb, washing\nthrough his property.\n\n\nThe plaintiff states that his\nhouse was almost filled to the cell\ning with debris and that 1t Is per-\nmanently ruined. He says he has\ncontracted sickness from the ex-\nposture In leaving the house the\nnight of the flood. Mr.. Hess states\nthat his claim for damages filed\nwith the city was disallowed.\n\n\nThis is the ancient complaint The\nPress called attention to time and\nagain. The city street department\nalways promised relief and did\nnothing.\n\n\n1t is difficult to see what defense\nthe city can have In this case. The\npeople of Peaceful valley were de-\nliberately left exposed to an made\nquate sewer of which city officials\nhad full knowledge."
+    }
+  ]
+}

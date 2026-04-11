@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-08-10 — pp5",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-10",
+    "date_end": "1910-08-10",
+    "report_year": 1910,
+    "source_file": "18_1910-08-10_p5_sn88085947_00211108642_1910081001_0434",
+    "archive_ref": "18_1910-08-10_p5_sn88085947_00211108642_1910081001_0434",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1910-08-10_p5_sn88085947_00211108642_1910081001_0434",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 3.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "medical lake"
+        ],
+        "agriculture": [
+          "orchard",
+          "grange"
+        ],
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 275,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 1564,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 1128,
+            "in_headline": false
+          },
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 1113,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 921,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "turnbull_prehistory",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "for their home Friday over the\nCanadian Pacific.\n\n\nMr.. and Mrs. JAMESON made q\nnumber Of trips to smaller towns in\nWashington and were delighted\nwith the country. They have made\nhosts Of friends during their stay\nhere. who regret very much to see\nthem depart.\n\n\nQUESTS At JACKSON HOME\n\n\nMr.. and Mrs. M. T. Jackson Of\n1905 Gardner avenue have had as\ntheir guests DR.. and Mrs. M. Matzen\nof Columbus, Neb. Mrs. Matzen Is\na niece of Mrs. Jackson.\n\n\nDR.. Matzen left last evening and\nMrs. Matzen will follow this even\ning. They will make trip to Top\npenish and Yakima. Wash, with a\npossible view Of making one of the\nplaces their future home.\n\n\nMRS. REYNOLDS Will SPEAK At\n\n\nSERIES OF MEETINGS.\n\n\nMrs. M. J. Reynolds, the speaker\nof the Washington Political Equal.\nity league, has returned from a\nshort stumping trip in Lincoln\ncounty, where she spoke at Wilbur.\nCreston and Mondovi in the inter-\nests of the pending equal suffrage\namendment. She spoke Sunday\nnight at Opportunity to a crowded\nunion meeting of the Christian and\nMethodist churches.\n\n\nMrs. Reynolds will speak next\nFriday evening. August IL. in the\nGrange hall at Orchard Avenue.\nMiss Fay Morvillius will sing. and\nMiss Mabel Price will give humor-\nGus readings. Mrs. Reynolds will\nspeak Saturday afternoon at the big\ngood government rally at Mantle\npark, given by the Farmers union\nand the labor unions. She will\nspeak next Sunday morning at IL at\nthe Dan Bush Rescue mission, cor\nrer of Front and Stevens. when\nMiss Morvillius will sing. and on\nSunday evening. the 14th. in the\nChristian church at Medical Lake."
+    }
+  ]
+}

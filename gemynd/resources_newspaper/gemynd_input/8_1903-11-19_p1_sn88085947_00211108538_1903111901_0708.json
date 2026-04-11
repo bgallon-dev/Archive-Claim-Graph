@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Carrie Nation Elected .",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-11-19",
+    "date_end": "1903-11-19",
+    "report_year": 1903,
+    "source_file": "8_1903-11-19_p1_sn88085947_00211108538_1903111901_0708",
+    "archive_ref": "8_1903-11-19_p1_sn88085947_00211108538_1903111901_0708",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-11-19_p1_sn88085947_00211108538_1903111901_0708",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 161,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 738,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHINGTON. Nov. 19.-Carrie\nNation was forcibly elected from the\nWhite House this morning after en-\ndeavoring to force her way into the\npresence of the president She enter\ned at 10 o'clock, when Secretary Loeb\nexplained that the president was busy.\nShe sat down and for half an hour\nkept up running comment with\nother visitors who entered Finally\nshe walked into Loeh's office and said\nshe demanded to see the pres dent i'm\nmediately. She wanted to ask him\nwhy he visited a dive In Kansas when\nhe took his western tour. Loeb. after\nIl vain attempt to pacify her. called\ntwo officers, who were compelled to\ndrag the smasher out, as she resisted\nTO the utmost.\n\n\nShe created scene In the street\nafterwards by praying for the cleo\nton of II prohibition president who\nwould represent the people and not\nthe brewers.\n\n\nShe came here from Baltimore last\nnight. where her troupe is playing\nTen Nights In Bar Room\""
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "RAIL Way OFFICES WILL\n\n\nMOVE TO NORTHPORT",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-20",
+    "date_end": "1903-04-20",
+    "report_year": 1903,
+    "source_file": "3_1903-04-20_p4_sn88085947_00211108526_1903042001_0566",
+    "archive_ref": "3_1903-04-20_p4_sn88085947_00211108526_1903042001_0566",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-04-20_p4_sn88085947_00211108526_1903042001_0566",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 164,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 283,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 836,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is no longer an doubt con-\ncorning the moving of the Spokane\nFalls & Northern general Offices from\nSpokane to Northport as first an\nnounced by The Press.\n\n\nr. c. Morgan, the newly appointed\nsuperintendent, just returned from a\ntrip to Northport, where he was look\ning over the depot at that point with\nview of having portion of it made\ninto offices for the roadmasters. An\nother building has been selected for\nthe offices of the various departments\nand the transfer of the S. +. & n.\nOffices will be made within a month,\nor as soon as the building at North\nport is put in shape.\n\n\nSuperintendent Morgan has already\nmade some changes in the operation\nof the trains on the Marcus Republic\nline and more will follow with a view\nof reducing the operating expenses.\nMr.. Morgan is of the Hill school and\nis a shrewd railway man.\n\n\nThe Spokane Falls & Northern rail-\nway will establish a train dispatcher's"
+    }
+  ]
+}

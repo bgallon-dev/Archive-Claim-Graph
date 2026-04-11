@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-09-16 — pp9",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-16",
+    "date_end": "1910-09-16",
+    "report_year": 1910,
+    "source_file": "5_1910-09-16_p9_sn88085947_00211108642_1910091601_0826",
+    "archive_ref": "5_1910-09-16_p9_sn88085947_00211108642_1910091601_0826",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-09-16_p9_sn88085947_00211108642_1910091601_0826",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 7.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "free speech",
+          "jail",
+          "i. w. w."
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 331,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 1448,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 1597,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 665,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1276,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "under their noses. BY the control\nOf Secretary Kraemer of the Sou\nthern California Brewing associa-\nton, an officer in Los Angeles\nbrewery and an understudy Of Zee\nhandelaar, the local brewers we're\nbluffed into letting Kraemer and\nthe Merchants and Manufacturer\nassociation take charge of the ne\ngotiations with the unions. Kraem-\ner, even after a visit to San Fran\ncisco, where the board of control\nof the State Brewers advised him\nto at least give the Los Angeles\nunions a chance for a conference,\ncame back on the Job, announced\n! that he was handling the fight\n! without any outside assistance and\nthat there were no confabs with\n\"agitators\" on the program.\n\n\nSTRIKE BREAKERS PROTECTED\nAfter that, through the control\nof the mayor, the council and the\npolice, strike breakers were pro-\ntected at the expense Of the city,\nan ordinance was passed that took\naway the right Of the union men to\nstand in front of a saloon that sold\nnon-union beer, to ask any strike\nbreaker to leave his job, or to lol-\nter, picket, carry or display ban\nners, signs or transparencies. You\neven could not indirectly attempt\nto influence any person to refrain\nfrom buying anything. or even go.\ning anywhere, or from doing any\nthing.\n\n\n| It was about the tightest little,\nRussian shutup-or-go-to-jail law\never devised to make public opin-\nion null and void.\n\n\nAt once the union leaders called\non their men to volunteer to go to\njail. Just, as earlier in the year,\nthe I. w. w. leaders had asked\nhundreds of their members to live\non bread and water in Spokane\nbull pens In order that the Citizens\nalliance law against free speech\nmight be tested.\n\n\nIn Los Angeles 50 men respond\ned and were jailed. Later they\nwere released on bail and recently\na jury set free the first Of these\nmen as guilty of no offense de-\nspite the anti-picket ordinance.\nBut so determined was the Mer-"
+    }
+  ]
+}

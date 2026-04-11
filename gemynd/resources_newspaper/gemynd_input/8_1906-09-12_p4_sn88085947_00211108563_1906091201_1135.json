@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "7 they ROAST\n\n\nHIM",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-12",
+    "date_end": "1906-09-12",
+    "report_year": 1906,
+    "source_file": "8_1906-09-12_p4_sn88085947_00211108563_1906091201_1135",
+    "archive_ref": "8_1906-09-12_p4_sn88085947_00211108563_1906091201_1135",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1906-09-12_p4_sn88085947_00211108563_1906091201_1135",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 187,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 245,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Members of the street car mems\nunion say that Starter Sweeney\nwas largely responsible for the dis\nruption of the union the men for\nmerly had in this city. They state\nSweeney reported the proceedings\nof tn union tc the officers of the\nWashington Water Power company\nwith the result that the company\nknew who was active in the union\nsuch men being discharged as soon\nas possible. Just before the old\nunion went out of business\nSweeney was expelled, but the\nharm was done and the union de-\nstroyed. Men employed on the\nTraction Inns Gle i'm that Sweeney\nis at his old game of spying around\nfor the Washington Water Power\ncompany. They claim that he has\nattempted to extract information\nfrom members of the Garments\nunion employed by the Traction\ncompany as to who belongs to the\nunion and are employed by the\nWashington Water Power COM\npany.. They claim Sweeney owes\nhis present affluence and position\nwith the company to his contempt\nible actions with regard TO the men\nwith whom he has been employed\nand with whom he should have\ncommon interests."
+    }
+  ]
+}

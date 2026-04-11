@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Cars in Plenty to Garry People to the\nCompanies Pleasure Park but None\nTo That Of Its Competitor, In Con-\nsequence Many a Family Lost a\nLong Anticipated Outing.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-06",
+    "date_end": "1905-07-06",
+    "report_year": 1905,
+    "source_file": "12_1905-07-06_p4_sn88085947_00211108551_1905070601_0643",
+    "archive_ref": "12_1905-07-06_p4_sn88085947_00211108551_1905070601_0643",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-07-06_p4_sn88085947_00211108551_1905070601_0643",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 129,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Washington Water Power COM\npany owns Natatorium park. The\nHieber Brewing company owns Hias\nwatha park. 4\n\n\nThe Washington Water Power\ncompany owns system of street\ncars running to these resorts and is\nsupposed to serve the public i'm\npartially. The Hieber Brewing COM\npany owns no cars.\n\n\nBoth the Washington Water Power\ncompany the Hieber Brewing COM\npany had things doing at their re-\nspective parks on the Fourth of July.\nBoth wanted people to see these\nthings and spend their money-both\nneeded street cars.\n\n\nThere was five-minute service to\nNatatorium park and 40-minute to\nHiawatha park The cars ran to\nNatatorium park on the night of the\nFourth until all the people got tired\nand went home. Service to Hia-\nwatha park stopped at 1880, regard"
+    }
+  ]
+}

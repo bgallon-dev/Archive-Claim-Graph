@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-05 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-05",
+    "date_end": "1910-05-05",
+    "report_year": 1910,
+    "source_file": "19_1910-05-05_p1_sn88085947_00211108630_1910050501_0512",
+    "archive_ref": "19_1910-05-05_p1_sn88085947_00211108630_1910050501_0512",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1910-05-05_p1_sn88085947_00211108630_1910050501_0512",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 263,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 405,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Does every woman in Spokane\n\n\nbelieve that their sex should have\n\n\nthe right to vote at all elections?\n\n\nIf the crosses on The Press bal\n\n\nlots are any criterion, this answer\n\n\nwould be answered emphatically\n\n\nIn the affirmative. OF a desk\n\n\ndrawerful of ballots received in the\n\n\ncontest, as it might be called, not\n\n\none ballot has been marked no\"\n\n\nBut this simply means that the\n\n\nsupporters of equal suffrage are\n\n\nrallying to it's cause, like the we'll\norganized army they are. They\n\n\nwant to show Congressman Poin-\ndexter and the whole august and\nstatesman-like bunch at Washing\nton that the women of Spokane\n\n\nwant and are going to get the\nright to vote.\n\n\nNow, of course, there are heaps\nand heaps of women who think\n\n\nthat the men ought to do the vot-\ning, and the women ought to at\ntend solely to the household. But\nhow are they going to make this\nopinion continue to rule, if they\n\n\ndon't express their stand? Let's\nhear from both sides On the big\n\n\nquestion, and find out just what the\n\n\nwomen of Spokane think. Either\n\n\nbring or mail your ballots to the\nsuffrage editor. The Spokane Press.\nTwo prominent suffraget leaders\n\n\nexpressed themselves on the mat\nter today as follows:\n\n\nMrs. d. G.. Coates:\n\n\nWomen should have the ballot\nbecause they have as much inter-\nest as men in controlling the gov\nernment. Women are taxed as\nheavily, and therefore should have\na voice and be an actor in real\nlife, instead of spectator\"\nMrs. l.. NJ. House:\n\n\nGovernment is made by the voice"
+    }
+  ]
+}

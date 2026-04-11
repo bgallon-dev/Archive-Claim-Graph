@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "SAY ROYAL ARCH\n\n\nPLANS A BOYCOTT",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-12",
+    "date_end": "1908-09-12",
+    "report_year": 1908,
+    "source_file": "3_1908-09-12_p7_sn88085947_00211108587_1908091201_0987",
+    "archive_ref": "3_1908-09-12_p7_sn88085947_00211108587_1908091201_0987",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-09-12_p7_sn88085947_00211108587_1908091201_0987",
+      "composite_score": 10.92,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 4.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 172,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 25,
+            "in_headline": true
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With local option in a majority\nof the counties of Oregon. both\nparties either pledged to local OPP\nton or prohibition in Washington,\nlocal option made a feature of the\nrepublican platform in Idaho, and\nmany counties Of California crying\nfor that law, the saloon men of\nthe Pacific coast states face a criti-\ncal situation. And now comes Eu-\ngene w. Chain, the prohibition\ncandidate for president, on tour\nthrough the west and coast states,\nspeaking to crowds that equal the\nbiggest turnouts for either of the\nold parties with their best speakers\nas attractions.\n\n\nThe saloon men are anxious.\nThat is evident. Their action in this\ncity shows they have prepared for\nwar an dare determined to retain\ntheir saloons at any cost. The sa-\nloon men of the coast states are\norganized in a society known as\nthe Knights OF the Royal Arch.\nSaloon owners, brewery owners,\nmanagers, bartenders, drivers, beer\nmakers. in fact every one connect\ned with the liquor business in any\nway. Is eligible to membership."
+    }
+  ]
+}

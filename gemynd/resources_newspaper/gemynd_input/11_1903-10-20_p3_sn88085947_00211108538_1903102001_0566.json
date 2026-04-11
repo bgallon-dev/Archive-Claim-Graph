@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-10-20 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-20",
+    "date_end": "1903-10-20",
+    "report_year": 1903,
+    "source_file": "11_1903-10-20_p3_sn88085947_00211108538_1903102001_0566",
+    "archive_ref": "11_1903-10-20_p3_sn88085947_00211108538_1903102001_0566",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-10-20_p3_sn88085947_00211108538_1903102001_0566",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 62,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 34,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 13,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The board of public works and the\nNorthern Pacific Railway company\nare having lively dispute as to\nwhich should build the retaining\nwalls at the Washington street VIA\nduct.\n\n\nSome time ago the railroad COM\npany signifed its Willingness to build\nn new steel viaduct and widen the\nstreet at that point. The work Is\nnow completed, as far as the steel"
+    }
+  ]
+}

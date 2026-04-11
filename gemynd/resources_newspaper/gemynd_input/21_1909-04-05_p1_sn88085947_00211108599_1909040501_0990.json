@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-04-05 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-05",
+    "date_end": "1909-04-05",
+    "report_year": 1909,
+    "source_file": "21_1909-04-05_p1_sn88085947_00211108599_1909040501_0990",
+    "archive_ref": "21_1909-04-05_p1_sn88085947_00211108599_1909040501_0990",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1909-04-05_p1_sn88085947_00211108599_1909040501_0990",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 568,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 1218,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 369,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The spokesnan-Revlew gave\nfrat page prominence yesterday\nmorning to the following communi'\ncation:\n\n\nTo the Editor Of the Spokesman.\nReview: l notice that j. T. ONO\nin his campaign Is claiming the\nsupport OF labor, both organized\nand u?organized\n\n\nl fail to see upon what grounds\nhe bases his claim. He certainly\ncan not base it upon his past rec\nord. for while in the city council,\nalthough he had ample opportunity\nto champion the cause of labor he\nnever showed any initiative in that\nrespect, and, while can not say\nthat he ever showed any hostility\ntoward labor. his lukewarm sup\nport was such as one would expect\nfrom any politician who was look\ning to his political future.\n\n\nAnd after a careful consideration\nOf his platform fail to see in 1t\nanything of interest to the worker.\n\n\nHe promises in his platform\nsome things that are in force al\nready, such as Sunday closing OF\nsaloons and free employment Of\nfee, which latter. by the way, is of\nlittle service to the worker. as the\nprivate employment offices have\nalmost monopoly of the work, ex-\ncepting short jobs which the pri-\nvate Offices do not care to bother\nwith.\n\n\nOn other points OF his platform\nhe is very indefinite. He speaks of\na concrete bridge at Monroe street,\nbut does not say II it Is to be built\nby contract or day labor.\n\n\nII Il was to be built by day labor\nIs 1t not reasonable to suppose that\nhe would say so? The East\nSprague flll Is a fair sample of\nwhat benefit to home labor the con-\ntract system Of doing public work\nis; where until recently word Of\nEnglish was seldom heard.\n\n\nII Is true that he says In his plat\nform that he is for home labor on\nall public work, but surely he will\nnot pretend that he Is unaware OF\nthe fact that the corporation coun-\nsci has held that such a provision\ncan not legally be Incorporated in\na contract.\n\n\nHe also says that no franchise Is\nto be granted without sufficient\nremuneration\" to the city. Anoth-\ner very indefinite statement. Who\np is to be the judge of what consti~\ntutes a Sufficient remuneration\"\n\n\nIs Mr.. ONO and the company re-\nceiving the franchise to determine\nthat between themselves?\n\n\nAS to another point in his plat.\nform, the removal Of all poles with\nin the fire limits, he does not say,\nwhen this great reform Is to be ac-\ncomplished, nor show In what re-\nspect this masterpiece of legisla-\nton is of vital interest to the\nworker.\n\n\n] wish to speak of one more\npoint In his platform--the free pub\nlic'baths. wonder II that would\nbe farce like the free employ\nment Office, or does he think the la\nborer is In such desperate need of\nan application of soap and water\nthat he can make 2 winning CAM\nbaign on such an Issue?\n\n\nIn fact my opinion is that his\nbest excuse for his candidacy\nwould be frank admission on his\npart that he is at present out of Of\nAce and wants to be in, and since\nhis ward repudiated him as a coun-\nGilman he has determined that the\nonly way back to Office is by way\nof the mayors office, Respectfully,\n\n\nJAMES l.. WALTON,\nMember of International Building\n= Laborer's Union, Local 22s."
+    }
+  ]
+}

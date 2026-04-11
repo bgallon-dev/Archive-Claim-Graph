@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": ".RANKEST BRAND\n\n\nOf ANARCHY\n\n| W. CT. U. so DEsIGNATEs RE-\nCENT PETITION ASKING THE\n\n\nMAYOR TO DROP LID ON SUM-\nDAY CLOSING LAW.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-28",
+    "date_end": "1907-12-28",
+    "report_year": 1907,
+    "source_file": "11_1907-12-28_p4_sn88085947_00211108587_1907122801_0059",
+    "archive_ref": "11_1907-12-28_p4_sn88085947_00211108587_1907122801_0059",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1907-12-28_p4_sn88085947_00211108587_1907122801_0059",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 227,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 171,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane is in the control Of an\narchists and these anarchists COM\nprise most Of the leading bankers\nand business men, according to the\nview taken by the Women's Chris\ntan Temperance Union of the pre-\nsentation Of petition several days\nago asking that the Sunday closing\nlaw be not enforced. The follow\ning resolution has been adopted by\nthe temperance union workers Of\nthis city,.\n\n\nThe Spokane federation of the\nw. C. T. u, representing 1926 900\nwomen of the nation loyal unto\ndeath to our government, and for\never opposed to the saloon, the de-\nstroyer of our homes, do hereby ex-\npress our sorrow and regret, and\nurge that list of the names ap-\npearing in The Spokesman-Review\nDec. \"a be kept by members for fu-\nture reference.\n\n\nResolved, that the petition head\ned, Urge mayor to balk Sunday\nlaw published Tuesday morning,\nDec. \"a, is the rankest kind of an\narchy;\n\n\nTHAT if the names attached to\nthis petition represent the largest\nbusiness interests of our city, it is\ntime the $4,000 inhabitants of Spo-\nkane declare for law and order and\nback up the law enforcement league\nin no uncertain manner.\n\n\nThat we will never give up the\nfight until our flag waves over the\nland of the free and the home of\nthe brave-freed from the accursed\nreign of King Alcohol\""
+    }
+  ]
+}

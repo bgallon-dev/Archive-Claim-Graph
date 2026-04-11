@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-10-25 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-10-25",
+    "date_end": "1905-10-25",
+    "report_year": 1905,
+    "source_file": "17_1905-10-25_p3_sn88085947_00211108563_1905102501_0032",
+    "archive_ref": "17_1905-10-25_p3_sn88085947_00211108563_1905102501_0032",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1905-10-25_p3_sn88085947_00211108563_1905102501_0032",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 168,
+      "match_details": {
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "of the anthracite district. Compe-\ntition is impossible because the\nmine owners will not allow anyone\nto open a store on their property\nwhen they are in the business\nthemselves.\n\n\nITS only few cents difference\non the pound\" said the woman.\nbut II counts up at the end of\nthe month\"\n\n\nThe house she lives in at Lat\ntimer Is straight up and down\nboard arrangement. For this she\npays Sc a month, there are two\nrooms down stairs and one up. AS\nthe couple are young and have only\none child they get along better than\nmost of their neighbors.\n\n\n\"We burn two tons Of coal a\nmonth through the winter\" she\nsaid. 1--WE have to, the house Is SO\ncold the baby would freeze. We\npay 1915 a toni\"\n\n\nThen she told me this story of\navarice:\n\n\nA Hunch for the Hun.\n\n\nOne of the Hungarians living\nnear by went to Hazleton one pay\nday and bought pair of rubber\nboots. The miners are obliged to"
+    }
+  ]
+}

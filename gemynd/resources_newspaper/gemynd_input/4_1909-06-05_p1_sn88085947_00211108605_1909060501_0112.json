@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WAS HILL ONLY\nI blUFF|NG",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-05",
+    "date_end": "1909-06-05",
+    "report_year": 1909,
+    "source_file": "4_1909-06-05_p1_sn88085947_00211108605_1909060501_0112",
+    "archive_ref": "4_1909-06-05_p1_sn88085947_00211108605_1909060501_0112",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-06-05_p1_sn88085947_00211108605_1909060501_0112",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 172,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 721,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Attorneys around the courthouse\nare specializing as to whether\nJames j. Hill will succeed in hav-\ning the papers wanted by the\ngrand jury from the Great North\n.ern general offices in st. Paul sent\nto Spokane.\n\n\nSome think he will, while a great\nmany more are of the opinion that\nthe directors will hold against Hill.\nIf meeting is held, and that for\nthis reason the papers will not be\nproduced.\n\n\nProsecutor Pugh is pleased that\nHill has gone on record by agree\ning to urge th.t the papers be\nsent, for if the required documents\nare not then forthcoming it will\nbe up to Mr.. Hill to explain.\n\n\nSome lawyers recall with some\ninterest the trial OF suit a num-\nDer of years ago when Hill was\nasked II he knew who owned the\nGreat Northern railroad and he re-\nsponded that he did not know.\nWhen further questioned as to who\nwas building the road Hill like\nwise was at loss to explain. and\nsaid he did not know."
+    }
+  ]
+}

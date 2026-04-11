@@ -1,0 +1,52 @@
+version: "1"
+# Maps unit words (as they appear after a number) to (measurement_name, unit_string).
+# Used by range extraction to route matched unit words.
+# Both singular and plural forms are listed for direct lookup without stemming.
+#
+# Carried over from Turnbull — unit vocabulary is domain-agnostic.
+# Additional units relevant to the newspaper corpus (dollars, bushels,
+# population counts) are handled by the money_re and generic_number
+# patterns in the measurement extractor, not here.
+units:
+  acre:
+    name: acres
+    unit: acres
+  acres:
+    name: acres
+    unit: acres
+  inch:
+    name: rainfall
+    unit: inches
+  inches:
+    name: rainfall
+    unit: inches
+  day:
+    name: days_count
+    unit: days
+  days:
+    name: days_count
+    unit: days
+  ton:
+    name: tonnage
+    unit: tons
+  tons:
+    name: tonnage
+    unit: tons
+  bushel:
+    name: bushel_yield
+    unit: bushels
+  bushels:
+    name: bushel_yield
+    unit: bushels
+  mile:
+    name: distance
+    unit: miles
+  miles:
+    name: distance
+    unit: miles
+  foot:
+    name: measurement
+    unit: feet
+  feet:
+    name: measurement
+    unit: feet

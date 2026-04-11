@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "| ORDINANCE\n\n\nNOW BEFORE COUNCIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-27",
+    "date_end": "1907-02-27",
+    "report_year": 1907,
+    "source_file": "3_1907-02-27_p1_sn88085947_00211108575_1907022701_0408",
+    "archive_ref": "3_1907-02-27_p1_sn88085947_00211108575_1907022701_0408",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-02-27_p1_sn88085947_00211108575_1907022701_0408",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 238,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 119,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 49,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Corporation Counsel Geraghty\nintroduced into the city council last\nnight an initiative and referendum\namendment to the city charter to\nbe voted upon at the next municipal\nelection. In speaking of the amend\nment today Mr.. Geraghty said he\nwanted 1t understood that he has\nbeen an advocate of the initiative\nand referendum law for years and\nthat he did not expect any opposi-\nton to the proposed measure on the\npart Of the members of the city\ncouncil.\n\n\nThe amendment provides that Is\nper cent Of the number Of votes\ncast at the preceding election for\nmayor will, when attached to Pc\ntition to the city council requesting\nthe submission of an ordinance to a\nvote of the people, make it manda-\ntory for the council to do so. The\ncouncil shall be required to act\non the petition within 80 days. The\ncouncil can act by either passing\nthe ordinance initiated by popular\ndemand within the time limit or\nby calling a special election at\nwhich said ordinance without alter\nalton shall be submitted to vote\nof the people. No special election,\nhowever can he held within six\nmonths prior to general municipal\nelection.\n\n\nIn case the council should pass\nthe ordinance without it being\nvoted on by the people, the mayor\nvetoed it and the council did not\npass it over his veto, the ordinance\ncould then be submitted to a vote of\nthe people."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE DRAWS\nCONGRESSMAN\n\nDISTANT PARTS OF COUNTRY\nARE ALREADY CONCERNED\nIN THE NATIONAL lRRlGA-\nTON CONGRESS NEXT SUM.\nMER.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-23",
+    "date_end": "1909-01-23",
+    "report_year": 1909,
+    "source_file": "4_1909-01-23_p1_sn88085947_00211108599_1909012301_0530",
+    "archive_ref": "4_1909-01-23_p1_sn88085947_00211108599_1909012301_0530",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-01-23_p1_sn88085947_00211108599_1909012301_0530",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 231,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 172,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Congressman Richmond Pearson\nHobson of Alabama writes in let\nter from Washington, D. c., to R,\nInsinger, chairman of the local\nboard of control of the seventeenth\nnational irrigation congress to meet\nin Spokane, August 8 to IA, that\nirrigation, forestry, deep water\nways and BODYBUILDING are of vital\ninterest to the people of his state.\n\n\nUnited States Senator John II.\nBankhead of Alabama writes that\nhe will attend the convention, add\ning: Irrigation is doing a great\nwork for the country and l hope\nfor it every possible success\"\n\n\nCongressman o. w. Underwood\nof Alabama, who was a member\nOf the congressional committee\nwhich originated and fathered the\nbill providing for the irrigation of\nthe arid west, writes that he is\ndeeply interested in the subject,\nbut that the people of the state\nhave vital interest in forestry,\ndrainage, good roads, deep water\nways and BODYBUILDING\n\n\nCongressman II. l.. Goodwin of\nNorth Carolina says that the PEG.\npie of his state are much inter\nested in the subjects of drainage,\nforestry, deep waterways and\nBODYBUILDING.\n\n\nCongressman John d. Small of\nNorth Carolina writes that the\neastern part of his state is inter.\nested in drainage, forestry and\ndeep waterways, and that he will\nattend the convention in Spokane\nII possible.\n\n\nMr.. Insinger has also received\nletters from other congressional\nrepresentatives in the south, mani\nTesting interest in the Spokane\ncongress."
+    }
+  ]
+}

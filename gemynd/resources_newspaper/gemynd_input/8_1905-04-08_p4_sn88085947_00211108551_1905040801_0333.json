@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WONDERFUL OPPORTUNITY is\n\n\nNOW OPEN TO R0MESTEADERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-08",
+    "date_end": "1905-04-08",
+    "report_year": 1905,
+    "source_file": "8_1905-04-08_p4_sn88085947_00211108551_1905040801_0333",
+    "archive_ref": "8_1905-04-08_p4_sn88085947_00211108551_1905040801_0333",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1905-04-08_p4_sn88085947_00211108551_1905040801_0333",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "land office"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 138,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "land office",
+            "weight": 2.0,
+            "offset": 196,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "settler will have everything clear in\nhis own right.\n\n\nTo the average man some ready\nmoney will be very necessary If he is\nnot t. meet with hardship. In the\nfirst place the fees to be paid to the\nland office at Carson, for making the\nformal applications and entries,\namount to ab-ut Sl4. Then the set\ntier must live for a year before he\ncan get crop. The land which he\ntakes up is, at present, only sand and\nsagebrush. When he goes upon it it\nwill be the same, plus ditch with\nwater in it. II will be up to him to\nbuild a habitation on that land, to\nmake bitches, to get a plow and an\naxe and other farm implements and\nseed for the first crop.\n\n\nHe will have to buy a horse and"
+    }
+  ]
+}

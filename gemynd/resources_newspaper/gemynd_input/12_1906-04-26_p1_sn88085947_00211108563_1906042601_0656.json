@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TO ELIMINATE\n\n\nCAR SHORTAGE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-26",
+    "date_end": "1906-04-26",
+    "report_year": 1906,
+    "source_file": "12_1906-04-26_p1_sn88085947_00211108563_1906042601_0656",
+    "archive_ref": "12_1906-04-26_p1_sn88085947_00211108563_1906042601_0656",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1906-04-26_p1_sn88085947_00211108563_1906042601_0656",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 103,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Great Northern and North\n\n\nern Pacific railways will no longer\nship consignments of lumber to Du\n\n\nluth. Superior or Superior Dock\nunless the final destination and con\nsignee are given. This new rule\nhas been made because many lum'\nDer dealers at these points have\nfound it more to their advantage\nto pay the 81 day demu age which\nthe railway companies charge, than\nto unload and then reload for ship.\nment when purchase is found\n\n\nThis method Of doing business ties\nup a great many cars that are need\ned by the railways and overcrowds\nthe yards at these shipping points"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "TO BUILD ShANTY\n\n\nON PAVEMENT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-12-29",
+    "date_end": "1906-12-29",
+    "report_year": 1906,
+    "source_file": "11_1906-12-29_p4_sn88085947_00211108575_1906122901_0209",
+    "archive_ref": "11_1906-12-29_p4_sn88085947_00211108575_1906122901_0209",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1906-12-29_p4_sn88085947_00211108575_1906122901_0209",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 72,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 48,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city council last night gave\nthe Washington Water Power Co.\nthe privilege of building house\non the sidewalk of the southeast\ncorner of Howard St and Riverside\nav. The agreement did not stipu-\nlate what the company should pay\nfor the privilege. 1t is said the\nhouse will be three by six feet in\nsize and is to be used as a switch\nshanty for the street cars at that\ncorner."
+    }
+  ]
+}

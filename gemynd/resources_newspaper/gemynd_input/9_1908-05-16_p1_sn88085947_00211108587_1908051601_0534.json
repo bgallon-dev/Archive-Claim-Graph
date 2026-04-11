@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "NONUN|ON men\nWERE LET OUT",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-05-16",
+    "date_end": "1908-05-16",
+    "report_year": 1908,
+    "source_file": "9_1908-05-16_p1_sn88085947_00211108587_1908051601_0534",
+    "archive_ref": "9_1908-05-16_p1_sn88085947_00211108587_1908051601_0534",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-05-16_p1_sn88085947_00211108587_1908051601_0534",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "closed shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 157,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "closed shop",
+            "weight": 2.0,
+            "offset": 107,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In reply to a statement issued\nby an official of the Traction Co.\nthat this company never had grant\ned the closed shop to the extent Of\ndiscriminating against nonunion\nmen, an officer of the threatened\noarmen's union offers the following\nas an absolute statement of fact:\n\n\n~On Dec. 20 of last year we were\ngiven the closed shop and at the\nsame time a 10 per cent cut In our\nwages. The closed shop agreement\nand promise of restoration Of the\nwage scale after the financial furry\nwas over served to secure the\nwage reduction.\n\n\nEat that time the two Maib boys\nhad to quit the car service because\nthey did not care to join the union.\nThere was no mention Of employ\ning nonunion men until after the\nunion had secured the league base\nball franchise to the Traction Co.,\nand the union, like an old glove,\nwas considered in condition to be\nthrown aside\""
+    }
+  ]
+}

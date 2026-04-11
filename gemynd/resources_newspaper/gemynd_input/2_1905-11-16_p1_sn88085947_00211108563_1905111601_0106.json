@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Paid People a Cent\nfor Its Rights, VolO This\nMonopolyLs Mistreating\nIts Benetdct0rs in Every\nConceivable Udy.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-11-16",
+    "date_end": "1905-11-16",
+    "report_year": 1905,
+    "source_file": "2_1905-11-16_p1_sn88085947_00211108563_1905111601_0106",
+    "archive_ref": "2_1905-11-16_p1_sn88085947_00211108563_1905111601_0106",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1905-11-16_p1_sn88085947_00211108563_1905111601_0106",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 216,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 478,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 276,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and the amount the bonding COM\npany is willing to bond it form\nthis case $500, 000-represent the\nvalue in the minds of the bonding\ncompany of the franchise that com.\npany owns.\n\n\nIn other words, Mr.. Taxpayer,\n100000 represents what your good\nand great representatives in the\ncity council have given Of your\nproperty, your wealth, for you are\nthe body polite, to this grasping\ngas monopoly.\n\n\nRemember the figures, Mr.. Tax\npayer, for this question Of giving\naway franchises to Water Power\ncompany, Traction company and\nGas company is becoming a mat\nter of terrible importance not alone\nin Spokane, but the nation over.\n\n\nThe rights you have given the\ngas company for not a farthlng are\nworth 100000 in the eyes of a\nbonding company.\n\n\nAnd if you wanted municipal\nownership tomorrow you would\nhave to pay that amount to get\nback your own.\n\n\nThink of this every time in the\nfuture that your honorable city\ngovernment gives a street, a bridge,\npublic right to these public serv-\nice corporations-that it is out of\nyour pocket they are filching thou\nsands these franchises are worth.\n\n\nMAKE THOSE COUNCILMFN\nBE HONEST WITH YOU OR PUT\nTHEM OUT. MAKE THEM\nCHARGE FOR THESE FRAN\nCHISES - EVERY ONE OF\nTHEM FROM THIS DAY FOR\nWARD."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "PLUMBER TRUST\n\n\nCASE TUESDAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-14",
+    "date_end": "1909-04-14",
+    "report_year": 1909,
+    "source_file": "12_1909-04-14_p2_sn88085947_00211108599_1909041401_1055",
+    "archive_ref": "12_1909-04-14_p2_sn88085947_00211108599_1909041401_1055",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1909-04-14_p2_sn88085947_00211108599_1909041401_1055",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 209,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 274,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 845,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "By agreement of counsel, the\ntwo suits to break the plumbers\ntrust and dissolve the alleged I'M\nlawful relations existing between\nthe master plumbers and the union\n5ourneymen have been set for con-\nsideration for next Tuesday morn\ning in Judge Hinkle's court. The\ntemporary injunction granted will\ncontinue in force until that time.\n\n\nAn argument in behalf of the\ndissolution of the temporary re-\nstraining order issued against the\nmaster plumbers association and\nthe plumbers union has already\nbeen made by Attorney Fred Mill\ner In the suit brought against these\nbodies by John Sarginson, plumb\ning contractor and former vice\npresident of the plumbers associa-\ntion.\n\n\n1t was held by Miller that Sar-\nginson was one of the founders of\nthe master plumbers association,\nand such being the case he has\nnow no legal right to go into court\nand seek relief from an alleged un.\nlawful condition that he helped to\ncreate. 1t is contended also that\nthe union plumbers have the right\nto work for whomsoever they\nplease and that therefore 1t is not\nbinding on them legally to accept\nemployment with a non-association\nplumber If they elect not to accept\nsuch employment.\n\n\nAttorney Winchester. on behalf\nOF Sarginson, will reply to Miller\nnext Tuesday."
+    }
+  ]
+}

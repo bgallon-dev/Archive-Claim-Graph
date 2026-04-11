@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-12-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-12-14",
+    "date_end": "1904-12-14",
+    "report_year": 1904,
+    "source_file": "16_1904-12-14_p1_sn88085947_0021110854A_1904121401_0752",
+    "archive_ref": "16_1904-12-14_p1_sn88085947_0021110854A_1904121401_0752",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1904-12-14_p1_sn88085947_0021110854A_1904121401_0752",
+      "composite_score": 2.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "coeur d'alene"
+        ],
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 342,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "coeur d'alene",
+            "weight": 1.5,
+            "offset": 770,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 995,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "location Of the line will be made by\nan engineer of national reputation\"\n\n\nCan you not give a general idea\nof it's location?\"\n\n\n1T would be exceedingly general.\nProbably it will run through Moran\nPrairie toward Waverly, thence\nthrough the principal towns of the\nPalouse country to Moscow, Idaho.\nand, ultimately, to a point or points\non the Snake river. The primary\nconsideration of shortness Of line and\nease of grade from terminus to ter\nminus will govern it's location. If\nthese considerations prevent the\nreaching of populous centers by the\nmain line, branch lines will be con-\nstructed. ! can only say that it is our\nintention to thoroughly cover the Pa\nlouise country with our system.\n\n\nI'VE will enter Spokane over the\nlines of the Spokane Traction COM\npany. The Coeur d'Alene & Spokane\nRailway company and the Spokane\nTraction company now control site\n155x175 feet, bounded by Washington\nstreet and Sprague and First avenues.\ny terminal company will be formed\nto construct an up-to-date depot and\nOffice building there, and this will be\nused for passenger depot and office\npurposes by the three companies. Ex-\ntensive freight terminals will have\nto be provided, but the site for these\nhas not vet been selected\"\n\n\n\"Where will you obtain your cleo\ntrio power?\"\n\n\nAT some near time we will, no\ndoubt, find 1t necessary to acquire\nn power plant of our own. At the first\nwe can probably secure sufficient\npower from the Washington Water\nPower company\"\n\n\n\"Mr. Graves. is this going to be\nn local enterprise or foreign enter\nprise? In other words, will its stock\nbe owned and its policies dictated by\npeople of this community, or will it\nbe controlled by some transconti-\nmental railroad or allied interests\"\n\n\nIF our plans are carried out, 1t\nwill be purely and unquali1edly n\nlocal enterprise As you will observe,\nthe corporators of this company are\nmen whose interests lie in Spokane\nand the Palouse country. There will\nbe associated with them in this enter\nbusinesses with which they are con-"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "BOOSTERS WILL OPPOSE\n\n\nELEVATION OF TRACKS",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-12-05",
+    "date_end": "1905-12-05",
+    "report_year": 1905,
+    "source_file": "4_1905-12-05_p1_sn88085947_00211108563_1905120501_0166",
+    "archive_ref": "4_1905-12-05_p1_sn88085947_00211108563_1905120501_0166",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-12-05_p1_sn88085947_00211108563_1905120501_0166",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 133,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 562,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 541,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At last nights meeting of the\n$50, 900 club, that body was swept\naway by the oratory Of w. B. Rob-\nerts and other advocates of track\nlowering schemes, to solve the rail-\nroad crossing trouble in Spokane.\n\n\nA committee of 25 was APP\npointed to call upon the city offic-\nials and use influence with the city\ncouncil to prevent the acceptance\nOF any other plan Of ggrade cross\ning elimination.\n\n\nThis committee gets its author\nity from the following resolution:\n\n\nResolved, That 1t is the sense\nOf the 10000 club that no plan be\nadopted by the city council for the\nNorthern Pacific grade crossings\nthat does not have for Its ultimate\nobject the sinking OF its tracks so\nthat streets can go across the\ntracks ae the present grade. and"
+    }
+  ]
+}

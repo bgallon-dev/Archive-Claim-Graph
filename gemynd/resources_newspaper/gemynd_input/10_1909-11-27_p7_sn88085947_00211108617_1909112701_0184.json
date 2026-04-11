@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "title": "C | T Y\n\n\nIN E w S.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-27",
+    "date_end": "1909-11-27",
+    "report_year": 1909,
+    "source_file": "10_1909-11-27_p7_sn88085947_00211108617_1909112701_0184",
+    "archive_ref": "10_1909-11-27_p7_sn88085947_00211108617_1909112701_0184",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1909-11-27_p7_sn88085947_00211108617_1909112701_0184",
+      "composite_score": 15.47,
+      "domain_scores": {
+        "turnbull_prehistory": 2.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.5,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "dry farming"
+        ],
+        "agriculture": [
+          "hay"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "mining": [
+          "smelter"
+        ],
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 714,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "dry farming",
+            "weight": 2.0,
+            "offset": 2314,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 2404,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 3745,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 760,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 2152,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "mining",
+        "railroads",
+        "turnbull_prehistory",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "spokane aerte NO. z, FraternaI\norder of Eagles, will nominate Off\ners next Tuesday night.\n\n\nJ. n. Ross Of Curiew, WASH, has\nold to John l. Daniel of Spokane a\ntrip of ground 60x142 feet on the\nouth side of Front avenue, be-\nween Stevens and Howard streets,\nor $4,000, on which Daniel will\nrect seven story office building\n% cost $250,000. The ground is at\nhe pressat time occupied by infer\nor bulldogs that will be torn away\nis soon as the owner is ready to\nbegin work, which he says will\ntart in about year.\n\n\nThe Spokane Society Of Social\nmd Moral Hygiene will investigate\nhe dance halls of the city, which\nIre considered to be the cause of\nhe downfall of many girls each\nlear.\n\n\nThe belief is said to be growing\nmong well informed mining men\nhat the CRANKY smelter and min\ning properties in British Columbia\nIre included in the billion dollar\ntopper merger being worked out by\nP. Morgan in New York.\n\n\nThirteen eniistments were ac-\nepted at the Spokane recruiting\ntation of the U. s. army during\noctober. The total for the whole\nountry Is 1890. The reflections are\nrom three to four times the num-\ner accepted. No more enlistments\nre being taken for the cavalry SER\nice, except from men whose terms\nave expired.\n\n\nThe imitation Of a class Of $50\nlosed the charter membership list\nthe Loyal Order of Moose last\nlight, with a total enrolment of\n80. The order begins work under\nhost favorable circumstances, and\nn active career for the lodge is\nreelected.\n\n\nA tropical snake two feet LONG\nFas discovered among some ba-\nanas yesterday at the Ryan-New-\npn commission house. The snake\nhused a stampede but was finally\nllled. Commission men occasion\nlily come across tarantulas con-\nealed in punches of bananas, but\nhe discovery of a snake In that\nlay Is out Of the ordinary.\n\n\nA holiday bazar for the benefit Of\nbe new parochial school being\nuilt by the st. Francis Xavier\natholic church in Lidgerwood will\npen Monday in the gymnasium at\nonzaga college and continue until\nWednesday night. Dinner will be\nerved daily and large line of\nDliday articles will be on sale.\n\n\nMrs. leReine Baker, who re-\nentity returned from a tour in the\nhst in behalf of equal suffrage,\nas the guest at a luncheon today\nBON at the Spokane hotel given in\npr honor by the College Equal Suf-\nage club.\n\n\nThe local board of control Of tho\nExt Dry Farming congress has ap-\nbinted 100 prominent farmers of\n70 state, headed by Governor Hay.\nmembers of the Washington\nbard of control for the congress.\nhe local committee on arrange\nents, consisting of 81 prominent\nisiness men, was appointed at the\nlme time. John T. Burns of Den\npr. secretary of the congress, will\n,en headquarters here at once.\n\n\nThere was an eclipse Of the moon\nst night lasting from HAS p. m.\n\n\n2:15 this morning. For a time\no eclipse was total. There was a\nazy condition of the sky during\nQ hour In which the moon was\ntally eclipsed, which is taken by\nGather prophets to presage a cold\nzap.\n\n\nA class Of az Masons were eIe-\ntied by the Scottish Rite brethren\nst night to the thirtieth degree.\nonight the thirty-first and thirty\ncond degrees will be conferred.\nThe Success Manufacturing Co.,\nlpitalized at $4,000, was organ.\ned here to make tanning mills.\n\n\nII. Finley, George McCabe and\noward Zimmerman are the incor-\norators.\n\n\nThe Outing club of>the First Uni.\nRrsalist church has resolved upon\nseason of social activity for the\nlrpose of bringing the people of\ne congregation in closer touch\ncially.\n\n\nThe commission form Of munich\ni government was tsudied by the\ndies OF the A. C. A. today at a\nGetting at the home of Mrs. Edith\n\n\nBurr in the Buena Vista apart\nents.\n\n\nThe PowciI-Sanders Co., whole\nle grocers, have taken an option\n\n\na warehouse site at the north\nest corner of Washington street\nd the Great Northern right of\nby for $4,000. 1t is proposed to\nect a seven story fireproof ware.\nuse to cost $4,000. The prop\nty has a frontage of 113 feet on\nashington street and 10S on the\nFeat Northern tracks."
+    }
+  ]
+}

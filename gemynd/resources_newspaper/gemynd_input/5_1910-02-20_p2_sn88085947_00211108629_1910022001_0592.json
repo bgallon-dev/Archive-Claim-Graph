@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "FAV0R|T|SM IN\nCREMATORY\n\n\nCHARGES\n\nPolitical Pull or Good Will\nof Bosses Garry\n\n\nWeight.\n\nNEWSPAPERS FAVORED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-20",
+    "date_end": "1910-02-20",
+    "report_year": 1910,
+    "source_file": "5_1910-02-20_p2_sn88085947_00211108629_1910022001_0592",
+    "archive_ref": "5_1910-02-20_p2_sn88085947_00211108629_1910022001_0592",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1910-02-20_p2_sn88085947_00211108629_1910022001_0592",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 357,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 815,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1877,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Investigation of the books of the\nerematory department will show\nsome glaring Inconsistencies in the\nprice for service made to consun,-\ners. II patron is an old time\nfriend Of the superintendent or his\nassistant, as has been shown In\nfew cases cited without contradic-\ntion from the department, he can\nsecure special consideration that he\nwould not otherwise get.\n\n\nsRestaurants are not charged\nalike. Investigation of the books\nwill show that some restaurants\npay less for the same service than\nothers and that no two prices pre-\nvail for livery barns and similar\ninstitutions.\n\n\nProbably the most glaring in\nstance of favoritism is. in the\ncharges made for service rendered\nthe newspaper and printing offices\nOf the city. This is cited not be-\ncause it affects The Press but\nmerely as a criterion OF the way\nthis public utility is conducted I'M\nder the present regime at the city\nhall\n\n\nFor the Oonth of January the\nSpokesman-Review was charged\nfiat rate of SO per month, and re-\nceived three trips per week. This\nALSO included the rubbish accumu-\nlated in the Chronicle office, as\nboth papers are printed under the\nsame roof During the same period\nThe Press was charged $3.50, at\nthe rate of 81 and $3.50 per load.\nSince February The Press has had\ntwo loads of old paper hauled away\nby the crematOry at a charge OF\n$3.50. the Inland Herald three loads\nat total charge of $3.50. while the\ncombined Spokesman-Review and\nChronicle will again escape, it is\npresumed, with charge of So for\nthe month The high cost of crem-\natory service has driven The Press\nto installing its own cremation\nplant and the city wagons will no\nlonger be required. The Inland\nPrinting Co. is also charged at the\nrate of $3.50 per load.\n\n\nAll that is needed to get a spe-\ncial favor from the crematory is\npolitical pull or the good will of the\nofficials at the head of the depart\nment. Members of the city council\nhave so much complaint about this\narm of the city service that it is\nprobable that an investigation will\nbe demanded"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "FORMER GOVERNOR ST. JOHN\n\n\nTO SPEAK ON SUFFRAGE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-28",
+    "date_end": "1910-07-28",
+    "report_year": 1910,
+    "source_file": "24_1910-07-28_p2_sn88085947_00211108642_1910072802_0287",
+    "archive_ref": "24_1910-07-28_p2_sn88085947_00211108642_1910072802_0287",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "24_1910-07-28_p2_sn88085947_00211108642_1910072802_0287",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 8.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 76,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 105,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 111,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 39,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "John P. st. John, the famous ex-\ngovernor of Kansas, and candidate\nfor president in 1884, will speak on\n\"Woman Suffrage\" next Sunday\nnight at the First United Brethren\nchurch, corner of Baldwin and\nLidgerwood. Mr.. st. John, who is\nvisiting in the family of his son,\nJohn p. st. John. Jr.. 1914 Alive\navenue, Is an earnest advocate OF\nvotes for women, and never loses\nan opportunity to help the cause\nwherever he may be."
+    }
+  ]
+}

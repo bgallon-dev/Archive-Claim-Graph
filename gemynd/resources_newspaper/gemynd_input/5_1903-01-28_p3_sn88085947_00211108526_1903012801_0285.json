@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "|h1tR[5T TO W0Qk|h6l1th\nAND W0hth m f|tlD\n\n\nOf LABOR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-28",
+    "date_end": "1903-01-28",
+    "report_year": 1903,
+    "source_file": "5_1903-01-28_p3_sn88085947_00211108526_1903012801_0285",
+    "archive_ref": "5_1903-01-28_p3_sn88085947_00211108526_1903012801_0285",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-01-28_p3_sn88085947_00211108526_1903012801_0285",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 287,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 37,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The attendance at the meeting of\nthe trades council last night was I'm\nusually large. Recently great inter\nest has been evinced by the delegates\nIn the proceedings Of the central body\nand this IL attributed to the infus-\nIon of new blood since the beginning\nOf the year. The new delegates are\nentering into the work of organiza-\ntion with enthusiasm, evidently fol-\nlowing the example of Delegate ]. C.\nDaily. who has the reputation of be-\ning one Of the best organizers on the\nPacific coast.\n\n\nNo business Of Importance was\ntransacted last night. most Of the\ntime being devoted to hearing reports\nfroc committees and to seating the\ndelegates.\n\n\nThe new scale submitted by the\nbuilding trades to the council for\nits approval was briefly considered\nand 1t was determined that no action\nbe taken at present.\n\n\n1t was reported that all the barber\nshops in the city. with two excep-\ntioiS, are thoroughly unlOT1lZeu.\n\n\nThe difficulty between the brewery\nworkers and one of the local brew\ncries has been satisfactorily adjusted\n\n\nThe ACCESSIBILITY of forming the\nprinting trades into an allied body\nis being discussed. and. as Spokane\nis said to be the only city on the\ncoast which has no organization Of\nthis kind it Is very probable that the\nallied trades will be formed. 1t will\nbe composed of the pressmen and\npressfeeders, printers and bookbind-\ners. Such an organization Is deemed\nadvisable, as 1t would foster feeling\nOf harmony and fraternity among the\nworkers of these crafts.\n\n\nThe officers OF the trades council,\nwhile congratulating themselves upon\nthe present standing of the body. crit\ntcize the lack of interest shown by\nsome of the unions.\n\n\nThey mention in particular the"
+    }
+  ]
+}

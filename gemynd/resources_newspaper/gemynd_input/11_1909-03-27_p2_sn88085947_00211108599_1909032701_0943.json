@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "GOOD THING FOR W. W. p.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-27",
+    "date_end": "1909-03-27",
+    "report_year": 1909,
+    "source_file": "11_1909-03-27_p2_sn88085947_00211108599_1909032701_0943",
+    "archive_ref": "11_1909-03-27_p2_sn88085947_00211108599_1909032701_0943",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-03-27_p2_sn88085947_00211108599_1909032701_0943",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 85,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 268,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 13,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The board of public works has\nvoted to submit the plan to fill in\nthe middle channel of the Spokane\nriver in the vicinity of the \"Y\"\nbridge to the council, with the rec\nommendation that the improve\nment be made. The suggestion for\nthe change came from the Wash\nington Water Power Co., which\nsaw in this plan a cheap way out\nof the bridge question, the fill cost\ning a few thousands of dollars,\nwhile the bridges would I'm up to\nabout 100000."
+    }
+  ]
+}

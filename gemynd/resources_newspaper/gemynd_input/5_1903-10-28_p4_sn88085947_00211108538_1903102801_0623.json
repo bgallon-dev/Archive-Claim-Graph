@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Will Hear Appeal.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-28",
+    "date_end": "1903-10-28",
+    "report_year": 1903,
+    "source_file": "5_1903-10-28_p4_sn88085947_00211108538_1903102801_0623",
+    "archive_ref": "5_1903-10-28_p4_sn88085947_00211108538_1903102801_0623",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-10-28_p4_sn88085947_00211108538_1903102801_0623",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 125,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 111,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The county commissioners yesterday\nset November as the date for the\nhearing of an appeal from the decis\nION Of County Superintendent OF\nSchools Watkins granting petition\nof residents of district l49 to be trans\nferred to district l04, west of the city\nThe act of the superintendent placed\nthe southeast quarter of section L.\n25-42 over into district l04.\n\n\nM. L. Goetchins filed a petition with\nthe commissioners, appealing from the\naction of the superintendent on the\nground that there was no reason for\nthe change, as district 149 has a small\nattendance at best and the new ar\nrangement is no more convenient than\nthe old.\n\n\nThe commissioners set the hearing\non the Milan well and water pipe fran\nchse fol. November 3."
+    }
+  ]
+}

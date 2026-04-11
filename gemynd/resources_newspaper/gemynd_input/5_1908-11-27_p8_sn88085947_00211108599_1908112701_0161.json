@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "$AMEND SHERMAN TRUST LAW\n\n\nTO HELP THE LABOR UNIONS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-27",
+    "date_end": "1908-11-27",
+    "report_year": 1908,
+    "source_file": "5_1908-11-27_p8_sn88085947_00211108599_1908112701_0161",
+    "archive_ref": "5_1908-11-27_p8_sn88085947_00211108599_1908112701_0161",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-11-27_p8_sn88085947_00211108599_1908112701_0161",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 204,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 136,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "|, fiscated by the court II damages\nand costs are not paid promptly.\nDuring the past year 80 inter-\nnational unions affiliated with the\nAmerican Federation of Labor re-\nport having had total Of S61\nstrikes, in which 1923 persons\nwere involved, Of whom 1881\nwere benefited and 1892 secured\nno benefits. The total cost of the\nstrikes Appropriated $2,550,0 900.\nThe trades In which the largest\nnumber of persons were involved\nwere the miners, with 10000;\nbrewery workers, with 1850. and\nhotel and restaurant employees,\n1929, and telegraphers, 10000.\n\n\nThe trades that secured in\ncreases in wages with and without\nstrikes were the asbestos workers,\nbill posters, broom makers, coop\ners, elevator constructors, station\nairy firemen, foundry laborers, lad\nles garment workers, granite cut\ntiers, metal polishers, paving cut\ntiers, printing pressmen, quarry\nworkers, street railway employees,\ntheatrical stage employees and\ntransfers. Reductions in hours of\nlabor were gained by BARRIERS, coop\ners, watch case engravers and\nprinting trades.\n\n\nThe 80 unions reporting made a\nnet gain of $500 in membership.\nThey also paid out $1,257,000 in\ndeath benefits, s593,5OO in sick ben\n, efits, $31 400 for deaths Of men,\nbers' wives, $4,000 in travelling\nbenefits and $4,000 in tool insur-\nance."
+    }
+  ]
+}

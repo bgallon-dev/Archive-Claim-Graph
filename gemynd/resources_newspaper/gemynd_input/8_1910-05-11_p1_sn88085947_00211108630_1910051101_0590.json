@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-11 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-11",
+    "date_end": "1910-05-11",
+    "report_year": 1910,
+    "source_file": "8_1910-05-11_p1_sn88085947_00211108630_1910051101_0590",
+    "archive_ref": "8_1910-05-11_p1_sn88085947_00211108630_1910051101_0590",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1910-05-11_p1_sn88085947_00211108630_1910051101_0590",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 295,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 51,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Many local women prominent\nIn the cause of woman's suffrage\nhave expressed their thanks to The\nPress for the interest II has taken\nIn the question by running q ballot\nIn this paper, and have expressed\ntheir willingness to talk on the sub\nJect. Tho ballots are being re.\n-ceIved In every mail.\n\n\n\"Taxation without representation\nis tyranny\" said Mrs. George c.\nCampbell, a member OF the Wom-\nans Suffrage club. zone Of the\nprincipal reasons, to my mind, why\nwomen should have right to vote\nis because they pay taxes. For\neigners are allowed to come into\nthis country and after they have\nbecome na.uralixed In a years time\nthey are allowed to say how our\nmoney shall be dispensed. They\nare often Italians and Cinnamon\nwho are absolutely Ignorant In\nevery respect.\n\n\n\"At the present time in Louisiana\nthey have the old Napoleon law,\nwhich deprives women who have\ncdIUtu anu ouNCu cSAOA\n! heir marriage the privilege Of\nVdrawing the same from the bank\nwithout the authority Of their hus.\nbands. Yet men can buy and sell\nhousehold property without the\nsignatures of their wives\"\n\n\nThis Is the main reason why !\nthink women should vote. II they\npay taxes they should have q voice\nIn the use of the money\"\n\n\nMrs. A. f. Rogers believes i'm\nplicitly In the right of women to\nvote. \"The question of vital inter-\nest to me-\" said Mrs. Rogers. sis\nthat of morality. l believe when\nthe women are given the power to\nvote they will influence a great\nwave of morality to sweep the\ncountry.\n\n\n\"The second great reason why l\nbelieve women should have the\nvote Is that every person who owns\nproperty and pays taxes, whether\nthey be man or woman, should"
+    }
+  ]
+}

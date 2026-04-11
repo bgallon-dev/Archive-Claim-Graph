@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-01-02 — pp8",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-02",
+    "date_end": "1909-01-02",
+    "report_year": 1909,
+    "source_file": "4_1909-01-02_p8_sn88085947_00211108599_1909010201_0393",
+    "archive_ref": "4_1909-01-02_p8_sn88085947_00211108599_1909010201_0393",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-01-02_p8_sn88085947_00211108599_1909010201_0393",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 417,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 380,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "pany is unfriendly to organized Ia\nDor. They have published the fact\nthat union labor is refused recog-\nmilton at that stove factory; that\nunion men are refused employed.\nWell, that is true.\n\n\nThat particular factory has\ndrawn the sword against union Ia\nDor. 1t has boycotted union labor\nand union men. but If union labor\ndraws against this enemy its SINH\nlar and only weapon-the boycott\nthe union officers who airect\nthis policy of fighting back are\nsent to prison.\n\n\nIf Catholics advise each other to\npatronize Catholics, is it a crime?\nIf Odd Fellows or Elks or Method\nlists take concerted action to deal\nwith their friends and abstain from\ndealing with their enemies, is it\ncrime worthy of felon's cell?\nYet Gompers, Mitchell and Morri-\nson are to lose that sweetest thing\nin life-liberty-and be branded as\ncriminals-because they have done\nthe work of their unions in advis-\ning union men to cease dealing\nwith the enemy of union labor.\n\n\nIs this right? If conceded to be\nright and principle recognized\nin American life, will it stop with\nits application to labor unions ?\nCan people in general afford to be\nIndifferent to law that makes out\nlaws of thousands of their fellow\ncitizens for doing things which is\ninherently justifiable?\n\n\nEngland ruled by the king, the\nlords and the commons makes the\nboycott legal by statute. In Eng\nland Gompers, Morrison and Mitch\nell would be well within their\nrights in doing what United\nStates court has sentenced them\nto prison for.\n\n\nCan we afford to be less lenient,\nless liberal, less just than Britain ?\nCan we afford so to treat great\nmasses of men that they will say,\nIF this be justice, fie upon your\n, law? No, this thing is crucial.\nThese are good men. They have\nlone a thing not inherently Grim\nnal. If they go to prison a time\nOf storm and stress will be ushered\nin, from which this nation will\nemerge changed. The law that\nimprisons labor leaders and falls\nhelpless in the effort to imprison\nmillionaire offenders cannot exist\nwith democratic institutions. Eth\ner that law must go or the democ-\nracy will.\n\n\nAnd how far has the faith of our\nliberty-loving fathers been dis\ntorted when the writer, for fear of\nsacrificing his own liberty and his\nemployment, dare not sign his\nown liberty and his employment\ndare not sign his true name to his\nhonest opinions. but must sign\n\n\nA Father of Six."
+    }
+  ]
+}

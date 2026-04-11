@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-02 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-02",
+    "date_end": "1907-08-02",
+    "report_year": 1907,
+    "source_file": "5_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+    "archive_ref": "5_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 364,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 702,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "all claimed for it, would impose a\nheavy expense for proper main\ntenance.\n\n\nThe distant supply is probably\nwhat the city will have to come to\nunless the underground supply\nproves to be superior to what even\nIts advocates expect. But the un-\nderground plan Is the best available\nat this time to escape the dire con.\nsequences of sewage soon to be\nturned into the river at Occur\ndAlene, in fact the only speedy re.\ncourse there is.\n\n\nMeanwhile, If the city secures a\nsupply that will be good for years\nfrom the subterrean supply source,\nor Is forced to reach out for a lake\nsupply at comparatively early\ndate, the power station should be\nretained.\n\n\n1t is the city's only source OF\npower for a municipal electric light\nplant, something that is badly need.\ned now and will be as valuable in\nfuture even though the Graves peo-\npie are competing for city light.\nThe city plant would be worth its\ncost, even II not operated, as\nclub over both companies.\nNaturally both corporations are\nkeenly interested In taking this last\npower site on the river out of the\ncity's hands, and / or the other\nwill certainly get it by hook or\ncrook, If necessary, unless the pub\nlie is wide awake to its interests\nin retaining the site.\n\n\nUnder direction of the city en-\ngineer, rs foot we'll has been sunk\non the up-river site for the purpose\nof tapping the underground flow\nof water. 1unneling from this\nshaft is now being done and a re-\nport of It's effectiveness is expect\ned soon. The underground supply\nis endorsed by the board Of health,\ncity engineer and committee of\nthe 10000 club.\n\n\nThe talk of filtration plant is\nbelieved to be a handy subterfuge\nof those who have designs upon\nthe dam site. Well knowing that\nthe expense of filtration beds is\nprohibitive just now, not to men,\nton the continual expense Of main\ntenance and cleaning cost, they be-\nlieve that the city may be induced\nto give favorable consideration 70\nthe lake plan Immediately and thus\ndivert public attention long enough\nto accomplish possession Of the\npower site."
+    }
+  ]
+}

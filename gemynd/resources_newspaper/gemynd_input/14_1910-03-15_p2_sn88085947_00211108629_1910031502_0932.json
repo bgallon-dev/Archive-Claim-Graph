@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "the matron, and there you are",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-15",
+    "date_end": "1910-03-15",
+    "report_year": 1910,
+    "source_file": "14_1910-03-15_p2_sn88085947_00211108629_1910031502_0932",
+    "archive_ref": "14_1910-03-15_p2_sn88085947_00211108629_1910031502_0932",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "14_1910-03-15_p2_sn88085947_00211108629_1910031502_0932",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 83,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 316,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the matron, and there you are\nagain.\n\n\nBut if after tonight's session of\nthe council it is seen that there is\n30 disposition to either grant ma\nirons or give a chance for real\ninvestigation, within AS hours\nthere will be a real investigation\nstart, so promise the leaders of\nlabor and the German societies,\nwith the woman's club backing UP\ntheir position.\n\n\nThe weather in the vicinity of\nthe city hall is likely to be decided\n\" warmer these next few days."
+    }
+  ]
+}

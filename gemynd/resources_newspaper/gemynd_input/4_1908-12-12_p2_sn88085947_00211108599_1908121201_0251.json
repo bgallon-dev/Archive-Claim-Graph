@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "AUDIENCE DIVIDES ON\n\n\nDIES MONIES PLAN",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-12",
+    "date_end": "1908-12-12",
+    "report_year": 1908,
+    "source_file": "4_1908-12-12_p2_sn88085947_00211108599_1908121201_0251",
+    "archive_ref": "4_1908-12-12_p2_sn88085947_00211108599_1908121201_0251",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1908-12-12_p2_sn88085947_00211108599_1908121201_0251",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 342,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 277,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "in order to get the best men. I'm\nder the present system of ward\ncouncilmen men are elected to the\ncouncil not because of their ability\nor honesty, but because they are\ngood vote getters.\n\n\nEx-Councilmen n. S. Pratt made\nthe chief talk for the negative. He\npraised the present city charter\nand said that many of the pro,\nvisions of the Des Moines plan,\nparticularly the initiative and ref\nerendum, are Incorporated in 1t.\nSuch things as the charter now\nlacks can be secured under. the\npresent system, without going to\nthe expense of changing the form\nof government. Mr.. Pratt said he\nfavored enlarging the powers of\nthe mayor to great extent, giving\nthe mayor the right to fill all the\nappointive offices under the char\nter and remove the men at will.\n\n\nMr.. Pratt saw elements of dan\nger in the Des Moines plan in that\nit would give a large conservative\nminority. which owned property\nclose in a chance to control the\ncity government, and thereby cut\nout the man in the outlying dis\ntrict of a chance to have any i'm\nprovements made in his locality.\nOn this account he still held to the\nsystem of electing ward council\nmen. He said the Des Moines plan\nis called a business mems PLAN\"\nbut he had little faith in business\nmen in running the city govern\nment, as they were in the past\nnearly always lined up on the side\nof the evil influences because it\nwas good for business.\n\n\nOther speakers were c. c. Dill\nof the high school and Attorney\nBenson Wright for the Des Moines\nidea, and M. w. Woodruff, mana\nger of the Barber Asphalt CO., and\nWilliam Matthews Of the Spokane\nTailoring Co., for the present plan.\n\n\nCouncilman c. w. Mohr of the\nFourth ward was on hand and put\nin a good word for the existing\norder of things, but said he was\nready to adopt any new or i'm\nproved idea of government If\nshown that it was an improve\nment."
+    }
+  ]
+}

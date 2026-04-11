@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "YOUNG HAS HARD\n\n\nFIGHT on",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-07",
+    "date_end": "1907-12-07",
+    "report_year": 1907,
+    "source_file": "2_1907-12-07_p4_sn88085947_00211108575_1907120701_1327",
+    "archive_ref": "2_1907-12-07_p4_sn88085947_00211108575_1907120701_1327",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-12-07_p4_sn88085947_00211108575_1907120701_1327",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 238,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 76,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is cons. lie speculation\namong labor men as to who will\nrepresent the American Federation\nof Labor in settling the difficulties\nexisting between the local federal\nunions. The logical man to repre-.\nsent the federation in the matter\nwould be Organizer c. o. Young\nThere is, however, a great deal OF\nopposition to Young among mem\nbers of Federal union 40. 1922, IT\nbeing stated that he has always\nbeen disposed to give that organi.\ncation the short end of the deal.\n\n\n1t is also stated that Young. as\nmember of the grievance COM\nmittee of the A. F. of L., took the\nside of one or the other of the\nunions when the local trouble was\nup for consideration, and it is\nclaimed that he should be disquali-\nfed from acting in the matter on\naccount of bias.\n\n\n1t is also pointed out that Young\nhas been productive of more dis\nsension among local labor unions\nthan any other one influence, to a\ngreat extent local differences of\nany Importance being traced direct\nly to him. Members of Federal\nunion No. 1922 state they would\nrather he never came back to Spo\nkane.\n\n\nWhen asked if they had prefer\nences for any other representative\nof the A. F. of l.. they said anyone\nthe federation would see fit to send\nhere or appoint, with the exception\nOf ORGANIZER Young, would be per\nfectly satisfactory to them."
+    }
+  ]
+}

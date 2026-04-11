@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-06 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-06",
+    "date_end": "1903-07-06",
+    "report_year": 1903,
+    "source_file": "5_1903-07-06_p1_sn88085947_00211108538_1903070601_0138",
+    "archive_ref": "5_1903-07-06_p1_sn88085947_00211108538_1903070601_0138",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-07-06_p1_sn88085947_00211108538_1903070601_0138",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 161,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 894,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "of their time to aid worthy cause.\nOthers had their origin in various\nsources. some being clipped from\nfinancial papers. Neither the bust\nness men nor the financial papers\ngot any of that 5000 per month, and\nthe question Is who got $500 for DO\ning what any newspaper man in the\ncity would be glad to do for $40 per\nweek?\n\n\nAnyway. the result has not been\nsatisfactory. MS the following self\nexplanatory circular letter shows:\n\n\nSPOKANE, Wash, June 20. 1908.\nDear Sir: The following subscrib-\ners to the agreement Of January 20.\n1903, in reference to special articles\nIn regard to Spokane. have served\nnotice upon the Spokesman Review in\naccordance with the terms Of agree\nment referred to. that they will. after\n80 days from June 20. 1903. decline\nto continue the matter further. d. T.\nHam. 9. Heath. The Big Bend Land\ncompany. Fred d. Chamberlin. Louis\nziegler. G. d. Bibbins, The Washing\nton Water Power company\""
+    }
+  ]
+}

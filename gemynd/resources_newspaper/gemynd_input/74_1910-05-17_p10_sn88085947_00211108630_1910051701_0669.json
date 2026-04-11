@@ -1,0 +1,103 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-05-17 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-17",
+    "date_end": "1910-05-17",
+    "report_year": 1910,
+    "source_file": "74_1910-05-17_p10_sn88085947_00211108630_1910051701_0669",
+    "archive_ref": "74_1910-05-17_p10_sn88085947_00211108630_1910051701_0669",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "74_1910-05-17_p10_sn88085947_00211108630_1910051701_0669",
+      "composite_score": 11.76,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 4.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested",
+          "vagrancy"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 736,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "vagrancy",
+            "weight": 1.5,
+            "offset": 1498,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 3745,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 3106,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 2741,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 112,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "y the nlgneSt tier OF the III y\n\n\n= teenth story of the Old Ma .\n\n\n= tional bank building, at the .\n. corner of Riverside avenue .\n= and Stevens street, as the last =\n= tier of the steel structure .\n. was swung into place with .\n. the officials of the bank look q\n. ing on from the top story of .\n= the Paulsen building, just .\n= across the street. .\n. = . . 80 . 90 >>%>\n\n\nThe trial Of Ed Jenkins and Boyd\nTravis, charged with assault and\nbattery, will be continued as soon\nas their victim is able to appear\nagainst them.\n\n\nAn eastbound AItamont car was\nderailed at Sprague avenue and\nWall street at 7:30 last night.\n\n\nThe funeral of the seven year old\nchild of Mr.. and Mrs. Ira Hone\nfenger was held from the residence,\n1l04 Knox avenue, at 1 o'clock yes\nterday.\n\n\nLieutenant w. J. Moses of the\nUnited States navy, stationed at\nBremerton, has issued a circular let\nter to the commercial clubs of east\nern Washington asking for cooper\nalton in submitting to him the adj\ndresses of all farmer boys wishing\nto enlist.\n\n\nThe big benefit to be given by\nthe Theatrical Mechanics associa-\nton Monday will be held at the\nAuditorium. Headline acts from\nthe vaudeville houses will make up\nthe program, which is promised to\nbe the best ever performed at one\ntheater. There will be large pa\nrade held on Monday at noon in\nwhich all the theatrical people in\nthe city will participate.\n\n\nJames Oldham, coIored tailor,\nis facing a charge of perjury. In\ntestfying for Elizabeth Gray, col\nored woman charged with vagrancy,\nhe swore he had never been ar\nrested. But in looking over the\npolice records, it was found that\nOldham had once been bound over\nto the superior court on a larceny\ncharge.\n\n\nA farewell address will be deliv-\ncred by the Rev. George T. Ste\nphens in the big tent on the north\nside tonight. He will take for his\nsubject. The Christian and Amuse-\nmentS.\"\n\n\nA compromise may be effected in\nthe case of Eugene DeSmith and\nwife, who are suing the Inland EN-\npire Railway Co. for $3.50 damages\nfor causing the death of their child\nwhich was run down by one of the\ncompany's cars.\n\n\nJudge J. D. HinkIe of the superior\ncourt released IS jurymen yester-\nday, leaving AZ only. He thinks\nthis amount will be sufficient to\nhandle the cases in the three courts\n\n\nHugh Mckelvey, who killed Oscar\nJohnson some months ago, will be\nbrought before Judge D. H. Carey\nthis morning\n\n\nThe 10 students suspended from\nthe South Central high school Tues\nday were reinstated yesterday.\n\n\nA plant for the manufacturing of\nlocomotive CRATES, of which w. j.\nSimpson of Hope, Idaho, is the in\nventor. is promised for Spokane.\nThe firm is to be known as the\nSimpson Crate Shaker Co. A sat\nisfactory test of the CRATE has been\ngiven on one of the large engines\non the Great Northern.\n\n\nThe case of Nellie G. Pierce,\nwith assisting in a criminal\noperation, was continued 10 days.\n\n\nMrs. Bethesda Beas Is In this\ncity from Seattle to organize a Spo-\nkane branch of state anti-tubercu-\niosis league.\n\n\nTwo hundred Tacoma boosters\nwill arrive in Spokane on the after\nnoon of May rs on tour of the !\nstate. They are travelling over the |\nNorthern Pacific and will visit all\ntowns of note on the line.\n\n\nA contract has been awarded to |\nErnest E. and Guy NJ Darnell to\ncarry mail on the star route from\nWatson, Mont, and Fort Logan\no White Sulphur Springs. A dis\nance of 80 miles will be covered\nweekly for a remuneration of $500\nyear.\n\n\nTwo star route mail contracts\nnave been let to Teunis Wyers Jr.,\nme from White Salmon Wash, to ;,\nBristol, for which he is to receive\n$500; the other to Robertville by\nway of Snowden. For this he is\n)aid $1,000. Three round trips a\nweek are to be made.\n\n\nG. M. Walk. alias j. w. Howard,\n| former member of the Spokane\nMerchants police, was arrested in\nOccur d'Alene yesterday morning\nor the murder of F. II. Childress, a\nin Bristol, Tenn, in\n903. He will go back without ex-\ntradition papers.\n\n\nTwo LARGE parties of Spokane"
+    }
+  ]
+}

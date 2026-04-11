@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "DIDN'T FIND ANY\n\n\nCARPENTER WORK",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-05-31",
+    "date_end": "1910-05-31",
+    "report_year": 1910,
+    "source_file": "10_1910-05-31_p9_sn88085947_00211108630_1910053101_0848",
+    "archive_ref": "10_1910-05-31_p9_sn88085947_00211108630_1910053101_0848",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1910-05-31_p9_sn88085947_00211108630_1910053101_0848",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "milwaukee road"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 88,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "milwaukee road",
+            "weight": 2.0,
+            "offset": 149,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Frank Boyce, 1119 Third avenue,\nsays that he paid 81 to the Milwau-\nkee labor agency and 81 railroad\nfare to take a job as house carpen.\nter for the Milwaukee road at ST.\nMaries, Idaho. When he arrived at\nst. Maries the only house carpenter\nwork in sight was some portable\nstation houses to be used on the\nBoville branch of the road, which\nwere completed when Boyce\nreached the scene. He thinks that\nthe railroad and the labor agency\nworked in conjunction to get his\nmoney."
+    }
+  ]
+}

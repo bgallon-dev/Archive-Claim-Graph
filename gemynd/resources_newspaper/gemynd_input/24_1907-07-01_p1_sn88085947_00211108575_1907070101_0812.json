@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TELLS THE STORY OF\n\n\nP|NKERTON'S PERF|DY",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-01",
+    "date_end": "1907-07-01",
+    "report_year": 1907,
+    "source_file": "24_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+    "archive_ref": "24_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1907-07-01_p1_sn88085947_00211108575_1907070101_0812",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 102,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 74,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE. July 1.-When court re-\nconvened today for the hfty-hrst\nday of the Haywood trial, Morris\nFriedman, formerly stenographer\nfor the Denver Pinkerton agency,\nwas recalled and a fight to get into\nthe evidence records he copied\nwhile there began. The COM\npotency OF these documents is Sc\nnously questioned by the prosecu-\nton.\n\n\nArguments were length and tech\nmeal.\n\n\nJudge Wood admitted the re-\nports of Friedman. Much OF it 10\nrehash Of previous testimony. and\nall reports showed that Pinkertons\nabsolutely controlled the situation\nIn every union. When the luncheon\nrecess was called barrow was still\nreading from the reports."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Post Street Bridge.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-14",
+    "date_end": "1903-07-14",
+    "report_year": 1903,
+    "source_file": "28_1903-07-14_p1_sn88085947_00211108538_1903071401_0166",
+    "archive_ref": "28_1903-07-14_p1_sn88085947_00211108538_1903071401_0166",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "28_1903-07-14_p1_sn88085947_00211108538_1903071401_0166",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 98,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 140,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Puget Sound Bridge 4 Drsdg-\ning company, which 10 building the\nnew bridge over the river At, the foot\nOf Post street for the Washington\nWater Power company. today COM\nmenced the work Of facing the north\nbank OF the river square to the d.\nrection Of the new structure. A crib\nis being built to receive concrete\nwhich will run at right angles. 90 a.\nto give the bridge at Its north end\nequal support on both sides Of q\ncharacter sufiicient to carry the\nweight OF the arch, which will extend\nacross the entire stream."
+    }
+  ]
+}

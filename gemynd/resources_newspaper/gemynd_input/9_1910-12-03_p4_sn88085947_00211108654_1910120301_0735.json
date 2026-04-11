@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Birth-Pains\n\nBehold the signs of universal unrest:",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-03",
+    "date_end": "1910-12-03",
+    "report_year": 1910,
+    "source_file": "9_1910-12-03_p4_sn88085947_00211108654_1910120301_0735",
+    "archive_ref": "9_1910-12-03_p4_sn88085947_00211108654_1910120301_0735",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1910-12-03_p4_sn88085947_00211108654_1910120301_0735",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 124,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 169,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Behold the signs of universal unrest:\nPortugal dethrones her king and sets up republic.\n\n\nBelgium pets her royal master with socalistic PAM\nphlets and demands universal suffrage.\n\n\nGermany boldly arraigns her kaiser because he lauds\nhis ancestors and revves the doctrine Of the divine right\nof kings.\n\n\nEngland assaults the most ancient privileges of her\nnobes while the sufragetes smash every window in the\nprime minister's house.\n\n\nMexico seethes with revolution in dozen states and\nstruggles to overtun dynasty ruling nation which\nrepublic only in name.\n\n\nEven the United States has made history in these\nstrenuous times It has broken the shackles of party\ntyranny, made political alignmens, and foreshad-\nowed bigger things to\n\n\nSuch the pains which betoken A NEW BIRTH\nOF FREEDOM"
+    }
+  ]
+}

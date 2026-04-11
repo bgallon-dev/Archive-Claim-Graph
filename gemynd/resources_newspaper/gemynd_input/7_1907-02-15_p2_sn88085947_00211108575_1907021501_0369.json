@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-02-15 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-15",
+    "date_end": "1907-02-15",
+    "report_year": 1907,
+    "source_file": "7_1907-02-15_p2_sn88085947_00211108575_1907021501_0369",
+    "archive_ref": "7_1907-02-15_p2_sn88085947_00211108575_1907021501_0369",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1907-02-15_p2_sn88085947_00211108575_1907021501_0369",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 76,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 114,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "to irrigate 10000 acres of land\nwhich lies in the valley. This land\nnow yields about a third of a Group\nonly, and irrigation experts claim\nwater will make an Eden of it. l..\nc. Jaquish, mining expert, has just\nsubmitted a report which he states\nthe propreyt is very promising. The\nfollowing officers were elected:\nPresident, l.. MacLean; vice presi-\ndent, j. A. Scott. of Missoula sec\nrotary, Harry S. Burdick; treas\nurer, Louis Hunt."
+    }
+  ]
+}

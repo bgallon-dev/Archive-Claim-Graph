@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "Local Markets.\nPrices Paid to ProducOrD.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-27",
+    "date_end": "1903-05-27",
+    "report_year": 1903,
+    "source_file": "27_1903-05-27_p4_sn88085947_00211108538_1903052701_0009",
+    "archive_ref": "27_1903-05-27_p4_sn88085947_00211108538_1903052701_0009",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "27_1903-05-27_p4_sn88085947_00211108538_1903052701_0009",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "livestock",
+          "hay",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 103,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 414,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 97,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Wheat, no market at present, mills\nnot buying; barley. per ton, $21; oats,\nper ton, $21: timothy hay, per ton, SIS.\n\n\nPotatoes, per cwt. 35c: onions.\nper cwt., $4,000; ranch but\nter, per pound, 15@20c; eggs, fresh.\nper case. s5a6.50; dry picked tur-\nkeys, per h., 1sc; alive, per lb., 14c;\nscalded geese. per lb., lac; alive. per\nID, lie; scalded hens and large yellow\nchickens, per h., lac; alive. per h.,\n1Sc.\n\n\nLivestock-Cows, on foot, az q 4c;\ndressed, 7Hc; steers, on foot. an q\n4Nc; dressed, &c; sheep on foot.\n4Q4hc dressed, &c; hogs, on foot\n7@7kc; dressed, 10@11c: calves. 10c"
+    }
+  ]
+}

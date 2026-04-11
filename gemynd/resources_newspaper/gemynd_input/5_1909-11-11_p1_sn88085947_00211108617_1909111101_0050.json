@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHICH ARE ANARCHISTS, ANYWAY?",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-11",
+    "date_end": "1909-11-11",
+    "report_year": 1909,
+    "source_file": "5_1909-11-11_p1_sn88085947_00211108617_1909111101_0050",
+    "archive_ref": "5_1909-11-11_p1_sn88085947_00211108617_1909111101_0050",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-11-11_p1_sn88085947_00211108617_1909111101_0050",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 141,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 699,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "III the situation be laughable\nsmile about It, anyway It's just grappe\nwith the problem -ff\n\n\nHere is the mayor and the council department\ngenial chief looks\nthey all are saying and declaring and\naniee speech ordinance\nwon't change horses when in the middle stream lot\nbrave - : =\n\n\nThat's what they're saying Now\nwhere the laugh comes in, and it's rich-n a\n\n\nThey not using that famous single\nstance instead they arresing dsordey\nonly dsordery conduct they\non the streets and this is not of\n\n\nWhere they anyway? They uphodng\nhere? - - $500\n\n\nThe truth is THEY DON'T DARE USE THAT ORDINANCE\nBECAUSE 1T HAS BEEN DECLARED AND\nso THEY ARREST PEOPLE DISORDERI.Y CONDUCT WHO\nARE NOT GUILTY ACCORDING THE CITY CHARTER\nITSELF\n\n\nSeriously, citizens don't needs your\nPerhaps could\ncity government could get of their mudde -"
+    }
+  ]
+}

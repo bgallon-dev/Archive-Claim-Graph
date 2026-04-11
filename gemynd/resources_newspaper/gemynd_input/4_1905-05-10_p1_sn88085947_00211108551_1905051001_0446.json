@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "CAN LEASE\n\n\nINDIAN LAND",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-10",
+    "date_end": "1905-05-10",
+    "report_year": 1905,
+    "source_file": "4_1905-05-10_p1_sn88085947_00211108551_1905051001_0446",
+    "archive_ref": "4_1905-05-10_p1_sn88085947_00211108551_1905051001_0446",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-05-10_p1_sn88085947_00211108551_1905051001_0446",
+      "composite_score": 21.7,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 13.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "indian land",
+          "indian reservation",
+          "allotment",
+          "reservation"
+        ],
+        "agriculture": [
+          "alfalfa"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1905,
+      "word_count": 215,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "indian reservation",
+            "weight": 2.5,
+            "offset": 151,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 158,
+            "in_headline": false
+          },
+          {
+            "term": "allotment",
+            "weight": 2.0,
+            "offset": 364,
+            "in_headline": false
+          },
+          {
+            "term": "indian land",
+            "weight": 2.5,
+            "offset": 12,
+            "in_headline": true
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 312,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 11,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "indigenous",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "PENDLETON. Ore, May 1O.-In-\nformation from Congressman Jones\nof Washington says that the secre-\ntary of the interior will allow whites\nto lease Yakima Indian reservation\nlands on the following terms\n\n\nTHAT all leases contain a provision\nfor levying land for cultivation on\nabout 40 of each S0-acre tract: for an\nalfalfa crop in rotation with a sugar\nacres in each allotment to be culti-\nwaited by the allottees; for the en-\nployment of Indians in the beet fields\nand in the factory wherever practical\nBILE; for the erection on each allotment\nof certain permanent improvements\nto the value of $500. the improve\nments to be located at such point\non the reserved portion as will be\ncontiguous and most convenient to\nthe remainder of the allotment, the\nsame to be left in good condition at\nthe end of the lease and to become\nthe property of the allottee.\n\n\nmo other permanent improvements\nwhatsoever that is in the nature OF\nfactories or other buildings for con-\nQuoting the sugar beet industry are\nto be permitted on the allotments. An\nannual rental of 81 per acre is asked,\nwith further provision that the rental\nmay be readjusted In five years IL\nthe secretary sees fit to do so, all\nthough the leases may run 10 years.\""
+    }
+  ]
+}

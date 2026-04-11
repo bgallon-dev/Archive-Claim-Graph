@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "UNION MEN WON'T WAIT FOREVER IN PARTY\n\n\nPRISON, SAYS C0MPERS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-03",
+    "date_end": "1906-09-03",
+    "report_year": 1906,
+    "source_file": "3_1906-09-03_p3_sn88085947_00211108563_1906090301_1100",
+    "archive_ref": "3_1906-09-03_p3_sn88085947_00211108563_1906090301_1100",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1906-09-03_p3_sn88085947_00211108563_1906090301_1100",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "conspiracy"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 145,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 319,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 34,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "secure an increase Of wages was a\nconspiracy to raise the price of la\nDor. Through the action of the\nAmerican trades unionists We Sc\ncured it's change.\n\n\n1--WE have secured lien laws\nwhich guarantee a man his wages\nwhen he has worked. The breaker\nboys who work in the mines of\nPennsylvania were liberated by the\nminers strike, and the public con-\nscience was so shocked that one\nof the best labor laws in the coun-\ntry was passed in Pennsylvania.\n\n\n\"In addition to these our unions\nhave secured laws covering mining\nsafety appliances, pumps, car coup\nling laws to protect railroad men\nfrom being smashed between the\ncars which he is trying to couple;\nlaws for blowers to carry off the\ndust from the polisher and the\nbuffer in the works and in machine\nshops, together with other too num-\nerous to mention\""
+    }
+  ]
+}

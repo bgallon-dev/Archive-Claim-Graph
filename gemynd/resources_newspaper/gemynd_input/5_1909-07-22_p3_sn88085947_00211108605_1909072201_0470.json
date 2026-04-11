@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ORIGIN OF THE\nRECALL\n\nHISTORY RECORDS THE FACT\nTHAT TITS ESSENTIALLY AN\n\"A m e r c AN INSTITUTION,\ntOLDER THAN OUR CONSTR\nTUITION.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-22",
+    "date_end": "1909-07-22",
+    "report_year": 1909,
+    "source_file": "5_1909-07-22_p3_sn88085947_00211108605_1909072201_0470",
+    "archive_ref": "5_1909-07-22_p3_sn88085947_00211108605_1909072201_0470",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-07-22_p3_sn88085947_00211108605_1909072201_0470",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 338,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 64,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "sIn the recent consideration in\nSpokane Of the amendment to the\ncity charter providing for the re-\ncall of elective officials, there were\nthose who commended that the re-\ncall was socialistic and antagonis-\ntic to a representative form of gov\neminent\n\n\nA recent investigation among\nthe records of the meetings of the\nconstitutional convention has dis\nclosed the fact that the recall is of\nessentially American origin and is\nolder than our constitution itself.\nA delegate to the convention from\nMaryland, Luther Martin, pointed\nto it's existence in his state at that\ntime and urged some such restric-\nton as to congressional represen-\ntatives and United States senators.\nTime has since shown that Dele\ngate Martin had deeper insight\ninto the future than most of his\nfellows.\n\n\nIn one of his debates, Martin\nsaid:\n\n\n\"Mr. Speaker, in our state it is\nprovided by it's constitution that\nthe representatives in congress\nshall be chosen annually, shall be\npaid by the state, and shall be sub\nject to recall even within the year;\nSO cautiously has our constitution\nguarded against an abuse Of the\ntrust reposed in our representa-\ntives in the federal government;\nwhereas, by the third and sixth\nsections of the first article of this\nnew system, the senators are to\nbe chosen for six years instead of\nbeing. chosen annually; instead of\nbeing paid by their states who send\nthem, they, in conjunction with\nthe other branch, are to pay them\nSELVES out of the treasury of the\nuhi@d States, and are not liable\nI'd De recalled during the period\nfor which they are chosen.\n\n\nTHUS, sir, for six years the SEN\nat0fS are rendered totally and alb\nsolufkly Independent Of their\nstates, of whom they ought to be\nthe representatives, without any\nbond or tie between them. During\nthat time they may join in meas\nures ruinous and destructive to\ntheir states, even such as should\ntotally annihilate their state gov\nernments, and their states cannot\nrecall them, nor exercise any con-\ntroll over them\""
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STARVATION WAGES\n\n\nFOR RA|LR0ADERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-03",
+    "date_end": "1905-01-03",
+    "report_year": 1905,
+    "source_file": "14_1905-01-03_p1_sn88085947_00211108551_1905010301_0006",
+    "archive_ref": "14_1905-01-03_p1_sn88085947_00211108551_1905010301_0006",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1905-01-03_p1_sn88085947_00211108551_1905010301_0006",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 101,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 11,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "One of the Northern Pacific section\nmen said today:\n\n\nas it any wonder that our children\nare put into reform schools and peni-\ntentiaries? On $40 per day no man\ncan live and raise family. Wouldn't\nthat tempt one to steal? l can't keep\nmy children in school and am ar\nrested for keeping them at home\nWhat can we working men do? Are\nwe to be satisfied with enough bread\nto keep us alive? Our plight is a\nhard one combined with the usual\nwinter burdens. I know many who\nwill suffer from hunger and the lack\nof warm clothing\""
+    }
+  ]
+}

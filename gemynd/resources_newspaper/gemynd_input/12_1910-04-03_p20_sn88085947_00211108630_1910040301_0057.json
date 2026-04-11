@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-04-03 — pp20",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-03",
+    "date_end": "1910-04-03",
+    "report_year": 1910,
+    "source_file": "12_1910-04-03_p20_sn88085947_00211108630_1910040301_0057",
+    "archive_ref": "12_1910-04-03_p20_sn88085947_00211108630_1910040301_0057",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1910-04-03_p20_sn88085947_00211108630_1910040301_0057",
+      "composite_score": 9.24,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 3.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate",
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 474,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 803,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1502,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 803,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "TAKE Spokane virtually a sea-\nMI port city. No holder or more\nAz momentous proposition and\nyet one so entirely practicable was\never preached to the people of the\ncity as this, proposed by Professor\nw. d. Lyman of Whitman college.\nHe would make the Columbia river\nand its principal tributary, the\nSnake, navigable from the ocean to\nKettle Falls and to Lewiston, and\nconnect Spokane over the few\nmiles intervening with a network\nof electric railways. a work which,\nbe claims, is not only possible with\nfew millions of dollars, but one\nwhich can be accomplished in a\nvery few years with the proper men\nand spirit behind it.\n\n\nListen to what the professor\nsays:\n\n\nREMEDY FOR HIGH RATES.\n\n\nThe waterway system of trans\nportation constitutes the only nat\nural competition against excessive\nand discriminating freight rates.\nYou may fight tho railroads with\nevery ounce of power that you can\ncommand on the question of ter\nminal rates; YOU may take the case\ninto the courts or before the inter\nstate commerce commission. AS\nyou we'll know. the laws delay and\nthe boundless possibilities of eva\nsion and miscarriage of justice\nwear out the public patience and\nthe public purse. The railways\nseem by some mysterious hocus\npocus to always be able to side\ntrack rulings of commissions and\njudgments of courts.\n\n\nThe reason of this failure is\nplainly that the remedy is artificial.\nBut suppose we were to try the\nnatural remedy-water competi.\nton. That is the only way to solve\nthe problem of rate discrimination.\nINLAND EMPIRE BOTTLED UP.\n\n\n\"As we study the may we shall\nsee that this vast Inland Empire\nembracing about 10000 square\nmiles, rich in every resource OF\nhuman activity. populated by hall\na million of as brave, resolute and\nIntelligent people as ever built a\nnew American state, that this land\nof boundess possibilities is bottled\nup by the great wall Of the Cascade\nmountains and distractions in its\nonly natural outlet, the CoIum bia\nriver.\n\n\nTo oct in and out of this vast re.\neion requires higher freight rates\nthan prevail in any other part Of\nthe United States. If the resources\nwere not well-night unparalleled\nthis section could not have devel\noped under the heavy handicap Of\nsuch a freight tariff.\n\n\nWHERE INSTRUCTIONS ARE.\n\n\nNow follow along the COlumbia\nriver and see what and where the\nInstructions are which now pre-\nvent continuous navigation to the\nocean. There is already CANA\nand locks at the Cascades. The\nonly place which entirely prevents\npassage of boats is between Cello\nand the Big Eddy. AT that point\nthere is a total descent in eight\nand one-half miles of 50 feet. The\ngovernment is putting in a cana\nto cover that eight and one-hali\nmiles, and the work is perhaps one\nhalf done. When it is completed"
+    }
+  ]
+}

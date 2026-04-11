@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "EQUAL SUFFRAGE FIGHT\nNOW AT FULL TILT HERE;\n\n\nEASTERN LEADER HERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-09",
+    "date_end": "1910-06-09",
+    "report_year": 1910,
+    "source_file": "3_1910-06-09_p11_sn88085947_00211108630_1910060901_0942",
+    "archive_ref": "3_1910-06-09_p11_sn88085947_00211108630_1910060901_0942",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-06-09_p11_sn88085947_00211108630_1910060901_0942",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 8.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 107,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 148,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 154,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MINNIE ]. Reynolds, of Jersey\nCity arrived in Spokane last night\nto devote he time until the Novem-\nDer election to the furtherance of\nthe cause of woman suffrage in\nWashington. She has national\nreputation in the work and was a\nleading figure in the fight for suf-\nfrage in Colorado some years ago\nwhen the struggle for the ballot for\nwomen was on. She will make her\nheadquarters in Spokane.\n\n\nUnder the direction of May Ark\nwright Hutton, the fight for equal\nsuffrage for women is being carried\non with force in eastern Washing\nton. Yesterday Mrs. Hutton took\na party in her automobile to Pull"
+    }
+  ]
+}

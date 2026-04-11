@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-11-11 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-11",
+    "date_end": "1909-11-11",
+    "report_year": 1909,
+    "source_file": "4_1909-11-11_p2_sn88085947_00211108617_1909111101_0051",
+    "archive_ref": "4_1909-11-11_p2_sn88085947_00211108617_1909111101_0051",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-11-11_p2_sn88085947_00211108617_1909111101_0051",
+      "composite_score": 11.83,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 5.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "free speech fight"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 219,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 825,
+            "in_headline": false
+          },
+          {
+            "term": "free speech fight",
+            "weight": 3.0,
+            "offset": 825,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 432,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "troubles in the past, and 1t is for\nthis reason that members of the\nl. w. w. will not go on the street\nto speak in the night. They fear\nthat the detectives, who, they\nclaim. are hired by employers to\nbring public sentiment to conflict\nwith the laboring men, will take\nadvantage of such opportunities to\nthrow rocks and to start riots\nwhich would be charged against\nthe l. w. w.\n\n\nReports from the emigration of\nficials In Portland, Ore, who have\nbeen in Spokane during the trou\nBILE, say that the government spies\nhave found many men who have\ntaken out their first naturalization\npapers in the United States parti\ncipating in the fight. The law\nmakes such men liable to deporta.\nton and, at least, participation in\nbreach Of law lays a predicate for\nthe federal authorities refusal to\ngive them final papers.\n\n\nEven when the free speech fight\nis over the trouble between the of.\nficials and the authorities will\nscarcely be at an end. Vincent\nst. John, general counsel of the /\nw. W., has directed that all aliens\ncited for deportation shall be in.\nstructed to return to Spokane at\nall hazard. This would indicate\nthat trouble may be made between\nthe United States and the aliens\nrespective countries because of de-\nportations."
+    }
+  ]
+}

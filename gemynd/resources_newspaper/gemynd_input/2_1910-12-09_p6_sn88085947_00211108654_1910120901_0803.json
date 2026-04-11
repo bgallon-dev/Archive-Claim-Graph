@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TWO ENGINEERS\n\n\nSAVED LIVES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-09",
+    "date_end": "1910-12-09",
+    "report_year": 1910,
+    "source_file": "2_1910-12-09_p6_sn88085947_00211108654_1910120901_0803",
+    "archive_ref": "2_1910-12-09_p6_sn88085947_00211108654_1910120901_0803",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-12-09_p6_sn88085947_00211108654_1910120901_0803",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 140,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 127,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "(Uy United Press leased Wirel\n\n\nEVERETT, Wash. Dec. 9.-In-\nvestigation today of the derailment\nof passenger train No. 3 on the\nGreat Northern, which jumped the\ntrack near Skykomish yesterday,\nshowed that the accident was\ncaused by broken rail.\n\n\nThe investigation also brought\nout the fact that scores of passen-\ngers owe their lives to the prompt\naction of Engineers Calder and\nGraham, who stopped their ]ocomo-\ntives on the edge of trestle\nwhich spanned canyon 400 feet\nin depth.\n\n\nThe two locomotives and every\ncoach comprising the train, with\nthe exception of the last Pullman,\nleft TIE rails. Instead OF jumping,\nboth engineers applied the air\nbrakes and reversed the Steam. AS\nresult they were able to stop the\ntrain on the canyons edge. The\nfirst engine was left with the pilot\nsticking over the edge of the\nbridge"
+    }
+  ]
+}

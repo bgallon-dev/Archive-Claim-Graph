@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-06-29 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-06-29",
+    "date_end": "1908-06-29",
+    "report_year": 1908,
+    "source_file": "3_1908-06-29_p2_sn88085947_00211108587_1908062901_0683",
+    "archive_ref": "3_1908-06-29_p2_sn88085947_00211108587_1908062901_0683",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-06-29_p2_sn88085947_00211108587_1908062901_0683",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 107,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 392,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "themselves over the excessive dis\nrepute into which the traffic has\nfallen. The individual rights ques-\nton commanded no consideration\nagainst the public welfare, and the\nsaloon, DR.. Kimball held, had out\nlawed itself beyond defense on any\ngrounds. He pleaded for prohibi.\nton as the only effective remedy.\n\n\nDR.. Rasmus' subject was \"The\nPoisoned Banquet\" and while not\ndevoted entirely to prohibition he\nassigned liquor as the chief poison\nspread before the public today. In\ndemonstrating his argument DR..\nRasmus drew several powerful\nword picturdes. He also pleaded\nfor prohibition as the only reliable\nmeans of eradicating the liquor\nevil and predicted it's certain adop-\nton."
+    }
+  ]
+}

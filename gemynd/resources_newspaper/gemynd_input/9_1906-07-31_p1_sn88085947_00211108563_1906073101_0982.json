@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-07-31 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-31",
+    "date_end": "1906-07-31",
+    "report_year": 1906,
+    "source_file": "9_1906-07-31_p1_sn88085947_00211108563_1906073101_0982",
+    "archive_ref": "9_1906-07-31_p1_sn88085947_00211108563_1906073101_0982",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-07-31_p1_sn88085947_00211108563_1906073101_0982",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 186,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 306,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Power compay. No reply being re-\nceiyed, the union withdrew it's\nfunds from the bank and deposited\nthem with the Old National. The\nSpokane & Eastern Trust company\nis the largest depository of the\nworking class in the city and the\nbelief that the same interests con-\ntroll both the bank and the Wash\nington Water Power streetcar lines\nmay result, it is claimed, in action\nbeing taken by the loci0 unions to\ninduce members to withdraw their\nsavings from the bank. Many local\nunion men argue that it is folly for\nthe working people to supply the\nWashington Water Power COM\npany with money to build railways,\npower plants and elect city Of\nficials.\n\n\nThe fact that one union has al\nready changed it's account to\nanother bank will, it is claimed,\nlead to similar action by other\norganizations. The union people do\nnot think they can nor do they in\ntend to damage the credit of the\nbank. They simply say they pro-\npose to decline to do business with\nany branch Of an Institution they\nbelieve Is fighting them in every\nway possible."
+    }
+  ]
+}

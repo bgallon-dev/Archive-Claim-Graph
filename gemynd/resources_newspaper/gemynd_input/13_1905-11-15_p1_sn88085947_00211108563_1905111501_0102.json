@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Press Drdws First Blood in Its Fight\nfor People Against Gas Monopoly---\nOrdinances Introduced in Council to\nExamine That Company's Product\nand Put an End to Deposits.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-11-15",
+    "date_end": "1905-11-15",
+    "report_year": 1905,
+    "source_file": "13_1905-11-15_p1_sn88085947_00211108563_1905111501_0102",
+    "archive_ref": "13_1905-11-15_p1_sn88085947_00211108563_1905111501_0102",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1905-11-15_p1_sn88085947_00211108563_1905111501_0102",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 169,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 310,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The city council at last nights\nmeeting sat up and took notice Of\nthe Iniquities of the gas company\nas set forth in The Press.\n\n\nOrdinances were introduced look\nIng to the appointment of gas\ninspector and to the wiping out Of\nthe illegal demands for deposits.\nThis latter will be Cooperative on\nche Washington Water Power COM\npany as we'll as on the gas COM\npany.\n\n\nTHE PRESS HAS WON THE\nFIRST STEP IN ITS FIGHT IN\nTHE CASE OF THE PEOPLE\nAGAINST THE GAS COMPANY.\n6Now, Mr.. Consumer Of gas, also Of\neIectricity--for the big light and\npower company will now enter the\nlists in behalf of it's fellow mono.\npolist - watch your councilman.\nWatch his every move. Observe\nwhen the corporation blight strikes\nhim. Decipher, If you can, wheth.\ner It is the poisonous effIuvia Of\nthe gas company that asphyxiates\nhim, or an electric impulse that\ndeadens his nerve and paIsies his\nmarrow.\n\n\nII he, perchance. proves true to\nhis constituents and to himself"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-05-14 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-14",
+    "date_end": "1907-05-14",
+    "report_year": 1907,
+    "source_file": "8_1907-05-14_p4_sn88085947_00211108575_1907051401_0671",
+    "archive_ref": "8_1907-05-14_p4_sn88085947_00211108575_1907051401_0671",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-05-14_p4_sn88085947_00211108575_1907051401_0671",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 353,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 101,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, May IA cottage\nacross the street from the court\nhouse has been fixed upon as the\nhome for the Haywood jury. In or\nder to get it a liberal bonus was\npaid the family living there to va\ncate for the period of the trial. The\nhouse was selected because it is\nclose and convenient and will en-\nable the jury to live in comfort.\n\n\nSheriff Shad Hodgin has both a\npersonal and official interest in this\nmatter or the jury. He served,\nwhile back, as member of the\njury in criminal case, and he\nknows what ''roughing it\" means.\nHe intends that the men having to\nstand the long and arduous siege\nin this case shall have proper\ndegree of comfort. A cook will pre-\npare their meals at the cottage, and\nevery juror will sleep in bed The\ngreat court house lawn will afford\nthem place for exercise.\n\n\nThe sheriff will adopt extraordi-\nnary precautions to prevent a mis-\nu iol thi puSiI even lIC dDpCdi dllSC\nof misconduct on the part of the\njury, To that end special bailffs\nwill guard them day andnight.\n\n\nA stairway has been constructed\nat the rear of the court house, so\nthat the Jurors will not come in\ncontact with the crowd in the cor\nridOr of the building. They will\npass from the court room through\nJudge Woods private Office, down\nthe special stairway and across the\nlawn and the street to the cottage.\n\n\nAS an instance of the care which\nmust be exercised, the sheriff\ncites a case that recently fiured\nin the courts. A bailiff was con-\nQuoting jurors in a criminal case\nthrough the streets to restaurant.\nwhen one of the good men and\ntrue stepped around the corner to\nbuy cigar There was no evil\ndence that he had been approach\ned\" in fact he had not been spoken\nto about the case. but he had been\nont of the bailiff's sight and the\njudge set aside the verdict.\n\n\nIn the matter of Haywood the\nsheriff will guard against the\nslightest slip that might give\nground for criticism."
+    }
+  ]
+}

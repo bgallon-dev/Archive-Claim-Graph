@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "A CLUSTER OF\n\n\nGOVERNORS\n\nPRESENTED TO THE CONGRESS ToDAY-ALL\n\n\nMAKE ADDRESSES.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-13",
+    "date_end": "1909-08-13",
+    "report_year": 1909,
+    "source_file": "17_1909-08-13_p1_sn88085947_00211108605_1909081301_0630",
+    "archive_ref": "17_1909-08-13_p1_sn88085947_00211108605_1909081301_0630",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1909-08-13_p1_sn88085947_00211108605_1909081301_0630",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay",
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 59,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 287,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The irrigation congress arose\nand remained standing this fore\nnoon while Governor Shallenberger\nof Nebraska, and party, took their\nplaces on the platform. They were\nushered into the hall to music, and\nthe blue and gold of the governors\nmilitary staff added the martial\nfeature. Governor Hay welcomed\nthe Nebraska executive on behalf\nof this state. This afternoon is"
+    }
+  ]
+}

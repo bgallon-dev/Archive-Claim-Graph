@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-06-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-10",
+    "date_end": "1909-06-10",
+    "report_year": 1909,
+    "source_file": "19_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+    "archive_ref": "19_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "19_1909-06-10_p1_sn88085947_00211108605_1909061001_0144",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 100,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 36,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The refusal of the directors Of\nthe Great Northern railroad to sur\nrender papers and records wanted\nby the Spokane county grand jury\nis taken by those who have follow\ncd the Gordon case from the be-\nginning as additional proof that\nJudge Gordon has the Great North\nern railroad In a position where 1t\ndare not take any steps against\nhim.\n\n\nAfter the railroad detectives had\ngone on the trail of Gordon and\nsecured proof that, 1t is claimed.\nindicated a shortage of over STA\n600. Gordon went to st. Paul and\nsaw James ]. Hill in person. Cor"
+    }
+  ]
+}

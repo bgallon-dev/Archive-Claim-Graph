@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "URGES POSTER\n\n\nBOYCOTT\n\nCHIEF SULLIVAN BELIEVES\nCHAMBER OF COMMERCE\n\n\nCOULD PUT A STOP TO BAR\n\n\nBERS GRATING VISITORS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-31",
+    "date_end": "1909-07-31",
+    "report_year": 1909,
+    "source_file": "4_1909-07-31_p1_sn88085947_00211108605_1909073101_0542",
+    "archive_ref": "4_1909-07-31_p1_sn88085947_00211108605_1909073101_0542",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-07-31_p1_sn88085947_00211108605_1909073101_0542",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 4.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 3.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 257,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 166,
+            "in_headline": false
+          },
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 15,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 9,
+            "in_headline": false
+          },
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 48,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "That the Chamber of Commerce\nand 10000 club and all others of\nthe city's boosters responsible for\nbringing visitors here from other\nparts of the United States should\nboycott grating barber shops as a\nsafeguard to the city's reputation,\nwas advocated by Chief of Police\nSullivan today.\n\n\nThere seems to be absolutely\nno help for it other than to warn\nvisitors and every one else to trade\nwith the shops that are being run\non the square and to shun all shops\nregarding which numerous COM\nplants have been coming to me\"\nthe chief said.\n\n\nII would further suggest that the\npublic absolutely refuse to pay the\nexorbitant prices being inflicted on\nthem. Make the BARRIERS come to\nme with their complaints and their\nattempts to collect the money in\nsuch cases and l believe this thing\ncan soon be regulated. They will\nnot dare to lay their hands on a\nperson refusing to pay their prices.\nIf they do, we will take them in\nhand ourselves\"\n\n\nComplaints came to the chief of\npolice last night from Edward\nGrantham and c. F. Hendricks,\nWallace. Idaho, plumbers, regard\ning fragrant overcharges IN the\nGrand barber shop at Howard and\nMain. Grantham got about every\nthing there was on the bill OF fare,\nthough he asked only for a shave\nand hair cut and was charged\n$3.50. Hendricks was in the chair\nlittle more than half an hour and\nwas plucked of $5.75 for services\nrendered.\n\n\nSeveral complaints have been\nmade regarding similar treatment\nIn the Traders barber shop."
+    }
+  ]
+}

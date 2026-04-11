@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "ct REAL ESTATE\nSPECTATOR\n\n\nPAY UP",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-15",
+    "date_end": "1906-03-15",
+    "report_year": 1906,
+    "source_file": "9_1906-03-15_p1_sn88085947_00211108563_1906031501_0508",
+    "archive_ref": "9_1906-03-15_p1_sn88085947_00211108563_1906031501_0508",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-03-15_p1_sn88085947_00211108563_1906031501_0508",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 145,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 46,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 3,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "laying water mains on the north\nside for some real estate man in a\nnewly laid out addition, the people\nof Brownies addition, the hill side\nand other additions pay for the lay\ning of this pipe on the promoters\nproperty. In nearly all other cities\nthe owner of the property is COM\nPEELED to pay 81 per foot for the\nlaying of the mains.\n\n\nIn fact, Jones or Smith are reap\ning a harvest at the expense Of the\ntax payers. When water reaches\ntheir land it doubles the latter in\nvalue, but makes no difference on\nthe assessed valuation.\n\n\nA resolution, 1t is stated by an\nofficial, will be presented to the\ncouncil within the near future to\nstop this policy of the city paying\nfor water mains laid for the benefit\nof real estate men and paid for by\nthe tax payers."
+    }
+  ]
+}

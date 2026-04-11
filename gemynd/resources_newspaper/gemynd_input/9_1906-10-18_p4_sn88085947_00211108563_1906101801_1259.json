@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MODEL FARM\"\nWONT WORK\n\n\nHERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-18",
+    "date_end": "1906-10-18",
+    "report_year": 1906,
+    "source_file": "9_1906-10-18_p4_sn88085947_00211108563_1906101801_1259",
+    "archive_ref": "9_1906-10-18_p4_sn88085947_00211108563_1906101801_1259",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1906-10-18_p4_sn88085947_00211108563_1906101801_1259",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 217,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 46,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "G. L. Smith, secretary of the AS\nISOLATION of Inland Empire Com\nmercial Clubs, has received word\nfrom the farmer who was selected\nby the government to have charge\nof the model farm\" to be located\nnear here, that he had received the\nplans of the government expert for\nthe operation of the farm and could\nnot accept them. He gave as a rea-\nson the fact that he could not Sc\ncure intelligent labor.\n\n\nThe model farm\" was agitated\nsome time ago and after strenuous\nefforts on the part of the chamber\nOf commerce the agricultural\nofficials decided to establish one\nnot far from this city. Their plan\nwas to secure a farm established\nfor some time and get the consent\nof the owner to run it along the\nlines laid out by the government.\nThe farm was selected. the farmer\nagreed to operate it as instructed\nby government expert If the\nplans appeared feasible to him, and\nan expert was put to work on it.\nA few days ago he submitted his\nplans to the farmer, whose name\nhas been withheld.\n\n\nThe tiller of the soil, in rejecting\nthe governments proposition, said\n/ that the plans were excellent in\nevery detail under ordinary condi\ntons, but that the labor conditions\nnow existing throughout the state"
+    }
+  ]
+}

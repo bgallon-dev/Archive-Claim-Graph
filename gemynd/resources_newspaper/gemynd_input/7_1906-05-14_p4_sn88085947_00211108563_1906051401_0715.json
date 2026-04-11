@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-05-14 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-14",
+    "date_end": "1906-05-14",
+    "report_year": 1906,
+    "source_file": "7_1906-05-14_p4_sn88085947_00211108563_1906051401_0715",
+    "archive_ref": "7_1906-05-14_p4_sn88085947_00211108563_1906051401_0715",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1906-05-14_p4_sn88085947_00211108563_1906051401_0715",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 113,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 46,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "less than 1000 people are now set\ntied on the irrigation tract. But the\npeople on the town sites are there\nmerely by sufferance. The same is\ntrue of the buildings. There are\n1872 business houses, two banks,\nthree newspapers and a school,\nwhich opened with 70 pupils. But\nnot a foot of town land has yet\npassed from the government pos\nsession. The people have taken\ntheir chances in making their inn\nprovements.\n\n\nPlans are now being made for the\nauction, when for spot cash Uncle\nSam will sell these towns. 1t is\nopen to anybody to get in.\n\n\nHowever, there is nothing left in\nthe way of free irrigation farms in"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "COMPANIES QUARREL",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-23",
+    "date_end": "1904-03-23",
+    "report_year": 1904,
+    "source_file": "8_1904-03-23_p2_sn88085947_00211108538_1904032301_1137",
+    "archive_ref": "8_1904-03-23_p2_sn88085947_00211108538_1904032301_1137",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1904-03-23_p2_sn88085947_00211108538_1904032301_1137",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 88,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 52,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 142,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The street car franchises desired\nby the Washington Water Power\ncompany and the Spokane Traction\ncompany again failed Of final passage\nin the city council last night.\n\n\nFrank Graves for the traction COM\npany and H. M. Stephens for the\nWashington Water Power company\nappeared before the committee of the\nwhole of the council and reiterated\ntheir statements made Friday night\nthat each company had made a propo-\nsttion to buy the other out\n\n\nThe council deferred the matter\nuntil the next meeting of the council,\nApril s."
+    }
+  ]
+}

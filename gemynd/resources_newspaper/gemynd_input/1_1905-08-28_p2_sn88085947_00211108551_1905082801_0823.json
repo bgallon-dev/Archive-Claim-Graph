@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "Decline in Drinking",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-08-28",
+    "date_end": "1905-08-28",
+    "report_year": 1905,
+    "source_file": "1_1905-08-28_p2_sn88085947_00211108551_1905082801_0823",
+    "archive_ref": "1_1905-08-28_p2_sn88085947_00211108551_1905082801_0823",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1905-08-28_p2_sn88085947_00211108551_1905082801_0823",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 323,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 1600,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": {
+        "spokane_development": [
+          {
+            "term": "board of trade",
+            "original_weight": 1.5,
+            "offset": 176,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Does prosperity or hard times tend most to make a\npeople temperate in drink?\n\n\nDoes heavy drinking sobrety fit most natural into\ngeneral prosperity?\n\n\nStatscians of the London board of trade attribute the\ndecrease in England's drink bills during the last five\nyears to the hard times.\n\n\nBut the United States has still greater decline in\ndrink bills to attribute to prosperity\n\n\nFor the first time in almost decade the annual report\nof the commission of internal shows decline\nin the amount of whiskey consumed in this country.\n\n\nThe figures made public show that the consumption\nof distilled spirits other than those from fruits in the s\ncal year 1905 11614732 gallons. The decline from\nthat of last year of 704,640 gallons.\n\n\nSo the downward tendency to drink, in prosperous\ntimes is not to be accounted for upon the theory Of the\nLondon board of trade.\n\n\nProsperity and heavy drinking do necessarily go\ngether The contrary is the in this country today.\n\n\nThere has been decided revival of reform sentiment\nin the cities all the land Graft exposures have\ncited popular spirit for general cleaning up.\n\n\nThe first effect has been upon the Sunday saloons. In\nST. Louis alone in the last four months of 'd reform\nSunday drunks shown by the arrests have decreased\nSO per cent.\n\n\nGov Folks brave stand for law and order has aroused\nsuch general approval throughout the country that public\nofficials everywhere have been moved less decided\ny to emulate his example, with the result that there is\nhardly city in the country in which the lines not\ndrawn more strictly about the saloon than they\nyear ago\n\n\nTemperance and anti saloon agitation before\neffectively organized than large share of\nthe decline is attributable to this.\n\n\nThe figures will encourage temperance advocates to\nbelieve that the for the decline to be found\nin the growing law enforcement and the increasing in\ntelgence and self-care of the people."
+    }
+  ]
+}

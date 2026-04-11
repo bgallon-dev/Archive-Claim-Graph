@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PRESIDENT ROOSEVELTS CABINET\n.>4 THE SECRETARY OF THE. INTERIOR\n\nny y. ellison Gardner.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-28",
+    "date_end": "1905-03-28",
+    "report_year": 1905,
+    "source_file": "6_1905-03-28_p4_sn88085947_00211108551_1905032801_0293",
+    "archive_ref": "6_1905-03-28_p4_sn88085947_00211108551_1905032801_0293",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1905-03-28_p4_sn88085947_00211108551_1905032801_0293",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 379,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 1763,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Etan Correspondence of the News\n\n\npaper Enterprise Association. 2.\n\n\nWASHINGTON, March 2S.-The\nenemies of Ethan Allen Hitchcock\nwill have to put up with his presence\nin the cabinet for year longer at\nleast. There are still some land frauds\nTO be uncovered, and there are several\nsenate and house of representatives\nstill under suspicion.\n\n\nThe honorable secretary of the in\nterror is a singed cat. He is not SO\nbad as his exterior would indicate\nHe is cross and crotchety and as\nfussy as a steam roller. lie is about\nas poor an executive as could be\nfound among all the government en-\nployes; he is suspicious. pompous, in\ntolerant and altogether disagreeable\n\n\nAnd yet he is the most valuable\nmember of the Roosevelt administra-\nton. He may be forgiven all, for he\nis honest. AS a government official\nhe is against graft, and during the\nthree years of his administration of\nthe interior department he has set\nhis face like flint against iniquity in\nhigh places.\n\n\nBut it is a glorious pleasure to hear\nhim consign the United States sena-\ntors to hell, and an equally large JOY\nto hear the United States senators\npay their loving tributes to him.\n\n\nDO you think Hitchcock is a -\n] started to ask.\n\n\nHe is all that and more\" came\nback before l could specify. And\nthen there were SMILES and refer\n/ences which were almost pious in\ntheir blasphemous earnestness. II\nyou want to witness something lurid\ntake one of those northwest senators\ninto an embrasure of the marble room\nand ask him what he thinks of the\nsecretary of the interior.\n\n\nThe interior department is-or has\nbeen-the breeding place for as much\ngraft as all the rest of the depart\nments put together. 1t is a vast anti\nquatcd machine, which has to do witt\nthe government lands, the forests\nand the big irrigation projects which\nhave been inaugurated during the\npast three years.\n\n\nA year of Hitchcock convinced tn.\npowers of congress and some other\npolitical powers that he was not &\nsuitable man for the place. If there\nhad been a less honest or less obsti\nnate man in the White House, it is\nsafe to conclude that they would have\naccomplished his exit. But Roose."
+    }
+  ]
+}

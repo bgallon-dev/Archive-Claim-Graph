@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-04-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-14",
+    "date_end": "1904-04-14",
+    "report_year": 1904,
+    "source_file": "4_1904-04-14_p1_sn88085947_00211108538_1904041401_1212",
+    "archive_ref": "4_1904-04-14_p1_sn88085947_00211108538_1904041401_1212",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1904-04-14_p1_sn88085947_00211108538_1904041401_1212",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 173,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 545,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "r. B. Miller, general freight agent\nOf the o. r. l. n, and his assistant,\nII. Nj. Adams, have returned to Port\nland from their trip to Spokane. MIR.\nAdams is quoted as saying:\n\n\n1T was not for conference with\nthe shippers that Mr.. Miller and I\nwent to Spokane. Other lines are rep\nresented in that territory all the time\nin addition to the o. r. 4 N. We saw\nsome of the shippers and there was\nmuch routine business to be trans\nacted, but the meeting was not in the\nnature of a conference\"\n\n\nS. G. Fulton, assistant general freight\nagent of the Northern Pacific, when\nasked concerning the situation, is quot\ned thus by the Journal\n\n\n\"There has been no especial change\nas yet. We think the time Of con-\nference is near, and that the present\nsituation, is an unnatural one, but no\ndefinite time or place of meeting with\nthe shippers has been agreed on. 1t 10\nprobable that conference of all thu\ninterested roads will be held\""
+    }
+  ]
+}

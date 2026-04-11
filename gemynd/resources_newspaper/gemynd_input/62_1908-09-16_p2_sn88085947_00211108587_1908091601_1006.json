@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "COUNCIL WATTS\nFOR BRIDGE\n\n\nPLANS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-16",
+    "date_end": "1908-09-16",
+    "report_year": 1908,
+    "source_file": "62_1908-09-16_p2_sn88085947_00211108587_1908091601_1006",
+    "archive_ref": "62_1908-09-16_p2_sn88085947_00211108587_1908091601_1006",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "62_1908-09-16_p2_sn88085947_00211108587_1908091601_1006",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 724,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 153,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the city council last nlSht CoH-\ncluded to defer further considera-\nton of the bridge plan question\nuntil plans for both steel and con-\ncrete bridges at Monroe street and\na concrete bridge at Olive avenue\nare submitted by City Engineer\nRalston. An ffeort was made to\ninduce the council to employ Pro-\nfessor Burr to prepare plans for the\nMonroe street bridge, but when it\nwas learned that Burr's charge\nwould be per cent for plans or\nper cent for plans and inspection,\nit seemed to have a dampening eff\nfeet on the Burr enthusiasm,\n\n\nThe same lack of definite infor-\nnation that has characterized past\nmeetings on the bridge question\nwas in evidence again last night.\nThe councilmen seemed to feel that\nthey had heard so much on the\nsubject of the probable cost of the\nbridges that they had finally con-\ncluded they knew nothing about it.\nAS a result. when Councilman Lam\nbert made a motion at the close of\nthe meeting favoring the postpone\nment of further action until plans\nwere presented by the city engi-\nneer, it was adopted without oppo-\nsition.\n\n\nPresident Phillips announced\nthat the council had ordered plans\nfor both styles of construction pre-\npared, and that when such plans\nwere presented the city council\nwould advertise for bids in order\nthat it might act intelligently in\nthe premises. No objection was\nentered to this presentation of the\ncase by Mr.. Phillips.\n\n\nCouncilman Dalke favored the\nemployment of Burr or Waddell\nbut when he learned that the cost\nof their services would run to from\n$4,000 to $4,000 he favored the\npreparation of plans by Engineer\nRalston and the subsequent expert\ning of such plans by competent\nengineer, which would cost but one\nhalf of one per cent.\n\n\nCouncilman Schiller said the city\nhad started out to solve its bridge\nnecessities with a bond issue of\n100000 and of this amount, nearly\n100000 was already gone. He be-\nlieved that the council could have\npulled through on this figure, with\nwhat is to be given by the county\nand street railway companies, If\nthe question of concrete bridges\nhad not presented itself.\n\n\nMr.. Baldwin said Engineer\nStrauss, who has national reputa-\nton, told the city the Washington\nstreet bridge could be built of con-\ncrete for $4,000, yet it cost over\n$150,000.\n\n\nCouncilman Mohr seemed to be\nout of patience with Engineer Rails\nton, whom, he said, while profess\ning himself not to be bridge engi-\nneer, yet picked to pieces every\nother bridge plan submitted by an\nother engineer, from Professor\nBurr down. He favored the expert\ning of the plans to be prepared by\nMr. Ralston.\n\n\nMr.. Schiller seemed to think that\nBurr and Waddell were in the bust\nness of preparing bridge plans, but\ngave no guarantee with their plans\nthat a bridge could be built for an\nestimate submitted by them If\nthe cost run above their estimate\ntheir charge for services would be\nthat much higher.\n\n\nCouncilman Baldwin said Profess\nsor Burr's estimate of $685. 900 on\nconcrete for Monroe street was\npurely an offhand figure without\nany plans having been prepared by\nhim. This figure does not include\nthe cost of very expensive APP\nproaches, which Professor Burr\nthought would cost at least SIS 900\nmore. Burr had led the committee\nto believe that a concrete bridge\ncomplete at Monroe street would\ncost 100000 to $425,000.\n\n\nOrvid Reuterdahl, a bridge engi-\nneer in the city's employ, thought\nconcrete bridge at Monroe street\ncould be built for 100000. He said\nthere was no doubt of the safety\nof reinforced concrete bridges OF\nthe length of span and height OF\npiers required for the Monroe\nstreet bridge, as concrete piers\nwould necessarily be built even\nthough we used steel The rein\nforced concrete bridges of today\nhe said, are better, safer and more\ndurable than the plain or solid con.\ncrete work of the Romans, which\nhas stood up for over 1000 years.\n\n\nRemarks being called for from\ncitizens present, G. b. Dennis said\nhe had not changed front on the\nquestion, and reaffirmed his faith\nin steel as preferable under the\npresent situation here. He present\ned figures TO show that the con\ncrete bridge at Mission avenue will\ncost double what 1t could have been\nbuilt for OF steel."
+    }
+  ]
+}

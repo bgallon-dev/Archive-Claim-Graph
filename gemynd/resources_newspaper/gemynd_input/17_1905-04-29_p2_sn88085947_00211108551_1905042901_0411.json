@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Acuf-S r-Linds|ey",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-29",
+    "date_end": "1905-04-29",
+    "report_year": 1905,
+    "source_file": "17_1905-04-29_p2_sn88085947_00211108551_1905042901_0411",
+    "archive_ref": "17_1905-04-29_p2_sn88085947_00211108551_1905042901_0411",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1905-04-29_p2_sn88085947_00211108551_1905042901_0411",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 371,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 331,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In his speech at the court house last night W. H. Acuf\nprofanely said\n\n\nFor Gods sake give me council that will not tie my\nhands,\n\n\nThis prayer was repeated at regular intervals\n\n\nMr. Acuff was begging for Jack Snyder for j. S. Phil\nlips and the other nominated by the Spokesman Re\nvlew-Acuf party at the dctaton of the Washington\nWater Power company and the Pacific States Telephone\ncompany.\n\n\nThe notorious Joe Lindsey stood on the same platform\nAND BEGGED FOR ACUTE VOTES\n\n\nAnd\n\n\nBEGGED THE VOTERS TO DEFEAT THE CHAR\nTER AMENDMENT!\n\n\nBY his speech and presence W. H Acu sanctioned the\nplea OF Lindsey and Snyder to defeat the amendment\nwhich gives the to grant franchises to the people,\n\n\nAcuff asked the election of the pledged to the\nWashington Water Power company and the telephone\ncompany.\n\n\nHE ASKED THEM TO ELECT JACK SNYDER\nWHO, WITH LINDSLEY, TRIED TO DEFEAT THE\nWILL OF THE PEOPLE AND KILL THE CHARTER\nAMENDMENT!\n\n\n1t shows clearly that Acuf is for the corporations and\nagainst the charter amendment providing for referen\ndunn of franchise to the people at the expense of the\nporaton\n\n\n1t proves conclusively that Acuf LIES when he says he\nwill give the people ''square deal.''\n\n\nLast night Joe Lindsey said that if the charter amend\nment was voted through by the people the corporations\nwould get franchises for about $780, paid to the city.\n\n\nJOE LINDSLEY AND JACK SNYDER VOTED\nFRANCHISES TO THE CORPORATIONS FOR\nWHICH THE CITY GOT NOTHING.\n\n\nThe Spokesman-Review in trying to steal the argu-\nments of The Press this morning. said the city ugged\ninto paying $4,000 for widening Hangman Creek bridge\nfor the of the Washington Water Power company\n\n\nJOE LINDSLEY AND JACK SNYDER VOTED FOR\nTHAT STEAL!\n\n\nYet the Spokesman Reviews corporation candidate,\nW. FL Acuf asks the people Of the Fourth ward to vote\nfor Jack Snyder and said:\n\n\nFor Gods sake give council that will not tie my\nhands,\n\n\nALL BUT TWO MEN ON THAT CORPORATION\nDICTATED TICKET of COUNCILMEN ARE PLEDGED\nTO THE WASHINGTON WAITE RPOWER COMPANY.\nIs it not plain that w. H. Acuff is trying put into the\ncouncil the who will help him carry the corporation\nsteals?"
+    }
+  ]
+}

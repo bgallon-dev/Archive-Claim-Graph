@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BRIEF CITY NEWS",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-07-22",
+    "date_end": "1907-07-22",
+    "report_year": 1907,
+    "source_file": "3_1907-07-22_p4_sn88085947_00211108575_1907072201_0887",
+    "archive_ref": "3_1907-07-22_p4_sn88085947_00211108575_1907072201_0887",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1907-07-22_p4_sn88085947_00211108575_1907072201_0887",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 284,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 1186,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The opening Of the childrens\nplayground at the corner of River\nside and Monroe has been post\nponed until July 2S.\n\n\nThe awning of the Riverside ho-\ntel burned about s o'clock yester-\n\n\nday morning and attracted a large\ncrowd. The cause of the fire is\nunknown.\n\n\nBurrel ]. Cramer, Of South Bend,\n\n\nInd, grant past president of the\ngrand nest of Owls, is in the city\nand Wednesday night will visit\nwith the local nest of Owls.\nSpecial services to the Woodmen\nof the World and Women of Wood\ncraft were held at the First Univer-\nsalist church yesterday morning.\nBoth lodges attended in a body.\nRev. Downey devoted large part\nof his sermon to the spirit of fra\nternity\n\n\nSpokane Christian Endeavor So\ncieties united last night at the First\nPresbyterian church in all echo\"\n\n\nmeeting of the international con-\nvention held in Seattle. The\nchurch was crowded with young\n\n\npeople. Rev. w. A. Hunter presided\n\n\nand introduced the returned dele\ngates, who spoke briefly on the\nbenefits and features of interest of\nthe great gathering. Rev. r. A..\nSmith, Rev. E. H. Mills and Rev.\n\n\nM. E. Dunn delivered addresses.\n1t is planned this year to oper-\nate 80 large granaries in connec-\n\n\nton with the Spokane & Inland\nelectric system. By this means it\n\n\nis believed the Zig grain crop can\n\n\nbe better taken care of and stored\n\n\nuntil sold. These grain houses will\n\n\nbe operated by the Washington\n\n\nGrain & Milling Co. Of this city;\nGalbraith & Bacon, of Palouse; E.\n\n\n]. Doneen, of Oakesdal. The In\n\n\nland will have new locomotives\n\n\ndelivered by Sept. l and with these\n\n\nadditions it Is expected all the\ngrain can be handled."
+    }
+  ]
+}

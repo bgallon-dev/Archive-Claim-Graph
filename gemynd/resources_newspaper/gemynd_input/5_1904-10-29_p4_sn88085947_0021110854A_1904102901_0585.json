@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "OMITTED IN THE COLUMNS\n\n\nOF THE MORNING MONOPOLY",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-29",
+    "date_end": "1904-10-29",
+    "report_year": 1904,
+    "source_file": "5_1904-10-29_p4_sn88085947_0021110854A_1904102901_0585",
+    "archive_ref": "5_1904-10-29_p4_sn88085947_0021110854A_1904102901_0585",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-10-29_p4_sn88085947_0021110854A_1904102901_0585",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 179,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 424,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "that the drivers union had no license\nto strike and that the gasmakers'\nunion had no license to exist, though\nit found that the employees forming\nthe gasmakers' union are worthy, de-\nserving and capable employees, with\none exception\"\n\n\nIn this mutilated way the Spokes-\nman-Review now publishes references\nto the eminent fairness Of the candi-\ndate as testified to by one of three\nunions involved. The business agent\nof the trades council at the time the\nquestion of arbitration was preached\nwas f. F. Quinn, and 1t was he who\nsuggested the name of George Turn\ner MS one of the arbitrators. Quinn\nis an active democratic worker and\nmay be seen almost any day about\ndemocratic headquarters. He was\nalso the director general of the\ntrades council carnival Of a year ago\nlast summer which made q profit of\n$40 net. These are the facts, and\nfrom them one may easily CLEAN an\nidea of the channels through which\nII came about that that plumbers\nbill of clean health was given George\nTurner at Just this juncture."
+    }
+  ]
+}

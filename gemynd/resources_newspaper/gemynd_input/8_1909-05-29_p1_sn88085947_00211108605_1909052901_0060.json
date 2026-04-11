@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "PROPERTY OWNERS\nSWINGING CLUB",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-29",
+    "date_end": "1909-05-29",
+    "report_year": 1909,
+    "source_file": "8_1909-05-29_p1_sn88085947_00211108605_1909052901_0060",
+    "archive_ref": "8_1909-05-29_p1_sn88085947_00211108605_1909052901_0060",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1909-05-29_p1_sn88085947_00211108605_1909052901_0060",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 139,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 195,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 259,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A location at the foot of Boone\navenue is urged by the Fourth\nWard Commercial club as the\nproper place i'm which to build the\nbridge that is to be constructed\nfrom the steel to be saved from\nthe Monroe street bridge. The\nclub will bring hte maitre before\nthe city council at the proper time.\n& A number OF property owners in\nterested in the equitable settle\nment of the dispute as to the\nNorth. Coast franchise have united\nwith this club for the purpose OF\nsecuring q hearing of their side of\nthe controversy. The club had gone\nON record as favoring the applica-\ntion of the North Coast. but the\nsentiment is now growing In the\norganization that some provision\nshould be made for the protection\nof the lde avenue and Summit bou-\nleyard property owners."
+    }
+  ]
+}

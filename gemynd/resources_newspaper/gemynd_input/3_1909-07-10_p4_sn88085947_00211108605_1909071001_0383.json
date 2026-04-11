@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-07-10 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-07-10",
+    "date_end": "1909-07-10",
+    "report_year": 1909,
+    "source_file": "3_1909-07-10_p4_sn88085947_00211108605_1909071001_0383",
+    "archive_ref": "3_1909-07-10_p4_sn88085947_00211108605_1909071001_0383",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-07-10_p4_sn88085947_00211108605_1909071001_0383",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "public utility"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 202,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "public utility",
+            "weight": 1.5,
+            "offset": 1089,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Councilman Funk is occasionally amusing. sometimes\nnoisy enough to be even interesting His comic speciality\nroaring resentment of newspaper remarks that tend\nexposure according to the Funk fiat hurts the city, 1t\nisn't the existence of civic faults that do the damage It\nIS telling the general public what the faults The\ncomedy develops from Funks disposition to take himself\nseriously in this\n\n\nIn the ecstacy of his belief the other evening Funk\nassaled statements that people had actually suffered in\nthis city for drinking water If they suffer they ought\nsuffer in silence Newspapers have business to voice\ntheir woes.\n\n\nBut Funk is his antdote. He capped his Grafton\nwith the rather cooling assertion that every person in the\ncity had IS barrels of water to drink daily from the total\nbeing pumped. If they get thirsty why don't they\nsoak in a few of these barrels?\n\n\nThis is where councilmanc ignorance is even\nthan bliss 1t amounts to mathematical lunacy Yet\nIn his most dwelling hour Funk is merely horrible\nample of how little the council has actually known of the\nmost important public utility it is expected to maintain\nNo councilman throat parched The CALLED jade\nhowever, has WINGED."
+    }
+  ]
+}

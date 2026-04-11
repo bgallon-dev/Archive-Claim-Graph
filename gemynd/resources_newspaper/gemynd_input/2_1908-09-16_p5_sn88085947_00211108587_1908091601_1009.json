@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "REAL ESTATE\nMOVING NOW",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-09-16",
+    "date_end": "1908-09-16",
+    "report_year": 1908,
+    "source_file": "2_1908-09-16_p5_sn88085947_00211108587_1908091601_1009",
+    "archive_ref": "2_1908-09-16_p5_sn88085947_00211108587_1908091601_1009",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1908-09-16_p5_sn88085947_00211108587_1908091601_1009",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 162,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Real estate firms are reporting\nan extremely active market on\nmedium and low priced residence\nproperty, and every indication\npoints to a steady demand for this\nclass of property.\n\n\nG. A. Yancey & Co. state that\nwithin a week they will place on\nthe market 100 acres on the North\nhill, to be known as Glenwood\npark.\n\n\nSuccess has attended the sale of\nMiller's park since it was placed\non the market by Slater & Slater\na few days ago. This property is\nbeing purchased for home build\ning and investment.\n\n\nlndeeding to the city the entire\nsystem of water mains at Beauti'\nfull Spring mill J. w. Osborne has\nset precedent that other owners\nof additions will do we'll to fol.\nlow. The system has been laid\nunder the supervision of city\ninspector and is of the six inch re-\ninforced wooden pipe. Since this\naddition was placed on the market\na short time ago great many lots\nhave been sold."
+    }
+  ]
+}

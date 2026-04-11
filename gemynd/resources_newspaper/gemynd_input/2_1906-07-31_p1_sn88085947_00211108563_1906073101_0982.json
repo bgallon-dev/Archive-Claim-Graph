@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "C0UNTYSCH00L\n\n\nREPORT",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-31",
+    "date_end": "1906-07-31",
+    "report_year": 1906,
+    "source_file": "2_1906-07-31_p1_sn88085947_00211108563_1906073101_0982",
+    "archive_ref": "2_1906-07-31_p1_sn88085947_00211108563_1906073101_0982",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1906-07-31_p1_sn88085947_00211108563_1906073101_0982",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 144,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "County Superintendent OF\nSchools Watkins has nearly COM\npleted his annual report on the\nschools Of Spokane county. There\nare 1853 districts this year as\nagainst 1877 last year The total\nreceipts are $621,076 as against\n$664,294 last year, the difference be-\ning for the most part made up of\nreceipts from the sale Of bonds last\nyear. Teachers this year received\n$316.0S4 as against $219.360 last\nyear, the difference being chiefly\ncaused by higher salaries demanded\nin year wnen teachers were\nscarce.\n\n\nThe total expenditures are this\nyear $539.1S9 as against $537, 0S5.\nWithin the year the assessed valua-\ntlon of property within the dis\ntricts has increased from $4,000.\nGOA to $36.356,150. In the same\ntime the average salary of male\nteachers has advNced from $3.50\nper month to SIS, while salaries\nOF female teachers have gone up\nfrom $6S.64 to $69.14."
+    }
+  ]
+}

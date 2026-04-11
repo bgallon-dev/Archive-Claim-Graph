@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1908-02-15 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-02-15",
+    "date_end": "1908-02-15",
+    "report_year": 1908,
+    "source_file": "5_1908-02-15_p2_sn88085947_00211108587_1908021501_0225",
+    "archive_ref": "5_1908-02-15_p2_sn88085947_00211108587_1908021501_0225",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-02-15_p2_sn88085947_00211108587_1908021501_0225",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 165,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 189,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "first, did not appeal to some of the\nmore conservative workers, and\nMrs. Wells organized a club of fol-\nlowerds, composed of the more in\ndependent thinkers known as the\nProgressive Woman's Suffrage\nunion.\n\n\nWith Mrs. Wells as leader this\nbody of women inaugurated the\nstreet corner meetings. The move\nment gradually grew in popularity,\nand other members joined the rank\nand file. Five meetings in all have\nbeen held and each has attracted\nhundreds of spectators, mostly Gu\nriosity seekers.\n\n\nThe campaign is preparatory to\nan appeal. granting woman full suf-\nfrage, to be made at Albany Feb.\n10, when the suffragets will attend\nin a body.\n\n\nIn discussing the open air meet\nings, Mrs. Wells said:\n\n\nTHE meetings have been par\nticularly orderly and the specta-\ntors have been most respectful. 1t\ntakes sensational demonstration to\narouse the women to action. | do\nnot want to be put in the attitude\nof criticising the American women,\nbut they are too mild in their"
+    }
+  ]
+}

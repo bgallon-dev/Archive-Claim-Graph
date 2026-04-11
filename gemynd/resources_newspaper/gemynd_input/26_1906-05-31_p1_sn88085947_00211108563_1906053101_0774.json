@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "IDAHO TRIAL\nIS CON T|NUED",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-31",
+    "date_end": "1906-05-31",
+    "report_year": 1906,
+    "source_file": "26_1906-05-31_p1_sn88085947_00211108563_1906053101_0774",
+    "archive_ref": "26_1906-05-31_p1_sn88085947_00211108563_1906053101_0774",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "26_1906-05-31_p1_sn88085947_00211108563_1906053101_0774",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 92,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 96,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "judicial notice of something not in\nevidence.\n\n\nThe application was renewed for\nbail for Meyer, Haywood and Pet\ntibOne and was refused and ex-\ncepted to.\n\n\nAttorney Richardson, for the de-\nTense, stated that supreme court\nhad set October for the argument\non the habeas corpus appeal and\nthat three or four months would\nelapse before decision and asked\nIL a continuance for the present\ncase would be for the term. The\ncourt said it would not adjourn\nthe term until the case was tried\nand if possible to avoid such action"
+    }
+  ]
+}

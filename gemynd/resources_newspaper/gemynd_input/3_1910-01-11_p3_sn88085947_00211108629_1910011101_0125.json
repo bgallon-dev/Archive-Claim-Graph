@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "C | I Y |\nN w s.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-11",
+    "date_end": "1910-01-11",
+    "report_year": 1910,
+    "source_file": "3_1910-01-11_p3_sn88085947_00211108629_1910011101_0125",
+    "archive_ref": "3_1910-01-11_p3_sn88085947_00211108629_1910011101_0125",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1910-01-11_p3_sn88085947_00211108629_1910011101_0125",
+      "composite_score": 1.68,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 454,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 140,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1276,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Caught in the act of trying to dis\npose of stolen bicycle last night,\nCharles -Ruvier confessed the theft,\nand was locked up in in the city\nJail. Sergeant Nick Warner arrest\ned Ruvier when he was trying to\nsell the wheel to a second hand\nman.\n\n\ne. w. Gordon has found trace Of\nthe two stoves which were taken\nfrom his home in this city about\na week ago. Gordon has greatly\nmissed the stoves during this cold\nweather. G. w. SeatOn was brought\nhere last night from Wilson Creek\ncharged with having taken them.\nSeaton admits that he has the\nstoves, a range and heater, but\nasserts that he bought them.\n\n\nA delegation consisting Of o.\nSchriber, d. F. Pierce, o. r. Nestor,\nT. B. Carithers and b. H. Williams\nare attending the convention of\nthe Northwest Retail Harness and\nSaddlery Manufacturing associa-\nton at Portland. An effort is be-\ning made to bring the 1911 conven-\nton to Spokane.\n\n\nThere will be no raise in salary\nfor the principals of the graded\nschools of the city during the pres\nent school term. The principals\nasked raise of Is per cent but the\nboard found that contracts existed\nfor the balance of the year and re-\nfused to vary from them. The\nwage increase will be taken up at\nthe time the renewal of contracts\nbegins next summer.\n\n\nThe finance committee of the\ncity council has rejected the re-\nrequest of Police Commissioner\nTuerke that an allowance of $500\nbe made to pay the expenses of\ntrip east for Police Chief Sullivan.\nThe committee could not figure\nfrom what source to derive the\nmoney. Commissioner Tuerke is\ngoing at his own expense.\n\n\nJ. J. Scheer, assistant city pas.\nsenger agent of the Great North\nern, has been promoted to travelling\npassenger agent. d. p. Tate of\nEverett will succeed Scheer in the\ncity ticket office.\n\n\nSecretary Rice of the National\napple show is expected back to-\nday from Denver, where he at\ntended the Colorado apple show\n\n\nlast week.\n\n\nThe T. M. A. will hold public in\nstallation of officers Friday night\nin the Odd Fellows hall on First\navenue. Following the installa-\nton vaudeville program will be\ngiven with headline numbers of a\nmusical character from the local\ntheaters.\n\n\nThe enlisted men of the Twenty\nfifth infantry at Fort Wright are\nvery proud of the testimonial given\nthem in the resolution adopted by\nthe city council with reference to\nthe service rendered by the mill\ntary during the recent street speak\ning campaign. The resolution has\nbeen printed and copies sent to\nrelatives of the men in the east.\n\n\nThe charge has been made that\nthe board of health has unneces-"
+    }
+  ]
+}

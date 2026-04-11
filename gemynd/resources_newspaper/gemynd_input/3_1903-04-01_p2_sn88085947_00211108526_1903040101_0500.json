@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-01 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-01",
+    "date_end": "1903-04-01",
+    "report_year": 1903,
+    "source_file": "3_1903-04-01_p2_sn88085947_00211108526_1903040101_0500",
+    "archive_ref": "3_1903-04-01_p2_sn88085947_00211108526_1903040101_0500",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-04-01_p2_sn88085947_00211108526_1903040101_0500",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 226,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 932,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Many people in this city object\nearnestly to a suggestion that has\nbeen made to change Spokane time\nfrom Pacific time to mountain time.\nThose objecting are filing their pro-\ntests.\n\n\nUp to last night more than 1000\npersons had registered for the spring\nelection, larger number than at\nthis time last year. The books are\nto remain open until the 14th. Six\nthousand persons registered last year\nand 1t Is estimated the number this\nyear should reach 1000.\n\n\n]. Calhoun of Rathdrum, Idaho, is\nin the city arranging for Spokane\nowners of summer resort property in\nIdaho to make test case of the new\nIdaho game law. This law provides\nthat non-residents of the state shall\npay a license fee of $25 for hunting\nand IS for fishing. Because OF this\ndiscrimination it is believed the new\nlaw is unconstitutional. The fishing\nseason In that state opens today.\n\n\nCity Treasurer Eggleston received\ncheck yesterday for s331.9S from\nthe Washington Water Power COM\npany. the amount of some taxes that\nwere held up in 1892 by the legislat-\nure passing law providing that the\ncounty shall collect the city taxes.\nThe misunderstanding resulted from\nthe question as whether or not the\ntax applied to 1898 or 1894. If the\ntotal amount involved is paid by the\nwater power people. the city may\nshortly receive about $4,000."
+    }
+  ]
+}

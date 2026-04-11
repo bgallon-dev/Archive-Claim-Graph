@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-07-04 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-04",
+    "date_end": "1903-07-04",
+    "report_year": 1903,
+    "source_file": "4_1903-07-04_p1_sn88085947_00211108538_1903070401_0134",
+    "archive_ref": "4_1903-07-04_p1_sn88085947_00211108538_1903070401_0134",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-07-04_p1_sn88085947_00211108538_1903070401_0134",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 171,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 20,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "even use the word .\"scab\" while talk\ning to the men who have taken their\nplaces and not to use any vulgar Ian\nguage. This advice has been carried\nout by the men. although 1t was\nfrankly stated that private citizens\nwho sympathize with the strikers\nmight have used the word -\"scab\"\nin addressing the men working for\nthe company on Howard street. Mayor\nBoyd and Commissioner Root coun-\nseled the strikers not to use vulgar\nlanguage and above all things not to\nintimidate the men who are working.\nWithout hesitancy the strikers have\nagreed to follow this advice.\n\n\nBefore departing after his unsuc-\ncessful effort to get two special po-\nlicemen Mr.. Phillips said the COM\npany had been given special police\nmen In all other cities where strikes\nwere on, that they would hold the\ncity strictly responsible for any dam\nage that might be done, and left with\nthe yelled threat that unless the spe-\ncial officers were provided by the\ncity such officers would be secured\nelsewhere."
+    }
+  ]
+}

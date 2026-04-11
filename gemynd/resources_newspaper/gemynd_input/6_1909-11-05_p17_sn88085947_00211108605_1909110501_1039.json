@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "title": "JIM HILL IS LOSING HIS TEN+YEAR\n\n\nGRIP ON BIG WESTERN SEAPORT CITY\n\nTacoma, Long at Mercy of\nOne Mans Grudge, Sees\nEarly Freedom Through\nWarning Of Rival Inter\nests.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-05",
+    "date_end": "1909-11-05",
+    "report_year": 1909,
+    "source_file": "6_1909-11-05_p17_sn88085947_00211108605_1909110501_1039",
+    "archive_ref": "6_1909-11-05_p17_sn88085947_00211108605_1909110501_1039",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-11-05_p17_sn88085947_00211108605_1909110501_1039",
+      "composite_score": 16.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "great northern",
+          "freight rate",
+          "depot",
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 627,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 307,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1166,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 350,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 3084,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 3302,
+            "in_headline": false
+          },
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 1166,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "TACOMA, Wash, Now 5.-This\ncity is.,-just> letting over a long\nspell Of having had the worst OF it\nat the hands of one man. For\nyears 1t has suffered from railroad\ndiscrimination and neighborhood\njealousies. and what prosperity it\nhas enjoyed has been In spite of\nthese things.\n\n\nWhat amounted to a railroad\nboycott was begun over a decade\nago by the Northern Pacific rail.\nroad. 1t was the usual dispute be-\ntween city and railroad over ter\nminal privileges, and when the\nrailroad did not get what 1t want\ned 1t declared war on the city. Sc\nattic was used as club, and every\neffort was made to retard Taco\nmas commercial development.\n\n\nJames j. Hill Is largely RESPONSE\nBILE for the long continued feud.\nWhen he acquired control over the\nNorthern Pacific he used his pow\nerful influence to turn the stream\nOf commerce through Seattle. and\nto make Of Tacoma \"a suburban\nsideshow.\" And up to less than IS\nmonths ago he was able to keep\nthis growing port-it now has\nnearly 100000 people-under the\nstigma of being \"one railroad\ntown\" Jim Hill had Tacoma in\nthe hollow of his hand. Tacoma\nhad only the Northern Pacific to\ndepend upon. and this road was\ndiscriminating In freight rates and\npassenger facilities against Taco\nma and in favor of Seattle.\n\n\nOne striking result of this re-\nmarkable state of things Is seen\ntoday in the fact that this rich\nand p0pulous port is practically\nwithout anything In the nature of\na railroad passenger station. A lit\ntie brown wooden shed in an out\nof-the-way region devoted to\nfreight yards, is the place where\npeople who visit Tacoma for bust\nness or pleasure leave and get\ntheir trains. The place Is small,\ncrude and inadequate, and would\nnot be tolerated in a town in In\ndiana with 5000 people.\n\n\nBut things have happened lately.\nHills grip has already noticeably\nloosened. A growing city with a\nperfect ocean harbor was too good\na thing to be the prey of one\nmans grudge, even though that\nman be Hill. Hartman fixed a\ncovetous eye on this corner of the\nmap and gradually forced his way\ninto tho northwest until Hill was\ncompelled to compromise. An\nagreement reached not long be-\nfore the death of Hartman gives\nthe Union Pacific road a right to\nrun its trains over the Northern\nPacific's tracks from Portland to\nTacoma.\n\n\nThe Union Pacific had previous\nly built a long tunnel entrance to\nthe waterfront underneath the city,\nand had acquired lands for yards\nand passenger station. The\ntrackage privilege solved the prob.\nlem of an entrance to the city.\n\n\nAbout the same time the Chi\ncago, Milwaukee & st. Paul road\n|, terminal and to 60 into the trans\n\\ continental trade. So it set to\nFwork and has acquired valuable\nt.tideland sites. and has built new\n/ road leading from Tacoma east to\nmeet Its new transcOntinental\ntracks which It has been finishing\n/ rapidly through Montana.\n\n\nSeeing which. it occurred to\nJames J. Hill that 1t was about\ntime to forget his quarrel with Ia\ncoma and do what he might to\nget share Of the business. So\nhe paid long delayed visit to the\ncity and was a conspicuous figure\nin ceremonial burying OF the\nhatchet. The Great Northern\nceased to make Tacoma passen.\ngers transfer at a railroad Y, and\nlast August saw the first through\ntrain put on between Tacoma and\n6t. Paul.\n\n\nIncidentally foundations are 60\nIng In for a million-dollar depot to\nbe used by the two Hill roads, and\nnot far away two other stations\nare going up to be used by the\nUnion Pacific and the Milwaukee\ncoada\n\n\nTen years ago Tacoma had more"
+    }
+  ]
+}

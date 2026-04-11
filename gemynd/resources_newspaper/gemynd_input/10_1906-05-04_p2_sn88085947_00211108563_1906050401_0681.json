@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MAY CHANGE\n\n\nTRAIN Time",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-05-04",
+    "date_end": "1906-05-04",
+    "report_year": 1906,
+    "source_file": "10_1906-05-04_p2_sn88085947_00211108563_1906050401_0681",
+    "archive_ref": "10_1906-05-04_p2_sn88085947_00211108563_1906050401_0681",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1906-05-04_p2_sn88085947_00211108563_1906050401_0681",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 75,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 51,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A new transcontinental train will\nbe put on by the Great Northern\nabout May Is or 20. The schedule\nfor the train is being made up now.\nUnder the new schedule the east\nbound Oriental Limited will arrive\nin Spokane at $50 in the evening\ninstead of $50 in the morning. The\nschedule of the present day train\nwill be changed so that it will leave\nSeattle at night and arrive here in\nthe morning."
+    }
+  ]
+}

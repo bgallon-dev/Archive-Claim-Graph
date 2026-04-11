@@ -1,0 +1,57 @@
+{
+  "metadata": {
+    "title": "URlted Acilon TO Throw all Spokane FREIGHT\nTO 0. r. 4 n. IN order 10 Force Terms\nFrom The Hill Railroads.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-22",
+    "date_end": "1904-02-22",
+    "report_year": 1904,
+    "source_file": "6_1904-02-22_p4_sn88085947_00211108538_1904022201_1035",
+    "archive_ref": "6_1904-02-22_p4_sn88085947_00211108538_1904022201_1035",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1904-02-22_p4_sn88085947_00211108538_1904022201_1035",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 4.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "depot",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The boycott placed upon the Great\nNorthern and Northern Pacific roads\nby the Spokane Shippers association\nat its meeting Saturday afternoon is\nthe one subject of discussion among\nbusiness men today\n\n\n\"Spokanes freight depot receipts\nduring the past year.\" said J. A.\nSchiller. president of the shippe RS\nassociation, this morning, amounted\nto between 100000 and $4,000. 600.\nand we think we can divert the major\nportion of this business to the o. r.\nIl N\"\n\n\nWhat It Means.\n\n\nThat is the meaning of the ship\npers' association, which was embodied\nin the following resolutions signed\nby 24-of the most prominent business\nfirms in Spokane:\n\n\nWhereas, we know that rates of\nfreight to Spokane from eastern\npoints should never justly exceed pre-\nvailing rates to terminal points. plus\n25 per cent of the corresponding pre-\nvailing rate from terminal points\nback to Spokane; therefore. be it\n\n\nResolved That until such an ad-\njustment of freight rates can be eff\nfected without increasing any rates\nnow in effect TO Spokane from eastern\npoints We agree to give all our BUSH\nness to the 0. r. & N\"\n\n\nResult Of Action at Chicago.\n\n\nThis resolution was adopted\" said\nF. L. Goodall of the Whitehouse COM\npany, \"as spontaneous outburst of\nIndignation over the action of the\nChicago traffic managers meeting in\nignoring Spokane's requests. 1t was\nnot prearranged. We did not attend\nthe meeting with that purpose in\nview. But the step has been taken\nand I think there will be no backward\nmove until the railroads yield. All\npresent signed the resolutions. which\nwere offered by Fred H. Mason of\nHolley, Mason, Marks e Co. The\nrate suggested in our resolution was"
+    }
+  ]
+}

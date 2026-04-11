@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-01-02 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-02",
+    "date_end": "1907-01-02",
+    "report_year": 1907,
+    "source_file": "2_1907-01-02_p4_sn88085947_00211108575_1907010201_0219",
+    "archive_ref": "2_1907-01-02_p4_sn88085947_00211108575_1907010201_0219",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-01-02_p4_sn88085947_00211108575_1907010201_0219",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "cattle",
+          "wheat"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 327,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 795,
+            "in_headline": false
+          },
+          {
+            "term": "cattle",
+            "weight": 0.5,
+            "offset": 983,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "KANSAS CITY, Mo-, Jan. g\nWhen the people of Atlanta, little\ntown in southern Kansas, with but\none railway, stopped through\nfreight train and gave this order\nto the conductor, Take out car\nof coal and allow us enough to keep\nwarm\" they struck at the heart of\nthe car shortage problem. The car\nwas set out: coal was distributed\nto those needing it, and remittance\nwas made to the company.\n\n\nIf a railroad company may con-\nfiscate coal, why not town?\n\n\nThe car problem is vital to the\nwest. The soul of it is not always\nreached in hotel parlors where high\nsalaried officials make 'investiga-\ntons\" To understand it go out in\nthe \"short grass country. A scat\ntered prairie town, one small ele-\nvator, one or two coal yards with\nstorage for two or three cars of\ncoal at a time. Few granaries for\nthe wheat, few families with capital\nenough to lay in the winters coal\nin September. Cars must come\nwhen they are wanted-or there is\ndistress.\n\n\nIn the north billiards threaten,\nin the south, cattle and sheep await\nshipment to market. On branch\nlines in the wheat belt when cars\ncannot be had, wheat is heaped on\nthe ground, 10000 bushels in a\nsingle pile.\n\n\nII tell you. we fellows in Texas\nhave our blood up\" declared H. c..\nJet, of Fort Worth, a leading cat\ntleman. eve are ready to tear up\ntracks; we can't standt it.\" He has\nlost $4,000 through lack of cars in\nwhich to ship cattle.\n\n\nCol Mudro M'Kenzie, president\nof the American Live Stock associa-\nton, who has taken the matter up\nofficially, puts it this way: 1--WE\nTexans have to wait sometimes two\nmonths for cars. Cattle and sheep\nare driven from Texas to the north\nbecause there are no cars. | lost\n| 81 900 on one shipment because of\na wait of six weeks-yet hundreds\nof stock cars are backed on coal"
+    }
+  ]
+}

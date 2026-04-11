@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-01-09 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-09",
+    "date_end": "1907-01-09",
+    "report_year": 1907,
+    "source_file": "16_1907-01-09_p4_sn88085947_00211108575_1907010901_0243",
+    "archive_ref": "16_1907-01-09_p4_sn88085947_00211108575_1907010901_0243",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1907-01-09_p4_sn88085947_00211108575_1907010901_0243",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 274,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 1062,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 26,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The annual banquet of the\nchamber of commerce last night at\nthe Silver Grill brought out a big\nand enthusiastic attendance. Di-\nrectors ere elected as follows for\nthe coming year:\n\n\nFor the three year term, T. H.\nBrewer, F. E. Goodall, Charles\nHebbard, Sam Glasgow and A. l..\nWhite; for two years, D. T. Ham,\nl.. Mclean, F. r. Culbertson, H. l..\nBlocker and E. V. Cartier Van\nDissel; for the one year term, c.\nNJ Fassett, w. S. McCrea, j. d.\nSherwood, F. B. Wright and w. E.\nGoodspeed.\n\n\nThe banquet was served in eight\ncourses OF almost exclusively home\ngrown products. At the close a\nbusiness session followed in which\nthe officers made their annual re-\nports.\n\n\nBY unanimous vote members\nwent on record in favor of paying\ncongressman $4,000 per year.\n\n\nThe speech program included 16\ntoasts, Mayor Daggett being the\nfirst speaker. He advocated civil\nservice in municipal affairs.\n\n\nJay P. Graves was given an en-\nthusiastic reception. He explained\nhis plans for the building of cleo.\ntrio lines connecting Spokane with\nthe great agricultural districts of\nthe Inland empire. He ridiculed\nthe arguments being advanced\nagainst granting the franchise for\nthe subway, explaining that the\ntunnel is intended to connect pas\nsenger and freight terminals and\nthat constant use of steam would\nruin the electrical power apparatus\nHe also said hat the subway\nwould provide terminals for the\nMilwaukee, North Coast and Ket\ntie River roads if built to this city\ntrains to be hauled through the\nsubway by electric motors.\n\n\n1--WE propose to construct this\nsubway\" said Mr.. Graves. ito serve\nourselves and those other lines as"
+    }
+  ]
+}

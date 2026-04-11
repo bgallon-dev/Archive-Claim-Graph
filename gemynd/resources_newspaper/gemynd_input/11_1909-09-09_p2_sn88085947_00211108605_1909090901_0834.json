@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "REAL MAD;\n\n\nWANTS To\nGET DIVORCE\n\nMRS. SOUTHERN CALL\nFORNlA ANGRY At\n\n\nSTATE BOARD\n\nSEPARATE STATEHOOD",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-09-09",
+    "date_end": "1909-09-09",
+    "report_year": 1909,
+    "source_file": "11_1909-09-09_p2_sn88085947_00211108605_1909090901_0834",
+    "archive_ref": "11_1909-09-09_p2_sn88085947_00211108605_1909090901_0834",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1909-09-09_p2_sn88085947_00211108605_1909090901_0834",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 7.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "statehood"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 131,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "statehood",
+            "weight": 2.5,
+            "offset": 66,
+            "in_headline": false
+          },
+          {
+            "term": "statehood",
+            "weight": 2.5,
+            "offset": 93,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SACRAMENTO, CAL, Sept. o.\nSouthern California is talking\nseparate statehood\" today, follow.\ning the action of the state board\nOf equalization last night In raising\nthe assessment of 10 counties from\n10 to 100 per cent. The heaviest\nincrease was made In southern\nCalifornia counties as follows:\n\n\nVentura, 100 per cent; Orange,\nso; Los Angeles, 40; San Bernar-\ndino, 80; Santa Barbara, 25; Kings,\n20; Kern, 20.\n\n\nIncrease north of the Tehachepi:\nSan Francisco, 10; Alameda, 10;\nSan Joaquin, IS; Santa Clara, 10;\nStanisIaus, rs; Tulare, 20; Yolo,\nIS. The tax rate is 1914 cents,\nwhich is SO lower than last year.\n\n\nLOS ANGELES, Sept. 9.-Gener-\nal Indignation over the action OF\nthe state board Of equalization In\nraising assessments Of southern\nCalifornia counties, particularly\nLos Angeles, was voiced here to-"
+    }
+  ]
+}

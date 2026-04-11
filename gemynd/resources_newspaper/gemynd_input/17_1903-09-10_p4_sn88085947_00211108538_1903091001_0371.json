@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Sues to Recover\n\n\nfor MisdeIivery",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-10",
+    "date_end": "1903-09-10",
+    "report_year": 1903,
+    "source_file": "17_1903-09-10_p4_sn88085947_00211108538_1903091001_0371",
+    "archive_ref": "17_1903-09-10_p4_sn88085947_00211108538_1903091001_0371",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1903-09-10_p4_sn88085947_00211108538_1903091001_0371",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 72,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 62,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Traders National bank has\ncommenced an action against the\nGreat Northern to recover $f66.7s\nand s193.S0 for misdelivery of two\ncarloads of cedar posts consigned by\nthe New Northwestern Lumber com\npany to the defendant at Laclede\nIdaho, for shipment to eastern points\nThe plaintiff cashed the bills of lad\ning for drafts which were later re-\nturned dishonored because, It IL\nclaimed, of the misdelivery and loss\nof the goods."
+    }
+  ]
+}

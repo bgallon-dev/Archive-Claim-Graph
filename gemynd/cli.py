@@ -330,6 +330,15 @@ def _resolve_corpus_arg(args: argparse.Namespace) -> None:
     """Resolve --corpus into --institution-id and --domain-dir from the registry."""
     from gemynd.core.corpus_registry import get_corpus, get_default_corpus
 
+    # query-serve runs the retrieval web app, which is a multi-corpus surface:
+    # the lifespan unions every entry in the registry into a composite. The
+    # default-corpus fallback below would collapse that to a single-corpus view
+    # and silently hide every other corpus from the UI. Skip resolution entirely
+    # for query-serve unless the user explicitly passed --domain-dir (which
+    # argparse already stored on args and this function honours below).
+    if getattr(args, "command", None) == "query-serve":
+        return
+
     corpus_id = getattr(args, "corpus", None)
     if corpus_id:
         entry = get_corpus(corpus_id)

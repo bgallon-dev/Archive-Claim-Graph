@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-12-30 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-30",
+    "date_end": "1909-12-30",
+    "report_year": 1909,
+    "source_file": "9_1909-12-30_p1_sn88085947_00211108617_1909123001_0528",
+    "archive_ref": "9_1909-12-30_p1_sn88085947_00211108617_1909123001_0528",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-12-30_p1_sn88085947_00211108617_1909123001_0528",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 143,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 699,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "formerly caused by nature in GER\ntain seasons of the year. The com.\npany's right from the government\nto flood the land is limited to the\nmean average high water mark\nThe objection is that the company\nmaintains this mean average for a\ngreater period of the year than\nnature would.\n\n\nThe city of Spokane ran it's water\nplant from the average power de-\nrived from the river before the W.\nw. p. Co. built its dam, but then\nthe plant was much smaller than\n1t is at the present. Now the limit\nof possible power to be developed\nby the present city dam has been\nreached, and this power. 1t is charg-\ned, would be reduced 60 per cent\nin the season of low water If the\nstoring of the water by the Wash\nington Water Power Co. was order\ned discontinued."
+    }
+  ]
+}

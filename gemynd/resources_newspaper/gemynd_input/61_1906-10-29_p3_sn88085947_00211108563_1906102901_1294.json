@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-10-29 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-29",
+    "date_end": "1906-10-29",
+    "report_year": 1906,
+    "source_file": "61_1906-10-29_p3_sn88085947_00211108563_1906102901_1294",
+    "archive_ref": "61_1906-10-29_p3_sn88085947_00211108563_1906102901_1294",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "61_1906-10-29_p3_sn88085947_00211108563_1906102901_1294",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 79,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 439,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Several years ago when the Non\nPartisan Railway league was organ\nlied, Mr.. Huxtable, etc\" This re-\nfers to the candidate for reelection\n\n\nto the lower house of the legislature\nfrom the Second representative dis\ntrict. If anything with which Hulk\ntable is now connected is non-parti-\nsan so far as this campaign is con-\ncerned. it cannot be the interest of\nthe railway corporations in framing\nup to get the coming legislature to\namend the railroad commission act."
+    }
+  ]
+}

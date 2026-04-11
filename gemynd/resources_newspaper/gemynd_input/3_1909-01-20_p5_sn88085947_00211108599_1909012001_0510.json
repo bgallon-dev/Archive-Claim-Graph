@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Time TO TEACH LABOR\n\n\nA LESSON",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-20",
+    "date_end": "1909-01-20",
+    "report_year": 1909,
+    "source_file": "3_1909-01-20_p5_sn88085947_00211108599_1909012001_0510",
+    "archive_ref": "3_1909-01-20_p5_sn88085947_00211108599_1909012001_0510",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-01-20_p5_sn88085947_00211108599_1909012001_0510",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 392,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 25,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "GLOW about government Dy\ninjunction?\n\n\nALI nonsense.\n\n\nQ.-Are you not afraid that ju-\ndicial usurpation along these lines\nWill result in sue ha popular feeling\nthat laws will result placing re-\nstrictions on the federal courts?\nA.-There is no popular senti-\nment of that sort.\n\n\nQ,-Was there not in 1896, when\nthe Chicago platform included reso-\nlutions on this subject, and particu-\nlarly criticized the supreme court\n\n\nA.--ThAT WAS NOT REALLY\nREPRESENTATIVE OF ANY PUB.\nLie SENTIMENT.\n\n\nQ.--Do you think the opinion OF\na majority of the people should be\neffective in the affairs of govern\nment?\n\n\nA.-Oh, yes; if there is really a\npublic sentiment-somethin that\nrepresents a great majority of the\npeople-then it ought to be cOnsid-\ncred\"\n\n\neff an order of federal court\ninfringes personal right guaran-\nteed under the constitution, does\nthe citizen have to obey it?\nCOURT, WITH PROPER JURIs.\nDicTIoN, AND WITH THE PAR\nTIES PROPERLY BEFORE THE\nCOURT, is THE LAW OF THE\nLAND FOR THOSE PARTIES.\n\n\nQ.-But an attempt by congress\nto pass an unconstitutional law is\nvoid: is it void from the moment of\nits passage, and without regard to\nwhether it has been passed upon by\nthe supreme court?\n\n\nA.-That is difference between\ncongress and federal court. The\norder of the subsidiary federal\ncourt Is the law OF the land until\nit is set aside by the supreme court.\n\n\nQ.-THEN THE FEDERAL\nCOURT is SUPERIOR TO THE\nCONSTITUTION? mo ANSWER.)\n\n\nThis seemed to cover the ground,\nthanked the Judge for his frank\nness and went to my home. where\n| picked up and read again, and\nwith more serious mind. from\nSmiths little book a passage read\ning:\n\n\n1T is easy to see in the eXalta-\nton of the federal judiciary sur\nvival of the old medieval doctrine\nthat the king can di no wrong. In\nfact, much the same attitude of\nmind which made monarchy pos\nsible may be seen in this country\nin our attitude toward the supreme\ncourt. AS long as the people rev\nerenced the king, his irresponsible\npower rested on a secure founda-\nton. To destroy the belief in his\nsuperior wisdom and virtue WIS 20\ndestroy the basis of his authority\nHence all criticism of the king or\nhis policy was regarded as an at\ntack on the system itself and\ntreated accordingly as serious\ncrime\""
+    }
+  ]
+}

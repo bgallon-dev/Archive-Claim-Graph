@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "BOYD WINS after y\n\n\nYEARS COURT BATTLE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-31",
+    "date_end": "1909-03-31",
+    "report_year": 1909,
+    "source_file": "3_1909-03-31_p1_sn88085947_00211108599_1909033101_0966",
+    "archive_ref": "3_1909-03-31_p1_sn88085947_00211108599_1909033101_0966",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-03-31_p1_sn88085947_00211108599_1909033101_0966",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 187,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "leased 1t for a term of 999 years to\nthe Northern Pacific, which com.\npany issued bonds to pay for 1t and\nlater got control of the stock and\nbonds through reeivership proceed\nings and the sale of the road.\n\n\nThere have been numerous\ncrooks and turns in the case. The\nNorthern Pacific has gone through\ntwo receiverships itself but Boyd's\nclaim remained alive through the\nprocess by continued litigation.\n\n\nBoyd has spent, It is said, be-\ntween $4,000 and $4,000 fighting\nthe case and has encountered all\nsorts of kinks in high finance by\nwhich 1t was sought to beat him\nclaim. Even the name of the high\npriest OF all high fimnciers, j. Pier\npont Morgan. was dragged into the\ncase through some of the Northern\nPacific receiverships, but this did\nnot dishearten Boyd. He still hung\nonto the fight.\n\n\nThe railroad will probably again\nappeal to the circuit court OF APP\npeals. Turner a. Geraghty and r.\nl.. Edmiston are the counsel for\nBoyd r. ]. Cannon and his staff\nhas conducted the Northern Pacific\nend OF the fight for the last few\nyears."
+    }
+  ]
+}

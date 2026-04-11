@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "RAILROADS TIED UP\n\n\nTRAFFIC DEM0RAL|zED",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-03",
+    "date_end": "1903-01-03",
+    "report_year": 1903,
+    "source_file": "2_1903-01-03_p1_sn88085947_00211108526_1903010301_0203",
+    "archive_ref": "2_1903-01-03_p1_sn88085947_00211108526_1903010301_0203",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-01-03_p1_sn88085947_00211108526_1903010301_0203",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 135,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 105,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "have fallen during the night on the\nwest slope.\n\n\nAssistant General Superintendent\nII. A. Kennedy of the Great Northern\nis in the Cascade range with small\narmy of bridge carpenters and labor\ners clearing the road of the big slides\nof yesterday.\n\n\nA special train was run from Spo-\nkane last night with material and\nbridge men to report to the general\nsuperintendent at the Cascades.\n\n\nSeveral bents in one bridge entire\nly wiped out and a large portion of\nanother destroyed by the heavy\nslides. Passenger and freight traf-\nflc is practically at a standstill.\n\n\nThe Everett & Monte Cristo line\nsustained a heavy mudslide last\nnight. All coast lines have been\ntroubled with slides the last few\nnights.\n\n\nThe S. +. & N. reports heavy SHOWS\nall along the line, especially on the"
+    }
+  ]
+}

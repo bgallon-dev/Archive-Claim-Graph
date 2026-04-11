@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "title": "ANOTHER EXTENSION\n\n\nOF CANADIAN PACIFIC",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-27",
+    "date_end": "1902-12-27",
+    "report_year": 1902,
+    "source_file": "5_1902-12-27_p1_sn88085947_00211108526_1902122701_0178",
+    "archive_ref": "5_1902-12-27_p1_sn88085947_00211108526_1902122701_0178",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1902-12-27_p1_sn88085947_00211108526_1902122701_0178",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "It is the general belief that both\nof the proposed new roads will be\nbacked by the Canadian Pacific, al\nthough this is denied in a mild way\nby the promoters.\n\n\nThe Canadian Pacific has conncc-\nton with Seattle now by virtue of an\nagreement with the Northern Pacific,\nbut it is reasonable to suppose that\nthe Canadian road would much prefer\nto come into the United States over\nlines under it's direct control. and the\nindications are that the company is\narranging to enter the territory Of\nthe Great Northern and Northern\nPacific on both sides of the noun\ntains.\n\n\nThese two roads will do much to\ndevelop Washington and northern\nIdaho and will have strong intlu-\nence in securing for Spokane more\nequitable freight rates."
+    }
+  ]
+}

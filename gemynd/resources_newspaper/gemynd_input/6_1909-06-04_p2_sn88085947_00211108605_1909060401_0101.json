@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "VAN CLEAvE\nON TRAIL Of\n\n\nTHEbOYCOT1",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-04",
+    "date_end": "1909-06-04",
+    "report_year": 1909,
+    "source_file": "6_1909-06-04_p2_sn88085947_00211108605_1909060401_0101",
+    "archive_ref": "6_1909-06-04_p2_sn88085947_00211108605_1909060401_0101",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1909-06-04_p2_sn88085947_00211108605_1909060401_0101",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 226,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 934,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "James Van Cleave, former presi-\ndent of the National Manufactur-\ners' association, and who in that\ncapacity is credited by employers\nand workingmen alike with having\ndone more to foster class spirit and\nhatred between the two great in\ndustrial factors, is in Spokane to-\nday and will be here until Satur-\nday, when the chamber of com\nmerce gives banquet in his honor,\nMr.. Van Cleave is not talking vedy\nmuch for publication now. but the\nobject of his trip west is under\nstood is TO be in the interests OF\nStrengthening the manufacturers\nassociation. He is accompanied by\nJ. f. Emery, the associations at\ntorney\n\n\n1t is surmised that the object of\ntheir mission is to lear nto what ex-\ntent boycotts are maintained on\nnonunion products in connection\nwith the prosecution of Gompers.\nMitchell and other labor leaders.\nThe federal courts, except the SUI\npreme court of the country, before\nwhich appeal is now pending, have\ndeclared the boycott punishable,\nand it is supposed general prosecu-\ntons will be started to break them\nup if any be found to exist.\n\n\nVan Cleave is personally inter-\nested in this as his firm, the Buck\nStove & Range c., has been one\nOf the heaviest sufferers. Most of\nthe central labor organizations are\nbelieved by the associated manufac-\nturers to have participated in the\nboycotts."
+    }
+  ]
+}

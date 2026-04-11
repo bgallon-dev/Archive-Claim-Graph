@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-04-28 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-04-28",
+    "date_end": "1903-04-28",
+    "report_year": 1903,
+    "source_file": "53_1903-04-28_p1_sn88085947_00211108526_1903042801_0591",
+    "archive_ref": "53_1903-04-28_p1_sn88085947_00211108526_1903042801_0591",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "53_1903-04-28_p1_sn88085947_00211108526_1903042801_0591",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 302,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 164,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "done for them during the two years\nof his present administration. If or\nganized labor does no. reflect him. it\ntheir part\n\n\ne. s. Potts, financial secretary of\nthe trades council, is probably in a\nbetter position than any other man\nIn the city to know exactly how labor\nstands as regards Mayor Byrne Mr..\nPotts is stationed at the offices of the\ntrades council every day, and he is\nworkmen who come to the hall to dis\ncuss labor conditions, to keep In\ntouch with contractors desiring work\nmen, or to join the different labor\nunions. Mr.. Potts said today:\n\n\nnnAsoNs FOR REFLECTION.\n\n\n'\"rhe working men of this city\nshould reflect Mayor Byrne for more\nreasons than one. One of the chief\nreasons that impresses me as to why\nhe should be reelected is the fact that\nhe Is the only mayor we have ever\nhad who has always stood up for or\n\n\n\n\n\nstood by the working people.\n\n\nEvery laboring man in this city\nowes a duty to the mayor-and that\nduty is to vote for him.\n\n\nFurthermore, organized labor is\ngoing to vote for Mayor Byrne this\nyear. I am at the hall all day long.\nand l am also there at the night meet\nings. I have only heard one or two\nmen who opposed him. Even these\ncould find no fault with his record.\nand the only excuse they could give\nfor not supporting him was that they\nwere bound up in one or the other\nof the old parties.\n\n\nAccordingly, l can honestly say\nthat organized labor is going to sup\nport DR.. Byrne by an overwhelming\nmajority, and. for once, organized la\nDor Is going to stand for the man who\nthey sincerely believe will serve the\nbest interests of themselves and the\ncity at large\""
+    }
+  ]
+}

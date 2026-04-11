@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT WOMEN WANT THEY WILL HAVE\" SAYS\n\n\nMRS. HUTTON",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-27",
+    "date_end": "1909-12-27",
+    "report_year": 1909,
+    "source_file": "15_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+    "archive_ref": "15_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "15_1909-12-27_p2_sn88085947_00211108617_1909122702_0491",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 575,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 3044,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor. Spokane Prcss-I have\nperuscd with more than passing in\nterest the article in your issue OF\ndecember IS entitled More Babies.\nNot More Ballots; also the ex-\ntractsfrom Mrs. Josephine Dodge\nDascom's new book In the Border\nCountry\" including your editorial\ncomments. l also note the picture\nshowing Artist Gruelle's conception\nof what Mrs. Bacon means when\nshe SAYS: i've found out that no\nwoman can be happy until she is\nmarried and has children\" The art\nist could use his talents with just\nas telling effect upon another pic\nture of motherhood, where moth\ner has no time to caress her babe\nbut must leave it for hours each day\nat some day nursery, while she\ntolls in factory or sweatshop to fur\nnish the wherewithal to sustain her\nchild and self.\n\n\nMrs. Bacon designated her\ntheories as a message to Amerl-\ncan women. She says her literary\nefforts bring her in $4,000 per\nannum, which is fair recompense\nfor setting the world right. She\nalso states that slte is the mother\nof three children, and intends to\nabandon her work as writer to\ndevote herself to her family-what\nweight her message will have with\nAmerican women is a question.\n\n\nE1r;,\never do a great work who could\nnot have borne great children, and\nif she can bear great children she\ncan do no other great work\" Ac-\ncording to this acknowledgement,\nMrs. Bacon's writing cannot be\nvery great, and how great her chill\ndren will be time will tell. | agree\nwith Mrs. Bacon that the home and\nthe cradle-side is the best place\nfor woman l will go even farther\nand say that a woman who has\nnever pillowed her own baby's head\nupon her breast, felt its tiny hand\ncaress her cheek, or listened to its\nbaby prattle. has ever really lived.\nNo mother need envy any fame or\nposition acquired by childless\nwoman. But motherhood in all it's\nbeauty, and home where love and\ncontentment reigns supreme, are\nluxuries denied the average wom-\nan of today. Economic conditions\nof today have forced the woman out\nof the home, away from the cradle\nside, into the world to earn her\nbread, and have made motherhood\na burden instead of a joy as God\nintended it to be.\n\n\nMrs. Bacon is hardly just to such\nchildless women as Susan B. An\nthony, Clara Barton, ane Adams,\nAnna Shaw and last but not least\nFrances Willard (who was Gales\nthe uncrowned queen of American,\nwho have and still are using their\ncreative genius in devising methous\nwhereby the prolific progeny of the\nbreeding class may be decently\nreared. and whose work for HUI\nmanity is honored by all men.\nThese noble souls can have had no\nBacon interprets a mans love let\nter: Il love you because your eyes\nare blue and you have drowned my\nheart, because after | have done my\nwork, which | cannot explain to YOU.\n/ lie in your arms and cease to\nthink. Give me a son with your\neyes, for l shall never understand\nyou\"\n\n\nl would interpret his letter to\nmean just what he says: Il love\nyou because you think my thoughts\nwith me, because our work is the\nsame and we understand each 9TH\nen- ct us work together hand in\nhand\" This is exactly what equal\nsuffrage means, and what women\nsuffragists are advocating: to be\nmans companion and helpmate, and"
+    }
+  ]
+}

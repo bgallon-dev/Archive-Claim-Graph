@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1903-05-13 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-05-13",
+    "date_end": "1903-05-13",
+    "report_year": 1903,
+    "source_file": "3_1903-05-13_p3_sn88085947_00211108526_1903051301_0645",
+    "archive_ref": "3_1903-05-13_p3_sn88085947_00211108526_1903051301_0645",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1903-05-13_p3_sn88085947_00211108526_1903051301_0645",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 194,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 187,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The handful of mail received by\n\"a. NJ. Cannon at the Cannon & War\nner store. Front and Howard streets,\nwhen the senior member of the firm\nreceived his commission as first post\nmaster of Spokane Falls along about\n1850 was in pitiable contrast to the\nwagon loads which are discharged at\nthe Auditorium building nowadays.\nBY this contrast may be drawn an\nearnest as to the growth and develop\nment of Spokane as a center of i'm\nportance.\n\n\nWhere Postmaster Cannon had n\nsmall receptacle for mail and no as\nsistant. the present postmaster has\nIS employees under him and his Of\nHoes occupy large area of floor\nspace. Figures are not at hand to\nshow the volume of work done on\nthat first day OF the Spokane post\nOffice. One item in yesterdays post\nOffice business is In startling con-\ntrast--a single Spokane firm bought\n$500 postal cards yesterday Md about\n1000 pieces OF mail were handled.\n\n\nThe roster of postmasters of Spo-\nkane show the names of A. NJ. Can\nnon. 8. Heath. ]. J. l.. Peel. Thomas\nb. Warren. Arthur ]. Shaw. III. It.\nMallon. George w. Temple and Mil"
+    }
+  ]
+}

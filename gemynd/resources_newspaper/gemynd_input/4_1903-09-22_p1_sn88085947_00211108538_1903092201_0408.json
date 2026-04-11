@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FORCE CITY TO ACT\n\n\nAS THE ARBITRATOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-22",
+    "date_end": "1903-09-22",
+    "report_year": 1903,
+    "source_file": "4_1903-09-22_p1_sn88085947_00211108538_1903092201_0408",
+    "archive_ref": "4_1903-09-22_p1_sn88085947_00211108538_1903092201_0408",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1903-09-22_p1_sn88085947_00211108538_1903092201_0408",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 119,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 439,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "To some of the officials at the city\nhall the only Interpretation that can\nbe put on a special matter to come\nup for consideration at the council\nproceedings tonight is that the Spo-\nkane Traction company wants the city\nfathers to settle differences that have\nbeen brought out between the Graves\npeople and the Washington Water\nPower company over the right to\nstring trolley wires on Sinto avenue\neast Of Division street.\n\n\nThe Washington Water Power COM\npany has line of poles for electric\nlight wires on one side Of the street\nana the telephone company has row\nOf poles for telephone wires on the\nother side of the street. The two\nstreet car companies have not been"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Big Fight in City Council Slated for To.\nnight May Go Oue~ to Special Meet.\ning---Dr Byrne's Diews On Report",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-14",
+    "date_end": "1905-02-14",
+    "report_year": 1905,
+    "source_file": "7_1905-02-14_p1_sn88085947_00211108551_1905021401_0148",
+    "archive_ref": "7_1905-02-14_p1_sn88085947_00211108551_1905021401_0148",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-02-14_p1_sn88085947_00211108551_1905021401_0148",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 287,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 13,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The water meter gang is on the\nrun-so much so that N. w. Durham\nand his fellow conspirators are\nstraining every nerve to save the\nwater commission report piecemeal\nIn order to tack on the water meter\nproposition later-after the extrava-\ngances of the commission plans have\nbeen carried out.\n\n\nThe water meter gang took fright\nat the great number of property own\ners and taxpayers who were to be\ncouncil tonight to consider the COM\nmission report. Last night the gang\ngot together and decided to work for\na postponement of the consideration\nof the commission report until a\nspecial meeting could be called.\n\n\nThe first plans of the water meter\ngang were to have the Lidgerwood\nprotests and the report of City Engi-\nneer Gill presented to the council,\nthen secure a continuance of the mat\nter so as to take away the sting of\nthe protests and minimize the dam\nger of the city engineers expose of\nthe weaknesses and extravagances of\nthe water commissions report. So,\ntoo, they expect to have other engin-\nGERS here to help Otto Weile through\nhis difficult task of explaining de-\nfects to be pointed out.\n\n\nAS the defenders of the consumers\nwho are threatened with the con-\nspiracy of the water enter gang are\nIn favor of devoting a special meet\ning to the consideration of the re-\nport and the protests, it is likely this\nwill be done.\n\n\nMany of the persons interested\nwould like to have the meeting called\nduring the day in order to give plenty\nof time to the discussion. propo-\nsition of this kind will be made to-\nnight.\n\n\nThere Is no chance now for the\ncouncil acting on the report tonight"
+    }
+  ]
+}

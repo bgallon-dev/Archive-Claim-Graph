@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LOCAL PRINTING TRADES\n\n\n:. TAKE UP LABOR BATTLE\n\nWill Put Candidates On Record Rel\n\n\nalive to Asiatic Exclusion",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-20",
+    "date_end": "1907-09-20",
+    "report_year": 1907,
+    "source_file": "5_1907-09-20_p1_sn88085947_00211108575_1907092001_1094",
+    "archive_ref": "5_1907-09-20_p1_sn88085947_00211108575_1907092001_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1907-09-20_p1_sn88085947_00211108575_1907092001_1094",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 172,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 77,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In the absence of a Japanese\nKorean league in Spokane, the AL.\nlied Printing Trades council has\ntaken up the matter of excluding\ncheap oriental labor from the Pa\ncific coast.\n\n\nThe council has sent letters tC\nSenator Levi Ankeny and Represen\ntative Jones, both Of whom are\ncandidates for the senate, asking\nthem how they stand on the exclu\nsion Of Asiatic laborers.\n\n\nCouncilman N. J. Laumer Is\npresident Of the local printing\ntSsdes council, and Gustave Anger\nsecretary.\n\n\nThe question the council pro\nposes to put up to every candidate\nseeking election to congress from\nthis district follows: q\n\n\n1.-THE white laborer in the state OF\nWashington is suffering from the\nEntertainments of cheap oriental la\nDor. This menace can only be\neliminated by more stringent ex\nclusion laws. AS a candidate seek\ning the support Of the people OF\nthis state your views on this ques\nton are particularly pertinent.\n\n\nIF elected to the position which\nyou seek will you use your in\nfiuence and vote for measures look."
+    }
+  ]
+}

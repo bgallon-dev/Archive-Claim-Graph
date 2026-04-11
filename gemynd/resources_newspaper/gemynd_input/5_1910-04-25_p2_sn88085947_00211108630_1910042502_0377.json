@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "G Q N TIN u f p\n\n\nr o\nP A G F. O N f.\n\nSPOKANE WILL NOT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-25",
+    "date_end": "1910-04-25",
+    "report_year": 1910,
+    "source_file": "5_1910-04-25_p2_sn88085947_00211108630_1910042502_0377",
+    "archive_ref": "5_1910-04-25_p2_sn88085947_00211108630_1910042502_0377",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "5_1910-04-25_p2_sn88085947_00211108630_1910042502_0377",
+      "composite_score": 10.01,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "i. w. w.",
+          "jail"
+        ],
+        "womens_civic": [
+          "woman's club"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 466,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "i. w. w.",
+            "weight": 3.0,
+            "offset": 1293,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 728,
+            "in_headline": false
+          }
+        ],
+        "womens_civic": [
+          {
+            "term": "woman's club",
+            "weight": 2.0,
+            "offset": 1530,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "come. The committee heard only\none side. All the witnesses were\neither directly summoned by the po-\nlice or known to be friendly to the\npolice. AS far as could be learned.\nthis program was carried through\nwithout hitch and to the entire\nSatiSfactiOn-Of the mayor, the act,\ning chief and the committee\n\n\nDuring the past month The Press\nhas printed enough facts about the\nrottenness of the police departs\nment to convince any fair MINCED\nperson that the system is wrong.\nAnd yet the committee has ignored\neverything, and has gone it's own\nsweet way, whitewashing every\nthing in sight. When a member of\nthe committee publicly states that\n81 believe that affidavits which\nwere printed, presumed to have\nbeen made by persons once in Jail,\ndid not exist\" he, to speak plainly,\nlies. All he had to do was to have\nasked The Press for the facts, and\nthey would have been given him.\n\n\nNow, this newspaper never makes\n1t rule to enter newspaper con-\ntroversy, but when other papers\nknowingly and with the intention to\ntry to convey wrong opinion to\nthe people, and emphasize it to\nblock Improvement of municipal\nconditions, The Press has no hesit-\nancy in speaking right out. for the\ngood of the city. The other news\npapers have repeatedly stated that\nthe present police investigation is\ninspired by the I. w. w. This is\nabsolutely an untruth, and the !. W.\nw. has no more to do with it than\nthe Methodist college at Rome, the\ndeposed sultan. Abdul Hamid, or\nthe benighted Hindus. The presen mt\ninvestigation was started by men,\nbers of the woman's club, by labor\nunions and by this newspaper.\n\n\n1t has not only been started, but\nit is going to be carried on until\nthe police department has been\ncIeansed, in spite of legion Of\nSNUG whtewashing committees,\nprotecting mayors and the whole\nrotten and organized political ring.\nAnd, moreover. The Press offers\nother papers fee bit of advice, in\nsuggesting that they no longer try to\nring in the name of the |. w. W.,\nand thus attempt to block the fight\nfor decency and the appointment of\nthree police matrons.\n\n\nThe fight has only begun. The\nPress will present fact after fact\nabout conditions in the police de-\npartment, and it is absolutely conf\ndent that the force of public opinion\nwill be sufficient to compel action\n\n\nIn sermon last night DR.\nKramer of the Investigating COM\nhas only this solution Of\nthe trouble THANK Cod he de-\nclared. Carrie Nation is coming.\n\n\nThat's the sensational minister's\nremedy for the evils Of the police\nThe fake investigating\ncan rely on Carrie Ma\nton. AS for The Press, it relies on\nthe facts it has and will give, and\nupon public opinion."
+    }
+  ]
+}

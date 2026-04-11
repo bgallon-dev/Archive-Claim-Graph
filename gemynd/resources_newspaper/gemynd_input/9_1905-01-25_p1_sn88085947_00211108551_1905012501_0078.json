@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-01-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-01-25",
+    "date_end": "1905-01-25",
+    "report_year": 1905,
+    "source_file": "9_1905-01-25_p1_sn88085947_00211108551_1905012501_0078",
+    "archive_ref": "9_1905-01-25_p1_sn88085947_00211108551_1905012501_0078",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1905-01-25_p1_sn88085947_00211108551_1905012501_0078",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 217,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 1141,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 68,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "This amazing announcement was\nmade last night at the meeting of the\ncity council by II. M. Stephens, at\ntorney for the Washington Water\nPower company and the Spokesman\nReview.\n\n\nMr.. Stephens statement was greet\ned with jeers and laughter by the\nlarge crowd which had assembled In\nthe council chamber to witness the\nfight between the Spokane Traction\ncompany and the big monopoly which\nclaims this section of the earth, in\nGuiding the free elements, air and\nwater.\n\n\n\"Oh you may laugh If you want\nto-\" said Mr.. Stephens to the crowd,\nbut I am telling you the truth, and\nevery good lawyer knows ii. We\ncould stop the people taking this\nIf we appealed to the courts its use\nwould be enjoined.\n\n\nIl tell you the Washington Water\nPower company has treated you fair\nly,\" Numbered the attorney as final\nrebuke to the jeering crowd.\n\n\nThen Mr. Stephens told how his\ncompany proposed to aid manufacture\ning in Spokane and add to it's rapid\ngrowth.\n\n\nwhere else can manufacturers Sc\ncure power at SO per horse power?\"\nsaid he. Il put this question today\n20, 20, l.\ning arrangements to locate in this\ncity. He said it was too bad that\nthe Washington Water Power com\npany has a cinch on this magnificent\nwater power."
+    }
+  ]
+}

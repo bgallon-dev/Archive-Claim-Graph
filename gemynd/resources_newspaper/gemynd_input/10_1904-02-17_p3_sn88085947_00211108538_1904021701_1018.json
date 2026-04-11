@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "THEY REFUSE one\n\n\nMILLION DOLLARS",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-02-17",
+    "date_end": "1904-02-17",
+    "report_year": 1904,
+    "source_file": "10_1904-02-17_p3_sn88085947_00211108538_1904021701_1018",
+    "archive_ref": "10_1904-02-17_p3_sn88085947_00211108538_1904021701_1018",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1904-02-17_p3_sn88085947_00211108538_1904021701_1018",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 110,
+      "match_details": {
+        "mining": [
+          {
+            "term": "smelter",
+            "weight": 2.0,
+            "offset": 512,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There is no doubt but that there\nwill be big boom in the Buffalo\nHump country this coming open\nseason.\" said William A. Edwards,\nformerly an attorney with offices in the\nHyde block. Mr.. Edwards has Just\ncome out of that country, making the\ntrip partly on snow-shoes. \"Some\nmagnificent properties are being de-\nveloped.\" he continued. \"a Topeka,\nKan. company that owns part of the\nhi :. 6O0-foot ledge. famous in that coun-\ntry, recently refused an offer of 81 600\n900 for its property, made by the\nGuggenhcimer smelter people OF New\nYork. II says it will not sell for less\nthan 10 times that amount. There are"
+    }
+  ]
+}

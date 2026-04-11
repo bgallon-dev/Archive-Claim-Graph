@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-08-10 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-08-10",
+    "date_end": "1905-08-10",
+    "report_year": 1905,
+    "source_file": "8_1905-08-10_p1_sn88085947_00211108551_1905081001_0762",
+    "archive_ref": "8_1905-08-10_p1_sn88085947_00211108551_1905081001_0762",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1905-08-10_p1_sn88085947_00211108551_1905081001_0762",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 158,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 359,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and the white man at night. This\nmakes the colored man the boss The\noperator working under the colored\nman Is F. A. Browning. chief clerk to\nE. c. Fleming. in the freight depart\nment. Operators say this is the first\ntime a colored man had been set\nabove a chief clerk on a railroad.\n\n\n1t Is said all passing tracks be-\ntween Wenatchee and Wilson Creek\non the Great Northern are crowded\nwith cars and in many cases trains\ncan not pass.\n\n\nWord was received from President\nPerham this morning which says he\nhas closed a number of important Of\nfees which will offset any advantage\nthe railroad may gain.\n\n\nThree relay men left the operators\nand went back to the road this morn\ning.\n\n\nMen who first went out and whose\nfamilies are in the east are leaving\nfor their homes. Several men were\nsecured jobs and their fare paid by\nthe o. r. I. today."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WASHTUCNA VALLEY",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-08",
+    "date_end": "1909-10-08",
+    "report_year": 1909,
+    "source_file": "16_1909-10-08_p6_sn88085947_00211108605_1909100801_1064",
+    "archive_ref": "16_1909-10-08_p6_sn88085947_00211108605_1909100801_1064",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1909-10-08_p6_sn88085947_00211108605_1909100801_1064",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 153,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 332,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WASHTUCNA VALLEY\n\n\nMany Of our sales are made afteI\ncomparison with old developed\nhigh grade. apple districts hal\nbeen made. The reason for this \\\nthat Washtucna Valley has a pei\nfeet combination of conditions nj\ncessary to winter apple growing\nlow prices and easy terms, tOgetll\nerr with the finest transportation III\ncillties and irrigation system. TN\nsoil, drainage, altitude and climat|\nare perfect; the three railroad\ngive splendid shipping facilitid\nand the water supply for irrigati1\nand domestic use Is inexhaustibI\nThese things all taken togeth|\nplaces Washtucna Valley SO n\nahead of any other apple distri\nnow under development that a tho\nough investigation always mea\na sale, and our buyers are sat\nfled that they decided wisely. CT\nor write for full information al\narrange to see this valley at on\nwhile prices are within your rea\nand the terms easy.\n\n\nTHE PALOUSE IRRIGATION\n\n\nPOWER co.\n\n\n702 FIRST AVENUE"
+    }
+  ]
+}

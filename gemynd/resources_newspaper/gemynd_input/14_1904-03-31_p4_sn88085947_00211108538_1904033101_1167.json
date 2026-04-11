@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "title": "Local 6riefs.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-31",
+    "date_end": "1904-03-31",
+    "report_year": 1904,
+    "source_file": "14_1904-03-31_p4_sn88085947_00211108538_1904033101_1167",
+    "archive_ref": "14_1904-03-31_p4_sn88085947_00211108538_1904033101_1167",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1904-03-31_p4_sn88085947_00211108538_1904033101_1167",
+      "composite_score": 9.75,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.5,
+        "indigenous": 4.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ],
+        "indigenous": [
+          "kalispel",
+          "colville"
+        ],
+        "railroads": [
+          "great northern"
+        ],
+        "spokane_development": [
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904,
+      "word_count": 519,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 2746,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 1959,
+            "in_headline": false
+          },
+          {
+            "term": "kalispel",
+            "weight": 2.5,
+            "offset": 497,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 436,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 1182,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "iww_labor",
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Ben Wingard of Standpoint is in the\ncity\n\n\nGet it at Watson's Drug Store.\n\n\nBob Creelman has returned from\nSeattle.\n\n\nDon't forget the Passion Play at the\nEdison.\n\n\nRoss Brattain, young businessman\nfrom Pomeroy, is at the Victoria\na grand special production at the\nEdison.\n\n\nG. G. Woodhouse is in the city today\nfrom Republic. He is in the mining\nbusiness.\n\n\nYou can't affoffrd to miss the Edi-\nson show next week\n\n\nf. A. Logan, an old Great Northern\nconductor, is at the Spokane on his\nreturn to Kalispel from winters\nsojourn in southern California.\nJust arrived, Easter perfumes in\nGranite block.\n\n\nHarry Roberts and wife have return\ned from California.\nPearl soap is white as snow and as\nLarge as any yellow laundry soap. 1t\ncosts the same--5 cents per cake.\nIke Harris and wife registered at the\n| Spokane from Davenport. He is hotel\nproprietor.\n\n\nMerit is the trade mark Of success.\n| Our prescription department merits\nyour confidence. Watson Drug Co.,\nGranite block.\n| j. L. Newman of Addy is at the\n| Spokane. He was formerly in the shoe\nbusiness in this city.\n\n\nFoley's Kidney Cures makes the\nkidneys and bladder right. Contains\nnothing injurious. Sold by Chas.\nMcNab. 4O2 Riverside avenue.\n\n\nDr.. F. j. Scanlon of Occur d'Alene\nis at the Grand\n| La grippe coughs yield quickly to\nthe wonderful curative qualities of\nFoley's Honey and Tar. There is\nnothing else Just as good\" Sold by\nChas. McNnb, 400 Riverside avenue.\n\n\nNJ Rapt, of the engineering corps OF\nthe o. R. & N, is at the Grand.\n\n\n1t Is no surprise that Duffy's 10\nacre tracts are going SO rapidly. They\nare so cheap and the terms so easy.\n1914 Holland block. Tel M. AIS.\n\n\nF. A. Blackwell is in the city, having\nrecently returned from the east. He\nis president of the Spokane & Occur\nd'Alene electric railroad.\nThat sore spot is always reached by\nan Onion and Belladonna Plaster.\nGet one this week as q trial for Ice\nat Red Cross pharmacy, o6o1 Mon\nroe street\n\n\nRev. Williams and wife of Colville\nare at the Cadillac.\n\n\nnumber of patients for clinical work\nat the Post Graduate College. Arti-\nfetal plates. crown and bridge work\nall kinds Of filling. such as platinum.\ngold and porcelain, Will be done at\nactual cost, while extraction is ahso-\nlutely free. Suite 81, 80. 80 and, \"a\nJameson block\n\n\nMrs. James Doyle of Northport is at\nthe Cadillac.\n\n\nBen Franklin, the philosopher, said\n\"A penny saved is a penny earned.\n| One dollar deposited each week in\nthe savings bank department of the\nSpokane & Eastern Trust company\nwill in one year amount to $62.78; in\nFIVE, $2S6.11; in ten, $634.88; IN\ntwenty, $157s33; in thirty, $29so.21\nin forty, $6063.34. January, April\nJuly and October are the interest\nperiods. Deposits made now draw in\nterest from April I.\n\n\nJohn Loury was arrested this morn\ning by Officer Dial on the charge OF\nstealing sacks from the GallandBurke\nbrewery and trying to sell them to the\nCentennial Touring mill. He is booked\non the charge of larceny."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "By OFFERING A COMPROMISE IN\nTIE MATTER OF OPENING\nSTREETS IN BROWNIES add\nTON.",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-21",
+    "date_end": "1904-05-21",
+    "report_year": 1904,
+    "source_file": "3_1904-05-21_p4_sn88085947_0021110854A_1904052101_0005",
+    "archive_ref": "3_1904-05-21_p4_sn88085947_0021110854A_1904052101_0005",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1904-05-21_p4_sn88085947_0021110854A_1904052101_0005",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 216,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 49,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "c. M. Levey, assistant to the presi-\ndent of the Northern Pacific: Division\nSuperintendent A. Beamer, Attorney\nBum, counsel for the Northern PACT\nflc; Commissioners Root, Handley and\nWeymouth and Councilmen Gray and\nKoontz assembled this morning at\n1890 o'clock and together went to\nBrownies addition to make a close\nscrutiny and study of the railway\ncrossings in that section of the city.\n\n\nSome time ago the property hold\ners whose ground lies near these\ncrossings, and the city, took the mat\nter of the opening of the streets rum\nming east and west in that section\nto the courts. looking for a decision\nfrom 1t opening Third, Fourth and\nFifth avenues to public traffic. There\nhas as yet been no decision.\n\n\nOn their arrival on the spot the\ncity representatives were given q\nthorough surprise by Mr.. Levey. He\nnow offers a proposition which on the\nsurface would look as If the Northern\nPacific people expect decision of the\ncourts against them and In favor of\nthe city. The proposition they Of\nfered is to close Third. Fourth and\nFifth avenues, but to open the small\nstreets running north and south. The\ncity representatives listened to this\nscheme and gave II considerable dis\ncussion, but from Individual ex-\npressions the scheme Will not be con-"
+    }
+  ]
+}

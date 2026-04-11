@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-05-25 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-25",
+    "date_end": "1904-05-25",
+    "report_year": 1904,
+    "source_file": "11_1904-05-25_p1_sn88085947_0021110854A_1904052501_0014",
+    "archive_ref": "11_1904-05-25_p1_sn88085947_0021110854A_1904052501_0014",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1904-05-25_p1_sn88085947_0021110854A_1904052501_0014",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 169,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 307,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A. f. Mead. who was expected to\narrive In Spokane today. had not ar\nrived at Q o'clock, but is expected to-\nnight.\n\n\nMFR. Mead. nominated by the re-\npublican party for governor Of the\nstate of Washington. owes the honor\nto the railroad interests of the state.\nparticularly those of the Great North\nern. The Great Northern's political\nmanagers. most of whom. like James\n]. Hin himself. are democrats. con-\ntrolled the convention and finally die\ntated a slate headed by Mr.. Mead.\nwho had the endorsement of several\nof the largest corporations of Bell\ningham. his home city,\n\n\nMr.. Mead is a lawyer and a native\nof Kansas. having been born In Man\nhaitian, that state, In 1861. His pa\nrents removed to Illinois while he\nwas still a child. and he was educated\nIn that state He received his legal\ntraining In Chicago and was admitted\nto tho bar there In 1888.\n\n\nFifteen years ago he came to WASH\nington and settled frst at Blaine, of"
+    }
+  ]
+}

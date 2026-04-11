@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL BUILD\n\n\n|NTERURBAN\n\nCook-Clark Co. Negotiat-\ning 100000 Develop\n\n\nment Proposition.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-10",
+    "date_end": "1908-12-10",
+    "report_year": 1908,
+    "source_file": "5_1908-12-10_p2_sn88085947_00211108599_1908121001_0235",
+    "archive_ref": "5_1908-12-10_p2_sn88085947_00211108599_1908121001_0235",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-12-10_p2_sn88085947_00211108599_1908121001_0235",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 272,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 476,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A deal is on foot whereby the\nCook-Clarke Co. expects to have\nbuilt an electric line built from\nSpokane to the immense tract\nnorth of the city, between Mead\nand hartford, which is recently pur-\nchased at a cost of about $500, 900.\nThe control of this tract, which\ncontains over 1000 acres, will rest\nwith the Cassill Investment Co.,\ncomposed of those interested in\nthe Cooke-Clark Co. and State\nTreasurer Cassill of South Dakota.\n\n\nThe plan is to place the entire\ntract under irrigation by means of\nan immense pumping plant on the\nLittle Spokane river and sell the\nground in five or 10 acre tracts\nand set it under fruit for the pur-\nchaser, to be cared for and looked\nafter by the Clarke Co. until\nthe trees reach the bearing stage.\nTo carry out the plans outlined for\nthe development of the enterprise,\nwhich will bar the title of City\nGardens, will represent an invest\nments of around $1,0O0,00O and\nfour years of work in the develop\nment and sale of the ground.\n\n\nThe one thing that the enter\nprise lacked, transportation, now\nseems assured. The manner in\nwhich it is proposed to finance or\npromote the building of the new\nline to City Gardens is not yet de-\nveloped to the point that it can\nbe given out for publication, but\nthe men behind the undertaking\nsay there is no question but that\nthe line will be built. The dis\nlance of City Gardens from How\nard and Riverside varies from\nseven to 10 miles.\n\n\nThe electric line power plant\nwill probably be located on the\nLittle Spokane."
+    }
+  ]
+}

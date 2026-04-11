@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "MUNICIPAL MARTIAL Law",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-02-11",
+    "date_end": "1907-02-11",
+    "report_year": 1907,
+    "source_file": "14_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+    "archive_ref": "14_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1907-02-11_p1_sn88085947_00211108575_1907021101_0352",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 199,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 819,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "company began to look them over.\nSoon Secretary Blocker and Assist\nant Superintendent Wilson, accom-\npanied by a policeman, came and\ndemanded their badges. The\nstrikers refused to surrender them\nuntil given receipt, in order to be\nable to collect their wages without\ndispute. When the receipts were\ngiven and the badges taken they\nwere ordered on their way.\n\n\nUnion men are pointing out that\nall the assaults so far reported or\nattempted have been made by COM\npany employees. 1t is claimed that\nLee Atkinson, an employe, was ar\nrested for striking a man with a\nslung shot, and that two other en-\nployes drew guns and threatened\nto shoot They say they have the\nevidence to prove this.\n\n\nTwo other assaults have been\ncharged to company men lately. one\noccurring this morning at the post\noffice corner A bystander called\n\"scab\" at a carman, who jumped off\nand hammered the shouter. The\ncarman was big and the shouter\nsmall. A special saw the proceed\nings and walked off.\n\n\n]. J. Reardon, conductor on the\nLiberty park line, Is reported as\nbeating up a man who called him\n\"scab\" yesterday. A number OF\nsmaller scraps are reported today."
+    }
+  ]
+}

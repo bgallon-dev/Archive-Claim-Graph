@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "BRIDGE COMMITTEE\n\n\nBACKS UP IN HURRY",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-14",
+    "date_end": "1907-09-14",
+    "report_year": 1907,
+    "source_file": "10_1907-09-14_p1_sn88085947_00211108575_1907091401_1074",
+    "archive_ref": "10_1907-09-14_p1_sn88085947_00211108575_1907091401_1074",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-09-14_p1_sn88085947_00211108575_1907091401_1074",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 151,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 11,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 508,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Washington Water Power Co. don't\npay a part Of the cost it's case OF\nnot enough blanket to cover all the\nkids in bed\"\n\n\nOpinion generally is that the real\nobject is to get Mr.. Waddell here\nunder some resolution or other. II\nin the event of his saying as the\nresult of expert inspection that the\nbridge can be repaired, have the\ncouncil reverse itself regarding a\nbrand new structure and order the\nrepairs recommended. The w. w\nP. dies remarkably hard.\n\n\n1t Is understood that certain In\nterested parties in real estate west\nof the bridge support the demand\nfor a new structure on Monroe st\nSO as to be assured of bridge at\nCedar st. by moving the old iron\nbridge there and riveting 1t to\ngether Should the present bridge\nbe repaired it might be years be\nfore the council would order new\nstructure on Cedar st."
+    }
+  ]
+}

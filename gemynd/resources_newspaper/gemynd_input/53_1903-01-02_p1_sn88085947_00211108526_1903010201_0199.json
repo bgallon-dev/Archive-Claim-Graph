@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CITY HAS RIGHT TO\n\n\nBUY CREMATORY SITE",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-01-02",
+    "date_end": "1903-01-02",
+    "report_year": 1903,
+    "source_file": "53_1903-01-02_p1_sn88085947_00211108526_1903010201_0199",
+    "archive_ref": "53_1903-01-02_p1_sn88085947_00211108526_1903010201_0199",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "53_1903-01-02_p1_sn88085947_00211108526_1903010201_0199",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 96,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 179,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "said today the whole matter now\nrests with the council. As to whether\nthe $4,000 is now available or not\nis legal question the commission\nor could not answer.\n\n\nSection 80 OF the city charter pro-\nvides that all appropriations Of\nmoney shall be by ordinance aud no\nmoney shall be drawn from the treas\nury except in pursuance OF an appro-\nhas been created to be expended for n\nspecial purpose II may be paid as\nprovided therein by order of the\ncouncil or proper board or officer hav-\ning charge OF that specific fund."
+    }
+  ]
+}

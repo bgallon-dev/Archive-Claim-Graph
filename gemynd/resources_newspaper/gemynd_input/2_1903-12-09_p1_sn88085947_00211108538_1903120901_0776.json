@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "SPOKANE CLEARS DECKS today\n\n\nBIGGEST LABOR FIGHT IN HISTORY\n\nCouncil Commercial\n\n\nWill Be Called the Next",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-12-09",
+    "date_end": "1903-12-09",
+    "report_year": 1903,
+    "source_file": "2_1903-12-09_p1_sn88085947_00211108538_1903120901_0776",
+    "archive_ref": "2_1903-12-09_p1_sn88085947_00211108538_1903120901_0776",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-12-09_p1_sn88085947_00211108538_1903120901_0776",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council",
+          "strike"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 129,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 276,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 650,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the plumbers are now working, but\nalso those on which the bosses have\nalready completed the work.\n\n\nA large sized fight Of the labor\nunions will result within short time.\nThere are now two organizations in\nthe city which have been fighting in\nq way for supremacy-the building\ntrades council and what 10 called the\ntrades council. Some Of the former\nhave agreed with the srases council,\nwhich is the larger organization. and\ntherefore the building trades-as a\ncounoil--will be broken mp and only\nthe one central body will predominant\nin union affairs.\n\n\nThe carpenters union 10 now at\nouts with both these bodies. They\nrefused to endorse the plumbers\nstrike and withdrew from the build\ning trades and in turn were requested\nto withdraw from the trades council."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "metadata": {
+    "title": "BROAD WILL\nE. HAV[ A T[5T\n\nContractor Arrested for\nViolation of 8.HOur\n\n\nOrdinance.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-15",
+    "date_end": "1903-10-15",
+    "report_year": 1903,
+    "source_file": "8_1903-10-15_p1_sn88085947_00211108538_1903101501_0532",
+    "archive_ref": "8_1903-10-15_p1_sn88085947_00211108538_1903101501_0532",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1903-10-15_p1_sn88085947_00211108538_1903101501_0532",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "arrested"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 292,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 1477,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 38,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 1237,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The bitter dispute between Con-\ntractor James c. Broad and the Fed\neral Labor union. backed by Mayor\nBoyd. over the contractors refusal\nto pay his men, working on municipal\ncontracts, 32.25 for an eight-hour day\neliminated in the arrest Of Broad\nImmediately previous to the noon\nhour. ,\n\n\nThe warrant for his arrest was\nsworn TO- by. c. w. Dickinson, charg-\ning Broad with unlawfully violating\nOrdinance No. A Ill, and the amend\nments thereto, entitled. IAN ordinance\nto establish the hours to constitute\ndays work on all municipal con-\nstruction or such work done by con-\ntract or subcontract and providing\nfor the wages to be paid laborers en-\nployed in doing the same. and pro-\nviding penalties for its violation\"\n\n\nImmediately after his arrest At\ntorneys Cullen and Dudley applied for\nwrit Of habeas corpus. which was\ngranted by Judge Richardson, return\nable at 1 o'clock. this afternoon, and\nBroad has now Joined issue to deter\nmine the legality of the city ,ordi-\nnance providing for union rate Of\npay on city work.\n\n\n1t will be remembered that Mayor\nBoyd refused to sign an important\ncontract let to Broad on the ground\nthat the clause providing for the\npayment of 32.25 for eight hours\nwork had not been inserted by the\nboard of public works and sent the\nsame back to be rectified. The con-\ntractor on his part refused to accept\nthe contract with the clause inserted,\nstating that he would pay $2.25 for\nnine hours work only. Meanwhile\nbe has lost no time since he was\narrested to have the legal aspect of\nthe case come up for a hearing and\na final decision to be rendered as to\nhis liability under the ordinance by\ntho courts."
+    }
+  ]
+}

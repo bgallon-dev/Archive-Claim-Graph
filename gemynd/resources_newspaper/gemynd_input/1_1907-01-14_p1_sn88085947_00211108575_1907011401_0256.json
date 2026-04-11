@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "o. 90 90",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-14",
+    "date_end": "1907-01-14",
+    "report_year": 1907,
+    "source_file": "1_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+    "archive_ref": "1_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-01-14_p1_sn88085947_00211108575_1907011401_0256",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 395,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 1671,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ent railroad rates were a most in\ntolerable abuse.\n\n\nw. w. Cotton, of the Oregon\nRailroad G. Navigation Co., an\nswered for the railroads. He said\nthat 16 or IS years ago Spokane\nwas a small town and although his\nline was built to within so miles Of\n/ here there was not enough business\nto Justify extending 1t. He said that\nnotwithstanding water competition\nSpokane now has a preferential\nrate In the Palouse country. In\n1905 it distributed 1854 tons there\nagainst Portland's 1886 tons. Spo-\nkane, by the prevailing system Of\ntariffs, was enabled to ship 113\nmiles west and absolutely control\nthat territory known as the Inland\nempire.\n\n\nHe argued that the real object Of\nthe fight was to reach down and\nsell goods in the Walla Walla\nvalley, which Is controlled by Port\nland. He pointed out the fact that\nin 1892 Spokane's population was\n10000, while now it claims 10000.\nCotton claimed Spokane had a rate\nto Colfax cheaper than the rate\nfrom Colfax here. He said the ulti-\nmate decision of the commission\nwould either bound Spokane's terri\ntory or add to 1t.\n\n\nSeth Mann, of San Francisco.\nrepresenting the jobbers' associa-\nton down there, said that If the re-\nsuit of the findings of the commits\nsion favored Spokane he would ask\n| for 80 days in which the coast\ncities might prepare evidence and\nhe would ask that the commission\n\n\nhold sessions In those towns. II\nanything, he said, there were dis\nexaminations in favor of Spokane.\n| There has been very material in\n\n\ncrease in ocean competition and he\nbelied Spokane's fight was an at\ntack on this competition.\n\n\nRepresenting the city and county\nare H. NJ. Stephens, James Ger\nagility and Brooks Adams, Of Bos-\nton; Northern Pacific and Great\n\n\nNorthern railroads, l.. C.. Gilman,\n\n\nCharles Donnelly and E. ]. Cam\nnon; o. r. & NJ, w. w. Cotton;\n| coast jobbers of Seattle, Portland,\nTacoma and San Francisco are rep\n\n\nresented by Seth Mann and Fred\n\n\nUlsman. H. D. Loveland, president\n\n\nof the Pacific Coast Jobbers' asso-\n\n\ncitation. and numerous railroad\n\n\nofficials, are interested listeners.\n\n\nProsecuting Attorney Barnhart's\n\n\napplication for the right of Spokane\n\n\ncounty to intervene was presented\nby Attorney Stephens and allowed\n| by the commission. San Francisco\njobbers, the Portland chamber OF\n\n\ncommerce and Tacoma jobbers\n\n\nwere also allowed to intervene."
+    }
+  ]
+}

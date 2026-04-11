@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "WATCH US\n\n\nGROW",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-21",
+    "date_end": "1904-03-21",
+    "report_year": 1904,
+    "source_file": "2_1904-03-21_p1_sn88085947_00211108538_1904032101_1128",
+    "archive_ref": "2_1904-03-21_p1_sn88085947_00211108538_1904032101_1128",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-03-21_p1_sn88085947_00211108538_1904032101_1128",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 198,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 755,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 476,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In the report of the Spokane board\nof health for the Year 1908, which is\njust from the printer, the following\ninteresting comparison is given, which\nshows Spokane's growth and develop\nment in one year. 1t is published in\nthe report for the benefit of the many\npersons in the east and elsewhere who\nare daily asking for copies of the\nreport. In each instance the first\nfigures given are for 1902 and the\nsecond fer 1903. The comparisons are\nas follows:\n\n\nAssessed valuation of real estate,\nS2l,57S.873, S23 So ,i43; miles of street\nrailway, electric, SO, \"a; miles of sew\nerage, 2S, 33.9; water mains, miles,\nSl.46, 9s.l0; cost of city water works,\n$l,27 ,254.27, 81 ,l65, 3O956; capacity city\nwater works, gallons daily, l4,500, 900,\n1866, 900; number of electric lights,\narc, .253, 300; number of teachers in\npublic schools, 206, $40; number of pu-\npills in public schools, 772l 1906; church\norganizations, 81, 81; secret and benev-\nolent societies, 100, 10; public library\nvolumes, 1886, 945s; public hospitals,\n4, 7; number of passenger trains en-\ntering and leaving the city on seven\nrailroads, 10, %; number of telephones\nin use in the city, 1894, 5000."
+    }
+  ]
+}

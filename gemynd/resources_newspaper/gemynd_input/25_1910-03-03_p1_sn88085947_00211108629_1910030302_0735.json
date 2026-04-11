@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WILL TAKE WEEKS\n\n\nTO DIG ALL OUT",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-03",
+    "date_end": "1910-03-03",
+    "report_year": 1910,
+    "source_file": "25_1910-03-03_p1_sn88085947_00211108629_1910030302_0735",
+    "archive_ref": "25_1910-03-03_p1_sn88085947_00211108629_1910030302_0735",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "25_1910-03-03_p1_sn88085947_00211108629_1910030302_0735",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 176,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 600,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "WELLINGTON, Wash, March 3-The horror of scenes\nhere is indescrbable It will be weeks before the So\nbodies remaining in the tangled of trees earth ice\nand all be exhumed It will be days or two\nweeks before those bodies recovered be taken out\nthe mountains.\n\n\n% BODIES RECOVERED.\nTwenty eight bodies have been recovered the\nadding during the night.\nDespite feverish work all morning, have been\nfound.\n\n\nMRS. SHERLOCK HEROINE.\nMrs Sherlock wife of the telegraph operator here is the\nheroine of the wreck She is taking charge Of the\ninjured at the makeshift hospital established here.\nSupt O'Neil of the Great Northern who escaped the\nwreck is leading the He has hopes of clear\ning the road for traffic before April 1.\n\n\n\n\n\nOnly the cebox of ONeis\nthe The in which Mrs.\npartially uncovered and body taken\n\n\nsherif he Roberts, rived\nhere\nrobbing bodies\n\n\n\n\n\nTwo the bodies\nOf electricians sleeping cabin the outskirts\ncabin carried down the mountain feet\nThree slides have hundered\nand Scenic since Tuesday This added\nmaking the trip from Scenic"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-07-01 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-07-01",
+    "date_end": "1905-07-01",
+    "report_year": 1905,
+    "source_file": "7_1905-07-01_p3_sn88085947_00211108551_1905070101_0626",
+    "archive_ref": "7_1905-07-01_p3_sn88085947_00211108551_1905070101_0626",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-07-01_p3_sn88085947_00211108551_1905070101_0626",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.5,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "spokane falls"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 460,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1385,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "spokane falls",
+            "weight": 1.5,
+            "offset": 1240,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In tho superior court OF tne STATE\nof Washington, in and for the county\nof Spokane.\n\n\nSpokane International Railway\nCompany. corporation, plaintiff, VS.\nJames N. Allison and - Allison\nhis wife. defendants.\n\n\nTO James n. Allison and -\nAllison, his wife, defendar\n\n\nYou, and each of you, will please\ntake notice that the petitioner, the\nSpokane International Railway Com\npany, has filed in the superior court\nof the state of Washington, for Spo-\nkane county, a petition directed to the\nsaid court, setting forth that the Spo'\nkane International Railway Company\nis a corporation organized under the\nlaws of tho state of Washington, en-\ngagged in the construction and opera\nton of a line of railway beginning In\nthe city of Spokane. thence easterly\nto point near the town of Rath-\ndrum, in the county of Kootenai,\nstate OF Idaho. and thence in a\nnorthcasterly direction up the valley\nof the Mooyie river. to the interna-\ntional boundary line between the\nUnited States and Canada: that 1t is\nessential for the operation of its lines\nof railway, and the accommodation\nof the public using the same. that 1t\nacquire those lands situate in Spo-\nkane county, Washington, and de-\nscribed rs lot fourteen 0p in block\ni've CD of River Front Addition to\nSpokane Falls (now Spokane), state\nof Washington. for use for its right\nof way for the line of its said rail-\nway, and for necessary sidetracks,\ndepot grounds and terminal yards;\nthat the defendant, James N. Allison,\nappears to be the sole owner in fec\nof said realty, ana the defendant\n- Allison, his wife, has or claims\nto have some interest In or lien upon\nsaid promises; and that said petition\nprays that tho court empanel n jury\nto ascertain and determine the COM\npensation to be made in money to\nthe owner of said realty by petitioner\nfor the purposes aforesaid;\n\n\nAnd you. and each of you. are\nhereby notified that on the 18th day\nOf July, 1905. petitioner will apply\nto the superior court of the state OF\nWashington, for Spokane county. and\nto the Honorable William a, Huneke\nJudge thereof. at his courtroom in\nthe city of Spokane, at the hour OF\n$40 a. m, or as soon thereafter as\ncounsel for petitioner can be heard\nfor hearing upon said petition. and\nan adjudication by the court that the\ntaking of said realty Is for public use\nand Is necessary to tho business of\npetitioner. and for the fixing of a\ntime and place at which a jury may\nbe called to determine the compensa-\nton to be made therefor.\n\n\nDated this 10th day of Juno, A. d,\n1909 ALLEN a. ALLEN,\n\n\nAttorneys for Petitioner.\n\n\nz. o. address: 61S The Rookery\nSpokane, Wash."
+    }
+  ]
+}

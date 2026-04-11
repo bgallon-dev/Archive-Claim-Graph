@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "FIRST WHITE Child\n\n\nBORN IN SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-25",
+    "date_end": "1905-02-25",
+    "report_year": 1905,
+    "source_file": "2_1905-02-25_p4_sn88085947_00211108551_1905022501_0191",
+    "archive_ref": "2_1905-02-25_p4_sn88085947_00211108551_1905022501_0191",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1905-02-25_p4_sn88085947_00211108551_1905022501_0191",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 168,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 414,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 837,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "mining",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "of the old soldier barracks, which\nstood in the middle of what is now\nSprague avenue.\n\n\nThe ladies who came to see me and\nsaid l was the first white child born\nthere were Mrs. ]. J. Browne, Mrs.\nA. M. Cannon. Mrs. ]. N. Grover, Mrs.\nw. c. Gray, whose husband kept the\nfirst hotel there, and Mrs. Warner.\n\n\nIn the fall of 1879 my father and\nmother crossed the river in little\nboat, as there was no bridge, to there\nhomestead on Five Mile prairie.\nThere | was raised until 1895, when\nwe sold out and went to California.\n| would like to know if you could\nfind out by records if | was the first\nwhite child born in Spokane, for 1\ndo not wish to say l am the first If\n/ am not\n\n\nwould like to know if Spokane\nwould acknowledge me as one of it's\npioneers Hoping to hear from you\nsoon | am\n\n\nVery Respectfully.\nMrs. Lille II. Wilbur,\nPortland, Ore."
+    }
+  ]
+}

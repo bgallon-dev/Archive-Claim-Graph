@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "LABORS' 60 Co. REALM",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-04-10",
+    "date_end": "1906-04-10",
+    "report_year": 1906,
+    "source_file": "16_1906-04-10_p4_sn88085947_00211108563_1906041001_0599",
+    "archive_ref": "16_1906-04-10_p4_sn88085947_00211108563_1906041001_0599",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1906-04-10_p4_sn88085947_00211108563_1906041001_0599",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 247,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 502,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The meeting last night of the\nCentral Labor union was of more\nthan ordinary interest to organized\nlabor in eastern Washington.\n\n\nShortly after the meeting had\nbeen called to order, Thomas Joyce\nof the local bartenders' union arose\nand, addressing the president, said\nhe was going to make a motion\nwhich was out of the ordinary and\nirregular, but hoped it would be\nadopted by the delegates present\"\nMr.. Joyce then moved that a COM\nmittee of three be appointed by the\npresident to wait upon the Spokane\nTrades Council, which was then in\nsession and invite them to attend\nthe meeting of the Central Labor\nunion and that they &c granted\nseats for the evening. The motion\nprevailed and Delegates Joyce,\nCooney and Schwarder were ap-\npointed. In the course of a com\nparatively short time the commit\ntee returned accompanied by the\nmembers of the Trades Council\nwho were warmly welcomed by the\nofficers and members of the Central\nLabor union.\n\n\nThe action of the central bodies\nlast night means that the strife\nthat has existed for the last two\nyears in the ranks of organized la\nDor in Spokane is ended and that\nhereafter the unions of Spokane\nwill present a united front all along\nthe line. The meeting of last night\nhas created great enthusiasm\namong trade unionists in this com\nmunity. Before the meeting closed\nan invitation was extended TO the\nvisitors to meet in the future with\nthe Central labor union."
+    }
+  ]
+}

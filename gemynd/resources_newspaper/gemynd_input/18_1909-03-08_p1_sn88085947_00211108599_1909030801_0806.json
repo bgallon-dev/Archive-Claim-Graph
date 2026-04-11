@@ -1,0 +1,78 @@
+{
+  "metadata": {
+    "title": "PREACHER KNOCKS\n\n\nWOMAN SUFFRAGE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-08",
+    "date_end": "1909-03-08",
+    "report_year": 1909,
+    "source_file": "18_1909-03-08_p1_sn88085947_00211108599_1909030801_0806",
+    "archive_ref": "18_1909-03-08_p1_sn88085947_00211108599_1909030801_0806",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1909-03-08_p1_sn88085947_00211108599_1909030801_0806",
+      "composite_score": 18.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 13.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 215,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 65,
+            "in_headline": false
+          },
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 18,
+            "in_headline": true
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 24,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "DENVER, March 8.-\"Women in\nColorado and other states where\nequal suffrage exists are playing\nthe game of follow the leader\n\n\nFew Of them even read the\nnewspapers. Fewer think for them\nselves.\n\n\n\"The only result Of equal suf-\nfrage is to swell the vote and cause\nfamily discords. Women could do\na great deal in the interest OF good\ngovernment II they would, but the\nlamentable fact remains that only\nvery few are willing to exert\nthemselves.\n\n\nIl fail to see wherein womans'\nsuffrage is of any real benefit in\nmitigating the evil Of corrupt\npolitics\"\n\n\nThese are some of the views of\nRev. David Utter, an up to date\nminister of the Unitarian church\nof Denver. He has been making\nthe question of equal suffrage and\nit's attendant effects on home and\nstate the subject of careful con-\nsideration and study.\n\n\nTHE mass of women take \"a\nslight interest in political affairs\"\nsaid DR.. Utter. \"At election time\nthe great bulk of them ask their\nhusbands or men friends how they\nshall vote. Scores of them consult\nme at every election as to how\nthey shall vote.\n\n\nFrom my personal experience\nin Colorado and Utah, should say\nthe only effects of women voting\nis an increased ballot. numerically,\nand a surfeit of family jars."
+    }
+  ]
+}

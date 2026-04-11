@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Supplies to the City\nis the Charge They. May\nHaze to Expldin---B0yd\nis Restrained From Col.\nlectin8 His Bill.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-03-01",
+    "date_end": "1905-03-01",
+    "report_year": 1905,
+    "source_file": "7_1905-03-01_p1_sn88085947_00211108551_1905030101_0200",
+    "archive_ref": "7_1905-03-01_p1_sn88085947_00211108551_1905030101_0200",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1905-03-01_p1_sn88085947_00211108551_1905030101_0200",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 107,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 182,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "N 5. Pratt may find himself in all kinds of trouble.\n\n\nCommissioner ONO said today that Pratt had been sell\ning the city lumber in 5000 and $500 lots This is strict\nviolation OF the city charter and the councilman could be\nremoved from office on the charge.\n\n\nMr.. Pratt has been the reform leader of the council\n\n\nHe is the man who has always fought for reforms and\nhas insisted that the ctys business be done on the\nSquare\n\n\n1t would be great loss to the city if he should lose his\nseat at this time because he is talked of the reform\ncandidate for mayor."
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-12-15 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-12-15",
+    "date_end": "1904-12-15",
+    "report_year": 1904,
+    "source_file": "37_1904-12-15_p3_sn88085947_0021110854A_1904121501_0759",
+    "archive_ref": "37_1904-12-15_p3_sn88085947_0021110854A_1904121501_0759",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "37_1904-12-15_p3_sn88085947_0021110854A_1904121501_0759",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ],
+        "depression_era": [
+          "relief"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 665,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 3963,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "relief",
+            "weight": 0.5,
+            "offset": 3319,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "editorial",
+      "triggered_domains": [
+        "depression_era",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\n\n\nA Live Question\n\n\nACKNOWLEDGEMENTS:\n\n\nAbove all, we must strive to keep the highways of\ncommerce open. From the presidents message. ::\n\n\nAn entire column of editorial is too much to dis\nin all its phases the recommendations made by Pres\n1dent Roosevelt In his recent message respecting the\narged powers OF the interstate commission Be\nof those recommendations the question of railroads\nbecomes vital issue in American politics.\n\n\nComments this portion of the message present some\ninteresting features There are some republican leaders\nwho limiting, in effect that the president has adopted\ndemocratic populst policies Bryan's thunder\nto railroad supervision Many of the warmes express\nsions of praise of the message from leading demo\nGratis. Burk Cochrane, for instance says The presi\ndents message vibrant with the spirit of the American\npeople,. The criticism and lack of appreciation somes\nalmost entirely from those ancient senators who cannot\nkeep the hot pace Of vigorous president and railroad\nmanagers The people regardless of party pleased to\nhave president who proposes to do things.\n\n\nWhat is the recommendation of the president that has\nexcited much comment In word it is this: Increase\nthe powers of the interstate commission so\nthat upon complaint Of unreasonable railroad rate and\nafter full investigation the commission may decide what\nthe reasonable rate The decision to the rate shall\nstand and become operative subject to review by the\ncourts. That does read like radical proposition\nunconstitutional procedure It does put the rate full\nmaking power in the hands of the commission. 1t does\ngive the commission power to correct abuses and nequa\nties And makes the decree absolute unless changed by\na decision of the courts\n\n\nThe president has adopted substantially the provisions\nof the Cooper Quares BILL pending According to the\nprovisions of this BILL if the commission upon hearing\ndetermines that railroad rate is unreasonable it may sub\nsute what it believes to be reasonable Such rate\nshall be operative within thirty days and shall stand\nless reversed by appeal to the courts.\n\n\nNow the railroad managers and attorneys who have\nbeen quoted insist that the rate shall not be operative\ntil the same has been passed upon by the courts Exper\nfence proves that such arrangement practically eimn\nates the commission from the situation The shipper\nwould well appeal to the courts at Before he could\nget verdict probably the need for rate, the value of\nit, would have passed away Railroad attorneys adopts\nat hanging up the courts Delay would hinder the\nremedy and make appeal useless.\n\n\nThere paid out in this country for railroad trans\nporation, last year, the of 81 800 15O679\nnearly three times the received by the govern\nmen from all for the period The total net\nrevenues of the railroads. last year, 1874 329\nThe total receipts of the United States government were\n1864 $40 O8S 2236 less than the net\nof the government.\n\n\nThe railroads therefore, financially speaking more\npowerful than the government. The government eves\nfor sufficient to pay expenses only The railroad\n1evies made for profit and in instances all the\ntraffic will bear And these tariffs, either through\nchanges in classification or by direct methods, tend up\nwards. The conclusion is inevitable Either the people\nmust have relief through control gov\neminent ownership must come.\n\n\nAnd no thinking is alarmed by the prospect of\ngovernment ownership. Anyone who has travelled in Eu-\nrope railroads operated owned by governments know\nthat the plan practical While the problem in this coun\ntry presents features that not present in Europe\nthere is doubt the difficulties could be And\nthe people would receive large benefit either because of\nlowered rates because of lowered taxes through the\nearnings of their transportation lines But neither the\ntime the demand has for government operation\nWhat is wanted is federal supervision And this is new\ndemand. Many states have railroad commissions empow-\ncred to fix rates within their borders. It simply pro-\nposed to extend supervision to interstate"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "ROTTEN WORK ON\n\n\njim HILLS LINE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-10-25",
+    "date_end": "1906-10-25",
+    "report_year": 1906,
+    "source_file": "4_1906-10-25_p4_sn88085947_00211108563_1906102501_1283",
+    "archive_ref": "4_1906-10-25_p4_sn88085947_00211108563_1906102501_1283",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1906-10-25_p4_sn88085947_00211108563_1906102501_1283",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 116,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 96,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SNOHOMISH, Oct. 25.-Accord-\ning TO testimony given at the cor\noners inquest over victims of the\nGreat Northern wreck at Monroe\nthe freight train in the crash had\nno ordes at Monroe, two break\ndowns were caused by one of the\ncars not being provided with air\nbrake equipment, and the conduc-\ntor was trying to handle the train\nwith inexperienced brakemen. The\nagent at Monroe said the freigb.\nhad only ii minutes to make seven\nmiles to the next station in order\nTO get out of the passenger trains\nway, but il pulled out notwithstand-\ning. He had no orders to hold it.\nThe jury failed o fix any RESPONSE\nbility for the deaths resulting."
+    }
+  ]
+}

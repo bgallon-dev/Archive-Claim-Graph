@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "STATE FEDERATION VICE PRESIDENT\n\n\nON TAFT AS FRIEND OF UNION LABOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-28",
+    "date_end": "1908-10-28",
+    "report_year": 1908,
+    "source_file": "10_1908-10-28_p6_sn88085947_00211108587_1908102801_1290",
+    "archive_ref": "10_1908-10-28_p6_sn88085947_00211108587_1908102801_1290",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1908-10-28_p6_sn88085947_00211108587_1908102801_1290",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 301,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 984,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Editor, The Press-I would like\nto ask the Spokesman-Review a\nfew questions on matters in which\nit is trying to mislead the public\nby political lies and to explain\nsome of those lies.\n\n\nThe Review says everyone knows\nwhere to find Taft on the injunc-\nton issue; he stands now where\nhe always did. Through a Roose-\nwelt statement the Review also\nsays Taft is the best friend labor\never had and all union men should\nvote for him.\n\n\nLet's analyze this a little. When\n| was president of the Spokane La\nDor council the council endorsed a\nprotest sent to Taft, the secretary\nof war, against military bands COM\npeting with bandsmen whose liv-\ning depended upon their playing.\nNoone ever heard of a reply to\nthis from the great friend of la\nbor.\" Practically all the unions\nJoined in the protest. A poll of the\nmusicians shows that less than\nfive per cent are going to vote for\nTaft. They have a membership of\n$4,000. Why doesn't the Review\nprint that?\n\n\nThe Review says Taft favors the\nYukon exposition to be held in Sc\nattic, benefit for laboring men\nthat need the work. The fact is\nthat every union in the state of\nWashington has that exposition on\nthe unfair list and has protested\nthrough Gompers against the gov\neminent making an appropriation\nuntil the exposition management\nlives up toits agreement with\nunions on the coast. Labors friend,\nTaft, favors the exposition.\n\n\nThe Review says Taft wes made\nan honorary member of the Steam\nShovelmen's union and would have\nthe public believe Taft to be the\nonly one so favored AS matter\nof fact, six congressman, three re-\npublicans and three democrats,\nshared the same honor. Here is\nhow T. J. Dolan, general secretary\ntreasurer of the shovelmen, ex-"
+    }
+  ]
+}

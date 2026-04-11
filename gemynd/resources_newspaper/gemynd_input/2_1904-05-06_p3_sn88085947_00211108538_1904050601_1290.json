@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "RESULTS",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-06",
+    "date_end": "1904-05-06",
+    "report_year": 1904,
+    "source_file": "2_1904-05-06_p3_sn88085947_00211108538_1904050601_1290",
+    "archive_ref": "2_1904-05-06_p3_sn88085947_00211108538_1904050601_1290",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1904-05-06_p3_sn88085947_00211108538_1904050601_1290",
+      "composite_score": 13.3,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 5.0,
+        "agriculture": 0.5,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "colville",
+          "indian reservation",
+          "reservation"
+        ],
+        "agriculture": [
+          "hay"
+        ],
+        "railroads": [
+          "northern pacific"
+        ],
+        "mining": [
+          "smelter"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.4,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The members of the Washington del\negation in congress were not highly\nsuccessful during the session which has\nlately closed in securing legislation\nfor the people of the state.\n\n\nThe five members of the Washington\ndelegation introduced, all told, lOS bills\nin one house or the other during the\nlate session. At least four or five Of\nthese measures were of joint author\nship. OF the 1903 measures Is were\npassed by both houses and became\nlaws.\n\n\nSenator Ankeny introduced seven\nbills, two of which became laws: Per-\nuniting the erection of smelter on the\nColville Indian reservation, and to sell\nFort Walla Walla hay reservation.\n\n\nSenator Foster introduced 20 bills,\nthe following five becoming laws:\nAuthorizing the sale of Puyallup lands,\ngranting part of public reservation for\ncity park at Port Angeles, allowing\nvessels of less than 80 tons to engage\nin British Columbia trade, appropria-\nting money for keepers dwelling at the\nNew Dungeness light house, validating\nNorthern Pacific land sales in right of\nway.\n\n\nRepresentative Cushman introduced"
+    }
+  ]
+}

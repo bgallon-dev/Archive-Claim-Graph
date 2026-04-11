@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "SPOKANE DEALERS show HOW THEY ARE\nHELD UP By ARBITRARY FREIGHT RATES\n\na. BELOW\n\n\nIN HAvRE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-01-15",
+    "date_end": "1907-01-15",
+    "report_year": 1907,
+    "source_file": "10_1907-01-15_p1_sn88085947_00211108575_1907011501_0260",
+    "archive_ref": "10_1907-01-15_p1_sn88085947_00211108575_1907011501_0260",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-01-15_p1_sn88085947_00211108575_1907011501_0260",
+      "composite_score": 14.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 6.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 83,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 55,
+            "in_headline": true
+          }
+        ],
+        "railroads": [
+          {
+            "term": "freight rate",
+            "weight": 2.0,
+            "offset": 55,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The coolest place in the country\nis Havre, Mont. That frost gripped\ncity had to stand for A degrees be.\nlow zero this morning. Bismarcky\nN. D., came next with SO below\nand Miles City, Mont, had 80. 1t\nwas 10 below in st. Paul. !\n\n\n1t seemed trifle cool in Spo-\nkane this morning at above until\nyou read what happened farther\neast. The achievement of the mer.\ncurry in that part Of the country\nmakes this city look like summer\nresort."
+    }
+  ]
+}

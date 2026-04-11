@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Inland Cities Sell\n\n\nTheir Gas Plants.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-07-09",
+    "date_end": "1903-07-09",
+    "report_year": 1903,
+    "source_file": "24_1903-07-09_p1_sn88085947_00211108538_1903070901_0150",
+    "archive_ref": "24_1903-07-09_p1_sn88085947_00211108538_1903070901_0150",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1903-07-09_p1_sn88085947_00211108538_1903070901_0150",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "electric light"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 84,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "electric light",
+            "weight": 1.5,
+            "offset": 128,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Eastern capitalists, rumored to be\nthe same parties who have recently\nsecured the Spokane gas plant, have\npurchased the gas and electric light\nplants at Baker City, Pendleton and\nWalla Walla.\n\n\nThe Baker City plant was sold for\n$4,000 by ]. ]. Henry of Denver. and\nphiladelphia people have secured the\nPendleton and Walla Walla proper\nties. ~\n\n\nIsaac Anderson. who concluded the\nnegotiations for the sale of the local\nplant. denies that either his company\nor it's shareholders are interested In\nthe deals."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PLAN UNION\n\n\nOF TWO LOCAL\n\n\nLABOR BODIES",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-15",
+    "date_end": "1905-05-15",
+    "report_year": 1905,
+    "source_file": "24_1905-05-15_p1_sn88085947_00211108551_1905051501_0462",
+    "archive_ref": "24_1905-05-15_p1_sn88085947_00211108551_1905051501_0462",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1905-05-15_p1_sn88085947_00211108551_1905051501_0462",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "american federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 84,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "american federation",
+            "weight": 1.5,
+            "offset": 150,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A movement has been set on foot\nto unite the two warning local federal\nunions. The proposition is to have\nboth unions surrender their charters\nto the American Federation of Labor\nand American Labor union, the men,\nbership getting together in one body\nwithout a charter 1t is the expressed\ndesire of many union men that some\nsuch arrangement may be made as it\nwill have the effect of removing one\ncause for the present friction exist\ning between some of the local unions."
+    }
+  ]
+}

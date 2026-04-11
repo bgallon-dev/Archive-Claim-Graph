@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Mrs. Mackay Frowns\n\n\nUpon Mrs. Pankhurst",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-05",
+    "date_end": "1909-11-05",
+    "report_year": 1909,
+    "source_file": "3_1909-11-05_p12_sn88085947_00211108605_1909110501_1034",
+    "archive_ref": "3_1909-11-05_p12_sn88085947_00211108605_1909110501_1034",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-11-05_p12_sn88085947_00211108605_1909110501_1034",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 86,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 367,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "NEW YORK, Nov. 5.-Mrs. Clar\nence Mackay, president of the\nEqual Franchise society, has de.\nclined to introduce Mrs. Pank.\nhurst, the English suffragette and\nheroine of many arrests, now in\nNew York, when she apears to tell\nAmerican women how to fight for\nthe ballot.\n\n\nThe causes of Mrs. Mackay's &C.\nton are twofold. First, to use\nher own words, that the reason for\nsuffrage is community of interest\nbetween the sexes-not fight for\nrights, but the logical evolution OF\njustice. And, second, that Amer"
+    }
+  ]
+}

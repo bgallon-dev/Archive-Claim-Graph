@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CORPORATION after\n\n\nC|TY'S POWER SITE\n\nSurface Signs Show Plan to Deprive City OF\nLast Location Available for Municipal\n\n\nLight Plant",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-02",
+    "date_end": "1907-08-02",
+    "report_year": 1907,
+    "source_file": "17_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+    "archive_ref": "17_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1907-08-02_p1_sn88085947_00211108575_1907080201_0924",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 389,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 207,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Is the present agitation over the\nsource of Spokane's water supply\na scheme of private parties to get\ncontrol Of the dam site near the up\nriver pumping station, which Is\nsecond in power only to the Wash\ning Water Power falls on Post st. ?\n\n\nTwo years ago at dinner given\nby F. Lewis Clark, proposition\nwas made that private parties buy\nthe city water system and run 1t.\nSo much opposition developed as\nsoon as the project became known\nthat 1t was dropped. Since that\ntime there has been kept up at in\ntervals agitation of a water supply\nfrom some of the nearby lakes.\nShould it be decided to obtain lake\nsupply, the up-river dam would be\nfor sale. This is the only place\nleft on the river where power may\nbe obtained. The falls at Trent,\nPost Falls and Nine Mile are now\ncontrolled by the Graves and\nWashington Water Power Co. in\nterests.\n\n\nr. N. Smith, a civil engineer, who\nhas offered to make surveys to as\ncertain the feasibility of lake\nsupply, gratis, Is employed In the\nGraves Offices. He is a salaried\nman and oners to spend almost 1\nyear without pay for the benefit\"\nof the city.\n\n\nMr.. Smith was employed in the\ncity engineering department for\nalmost years and we'll knows that\nthat Office is in possession of data,\nplans and estimates Of lake sup\nply which it will take year to\ncollect. He could easily secure\nand go over this data to make his\nreport. Yet he offers to devote a\nyear of his time for no recompense.\n\n\nWhen it is considered that no\nother surveys are needed, the deal\nhas a queer aspect and appears on\nits face to be scheme to secure\nthe city site.\n\n\nThere Is no question but that a\n6water supply from a lake that\ncould be protected from contain\nination would be an ideal source for\nthe city to draw upon. and no good\nand specific reasons why such a\nlake could not be found and utilized\nhas yet been given.\n\n\nThe cost would be great, but the\nsupply would be worth the money.\nAt present number OF physicians\nand other interests are talking\nlightly of investing nearly a 81\n100000 in the doubtful expedient OF\na filtration plant that. II capable of"
+    }
+  ]
+}

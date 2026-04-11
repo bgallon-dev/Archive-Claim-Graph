@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "1T WON'T DO HERE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-03-29",
+    "date_end": "1909-03-29",
+    "report_year": 1909,
+    "source_file": "1_1909-03-29_p4_sn88085947_00211108599_1909032901_0953",
+    "archive_ref": "1_1909-03-29_p4_sn88085947_00211108599_1909032901_0953",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-03-29_p4_sn88085947_00211108599_1909032901_0953",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 305,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 85,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Here the heavy arguments being used in France and\nEngland by opponents of the female suffrage movement\n= oman is more crafty and cunning than man, natur-\nally, and being given the power would be less\nhonest\"\n\n\nmust admit that the two master works of humanity\nare her monopoly to create the child and comfort the man.\nShe can't do better than stick to them.''\n\n\nTO admit the first proposition is to admit that woman is\nmore bralny than She would be more successfully\ndishonest We dont know how it is abroad but if woman\nIn America could be dishonest than man has been or\nmake worse mess of government politics than man has,\n1t surely would be due to superior natural capacity\n\n\nAS to the second propositions Does stick those\nTWO so-caed master works soley Not in this country\n\n\nThere hardly young in this whole nation but is\nlnfluenced, one way another for good or bad by\nwoman There few married who do not work and\nvote without regard to the welfare desires of the\nWIFE, and the exceptions to this rule mainly who\nhave no adequate conception of their political obligations\nand hence their enfranchsement is farce The question:\nIN this country is not to whether womens influence\nshall be confined to breeding and the comorng of man.\nShe has already got far beyond that because men realize\nthat her influence in all things is good But the question\nhere is as to whether her influence shall be positive\ndirect and have full definite force The question is not\nIs she equal; but, should she have equality?\n\n\nMaybe they tie her up the cradle and cookstove\nover there but over here she broke those chains long\nwhich is one OF the why this country bit ahead\nof any other on the whole map"
+    }
+  ]
+}

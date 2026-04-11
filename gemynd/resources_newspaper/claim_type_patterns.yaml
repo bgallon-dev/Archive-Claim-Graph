@@ -1,0 +1,297 @@
+version: "1"
+# ═══════════════════════════════════════════════════════════════════════
+# Spokane Regional Newspaper Corpus — Claim Type Detection Patterns
+# ═══════════════════════════════════════════════════════════════════════
+#
+# Scoring patterns for claim type detection.  Patterns are applied with
+# re.IGNORECASE.  Weight controls how strongly a match pushes the score
+# toward a given claim_type.  Higher weight = stronger signal.
+#
+# Design rationale:
+#   The ten scoring domains from config.yaml each map to one or more
+#   claim types below.  Some domains share a claim type (e.g., both
+#   iww_labor and mining trigger "labor_action") while others have
+#   dedicated types (e.g., "indigenous_policy" is exclusive to the
+#   indigenous domain).
+#
+#   In addition to domain-driven types, several *structural* types
+#   capture common newspaper article forms that cut across domains:
+#   legal_notice, editorial_opinion, public_meeting, election_event,
+#   commercial_transaction.  These are low-weight and serve as fallback
+#   classifications when no domain pattern fires strongly enough.
+#
+# Weight calibration:
+#   2.0  = highly specific phrase, almost certainly this claim type
+#   1.5  = strong signal, likely this type in context
+#   1.2  = moderate signal, contributes but needs corroboration
+#   1.0  = weak signal, relevant only in combination
+#   0.8  = background/ambient, contributes to scoring floor
+
+patterns:
+
+  # ════════════════════════════════════════════════════════════════════
+  # RAILROAD AND TRANSPORTATION
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: railroad_activity
+    regex: '\b(northern pacific|great northern|milwaukee road|chicago milwaukee|oregon railroad|o\.?\s*r\.?\s*&\s*n\.?|spokane\s*&\s*inland|inland empire)\b'
+    weight: 1.5
+
+  - claim_type: railroad_activity
+    regex: '\b(railroad|railway|rail line|branch line|main line|spur line|rail(?:car|road)\s+(?:depot|station|terminal|junction))\b'
+    weight: 1.2
+
+  - claim_type: railroad_activity
+    regex: '\b(right of way|freight rate|rate case|railroad commission|land grant|railroad land|trackage|switchyard|roundhouse)\b'
+    weight: 1.5
+
+  - claim_type: railroad_activity
+    regex: '\b(passenger train|freight train|through train|express train|special train|train wreck|derailment)\b'
+    weight: 1.2
+
+  - claim_type: freight_rate_dispute
+    regex: '\b(freight rate|rate discrimination|rate case|interstate commerce|rate hearing|tariff schedule|rate reduction|rate increase)\b'
+    weight: 2.0
+
+  - claim_type: depot_construction
+    regex: '\b(new depot|depot site|union depot|station building|depot construction|passenger station|built\s+(?:a|the)\s+(?:depot|station))\b'
+    weight: 2.0
+
+  # ════════════════════════════════════════════════════════════════════
+  # LABOR AND IWW
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: labor_action
+    regex: '\b(i\.?\s*w\.?\s*w\.?|industrial workers|wobblies?|one big union|western federation|american federation)\b'
+    weight: 1.5
+
+  - claim_type: labor_action
+    regex: '\b(strike|walkout|lockout|picket(?:ed|ing)?|boycott|scab|strikebreaker|open shop|closed shop)\b'
+    weight: 1.2
+
+  - claim_type: labor_action
+    regex: '\b(labor trouble|labor agitator|labor organizer|labor dispute|labor unrest|labor war|organized labor)\b'
+    weight: 1.5
+
+  - claim_type: free_speech_event
+    regex: '\b(free speech|free speech fight|street speaking|soapbox|soap box|street corner|right to speak|ordinance.*speak)\b'
+    weight: 2.0
+
+  - claim_type: free_speech_event
+    regex: '\b(elizabeth gurley flynn|gurley flynn|james\s+h\.?\s+walsh|frank little|vincent st\.?\s*john|big bill haywood)\b'
+    weight: 2.0
+
+  - claim_type: worker_condition
+    regex: '\b(employment shark|employment agency|migratory worker|migratory labor|harvest hand|harvest worker|lumber worker|lumberjack|timber worker)\b'
+    weight: 1.5
+
+  - claim_type: worker_condition
+    regex: '\b(wage(?:s)?|working condition|working hours|eight.hour|ten.hour|child labor|sweatshop|factory inspector)\b'
+    weight: 1.2
+
+  - claim_type: labor_legal_action
+    regex: '\b(vagrancy|disorderly conduct|conspiracy|injunction|arrested\s+(?:for|on\s+charges)|sentenced\s+to|convicted\s+of)\b'
+    weight: 1.2
+
+  # ════════════════════════════════════════════════════════════════════
+  # INDIGENOUS DISPOSSESSION
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: indigenous_policy
+    regex: '\b(indian reservation|allotment|dawes act|indian school|indian agency|indian agent|treaty|cession|indian land|tribal|annuity)\b'
+    weight: 1.5
+
+  - claim_type: indigenous_policy
+    regex: '\b(spokane indians?|spokane tribe|coeur\s+d.alene|colville|kalispel|nez\s+perc[eé]|flathead)\b'
+    weight: 1.2
+
+  - claim_type: indigenous_policy
+    regex: '\b(chief lot|chief garry|spokane garry|indian war|potlatch|indian territory)\b'
+    weight: 2.0
+
+  - claim_type: indigenous_policy
+    regex: '\b(reservation land|reservation boundary|reservation opening|surplus land|trust land|fee patent)\b'
+    weight: 1.5
+
+  # ════════════════════════════════════════════════════════════════════
+  # AGRICULTURE AND LAND ECONOMY
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: agricultural_condition
+    regex: '\b(wheat\s+(?:harvest|crop|price|market|yield)|crop\s+(?:report|failure|condition|prospect)|livestock\s+(?:market|shipment))\b'
+    weight: 1.5
+
+  - claim_type: agricultural_condition
+    regex: '\b(drought|frost|hail|dust storm|erosion|soil conservation|crop damage|grasshopper|chinch bug)\b'
+    weight: 1.5
+
+  - claim_type: agricultural_condition
+    regex: '\b(hay|alfalfa|barley|oats|fruit grower|orchard|apple|grain elevator|flour mill)\b'
+    weight: 1.0
+
+  - claim_type: land_policy_action
+    regex: '\b(homestead act|desert land act|carey act|timber culture|land office|land entry|final proof|land patent|land claim)\b'
+    weight: 2.0
+
+  - claim_type: land_policy_action
+    regex: '\b(irrigation district|reclamation|irrigation project|water right|canal|reservoir|dam\s+(?:construction|project))\b'
+    weight: 1.5
+
+  - claim_type: farm_organization
+    regex: '\b(grange|farmers?\s+alliance|farm bureau|county agent|agricultural extension|county fair|farmers?\s+union)\b'
+    weight: 1.5
+
+  # ════════════════════════════════════════════════════════════════════
+  # TURNBULL PRE-HISTORY
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: turnbull_prehistory
+    regex: '\b(turnbull\s+slough|cyrus\s+turnbull|mary\s+jane\s+turnbull|drainage\s+district|swamp(?:land)?\s+drain)\b'
+    weight: 2.0
+
+  - claim_type: turnbull_prehistory
+    regex: '\b(bird refuge|wildlife refuge|biological survey|bureau of biological|migratory waterfowl|breeding ground|waterfowl)\b'
+    weight: 2.0
+
+  - claim_type: turnbull_prehistory
+    regex: '\b(channeled scabland|scabland|pine creek|four lakes|turnbull)\b'
+    weight: 1.2
+
+  - claim_type: turnbull_prehistory
+    regex: '\b(duck hunting|game bird|sportsmen|sportsman|migratory bird|executive order)\b'
+    weight: 1.2
+
+  # ════════════════════════════════════════════════════════════════════
+  # SPOKANE DEVELOPMENT
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: civic_development
+    regex: '\b(city charter|city council|city engineer|board of public works|public utility|building permit|bond issue|municipal)\b'
+    weight: 1.2
+
+  - claim_type: civic_development
+    regex: '\b(water power|electric light|street car|streetcar|electric railway|trolley|gas works|waterworks|sewer)\b'
+    weight: 1.2
+
+  - claim_type: civic_development
+    regex: '\b(board of trade|chamber of commerce|real estate|exposition|building boom|population growth)\b'
+    weight: 1.2
+
+  - claim_type: civic_development
+    regex: '\b(great fire|fire of 1889|statehood|state of washington)\b'
+    weight: 2.0
+
+  - claim_type: infrastructure_project
+    regex: '\b(bridge\s+(?:construction|building|pier|repair)|street\s+(?:paving|grading|improvement)|avenue\s+(?:extension|opening))\b'
+    weight: 1.5
+
+  - claim_type: infrastructure_project
+    regex: '\b(monroe street|howard street|riverside avenue|division street|main avenue|sprague avenue)\b'
+    weight: 1.0
+
+  # ════════════════════════════════════════════════════════════════════
+  # MINING AND EXTRACTION
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: mining_activity
+    regex: '\b(coeur\s+d.alene\s+mine|silver mine|lead mine|gold mine|mining camp|smelter|bunker hill|sullivan mine)\b'
+    weight: 1.5
+
+  - claim_type: mining_activity
+    regex: '\b(mining strike|mine owner|mine workers?|placer|assay|ore|concentrator|mining district)\b'
+    weight: 1.2
+
+  - claim_type: mining_activity
+    regex: '\b(mine superintendent|mining engineer|mine inspection|mine explosion|mine accident|shaft|adit|tunnel|stope)\b'
+    weight: 1.2
+
+  # ════════════════════════════════════════════════════════════════════
+  # DEPRESSION ERA
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: depression_relief
+    regex: '\b(new deal|civilian conservation|c\.?\s*c\.?\s*c\.?|works progress|w\.?\s*p\.?\s*a\.?|work relief|public works)\b'
+    weight: 1.5
+
+  - claim_type: depression_relief
+    regex: '\b(unemployment|breadline|transient|hobo|bank failure|bank closure|foreclosure|dust bowl|farm security|resettlement)\b'
+    weight: 1.5
+
+  - claim_type: depression_relief
+    regex: '\b(relief\s+(?:camp|worker|project|program|office|fund)|federal\s+(?:relief|aid|project)|emergency\s+(?:relief|work))\b'
+    weight: 1.5
+
+  # ════════════════════════════════════════════════════════════════════
+  # EDUCATION
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: education_event
+    regex: '\b(normal school|state normal|cheney normal|teacher\s+(?:training|institute|examination)|county superintendent)\b'
+    weight: 1.5
+
+  - claim_type: education_event
+    regex: '\b(school district|school board|school bond|school election|school\s+(?:building|construction|opened|closed))\b'
+    weight: 1.0
+
+  # ════════════════════════════════════════════════════════════════════
+  # WOMEN'S CIVIC LIFE
+  # ════════════════════════════════════════════════════════════════════
+
+  - claim_type: womens_civic_action
+    regex: '\b(women.s suffrage|woman suffrage|suffrage|suffragist|anti.suffrage|equal suffrage)\b'
+    weight: 2.0
+
+  - claim_type: womens_civic_action
+    regex: '\b(women.s club|woman.s club|league of women|w\.?\s*c\.?\s*t\.?\s*u\.?|women.s christian|temperance|prohibition)\b'
+    weight: 1.5
+
+  - claim_type: womens_civic_action
+    regex: '\b(women.s auxiliary|women.s league|women.s association|ladies.?\s+aid|missionary society)\b'
+    weight: 1.2
+
+  # ════════════════════════════════════════════════════════════════════
+  # STRUCTURAL / CROSS-DOMAIN TYPES
+  # ════════════════════════════════════════════════════════════════════
+  # These capture common newspaper article forms that appear across
+  # all domains.  They fire at lower weight and serve as fallback
+  # classifications when domain patterns are ambiguous.
+
+  - claim_type: legal_notice
+    regex: '\b(notice\s+(?:is|of|to)|hereby\s+(?:given|notified)|certificate|affidavit|summons|probate|estate\s+of|administrator)\b'
+    weight: 1.5
+
+  - claim_type: legal_notice
+    regex: '\b(district court|superior court|county court|circuit court|filed\s+(?:a|for)|petition|plaintiff|defendant)\b'
+    weight: 1.2
+
+  - claim_type: editorial_opinion
+    regex: '\b(we\s+believe|it\s+(?:is|seems)\s+(?:time|clear|evident)|the\s+(?:people|public|citizens)\s+should|editorial|in\s+our\s+(?:opinion|view))\b'
+    weight: 1.0
+
+  - claim_type: public_meeting
+    regex: '\b(meeting\s+(?:was|will\s+be)\s+held|public\s+(?:meeting|hearing)|mass\s+meeting|called\s+to\s+order|committee\s+(?:met|report))\b'
+    weight: 1.2
+
+  - claim_type: election_event
+    regex: '\b(election|ballot|vote(?:d|s|ing)?|candidate|primary|nomination|poll(?:s|ing)?|registration|returns?\s+show)\b'
+    weight: 1.0
+
+  - claim_type: election_event
+    regex: '\b(democrat(?:ic)?|republican|populist|socialist|progressive\s+party|prohibition\s+party)\b'
+    weight: 1.0
+
+  - claim_type: commercial_transaction
+    regex: '\b(for\s+sale|for\s+rent|auction|bid(?:s|ding)?|contract\s+(?:awarded|let)|bond\s+(?:issue|sale)|advertis(?:e|ing|ement))\b'
+    weight: 0.8
+
+  - claim_type: accident_disaster
+    regex: '\b(fire\s+(?:broke|destroyed|burned)|flood(?:ed|ing)?|explosion|accident|collision|derailment|killed|fatally|injured)\b'
+    weight: 1.2
+
+  - claim_type: crime_report
+    regex: '\b(arrested|robbery|burglary|murder|assault|theft|fugitive|sentenced|convicted|indicted|grand jury)\b'
+    weight: 1.0
+
+  - claim_type: person_profile
+    regex: '\b(prominent\s+citizen|well.known|pioneer|arrived\s+(?:in|from)|resident\s+of|formerly\s+of|obituary|death\s+of|funeral)\b'
+    weight: 1.0

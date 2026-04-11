@@ -1,0 +1,90 @@
+{
+  "metadata": {
+    "title": "WEsTx1N TRAFFIC MANAGER\nOF 1x1 NORTHERN PACIFIC\nRAT1.n0AD FEELS AG01IEvE4\nAND TAKES OCCASION 70 FAs9\nOUT A LITTLE HEATED An\nMOSPHERE,",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-19",
+    "date_end": "1904-03-19",
+    "report_year": 1904,
+    "source_file": "81_1904-03-19_p1_sn88085947_00211108538_1904031901_1124",
+    "archive_ref": "81_1904-03-19_p1_sn88085947_00211108538_1904031901_1124",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "81_1904-03-19_p1_sn88085947_00211108538_1904031901_1124",
+      "composite_score": 9.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 8.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "boycott"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1904,
+      "word_count": 470,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "boycott",
+            "weight": 1.5,
+            "offset": 198,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 48,
+            "in_headline": false
+          },
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 251,
+            "in_headline": false
+          },
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 31,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Samuel q. Fulton, western trafnc\nmanager of the Northern Pacific, is\nin the city today and during the\nmorning consulted with several of the\nmembers of the Spokane Shippers\nassociation regarding the boycott in\nstituted against the Northern Pacific\nand Great Northern systems.\n\n\nI'VE are now, as we have been at\nall times, ready to confer with the\ntobbers of Spokane regarding this\nmatter\" he said.\n\n\nBut Mr.. Fulton attaches a proviso\n\n\nThat is, we are ready to consult and\nconfer when they are ready to do so\nIn friendly spirit. Is 1t a friendly\nspirit when the shippers would meet\nus and hold club over our heads?\n1t is just like going to q friendly\nmeeting with a man who holds a gun\npointed at your head. In other words.\npers when they show a disposition to\nact friendly and that can not be done\nunless they declare the boycott on\n\n\nThe meeting in Chicago couple\nof months ago did what 1t thought\nwould meet the approval of the ship\npers OF Spokane. OF course, in max\ning tariff for this place we must\ntake into consideration the water\nroutes and several other things. AS\nan illustration of what influence this\nwater route and the competition on\nthe Sound has. we give Spokane a\nrate to the coast plus the rate back\nto this city, that Is cheaper than the\nto Butte and Helena.\n\n\nSays They Are Not Satisfied.\n\n\nThere are many of the shippers\nwho are not satisfied with the boy\ncolt. We can not make rates for all,\nso they will be thoroughly satisfied.\ninterests at Waverly. For us to make\nvery low rate on California beet\nsugar would not meet with his APP\nprevail. We believe In protecting\nhome industry in this matter as we\ndo in all things.\nThere are some 5000 lines of COM\nmodities upon which tariffs must be\niluue, ana i no not ucny tnut We\nmake mistakes. but If the shippers\nwill act friendly and show where the\nmistakes are. l believe we can have\nthem rectified\n\n\nAnother thing: For q territory of\nsome hundred miles and more around\nSpokane We make better rate for\nthe benefit of the shippers from this\ncity than we make from st. Paul to\nany other part of the system for the\nsame distance. This gives the Spo-\nkane jobbers decided ADVANTAGE\nover their competitors of the coaHt.\nAll these things must be taken into\nconsideration.\n\n\nTalks About Oorbin Line.\n\n\nII have heard some talk of the Cor\nbin line helping things out In tn!\nmatter. don't know as to that The\nCanadian Pacific has entrance TO the\ncoast territory and is our competitor,\n1t makes no better fate there. and at\nno time have they been showing a\ndiapnsttiou IN slagh ratas whau kha"
+    }
+  ]
+}

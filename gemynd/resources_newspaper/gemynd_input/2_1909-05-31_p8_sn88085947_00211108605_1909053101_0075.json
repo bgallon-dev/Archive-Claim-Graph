@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "CALLS SPOKANE\n\n\n\"IMPERIAL CITY,",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-05-31",
+    "date_end": "1909-05-31",
+    "report_year": 1909,
+    "source_file": "2_1909-05-31_p8_sn88085947_00211108605_1909053101_0075",
+    "archive_ref": "2_1909-05-31_p8_sn88085947_00211108605_1909053101_0075",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-05-31_p8_sn88085947_00211108605_1909053101_0075",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "exposition"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 143,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "exposition",
+            "weight": 1.5,
+            "offset": 48,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Spokane Is given prominent\nplace in an A. Y. p. exposition\n\n\nmagazine issued by the Chicago,\nMilwaukee & st. Paul railroad that\nsets new mark for fine art In\npreparation and printing. In this\nSpokane is designated as the I'm\nperial City\" and after recounting\nindustrial and commercial advan.\ntages the write says of this region:\n\n\nHere there is song in the falls\nand the hills: here nature breaches\nsermons in which there are no mar\nrow, supercilions doctrines, no ped,\nantry; nothing that challenges .an-\ntagonism. but which fall tender\nand persuasive to those in a recep.\ntive. mood\" M\nThe Photographic work, Of which\nthe book Is full, is as fine as the\noriginals themselves. and the art\n-istic selection gives the work a dis\ntinct value as a collection of mag.\nnificent northwestern scenic views.\n\n\nThe text carries interesting mat"
+    }
+  ]
+}

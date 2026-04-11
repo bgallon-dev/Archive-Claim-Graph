@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Big Land Project.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-10-14",
+    "date_end": "1903-10-14",
+    "report_year": 1903,
+    "source_file": "2_1903-10-14_p1_sn88085947_00211108538_1903101401_0524",
+    "archive_ref": "2_1903-10-14_p1_sn88085947_00211108538_1903101401_0524",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1903-10-14_p1_sn88085947_00211108538_1903101401_0524",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "orchard",
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 159,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 488,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 172,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Senator Fred r. Dubois Of Black\nfoot. Idaho, a director Of the Lewis\nton Waha Land, Water & Power COM\npany. is at the Hotel Spokane. us\ncompany embraces one of the largest\nirrigation projects yet undertaken in\nIdaho. 1t obtains its water from\nLake Waha. a great natural reservoir\nlocated 20 miles southeast OF Lewis\nton that will irrigate over 10000\nacres lying between Lewiston and\nWaha. The project can best be re-\nkalized when It is stated it will provide\nthe largest compact tract of orchard\nland adapted to the more delicate\nfruits. such as cherries. peaches, april\ncots and grapes, that can be found\nnorth Of California.\n\n\nSenator Dubois and ex-senator\nHeitfeld have interested in the COM\npany many Chicago business men, a\nparty of whom about six weeks ago\nvisited Lewiston to inspect the under\ntaking. Mr.. Dubois states that suf-\nticient capital has been raised to carry\non the scheme to a successful ending."
+    }
+  ]
+}

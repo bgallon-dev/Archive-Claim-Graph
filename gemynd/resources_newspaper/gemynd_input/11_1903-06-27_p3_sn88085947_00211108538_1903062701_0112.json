@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "o1DnfANOE no. Ass.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-27",
+    "date_end": "1903-06-27",
+    "report_year": 1903,
+    "source_file": "11_1903-06-27_p3_sn88085947_00211108538_1903062701_0112",
+    "archive_ref": "11_1903-06-27_p3_sn88085947_00211108538_1903062701_0112",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1903-06-27_p3_sn88085947_00211108538_1903062701_0112",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 478,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 132,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 837,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 1636,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "01DMANOE no. Al3as,\nAN ordnance approving and confirm\n\n\nIng the assessments and assess\n\n\nment roll for the improvement of\n\n\nline OF Monroe street to the east\n\n\nline of Post street: thence on Post\n\n\nstreet to the south line of Park\n\n\nplace: thence on Park place to the\n\n\ncenter line of West Oval street. by\n\n\ngrading and curbing the same, and\n\n\nto provide for the collection OF as\n\n\neasements and the payment of the\n\n\nbonds issued therefor,\n\n\nwhereas. the assessment roll for\nthe assessment district established\nTor the payment of improving Freder-\nic avenue. in the city of Spokane,\nfrom the center line Of Monroe street\nto the east line of Post street: thence\non Post street to the south line of\nPark place: thence on Park place to\nthe center line Of West Oval street,\nby grading and curbing the same\ncame duly and regularly before the\ncity council on the 2sth day of April.\n1908. for approval and confirmation\nand no objection being made thereto,\nthe same was duly confirmed and ap-\nproved; therefore.\n\n\nThe city of Spokane does ordain as\nfollows:\n\n\nSection 1. That the lots and par\nGELS of land described in the assess\nment district and on said assessment\nroll for the said Improvement. to the\nextent OF the assessments levied\nagainst them. and each of them. be\nand they and each Of them are here\nby assessed therefor, as in said as\nsessment roll stated.\n\n\nSec, 2. That the bonds described\nin ordinance No. A1262. passed No\nvember IS. 1909. shall be issued to\nthe contractor making said improve\nment in the sum of the contract price\ntherefor: or such less sum as he may\nbe entitled to under his contract as\ncertified by the board of public works,\nformed and the work accepted by\nthe board of public works; provided\nhowever. that no bonds shall be Is\nsued as herein provided before the\nexpiration of so days after the date\nOF delinquency of the first Install\nment Of the first assessment as here.\nmatter provided.\n\n\nSec. 3. The said assessments shall\nbear interest from the date Of the de-\nlinquency of the first ,installment at\nand shall be paid TO the city treas\nurer in 10 equal annual installments,\nthe FIRST of which shall be due. paya-\nBILE and delinquent on the LIST day of\nAugust. 1903. and one on the same\nwith interest on the same and on\nunpaid installments. The city clerk\nis hereby directed to transmit said as\nsessment roll to the city treasurer\nfor collection. pursuant to the char\nter and ordinances of the city Of\nSpokane.\n\n\nSec. 4. This ordinance shall take\neffect and be In force 10 days after\nit's passage.\n\n\nPassed the city council June 10,\n1903. FRED Il. BALDWIN.\n\n\nPresident of the City Council.\n\n\nAttest: c. A. FLEMING, City Clerk.\n\n\nApproved June ~, 1908,"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "CITY WAGE SCALE DEllBERATEGY WlOLA7\n\nGRAND JURY\n\n\nIS DEMANDED",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-11-26",
+    "date_end": "1910-11-26",
+    "report_year": 1910,
+    "source_file": "2_1910-11-26_p1_sn88085947_00211108654_1910112601_0656",
+    "archive_ref": "2_1910-11-26_p1_sn88085947_00211108654_1910112601_0656",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1910-11-26_p1_sn88085947_00211108654_1910112601_0656",
+      "composite_score": 2.52,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 247,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 811,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 698,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "To the Honorable j. Hinke Judge Department No.\nWilliam A. Huneke Judge Of No. Henry\nJudge Of Department No. 81 H. Sullivan Of\nNo. and Stanley Webster, Judge Department No.\nstung all OF the Superior judges Of Spokane couny\n\n\nCome the undersigned organized labor\nand for and behalf thereof we'll the welfare\nOf all Of the citizens this city and hereby respectfully\ngrand investigate official corruption which\nthe undersigned petitioners believe exist and which\ndemands such Investigation.\n\n\nWe further respectfully petition that\nphed that fearless special appointed\nthe present and incoming prosecuting attorney making full in\nvestigation\n\n\nThat your petitioners respectfully pro-\nceedngs before the City Council filed application\nheretofore made for believe that\nconditions prevail shown by the\nbe shown further strike blow\nhonesty and decency and unst the by\nlie trust SPOKANE CENTRAL LABOR COUNCIL.\n\n\nBY j. r. MORFORD, Secretary\n\n\nH. A. JARVIS President.\n\n\nTo the Honorable D. Hinke, Judge + VIII\nliam A. Huneke Judge Department No. e. Henry l.\nJudge Of Department No. g. e. r. Sullivan Judge Of\nNo. a. j. Stanley Webster Judge of Department No.\nComes \" Lambert president Of the city council Of\nSpokane behalf members thereof\nrespectfully the of the Superior\nWashington sit banc consider\nproceedings herewith\nOf citizens of Spokane county investigate matters\nreport proceedings before City upon\ncharges H. Elliott against John Sullivan\nchief Of police Of said record is attached\npart Of this application.\n\n\nSpokane, Wash this 2srd day Of November 1910\n\n\ne. \" LAMBERT"
+    }
+  ]
+}

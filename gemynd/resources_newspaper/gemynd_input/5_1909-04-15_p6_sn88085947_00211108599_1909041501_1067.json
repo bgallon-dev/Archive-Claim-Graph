@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PRATT REVIEW\n\n\nCLUB jOLTEO\n\nPOST GETS UP IN MEETING\nAND DECLARES THE WHOLE\nBUSINESS A PIECE OF HUM.\nBUG.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-04-15",
+    "date_end": "1909-04-15",
+    "report_year": 1909,
+    "source_file": "5_1909-04-15_p6_sn88085947_00211108599_1909041501_1067",
+    "archive_ref": "5_1909-04-15_p6_sn88085947_00211108599_1909041501_1067",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1909-04-15_p6_sn88085947_00211108599_1909041501_1067",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 293,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 260,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A severe Jolt from an unex-\npected quarter was received by\nthe Pratt-Review Nonpartisan club\nlast night at the meeting in the\nconucil chamber. 1t was delivered\nby Frank T. Post, who by invita-\nton appeared to address the club\non the proposed amendments to\nthe city charter, and by way of in\nPRODUCTION told the audience that\nits nonpartisan movement was a\nhumbug and piece of buncombe\nand that he was republican and\nwould support his party ticket.\n\n\nThere were possibly 200 at the\nmeeting. The assemblage was\ncomposed largely of lawyers.\npreachers. bankers, brokers, mer-\nchants and other gentlemen of po\nlite occupations, who do not as a\nrule earn their bread in the man.\nner enjoined by the scriptures, by\nthe sweat of the brow\" The horny\nhanded sons of toll, who compose\nthe chief following of Mr.. ONO,\nwere noticeable by their absence,\nas not to exceed a dozen working\nmen were present.\n\n\nThe prevailing note In the\nspeechmaking was a denunciation\nof the undesirable elemnts' con-\nstituting the cohorts of Ono\" and\npraising the high moral standard\nof the gentlemen behind Mr.. Pratt,\nnot excepting of course those pres\nent. The first specimen Of the\nONO cohorts\" to appear in evil\ndence was Attorney Post, who\nseemed only too glad to class him.\nself with the \"undesirables.\" Post\nsaid he believed in nonpartisan\nmunicipal politics but believed in\ngetting it in the right way, by the\nadoption of an amendment to the\ncity charter.\n\n\nJudge Nash filled the chair and\nmanaged, by his felicitous re-\nmarks, to keep the interest alive\nwhen ii seemed on the wane. w\nA. Monten resigned as secretary\nand Ernest E. Sargent, deputy\nprosecuting attorney and secre\ntary in the Moore campaign, was"
+    }
+  ]
+}

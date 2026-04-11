@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "NOR COAST\nGIVES No\n\n\nDETAILS\n\nSays It Will Buy City Hall\nIf Council Will Grant\n\n\nIt's Franchise.\n\nIS UNION DEPOT RUSE?\n\nCouncil Likely to Grant\nFranchise Because of\n\n\nBusiness Pressure.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-13",
+    "date_end": "1910-01-13",
+    "report_year": 1910,
+    "source_file": "1_1910-01-13_p1_sn88085947_00211108629_1910011301_0139",
+    "archive_ref": "1_1910-01-13_p1_sn88085947_00211108629_1910011301_0139",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-01-13_p1_sn88085947_00211108629_1910011301_0139",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 361,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 1183,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 107,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 842,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Delay is probable before the deal\nfor the sale of the city hall is\nbrought to a head. 1t seems that\nthe North Coast railroad is the only\none appearing in the deal and that\nit's motive in offering to buy the\ncity hall is believed to be to secure\na franchise for it's admission into\nthe city.\n\n\nThe North Coast presented it's\namended franchise to the city coun-\nGil last night, and after three hours\ndevoted to its consideration action\nwas postponed until tomorrow\nnight.\n\n\nThere was no memoranda filed\nby the North Coast as to its joint\nterminal agreement with the Mil\nwaukee, and the only assurance\nthat the council has that a joint\nterminal is proposed is the word OF\nmouth of the railroad officials.\n\n\nIn fact, there is no written agree\nment by the North Coast to pay\nthe $352,000, that also being purely\nverbal. 1t is supposed that if the\ncity council grants the franchise\nthere will be provision requiring\nthis payment for the ground.\n\n\nThe question seems to be one in\nwhich the city, if it desires to sell\nout, can now do so at it's own price,\nwithout asking too many questions\nas to what will be done about the\nproperty. 1t is just as a great\nmany people prophesied, the union\ndepot move is merely gentle pre-\ntext to give the North Coast the\ncity hall for figure set to encour-\nage union depot project, but to\nsecure which the council must give\nout a franchise free to the railroad\nthat may be worth more than the\ncity receives for it's ground.\n\n\nWhen the smoke of battle has\ncleared away, the North Coast will\nhave the city hall and its valuable\nterminal franchise, while the city\nwill have $352,000 to buy the\nground and build a new city hall\nthat will cost in all some $500,000\nor 100000.\n\n\nBut the feeling is that the city\nneeds a new municipal building,\nthat We need the North Coast rail\nroad, and in the interest of prog\nress let the franchise be passed.\n\n\nA hard fight appears ahead, how\never, before the matter is finally\nsettled."
+    }
+  ]
+}

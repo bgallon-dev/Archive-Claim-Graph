@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Want TO\n\n\nBE TEACHERS",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-05-12",
+    "date_end": "1904-05-12",
+    "report_year": 1904,
+    "source_file": "3_1904-05-12_p1_sn88085947_00211108538_1904051201_1308",
+    "archive_ref": "3_1904-05-12_p1_sn88085947_00211108538_1904051201_1308",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1904-05-12_p1_sn88085947_00211108538_1904051201_1308",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "county superintendent"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 202,
+      "match_details": {
+        "education": [
+          {
+            "term": "county superintendent",
+            "weight": 1.5,
+            "offset": 837,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Eye gods! What now\" cried the jur-\nors as they filed into the upper corri-\ndoris of the courthouse this morning.\n\n\nThe benches from Judge Richardson 9\ncourt room to the stairway were piled\nhigh with millinery creations, some of\nthem created some time ago, some\nreally prehistoric. Besides the hats\nof many colors and shapes were coats,\ncapes, and jackets, all parts of fem\nmime attire. \"Have the ladies' come\nover to take in the court house? Is\nthe w. G. 7. U. convention to meet\nhere? What is it? Who are they? All\nthese questions followed one another\nin rapid successin.\n\n\nOnt worry, gentlemen\" said the\npopulist party John Coffeen) as he\napproached them. \"This does not hap\npen very often, but today happens to\nbe examination day for those who think\nthey would make good teachers\"\n\n\nThe party was right. 1t is examina-\nton day in the county superintendent\nOffice, There were only lao men, wo-\nmen and children who reported for\nduty this morning. They filed the\nsuperintendent room and offices to\noverhowing. Those who could not find\nseats in these rooms were taken into\nJudge Remnants court room and cham\nbers. On the bench where Judge Ken"
+    }
+  ]
+}

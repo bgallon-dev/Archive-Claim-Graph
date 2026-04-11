@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-01-14 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-01-14",
+    "date_end": "1906-01-14",
+    "report_year": 1906,
+    "source_file": "24_1906-01-14_p1_sn88085947_00211108563_1906011401_0304",
+    "archive_ref": "24_1906-01-14_p1_sn88085947_00211108563_1906011401_0304",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1906-01-14_p1_sn88085947_00211108563_1906011401_0304",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 68,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 13,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 283,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Three of the Northern Pacific Of\nfcials called upon Commissioner\nONO this morning and stated they\nwould accept the plans for the SUBJ\nway at the intersection of the\nNorthern Pacific tracks and Wash\ndngton street and would, within the\nnext few days, forward plans as\npassed on by the city council some\ndays ago.\n\n\nThe idea which will be carried\nout Is to widen the present cross"
+    }
+  ]
+}

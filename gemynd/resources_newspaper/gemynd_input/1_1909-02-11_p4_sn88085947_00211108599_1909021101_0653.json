@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "title": "WOMAN SUFFRAGE.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-11",
+    "date_end": "1909-02-11",
+    "report_year": 1909,
+    "source_file": "1_1909-02-11_p4_sn88085947_00211108599_1909021101_0653",
+    "archive_ref": "1_1909-02-11_p4_sn88085947_00211108599_1909021101_0653",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1909-02-11_p4_sn88085947_00211108599_1909021101_0653",
+      "composite_score": 22.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 16.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "women's suffrage",
+          "woman suffrage",
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "high",
+      "year": 1909,
+      "word_count": 395,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "women's suffrage",
+            "weight": 2.5,
+            "offset": 75,
+            "in_headline": false
+          },
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 217,
+            "in_headline": false
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 83,
+            "in_headline": false
+          },
+          {
+            "term": "woman suffrage",
+            "weight": 2.5,
+            "offset": 0,
+            "in_headline": true
+          },
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Washington is just taking the lead of the coast states\nin favorable action women's suffrage. 1t is probable\nthat the amendment will be authorized this session\n\n\nThe woman SufraglstS of California mustered ~ votes\nfor woman suffrage constitutional amendment, when\nvote taken in the assembly Sacramento and there\nwere only 81 votes against it. The thus had a\nstraight majority, but under the rules two thirds\njorty required and therefore they lost. The pro-\nposed amendment will not be submitted, and the voters\nof the state will not be asked allowed to vote upon it.\n\n\nAll of ought to be willing to concede that this is\nimportant subject, at least to Women affected\nby laws made by Women must be governed and\ntaxed and otherwise managed by laws made by 1t\nis admitted everywhere and without argument, that\nwomen-wives, mothers and daughters-are the chief\nvictims of the Saloons gambling institutions and other\nforms of vice. the regulation of which is entirely in the\nhands of voters, the So it is not to be wondered\nat that there women who demand the right to\nvote and demand that right with vigOr and persstency\n1t is probably true that not only every state, but every\ncity in the country with population of than 49,\n600, has an active woman suffrage organization.\n\n\nBut still the most important question of all in this\nnectiOn remains unanswered The question is, Do the\nwomen themselves really want to vote? Would the major\nIy OF them decide if test ballot is taken?\n\n\nIn this connection it is to be remembered that there is\nan organization of women back east whose earnest bust\nness it is to oppose suffrage Every important\nfrom this organization, and these publications\nwarmly antagonstic to equal suffrage any of the\npublications the other side.\n\n\nWhat the facts? Do the ma jority of thinking wives\nand mothers want the right to the polls and to votes\nThat is the first question that should be answered and\nanswered fairly\n\n\nThis question could only be fully answered by actual\ntest ballot, test ballot cast at regular polling places\npolling places located in tents, fire engine houses barns\nand vacant store private house cellars to which\ngo The mere circulation of petitions to be\nsigned by at their homes after chat and perhaps\ncup of tea would not fully answer the question"
+    }
+  ]
+}

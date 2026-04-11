@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Spokane Can illuminate its Own SITS.\nand Have Seventeen Hundred H. P.\nto Sell According to Engineer Me-\nIntyre's Figures--Seattle's Success.",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-06-22",
+    "date_end": "1905-06-22",
+    "report_year": 1905,
+    "source_file": "12_1905-06-22_p1_sn88085947_00211108551_1905062201_0592",
+    "archive_ref": "12_1905-06-22_p1_sn88085947_00211108551_1905062201_0592",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1905-06-22_p1_sn88085947_00211108551_1905062201_0592",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 139,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 318,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "These figures prove conclusively\nthat it is possible for Spokane to\nhave lighting plant Of its own and\nfurnish competition for the monopoly\nwhich has about everything its own\nway hereabouts.\n\n\nThese figures mean that the city is\nnow developing 2400 horse power and\nby raising the heighth Of the dam,\nas the Washington Water Power COM\npany is doing at the lower falls in\nthe city. this power can be increased\nto $500 horse power.\n\n\nThen the city would have a sur\nplus of 1897 horse power and only 220\nhorse power needed for public street\nighting-leaving l777 horse power as\nnucleus for competition with the\nwater power monopoly in the open\nmarket.\n\n\nPerhaps the minimizing reader be-\nlieves this would produce no results.\nLet us look at seattle's efforts in this\nline.\n\n\nCity Engineer Thompson. who was"
+    }
+  ]
+}

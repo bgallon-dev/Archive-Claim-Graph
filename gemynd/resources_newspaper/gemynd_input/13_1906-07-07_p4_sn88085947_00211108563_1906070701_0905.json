@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-07-07 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-07-07",
+    "date_end": "1906-07-07",
+    "report_year": 1906,
+    "source_file": "13_1906-07-07_p4_sn88085947_00211108563_1906070701_0905",
+    "archive_ref": "13_1906-07-07_p4_sn88085947_00211108563_1906070701_0905",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1906-07-07_p4_sn88085947_00211108563_1906070701_0905",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 92,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 372,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "minority report. All who have\ntaken any interest in the work OF\nthe commission realize that an\nable, fearless man not in the lead\ning strings Of the big local power\nmonopoly had the opportunity of\nhis life to bring in minority re-\nport placing the blame where it\nrightfully belongs, on the city Of\nficials who are empowered to look\nafter this work and the the Wash\nington Water Power company.\n\n\n1T has been suggested that Mr..\nMiller was on this occasion only\ngiven a tryout, as he Is a candidate"
+    }
+  ]
+}

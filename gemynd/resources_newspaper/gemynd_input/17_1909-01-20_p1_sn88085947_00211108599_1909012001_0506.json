@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SMITHS REMARKABLE ANALYSIS OF\n\n\ni PRESENT POWER OF OUR FEDERAL COURTS",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-20",
+    "date_end": "1909-01-20",
+    "report_year": 1909,
+    "source_file": "17_1909-01-20_p1_sn88085947_00211108599_1909012001_0506",
+    "archive_ref": "17_1909-01-20_p1_sn88085947_00211108599_1909012001_0506",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1909-01-20_p1_sn88085947_00211108599_1909012001_0506",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 112,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 177,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The guarantees the .\nright trial by all criminal prosecutions; but it is\nknowledge that this time honoed safeguard\nagainst oppression been\nascendency of\nwealth and influence by injunction has =\n\n\nThe made of\ninjunction conflicts between labor\ncapital placed and important class of crimes\nthis constitutional provision this\nwhere denial of the .\ntrial result oppression. .\nEnds this the court has virtually assumed\nNE enact criminal legislation, and punish =\n\n\nwhich neither public opinion condemns\n\n\nsure conviction where constitutional right of\n\n\ntrial would acqutta 1t places powerful\nwealth which 1t is slow\nH. The Spirit of American Government by j. Allen\nSmith LID Professor Political Science, University\nof Washington. ="
+    }
+  ]
+}

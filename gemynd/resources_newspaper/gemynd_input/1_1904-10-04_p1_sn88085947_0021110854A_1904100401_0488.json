@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-10-04 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-10-04",
+    "date_end": "1904-10-04",
+    "report_year": 1904,
+    "source_file": "1_1904-10-04_p1_sn88085947_0021110854A_1904100401_0488",
+    "archive_ref": "1_1904-10-04_p1_sn88085947_0021110854A_1904100401_0488",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1904-10-04_p1_sn88085947_0021110854A_1904100401_0488",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "nez perce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 270,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "nez perce",
+            "weight": 2.0,
+            "offset": 185,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "by rights the war chief. Olieutt ana\nhis friends have made no move to-\nward his being declared the heir TO\nthe tyee's war dress, the one suFo\nsign of who is going to be regarded\nby the Nez Perces as their lawful\nchief.\n\n\nBecause Of the dispute over the re-\nmoval of the dead tyee to the Idaho\nburying grounds, 1t is likely that .\ncouncil will be called a,d the ques-\ntion discussed by the older men and\nthe sub chiefs. This, II called. viii\nlast two Or three days, until every\ntyee and brave has spoken. n\n\n\nThe removal of Joseph to Idaho\nwould mean a great expense and an\noutpouring OF Indians on the trails 70\nIdaho such as has never been equaled\nin these later years.\n\n\nOwing to the condition OF the\ncorpse, which is merely enclosed In .\npine box. weighted with boards\nand stones and covered with sand to\nprotect 1t from the coyotes, which\nroam the hill on which the burial\nground IL located. no railroad COM\npany would accept II for shipment\nFor this reason II would be neces-\nsary to take the chief overland on q\nmarch something over l60 milea\nShould this be done q guard of honor\nconsisting Of every Nez Perces brave,\nkluchman and pappoose on the reser-\nwalton would follow the great fyee.\nBands Of Indians from all the other\ntribes would also be invited to accom-\npany the procession. 1t would b an\n\n\nevent TO give the braves almost ur-\n\n\nlicensed freedom on the route unless\n\n\nrestrained by an escort OF troops.\nWILLIAM FRANCIS GUIoN."
+    }
+  ]
+}

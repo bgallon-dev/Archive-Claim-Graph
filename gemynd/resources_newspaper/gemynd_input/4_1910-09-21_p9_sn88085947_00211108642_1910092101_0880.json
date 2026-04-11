@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "title": "CITY TO GET THOSE ELECTR0L|ERS\n\n\nAt LAST IF MERCHANTS PAY",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-09-21",
+    "date_end": "1910-09-21",
+    "report_year": 1910,
+    "source_file": "4_1910-09-21_p9_sn88085947_00211108642_1910092101_0880",
+    "archive_ref": "4_1910-09-21_p9_sn88085947_00211108642_1910092101_0880",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-09-21_p9_sn88085947_00211108642_1910092101_0880",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 117,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 172,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 9,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "board of public works to permit\ntheir installation was the key that\nunlocked the situation.\n\n\nThere was still a demand for de-\nlay by Councilman Mohr, until the\nWashington Water Power Co. could\nsubmit design it had in view, but\nthe council was tired of delay and\nglad to end the controversy, and\nadopted an order approving the\nDavenport lamp and ordering the\nboard of public works to permit its\ninstallation.\n\n\nThe final action of the council\ndiffers from that contemplated by\nthe boosters for the electroliers in\nthat it is not compulsory on the\npart of the property owners to in\nstill the lamps, and the city is not\ncalled upon to pay for the current"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "Story About a Giant",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-12-08",
+    "date_end": "1910-12-08",
+    "report_year": 1910,
+    "source_file": "1_1910-12-08_p4_sn88085947_00211108654_1910120801_0789",
+    "archive_ref": "1_1910-12-08_p4_sn88085947_00211108654_1910120801_0789",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-12-08_p4_sn88085947_00211108654_1910120801_0789",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "jail",
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 503,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1747,
+            "in_headline": false
+          },
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1403,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Once there giant who lived in a called Cor\nporatlon and he was very big and fierce and always hun\ncry Nobody could tell how many men, women and chill\ndren he ate up every day. because he very shy and\nkept his doings to himself\n\n\nNow, this Giant because he afraid of all the people\nand what they could do BY AGING TOGETHER, and\nbecause he wanted to appear to be innocent good thing\nfor the country in which he lived and which kept him fat\nand prosperous styshy parted his in the middle\nand called himself A. Infant Industry. But time went\nof the people began to say that this Giant who\ntook their homes their Clothes their lives and everything\nelse was no Infant and SO they began calling him Adam\nTrust.\n\n\nWell, you may be that just part of the\npeople began calling things by their right whole\nlot of them went to thinking and looking into things\nand shortly they organized resolved that they would\nno longer pay such heavy tribute to Adam Trust in lives\nwages and other things\n\n\nIndeed this stirred Adam Trust greatly and he roared\nand whined grevously. But it in vain. If you\ngoing to get all raise, said the people, won't raise\nthings; well quit work\n\n\nMy! What blow that to the Giant! But he was\n\n\nvery sly and cunning old Giant have already said\nand so he took the matter TO THE HIGH PRIESTS of\nthe law, who held forth in place called the Supreme\nCourt And the high priests issued what they called\nInjunction forblddng part OF the people interfering\nwith A. Infant Industrys living people and their\nthings.\n\n\nPeople always get mad when told that they shall not\ndo this that and these enoned people boldly said\nthat the Giant Infant but simply Adam Trust and\nhe shouldn't longer live off people. Whereupon the high\npriests of the law put into jail number of the leaders of\nthe people FOR THEIR CONTEMPT of what the high\npriests had said.\n\n\nNow tins country OF our story was supposed to be gov\nemed under what they called Constitution and the peo\npie not yet in jail quoted to the high priests this:\n\n\nAmendment VI: In all criminal prosecutions the\ncused shall enjoy the right speedy and public trial by\nimpartial jury etc, etc.\n\n\nThe people thought they had the Giant and the high\npriests there but the high priests said:\n\n\n''Tle Constitution doesn't what it says. Con\ntempt is crime against us: We make it so. We are\nPROSECUTOR JUDGE AND JURY Jail for you'll!\n\n\nYou may well believe that this startled the people, So\nthey went to thinking again, and Of them decided\nthat if the Constitution out, THEY WOULD\nMAKE A NEW ONE that would say what it meant and\nmean what it said and not leave the final say to high\npriests, friends of the Giant\n\n\nThe story ends here, but maybe give you the\nsequel later on"
+    }
+  ]
+}

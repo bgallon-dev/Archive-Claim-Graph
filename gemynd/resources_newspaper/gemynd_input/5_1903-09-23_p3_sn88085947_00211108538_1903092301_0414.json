@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "SPECIAL NOTICE.\n\nNotice OF School District Bond\n\n\nElection",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-09-23",
+    "date_end": "1903-09-23",
+    "report_year": 1903,
+    "source_file": "5_1903-09-23_p3_sn88085947_00211108538_1903092301_0414",
+    "archive_ref": "5_1903-09-23_p3_sn88085947_00211108538_1903092301_0414",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1903-09-23_p3_sn88085947_00211108538_1903092301_0414",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 1.5,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "education": [
+          "school district"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 209,
+      "match_details": {
+        "education": [
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 243,
+            "in_headline": false
+          },
+          {
+            "term": "school district",
+            "weight": 0.5,
+            "offset": 27,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "education"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Election\n\n\nNotice Is hereby given that a spe-\ncial election will be held In school\ndistrict No. 81. Spokane county, state\nof Washington. on the 10th day of\nOctober, 1908. for the purpose of de-\ntermining whether or not the direc-\ntors of said school district shall bor-\nrow money and issue bonds Of the\ndistrict In the sum of four hundred\nthousand dollars ($400.00O for the\npurpose of purchasing sites and\nerecting school buildings. Said bonds\nIf issued shall bear interest not to\nexceed four and one-half per centum\nper annum. payable semi-annually;\nand bonds to be payable in twenty\n(2O) years from date thereof.\n\n\nThe election will be by ballot.\nThose in favor of the issuing of bonds\nas above specified will vote. Bonds.\nyes; those opposed. Bonds. no.\"\n\n\nThe polls will be open from 1\no'clock p. IN. to o'clock p. m.\n\n\nTho polling places will be as fol-\nlows:\n\n\nWard /. building E2l7 Third ave-\nnue.,\n\n\nWard Q. High school.\n\n\nWard 3. Washington school.\n\n\nWard 4, Bancroft school.\n\n\nWard 5. Webster school.\n\n\nBisbee precinct. First avenue and\nHaven street, Bankson Bros office\nBY order of the board of directors.\nDated this 10th day of September\n1908. Il. \\. THOMAS,\nSecretary of the Board of Directors"
+    }
+  ]
+}

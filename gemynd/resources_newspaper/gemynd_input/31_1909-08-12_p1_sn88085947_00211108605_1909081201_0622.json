@@ -1,0 +1,85 @@
+{
+  "metadata": {
+    "title": "IuDIANIAN\n\n\nWINS FIRST\n\nNames Of Lucky Ones at Flathead Lands\n\n\n---Creat Enthusiasm.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-12",
+    "date_end": "1909-08-12",
+    "report_year": 1909,
+    "source_file": "31_1909-08-12_p1_sn88085947_00211108605_1909081201_0622",
+    "archive_ref": "31_1909-08-12_p1_sn88085947_00211108605_1909081201_0622",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "31_1909-08-12_p1_sn88085947_00211108605_1909081201_0622",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 7.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "coeur d'alene",
+          "flathead",
+          "reservation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 245,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "coeur d'alene",
+            "weight": 1.5,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "flathead",
+            "weight": 1.5,
+            "offset": 378,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 98,
+            "in_headline": false
+          },
+          {
+            "term": "flathead",
+            "weight": 1.5,
+            "offset": 47,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "CoEUR D'ALENE, Aug. Thousands Of persons\n\n\nIre attending the opening Of the drawing Of the Fahead\nreservation lands this morning There is enthusiasm\nThan in the Occur Alene drawing Addressing the throng\nlust before the first card drawn at 10 o'clock Judge\nUitten sad I'VE about to begin the distribution Of\nhomes in one of the most beautiful and fertile valleys in\nhe world the Flathead valley This method is called\nlottery when it is not lottery is scheme where money\nInd property paid for the possibility Of winning\nrize You paid the government nothing for the privilege\n\n\nregistering You lose nothing. The number Of appli\nants greatly exceed the homes for distribution hence\n\n\nan for orderly and equitable distribution is necessary\nI've invited you to make application for them We inds\n\n\nUltimately select from those who make entry In the old\n\n\nplan people gathered in thousands the border and rush.\n\n\nmady at signal given, resulting in disgraceful scram\n\n\nHes tedious expensive contests and sometimes bloodshed\nThat plan left the weak to compete with the strong the\nmd with the bold the good with the bad and placed\nremiums lawlessness and perjury Eighty one thous\nnd three hundred sixty three applications according to\nffficial report, the platform six inches deep\nThe first drawing was made by Christiana Donlan,\nlaughter Of Senator Donlan of Missoula.\n\n\n! COEUR DALENE, Aug. 1.-THE first application\nrawn giving the first choice of the rich Flathead\nreservation lands, was that Of"
+    }
+  ]
+}

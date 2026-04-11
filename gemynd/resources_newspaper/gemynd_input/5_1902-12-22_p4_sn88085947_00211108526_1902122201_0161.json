@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "title": "RAILROADS NOT in\n\n\nPOLITICS, SAYS HILL",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-22",
+    "date_end": "1902-12-22",
+    "report_year": 1902,
+    "source_file": "5_1902-12-22_p4_sn88085947_00211108526_1902122201_0161",
+    "archive_ref": "5_1902-12-22_p4_sn88085947_00211108526_1902122201_0161",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1902-12-22_p4_sn88085947_00211108526_1902122201_0161",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "great northern",
+          "freight rate",
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "SEATTLE Dec. 2G.-PreSident ], ].\nHill of the Great Northern was in\nterviewed just before leaving Seattle\non politics.\n\n\n1T is very grating ne to hear\nthat the Great Northern is in poll\ntics said Mir. Hill. 1T never has\nbeen and never will be So long as\ncan prevent il. Whay we want is to\nbe given assistance in the work we\nare trying to do for Seattle and the\nstate of Washington. and not to be\nhampered. When the lines OF the\nNorthern Securities company in this\npart of the country prosper SO will\nSeattle, and when we are experiencing\nhard times then the effect VIII be\nfelt here.\n\n\nNaturally ! am opposed to the\nrailroad commission bill. for it will\ninterfere with our plans.\n\n\nAT the present time we are putting\nin freight rates that are far below\nwhat will he profitable to us for the\nvery reason that We are trying to de-\nveiop this oriental trade III order\nto do this we must put III rates that\nwill give us the traffic. and it is to\nour own interest as much as it is to\nanyone else. There is no use in fight"
+    }
+  ]
+}

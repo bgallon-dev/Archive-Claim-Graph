@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "GOV. MEAD\n\n\nIN SPOKANE",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-09-01",
+    "date_end": "1906-09-01",
+    "report_year": 1906,
+    "source_file": "1_1906-09-01_p1_sn88085947_00211108563_1906090101_1094",
+    "archive_ref": "1_1906-09-01_p1_sn88085947_00211108563_1906090101_1094",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1906-09-01_p1_sn88085947_00211108563_1906090101_1094",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 1.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ],
+        "spokane_development": [
+          "chamber of commerce"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 143,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 310,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 526,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Governor Mead is in the city to-\nday, having arrived this morning\nfrom Everett, where he attended\nthe fair. Major Browne, the gov\nernors secretary, is also here and\nthis morning went to Occur\nd'Alene, Idaho. The governor is\nhere for the purpose of completing\nthe appointment of Spokane dele\ngates to the Boise irrigation con-\ngress. He spent the day in COM\npany with Secretary Monroe and\nmembers of the chamber of com\nmerce comforting on this matter.\n\n\nL. c. Rohrabacher, secretary OF\nthe publicity committee of the Spo-\nkane chamber of commerce. is on\nthe Sound endeavoring tn enlist\ncommercial bodies there in the\nSpokane plan to populate the rural\ndistricts of the northwest. He has\nrequested the commercial bodies to\neach send delegates to the confer\nence of the Washington Publicity\nbureau, which will meet in Spo-\nkane September rs."
+    }
+  ]
+}

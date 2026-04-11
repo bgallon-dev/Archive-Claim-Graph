@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "CUT UP STEVENS\n\n\nCOUNTY",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-16",
+    "date_end": "1904-03-16",
+    "report_year": 1904,
+    "source_file": "8_1904-03-16_p1_sn88085947_00211108538_1904031601_1112",
+    "archive_ref": "8_1904-03-16_p1_sn88085947_00211108538_1904031601_1112",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1904-03-16_p1_sn88085947_00211108538_1904031601_1112",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 2.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "colville",
+          "reservation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 105,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "colville",
+            "weight": 1.5,
+            "offset": 101,
+            "in_headline": false
+          },
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 110,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "There IL a deep scheme purporting\nto come from Lincoln county looking\ntowards the cutting off of the Colville\nreservation from Stevens county and\nattaching it to Lincoln. The plan is\nto annex al THAT part of Stevens\ncounty between the Spokane river and\nthe north line of township 90.\n\n\n1t is claimed that this plan origi-\nmated in Davenport. 1t is believed to\nbe quite feasible for the reason that\ncounty seat of Stevens county. while\n1t is comparatively easy in Lincoln\ncounty. The rate of taxation is also\nlower in Lincoln county. Stevens\ncounty is fighting the loss of any of\nits territory."
+    }
+  ]
+}

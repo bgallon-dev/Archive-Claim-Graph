@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "LINE UP THE HILL ROADS AND\n\n\nTHE UNION DEPOT \"COES''",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-10-13",
+    "date_end": "1909-10-13",
+    "report_year": 1909,
+    "source_file": "24_1909-10-13_p2_sn88085947_00211108605_1909101301_1110",
+    "archive_ref": "24_1909-10-13_p2_sn88085947_00211108605_1909101301_1110",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1909-10-13_p2_sn88085947_00211108605_1909101301_1110",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 83,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 453,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 39,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the afternoon of October 26 at the\nsame place, when the railroads will\nbe better prepared to speak as to\ntheir individual attitude on the\nquestion. By that time more def\nmite knowledge of the position of\nthe Hill lines will be secured.\n\n\nChairman Browne of the COM\nmittee is much pleased with the\ninterest shown by the railroad\nmen at yesterdays meeting, and\nentertains the hope that the move\nment. will result in some of the\nroads uniting in the union depot"
+    }
+  ]
+}

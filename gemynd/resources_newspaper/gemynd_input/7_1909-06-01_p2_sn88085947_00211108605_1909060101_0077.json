@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "cow TO GET SOME OF THE MILLION\n\n\nACRES UNCLE SAM Is TO RATTLE OFF",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-06-01",
+    "date_end": "1909-06-01",
+    "report_year": 1909,
+    "source_file": "7_1909-06-01_p2_sn88085947_00211108605_1909060101_0077",
+    "archive_ref": "7_1909-06-01_p2_sn88085947_00211108605_1909060101_0077",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1909-06-01_p2_sn88085947_00211108605_1909060101_0077",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "flathead"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 125,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "flathead",
+            "weight": 1.5,
+            "offset": 90,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "installment will forfeit all RICH.\nto the land entered and all money\nalready paid.\n\n\n'The Flathead lands have al\nready been appraised at SLIPS to 81\nan acre, and the lands in the other\nreservations are now being ap\npraised, probably at the same\nprice.\n\n\nSoldiers who served IN the civil\nwar, the Spanish war, or the Philip.\npine insurrection, or their WIDOWS\nor minor orphan children are not\nrequired to go to the registration\npoints in person, but may register\nthrough agents who will reply to\ntheir applications for such registra-\nton at one of the points named.\nThey will not be required to make\nentry on the day designed them for\nthat purpose, but may file, either\nin person or through agents, de-"
+    }
+  ]
+}

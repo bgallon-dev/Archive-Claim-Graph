@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-11-12 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-12",
+    "date_end": "1904-11-12",
+    "report_year": 1904,
+    "source_file": "5_1904-11-12_p3_sn88085947_0021110854A_1904111201_0636",
+    "archive_ref": "5_1904-11-12_p3_sn88085947_0021110854A_1904111201_0636",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-11-12_p3_sn88085947_0021110854A_1904111201_0636",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 201,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 690,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The leading organizations OF wom-\nen- throughout the country are send\ning protests to their congressman\nand the territorial committee OF the\nsenate against the bill proposing to\nunite Oklahoma and Indian territories\ninto one state under the name OF\nOklahoma. and TO combine New Mex\nleo and Arizona territories into a\nstate under the name Of Arizona.\n\n\nThe portion OF the bill to which\nthe women take exception is found\nIn paragraphs OF Sections and\n81, which would allow these states.\nwhen organized. to disfranchise mi\nnors, criminals, lunatics. non-resi-\ndents. ignoramuses and women. II\nreads as follows;\n\n\nTHAT said state shall never enact\nany law restricting or abridging the\nright of suffrage on account OF race,\ncolor or previous condition of servi-\ntude. or on account OF any other con-\nditions or qualifications, save and ex-\ncent on account of illite\"acy, minor\nity-Ssex. conviction OF felony, mental\ncondition. OF residence\"\n\n\nThis not only authorizes the dis\nfra uchisement OF women. but classes\nthem with the degraded. tmbecile and\nimmature OF the opposite sex. Such\nn classification is an insult to Ameri-\ncan swomanhood. The pioneer women\nOF th west, who have iabored and\nsuffered by their husbands sides to"
+    }
+  ]
+}

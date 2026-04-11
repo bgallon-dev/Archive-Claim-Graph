@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HILL WOULD SELL",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-03-13",
+    "date_end": "1907-03-13",
+    "report_year": 1907,
+    "source_file": "14_1907-03-13_p4_sn88085947_00211108575_1907031301_0459",
+    "archive_ref": "14_1907-03-13_p4_sn88085947_00211108575_1907031301_0459",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1907-03-13_p4_sn88085947_00211108575_1907031301_0459",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 70,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 131,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "MINNEAPOLIS, March 13-1n\ntestifying before the legislative\ncommittee yesterday J. ]. Hill said\nhe was entirely willing to sell the\nGreat Northern to the government\nHe figured it would cost 100000 per\nmile to duplicate that line, but dio\nnot intimate he would sell it fol\nthat price. Hill said the govern\nment would find the railroad bust\nness a white elephant it would be\nglad to get rid of."
+    }
+  ]
+}

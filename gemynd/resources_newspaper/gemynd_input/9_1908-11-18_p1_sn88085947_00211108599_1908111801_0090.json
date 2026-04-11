@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "DIRTY Bakeries DON'T\n\n\nBOTHER CITY COUNCIL\n\nSanitary Inspection Ordinance Once More\n\n\nThrottled in Committee.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-18",
+    "date_end": "1908-11-18",
+    "report_year": 1908,
+    "source_file": "9_1908-11-18_p1_sn88085947_00211108599_1908111801_0090",
+    "archive_ref": "9_1908-11-18_p1_sn88085947_00211108599_1908111801_0090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1908-11-18_p1_sn88085947_00211108599_1908111801_0090",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 224,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 30,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ments the proper and best place\nfor bakeries.\n\n\nBittrick retorted: There il not\na clean basement bakery In the\ncity. The bread is mixed on tables\nnear the windows. II the ordinance\nis passed basement bakeries viii\npractically be prohibited. The or.\n\n\ndinance prohibits bakeries in base1\n\n\nments more than four feet deep.\n\n\nBasement bakeries are dirty holes,\n\n\nand nothing more. There Is no\nventilation and little light\nCouncilman Mohr said he Is get\nting fat on the bakery, wherefore\n\n\nhe is satisfied.\nOstrander said he thought the\n\n\nordinance merely a scheme Of the\nhealth department to saddle the\nexpense of another inspector upon\nthe taxpayers.\n\n\nBittrick then asked why no\n\n\nbakery proprietors were on hand\nto oppose the ordinance. They\n\n\nhaven't the nerve to oppose Il\nopenly\" he said. when inspec-\ntors in a feeble endeavor to have\nthem clean up recommend some\n\n\nchanges the proprietors tell the\ninspectors they have no author\n| ity,\"\n\n\nCouncilman Lambert said there\n\n\nwas a lot in the ordinance which\n\n\nwas foolish and he did not favor\n\n\nrecommending its passage.\nCouncilman Dalke seconded by\nCouncilman Watkins moved that\nIt be reported out. The motion waa\n\n\nlost, Dalke and Watkins being tho\n\n\nonly two voices for it. When those\nopposed were asked to signify their\nvote several OF them grunted, and\n\n\nChairman Schiller took the grunts\nfor noes."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1906-03-01 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-01",
+    "date_end": "1906-03-01",
+    "report_year": 1906,
+    "source_file": "5_1906-03-01_p3_sn88085947_00211108563_1906030101_0462",
+    "archive_ref": "5_1906-03-01_p3_sn88085947_00211108563_1906030101_0462",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1906-03-01_p3_sn88085947_00211108563_1906030101_0462",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 93,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 377,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The supreme court yesterday af-\nfirmed the superior court of Spo-\nkane county in the case Of Martin\nj. Kalez ct al, appellants, VS.. the\nSpokane Valley Land & Water COM\npany, respondent, in which an irri-\ncation project and a summer resort\nwere fighting for the water of Lib\nerty lake. Utility won out over\nrecreation in the supreme court, as\nit did in the superior court, the\nirrigation company securing the\njudgment of dismissal against the\nsuit brought by the appellants to\nenjoy the use Of the waters of the\nlake."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "100000\n\n\nRECLAMATION",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-08-11",
+    "date_end": "1908-08-11",
+    "report_year": 1908,
+    "source_file": "22_1908-08-11_p1_sn88085947_00211108587_1908081101_0833",
+    "archive_ref": "22_1908-08-11_p1_sn88085947_00211108587_1908081101_0833",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1908-08-11_p1_sn88085947_00211108587_1908081101_0833",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 7.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "reclamation",
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 89,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 35,
+            "in_headline": false
+          },
+          {
+            "term": "reclamation",
+            "weight": 2.0,
+            "offset": 9,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, Idaho, Aug. 1.-THE big\ngest irrigation enterprise ever I'M\ndertaken in this country was\nlaunched today when the state land\nboard segregated under the Carey\nact 100000 acres in Owyhee coun-\nty. 1t will cost $4,000, 900.\n\n\nThe project Is financed by the\nBull interests and will give the\nfirst demonstration of the possible.\nties of irrigation under the act. The\nwaters of the Snake and Bruneau\nrivers will be diverted.\n\n\nThis is the sixth and greatest Of\ntheh Twin Falls projects, making a\ntotal of 100000 acres."
+    }
+  ]
+}

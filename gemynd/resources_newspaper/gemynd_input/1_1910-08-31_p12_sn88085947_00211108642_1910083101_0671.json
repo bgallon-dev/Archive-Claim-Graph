@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "PROTEST CLOSING\n\n\nOf STREETS",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-08-31",
+    "date_end": "1910-08-31",
+    "report_year": 1910,
+    "source_file": "1_1910-08-31_p12_sn88085947_00211108642_1910083101_0671",
+    "archive_ref": "1_1910-08-31_p12_sn88085947_00211108642_1910083101_0671",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1910-08-31_p12_sn88085947_00211108642_1910083101_0671",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "right of way"
+        ],
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 127,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 280,
+            "in_headline": false
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 41,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A vigorous protest was made be-\nfore the city council last night\nagainst the passage of the ordi-\nnance closing Xenia, Hogan, Den\nyer and Perry streets where the\nsame crossed the tracks of the In\nland road. The company has ask\ned that these streets be vacated\nacross the railroad right of way\nand closed to traffic.\n\n\nj., Property owners say that the\nstreets are. important connecting\nlinks north and south and that pro-\nvisions for opening these streets\nunder teh tracks of the Milwaukee\nhave been made.\n\n\nThe city council has agreed to\nlook over the ground next Friday\nmorning at 10 O'Clock and to take\nthe matter up at meeting next\nFriday night, at which the property\nowners will be given chance to\nprotest."
+    }
+  ]
+}

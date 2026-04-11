@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Files a Bond\n\n\nwith the City.",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-03-09",
+    "date_end": "1903-03-09",
+    "report_year": 1903,
+    "source_file": "21_1903-03-09_p1_sn88085947_00211108526_1903030901_0419",
+    "archive_ref": "21_1903-03-09_p1_sn88085947_00211108526_1903030901_0419",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1903-03-09_p1_sn88085947_00211108526_1903030901_0419",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 65,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Washington Water Power com\npany filed a $4,000 bond today with\nthe city to insure the municipality\nagainst any damage that might re-\nsuit from the operation OF the cleo\ntrio light system.\n\n\n1t Is explained that the Edison\nElectric Illuminating company origi-\nnally got the permit to conduct the\nlighting plant. but that the water\npower people secured their right\nsome years ago."
+    }
+  ]
+}

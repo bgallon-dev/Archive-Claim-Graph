@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "COUNCILMAN BROWNS IDEA\nOF RECONSTRUCTlNG AND\nENlARGlNG CIVIC LEGlSLA-\nTIVE BODY.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-12-14",
+    "date_end": "1907-12-14",
+    "report_year": 1907,
+    "source_file": "10_1907-12-14_p1_sn88085947_00211108587_1907121401_0007",
+    "archive_ref": "10_1907-12-14_p1_sn88085947_00211108587_1907121401_0007",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1907-12-14_p1_sn88085947_00211108587_1907121401_0007",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 338,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 1694,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1869,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Councilman L. c. Brown, of the\nFirst ward, believes the city can\nand should be redistricted on a\nnpartizanship basis, and also\nsees no reason why the council\nis barred from selecting the new\ncouncilmen comprehended in pres\nent plans. The councils authority\nin this regard has been brought\ninto question on conflicting charter\nprovisions, and Corporation Coun-\nsci Hamblen is now preparing an\nopinion on the points involved. In\nspeaking of the democratic attitude\ntoward redistricting Mr.. Brown has\nthe following to say:\n\n\nThe question of party control\ncould not, and moreover would not,\nbe changed by the passage of a re-\ndistricting measure, which has not\neven been framed yet, and will not\nbe until the committee has made\nits report. When that committee\npasses upon the ACCESSIBILITY of re-\ndistricting | believe the result OF\ntheir opinion will show that the\ndemocrats do not desire TO steal\nthe legislative body or 'thwart the\nwill of the people by cnange o,\nthe complexion of that body po-\nlitically. There is one thing GER\ntain if the action taken now, and\nwhich the democrats wish to carry\nout. is in any way partisan, any fu'\nture action after the change of the\ncomplexion of the council next\nMay with the republicans FREEDOM\nmating, would be much more so, as\nil is believed that party would take\nunto themselves the naming of all\ncouncimen of their own political\nfaith. All that is wished by the\nmembers of the council as at pres\nent constituted, and especially the\ndemocrats, is to meet the neces-\nstiles of our rapidly growing city.\n\n\nThe question of redisricting the\nwards of the city is one that has\nbeen brought before the city coun-\nell several times since the adop-\nton of the city charter in April,\n1891. Section of the charter then\nadopted, and which has not since\nbeen subjected to criticism or sug-\ngestion Of an amendment, reads as\nfollows:\n\n\nThe city council shall have the\npower to redistrict the city into"
+    }
+  ]
+}

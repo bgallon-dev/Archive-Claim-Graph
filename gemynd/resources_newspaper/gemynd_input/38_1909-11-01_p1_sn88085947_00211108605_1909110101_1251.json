@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "IS\nWANTED\n\n\nHE R {",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-01",
+    "date_end": "1909-11-01",
+    "report_year": 1909,
+    "source_file": "38_1909-11-01_p1_sn88085947_00211108605_1909110101_1251",
+    "archive_ref": "38_1909-11-01_p1_sn88085947_00211108605_1909110101_1251",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "38_1909-11-01_p1_sn88085947_00211108605_1909110101_1251",
+      "composite_score": 11.9,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "industrial workers",
+          "free speech fight"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 57,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "industrial workers",
+            "weight": 3.0,
+            "offset": 167,
+            "in_headline": false
+          },
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 70,
+            "in_headline": false
+          },
+          {
+            "term": "free speech fight",
+            "weight": 3.0,
+            "offset": 70,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Eugene v. Debs. care of Appeal\nto Reason. Girard, Kansas: Ire\nmendous free speech fight on here.\nAgitators threatened bull pen. Dis\nelimination against socialists and\nIndustrial Workers of World. Come\nat once.\n\n\nFree Speech Committee\n\n\nSocialist Party\"\nThe foregoing telegram was sent\nto Eugene v. Debs. leader of the\nsocialist perty in this country, this\nafternoon."
+    }
+  ]
+}

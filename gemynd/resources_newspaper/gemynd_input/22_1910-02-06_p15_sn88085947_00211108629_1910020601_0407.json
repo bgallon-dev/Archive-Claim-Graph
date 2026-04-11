@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-02-06 — pp15",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-06",
+    "date_end": "1910-02-06",
+    "report_year": 1910,
+    "source_file": "22_1910-02-06_p15_sn88085947_00211108629_1910020601_0407",
+    "archive_ref": "22_1910-02-06_p15_sn88085947_00211108629_1910020601_0407",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "22_1910-02-06_p15_sn88085947_00211108629_1910020601_0407",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 149,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 690,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "You how the factory owners have pted the girls\nagainst each other. the Catholic against the Jew But\nthe girls were keen and they had been thinking They\nrealized that their interests the and that they\nmust stand together to win %t,zs . M\n\n\nThere little Italian girl who spoke before the\nmembers of the Colony club She said: \"The boss had\nto tell the Italian girls they would go\nPerdition if they had anything to do with the Jews\nAnd they told the Jewish girls the thing about the\nItalians But the girls too wise for that argument\nThey had outgrown it and they had a realza-\nton of their universal sstehood And it is just that\nfeeling in the uptown which has them help\nthe striking girls The suffrage discussion which has\nbeen going on has reused them to breadth of view\nthey have never had before"
+    }
+  ]
+}

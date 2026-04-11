@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "title": "COMPANY\n\n\nPAYMENTS\n\n\nPASSED Up",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-06",
+    "date_end": "1908-10-06",
+    "report_year": 1908,
+    "source_file": "5_1908-10-06_p3_sn88085947_00211108587_1908100601_1135",
+    "archive_ref": "5_1908-10-06_p3_sn88085947_00211108587_1908100601_1135",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1908-10-06_p3_sn88085947_00211108587_1908100601_1135",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 346,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 160,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1156,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": {
+        "depression_era": [
+          {
+            "term": "public works",
+            "original_weight": 1.5,
+            "offset": 605,
+            "penalty": 1.0,
+            "in_headline": false
+          }
+        ]
+      }
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "In resolutions that bore the ear\nmarks of baving been prepared in\nthe Spokesman-Review Office a\nmeeting at Elks' temple last night\ndemanded concrete bridges at\nMonroe street and Olive avenue,\ncapped City Engineer Ralston for\nnot pushing along the plans for\nconcrete bridges at these river\ncrossings and requested that the\nplans for these bridges proceed i'm\nnediately; recommended the en-\nployment of Professor VIM. H.\nBurr for exporting the plans to be\nprepared by the engineer, in the\ninterest of economical revision\"\nof the same, If necessary; urged\nvigor and dispatch by the city\ncouncil and board of public works\nin carrying out these orders, and\nconcluded by ordering a copy Of\nthe resolutions served on the vari-\nGUS heads of the city government\n\n\nOnly small crowd, which\nseemed lost in the large room, was\npresent and many of these left\nbefore the resolutions were pre-.\nsnted. N. w. Durham, editor of\ntn morning paper, officiated as con-\nsulting engineer of the evening.\n\n\nTo those In the audience sincere\nly in favor of concrete bridges the\nproceedings sounded we'll enough,\nwhere 1t was taken seriously. In\nview of the fact that majority of\nthe city council have expressed\nthemselves favorable to concrete\nbridges built at not excessive\ncost over steel, many wondered\nwhy the occasion for the reprint\nfuss and clamor.\n\n\nThe vital question with the city\ncouncil, as to how the city Is to\nsecure satisfactory settlement\nwith the street railway companies\non the distribution of the bridge\ncost before proceeding at all,\nwas not discussed.\n\n\nThe most effective speech from\nthe standpoint Of argument was\nmade by Thomas Maloney of the\nfederal union, who showed the per-\ncentage of bridge cost that would\nremain at home in the case of\nconcrete or steel. He estimated\nthat In concrete bridges Is to 80\nper cent. of the cost would re-\nmain at home, while in the case\nof steel he placed the home return\nat less than 20 per cent.\n\n\n]. T. O'Brien, member of the\nboard of public works, came to the"
+    }
+  ]
+}

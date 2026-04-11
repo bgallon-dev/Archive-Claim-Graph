@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "BEST LABOR DAY PARADE SPOKANE EVER MANY THOUSANDS IN Tin",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-09-05",
+    "date_end": "1904-09-05",
+    "report_year": 1904,
+    "source_file": "9_1904-09-05_p1_sn88085947_0021110854A_1904090501_0384",
+    "archive_ref": "9_1904-09-05_p1_sn88085947_0021110854A_1904090501_0384",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-09-05_p1_sn88085947_0021110854A_1904090501_0384",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "monroe street",
+          "riverside avenue"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 399,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 497,
+            "in_headline": false
+          },
+          {
+            "term": "riverside avenue",
+            "weight": 1.0,
+            "offset": 1028,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "tLaDor'S day OF rest ana recreation\nbfought out the union man and his\nfriends by the thousand today. Sew\neFal Thousand of the people who stand\nfor the tenets Of organised labor\nparticipated in the parade, while\ntwice as many Of their wives, sweet\nhearts. children and supporters lined\nthe sidewalks along the line Of march\nfor the big procession.\n\n\nThe parade started on time, as Ia\nDor has been in the habit Of doing\nthese many years. The start was\nmade at 10 o'clock sharp from First\navenue and Monroe street.\n\n\nPromptly on the hour Presidents\nJoyce and Quinn Of the two central\nlabor bodies clucked to their pranc-\ning black steeds. Hopes band blew\nthe first joyous notes Of hot tune\nJust az Old Sol broke from cover\nwith his warmest sweltering rays Of\nthe day. Sergeant George Holiway\nsaid something in an undertone\nwhich started his blucoats into ac-\ntion, the ofYlcers Of the two trades\nassemblies swung into line. and the\nbig street show was started.\n\n\nThe line Of march was east on\nFirst avenue to Post street, north to\nRiverside avenue and east to Divis-\nion street, where the columns coun-\ntermarched and returned down Riv-\nerside to Monroe street and south to\nFirst avenue, where the union dis\nbanded to take the cars to the park.\n\n\nFirst in line after the marshaIs.\npolice and band, were the officers\nOf the central bodies, followed by\nthe speakers and members Of the\nlabor organ, the Spokane Record\nThe typographical union had the\nplace of honor in the parade as the\nOldest organization. The line was\nmade up as follows:\n\n\nTypographical union.\n\n\nJourneyman tailors.\n\n\nPlasterers.\n\n\nBuilding laborers.\n\n\nHod carriers.\n\n\nPlumbers. steam and gas filters.\n\n\nOccur d'Alene band.\n\n\nBricklayers.\n\n\nStone masons.\n\n\nI. B. E. w.\n\n\nCarpenters.\n\n\nI. e. B.\n\n\nSpokane band.\n\n\nCigarmakers.\n\n\nPainters and decorators.\n\n\nCarriages and automobiles.\n\n\nBrewery workmen.\n\n\nPrsssmen.\n\n\nH0rseshoers.\n\n\nMachinists.\n\n\nBakers and confectionery workers.\nHotel and restaurant employees.\n\n\nTransfers.\n\n\nStationary engineers.\n\n\nHpokane Federal union.\n\n\nSheet metal workers.\n\n\nB. r. c. Of A.\n\n\nBlacksmiths and helpers.\n\n\nBartenders' league, teamsters, wag-\nons and floats.\n\n\nE'hs largest turnout was by the\ncarpenters, who had 394 men in line.\n\n\nThe largest and best float in line\nwas undoubtedly that of the hotel\nand restaurant employees. A man,\nmoth platform was surmounted with\nreproduction of a restaurant and\ndining room. prettily decorated and\nwith guests. cooks and walters at"
+    }
+  ]
+}

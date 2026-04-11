@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-02-06 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-02-06",
+    "date_end": "1905-02-06",
+    "report_year": 1905,
+    "source_file": "4_1905-02-06_p2_sn88085947_00211108551_1905020601_0121",
+    "archive_ref": "4_1905-02-06_p2_sn88085947_00211108551_1905020601_0121",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1905-02-06_p2_sn88085947_00211108551_1905020601_0121",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 273,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 815,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "at least should be exempt from suf-\n\n\nfering the extreme penalties of the\n\n\nlaws in whose making we had no\n\n\nparticipation. The law never hangs\n\n\nidiots or lunatics, no matter what\n\n\ncrimes they have committed Their\n\n\nmental state eXempts them, women,\nwith the exception of the four states\nin the far west, are classified after\n\n\nthose of deficient mentality and why\nshould they then be treated as the\n\n\nequal of men when it comes to pun\nishment?\n\n\nut is this stand that l have taken,\nfor the poor creatures now standing\nin the shadow of the gallows. l\nargue only for their political rights.\nMrs. Blake is the president of the\nNational Legislative League. AL\n\n\nthough she comes of a long line of\nAmerican aristorcrats, both of the\nsouth and north, she, at an early\n\n\nage, associated herself with the adj\nvocates of suffrage for women and\nhas fought for this privilege with\n\n\nsuch other great advocates as Eliza\nbttH tduy otdHtoh, susan 10. All\n| thony and DR.. Mary Putnam ap.\npointed in this country were results\nof her agitation, and mainly through\nher efforts the women of New York\nstate We're permitted to vote fol\n| school trustees.\n\n\n| She was one of the trainers of the\n| law which permits a woman to make\na will without her husbands con\nsent, and the one which makes q\n| mother and father joint guardians\n| of their children and provides that\n\n\nwomen shall be trustees in all in\n\n\nstitutions where women are placed.\nShe is a member of many clubs\n\n\nand is the founder of the society foi\n| Political study."
+    }
+  ]
+}

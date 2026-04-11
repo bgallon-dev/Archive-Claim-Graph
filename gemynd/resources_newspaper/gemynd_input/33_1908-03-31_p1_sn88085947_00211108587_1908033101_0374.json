@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "CLOSED SHOP OR\n\n\nBIG STRIKE",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-03-31",
+    "date_end": "1908-03-31",
+    "report_year": 1908,
+    "source_file": "33_1908-03-31_p1_sn88085947_00211108587_1908033101_0374",
+    "archive_ref": "33_1908-03-31_p1_sn88085947_00211108587_1908033101_0374",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "33_1908-03-31_p1_sn88085947_00211108587_1908033101_0374",
+      "composite_score": 12.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 9.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "closed shop"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 54,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 128,
+            "in_headline": false
+          },
+          {
+            "term": "closed shop",
+            "weight": 2.0,
+            "offset": 163,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 21,
+            "in_headline": true
+          },
+          {
+            "term": "closed shop",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "DENVER, March 31.---A confer\nence between the Gould railroad\nofficials and union men will better\nmine the question of a general\nstrike on the road or renewal of a\nclosed shop contract. The issue is\nbased on the closed shop. Boiler\nmakers and blacksmiths have voted\nto strike if the contracts are not\nrenewed"
+    }
+  ]
+}

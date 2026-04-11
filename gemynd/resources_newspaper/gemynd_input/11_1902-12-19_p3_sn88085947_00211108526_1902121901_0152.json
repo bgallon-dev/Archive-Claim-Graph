@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "title": "VISIT NORMAL SCHOOL.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-19",
+    "date_end": "1902-12-19",
+    "report_year": 1902,
+    "source_file": "11_1902-12-19_p3_sn88085947_00211108526_1902121901_0152",
+    "archive_ref": "11_1902-12-19_p3_sn88085947_00211108526_1902121901_0152",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1902-12-19_p3_sn88085947_00211108526_1902121901_0152",
+      "composite_score": 12.5,
+      "domain_scores": {
+        "turnbull_prehistory": 2.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 10.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "cheney",
+          "medical lake"
+        ],
+        "education": [
+          "state normal",
+          "normal school"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902,
+      "word_count": 55,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "medical lake",
+            "weight": 1.5,
+            "offset": 325,
+            "in_headline": false
+          },
+          {
+            "term": "cheney",
+            "weight": 1.0,
+            "offset": 99,
+            "in_headline": false
+          }
+        ],
+        "education": [
+          {
+            "term": "normal school",
+            "weight": 2.5,
+            "offset": 82,
+            "in_headline": false
+          },
+          {
+            "term": "state normal",
+            "weight": 2.5,
+            "offset": 76,
+            "in_headline": false
+          },
+          {
+            "term": "normal school",
+            "weight": 2.5,
+            "offset": 6,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "education",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane district representa-\ntives-elect to the Legislature visited\nthe State Normal school at Cheney\nyesterday and decided to work for an\nappropriation of $111,130 for the\nschool for the coming year. Forty\nthousand dollars of this amount is\nneeded for a new annex\n\n\nToday the representatives are visit\ning the asylum at Medical Lake."
+    }
+  ]
+}

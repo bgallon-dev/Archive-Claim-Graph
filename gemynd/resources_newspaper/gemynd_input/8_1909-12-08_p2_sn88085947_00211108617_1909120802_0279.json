@@ -1,0 +1,86 @@
+{
+  "metadata": {
+    "title": "Intense INTEREST IN\n\n\nELIZABETH FLYNN TRIAL",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-12-08",
+    "date_end": "1909-12-08",
+    "report_year": 1909,
+    "source_file": "8_1909-12-08_p2_sn88085947_00211108617_1909120802_0279",
+    "archive_ref": "8_1909-12-08_p2_sn88085947_00211108617_1909120802_0279",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "8_1909-12-08_p2_sn88085947_00211108617_1909120802_0279",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 7.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "conspiracy",
+          "gurley flynn",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 322,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 1357,
+            "in_headline": false
+          },
+          {
+            "term": "gurley flynn",
+            "weight": 3.0,
+            "offset": 766,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 1258,
+            "in_headline": false
+          },
+          {
+            "term": "conspiracy",
+            "weight": 1.0,
+            "offset": 236,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "With an intensely interested\nthrong Of spectators crowding JUS\ntice Suckers small court room and\nstanding six deep in the doorway\nthe men niterspersed with a half\ndozen women-the trial of Eliza.\nbeth Guriey Flynn-Jones on the\ncharge of conspiracy was COM\nmenced this morning.\n\n\nFive witnesses were examined for\nthe state during the course of the\nmorning session, a police secretary,\nmayors secretary, two reporters\nand captain Of detectives.\n\n\nIs the trial fair one? The au-\nthoriues claim that it is, that they\nare not \"railroading the |. w. w.\nleaders into prison. Yet this morn\ning Prosecuting Attorney Pugh was\nupheld at every point by Justice\nStocker. while every objection of\nAttorney Fred H. Moore, no mat\nter how trivial, was overruled by\nJustice Stocker.\n\n\nGURLEY FLYNN'S SPEECHES.\n\n\nFollowing his opening address to\nthe jurors, in which he made known\nhis intention of proving that the\ndefendant was guilty of conspiracy\nin plotting to break a municipal\nordinance, he placed in evidence a\ncopy of portions of a speech pur-\nported to have been made by the\ndefendant in the |. w. w. hall and\ntaken down in short hand by leon\nHopper, secretary to Chief of Police\nSullivan.\n\n\nIn this address Gurley Flynn ap-\npealed for help financially and to\nfill the Jail, condemned the Spokes-\nman-Review as an organ OF the en-\nployment agents, and made a gen\neral free speech appeal.\n\n\nJohn Lee, Mayor Pratt's secre-\ntary. testified that he attended a\nmeeting of the |. w. W. on Thurs\nday evening, November II, at\nwhich the girl orator\" addressed\nher fellow workers, eXhorting\nthem to make several more dem\nonstrations and the police would be\nwhipped She declared that the\npolice were beaten and their move\ndeclaring the |. w. VS. foreigners\nwas the last stand and an acknowl-\nedgenent of defeat.\n\n\nArthur Perry, a Spokesman-Re-\nview reporter. was called upon to\ntestify regarding an inflammatory"
+    }
+  ]
+}

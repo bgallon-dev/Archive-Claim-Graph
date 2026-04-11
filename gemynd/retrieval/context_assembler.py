@@ -22,6 +22,7 @@ from gemynd.core.graph.cypher import (
     FULLTEXT_CLAIMS_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
     TEMPORAL_CLAIMS_QUERY,
+    build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
 from .executor import Neo4jQueryExecutor
@@ -86,6 +87,7 @@ def _select_retrieval_plan(
     *,
     intent_map: dict[str, list[str]] | None = None,
     anchor_temporal_plans: list[tuple[str, str]] | None = None,
+    anchor_document_plans: dict[str, str] | None = None,
 ) -> list[tuple[str, dict]]:
     """Return one or more (template, params) pairs matching the query shape.
 
@@ -158,11 +160,29 @@ def _select_retrieval_plan(
             **_access_params,
         })]
     if has_entities:
-        return [(ENTITY_ANCHORED_CLAIMS_QUERY, {
+        plans: list[tuple[str, dict]] = [(ENTITY_ANCHORED_CLAIMS_QUERY, {
             "entity_id": resolved_ids[0], "year_min": year_min,
             "year_max": year_max, "limit": budget * 2,
             **_access_params,
         })]
+        # When the resolved entity is itself a corpus anchor (e.g. the Spokane
+        # Place node that the newspaper corpus blanket-links to via ABOUT_PLACE),
+        # emit an additional document-level anchor plan so claims from the full
+        # corpus flow through — not just claims whose extractor independently
+        # resolved the surface form to the same entity.
+        if anchor_document_plans:
+            for resolved_id in resolved_ids:
+                doc_cypher = anchor_document_plans.get(resolved_id)
+                if doc_cypher is not None:
+                    plans.append((doc_cypher, {
+                        "anchor_id": resolved_id,
+                        "year_min": year_min,
+                        "year_max": year_max,
+                        "claim_types": inferred_claim_types,
+                        "limit": budget * 3,
+                        **_access_params,
+                    }))
+        return plans
     return [(FULLTEXT_CLAIMS_QUERY, {
         "search_text": _sanitize_fulltext(query_text), "limit": budget * 2,
         **_access_params,
@@ -376,6 +396,9 @@ class ProvenanceContextAssembler:
         # Pre-build per-corpus anchor-temporal cypher templates, in the same
         # order as institution_ids so result iteration is deterministic.
         self._anchor_temporal_plans: list[tuple[str, str]] = []
+        # Per-corpus document-level anchor plans, keyed by anchor entity_id so
+        # the router can look up "is this resolved entity a corpus anchor?"
+        self._anchor_document_plans: dict[str, str] = {}
         # Map of cypher template → human label for telemetry.
         self._template_names: dict[str, str] = {
             TEMPORAL_CLAIMS_QUERY: "TEMPORAL",
@@ -408,6 +431,9 @@ class ProvenanceContextAssembler:
                 cypher = build_temporal_with_anchor_query(entity_type, relation)
                 self._anchor_temporal_plans.append((entity_id, cypher))
                 self._template_names[cypher] = f"TEMPORAL_ANCHOR[{inst_id}]"
+                doc_cypher = build_document_anchor_query(entity_type, relation)
+                self._anchor_document_plans[entity_id] = doc_cypher
+                self._template_names[doc_cypher] = f"DOC_ANCHOR[{inst_id}]"
 
         # Optional AnnotationStore; when set, archivist notes are injected into context.
         self._annotation_store = annotation_store
@@ -445,6 +471,7 @@ class ProvenanceContextAssembler:
             institution_ids=effective_ids,
             intent_map=self._query_intent_map,
             anchor_temporal_plans=self._anchor_temporal_plans,
+            anchor_document_plans=self._anchor_document_plans,
         )
 
         rows: list[dict] = []

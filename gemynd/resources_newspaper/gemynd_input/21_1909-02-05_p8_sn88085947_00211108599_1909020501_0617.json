@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "HERE'S PRATT\n\n\nPLATFORM /:\n\nDEMOCRATIC CANDIDATE FOR\nMAYOR FAvORS NONPARTL\nSAN CITY GOVERNMENT AND\nMAINTENANCE OF WAGE\nSCALE, AMONG TIER\nTHINGS.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-02-05",
+    "date_end": "1909-02-05",
+    "report_year": 1909,
+    "source_file": "21_1909-02-05_p8_sn88085947_00211108599_1909020501_0617",
+    "archive_ref": "21_1909-02-05_p8_sn88085947_00211108599_1909020501_0617",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1909-02-05_p8_sn88085947_00211108599_1909020501_0617",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.5,
+        "mining": 0.0,
+        "depression_era": 1.5,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "real estate"
+        ],
+        "depression_era": [
+          "public works"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 702,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 2575,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "public works",
+            "weight": 1.5,
+            "offset": 1341,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "| III Tic ueHuOCTdtlC IlCkeI, uleQ To-\nday, follows in.full:\n\n\nAS candidate for mayor, l de-\nsire to state that l favor the fol-\nlowing statements of principle, and\nIf the opportunity is offered, will\nuse my best endeavor to carry\nthem into effect.\n\n\nl favor nonpartisan municipal\n| government, and to that end en-\ndorse the proposition now pending\nin the legislature Of the state of\nWashington, looking to i non\npartisan plan for election of mu-\nnicipal officers.\n\n\nl stand pledged to a strong bust\nness administration, and one that\nshall recognize the overwhelming\npopular sentiment that partisan\nship in municipal affairs is not con-\nducive to the best results, and to\nthat end l favor civil service in\nevery department possible, and\nthat ability, industry and integrity\nshould be the only test for all ap-\npointmentS to Office.\n\n\n| believe it is material to the\nwelfare of this city and to the\ncountry at large that we have no\nclass of underfed, underclothed and\nundereducated people, and that\nthis condition may not necessarily\nprevail, and believing that the COM\nmon laborer under present condi-\ntons and prices. cannot support\nand educate his family, even in the\nmost ordinary manner, upon less\nwage than $2.75 per day, am un-\nalterably opposed to any reduction\nin the city wage scale as applied\nto common labor.\n\n\nl believe that all public works\nshould be done by day labor wher-\never possible; that the laborer\nshould be citizen of Spokane, and\nmen with families should have the\npreference, and l stand pledged to\nthe enforcement of rule that\nshall reserve to citizens of Spo-\nkane the privilege of employment\non all public works, whether done\nby day labor or by contract.\nI favor the building of system\nof concrete bridges to accommo-\ndate the traffic of this city, and\nfavor the issuance of long time\nbonds at a low rate of interest,\nnecessary to carry into effect this\nproposition.\n\n\nam heartily in favor of a\nchange in the present ordinances\nand charter of the city, which will\nreduce the number of petitioners\nnecessary for putting into effect\n| the initiative and referendum to\nnot to exceed 20 per cent of the\nlegal voters of the city, and favor\n! the adoption of a charter amend\nment, putting into effective use the\nrecall.\n\n\nI am in hearty sympathy with\nthe effort of the public spirited citi-\nzens and civic organizations who\nare now engaged in the work OF\nenlarging and Strengthening the\nfoundations of the future Greater\nSpokane. l favor a park bond\nissue of a million dollars at this\ntime, so that advantage may be\ntaken of the present condition OF\nthe real estate market and large\nareas valuable for park purposes\nsecured before the great advance\nin price, which must ensue with\nthe rapid development of the city\nprovided there may be had the\nadoption of such plan in the con\nstruction Of boulevards and similar\nundertakings as will appOrtion\njust share of the cost of improve\nments of these classes upon con\ntiguous lands specially benefited\nby the improvement.\n\n\n| believe that the social evil\nshould be so regulated and con\ntrolled that disorderly women\nwould be excluded from lodging\nhouses and hotels, and more. par\nticularly from resident districts. Tc\nthis end believe that police\nshould exercise such surveillance\nof these individuals that undesir\nable publicity and open vice shall\nbe limited so far as possible.\n\n\n| believe that the regulation o.\nthe liquor traffic is matter q\nparamount interest to the essentia\nwell-being of this city. there\nfore stand pledged to the fearless\nand unprejudiced enforcement p\nthe laws at present on our status\nbooks.\n\n\nbelieve that such liquor law\nshould be enacted as are in tn\nhighest interests of the people ant\nhave the strength of public senti\nment behind them.\n\n\nbelieve that the number o\nlicenses should be fixed by popula\nton and that the principle OF on\nlicense to one man would decreas'\n\n\nthe number of irresponsible sa\n\n\nlooms where crime and felony ar\n\n\nfostered.\n\n\n| believe that all public service\n\n\ncorporations, in consideration o\nthe use -of the streets and alley\n| 1 -. a"
+    }
+  ]
+}

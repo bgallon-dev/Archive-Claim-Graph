@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "COMPANY WILL ACCEPT UNION\n\n\nFRIENDSHIP BUT WON'T CON-\n\n\nsIDER RECOGNITION OF Or\n\n\nCANNED LABOR.",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-21",
+    "date_end": "1907-05-21",
+    "report_year": 1907,
+    "source_file": "2_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+    "archive_ref": "2_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1907-05-21_p1_sn88085947_00211108575_1907052101_0694",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "open shop"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 198,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "open shop",
+            "weight": 2.0,
+            "offset": 427,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The negotiations carried on by\ncommittees representing organized\nlabor and the w. w. p. Co. seem\nto have had the usual result. The\ncompany tried to hand the working\nmen another lemon.\n\n\nAt the meeting of the Central\nLabor Union last night the report\nOf the committee appointed to meet\nofficers of the w. w. p. Co. was\nread 1t was stated that the COM\npany had nothing to offer that had\nnot been offered in the past and\nthat the open shop was the best\nthat could be expected from the\npower monopoly. The company\nwanted union friendship, but offered\nnothing in return. Traffic Manager\nMcCalla said the company would\nhire union men If they were needed,\nbut that no discrimination would pc\nshown between union and nonunioR\nmen. The company represented it\nself under a $4,000 bond to main\ntain the open shop. This is the\nManufacturers association agree\nment.\n\n\nThe committee recommended that\nthe fight against the company's\nstreet car lines be continued and\nthat all union men refrain from\npatronizing the cars of the com\npany excepting when compelled tp\ndo so. No action was taken on the\nreport the entire matter going over"
+    }
+  ]
+}

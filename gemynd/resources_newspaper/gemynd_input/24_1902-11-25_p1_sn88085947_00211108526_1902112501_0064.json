@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "title": "MERGERS COUNSEL\n\n\nADMITS Combine\n\nAttorney Young Acknowledges Joining Of Great\n\n\nNorthern and Northern Pacific Interests.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-25",
+    "date_end": "1902-11-25",
+    "report_year": 1902,
+    "source_file": "24_1902-11-25_p1_sn88085947_00211108526_1902112501_0064",
+    "archive_ref": "24_1902-11-25_p1_sn88085947_00211108526_1902112501_0064",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1902-11-25_p1_sn88085947_00211108526_1902112501_0064",
+      "composite_score": 9.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 6.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "freight rate"
+        ],
+        "railroads": [
+          "northern pacific",
+          "great northern",
+          "freight rate"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1902
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ment to prosecute in any and every\ncase where a violation of the law\ncould be shown\n\n\nThe defense submitted the re-\nports of the Great Northern and\nthe Northern Pacific for the past\nfive years. showing that. although\na combination existed, there had\nbeen no agreement fixing the sched-\nules of freight rates. The case was\nadjourned until Monday."
+    }
+  ]
+}

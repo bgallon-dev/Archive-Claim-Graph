@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "To GUARD\n\n\nPUBLIC CASH",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-06-12",
+    "date_end": "1907-06-12",
+    "report_year": 1907,
+    "source_file": "8_1907-06-12_p4_sn88085947_00211108575_1907061201_0751",
+    "archive_ref": "8_1907-06-12_p4_sn88085947_00211108575_1907061201_0751",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-06-12_p4_sn88085947_00211108575_1907061201_0751",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "grange"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 256,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "grange",
+            "weight": 2.0,
+            "offset": 45,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "c. B. Fec'ey. master of the\nWashington State grange, is calling\nespecial attention to a movement\nstarted at the last session of the\ngrange to secure uniform and ac-\ncurate accounting of the collection\nand expenditure of all public\nmoney.\n\n\nThe campaign is designed to be\ngeneral and It is expected that the\nquestion will become a leading is\nsue all over the United States in\nthe next 2 years. Its object is to\nreduce public business to the same\nbasis of careful conduct as private\nenterprise An amendment to the\nstate constitution will be necessary.\nThe res )lution follows:\n\n\nWhereas, All monev collected\nfrom the people by the local. state\nand national governments by taxa\nton and other means should be eX-\npended and accounted for with as\nmuch care and thrift as all good\ncitizens eXpend and account for\ntheir private incomes,\n\n\nBE it Resolved, That the follow\ning provision on the subject of uni\nform pun!ic accounting be made\npart of the constitution of the state\nof Washington, and that the men,\nbers OF all local oranges and all\ngood citizens generally throughout\nthe state be and are hereby re-\nquested and urged to interest them\nselves in securing this result:\n\n\nThe legislature shall require all\nmoney collected by taxation or by\nfees, fines and public charges of ev-\ncry kind to be accounted for by\nsystem of accounting that shall be\nuniform for each class of accounts,\nstate Or local. which shall be pre-\nscribed and audited by authority of\nthe state."
+    }
+  ]
+}

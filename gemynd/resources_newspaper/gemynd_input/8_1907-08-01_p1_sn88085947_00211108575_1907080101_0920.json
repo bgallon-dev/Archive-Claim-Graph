@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-08-01 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-08-01",
+    "date_end": "1907-08-01",
+    "report_year": 1907,
+    "source_file": "8_1907-08-01_p1_sn88085947_00211108575_1907080101_0920",
+    "archive_ref": "8_1907-08-01_p1_sn88085947_00211108575_1907080101_0920",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "8_1907-08-01_p1_sn88085947_00211108575_1907080101_0920",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 162,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 292,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "This is the ultimatum served up\nby the people interested in the\nfight to prevent Union park being\ninvaded by saloon. AS they con-\ntroll 1900 or more votes in that\nward the outcome looks dark po-\nlitically for the councilmen that\npay more heed to the brewers than\nto their constituents.\n\n\nThe temperance people don't\nmean to resort to threat to force\naction they favor, but they reason\nthat their councilmen are bound by\nthe wishes and will of the majority\nand are determined to emphasize\nthat position.\n\n\nThe attitude of Union park will\nnot affect Councilman Brown much,\nas he is out already, but it comes\nclose to Funk, who has never dem\nonstrated any intention to commit\npolitical suicide. Since the council\nraised its own pay he probably likes\nthe job better than ever.\n\n\nBut it is understood around the\ncity hall that Funk would favor\nthe license being granted If he\ndares to.\n\n\nThe indications are that the"
+    }
+  ]
+}

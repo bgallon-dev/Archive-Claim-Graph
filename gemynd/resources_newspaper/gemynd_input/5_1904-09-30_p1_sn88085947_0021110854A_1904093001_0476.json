@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-09-30 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-09-30",
+    "date_end": "1904-09-30",
+    "report_year": 1904,
+    "source_file": "5_1904-09-30_p1_sn88085947_0021110854A_1904093001_0476",
+    "archive_ref": "5_1904-09-30_p1_sn88085947_0021110854A_1904093001_0476",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-09-30_p1_sn88085947_0021110854A_1904093001_0476",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 385,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 1274,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Eugene v. Debs was greeted at the\noverflowing house, who listened with\nmarked appreciation to the speaker\nthroughout the evening, breaking\nforth in thunderous applause several\ntimes when an especially strong\npoint was scored by the speaker.\n\n\n: He was briefly introduced to the\nimpatient audience by d. l.. Bur-\nCESS of Tacoma. without useless\npreliminary. he entered into his sub\nject, demonstrating that he was thor\noughly familiar with the questions\nOf the day, student of social and\npolitical economy and master of\noratory.\n\n\nGoing to the foundation of his SUBJ\nject. he showed how, through all the\ncenturies of the past, society has\nbeen divided into two classes, the\nfew who have ruled and the many\nwho have served. How the present\nstate of education and enlightenment\nwas the result of an unremitting\nstruggle for centuries upon the part\nOF the oppressed to throw of the\nyoke of bondage. That this is still\nprogressing and will continue to go\non until every shackle that binds the\nreal producer in slavery is broken.\nand they receive the full measure of\njustice by receiving their full share\nOf the fruits of their production.\n\n\nAre the working men. as a class.\nignmant or educated?\" was his para\nmount question. You pay the sal\naries of the judges-they repay you\nby injunction. You make the guns\nbut II 80 happens that at the critical\nmoment OF their use you are at the\nwrong end? You produce by your\nown toll the silks and satins to\nclothe the rich-your masters-but\nyou wear the calico, Is this Justice\nto that degree in which you claim?\"\n\n\nTo each capitalist In the United\nStates there are IL wage slaves who\nserve him, and add to his power as\nmaster of their destiny by their toll.\nUnder the plans of socialism these IL\nIndustrial slaves would become mas\nters instead of menials, The two\ngreat political parties. he said. are\nrooted In the same soil-the soil OF\ncapitalism. No matter which party\nyou cast your vote for. IL is for one\nand the same master-the ruling\nclass, who absorb but do not pro-\nducc. Both parties conceal the vital\nissues, and upon the surface give\nforth false issue. Socialism. upon\nthe other hand, places before the\nthinker and the real producer vital"
+    }
+  ]
+}

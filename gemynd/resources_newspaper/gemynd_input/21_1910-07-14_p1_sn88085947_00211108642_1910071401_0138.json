@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "WHAT PO|NDEn'ER ADVOCATES",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-14",
+    "date_end": "1910-07-14",
+    "report_year": 1910,
+    "source_file": "21_1910-07-14_p1_sn88085947_00211108642_1910071401_0138",
+    "archive_ref": "21_1910-07-14_p1_sn88085947_00211108642_1910071401_0138",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1910-07-14_p1_sn88085947_00211108642_1910071401_0138",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 171,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 595,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The policies for the common good\ndeveloped under Theodore Roose'\nwelt and bearing his name.\n\n\nThe reorganization of the federal\nhouse and senate so that both shall\nbe responsive to public opinion and\nno longer dominated by privileged\ninterests.\n\n\nStrong and effective control of\nrailroads and the just regulation of\ntheir rates.\n\n\nA protective tariff, measured by\nthe difference in the cost of produc-\nton here and abroad.\n\n\nFederal conservation of our ma /,\nural resources.\n\n\nAn issue of bonds for suct\namount as will enable the reclama-\ntion service to complete without de-\nlay the government irrigation prof\nects now in process of construction\n\n\nA liberal and practical policy of\ninternal waterway improvement.\nand, II necessary, the issue Of bonds\nfor that work\n\n\nA limitation of the power OF in\njunction so as not to imperil the\nliberty of any man without notice\n\n\nLegislation which will end child\nand sweatshops of the land\n\n\nThe proposed amendment of the\npower to tax incomes.\n\n\nII you favor these things, vote\nelection. -."
+    }
+  ]
+}

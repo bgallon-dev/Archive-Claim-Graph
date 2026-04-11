@@ -1,0 +1,93 @@
+{
+  "metadata": {
+    "title": "Oily Ne \" 6\n\n\nYIN BRI FL",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-02-18",
+    "date_end": "1910-02-18",
+    "report_year": 1910,
+    "source_file": "4_1910-02-18_p12_sn88085947_00211108629_1910021801_0576",
+    "archive_ref": "4_1910-02-18_p12_sn88085947_00211108629_1910021801_0576",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-02-18_p12_sn88085947_00211108629_1910021801_0576",
+      "composite_score": 11.2,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 8.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "free speech",
+          "disorderly conduct",
+          "jail",
+          "arrested",
+          "free speech fight"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 355,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "free speech",
+            "weight": 2.5,
+            "offset": 436,
+            "in_headline": false
+          },
+          {
+            "term": "free speech fight",
+            "weight": 3.0,
+            "offset": 436,
+            "in_headline": false
+          },
+          {
+            "term": "disorderly conduct",
+            "weight": 1.5,
+            "offset": 233,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 480,
+            "in_headline": false
+          },
+          {
+            "term": "arrested",
+            "weight": 0.5,
+            "offset": 845,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Fred Thomas and John II. Guilty,\nwho told Judge NAM that VIII\nliam McManus, the night clerk of\nthe Workingmen' Home. had\nbeaten them over the head with\nstick of stove wood, were fined SO\neach in police court yesterday aft\nernoon for disorderly conduct. Nc\nManus said that the men had been\nvery noisy in their preparations for\nbed, which lasted nearly an hour,\n\n\nErnest Freebere and Thomas\nwhitley, recently implicated in the\n. J. w. w. free speech fight, for\nI. which they served Jail sentences,\npleaded guilty to the charge of\nburglary before Judge Mann in the\npolice court yesterday afternoon.\nThe young men were warned by\nthe court that they We're putting\nthemselves in danger of the peni-\nTertiary, but they persisted in their\nplea.\n\n\nCharged with dsorderly conduct,\nBen VAIL lineman, and w. j.\nMckay, matchmaker, each \"a\nyears of age, were arrested by\nOffices Bradley and Goodwin yes\nterday afternoon. Mckay gave\nbail, but Vail was locked up. The\nofficers said the two men had been\nfighting. Vail looked like he had\nbeen through a sausage grinder.\n\n\nFifty new fire alarm boxes are\nbeing advertised for by the city.\nThis means the entire Naange of\nthe switchboard arrangements at\nthe central fire station.\n\n\nLouis r. Hachez, Albert E. Liv-\ningston and Charles e. Ammans\nhave incorporated the Pacific Real\nty & Loan company and the Mill\noki Investment company, each with\ncapitalization of $4,000.\n\n\nE. r. Conan of the Exchange\nbank has been elected to the pres\nidency of the Washington Fire In\nsurance company of Seattle.\n\n\n3. r. Lewis says that the B. r.\nLewis Lumber company will not\nopen a plant at Post Falls, as re-\nported.\n\n\nCaptain Archie McNab and Mrs.\nMary Mclaughlin, an aged couple,\nwho eloped from the Spokane cOun-\nty poor farm, were married at\nCranbrook, B. c., and will make\ntheir home there. This move will\nsave Spokane county a dollar a\nday.\n\n\nw. r. Vickery of Kansas City\nhas succeeded G. D. Linn as chief\nof the postal inspectors for Wash\nington, Idaho, Oregon and Alaska.\nwith headquarters at Spokane. &."
+    }
+  ]
+}

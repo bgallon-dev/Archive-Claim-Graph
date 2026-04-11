@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "title": "IS HOBO ONLY ONE DAY\n\n\nAND LOSES BOTHLECS",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-11-17",
+    "date_end": "1908-11-17",
+    "report_year": 1908,
+    "source_file": "3_1908-11-17_p3_sn88085947_00211108599_1908111701_0084",
+    "archive_ref": "3_1908-11-17_p3_sn88085947_00211108599_1908111701_0084",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1908-11-17_p3_sn88085947_00211108599_1908111701_0084",
+      "composite_score": 13.3,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.5,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 6.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "depot",
+          "northern pacific"
+        ],
+        "mining": [
+          "ore"
+        ],
+        "depression_era": [
+          "hobo"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1908,
+      "word_count": 136,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 426,
+            "in_headline": false
+          },
+          {
+            "term": "depot",
+            "weight": 0.5,
+            "offset": 517,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 10,
+            "in_headline": false
+          }
+        ],
+        "depression_era": [
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 103,
+            "in_headline": false
+          },
+          {
+            "term": "hobo",
+            "weight": 2.0,
+            "offset": 3,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "depression_era",
+        "mining",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "PORTLAND, Ore, Nov. IL\nWithin \"a hours after leaving his\nhome at Cove, Wash, to enter the\nranks of the hobo fraternity, Will\nliam Klockstead, 81 years of age,\nsuffered the accidental amputation\nof both legs above the knees by\nfalling beneath moving train in\nthe terminal yards and now lies\nat st. Vincent's hospital, with\nsmall chance of recovery.\n\n\nKlockstead beat his way into\nPortland on the top of Pullman\nattached to the Northern Pacific\npassenger train from Seattle. Just\nbefore the train pulled into the\nUnion depot the young tramp\njumped from the car.\n\n\nIn leaping from the rapidly NOV\ning coach, Klockstead struck the\nside of freight car on an adjoin-\ning track and rolled under the pas\nsenger train. One truck passed\nover his lower limbs, severing the\nmembers above the knees."
+    }
+  ]
+}

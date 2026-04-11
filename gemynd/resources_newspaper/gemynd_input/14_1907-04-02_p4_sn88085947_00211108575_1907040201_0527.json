@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "FORT WRIGHT HEARING",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-02",
+    "date_end": "1907-04-02",
+    "report_year": 1907,
+    "source_file": "14_1907-04-02_p4_sn88085947_00211108575_1907040201_0527",
+    "archive_ref": "14_1907-04-02_p4_sn88085947_00211108575_1907040201_0527",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "14_1907-04-02_p4_sn88085947_00211108575_1907040201_0527",
+      "composite_score": 2.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 1.0,
+        "agriculture": 0.0,
+        "railroads": 1.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "indigenous": [
+          "reservation"
+        ],
+        "railroads": [
+          "right of way"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 93,
+      "match_details": {
+        "indigenous": [
+          {
+            "term": "reservation",
+            "weight": 1.0,
+            "offset": 85,
+            "in_headline": false
+          }
+        ],
+        "railroads": [
+          {
+            "term": "right of way",
+            "weight": 1.0,
+            "offset": 40,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "An official hearing for and\nagainst the right of way across the\nFort Wright military reservation,\nasked for by the Portland & Seat\ntie railway, will be held at 10\nO'Clock Friday morning in the coun-\nGil chambers. Major w. H. Hartz\nof the u. s. engineering corps. will\narrive today for that purpose. Two\nopposing factions have developed\namong business men. While so\nmuch publicity has been given the\nfact that petition was being sign\ned in protest against the right of\nway, another petition has been\nquietly circulating recommending\nthe project."
+    }
+  ]
+}

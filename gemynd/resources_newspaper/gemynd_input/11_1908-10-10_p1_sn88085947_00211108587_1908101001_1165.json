@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "SPOKANE COUNTY'S\n\n\nRATE HIGHEST",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-10-10",
+    "date_end": "1908-10-10",
+    "report_year": 1908,
+    "source_file": "11_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+    "archive_ref": "11_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "11_1908-10-10_p1_sn88085947_00211108587_1908101001_1165",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 130,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 144,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Unless the state board of tax\ncommissioners compromises with\nthe people of Pierce county in the\nmatter of finding the proper valua-\nton for the Northern Pacific prop\ncritics in that county the contro-\nversy will be carried into court. It\nis claimed the valuations are un-\nreasonably low.\n\n\nThe valuation placed upon the\nroads of that county is based upon\ncertain per cent of the entire\nvaluation, the same as all other\nproperty is given its valuation. The\nsame rule has been applied by the\nstate board in regulating the values\nin all counties of the state.\n\n\nThe valuation of Spokane coun-\nty was figured upon a basis of 81\nper cent of it's real value. This is\nthe highest rate per cent of any\ncounty in the state."
+    }
+  ]
+}

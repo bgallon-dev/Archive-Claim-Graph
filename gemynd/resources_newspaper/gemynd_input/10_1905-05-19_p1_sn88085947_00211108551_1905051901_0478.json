@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-05-19 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-05-19",
+    "date_end": "1905-05-19",
+    "report_year": 1905,
+    "source_file": "10_1905-05-19_p1_sn88085947_00211108551_1905051901_0478",
+    "archive_ref": "10_1905-05-19_p1_sn88085947_00211108551_1905051901_0478",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1905-05-19_p1_sn88085947_00211108551_1905051901_0478",
+      "composite_score": 2.6,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 1.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "mining": [
+          "ore"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1905,
+      "word_count": 125,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 581,
+            "in_headline": false
+          }
+        ],
+        "mining": [
+          {
+            "term": "ore",
+            "weight": 1.0,
+            "offset": 55,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "day the greatest mine In the north\nwest, its wealth of ore being various\nly estimated from $5,o00,000 to slO,-\n100000.\n\n\nMr.. Hutton is coming to Spokane\nbecause of its beauty as home city\nand because of the opportunities 1t\npresents for the investment of his\nsteadily increasing wealth. He is\nknown among his associates as n\nprince of good fellows and his ster-\nling business qualities will put him\nIn the front rank among the city's\nsolid citizens.\n\n\nMrs. Hutton has acquired quite a\nwide reputation as literary woman,\nhaving written a book. dealing with\nthe great Occur d'Alene strike and\nbull pen days. This book had wide\ncirculation. II is understood she has\nother works which will soon be sent\nto the press"
+    }
+  ]
+}

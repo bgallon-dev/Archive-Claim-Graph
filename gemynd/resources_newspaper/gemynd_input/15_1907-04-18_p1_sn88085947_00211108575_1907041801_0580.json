@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1907-04-18 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-18",
+    "date_end": "1907-04-18",
+    "report_year": 1907,
+    "source_file": "15_1907-04-18_p1_sn88085947_00211108575_1907041801_0580",
+    "archive_ref": "15_1907-04-18_p1_sn88085947_00211108575_1907041801_0580",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "15_1907-04-18_p1_sn88085947_00211108575_1907041801_0580",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 106,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 79,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "the rate Investigations. BY the tes-\ntimony Of F. H. McCune, formerly\nwith the Great Northern, it was\nshown that the railroads are able\nto ship certain classes Of goods\nacross the continent and reshlp\nthem to Asiatic ports at a lower\nrate than granted Spokane. He also\nexposed the fact that Spokane ship\npers are being overcharged at the\nrate Of 100000 annually.\n\n\nSpokane's evidence closes tomor-\nrow with the cross examination of\nGillette.\n\n\nThe delegation of Spokane bust\nness men who have been attending\nthe hearing returned home this\nmorning satisfied that the city's\ncase had been presented from every\npossible point of advantage."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-04-21 — pp1",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-04-21",
+    "date_end": "1904-04-21",
+    "report_year": 1904,
+    "source_file": "5_1904-04-21_p1_sn88085947_00211108538_1904042101_1236",
+    "archive_ref": "5_1904-04-21_p1_sn88085947_00211108538_1904042101_1236",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "5_1904-04-21_p1_sn88085947_00211108538_1904042101_1236",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city charter",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 241,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city charter",
+            "weight": 2.0,
+            "offset": 1022,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 1087,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Mark the man.\n\n\nStudy his features, for this man\nhas a most remarkable sense of NOR\natty.\n\n\nHe is Frank l.. Boyd, mayor of\nSpokane.\n\n\nIn an interview yesterday he said\nhe could not discern how the city\ncouncil could see any cause for the\nrevocation of the license of an en-\nployment agent who had tried to put\nn young girl in house of shame If,\nperchance, that young girl left the\nemployment agent anything like an\nopening for the Infamous Offer\n\n\nThis man has been set foremost\nOf ali men In Spokane by his fellow\nmen, yet according to his reasoning\nhe would hold nothing against that\nman who as an employment agent\nwould hurl to the depths of degrade\ntion his (the mayor's) own daughter\nor sister, If perchance he had one.\nwho was at that turning point In her\nlife which comes to so many girls\nwhen If set in the right path will\nlead them into an honest. womanly\nand true life, or If turned into the\ndownward road will lead them to ruin.\n\n\nLOON at the picture. Study the\nman.\n\n\nDoes he look like do-nothing\nmayor?\n\n\nThe city charter provides:\n\n\nTHAT all licenses may be revoked\nby the city council; first. for vlo-\nlation OF any law of the state of\nWashington; and, second, for the vio-\nlation of any ordinance of the city.\n\"a Upon the recommendation of the\nmayor, CD upon the recommendation"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-06-03 — pp11",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-06-03",
+    "date_end": "1910-06-03",
+    "report_year": 1910,
+    "source_file": "24_1910-06-03_p11_sn88085947_00211108630_1910060301_0874",
+    "archive_ref": "24_1910-06-03_p11_sn88085947_00211108630_1910060301_0874",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "24_1910-06-03_p11_sn88085947_00211108630_1910060301_0874",
+      "composite_score": 9.8,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 5.5,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "indigenous": [
+          "chief garry",
+          "spokane tribe"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 161,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 740,
+            "in_headline": false
+          }
+        ],
+        "indigenous": [
+          {
+            "term": "spokane tribe",
+            "weight": 2.5,
+            "offset": 540,
+            "in_headline": false
+          },
+          {
+            "term": "chief garry",
+            "weight": 3.0,
+            "offset": 521,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "indigenous",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The reoprt Of the city health Of\nflee for May showed that there\nwere seven cases Of smallpox, AZ of\nscarlet fever, four of diphtheria,\nfour of chickenpox, but no typhoid\ncases.\n\n\nJudge e. n. Sullivan ordered the\ncounsel for the plaintiff in the case\nof Mary E. Daniels against Joseph\nH. Spear to elect under what pro-\ncedure he would urge the case. The\nsuit is to claim stock which Henry\nBrooks transferred in the Washing\nton Brick & Lime company to Spear\nin 1893 in order to defraud the\ncreditors.\n\n\nThe daughter of old Chief Garry\nof the Spokane tribe is suing ]. T.\nWilcox to recover quarter section\nof land northeast of Hillyard. The\nold squaw alleges that the land\nwas sold to Wilcox by Charles e.\nBigelow in 1886, who claimed it as\na homestead.\n\n\nA divorce was granted Ida M.\nCunningham from Thomas Cum\nbingham, while e. B. Wingard was\ngiven decree from Alice A. Win"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HARTMAN ROAD DEF|ESU,S,",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-28",
+    "date_end": "1907-05-28",
+    "report_year": 1907,
+    "source_file": "21_1907-05-28_p1_sn88085947_00211108575_1907052801_0718",
+    "archive_ref": "21_1907-05-28_p1_sn88085947_00211108575_1907052801_0718",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "21_1907-05-28_p1_sn88085947_00211108575_1907052801_0718",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "trades council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 107,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "trades council",
+            "weight": 1.5,
+            "offset": 233,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "is that their differences with EN-\nployers were often placed in the\nhands OF committee which was\nunfamiliar with the business in\nhand and sometimes made a bungle\nof matters under adjustment. I'm\nder the proposed change the vari-\nGus trades councils would take\naction and the other unions would\nback them up.\n\n\n1t would also bring about the\norganizing of the ironworkers, 1t is\nclaimed, into council. as well as\nother crafts that are interested in\nthe same lines of work.\n\n\nThe central body instructed its\nsecretary last night to write to Sc\nattic for information as to how this\nchange was effected in that city."
+    }
+  ]
+}

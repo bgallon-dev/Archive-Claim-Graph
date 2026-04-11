@@ -1,0 +1,79 @@
+{
+  "metadata": {
+    "title": "Local Markets.\n\nPr,osa P.,d .o rroa.eer..",
+    "doc_type": "newspaper_article",
+    "date_start": "1903-06-25",
+    "date_end": "1903-06-25",
+    "report_year": 1903,
+    "source_file": "18_1903-06-25_p3_sn88085947_00211108538_1903062501_0104",
+    "archive_ref": "18_1903-06-25_p3_sn88085947_00211108538_1903062501_0104",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1903-06-25_p3_sn88085947_00211108538_1903062501_0104",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 2.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "hay",
+          "wheat",
+          "livestock"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1903,
+      "word_count": 100,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 0,
+            "in_headline": false
+          },
+          {
+            "term": "livestock",
+            "weight": 1.0,
+            "offset": 411,
+            "in_headline": false
+          },
+          {
+            "term": "hay",
+            "weight": 0.5,
+            "offset": 98,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Wheat. no market at present, mills\nnot buying; barley. per cwt.. csc: oats,\nper cwt., 81; timothy hay. per ton,\nSIS.\n\n\nPotatoes, per cwt., 35c: onions, per\ncwt.. bo@60c: ranch butter, per\npound. i5@soc; eggs. fresh. per case.\n$5' dry picked turkeys. per lb..\n1sc; alive. per h.. lac: scalded geese,\nper ib., lac; alive, per h.. lilo; scalded\nhens and large yellow chickens, per\nlb.. 14c: alive. per lb., 13c.\n\n\nLivestock---Cows. on foot. sM@4c;\ndressed. 7hc: steers. on foot. 4h~\n4%c; dressed. 90: sheep on foot, 40\n4hc; dressed. %: hogs. on foot. 10\n7hc; dressed. 10011c: calves. 1oc."
+    }
+  ]
+}

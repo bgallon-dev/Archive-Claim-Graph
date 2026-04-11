@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Time TO\nUNITE",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-07-30",
+    "date_end": "1910-07-30",
+    "report_year": 1910,
+    "source_file": "3_1910-07-30_p3_sn88085947_00211108642_1910073002_0315",
+    "archive_ref": "3_1910-07-30_p3_sn88085947_00211108642_1910073002_0315",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "02",
+    "keyword_scoring": {
+      "article_id": "3_1910-07-30_p3_sn88085947_00211108642_1910073002_0315",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 146,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 143,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "A preliminary meeting Of the\ncommittees named by the Central\nLabor council and the farmers\nclubs was held last night in the\nrooms of the Equal Suffrage asso\ncitation in the Hutton building.\n\n\n1t was agreed that he time had\narrived for the farmers and work.\ningmen of the city to unite for bet.\nter local government and that a\nfight to renovate certain offices in\nthe courthouse was in order.\n\n\nAfter the discussion of some\nphases of the prospective battle ii\nwas agreed to met again on Satur.\nday night, August 6, when a fuller\nrepresentation of the union men\nand the farmers is expected.\n\n\n1t is probable that date for a\nrally will be set for August 10 and\nthat a conference meeting will be\nheld that morning or the night be-\nfore to determine as to whom shall\nbe endorsed in the primaries."
+    }
+  ]
+}

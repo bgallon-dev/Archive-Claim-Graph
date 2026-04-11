@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "..BREAD RIOT\" DAVIS Still FOR TURNER",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-03",
+    "date_end": "1904-11-03",
+    "report_year": 1904,
+    "source_file": "9_1904-11-03_p4_sn88085947_0021110854A_1904110301_0601",
+    "archive_ref": "9_1904-11-03_p4_sn88085947_0021110854A_1904110301_0601",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-11-03_p4_sn88085947_0021110854A_1904110301_0601",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "injunction"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 203,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "injunction",
+            "weight": 1.5,
+            "offset": 596,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Of monetary want already arrived\nnerved the workingmen to invoke the\ncity authorities to let loose the\n100000 Of the city's money in the\nbanks of the city. apply 1t on the\nwater works construction and create\nq market for labor, so that The\nworkingmen of Spokane might get\nthrough the winter with plenty to eat\nand plenty Of warmth for their fam\nlilies.\n\n\nIt was at a meeting Of the corpora\ntion and banking interests that\nGeorge Turner uttered the words at\ntributed 20 him by the Spokesman\nReview and quoted above. That meet\ning was held to bolster up the cause\nrepresented by A. L Davis and his\ninjunction suit with George Turner\nas attorney. 1t IL no wonder that A.\nL. Davis and George Turner are to-\ngether today as they were on bread\nriot day\" in Spokane II years ago.\n\n\nAccording to tho Spokesman-Re-\nview of November rs, 1893. w. A..\nHelm appealed to the people at an\nother meeting and protested that\nuntil recently he had thought more\nOf Judge Turner than Of any other\nman, but, Boys, he is an office seeker.\nand I want you to remember him\nwhen he comes up for office next\ntime"
+    }
+  ]
+}

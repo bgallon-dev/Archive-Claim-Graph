@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "FIND DYNAMITE\nCONCEALED BY\n\n\nROBBERS\nOfficers Watch in Vain for\nReturn of Man Who\n\n\nHid Explosive.",
+    "doc_type": "newspaper_article",
+    "date_start": "1908-12-18",
+    "date_end": "1908-12-18",
+    "report_year": 1908,
+    "source_file": "6_1908-12-18_p1_sn88085947_00211108599_1908121801_0290",
+    "archive_ref": "6_1908-12-18_p1_sn88085947_00211108599_1908121801_0290",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1908-12-18_p1_sn88085947_00211108599_1908121801_0290",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1908,
+      "word_count": 378,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 17,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The cache OF the Great Northern\ntrain holdups has been discovered.\n\n\nSeveral days ago Sergeant Nc\nPhee and Superintendent A. w.\nStauffer of the merchants police\nwere informed that box of dyna-\nmite was hid away in small rock\ncave near the International tracks\nat the intersection of Division\nstreet\n\n\nCircumstances indicated that 1t\nwas the explosive the bandits had\nhidden there. intending to use it\nas a base Of operations in other\nholdups. Just 16 sticks of the high\nexplosive were missing out of the\nbox. The dynamite charges, all\nfused and capped, which the ban\ndts left In the mail car they\nrobbed, contained 16 sticks. This\nled the officers to the belief that\nthe hidden dynamite belonged to\nthe bandits.\n\n\nThe cashe was watched for sew\neral days without anyone appear\ning on the scene. Yesterday the\nplace was thoroughly investigated\nand loose rocks overturned In\nhopes that the money stolen from\nthe registered mail would be dis\ne covered.\n\n\nThe only other suspicious article\nfound was railroad torpedo\nwhich railroad men use In stopping\ntrains by attaching to the rails. 1t\nis presumed the bandits were\nplanning another holdup and would\nhave used the torpedo as signal\nthat there was danger ahead, and\nwhen the engineer stopped the\ntrain would board the engin and\ncover those In the cab with re-\nvolvers and repeat the Great\nNorthern job.\n\n\nThe proximity of the cache to\nthe International tracks leads to\nthe belief that it was planned to\nhold up either an International or\nan O. r. & N. train.\n\n\nFollowing the holdup posse\ntracked the bandits in the fresh\nsnow to Division street, where all\ntrace was lost on account of the\ncondition of the street. which had\nbeen Travelled by others.\n\n\n1t Is believed that the bandits\nare still In the city. Local police\ndo not associate them with the\nholdup Of tn 60. II. Il N. near\nPortland last night.\n\n\nWorking on the clew furnished\nIn discovery of the cache, Ser\ngeant McPhee has kept officers in\nplain clothes stationed in the vi\ncinity for several days. Had any\none approached the cache while\nthe officers were on guard cap\nture or killing would have been\ncertain, for the officers were\nheavily armed."
+    }
+  ]
+}

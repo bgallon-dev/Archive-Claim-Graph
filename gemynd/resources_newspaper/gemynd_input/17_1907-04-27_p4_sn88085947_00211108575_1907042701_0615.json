@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "HAYDEN LAKE SCHEDULE",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-04-27",
+    "date_end": "1907-04-27",
+    "report_year": 1907,
+    "source_file": "17_1907-04-27_p4_sn88085947_00211108575_1907042701_0615",
+    "archive_ref": "17_1907-04-27_p4_sn88085947_00211108575_1907042701_0615",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "17_1907-04-27_p4_sn88085947_00211108575_1907042701_0615",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 1.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "inland empire"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 73,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "inland empire",
+            "weight": 1.5,
+            "offset": 67,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Under a new schedule announced\nfor the Hayden Lake division of the\nInland Empire system, trains leav-\ning this city at $50. 9, 10:40, 1:10\nand 800 will make direct connec-\nlions with the lake. The first Sun\nday morning train will leave the\nlake at SIS. Beginning Monday\nan early morning train will be run\nto the lake from Occur d'Alene.\nThe building Of the Hayden Lake\nhotel is we'll under Roadway."
+    }
+  ]
+}

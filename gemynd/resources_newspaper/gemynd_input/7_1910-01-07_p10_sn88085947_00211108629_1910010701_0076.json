@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-01-07 — pp10",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-01-07",
+    "date_end": "1910-01-07",
+    "report_year": 1910,
+    "source_file": "7_1910-01-07_p10_sn88085947_00211108629_1910010701_0076",
+    "archive_ref": "7_1910-01-07_p10_sn88085947_00211108629_1910010701_0076",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1910-01-07_p10_sn88085947_00211108629_1910010701_0076",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "chamber of commerce",
+          "real estate"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 178,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "chamber of commerce",
+            "weight": 1.0,
+            "offset": 42,
+            "in_headline": false
+          },
+          {
+            "term": "real estate",
+            "weight": 0.5,
+            "offset": 164,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "H. l.. Hughes said a few things\nabout the chamber of commerce.\nYou spend thousands of dollars to\nadvertise this city; you get work\ningmen here from the east to buy\nreal estate from your members at\nq high price, or to pay you high\nrents; your members who operate\nstores here charge them an exorbi-\ntant price for the necessities, and\nyet you are not willing to pay\nthem living wage was the sub\nstance of what he said regarding\nthe methods of that body.\n\n\nHe also said something about the\ngood salaries paid by the CONNER\ncial body to it's officers, and show\ned that when the price of living is\ntaken into consideration, $3.50 in\nSeattle or Tacoma is fully as much\nas So in Spokane.\n\n\nF. n. Chavez, business agent of\nFederal union No. 12,222, and rep\nresentatives of the other federal\nunions and the transfers unions\nalso spoke for the workingman. Be\nfore the close of the meeting the\ncOuncilmen voted to ask Mayor\nPratt for recommendation as to\nthe raise in wages."
+    }
+  ]
+}

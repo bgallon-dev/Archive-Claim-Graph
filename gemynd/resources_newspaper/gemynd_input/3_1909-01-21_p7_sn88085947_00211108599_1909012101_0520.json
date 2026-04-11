@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1909-01-21 — pp7",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-01-21",
+    "date_end": "1909-01-21",
+    "report_year": 1909,
+    "source_file": "3_1909-01-21_p7_sn88085947_00211108599_1909012101_0520",
+    "archive_ref": "3_1909-01-21_p7_sn88085947_00211108599_1909012101_0520",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1909-01-21_p7_sn88085947_00211108599_1909012101_0520",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 290,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 731,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "and used to generate electric\npower.\n\n\nA large percentage of the small\nvillages now supplied with cleo\ntricity secure their power from\nwater.\n\n\nDairymen all over the country\nare Harvesting the streams that\nrun through their meadows and\npastures. and generating electricity\nfor their lighting, heating, churning\nand even the milking.\n\n\nThe development of large water\npowers for the cities is the greatest\neconomy the industrial world has\never known, and the saving to the\nman in the country. in developed\npower from the small streams Is\njust as great in proportion.\n\n\nWater was mans first and simp-\nlest source Of power. and having\nmoved around the great cycle of in\ngenious mechanism, he is returning\nto 1t as his last and best.\n\n\nWater power is one element that\nman cannot waste. But he can\nmonopolize it.\n\n\nPresident Roosevelt estimates\nthat IL corporations directly or in\ndirectly control water power and\nadvantageous sites equal to more\nthan third Of all the developed\nwater power in the entire country.\nAnd the sites that offer the great\nest advantages and hold the stra.\ntegic positions have been seized by\nthis combination.\n\n\nThe possibilities of the transmits\nsion of electric power are so limit\nless that the reach of such a mo-\nnopoly Is utterly unreasonable. It\ncould not stop the running of the\nsmaller streams, but it already con-\ntrolls the machinery by which they\nmay be harnessed.\n\n\nThe right time to control a mo-\nnopoly is before 1t is cerated.\n\n\nThe time to determine that there\nshall be no further private owner\nship of public water power is now.\nWhat water power monopoly\nmeans is pretty fairly demonstrated\nright here in Spokane. Study up\non what w. w. p. Co. means."
+    }
+  ]
+}

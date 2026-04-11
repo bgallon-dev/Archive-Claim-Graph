@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PARAOES WILL\n\n\nBe FEATURE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-05",
+    "date_end": "1909-08-05",
+    "report_year": 1909,
+    "source_file": "4_1909-08-05_p2_sn88085947_00211108605_1909080501_0575",
+    "archive_ref": "4_1909-08-05_p2_sn88085947_00211108605_1909080501_0575",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-08-05_p2_sn88085947_00211108605_1909080501_0575",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 1.5,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "agriculture": [
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 141,
+      "match_details": {
+        "agriculture": [
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 24,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The big features of the irrigation\ncongress will be the two parades\nthe first the parade of progress\non next Tuesday afternoon and the\nsecond the Illuminated parade on\nWednesday night\n\n\nThe parade of progress will give\nan categorical representation of the\nprogress of the west from the days\nof the Indians until the present\nand will give types in the parade\nfrom the different eras in the\nmarch of progress. There will be\nreal Indians, cowboys and other\nspecimens of early day life on the\nplains. A number of bands from\ndifferent places will be in line, as\nthe expense of such bands to and\nfrom Spokane is guaranteed by the\nirrigation board. The illuminated\nparade will contain nearly all of\nthe features of the day parade,\nwith the adde charm of torchlight,\nroman candle and other light eff\nfects."
+    }
+  ]
+}

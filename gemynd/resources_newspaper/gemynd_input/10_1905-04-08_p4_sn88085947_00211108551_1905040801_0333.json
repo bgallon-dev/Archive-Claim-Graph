@@ -1,0 +1,105 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1905-04-08 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1905-04-08",
+    "date_end": "1905-04-08",
+    "report_year": 1905,
+    "source_file": "10_1905-04-08_p4_sn88085947_00211108551_1905040801_0333",
+    "archive_ref": "10_1905-04-08_p4_sn88085947_00211108551_1905040801_0333",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "10_1905-04-08_p4_sn88085947_00211108551_1905040801_0333",
+      "composite_score": 11.05,
+      "domain_scores": {
+        "turnbull_prehistory": 1.5,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 7.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "turnbull_prehistory": [
+          "homestead"
+        ],
+        "agriculture": [
+          "crop failure",
+          "alfalfa",
+          "wheat",
+          "orchard",
+          "irrigation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1905,
+      "word_count": 505,
+      "match_details": {
+        "turnbull_prehistory": [
+          {
+            "term": "homestead",
+            "weight": 1.5,
+            "offset": 2459,
+            "in_headline": false
+          }
+        ],
+        "agriculture": [
+          {
+            "term": "wheat",
+            "weight": 1.0,
+            "offset": 1714,
+            "in_headline": false
+          },
+          {
+            "term": "crop failure",
+            "weight": 2.0,
+            "offset": 1588,
+            "in_headline": false
+          },
+          {
+            "term": "alfalfa",
+            "weight": 1.5,
+            "offset": 1755,
+            "in_headline": false
+          },
+          {
+            "term": "orchard",
+            "weight": 1.0,
+            "offset": 76,
+            "in_headline": false
+          },
+          {
+            "term": "irrigation",
+            "weight": 1.5,
+            "offset": 347,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "agriculture",
+        "turnbull_prehistory"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "COW. He will have to build fences,\nhave to buy slips of fruit trees for\nhis orchard and bushes for his small\nfruits. all of which will cost money.\nIf ne has not the cash, he will have\nto work by the day ana save mOney\nfrom Ills wages.\n\n\nFrom his profits the settler must\npay back to the government his\nfarms proportionate share of the\ncost of the irrigation works, these\npayments to be in annual INSTALL\nments spread over a period of 10\nyears. at the end of that time, If he\ncan show that he has reclaimed a.\nleast one-half of the total irIisa BILE\narea of his entry for agricultural\npurposes, the land and the water\nprivileges are his forever.\n\n\nThe first payment for his water\nrights will not be due until he has\nhad chance to raise one crop. Then\nthere will be no trouble to pay the\nwater right payment from this crop.\n\n\nThe settler who fails in two annual\npay ll0litS lOl Vic water ilSnlS Io1\nfeits the payments which he has\nmade and the land which he has en-\ntered. 1t will be opened for entry to\nsome other settler\n\n\nThe water right payment on one\nof these farms will be about sos a\nyear, or an annual charge for 10\nyears of $3.50 an acre. Thus at the\nend of the 10 years the settler will\nhave paid $20S0. plus whatever he in\nvests in labor and improvements. No\ninterest is charged\n\n\nThe value of one of these farm\nhomesteads, at the end of the 10-year\nperiod, judging from the value of\nother irrigated farms in the west,\nshould not be less than $4,000, and\nwill run from that up to $4,000 and\nperhaps more. Some irrigation fruit\nfarms are rated at $3.50 an acre\nThere is never any crop failure due\nto lack of rain on an irrigated farm\nCrops may be depended on.\n\n\nThe farms have a soil adapted to\n| berries, wheat. oats, potatoes, sugar\n| beets and alfalfa.\n\n\nThe government has particular\n| interest in this first of its irrigation\n| projects, and will try to see that thu\n\n\nbest kind of settlers have a chance t.\nb. take up the lands.\n\n\n| And here is word of warning\n! Beware of fake irrigation schemes\n\n\nwhich are now trying to masquerade\n| in the guise of government irriga\ntion\"--and don't take the information\n| of railroad circulars too literally. !\n\n\nlot of truth may be learned from LAM\nagents for railroads, but il is safe\n\n\nto direct inquiries to George Blsn\n| chard of the geological survey\n| Washington, d. c.\n\n\n| There is no room in this grea\n! tract for the mere Spectator. TIL\nsettler must work his farm; he ca\nnot take up more than one homestead\nthe limit of which has been place\nat so acres; he must be prepared t\n\n\nbuild his house and stay.\n\n\nSettlers have already begun takin\n\n\nup homes on this great federal oasis"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "metadata": {
+    "title": "STRIKE ON MONROE STREET\nBRIDGE CONTINUES MEN\nREFUSE TO PLEAD.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-04-09",
+    "date_end": "1910-04-09",
+    "report_year": 1910,
+    "source_file": "4_1910-04-09_p2_sn88085947_00211108630_1910040901_0129",
+    "archive_ref": "4_1910-04-09_p2_sn88085947_00211108630_1910040901_0129",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-04-09_p2_sn88085947_00211108630_1910040901_0129",
+      "composite_score": 10.08,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 3.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 3.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike"
+        ],
+        "spokane_development": [
+          "monroe street"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.2,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1910,
+      "word_count": 156,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 264,
+            "in_headline": false
+          },
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "spokane_development": [
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 792,
+            "in_headline": false
+          },
+          {
+            "term": "monroe street",
+            "weight": 1.0,
+            "offset": 10,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "legal_notice",
+      "triggered_domains": [
+        "iww_labor",
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "\"You can say that so far as the\nBridge and Structural Iron Work\ners' union is concerned the Monroe\nstreet bridge can stay where It 10,\nunless the city comes to US and\nagrees to pay the scaIe,' said John\nJ. Corcoran, business agent Of the\nunion this morning.\n\n\nTHE strike has not been called\noff and the Is members of our I'M\nion that first walked out are still\nidle. We have become tired running\nafter city officials, tryin to make\nthem be decent in the matter Of\nthe payment of the wage scale and\nhave concluded to quit trying. II\nthey want members of our union to\nwork on the bridge it is now up to\nthem to see us, as we are DONE\"\n\n\nCorcoran points to an agreement\nentered into by the board of public\nworks in February, in which they\nstipulated that in the employment\nOf skilled men on the Monroe street"
+    }
+  ]
+}

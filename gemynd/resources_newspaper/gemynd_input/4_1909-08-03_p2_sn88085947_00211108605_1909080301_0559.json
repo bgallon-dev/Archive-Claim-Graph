@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "TRYING To\n\n\nCLOSE DOOR",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-03",
+    "date_end": "1909-08-03",
+    "report_year": 1909,
+    "source_file": "4_1909-08-03_p2_sn88085947_00211108605_1909080301_0559",
+    "archive_ref": "4_1909-08-03_p2_sn88085947_00211108605_1909080301_0559",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1909-08-03_p2_sn88085947_00211108605_1909080301_0559",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "great northern"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 212,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "great northern",
+            "weight": 2.0,
+            "offset": 247,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Eighteen deeds were filed with\nthe county auditors office at the\nclose of business yesterday evening\nby representatives of the Hill lines,\nshowing that the Gail Dray and\nother purchases of Front avenue\nproperty, made a few years ago,\nwere for the Great Northern. The\nseveral pieces of property were\npurchased in the names of Gail\nDray, Fred H. Rawson and F. w.\nWilk, who in turn conveyed the\nground to L. w. Hill, president of\nthe Great Northern, who thereafter\ncleared the title by deciding the\nland over to the Great Northern.\nIn the deals, made four years ago,\nis involved $233,967. The property\nis much more valuable today.\n\n\nThe filing of these deeds at this\ntime is taken as notice from the\nclear of East Front avenue. The\nMr.. Walsh of Chicago,\nwho made the recent purchases\nrunning to between 100000 and\n$500, 900, is looked upon as another\nagent of the willy Mr.. Hill, although\nhe has repeatedly denied that he is\nso Connected.\n\n\nWith the Gail Dray tracts in the\nhands of the Great Northern it is\ntaken for granted that no other\nline would undertake to buy in at\nthat point, as the effort to acquire\nterminal facilities there would be\nuseless. r~.ss ,.4-- ~. .s.sSsS ("
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-03-27 — pp20",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-27",
+    "date_end": "1910-03-27",
+    "report_year": 1910,
+    "source_file": "9_1910-03-27_p20_sn88085947_00211108629_1910032701_1142",
+    "archive_ref": "9_1910-03-27_p20_sn88085947_00211108629_1910032701_1142",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1910-03-27_p20_sn88085947_00211108629_1910032701_1142",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "temperance"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 349,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "temperance",
+            "weight": 1.5,
+            "offset": 731,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ones of the week The first, which\noccurred on Wednesday afternoon,\nwas in form OF \"a bridge whist\nparty, while of the second, which\nwas given on Thursday, the guests\nenjoyed an afternoon at FIVE hun\ndred. Al the last, given Friday aft\nernoon, whist afforded the amuse-\nment. Spec al literary and musical\nprograms were features of the en-\ntertainments. Several hundred\nladies attended The affairs. s\nThe Delta IOta Chi sorority girls\nspent a delightful afternoon Thurs\nday with Miss Susan Mason at her\nhome on Eighth avenue. A dainty\nluncheon was served during the\nsocial hours, and the girls enjoyed\nal informal chat.\n\n\nMrs. Lulu Loveland Shepard, a\nprominent lecturer of . Salt Lake\nCity, and president of the Woman S\n, Christian Temperance Union of\n/ Utah, was honor guest at recep-\nton given Thursday afternoon by\nthe local members Of the w. c. I.\nL. at the parlors of the Young\nWOman's Christian association.\nThe rooms were beautifully deco\nrated with the national colors of\nred, white and blue, lies and car\nnations being used with charming\neffect. The hours of receiving were\nfrom , until > o'clock.\n\n\nMany Of The prominent club and\nchurch women OF the city were\npresent at the occasion.\n\n\nMrs. J. NJ. GrimmCr entertained\nentertained number Of friends\nat pretty Easter luncheon Thurs\nday afternoon at her home on\nBroadway avenue, the Occas on be-\ning the celebration of her birthday\nanniversary ....\n\n\nThe rooms were chalmingly deco\n/ rated with smilaX, carnations and\nlilies, while the table was effective\n! ly trimmed with favors of the\nEastertide, rabbits and Easter eggs\nbeing much in evidence.\n\n\nThe ladies OF the Electa chapter\nof the Eastern Star were among the\nguests, and they presented the\nhostess with beautiful piece of\ncut glass.\n\n\nA color OF pink and white mark\ned the delightful informal party\nThursday evening by Mrs. Robert\nStrahorn complimentary to her\nsister, Mrs. Hattie +. Lacey.\n\n\nA court luncheon was served at\n1870 O'Clock and was followed by\nan afternoon at cards. Covers were\nplaced for II guests."
+    }
+  ]
+}

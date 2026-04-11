@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-07-05 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-07-05",
+    "date_end": "1904-07-05",
+    "report_year": 1904,
+    "source_file": "9_1904-07-05_p4_sn88085947_0021110854A_1904070501_0157",
+    "archive_ref": "9_1904-07-05_p4_sn88085947_0021110854A_1904070501_0157",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1904-07-05_p4_sn88085947_0021110854A_1904070501_0157",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 2.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "western federation"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 168,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "western federation",
+            "weight": 2.5,
+            "offset": 78,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "James A. Baker, representing Brit\nfish Columbia on the executive board\nOf the Western Federation of Miners,\narrived in the city last night. Mr..\nBaker has been in Denver in active\nwork on the board since May IL. The\nCitizens alliance has ordered that we\ncan not even furnish food for the\nfamilies of the miners whom they\nhave, with the assistance of the\nmilitia, run out of the state. or de-\nported, as they call it.\n\n\nI'VE sent money to the credit Of\nthese people to merchants who had\nbeen identified with neither our\nunions nor those of the other organi-\ncation. Their credit good, the mother.\nthe wife and the baby were still re-\nfused food because the merchant\nwho had the money was forbidden to\nsell goods to our people. We then\nresorted to the mails and sent money\norders to members Of the woman's\nauxiliary, but they were spotted and\nin less than an hour after the order\nwas recorded in the postoffice the"
+    }
+  ]
+}

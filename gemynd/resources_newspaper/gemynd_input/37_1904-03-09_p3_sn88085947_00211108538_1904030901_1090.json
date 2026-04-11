@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-03-09 — pp3",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-03-09",
+    "date_end": "1904-03-09",
+    "report_year": 1904,
+    "source_file": "37_1904-03-09_p3_sn88085947_00211108538_1904030901_1090",
+    "archive_ref": "37_1904-03-09_p3_sn88085947_00211108538_1904030901_1090",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "37_1904-03-09_p3_sn88085947_00211108538_1904030901_1090",
+      "composite_score": 2.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power",
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 557,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 530,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 742,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "=\nTO No1SN on sUNDAY-ME1G-\nDz1s SAT- THE 1ENrAL Pro-\n~1O8ED II HMTnHxY MADE\nQUATE-s011 DO NOT LIKE A\nTEN YEARS LEASE 11ArUD.\n\n\nThe Spokane baseball magnates\nhave decided where they want the\npaE-ball park and If the objections\nof some of the residents in that part\nof the city can be overcome and the\ncity consents. the games for 1904\nwill be played on ground owned by\nthe city Of Spokane on the north side\nOf the river. The location is on the\nline Of the Spokane Traction company\nand within a block Of the lines of the\nWashington Water Power company\nm Division street. 1t lies between\nMission and Sinto avenues and Nor\npnandie and Atlantic streets. Base\nball people consider 1t an admirable\nlocation.\n\n\nNoise on Sunday.\nor the members Of the city council\nwho could be found this morning none\n\n\n\n\n\nwith the light so far thrown on the\nsubject said they were opposed to 1t.\nSome of the property holders, it is\nNsaid, will prepare protest against\nhs location because Of the noise.\nEspecially on Sunday. and because\n\\they do not think 1t a help to their\nproperty to have a baseball park in\ntheir midst.\n\n\nCity would Get Little.\n\n\nThe Spokane Traction company last\nnight submitted to the city council\nq petition for the rental of the prop\nsrty. which Is block 81 of Central ad-\ndition. This Is q part of a tract\nwhich the city secured a number OF\nyears ago In settlement of a claim\nlars on deposit In the Browne Ma\ntional bank when 1t failed. The COM\npany estimates the value of the block\nat $4,000 and offers to pay All annual\nrental of per cent of this valuation.\nwhich would be 5000. But the COM\npany wants this rental to apply on\nthe cost Of grading the block which\n\n\n\n\n\nproved to be the cost, the city would\nreceive it's first rental at the end Of\nsix and half years. The company\nasks for 10-year lease, from which\nthe city would secure not to exceed\n$3.50 under the proposition from the\ncompany.\n\n\nSuggests Several Conditions.\n\n\n\"Before would vote to grant this\nlease and for 10 years.\" said Council\nman Joseph b. Lindsey. Il must be\nconvinced that the city in that time\nwould not want the ground for the\nstorage of material. lumber or appar-\natus Of any kind which the city con-\ntinually accumulates, that the prop\nerty holders have no objection, that\nthe city will have no use for the\nground and that the company, will\nassume all liability and taxes on the\nproperty. 1 would not favor the city\ngranting the use of the park without\nsome adequate rental. which the COM\npany does not seem to have pro-\nposed\"\n\n\nHand Not In Favor.\n\n\nIT am not in favor Of granting the\nlease In its present FORM\" said Coun-\nGilman Il. M. Hand. II do not care\nto say at the present time what\nchanges l would ask\"\n\n\nII scarcely think I shall favor\ngranting the lease\" said Councilman\n=. f. Foster. Il am informed the\npeople In that vicinity will protest\nagainst the use of this propertv for\na baseball park on the ground that It\nwill disturb the quiet Of tho neigh\nborhood, especially on Sunday.\nshall govern myself largely by the"
+    }
+  ]
+}

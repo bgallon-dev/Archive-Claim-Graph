@@ -1,0 +1,173 @@
+version: "1"
+
+# Concept assignment rules for the Spokane Regional Newspaper Corpus.
+# Ordered from most specific to most general within each concept cluster.
+# Each rule gates on claim_type membership before testing the regex.
+#
+# Concepts here map to the ten scoring domains in config.yaml but at a
+# finer granularity — they capture specific themes, conditions, and
+# recurring patterns within each domain.
+
+rules:
+
+  # ── Labor organizing concepts ────────────────────────────────────────
+
+  - concept_id: concept_free_speech_confrontation
+    claim_types: [labor_action, free_speech_event, labor_legal_action]
+    regex: '\b(free speech|street speaking|soapbox|soap box|ordinance|arrested|vagrancy|disorderly)\b'
+    confidence: 0.88
+
+  - concept_id: concept_strike_action
+    claim_types: [labor_action, mining_activity, worker_condition]
+    regex: '\b(strike|walkout|lockout|picket|boycott|scab|strikebreaker)\b'
+    confidence: 0.85
+
+  - concept_id: concept_labor_organizing
+    claim_types: [labor_action, free_speech_event, worker_condition, public_meeting]
+    regex: '\b(organiz(?:e|ed|ing|er)|union|federation|i\.?\s*w\.?\s*w\.?|industrial workers|trades council|local\s+\d+)\b'
+    confidence: 0.82
+
+  - concept_id: concept_worker_exploitation
+    claim_types: [worker_condition, labor_action, labor_legal_action]
+    regex: '\b(employment shark|wage theft|unpaid|sweatshop|child labor|dangerous condition|unsafe|injured on the job)\b'
+    confidence: 0.85
+
+  # ── Railroad and transportation concepts ─────────────────────────────
+
+  - concept_id: concept_rate_dispute
+    claim_types: [railroad_activity, freight_rate_dispute, agricultural_condition]
+    regex: '\b(freight rate|rate case|rate discrimination|tariff|interstate commerce|rate hearing|rate reduction)\b'
+    confidence: 0.88
+
+  - concept_id: concept_railroad_expansion
+    claim_types: [railroad_activity, depot_construction, civic_development]
+    regex: '\b(new line|branch line|extension|survey(?:ed|ing)?|right of way|depot|station|terminal|junction)\b'
+    confidence: 0.82
+
+  - concept_id: concept_railroad_land_grant
+    claim_types: [railroad_activity, land_policy_action, indigenous_policy]
+    regex: '\b(land grant|railroad land|alternate sections?|public domain|granted to|ceded)\b'
+    confidence: 0.85
+
+  # ── Agriculture and land economy concepts ────────────────────────────
+
+  - concept_id: concept_crop_condition
+    claim_types: [agricultural_condition, depression_relief, turnbull_prehistory]
+    regex: '\b(crop\s+(?:report|failure|condition|prospect|yield)|harvest|wheat\s+(?:crop|price|market))\b'
+    confidence: 0.85
+
+  - concept_id: concept_drought_distress
+    claim_types: [agricultural_condition, depression_relief, turnbull_prehistory]
+    regex: '\b(drought|dust storm|dry(?:ing)?|no rain|crop failure|erosion|soil\s+(?:conservation|loss)|blowing soil)\b'
+    confidence: 0.88
+
+  - concept_id: concept_land_policy
+    claim_types: [land_policy_action, agricultural_condition, indigenous_policy, turnbull_prehistory]
+    regex: '\b(homestead|desert land act|carey act|land office|land entry|final proof|land patent|timber culture|reclamation)\b'
+    confidence: 0.85
+
+  - concept_id: concept_irrigation_development
+    claim_types: [land_policy_action, agricultural_condition, civic_development]
+    regex: '\b(irrigation|canal|reservoir|water right|dam|reclamation|irrigation district)\b'
+    confidence: 0.85
+
+  # ── Indigenous dispossession concepts ────────────────────────────────
+
+  - concept_id: concept_allotment_removal
+    claim_types: [indigenous_policy, land_policy_action]
+    regex: '\b(allotment|dawes act|surplus land|reservation\s+(?:opening|boundary|land)|fee patent|trust land|cession)\b'
+    confidence: 0.88
+
+  - concept_id: concept_tribal_sovereignty
+    claim_types: [indigenous_policy, legal_notice, public_meeting]
+    regex: '\b(treaty|tribal\s+(?:council|government|authority)|chief|reservation|indian\s+(?:agent|agency|school))\b'
+    confidence: 0.82
+
+  # ── Mining concepts ──────────────────────────────────────────────────
+
+  - concept_id: concept_mining_labor
+    claim_types: [mining_activity, labor_action, labor_legal_action]
+    regex: '\b(mining strike|mine workers?|miners?\s+union|mine owner|dynamit|martial law|bull pen)\b'
+    confidence: 0.88
+
+  - concept_id: concept_mineral_extraction
+    claim_types: [mining_activity, commercial_transaction]
+    regex: '\b(ore|smelter|concentrator|assay|shaft|adit|tunnel|placer|silver|lead|gold|zinc)\b'
+    confidence: 0.80
+
+  # ── Civic development concepts ───────────────────────────────────────
+
+  - concept_id: concept_municipal_governance
+    claim_types: [civic_development, infrastructure_project, public_meeting, election_event]
+    regex: '\b(city council|city charter|ordinance|bond issue|municipal|board of|commission|alderman|mayor)\b'
+    confidence: 0.82
+
+  - concept_id: concept_utility_infrastructure
+    claim_types: [civic_development, infrastructure_project]
+    regex: '\b(water power|electric\s+(?:light|power|company)|street\s*car|trolley|gas works|waterworks|sewer|telephone)\b'
+    confidence: 0.82
+
+  - concept_id: concept_urban_growth
+    claim_types: [civic_development, commercial_transaction, infrastructure_project]
+    regex: '\b(building permit|real estate|population|board of trade|chamber of commerce|exposition|boom)\b'
+    confidence: 0.78
+
+  # ── Depression era concepts ──────────────────────────────────────────
+
+  - concept_id: concept_federal_relief
+    claim_types: [depression_relief, civic_development, turnbull_prehistory]
+    regex: '\b(new deal|c\.?\s*c\.?\s*c\.?|w\.?\s*p\.?\s*a\.?|works progress|civilian conservation|work relief|public works|federal\s+(?:relief|aid))\b'
+    confidence: 0.88
+
+  - concept_id: concept_economic_distress
+    claim_types: [depression_relief, agricultural_condition, worker_condition]
+    regex: '\b(unemployment|breadline|transient|hobo|bank\s+(?:failure|closure)|foreclosure|relief\s+(?:camp|worker|office))\b'
+    confidence: 0.85
+
+  # ── Turnbull pre-history concepts ────────────────────────────────────
+
+  - concept_id: concept_drainage_reclamation
+    claim_types: [turnbull_prehistory, agricultural_condition, land_policy_action]
+    regex: '\b(drainage district|swamp(?:land)?|drain(?:age|ed|ing)?|reclaim|turnbull slough|slough)\b'
+    confidence: 0.88
+
+  - concept_id: concept_wildlife_conservation
+    claim_types: [turnbull_prehistory, indigenous_policy]
+    regex: '\b(wildlife refuge|bird refuge|biological survey|migratory\s+(?:bird|waterfowl)|waterfowl|breeding ground|game bird|duck hunting)\b'
+    confidence: 0.88
+
+  # ── Women's civic life concepts ──────────────────────────────────────
+
+  - concept_id: concept_suffrage_movement
+    claim_types: [womens_civic_action, election_event, editorial_opinion]
+    regex: '\b(suffrage|suffragist|women.s vote|equal suffrage|anti.suffrage|ballot|franchise)\b'
+    confidence: 0.88
+
+  - concept_id: concept_temperance_prohibition
+    claim_types: [womens_civic_action, election_event, editorial_opinion]
+    regex: '\b(temperance|prohibition|w\.?\s*c\.?\s*t\.?\s*u\.?|saloon|liquor|dry|wet|anti.saloon)\b'
+    confidence: 0.85
+
+  - concept_id: concept_womens_organizing
+    claim_types: [womens_civic_action, public_meeting, civic_development]
+    regex: '\b(women.s club|woman.s club|league of women|ladies.?\s+aid|women.s auxiliary|missionary society)\b'
+    confidence: 0.82
+
+  # ── Education concept ────────────────────────────────────────────────
+
+  - concept_id: concept_normal_school
+    claim_types: [education_event, civic_development]
+    regex: '\b(normal school|state normal|cheney normal|teacher\s+(?:training|institute|examination))\b'
+    confidence: 0.85
+
+  # ── Temporal / structural concepts (broadest — check last) ───────────
+
+  - concept_id: concept_legal_proceeding
+    claim_types: [legal_notice, labor_legal_action, crime_report, indigenous_policy]
+    regex: '\b(court|judge|plaintiff|defendant|verdict|sentence|probate|estate|affidavit|testimony|indictment|grand jury)\b'
+    confidence: 0.75
+
+  - concept_id: concept_electoral_politics
+    claim_types: [election_event, editorial_opinion, public_meeting, womens_civic_action]
+    regex: '\b(election|ballot|candidate|primary|nomination|poll|registration|democrat|republican|populist|socialist|progressive)\b'
+    confidence: 0.75

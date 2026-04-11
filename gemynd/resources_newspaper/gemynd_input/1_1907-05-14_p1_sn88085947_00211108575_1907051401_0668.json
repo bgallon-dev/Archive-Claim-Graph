@@ -1,0 +1,83 @@
+{
+  "metadata": {
+    "title": "HAYWOOD SHOWS SIGNS OF BREAKING DOWN\n\n(Scripps News Association.,",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-05-14",
+    "date_end": "1907-05-14",
+    "report_year": 1907,
+    "source_file": "1_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+    "archive_ref": "1_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "1_1907-05-14_p1_sn88085947_00211108575_1907051401_0668",
+      "composite_score": 10.4,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 6.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 2.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "haywood"
+        ],
+        "mining": [
+          "mine owner"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.3,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1907,
+      "word_count": 357,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 15,
+            "in_headline": false
+          },
+          {
+            "term": "haywood",
+            "weight": 2.0,
+            "offset": 0,
+            "in_headline": true
+          }
+        ],
+        "mining": [
+          {
+            "term": "mine owner",
+            "weight": 2.0,
+            "offset": 1112,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor",
+        "mining"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "BOISE, May 14.-Haywood is be-\nginning to show the effects of long\nconfinement and worry. Lines\nabout his mouth and eyes are be-\ncoming more clearly defined daily.\n\n\nHe is still pursuing the study of\nlaw, and, according to his attor-\nneys, is making excellent progress.\nHis youngest daughter is his con.\nslant companion and his wife is by\nhis side the entire session.\n\n\nBOISE, May 14-John F. Muir\nply, chief counsel for the Western\nFederation of Miners, has held ex-\ntended conferences with Meyer re-\ngarding the Chicago Journal story\nthat Meyer is an ex-convict. While\nMeyer regards the matter lightly,\ninsisting his life is an open book,\nhis attorneys are engaged actively\nin seeking persons who knew him\nin the Black Hills at the time he is\ndeclared to have been in Joliet pen\nitentiary.\n\n\nThe Pinkertons claim to have\nconclusive evidence that Meyer has\ncriminal record in Chicago and\nhas served prison sentence as\ncharged. They say they can prove\nhe was notorious as the Cowboy\nBurglar\" BY friends of Meyer this\nis looked upon as master stroke\nof the Pinkertons, who have been\nconstantly in the employ of the\nMine Owners association, to deal\na heavy blow to the defense in the\nBoise trial.\n\n\nMcfarland is credited with work\ning up the evidence against Meyer.\n\n\n1t is though Meyer will find it\nhardest to explain the fact that at\n20 he must have answered exactly\nthe description of the man convict\ned. This is believed to be merely a\ncoincidence.\n\n\nMurphy is greatly displeased\nover declarations that in case of\nconviction there will be an armed\ndemonstration. He says it is pre-\nposterious and the federation would\nnever permit such thing. He be-\nlieves conviction impossible and\ndeclares it is the intention that no\none will interfere in any way with\nthe progress of the trial.\n\n\nJudge Wood greatly pleased the\ndefense by holding the prosecution\ndown to the exact language of the\ncriminal code in examining tales.\nmen, indicating that he intends to\nhold to the strict language of the\nIndictment and thus shorten the\ntrial by preventing Introduction of\neXtranOuS matter."
+    }
+  ]
+}

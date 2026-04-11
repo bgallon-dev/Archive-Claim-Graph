@@ -1,0 +1,35 @@
+version: "1"
+
+# Claim-entity relationship types in precedence order.
+# First entry wins when deduplicating links on the same claim-entity pair.
+#
+# The newspaper corpus uses a simplified relation vocabulary compared to
+# Turnbull.  The ecological focus relations (SPECIES_FOCUS, HABITAT_FOCUS,
+# METHOD_FOCUS) are replaced with relations suited to historical newspaper
+# content: actors, locations, organizations, and topics.
+claim_entity_relations:
+  - relation: SUBJECT_OF_CLAIM
+    entity_types: [Person, Organization]
+  - relation: LOCATION_OF_CLAIM
+    entity_types: [Place]
+  - relation: ORGANIZATION_FOCUS
+    entity_types: [Organization]
+  - relation: TOPIC_OF_CLAIM
+    entity_types: [Event, Person, Organization, Place]
+
+# The relationship type used for claim-to-location links.
+claim_location_relation: OCCURRED_AT
+claim_location_entity_types: [Place]
+
+# All entity types that get their own Neo4j label (subtypes of :Entity).
+# Derived from the seed_entities.csv entity_type column.
+entity_labels:
+  - Person
+  - Organization
+  - Place
+  - Event
+  - Period
+
+# Legacy claim type renames (old extractor output -> current canonical type).
+# Empty for now — this is a fresh domain with no legacy data.
+legacy_renames: {}

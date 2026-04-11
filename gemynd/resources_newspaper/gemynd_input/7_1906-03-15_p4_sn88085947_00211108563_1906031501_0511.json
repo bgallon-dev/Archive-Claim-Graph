@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Big Demand for Labor.",
+    "doc_type": "newspaper_article",
+    "date_start": "1906-03-15",
+    "date_end": "1906-03-15",
+    "report_year": 1906,
+    "source_file": "7_1906-03-15_p4_sn88085947_00211108563_1906031501_0511",
+    "archive_ref": "7_1906-03-15_p4_sn88085947_00211108563_1906031501_0511",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1906-03-15_p4_sn88085947_00211108563_1906031501_0511",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1906,
+      "word_count": 94,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 4,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Northern Pacific railroad\ncompany has applied to the free\nemployment bureau for 40 carpen-\ntiers and mechanics to work at\nSouth Tacoma. At the present\ntime Secretary Collier of the Taco\nma bureau Is unable to get men to\nfill all the jobs offered. The mills\nfactories and logging camps are all\ncalling for men and, with the in\ncreased demand for railroad labor\ners, it is expected there will be\nmore work than men all summer\nin spite of an unusually heavy trav\nell Of laboring men westward from\nthe central states."
+    }
+  ]
+}

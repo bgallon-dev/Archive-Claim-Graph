@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1904-09-14 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-09-14",
+    "date_end": "1904-09-14",
+    "report_year": 1904,
+    "source_file": "7_1904-09-14_p2_sn88085947_0021110854A_1904091401_0418",
+    "archive_ref": "7_1904-09-14_p2_sn88085947_0021110854A_1904091401_0418",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "7_1904-09-14_p2_sn88085947_0021110854A_1904091401_0418",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 2.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "water power"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 296,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "water power",
+            "weight": 2.0,
+            "offset": 668,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "four specials.\n\n\nThe bill went through the second\nreading and will probably come up\nat the next meeting.\n\n\nBoss Pratt and his followers will\nfight the bill in an effort to secure\nthe naming of the new police cap\ntain. Detective D. d. McPhee is q\ncandidate for the Office and has the\nbacking Of the administration forces.\nSergeant John Sullivan is the only\nother candidate. He has the back\ning Of the moral element of the COM\nmittee.\n\n\nThrough the pledges made to Pratt\nfor his work in the board of eouafza-\ntion the Spokesman-Review was last\nnight compelled to swing into line\nfor Sergeant Sullivan after fighting\nthat officer for the past two years.\n\n\nThe Washington Water Power COM\npany filed an acceptance of the Hang\nman creek bridge franchise and filed\nbond for $1,000 for the faithful\nperformance of its contract with the\ncity.\n\n\nThe offer of Chester Glass to donate\nsite for the Lidgerwood standpipe\nwas referred to the board of public\nworks.\n\n\nDR.. Genoway of the board of health\nfiled a report that the cost of oper-\nating the new crematory is SO cents\nton. The stipulation was that the\ncrematory would be operated at a\ncost of so cents a ton.\n\n\nThe health office syndicate succeed\ned in rushing through the appoint-\nment of e w. Otis as mounted sani-\ntary policeman in place of ]. w.\nThayer. A strong fight was made\nagainst the appointment on the\nground that Otis had been disgraced\nwhile superintendent of the isolation\nhospital\n\n\nInteresting developments are prom\nUsed over the oustins of Thayer and\nthe appointment Of Otis, which 10\nclaimed to have been done in order\nto forward a graft by the board Of\nhealth syndicate seeking to control\nthe scavenger business,"
+    }
+  ]
+}

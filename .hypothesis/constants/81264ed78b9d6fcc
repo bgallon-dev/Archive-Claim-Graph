@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\auth\dependencies.py
+# hypothesis_version: 6.151.9
+
+['/auth/login', 'Admin role required', 'Bearer', 'GRAPHRAG_API_TOKENS', 'Session invalidated', 'USERS_DB', 'WWW-Authenticate', 'accept', 'admin', 'archivist', 'authorization', 'client_id', 'data/users.db', 'expires_at', 'institution_id', 'public', 'role', 'sub', 'text/html', 'tkv']

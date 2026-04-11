@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "title": "CONTINUE ED\n\nWILL NOT BRING\n\n\nMILITIA HERE",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-11-11",
+    "date_end": "1909-11-11",
+    "report_year": 1909,
+    "source_file": "9_1909-11-11_p2_sn88085947_00211108617_1909111101_0051",
+    "archive_ref": "9_1909-11-11_p2_sn88085947_00211108617_1909111101_0051",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "9_1909-11-11_p2_sn88085947_00211108617_1909111101_0051",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "strike",
+          "jail"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1909,
+      "word_count": 365,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "strike",
+            "weight": 1.0,
+            "offset": 1378,
+            "in_headline": false
+          },
+          {
+            "term": "jail",
+            "weight": 0.5,
+            "offset": 845,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "They came to the conclusion that\nevery man who was thus starving\nhimself was wasting his vitality\nand could not cause the city to suf-\nfer financially for it. They de.\nclare it is not sign of weaken\ning spirit in the fight.\n\n\nLULL IN FIGHT\n\n\nA decided lull is noted in the\nfight today. Few men went out to\ndefy the police. and 1t is evident\nthat preparations are on foot for\na new system of attack. Leaders\nare waiting for new recruits from\nthroughout the Pacific northwest\nand middle west, for the local\nranks are thinning to such extent\nthat men must be taken from the\nreserve force soon.\n\n\nRECRUITS ON WAY\n\n\nFunds and recruits are expected\nfrom as far east as Chicago with.\nin the next few days and more\nmen are being rushed In from\nButte to carry On the fight. The\nbanner calling for an uncondition\nal surrender of all prisoners in the\ncity jail before any means of truce\nshall be considered is still hanging\nin conspicuous place in the hall\n\n\nNot single arrest for street\nspeaking has been made today.\n\n\nNearly a score of government\nemigration sIeuths of various ma.\ntionaities and from all over the\nentire Pacific northwest. Idaho\nand Montana, are declared to be\nin Spokane, ferreting out aliens\nparticipating in the |. w. w. free\nspeech fight for the purpose Of\nmaking a wholesale deportation\nSome of the detectives are report\ned to be in jail, submitting to the\n\"hunger strike\" in their diIieent\nsearch for non-citizens who can be\nmade subject to deportation under\nthe emigration laws.\n\n\nAside from these government\nspice, the city is believed to be\nflooded with Pinkerton men-the\nworst enemies of the revolutions\nlists while trying to conduct an or\nderby fight. These men, a number\nof whom are declared to have been\nrecognized by members of the l.\nw. w. as the same \"Pinks\" who\noperated in the disorders at Gold\nfield, New, seem to make a prac-\ntice of following such disorders.\n\n\n1t is to these men that officials\nof the l. w. w. charge many of the\nwild scenes of damaging disorders\nthat have attended laboring mems"
+    }
+  ]
+}

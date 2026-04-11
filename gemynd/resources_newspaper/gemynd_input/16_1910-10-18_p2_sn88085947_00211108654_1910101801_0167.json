@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1910-10-18 — pp2",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-18",
+    "date_end": "1910-10-18",
+    "report_year": 1910,
+    "source_file": "16_1910-10-18_p2_sn88085947_00211108654_1910101801_0167",
+    "archive_ref": "16_1910-10-18_p2_sn88085947_00211108654_1910101801_0167",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "16_1910-10-18_p2_sn88085947_00211108654_1910101801_0167",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 389,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 225,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "ana she mas CanVaSSed the state,\nand knows the situation thoroughly.\n\n\nA canvass of people on Riverside\navenue this morning resulted in\nabout half and half vote on the\nquestion of the state constitutional\namendment for equal suffrage. The\nquestions aroused good deal of\namusement at some times and a\ngood study of human nature could\nbe made from the effect that the\nquestion caused on the faces of the\nones Intercepted. On some, the\nquestion caused flicker of amuse-\nment.\n\n\n\"GUESS IT'S ALL RIGHT\"\n\n\n\"Am | in favor of it? Well, l\nguess it's all right. Wife's getting\npretty old now, anyway, so l guess\nit won't hurt her any, and if the\nwomen want to vote, let 'em vote\"\nSome shook their heads with\nsmile and passed on without saying\n\n\nword, while others paused to de-\n\n\nliver a lecture on the advantages or\ndisadvantages of the question.\nAm | in favor of woman suf-\nfrage?' repeated one man. \"Well,\n| | guess it's all right. I'm a good\n| deal like the man who said, If the\n\n\nwomen want to suffer, let 'em suf-\nfer\"\n\n\nMy wife runs things to suit her\n\n\nself now, anyway, so l guess it\n\n\nwon't hurt me any to have her\nvote\" said one philosophically.\nAm / goin' to vote for woman\nsuffrage?\" said one individual ag\n| gressively. See here, young fella\nyou ought O. know better than that\nWhat do you think l am anyway?\nand he passed on in disgust.\n\"BEEN DIVORCED ONCE\"\n\n\nMix\" replied another. Been d.\n\n\nvorced once\"\n\n\nGoing to vote for the suffrage\n| program next month\";\" was asked\n\n\nof a seedy looking individual.\nWe'll, now, I'll tell you,\" he\n\n\ndrawled. Il haven't thought about\n\n\nit much yet. You see, Maria's got\n\n\nan idea In her head that she would\nlike to trot daown toawn and vote\nlike a man, and | don't know but\nwhat it's all right\" Evidently the\ncountry districts have been invaded\nas well as the city.\n\n\n\"Itll take you just about two Sec\nonds to find out where | stand on\nthat question\" said another. 1--we\nlived In two states where they have\n\n\nttzand Eve seen 7eneagh 81 1g0loi\n\n\nRADIO the better clJss of women do\n! note at all. held a police Office IN\nCripple Greek for thraA Years and"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "MAGIC SUSTAINED\n\n\nBY CITY COUNCIL",
+    "doc_type": "newspaper_article",
+    "date_start": "1907-09-04",
+    "date_end": "1907-09-04",
+    "report_year": 1907,
+    "source_file": "6_1907-09-04_p1_sn88085947_00211108575_1907090401_1038",
+    "archive_ref": "6_1907-09-04_p1_sn88085947_00211108575_1907090401_1038",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "6_1907-09-04_p1_sn88085947_00211108575_1907090401_1038",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 1.5,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "spokane_development": [
+          "city council"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1907,
+      "word_count": 178,
+      "match_details": {
+        "spokane_development": [
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 39,
+            "in_headline": false
+          },
+          {
+            "term": "city council",
+            "weight": 0.5,
+            "offset": 21,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "spokane_development"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "After hearing evidence last night,\nthe city council refused to revoke\nMacho's employment Office license.\nEvidence in support of graft charg-\nes against him was furnished by\nChief of Police Rice, Detectives Nc\nDonald and McDermott, License In\nspector Gwydir, number of for\neigners who spoke through an in\nterpreter, Sheedby and Miller, of\nthe Peerless employment office;\nJack Travers, and other employ\nment men who claim that Macho's\nmethods are running the business\nin this city.\n\n\nThe city officials testimony dealt\nwith stories told them by laborers\ncomplaining that they had been\nrobbed by Macho, but the foreign.\ners' evidence was direct.\n\n\nMacho had letters and kilograms\nfrom contractors he had sent men\nto. stating that no fraud had been\npracticed. He also had a couple of\nwitnesses and testified in his own\nbehalf. The council decided that\nno specific case had been made\nagainst Maoho, in spite of the COM\nplants lodged by city officials from\nthe mayor down, and dismissed the\ncharges. Attorney Winston de-\nTended the accused. Macho's license\nexpires In a few weeks."
+    }
+  ]
+}

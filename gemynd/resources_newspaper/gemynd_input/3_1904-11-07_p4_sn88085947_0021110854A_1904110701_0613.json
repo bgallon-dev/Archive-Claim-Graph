@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Candidates for Governor",
+    "doc_type": "newspaper_article",
+    "date_start": "1904-11-07",
+    "date_end": "1904-11-07",
+    "report_year": 1904,
+    "source_file": "3_1904-11-07_p4_sn88085947_0021110854A_1904110701_0613",
+    "archive_ref": "3_1904-11-07_p4_sn88085947_0021110854A_1904110701_0613",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "3_1904-11-07_p4_sn88085947_0021110854A_1904110701_0613",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "railroad commission"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1904,
+      "word_count": 190,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "railroad commission",
+            "weight": 2.0,
+            "offset": 947,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Tomorrow is the day you should vote.\n\n\nThe Press is independent newspaper it has axes\nto grind but hundreds of inquiries have been received by\nthe Press asking which candidate for governor would be\nmost likely to the people The Press will give this\nbrief sketch of both candidates and the voter decide\nfor himself. ...ss.#... ..s.'...'\n\n\nAlbert E. Mead was nominated by republican conven-\nton that dominated by the Hill and Morgan railroads.\nRepresentatives of these roads practically caused his\nination.\n\n\nGeorge Turner was nominated by democratic cOnven-\nton that dominated by the Rockefeller and Hartman\nrailroads Representatives of these roads practically\ncaused his nomination.\n\n\nIf you believe Rockefeller will do for the State of\nWashington than Hill, then cast your vote for Turner\n\n\nIT, the other hand you believe Hill will do for\nthe State than Rockefeller, vote for Mead\n\n\nBut do not get the foolish idea that either of these men\nfavor railroad commission for they do not\n\n\nIf Turner is elected there will be railroad commits\nsion.\n\n\nIf Mead is elected there will be railroad commission.\n\n\n1t is case of heads they win; tails you lose"
+    }
+  ]
+}

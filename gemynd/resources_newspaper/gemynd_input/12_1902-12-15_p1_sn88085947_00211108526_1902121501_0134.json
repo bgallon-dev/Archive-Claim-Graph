@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "PASTORS MEET.",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-12-15",
+    "date_end": "1902-12-15",
+    "report_year": 1902,
+    "source_file": "12_1902-12-15_p1_sn88085947_00211108526_1902121501_0134",
+    "archive_ref": "12_1902-12-15_p1_sn88085947_00211108526_1902121501_0134",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "12_1902-12-15_p1_sn88085947_00211108526_1902121501_0134",
+      "composite_score": 1.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 1.5
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "prohibition"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 115,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "prohibition",
+            "weight": 1.5,
+            "offset": 193,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "At the regular meeting of the\nSpokane Pastors association, held\nat the Y. M. c. A.. rooms this\nmorning, Rev. M. E. Dunn of the\nFirst United Presbyterian church\nread a paper on the topic, Legal\nProhibition of the American Sa-\nLOOM\"\n\n\nThe paper was discussed at con-\nsiderable length, during which the\nmatter of the recently organized\nGood Government league was given\nstrong encoura cement.\n\n\nRev. DR.. e. p. Hill of the Port\nland First Presbyterian church and\nDR.. Ghormley, synodical missionary\nfor the state of Washington, were\npresent and delivered short adj\n| dresses.\n\n\nA complete program of topics for\npapers to be read before the associ-\nalton during the year was adopted."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "Situations Wanted-Male\n\n\"CAP\" INTRUDES UPON HIS\nLITTLE SPEECH-HE DIS\nAPPEARS WITH BOR-\n\n\nROWED TOBACCO.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-03-21",
+    "date_end": "1910-03-21",
+    "report_year": 1910,
+    "source_file": "4_1910-03-21_p6_sn88085947_00211108629_1910032101_1046",
+    "archive_ref": "4_1910-03-21_p6_sn88085947_00211108629_1910032101_1046",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "4_1910-03-21_p6_sn88085947_00211108629_1910032101_1046",
+      "composite_score": 2.1,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 1.5,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "iww_labor": [
+          "scab"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 186,
+      "match_details": {
+        "iww_labor": [
+          {
+            "term": "scab",
+            "weight": 1.5,
+            "offset": 186,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "advertisement",
+      "triggered_domains": [
+        "iww_labor"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "Lewis LeClair, secretary of the\nUnion Card and Label league, has\na trophy of his fight for home in\ndustry and for articles of commerce\nbearing the union label, in the\nshape of a can of \"scab' tobacco.\nHe came by it in rather a singular\nfashion, and is holding it at the\n: Socks union hall for the man who\nloaned ii to him this morning.\n\n\nHere is how he got it and also\nhow he came to keep it.\n\n\n: LeClair was walking along in the\nvicinity of Main avenue and Stew\nems street this morning, when he\nheard a man apparently with the\nbest of intentions, arguing in behalf\nof home industry and the union\nlabel. with a street corner crowd.\nLeClair's ears bobbed up an inch\nor two immediately-in short he\nwas interested. He listened in\ntently while the man argued that\nworking men interested in their\nown welfare should buy nothing\nthat did not contain the union la\nbel. His little speech was eloquent\nenough, but what was that in his\nhand? AS LeClaire's piercing eye\nrambled down the strangers form"
+    }
+  ]
+}

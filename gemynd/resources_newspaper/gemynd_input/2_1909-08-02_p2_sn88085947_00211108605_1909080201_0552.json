@@ -1,0 +1,71 @@
+{
+  "metadata": {
+    "title": "COMPANY ASKS\n\n\nINVESTIGATION\n\nAccepts Full Legal Responsibility for Ter\n\n\nrible Spokane & Inland Wreck.",
+    "doc_type": "newspaper_article",
+    "date_start": "1909-08-02",
+    "date_end": "1909-08-02",
+    "report_year": 1909,
+    "source_file": "2_1909-08-02_p2_sn88085947_00211108605_1909080201_0552",
+    "archive_ref": "2_1909-08-02_p2_sn88085947_00211108605_1909080201_0552",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "2_1909-08-02_p2_sn88085947_00211108605_1909080201_0552",
+      "composite_score": 10.5,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 7.5,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "spokane & inland"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "medium",
+      "year": 1909,
+      "word_count": 184,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 4,
+            "in_headline": false
+          },
+          {
+            "term": "spokane & inland",
+            "weight": 2.5,
+            "offset": 80,
+            "in_headline": true
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "The Spokane & Inland company\naccepts full legal responsibility for\nthe wreck Saturday, as the guaran-\ntor OF the efficiency of it's men.\n\n\nThe company will ask that the\nmoral responsibility be fixed by a\ncommission composed of prominent\nWashington and Idaho attorneys\nand newspapermen.\n\n\nThe company has nothing to con-\nceal and will welcome the most\nsearching investigation that can be\nmade.\n\n\nThis Is the statement today of\nWin G.. Graves. attorney for the\nSpokane & Inland company.\n\n\nThe men already invited TO act on\nthe commission are United States\nDistrict Attorney Avery of this\ncity, Prosecuting Attorney Pugh,\nCorporation Counsel Conner, Unit\ned States District Attorney Lingen-\nfelter of Idaho. Prosecuting Attor-\nney Potts of Kootenai county.\n\n\nThe date of hearing has not yet\nbeen set. Railroad men will prob\nably be added to the commission.\n\n\nThe latest theory to account for\nthe extra train pulling out of Occur\nd'Alene on the regulars time is\nthat after receiving orders Camp\nbell ran down into the yards, the\ndispatcher supposing that he In\ntended to wait there. Instead he\npulled out for Spokane."
+    }
+  ]
+}

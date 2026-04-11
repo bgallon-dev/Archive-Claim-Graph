@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "The Spokane Press — 1902-11-10 — pp4",
+    "doc_type": "newspaper_article",
+    "date_start": "1902-11-10",
+    "date_end": "1902-11-10",
+    "report_year": 1902,
+    "source_file": "18_1902-11-10_p4_sn88085947_00211108526_1902111001_0013",
+    "archive_ref": "18_1902-11-10_p4_sn88085947_00211108526_1902111001_0013",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "18_1902-11-10_p4_sn88085947_00211108526_1902111001_0013",
+      "composite_score": 2.0,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 2.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 0.0
+      },
+      "matched_terms": {
+        "railroads": [
+          "northern pacific"
+        ]
+      },
+      "temporal_boost": 1.0,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1902,
+      "word_count": 81,
+      "match_details": {
+        "railroads": [
+          {
+            "term": "northern pacific",
+            "weight": 2.0,
+            "offset": 35,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "railroads"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "c. s. Mellen, the president of the\nNorthern Pacific Railway company,\naccompanied by the division super\nintendent of the Rocky Mountain\ndivision, is nearing Spokane.\n\n\nThe object of this trip at this\nparticular time of the year is to\ngive the roadway department a\nthorough Inspection. Also to look\nover the other properties.\n\n\nThese gentlemen are travelling on\nn special train consisting OF one\nOf the roads best engines and two\nprivate cars.\n\n\nIl was learned at the Office Of the"
+    }
+  ]
+}

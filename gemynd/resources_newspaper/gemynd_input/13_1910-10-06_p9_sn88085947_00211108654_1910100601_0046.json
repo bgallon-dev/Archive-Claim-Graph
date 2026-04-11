@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "title": "will be the feature Of this evenings\nentertainment.",
+    "doc_type": "newspaper_article",
+    "date_start": "1910-10-06",
+    "date_end": "1910-10-06",
+    "report_year": 1910,
+    "source_file": "13_1910-10-06_p9_sn88085947_00211108654_1910100601_0046",
+    "archive_ref": "13_1910-10-06_p9_sn88085947_00211108654_1910100601_0046",
+    "series": "The Spokane Press",
+    "language": "en",
+    "lccn": "sn88085947",
+    "newspaper_name": "The Spokane press. [volume] (Spokane, Wash.) 1902-1939",
+    "edition": "01",
+    "keyword_scoring": {
+      "article_id": "13_1910-10-06_p9_sn88085947_00211108654_1910100601_0046",
+      "composite_score": 2.8,
+      "domain_scores": {
+        "turnbull_prehistory": 0.0,
+        "iww_labor": 0.0,
+        "indigenous": 0.0,
+        "agriculture": 0.0,
+        "railroads": 0.0,
+        "spokane_development": 0.0,
+        "mining": 0.0,
+        "depression_era": 0.0,
+        "education": 0.0,
+        "womens_civic": 2.0
+      },
+      "matched_terms": {
+        "womens_civic": [
+          "suffrage"
+        ]
+      },
+      "temporal_boost": 1.4,
+      "co_occurrence_bonus": 1.0,
+      "source_weight": 1.0,
+      "tier": "background",
+      "year": 1910,
+      "word_count": 114,
+      "match_details": {
+        "womens_civic": [
+          {
+            "term": "suffrage",
+            "weight": 2.0,
+            "offset": 417,
+            "in_headline": false
+          }
+        ]
+      },
+      "article_type": "news",
+      "triggered_domains": [
+        "womens_civic"
+      ],
+      "suppressed_terms": null
+    },
+    "llm_review": {}
+  },
+  "pages": [
+    {
+      "page_number": 1,
+      "raw_text": "will be the feature Of this evenings\nentertainment.\n\n\n& & &\n\n\nBRIDGE PARTY.\nThe local fraternity of Phi Pappi\nPsi entertained at . bridge party\nlast night in the east banquet hall\nof Davenport's In honor of Mrs. G.\nM. r. Miles. wife of ex-President\nMiles of the national fraternity.\n\n\n& & 2\n\n\nsUFFRA0lsTs RETURN.\nMrs. Philip Stafford and Mrs.\nRose Moore. who have been travel\ning on the coast campaigning for\nwoman's suffrage, returned to the\ncity last evening.\n\n\n& q .\nMISSIONARY SOCIETY MEETS\nThe regular monthly meeting of\nthe WOmen's Foreign Missionary\nsociety OF the First Methodist\nchurch win be held tomorrow after\nnoon with Mrs. A. +. Dart at her"
+    }
+  ]
+}

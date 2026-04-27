@@ -323,6 +323,16 @@ def build_parser() -> argparse.ArgumentParser:
     corpus_default_parser = corpus_sub.add_parser("set-default", help="Set a corpus as the default.")
     corpus_default_parser.add_argument("id", help="Corpus ID to set as default.")
 
+    # -- Status command --------------------------------------------------------
+    status_parser = subparsers.add_parser(
+        "status",
+        help="Report health of Neo4j, SQLite databases, and background writers.",
+    )
+    status_parser.add_argument("--format", choices=["text", "json"], default="text",
+                               help="Output format (default: text).")
+    status_parser.add_argument("--cache-warn-rows", type=int, default=500_000,
+                               help="Warn if claim cache row count exceeds this (default: 500000).")
+
     return parser
 
 
@@ -908,6 +918,16 @@ def main(argv: list[str] | None = None) -> int:
                 return 1
             print(f"Default corpus set to {args.id!r}.")
             return 0
+
+    if args.command == "status":
+        from gemynd.shared.status import collect_status, format_status_json, format_status_text
+
+        report = collect_status(settings, cache_warn_rows=args.cache_warn_rows)
+        if args.format == "json":
+            print(format_status_json(report))
+        else:
+            print(format_status_text(report))
+        return report.exit_code
 
     parser.error("Unknown command")
     return 2

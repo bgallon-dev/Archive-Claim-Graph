@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\retrieval\cypher_validator.py
+# hypothesis_version: 6.151.9
+
+['$institution_ids', '$permitted_levels', '([{', ')]}', ',', 'AllNodesScan', 'CREATE', 'Claim', 'CypherSchema', 'DELETE', 'DETACH', 'DROP', 'Document', 'Entity', 'ExtractionRun', 'FOREACH', 'HAS_CLAIM', 'HAS_MEASUREMENT', 'HAS_PAGE', 'HAS_PARAGRAPH', 'HAS_SECTION', 'Habitat', 'IN_HABITAT', 'IN_YEAR', 'LOAD', 'MERGE', 'Measurement', 'OF_SPECIES', 'Observation', 'PERIODIC', 'PROCESSED_BY', 'Page', 'Paragraph', 'REMOVE', 'SET', 'SUPPORTS', 'Section', 'Species', 'USING', 'Year', '\\[[^\\[\\]]*\\]', '\\bRETURN\\b', '\\s*\\|\\s*:?', 'allNodesScan', 'anchor_id', 'c', 'claim_types', 'd', 'empty cypher', 'entity_id', 'entity_ids', 'institution_ids', 'limit', 'para', 'permitted_levels', 'pg', 'public', 'search_text', 'year_max', 'year_min', '{']

@@ -14,10 +14,12 @@ from typing import TYPE_CHECKING, Any
 
 from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
+    DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
     PROVENANCE_CHAIN_QUERY,
+    SERIES_BROWSE_QUERY,
     TEMPORAL_CLAIMS_QUERY,
     build_document_anchor_query,
     build_temporal_with_anchor_query,
@@ -85,6 +87,10 @@ class InMemoryQueryExecutor:
             return self._claim_type_scoped(p)
         if cypher is FULLTEXT_CLAIMS_QUERY:
             return self._fulltext(p)
+        if cypher is DOC_TYPE_BROWSE_QUERY:
+            return self._doc_type_browse(p)
+        if cypher is SERIES_BROWSE_QUERY:
+            return self._series_browse(p)
         if cypher is PROVENANCE_CHAIN_QUERY:
             return self._provenance_chain(p)
         return self._generic_dispatch(cypher, p)
@@ -371,6 +377,70 @@ class InMemoryQueryExecutor:
                 continue
             rows.append(self._build_row(doc_id, claim_id))
 
+        return rows[:limit]
+
+    def _doc_type_browse(self, p: dict) -> list[dict]:
+        doc_types: list[str] = p.get("doc_types") or []
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+        claim_types = p.get("claim_types")
+        year_min = p.get("year_min")
+        year_max = p.get("year_max")
+        limit = p.get("limit", 20)
+
+        rows: list[dict] = []
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            d = self._w.node_store.get("Document", {}).get(doc_id, {})
+            if doc_types and d.get("doc_type") not in doc_types:
+                continue
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id, claim_types):
+                row = self._build_row(doc_id, claim_id, "DOC_TYPE_BROWSE")
+                year = (row.get("y") or {}).get("year")
+                if year_min is not None and year is not None and year < year_min:
+                    continue
+                if year_max is not None and year is not None and year > year_max:
+                    continue
+                rows.append(row)
+
+        rows.sort(
+            key=lambda r: (r.get("c") or {}).get("extraction_confidence", 0.0),
+            reverse=True,
+        )
+        return rows[:limit]
+
+    def _series_browse(self, p: dict) -> list[dict]:
+        series: list[str] = p.get("series") or []
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+        claim_types = p.get("claim_types")
+        year_min = p.get("year_min")
+        year_max = p.get("year_max")
+        limit = p.get("limit", 20)
+
+        rows: list[dict] = []
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            d = self._w.node_store.get("Document", {}).get(doc_id, {})
+            if series and d.get("series") not in series:
+                continue
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id, claim_types):
+                row = self._build_row(doc_id, claim_id, "SERIES_BROWSE")
+                year = (row.get("y") or {}).get("year")
+                if year_min is not None and year is not None and year < year_min:
+                    continue
+                if year_max is not None and year is not None and year > year_max:
+                    continue
+                rows.append(row)
+
+        rows.sort(
+            key=lambda r: (r.get("c") or {}).get("extraction_confidence", 0.0),
+            reverse=True,
+        )
         return rows[:limit]
 
     def _provenance_chain(self, p: dict) -> list[dict]:

@@ -11,7 +11,44 @@
 {% endblock %}
 
 {% block main %}
-<div class="chat-page">
+<style>
+  .chat-layout { display: flex; flex-direction: row; align-items: stretch; flex: 1; min-height: 0; }
+  .chat-layout > .chat-page { flex: 1; min-width: 0; }
+  #conv-sidebar {
+    width: 260px; flex-shrink: 0;
+    border-right: 1px solid #ddd; background: #fafafa;
+    display: flex; flex-direction: column; min-height: 0;
+    font-size: 13px;
+  }
+  #conv-sidebar h3 {
+    margin: 0; padding: 10px 12px; font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.04em; color: #666; border-bottom: 1px solid #eee;
+  }
+  #conv-list { list-style: none; margin: 0; padding: 0; overflow-y: auto; flex: 1; }
+  #conv-list li {
+    display: flex; align-items: center; gap: 4px;
+    padding: 8px 10px; border-bottom: 1px solid #f0f0f0; cursor: pointer;
+  }
+  #conv-list li:hover { background: #f0f4f8; }
+  #conv-list li.active { background: #e3efff; }
+  #conv-list .conv-title {
+    flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    background: none; border: 0; text-align: left; padding: 0; font: inherit; color: inherit; cursor: pointer;
+  }
+  #conv-list .conv-meta { color: #888; font-size: 11px; margin-left: 4px; }
+  #conv-list .conv-delete {
+    background: none; border: 0; color: #999; cursor: pointer; padding: 2px 6px;
+    border-radius: 3px; font-size: 14px; line-height: 1;
+  }
+  #conv-list .conv-delete:hover { color: #c00; background: #ffeaea; }
+  #conv-list .conv-empty { padding: 12px; color: #888; font-style: italic; }
+</style>
+<div class="chat-layout">
+  <aside id="conv-sidebar" aria-label="Past conversations">
+    <h3>Past conversations</h3>
+    <ul id="conv-list"><li class="conv-empty">Loading&hellip;</li></ul>
+  </aside>
+  <div class="chat-page">
   <div id="settings-panel" class="settings-panel">
     <div class="settings-row">
       <div class="settings-group">
@@ -49,6 +86,7 @@
       <button id="new-conv-btn" class="btn-sm btn-reject" style="font-size:11px;padding:3px 10px">New conversation</button>
     </div>
   </div>
+  </div>
 </div>
 {% endblock %}
 
@@ -61,6 +99,12 @@ function generateSessionId() {
   return 'sess_' + Date.now().toString(36) + Math.random().toString(36).slice(2);
 }
 var currentSessionId = generateSessionId();
+
+// Conversation sidebar state: list of {session_id, title, turn_count, ...}
+// returned by GET /api/conversations, and the currently-active session_id
+// (shown highlighted in the sidebar). `null` means this is a brand-new
+// unsaved conversation with no rows in the DB yet.
+var activeLoadedSessionId = null;
 
 function esc(s) {
   return String(s === null || s === undefined ? '' : s)
@@ -124,7 +168,8 @@ function formatResponse(data) {
         ? '<span class="src-label">' + esc(c.epistemic_status) + '</span>' : '';
       var sentence = c.source_sentence ? esc(c.source_sentence) : '<em>No text available</em>';
       var docLabel = c.doc_title ? esc(c.doc_title) : (c.doc_id ? esc(c.doc_id) : '');
-      var source = docLabel ? '<span class="src-doc">' + docLabel + '</span>' : '';
+      var titleAttr = (c.doc_title_raw && c.doc_title_raw !== c.doc_title) ? ' title="' + esc(c.doc_title_raw) + '"' : '';
+      var source = docLabel ? '<span class="src-doc"' + titleAttr + '>' + docLabel + '</span>' : '';
       return '<tr>'
         + '<td class="src-text">' + sentence + '</td>'
         + '<td class="src-meta">' + source + '</td>'
@@ -178,6 +223,126 @@ function formatResponse(data) {
   }
 
   return html;
+}
+
+// ---------- Conversation sidebar (cached history) ----------
+
+async function refreshConvSidebar() {
+  var list = document.getElementById('conv-list');
+  if (!list) return;
+  try {
+    var resp = await fetch('/api/conversations');
+    if (!resp.ok) {
+      list.innerHTML = '<li class="conv-empty">No history available</li>';
+      return;
+    }
+    var data = await resp.json();
+    var convs = data.conversations || [];
+    if (convs.length === 0) {
+      list.innerHTML = '<li class="conv-empty">No past conversations yet</li>';
+      return;
+    }
+    list.innerHTML = '';
+    convs.forEach(function(c) {
+      var li = document.createElement('li');
+      li.dataset.sessionId = c.session_id;
+      if (c.session_id === activeLoadedSessionId) li.classList.add('active');
+
+      var titleBtn = document.createElement('button');
+      titleBtn.className = 'conv-title';
+      titleBtn.type = 'button';
+      titleBtn.textContent = c.title || '(untitled)';
+      titleBtn.title = (c.title || '') + '  \u2014  ' + c.turn_count + ' turns';
+      titleBtn.addEventListener('click', function() { loadConversation(c.session_id); });
+      li.appendChild(titleBtn);
+
+      var meta = document.createElement('span');
+      meta.className = 'conv-meta';
+      meta.textContent = c.turn_count;
+      li.appendChild(meta);
+
+      var delBtn = document.createElement('button');
+      delBtn.className = 'conv-delete';
+      delBtn.type = 'button';
+      delBtn.textContent = '\u00d7';
+      delBtn.title = 'Delete conversation';
+      delBtn.addEventListener('click', function(ev) {
+        ev.stopPropagation();
+        deleteConversation(c.session_id);
+      });
+      li.appendChild(delBtn);
+
+      list.appendChild(li);
+    });
+  } catch (err) {
+    list.innerHTML = '<li class="conv-empty">Failed to load history</li>';
+  }
+}
+
+// Replay a cached conversation into the chat area without calling /query.
+// Each cached turn's `response_json` is parsed and handed to the same
+// formatResponse() used for live responses, so the bubble is identical.
+async function loadConversation(sessionId) {
+  try {
+    var resp = await fetch('/api/conversations/' + encodeURIComponent(sessionId));
+    if (!resp.ok) return;
+    var data = await resp.json();
+    var turns = data.turns || [];
+    var chat = document.getElementById('chat-area');
+    chat.innerHTML = '';
+    conversationHistory = [];
+    turns.forEach(function(t) {
+      appendBubble('user', esc(t.query_text));
+      var parsed = null;
+      if (t.response_json) {
+        try { parsed = JSON.parse(t.response_json); } catch (e) { parsed = null; }
+      }
+      if (parsed) {
+        appendBubble('assistant', formatResponse(parsed));
+        conversationHistory.push({role: 'user', content: t.query_text});
+        conversationHistory.push({role: 'assistant', content: parsed.answer || ''});
+      } else {
+        appendBubble('assistant error',
+          '<em>Cached response unavailable for this turn.</em>');
+      }
+    });
+    // Cap the in-memory history to the same limit the server accepts, so
+    // "continue this conversation" still round-trips without 422.
+    if (conversationHistory.length > HISTORY_LIMIT) {
+      conversationHistory = conversationHistory.slice(conversationHistory.length - HISTORY_LIMIT);
+    }
+    currentSessionId = sessionId;
+    activeLoadedSessionId = sessionId;
+    // Update active highlight
+    var items = document.querySelectorAll('#conv-list li');
+    items.forEach(function(li) {
+      if (li.dataset.sessionId === sessionId) li.classList.add('active');
+      else li.classList.remove('active');
+    });
+    chat.scrollTop = chat.scrollHeight;
+  } catch (err) {
+    // Silent fail — sidebar stays as-is
+  }
+}
+
+async function deleteConversation(sessionId) {
+  if (!confirm('Delete this conversation?')) return;
+  try {
+    var resp = await fetch('/api/conversations/' + encodeURIComponent(sessionId), {method: 'DELETE'});
+    if (!resp.ok) return;
+    if (activeLoadedSessionId === sessionId) {
+      // The currently-open conversation was deleted — clear the chat area
+      // and start a fresh session so the next message creates a new row.
+      document.getElementById('chat-area').innerHTML = '';
+      conversationHistory = [];
+      currentSessionId = generateSessionId();
+      activeLoadedSessionId = null;
+      appendBubble('assistant', '<p>Conversation deleted. Start a new one below.</p>');
+    }
+    refreshConvSidebar();
+  } catch (err) {
+    // ignore
+  }
 }
 
 function appendBubble(role, htmlContent) {
@@ -241,6 +406,9 @@ async function sendMessage() {
       if (conversationHistory.length > HISTORY_LIMIT) {
         conversationHistory = conversationHistory.slice(conversationHistory.length - HISTORY_LIMIT);
       }
+      // This session is now persisted server-side; reflect it in the sidebar.
+      activeLoadedSessionId = currentSessionId;
+      refreshConvSidebar();
     }
   } catch(err) {
     var bubble2 = loadingWrap.querySelector('.bubble');
@@ -271,10 +439,14 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('new-conv-btn').addEventListener('click', function() {
     conversationHistory = [];
     currentSessionId = generateSessionId();
+    activeLoadedSessionId = null;
     document.getElementById('chat-area').innerHTML = '';
     appendBubble('assistant',
       '<p>New conversation started. Ask me anything about the archive.</p>'
     );
+    // Clear active highlight in the sidebar
+    var items = document.querySelectorAll('#conv-list li');
+    items.forEach(function(li) { li.classList.remove('active'); });
   });
 
   document.getElementById('send-btn').addEventListener('click', sendMessage);
@@ -291,6 +463,9 @@ document.addEventListener('DOMContentLoaded', function() {
     history.replaceState(null, '', '/');
     sendMessage();
   }
+
+  // Populate the past-conversations sidebar on first paint.
+  refreshConvSidebar();
 });
 </script>
 {% endblock %}

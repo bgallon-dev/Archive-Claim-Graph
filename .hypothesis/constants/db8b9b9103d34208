@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\core\entity_type_inference.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.88, 'EntityRecord', 'Person', 'any_token_uppercase', 'fallback', 'keywords', 'match_mode', 'patterns', 'regex_any', 'target_type']

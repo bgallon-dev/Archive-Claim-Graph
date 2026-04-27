@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\retrieval\llm_cypher.py
+# hypothesis_version: 6.151.9
+
+[1024, '  anchors:    ', '  domain:     ', '  structural: ', '##', ', ', 'GRAPH SCHEMA', 'NONE', '\\s+', '```', 'claim_types: ', 'claude-sonnet-4-6', 'content', 'cypher\n', 'entities: ', 'role', 'sql\n', 'user', 'utf-8', '|']

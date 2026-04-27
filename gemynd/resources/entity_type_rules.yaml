@@ -1,0 +1,87 @@
+# Entity type inference rules.
+#
+# Rules are evaluated in order. First match wins.  The rules cascade runs
+# AFTER seed-vocabulary lookup (exact + fuzzy) so known entities always win
+# over pattern guesses.  Each rule has:
+#   target_type: the entity type to assign when the rule matches
+#   match_mode:  one of "any_token_uppercase", "regex_any", "fallback"
+#   keywords:    list of uppercase tokens (for any_token_uppercase)
+#   patterns:    list of regex strings evaluated against the uppercased
+#                surface form (for regex_any)
+
+rules:
+  - name: corporate_suffixes
+    target_type: Organization
+    match_mode: any_token_uppercase
+    keywords:
+      - CO
+      - CO.
+      - CORP
+      - CORPORATION
+      - INC
+      - LLC
+      - LTD
+      - COMPANY
+      - RAILROAD
+      - RAILWAY
+      - RR
+      - BANK
+      - HOTEL
+      - CLUB
+      - SOCIETY
+      - LODGE
+      - GRANGE
+      - BOARD
+      - COMMISSION
+      - BUREAU
+      - OFFICE
+      - AGENCY
+      - SERVICE
+      - ASSOCIATION
+      - ASSN
+      - COMMITTEE
+      - DEPT
+      - DEPARTMENT
+      - UNION
+      - BROTHERHOOD
+      - COUNCIL
+      - LEAGUE
+      - CHURCH
+      - SCHOOL
+      - COLLEGE
+      - UNIVERSITY
+      - INSTITUTE
+      - HOSPITAL
+      - MILL
+      - MINING
+      - SMELTER
+      - LUMBER
+      - POWER
+      - ELECTRIC
+      - TELEPHONE
+      - TELEGRAPH
+      - TRUST
+      - INVESTMENT
+      - INSURANCE
+      - BREWERY
+      - NEWSPAPER
+      - PRESS
+      - GAZETTE
+      - WPA
+
+  - name: government_patterns
+    target_type: Organization
+    match_mode: regex_any
+    patterns:
+      - "^STATE OF "
+      - "^COUNTY OF "
+      - "^CITY OF "
+      - "^TOWN OF "
+      - "^UNITED STATES"
+      - "^U\\.S\\."
+      - " STATE$"
+      - " COUNTY$"
+
+  - name: default_person
+    target_type: Person
+    match_mode: fallback

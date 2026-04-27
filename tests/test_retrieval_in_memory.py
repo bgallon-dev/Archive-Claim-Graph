@@ -524,7 +524,12 @@ class TestIntegrationWithAssembler:
                     f"Block {b.claim_id} has year={b.year}, expected {target}"
                 )
 
-    def test_temporal_impossible_range_returns_empty(self, populated_executor):
+    def test_temporal_impossible_range_triggers_relaxation(self, populated_executor):
+        """An impossible year range exhausts the temporal rung; the router's
+        relaxation chain then drops the year filter (and the claim_type
+        filter) so downstream attempts can recover claims. The trace should
+        record that we did NOT exit on the primary temporal attempt.
+        """
         assembler = ProvenanceContextAssembler(executor=populated_executor)
         blocks, ctx = assembler.assemble(
             "what happened in 9999?",
@@ -532,8 +537,17 @@ class TestIntegrationWithAssembler:
             year_min=9999,
             year_max=9999,
         )
-        assert blocks == []
-        assert ctx == ""
+        trace = assembler._last_plan_trace
+        assert trace is not None
+        # At least the primary temporal attempt must have been recorded.
+        assert any("temporal" in a.label for a in trace.attempts)
+        # The primary attempt with the impossible year range must return 0 rows.
+        primary = trace.attempts[0]
+        assert primary.row_count == 0
+        # If any rows came back, they came from a relaxation rung whose label
+        # differs from the primary.
+        if blocks:
+            assert trace.selected_label != primary.label
 
     def test_entity_anchored_path_used_when_entity_resolved(
         self, populated_executor, populated_writer

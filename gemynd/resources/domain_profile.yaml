@@ -21,6 +21,25 @@ resources:
 year_validation:
   tolerance: 5
   action: flag
+  min_year: 1800
+  max_year: 2029
+
+# Entity-type-keyed analytical query dispatch. The retrieval web layer picks
+# the first resolved entity whose type matches a key here and calls the
+# corresponding CypherQueryBuilder method with entity_id bound to `param`.
+analytical_queries:
+  Species:
+    builder: species_trend
+    param: species_id
+  Habitat:
+    builder: habitat_conditions
+    param: habitat_id
+
+# Text-to-Cypher LLM fallback (plan B6). Default off; opt in per domain.
+# When true, queries that the rule-based router and its full relaxation
+# chain cannot satisfy may be answered by an LLM-generated, validator-guarded
+# Cypher query. Requires a configured Anthropic API key.
+enable_llm_cypher: false
 
 document_anchor:
   title_keywords:

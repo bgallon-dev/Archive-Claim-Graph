@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\shared\status.py
+# hypothesis_version: 6.151.9
+
+[1024.0, 1024, 3600, 86400, 500000, '-shm', '-wal', 'CLAIM_CACHE_PATH', 'Databases', 'GB', 'KB', 'Liveness', 'MB', 'RETURN 1 AS ok', 'SELECT 1', 'TB', '_freshness', 'annotation', 'checks', 'claim_cache', 'conv log', 'conv_last_iso', 'conv_log', 'conv_log_freshness', 'data/claim_cache.db', 'database', 'detail', 'exists', 'exit_code', 'fail', 'in the future', 'ingest', 'last_iso', 'metrics', 'name', 'neo4j', 'ok', 'overall', 'path', 'review', 'row_count', 'seconds', 'shm_bytes', 'size_bytes', 'status', 'system', 'timestamp', 'token log', 'token_usage', 'unknown age', 'uri', 'users', 'wal_bytes', 'warn', 'warn_threshold_rows', 'write_audit']

@@ -310,6 +310,18 @@ class TestSelectRetrievalStrategy:
         ]
         return EntityContext(resolved=resolved)
 
+    @staticmethod
+    def _primary(plan):
+        """Return the first (template, params) pair of the first attempt.
+
+        The router now returns a relaxation chain of (label, [(template,
+        params), ...]) attempts; these tests only care about the primary.
+        """
+        assert plan, "expected at least one attempt"
+        label, queries = plan[0]
+        assert queries, f"attempt {label!r} has no queries"
+        return queries[0]
+
     def test_temporal_route_when_year_and_no_entity_with_anchor(self):
         from gemynd.core.graph.cypher import build_temporal_with_anchor_query
 
@@ -318,8 +330,7 @@ class TestSelectRetrievalStrategy:
             "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
             anchor_temporal_plans=[("refuge_abc", anchor_cypher)],
         )
-        assert len(plan) == 1
-        template, params = plan[0]
+        template, params = self._primary(plan)
         assert template is anchor_cypher
         assert params["year_min"] == 1950
         assert params["year_max"] == 1960
@@ -328,29 +339,32 @@ class TestSelectRetrievalStrategy:
     def test_temporal_route_when_year_and_no_entity_no_anchor(self):
         from gemynd.core.graph.cypher import TEMPORAL_CLAIMS_QUERY
 
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "duck counts", self._make_entity_ctx(0), year_min=1950, year_max=1960, budget=10,
         )
+        template, params = self._primary(plan)
         assert template == TEMPORAL_CLAIMS_QUERY
         assert params["year_min"] == 1950
 
     def test_multi_entity_route_when_two_entities(self):
         from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
 
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "compare mallard and teal", self._make_entity_ctx(2),
             year_min=None, year_max=None, budget=10
         )
+        template, params = self._primary(plan)
         assert template == MULTI_ENTITY_CLAIMS_QUERY
         assert len(params["entity_ids"]) == 2
 
     def test_entity_plus_claim_type_route(self):
         from gemynd.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "habitat conditions for mallard", self._make_entity_ctx(1),
             year_min=None, year_max=None, budget=10
         )
+        template, params = self._primary(plan)
         assert template == ENTITY_ANCHORED_CLAIMS_QUERY
         # Over-fetch limit (budget * 3) distinguishes this from plain entity route
         assert params["limit"] == 30
@@ -358,32 +372,38 @@ class TestSelectRetrievalStrategy:
     def test_claim_type_only_route_when_no_entity(self):
         from gemynd.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
 
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "describe all population estimates", self._make_entity_ctx(0),
             year_min=None, year_max=None, budget=10
         )
+        template, params = self._primary(plan)
         assert template == CLAIM_TYPE_SCOPED_QUERY
         assert "population_estimate" in (params["claim_types"] or [])
 
     def test_single_entity_fallback_no_claim_type(self):
         from gemynd.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY
 
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "tell me about the refuge", self._make_entity_ctx(1),
             year_min=None, year_max=None, budget=10
         )
+        template, params = self._primary(plan)
         assert template == ENTITY_ANCHORED_CLAIMS_QUERY
-        assert params["limit"] == 20  # budget * 2 (not the over-fetch * 3)
+        # Entity-only attempts now use the shared over-fetch limit.
+        assert params["limit"] == 30
 
     def test_fulltext_fallback_when_nothing_matches(self):
         from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_QUERY
 
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "tell me about the refuge", self._make_entity_ctx(0),
             year_min=None, year_max=None, budget=10
         )
+        template, params = self._primary(plan)
         assert template == FULLTEXT_CLAIMS_QUERY
-        assert params["search_text"] == "tell me about the refuge"
+        # Fulltext now extracts content-bearing terms joined with OR.
+        assert "refuge" in params["search_text"].lower()
+        assert " OR " in params["search_text"]
 
 
 class TestDuplicateEntityIdDedup:
@@ -397,10 +417,12 @@ class TestDuplicateEntityIdDedup:
             ResolvedEntity("refuge", "refuge_abc", "Refuge", 0.88, "REFERS_TO"),
         ]
         entity_ctx = EntityContext(resolved=resolved)
-        [(template, params)] = _select_retrieval_plan(
+        plan = _select_retrieval_plan(
             "what wildlife observations at Turnbull Refuge",
             entity_ctx, year_min=None, year_max=None, budget=20,
         )
+        _label, queries = plan[0]
+        template, params = queries[0]
         assert template == ENTITY_ANCHORED_CLAIMS_QUERY
         assert params["entity_id"] == "refuge_abc"
 

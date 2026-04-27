@@ -307,6 +307,7 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
         sections=sections,
         paragraphs=paragraphs,
         annotations=annotations,
+        source_metadata=dict(metadata) if isinstance(metadata, dict) else None,
     )
 
 

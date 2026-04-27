@@ -45,7 +45,13 @@ from gemynd.auth.dependencies import NeedsLoginException, require_admin, require
 from gemynd.auth.router import create_auth_router
 from ..classifier import classify_query
 from ..context_assembler import ProvenanceContextAssembler, _serialise_block
-from ..conversation_log import ClaimInteraction, ConversationLogger, LogRecord, make_conversation_id
+from ..conversation_log import (
+    ClaimInteraction,
+    ConversationLogger,
+    LogRecord,
+    make_conversation_id,
+    start_retention_purge,
+)
 from gemynd.core.graph.cypher import (
     CORPUS_STATS_QUERY,
     COUNT_QUARANTINED_CLAIMS_QUERY,
@@ -67,6 +73,7 @@ from gemynd.core.graph.cypher import (
     ENTITY_NEIGHBORHOOD_QUERY,
 )
 from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
+from ..context_assembler import _infer_claim_types
 from ..entity_gateway import EntityResolutionGateway
 from ..executor import Neo4jQueryExecutor
 from ..models import RetrievalStats, SynthesisResult
@@ -75,9 +82,39 @@ from ..synthesis import SynthesisEngine
 
 
 # Allowlist for entity_id URL path parameters.
-# Format: lowercase letters/underscores (2-30 chars) + underscore + 8-32 hex chars
-# e.g. entity_id_a3f1b2c4d5e6f7a8
-_ENTITY_ID_RE = re.compile(r'^[a-z_]{2,30}_[0-9a-f]{8,32}$')
+# Accepts both hash-based IDs (person_a1b2c3d4) and metadata-supplied readable
+# IDs (patent_person_robert_mill). Constrained to lowercase alphanumeric + underscore.
+_ENTITY_ID_RE = re.compile(r'^[a-z][a-z0-9_]{3,79}$')
+
+def _citation_label(b: "ProvenanceBlock") -> str:  # type: ignore[name-defined]
+    """Build a human-readable citation from structured block fields.
+
+    Prefers institution + date + page over the raw OCR doc_title, which is
+    often garbage in newspaper corpora (e.g. 'G O N TIN u E D h o').
+    """
+    parts: list[str] = []
+    if b.institution_id:
+        parts.append(b.institution_id.replace("_", " ").title())
+    if b.doc_date_start:
+        parts.append(b.doc_date_start)
+    if b.page_number is not None:
+        parts.append(f"pp{b.page_number}")
+    if parts:
+        return " — ".join(parts)
+    # Fallback to doc_title, but suppress OCR garbage: all-caps-heavy titles,
+    # spaced single-char runs, or very long headlines are unhelpful noise.
+    title = b.doc_title or ""
+    if title:
+        upper_ratio = sum(1 for c in title if c.isupper()) / max(len(title), 1)
+        is_garbage = (
+            upper_ratio > 0.55                    # mostly all-caps OCR headline
+            or re.search(r"[A-Z] [A-Z] [A-Z]", title)   # spaced-char OCR
+            or len(title) > 120                   # whole headline ingested as title
+        )
+        if not is_garbage:
+            return title
+    return b.doc_id or ""
+
 
 # ---------------------------------------------------------------------------
 # Request / response models
@@ -110,6 +147,20 @@ class QueryRequest(BaseModel):
         pattern=r'^[a-zA-Z0-9_\-]{1,128}$',
         description="Client-generated session ID grouping multi-turn exchanges.",
     )
+    doc_types: list[str] | None = Field(
+        None,
+        description=(
+            "Restrict retrieval to documents whose doc_type matches one of these values "
+            "(e.g. ['land_patent']). Supplements any doc_type hints detected from the query text."
+        ),
+    )
+    series: list[str] | None = Field(
+        None,
+        description=(
+            "Restrict retrieval to documents belonging to one of these archival series "
+            "(e.g. ['BLM GLO Records']). Supplements any series hints detected from the query text."
+        ),
+    )
 
     @field_validator("conversation_history")
     @classmethod
@@ -131,7 +182,7 @@ class QueryResponse(BaseModel):
     min_extraction_confidence: float | None = None
     analytical_result: dict[str, Any] | None = None
     ambiguous_entities: list[str] = Field(default_factory=list)
-    retrieval_stats: dict[str, int] | None = None
+    retrieval_stats: dict[str, Any] | None = None
     synthesis_available: bool = True  # False when API call failed; provenance blocks still returned
     quarantined_claims_count: int = 0  # claims excluded from this answer due to sensitivity review
     supporting_claims_detail: list[dict[str, Any]] = Field(default_factory=list)
@@ -228,6 +279,7 @@ def _read_query_signal_gaps(conv_log_db: str, limit: int = 10) -> list[dict]:
     """Return query buckets with high frequency but thin claim context from conversation log."""
     try:
         con = _sqlite3.connect(conv_log_db, check_same_thread=False)
+        con.execute("PRAGMA busy_timeout=5000")
         try:
             rows = con.execute(
                 """
@@ -642,6 +694,23 @@ def create_app(
         state["domain_config"] = _domain_config
         state["composite_config"] = _composite
 
+        # Pre-compute classifier inputs so each /query call avoids rebuilding
+        # the seed vocab set and year bounds on every request.
+        state["classifier_seed_vocab"] = frozenset(
+            e.normalized_form.lower()
+            for e in _composite.seed_entities
+            if e.normalized_form
+        )
+        _yv = _domain_config.year_validation or {}
+        _year_lo = _yv.get("min_year")
+        _year_hi = _yv.get("max_year")
+        state["classifier_year_bounds"] = (
+            (int(_year_lo), int(_year_hi))
+            if _year_lo is not None and _year_hi is not None
+            else None
+        )
+        state["analytical_dispatch"] = _composite.analytical_queries
+
         # --- Neo4j executor ---
         executor = Neo4jQueryExecutor(
             uri=uri,
@@ -717,12 +786,56 @@ def create_app(
         state["conv_logger"] = ConversationLogger(
             db_mgr.get_path("conv_log"), skip_init=True,
         )
+        # 90-day retention sweep for cached conversation turns.  Daemon thread,
+        # fire-and-forget — runs once at startup, then every 24h.
+        if state.get("history_store") is not None:
+            start_retention_purge(state["history_store"], days=90)
 
         # --- Pipeline components ---
         state["query_builder"] = CypherQueryBuilder(
             executor,
             institution_ids=_composite.institution_ids,
         )
+        # --- Optional text-to-Cypher LLM fallback ---
+        # Built only when (a) the composite domain opts in via
+        # `enable_llm_cypher` and (b) an Anthropic API key is configured.
+        # Schema and cache are shared with the validator inside the generator.
+        _llm_cypher_generator: Any = None
+        if _composite.enable_llm_cypher and api_key:
+            try:
+                from gemynd.retrieval.cypher_validator import CypherSchema
+                from gemynd.retrieval.cypher_cache import SqliteCypherCache
+                from gemynd.retrieval.llm_cypher import LLMCypherGenerator
+                from gemynd.shared.token_tracker import MeteredAnthropicClient
+                import anthropic as _anthropic_pkg
+
+                _anchor_rels: set[str] = set()
+                for _m in _composite.members:
+                    if _m.anchor_relation:
+                        _anchor_rels.add(_m.anchor_relation)
+                _llm_schema = CypherSchema.from_domain(
+                    domain_labels=_composite.entity_labels,
+                    domain_edges=frozenset(_composite.claim_entity_relation_precedence),
+                    anchor_relations=frozenset(_anchor_rels),
+                )
+                _raw_anthropic = _anthropic_pkg.Anthropic(api_key=api_key)
+                _llm_client = MeteredAnthropicClient(
+                    client=_raw_anthropic,
+                    logger=_token_logger,
+                    caller="llm_cypher",
+                    institution_id=_composite.institution_ids[0] if _composite.institution_ids else "",
+                )
+                _llm_cypher_generator = LLMCypherGenerator(
+                    client=_llm_client,
+                    domain_config=_composite,
+                    schema=_llm_schema,
+                    cache=SqliteCypherCache(db_mgr.get_connection("conv_log")),
+                )
+                _log.info("LLM-Cypher fallback enabled")
+            except Exception:
+                _log.warning("LLM-Cypher fallback disabled (init failed)", exc_info=True)
+                _llm_cypher_generator = None
+
         state["assembler"] = ProvenanceContextAssembler(
             executor,
             annotation_store=_annotation_store,
@@ -732,6 +845,7 @@ def create_app(
                 inst_id: _composite.anchor_for(inst_id)
                 for inst_id in _composite.institution_ids
             },
+            llm_cypher_generator=_llm_cypher_generator,
         )
         # Build the gateway with a resolver whose vocabulary spans EVERY
         # registered corpus. Without this, ``EntityResolutionGateway()`` would
@@ -743,6 +857,7 @@ def create_app(
                 config=_composite,
                 policy=ResolutionPolicy(),
             ),
+            executor=executor,
         )
         synthesis_ctx = _composite.synthesis_context()
         state["synthesis"] = SynthesisEngine(
@@ -913,11 +1028,15 @@ def create_app(
 
         # Layer 0: classify intent.
         _dc = state.get("domain_config")
+        _seed_vocab = state.get("classifier_seed_vocab")
+        _year_bounds = state.get("classifier_year_bounds")
         intent = classify_query(
             text=req.text,
             year_range=req.year_range,
             entity_hints=req.entity_hints or [],
             extra_stopwords=_dc.extraction_stopwords if _dc else None,
+            year_bounds=_year_bounds,
+            seed_vocab=_seed_vocab,
         )
         if req.mode != "auto":
             # Caller overrides bucket.
@@ -928,12 +1047,17 @@ def create_app(
                 year_min=intent.year_min,
                 year_max=intent.year_max,
                 claim_types=intent.claim_types,
+                doc_type_hints=intent.doc_type_hints,
+                series_hints=intent.series_hints,
             )
 
         # Layer 1: entity resolution.
+        _intent_map = getattr(state.get("composite_config"), "query_intent_to_claim_types", None)
+        _inferred_ct = _infer_claim_types(req.text, intent_map=_intent_map)
         entity_ctx = gateway.resolve(
             surface_forms=intent.entities,
             entity_hints=req.entity_hints,
+            inferred_claim_types=_inferred_ct,
         )
         _log.debug("entities extracted: %s", intent.entities)
         _log.debug("resolved: %s", [(r.surface_form, r.entity_id, r.resolution_confidence) for r in entity_ctx.resolved])
@@ -944,26 +1068,33 @@ def create_app(
 
         # Layer 2A: analytical path.
         if intent.bucket in ("analytical", "hybrid"):
-            # Run species trend for the first resolved species entity, if any.
-            species_entities = [e for e in entity_ctx.resolved if e.entity_type == "Species"]
-            habitat_entities = [e for e in entity_ctx.resolved if e.entity_type == "Habitat"]
-
-            if species_entities:
-                analytical_result = builder.species_trend(
-                    species_id=species_entities[0].entity_id,
+            analytical_dispatch: dict[str, dict[str, str]] = state.get(
+                "analytical_dispatch", {}
+            )
+            # Walk resolved entities in order; fire the first one whose type
+            # is registered in the domain's analytical_queries map. Domains
+            # without analytical_queries get no analytical path at all.
+            for resolved_entity in entity_ctx.resolved:
+                spec = analytical_dispatch.get(resolved_entity.entity_type)
+                if spec is None:
+                    continue
+                builder_name = spec.get("builder")
+                param_name = spec.get("param")
+                method = getattr(builder, builder_name, None) if builder_name else None
+                if method is None or not param_name:
+                    _log.warning(
+                        "analytical_queries entry for %r references unknown builder %r",
+                        resolved_entity.entity_type, builder_name,
+                    )
+                    continue
+                analytical_result = method(
+                    **{param_name: resolved_entity.entity_id},
                     year_min=intent.year_min,
                     year_max=intent.year_max,
                     permitted_levels=user.permitted_levels,
                     institution_ids=user.permitted_institution_ids,
                 )
-            elif habitat_entities:
-                analytical_result = builder.habitat_conditions(
-                    habitat_id=habitat_entities[0].entity_id,
-                    year_min=intent.year_min,
-                    year_max=intent.year_max,
-                    permitted_levels=user.permitted_levels,
-                    institution_ids=user.permitted_institution_ids,
-                )
+                break
 
         # Layer 2B: conversational path.
         blocks, context_text = assembler.assemble(
@@ -974,6 +1105,9 @@ def create_app(
             is_hybrid=is_hybrid,
             permitted_levels=user.permitted_levels,
             institution_ids=user.permitted_institution_ids,
+            intent=intent,
+            doc_types=req.doc_types,
+            series=req.series,
         )
 
         # Build coverage stats before synthesis.
@@ -986,6 +1120,7 @@ def create_app(
             documents_in_context=len({b.doc_title for b in blocks}),
             corpus_total_paragraphs=int(corpus.get("total_paragraphs", 0)),
             corpus_total_documents=int(corpus.get("total_documents", 0)),
+            plan_trace=assembler._last_plan_trace,
         )
 
         # Layer 3: synthesis.
@@ -1012,38 +1147,9 @@ def create_app(
                 supporting_claim_ids=[b.claim_id for b in blocks],
                 caveats=["AI synthesis was unavailable at query time. Source provenance blocks were retrieved successfully."],
             )
-
-        conv_logger: ConversationLogger | None = state.get("conv_logger")
-        if conv_logger is not None:
-            cited_ids = set(result.supporting_claim_ids)
-            conv_logger.enqueue(LogRecord(
-                conversation_id=conversation_id,
-                query_text=req.text,
-                bucket=intent.bucket,
-                classifier_confidence=intent.classifier_confidence,
-                year_min=intent.year_min,
-                year_max=intent.year_max,
-                retrieval_path="entity_anchored" if entity_ctx.resolved else "fulltext",
-                created_at=created_at,
-                entity_ids_resolved=[e.entity_id for e in entity_ctx.resolved],
-                entity_types_resolved=[e.entity_type for e in entity_ctx.resolved],
-                candidates_retrieved=retrieval_stats.candidates_retrieved,
-                ocr_dropped=retrieval_stats.ocr_dropped,
-                claims_in_context=retrieval_stats.claims_in_context,
-                session_id=req.session_id,
-                turn_number=turn_number,
-                request_id=getattr(request.state, "request_id", None),
-                claim_interactions=[
-                    ClaimInteraction(
-                        claim_id=_safe_log_claim_id(b.claim_id, b.access_level),
-                        claim_type=b.claim_type,
-                        traversal_rel_types=b.traversal_rel_types,
-                        was_cited=b.claim_id in cited_ids,
-                        extraction_confidence=b.extraction_confidence,
-                    )
-                    for b in blocks
-                ],
-            ))
+        # Stamp the retrieval path the assembler chose for this query so the
+        # UI can flag llm_cypher answers as lower-trust.
+        result.retrieval_path = assembler._last_retrieval_path
 
         # Count quarantined claims for this institution to include in response.
         quarantined_claims_count = 0
@@ -1076,12 +1182,13 @@ def create_app(
                 "epistemic_status": b.epistemic_status,
                 "claim_type": b.claim_type,
                 "doc_id": b.doc_id,
-                "doc_title": b.doc_title,
+                "doc_title": _citation_label(b),
+                "doc_title_raw": b.doc_title,
             }
             for b in blocks
         ]
 
-        return QueryResponse(
+        response = QueryResponse(
             answer=result.answer,
             confidence_assessment=result.confidence_assessment,
             supporting_claim_ids=result.supporting_claim_ids,
@@ -1103,6 +1210,54 @@ def create_app(
             supporting_claims_detail=claims_detail,
             user_can_annotate=user.role in ("admin", "archivist"),
         )
+
+        # Fire-and-forget log write.  Deferred until after the QueryResponse is
+        # built so `response_json` captures the exact payload the client will
+        # see (post-PII-redaction, inclusive of quarantine caveat and claim
+        # detail).  Only authenticated human users populate the conversation
+        # cache — bearer-token API clients have `user_id=None` and are
+        # excluded from the chat-history sidebar.
+        conv_logger: ConversationLogger | None = state.get("conv_logger")
+        if conv_logger is not None:
+            cited_ids = set(result.supporting_claim_ids)
+            _cache_response_json: str | None = None
+            if user.user_id is not None:
+                try:
+                    _cache_response_json = response.model_dump_json()
+                except Exception:  # noqa: BLE001 — never block the response
+                    _cache_response_json = None
+            conv_logger.enqueue(LogRecord(
+                conversation_id=conversation_id,
+                query_text=req.text,
+                bucket=intent.bucket,
+                classifier_confidence=intent.classifier_confidence,
+                year_min=intent.year_min,
+                year_max=intent.year_max,
+                retrieval_path="entity_anchored" if entity_ctx.resolved else "fulltext",
+                created_at=created_at,
+                entity_ids_resolved=[e.entity_id for e in entity_ctx.resolved],
+                entity_types_resolved=[e.entity_type for e in entity_ctx.resolved],
+                candidates_retrieved=retrieval_stats.candidates_retrieved,
+                ocr_dropped=retrieval_stats.ocr_dropped,
+                claims_in_context=retrieval_stats.claims_in_context,
+                session_id=req.session_id,
+                turn_number=turn_number,
+                request_id=getattr(request.state, "request_id", None),
+                user_id=user.user_id,
+                response_json=_cache_response_json,
+                claim_interactions=[
+                    ClaimInteraction(
+                        claim_id=_safe_log_claim_id(b.claim_id, b.access_level),
+                        claim_type=b.claim_type,
+                        traversal_rel_types=b.traversal_rel_types,
+                        was_cited=b.claim_id in cited_ids,
+                        extraction_confidence=b.extraction_confidence,
+                    )
+                    for b in blocks
+                ],
+            ))
+
+        return response
 
     # ------------------------------------------------------------------
     # POST /query/provenance
@@ -1462,6 +1617,61 @@ def create_app(
         if store is None:
             raise HTTPException(status_code=503, detail="History store not configured.")
         return store.get_saved_searches(created_by=user.identity)
+
+    # ------------------------------------------------------------------
+    # Conversation cache — per-user multi-turn chat history
+    # ------------------------------------------------------------------
+    # `session_id` path params accept only the subset of characters allowed
+    # by the QueryRequest.session_id regex (alphanumerics, underscore, hyphen,
+    # max 128 chars). Anything else is 400.
+    _SESSION_ID_RE = re.compile(r'^[a-zA-Z0-9_\-]{1,128}$')
+
+    @app.get("/api/conversations")
+    def api_list_conversations(
+        limit: int = Query(50, le=200),
+        offset: int = Query(0, ge=0),
+        user: UserContext = Depends(require_user),
+    ) -> dict[str, Any]:
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        if user.user_id is None:
+            # Bearer-token API clients have no persisted history.
+            return {"conversations": []}
+        convs = store.list_user_sessions(user.user_id, limit=limit, offset=offset)
+        return {"conversations": convs}
+
+    @app.get("/api/conversations/{session_id}")
+    def api_get_conversation(
+        session_id: str,
+        user: UserContext = Depends(require_user),
+    ) -> dict[str, Any]:
+        if not _SESSION_ID_RE.match(session_id):
+            raise HTTPException(status_code=400, detail="Invalid session_id format")
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        if user.user_id is None:
+            raise HTTPException(status_code=404, detail="conversation not found")
+        turns = store.get_session_turns(user.user_id, session_id)
+        if not turns:
+            raise HTTPException(status_code=404, detail="conversation not found")
+        return {"session_id": session_id, "turns": turns}
+
+    @app.delete("/api/conversations/{session_id}")
+    def api_delete_conversation(
+        session_id: str,
+        user: UserContext = Depends(require_user),
+    ) -> dict[str, Any]:
+        if not _SESSION_ID_RE.match(session_id):
+            raise HTTPException(status_code=400, detail="Invalid session_id format")
+        store: _QHS | None = state.get("history_store")
+        if store is None:
+            raise HTTPException(status_code=503, detail="History store not configured.")
+        if user.user_id is None:
+            return {"deleted": 0}
+        deleted = store.delete_session(user.user_id, session_id)
+        return {"deleted": deleted}
 
     # ------------------------------------------------------------------
     # GET /api/token-stats  — admin: current-period token usage summary

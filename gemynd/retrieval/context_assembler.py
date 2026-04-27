@@ -18,22 +18,45 @@ import re
 
 from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
+    DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
+    SERIES_BROWSE_QUERY,
     TEMPORAL_CLAIMS_QUERY,
     build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
 from .executor import Neo4jQueryExecutor
-from .models import EntityContext, ProvenanceBlock
+from .models import (
+    EntityContext,
+    ProvenanceBlock,
+    QueryIntent,
+    RetrievalPath,
+    RetrievalPlanAttempt,
+    RetrievalPlanTrace,
+)
 
 _log = logging.getLogger(__name__)
 
 # Default context window budgets.
-_BUDGET_CONVERSATIONAL = 20
+_BUDGET_CONVERSATIONAL = 30
 
 _BUDGET_HYBRID = 4
+
+# Minimum rows an attempt must produce to count as "satisfying" the query.
+# Falling below this threshold triggers the next relaxation step.
+_MIN_RESULTS_THRESHOLD = 1
+
+# Confidence below which we are willing to spend an LLM call on Cypher
+# generation. Confident-but-zero answers (e.g. "no claims about X") are
+# semantically meaningful and should not trip the fallback.
+_LLM_FALLBACK_CONFIDENCE_CEILING = 0.7
+
+
+# A single rung of the relaxation ladder: a label + one or more (cypher, params)
+# pairs that are executed and merged as a single logical attempt.
+PlanAttempt = tuple[str, list[tuple[str, dict]]]
 
 # Fallback intent map used when no config-driven query_intent_map is provided.
 _FALLBACK_INTENT_MAP: dict[str, list[str]] = {
@@ -62,6 +85,51 @@ def _sanitize_fulltext(text: str) -> str:
     return _LUCENE_SPECIAL.sub(r'\\\1', text.strip()[:_FULLTEXT_MAX_LEN])
 
 
+# Function words stripped during fulltext term extraction. Intentionally narrow:
+# we keep domain nouns that the classifier used to drop (stand, patterns, …) so
+# they still contribute to fulltext scoring when no entity anchor resolved.
+_FULLTEXT_STOPWORDS: frozenset[str] = frozenset({
+    "what", "when", "where", "which", "while", "were", "have", "been", "does", "did",
+    "that", "this", "these", "those", "their", "there", "then", "than",
+    "with", "from", "about", "over", "under", "into", "onto", "upon",
+    "describe", "explain", "tell", "show", "give", "find", "list",
+    "during", "across",
+    "year", "years", "time", "times", "date", "dates",
+})
+
+
+def _extract_fulltext_terms(text: str, max_terms: int = 5) -> str:
+    """Extract 3–5 content-bearing terms and OR-join them as a Lucene query.
+
+    Falls back to sanitized raw text if no terms survive filtering. Preserves
+    Lucene escaping and the 500-char cap that _sanitize_fulltext guarantees.
+    """
+    tokens = re.findall(r"[A-Za-z][A-Za-z\-']{2,}", text)
+    if not tokens:
+        return _sanitize_fulltext(text)
+
+    def _rank(tok: str) -> tuple[int, int]:
+        # Capitalized tokens first, then longer tokens.
+        return (0 if tok[0].isupper() else 1, -len(tok))
+
+    seen: set[str] = set()
+    ranked: list[str] = []
+    for tok in sorted((t for t in tokens if t.lower() not in _FULLTEXT_STOPWORDS), key=_rank):
+        key = tok.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        ranked.append(tok)
+        if len(ranked) >= max_terms:
+            break
+
+    if not ranked:
+        return _sanitize_fulltext(text)
+
+    joined = " OR ".join(_sanitize_fulltext(t) for t in ranked)
+    return joined[:_FULLTEXT_MAX_LEN]
+
+
 def _infer_claim_types(
     query_text: str,
     intent_map: dict[str, list[str]] | None = None,
@@ -88,14 +156,18 @@ def _select_retrieval_plan(
     intent_map: dict[str, list[str]] | None = None,
     anchor_temporal_plans: list[tuple[str, str]] | None = None,
     anchor_document_plans: dict[str, str] | None = None,
-) -> list[tuple[str, dict]]:
-    """Return one or more (template, params) pairs matching the query shape.
+    doc_types: list[str] | None = None,
+    series: list[str] | None = None,
+) -> list[PlanAttempt]:
+    """Return an ordered list of relaxation attempts matching the query shape.
 
-    A list is returned so that multi-corpus temporal queries (one per corpus
-    anchor) can be emitted in a single plan. All other strategies still
-    return a single-element list for uniform iteration in ``assemble()``.
+    Each attempt is a ``(label, [(cypher, params), ...])`` pair. The assembler
+    runs the attempts in order: the first that yields at least
+    ``_MIN_RESULTS_THRESHOLD`` rows wins. Subsequent attempts drop progressively
+    more filters (claim_type → year bounds → degrade template) to recover from
+    over-constrained primary plans.
 
-    Priority cascade:
+    Priority cascade of primary plans:
     1. Temporal — year bounds present, no entity anchor
     2. Multi-entity comparative — 2+ resolved entities
     3. Single entity + claim_type signal — entity-anchored over-fetch + post-filter
@@ -105,6 +177,12 @@ def _select_retrieval_plan(
     """
     inferred_claim_types = _infer_claim_types(query_text, intent_map=intent_map)
     resolved_ids = list(dict.fromkeys(e.entity_id for e in entity_context.resolved))
+    maybe_ids = [
+        e.entity_id
+        for e in getattr(entity_context, "maybe_resolved", [])
+        if e.entity_id not in set(resolved_ids)
+    ]
+    maybe_ids = list(dict.fromkeys(maybe_ids))
     has_years = year_min is not None or year_max is not None
     has_entities = len(resolved_ids) > 0
     has_claim_types = bool(inferred_claim_types)
@@ -113,80 +191,235 @@ def _select_retrieval_plan(
     _ids = list(institution_ids) if institution_ids else []
     _access_params = {"permitted_levels": _permitted, "institution_ids": _ids}
 
-    if has_years and len(resolved_ids) <= 1:
-        # When no entity resolved, anchor to each configured per-corpus anchor
-        # so the temporal query doesn't scan the full graph. Emit one query
-        # per corpus anchor and let assemble() merge the results.
+    def _temporal_queries(
+        ymin: int | None, ymax: int | None, ctypes: list[str] | None,
+    ) -> list[tuple[str, dict]]:
         if len(resolved_ids) == 0 and anchor_temporal_plans:
-            plans: list[tuple[str, dict]] = []
+            queries: list[tuple[str, dict]] = []
             for anchor_id, anchor_cypher in anchor_temporal_plans:
-                plans.append((
+                queries.append((
                     anchor_cypher,
                     {
                         "anchor_id": anchor_id,
-                        "year_min": year_min,
-                        "year_max": year_max,
-                        "claim_types": inferred_claim_types,
+                        "year_min": ymin,
+                        "year_max": ymax,
+                        "claim_types": ctypes,
                         "limit": budget * 3,
                         **_access_params,
                     },
                 ))
-            if plans:
-                return plans
+            if queries:
+                return queries
         return [(TEMPORAL_CLAIMS_QUERY, {
-            "year_min": year_min,
-            "year_max": year_max,
-            "claim_types": inferred_claim_types,
+            "year_min": ymin,
+            "year_max": ymax,
+            "claim_types": ctypes,
             "limit": budget * 3,
             **_access_params,
         })]
-    if len(resolved_ids) >= 2:
-        return [(MULTI_ENTITY_CLAIMS_QUERY, {
-            "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
-            "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+
+    def _entity_anchored_queries(
+        ymin: int | None, ymax: int | None,
+    ) -> list[tuple[str, dict]]:
+        queries: list[tuple[str, dict]] = [(ENTITY_ANCHORED_CLAIMS_QUERY, {
+            "entity_id": resolved_ids[0], "year_min": ymin,
+            "year_max": ymax, "limit": budget * 3,
             **_access_params,
         })]
-    if has_entities and has_claim_types:
-        # Over-fetch; post-filter by claim_type in assemble()
-        return [(ENTITY_ANCHORED_CLAIMS_QUERY, {
-            "entity_id": resolved_ids[0], "year_min": year_min,
-            "year_max": year_max, "limit": budget * 3,
-            **_access_params,
-        })]
-    if has_claim_types and not has_entities:
-        return [(CLAIM_TYPE_SCOPED_QUERY, {
-            "claim_types": inferred_claim_types, "entity_ids": None,
-            "year_min": year_min, "year_max": year_max, "limit": budget * 2,
-            **_access_params,
-        })]
-    if has_entities:
-        plans: list[tuple[str, dict]] = [(ENTITY_ANCHORED_CLAIMS_QUERY, {
-            "entity_id": resolved_ids[0], "year_min": year_min,
-            "year_max": year_max, "limit": budget * 2,
-            **_access_params,
-        })]
-        # When the resolved entity is itself a corpus anchor (e.g. the Spokane
-        # Place node that the newspaper corpus blanket-links to via ABOUT_PLACE),
-        # emit an additional document-level anchor plan so claims from the full
-        # corpus flow through — not just claims whose extractor independently
-        # resolved the surface form to the same entity.
         if anchor_document_plans:
             for resolved_id in resolved_ids:
                 doc_cypher = anchor_document_plans.get(resolved_id)
                 if doc_cypher is not None:
-                    plans.append((doc_cypher, {
+                    queries.append((doc_cypher, {
                         "anchor_id": resolved_id,
-                        "year_min": year_min,
-                        "year_max": year_max,
+                        "year_min": ymin,
+                        "year_max": ymax,
                         "claim_types": inferred_claim_types,
                         "limit": budget * 3,
                         **_access_params,
                     }))
-        return plans
-    return [(FULLTEXT_CLAIMS_QUERY, {
-        "search_text": _sanitize_fulltext(query_text), "limit": budget * 2,
-        **_access_params,
-    })]
+        return queries
+
+    def _fulltext_query(text: str) -> list[tuple[str, dict]]:
+        return [(FULLTEXT_CLAIMS_QUERY, {
+            "search_text": _extract_fulltext_terms(text),
+            "limit": budget * 2,
+            **_access_params,
+        })]
+
+    attempts: list[PlanAttempt] = []
+
+    # When a doc_type scope is active (from NL detection or explicit API param),
+    # try a pure browse of documents of that type FIRST.  If no documents with
+    # that doc_type exist the attempt returns 0 rows and the cascade falls
+    # through to the normal entity/fulltext path unchanged — no regression.
+    if doc_types:
+        _doc_types_list = list(doc_types)
+        attempts.append(("doc_type_browse", [(DOC_TYPE_BROWSE_QUERY, {
+            "doc_types": _doc_types_list,
+            "claim_types": inferred_claim_types,
+            "year_min": year_min,
+            "year_max": year_max,
+            "limit": budget * 3,
+            **_access_params,
+        })]))
+        # Relax claim_type and year constraints before giving up on doc_type scope.
+        if inferred_claim_types:
+            attempts.append(("doc_type_browse:drop_claim_type", [(DOC_TYPE_BROWSE_QUERY, {
+                "doc_types": _doc_types_list,
+                "claim_types": None,
+                "year_min": year_min,
+                "year_max": year_max,
+                "limit": budget * 3,
+                **_access_params,
+            })]))
+        if year_min is not None or year_max is not None:
+            attempts.append(("doc_type_browse:drop_years", [(DOC_TYPE_BROWSE_QUERY, {
+                "doc_types": _doc_types_list,
+                "claim_types": None,
+                "year_min": None,
+                "year_max": None,
+                "limit": budget * 3,
+                **_access_params,
+            })]))
+
+    if series:
+        _series_list = list(series)
+        attempts.append(("series_browse", [(SERIES_BROWSE_QUERY, {
+            "series": _series_list,
+            "claim_types": inferred_claim_types,
+            "year_min": year_min,
+            "year_max": year_max,
+            "limit": budget * 3,
+            **_access_params,
+        })]))
+        if inferred_claim_types:
+            attempts.append(("series_browse:drop_claim_type", [(SERIES_BROWSE_QUERY, {
+                "series": _series_list,
+                "claim_types": None,
+                "year_min": year_min,
+                "year_max": year_max,
+                "limit": budget * 3,
+                **_access_params,
+            })]))
+        if year_min is not None or year_max is not None:
+            attempts.append(("series_browse:drop_years", [(SERIES_BROWSE_QUERY, {
+                "series": _series_list,
+                "claim_types": None,
+                "year_min": None,
+                "year_max": None,
+                "limit": budget * 3,
+                **_access_params,
+            })]))
+
+    if has_years and len(resolved_ids) <= 1:
+        # --- Primary: temporal (with or without corpus anchor) ---
+        attempts.append(("temporal", _temporal_queries(year_min, year_max, inferred_claim_types)))
+        # Relax claim_type first, then year bounds.
+        if inferred_claim_types:
+            attempts.append((
+                "temporal:drop_claim_type",
+                _temporal_queries(year_min, year_max, None),
+            ))
+        attempts.append((
+            "temporal:drop_years",
+            _temporal_queries(None, None, None),
+        ))
+    elif len(resolved_ids) >= 2:
+        # --- Primary: multi-entity comparative ---
+        attempts.append(("multi_entity", [(MULTI_ENTITY_CLAIMS_QUERY, {
+            "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
+            "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+            **_access_params,
+        })]))
+        if has_years:
+            attempts.append(("multi_entity:drop_years", [(MULTI_ENTITY_CLAIMS_QUERY, {
+                "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
+                "year_min": None, "year_max": None, "limit": budget * 2,
+                **_access_params,
+            })]))
+        if inferred_claim_types:
+            attempts.append(("multi_entity:drop_claim_type", [(MULTI_ENTITY_CLAIMS_QUERY, {
+                "entity_ids": resolved_ids, "claim_types": None,
+                "year_min": None, "year_max": None, "limit": budget * 2,
+                **_access_params,
+            })]))
+        # Degrade to single-entity scans, one per resolved id.
+        degraded: list[tuple[str, dict]] = []
+        for rid in resolved_ids:
+            degraded.append((ENTITY_ANCHORED_CLAIMS_QUERY, {
+                "entity_id": rid, "year_min": None, "year_max": None,
+                "limit": budget * 2, **_access_params,
+            }))
+        attempts.append(("multi_entity:degrade_single", degraded))
+    elif has_entities and has_claim_types:
+        # --- Primary: entity-anchored over-fetch + post-filter ---
+        attempts.append(("entity_anchored", _entity_anchored_queries(year_min, year_max)))
+        if has_years:
+            attempts.append((
+                "entity_anchored:drop_years",
+                _entity_anchored_queries(None, None),
+            ))
+        # If we have one strong anchor and one or more POSSIBLY_REFERS_TO
+        # candidates, try a multi-entity comparative using the combined set
+        # before falling back to claim_type-only.
+        if len(resolved_ids) == 1 and maybe_ids:
+            combined = resolved_ids + maybe_ids
+            attempts.append(("entity_anchored:include_maybe", [(MULTI_ENTITY_CLAIMS_QUERY, {
+                "entity_ids": combined, "claim_types": inferred_claim_types,
+                "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+                **_access_params,
+            })]))
+        # Fall through to claim-type-scoped: the keyword signal is the only
+        # thing left once the entity anchor is exhausted.
+        attempts.append(("entity_anchored:drop_entity_anchor", [(CLAIM_TYPE_SCOPED_QUERY, {
+            "claim_types": inferred_claim_types, "entity_ids": None,
+            "year_min": None, "year_max": None, "limit": budget * 2,
+            **_access_params,
+        })]))
+    elif has_claim_types and not has_entities:
+        attempts.append(("claim_type_scoped", [(CLAIM_TYPE_SCOPED_QUERY, {
+            "claim_types": inferred_claim_types, "entity_ids": None,
+            "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+            **_access_params,
+        })]))
+        if has_years:
+            attempts.append(("claim_type_scoped:drop_years", [(CLAIM_TYPE_SCOPED_QUERY, {
+                "claim_types": inferred_claim_types, "entity_ids": None,
+                "year_min": None, "year_max": None, "limit": budget * 2,
+                **_access_params,
+            })]))
+        attempts.append(("claim_type_scoped:fulltext", _fulltext_query(query_text)))
+    elif has_entities:
+        attempts.append(("entity_only", _entity_anchored_queries(year_min, year_max)))
+        if has_years:
+            attempts.append((
+                "entity_only:drop_years",
+                _entity_anchored_queries(None, None),
+            ))
+        if len(resolved_ids) == 1 and maybe_ids:
+            combined = resolved_ids + maybe_ids
+            attempts.append(("entity_only:include_maybe", [(MULTI_ENTITY_CLAIMS_QUERY, {
+                "entity_ids": combined, "claim_types": None,
+                "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+                **_access_params,
+            })]))
+    else:
+        attempts.append(("fulltext", _fulltext_query(query_text)))
+        # Token-level OR fallback: drop Lucene's AND-by-default and require
+        # any 4+ char token to match. Reuses _sanitize_fulltext per token.
+        tokens = [
+            t for t in re.findall(r"[A-Za-z]{4,}", query_text)
+            if t.lower() not in {"what", "when", "where", "which", "does", "did", "have", "been"}
+        ]
+        if tokens:
+            or_text = " OR ".join(_sanitize_fulltext(t) for t in tokens[:8])
+            attempts.append(("fulltext:token_or", [(FULLTEXT_CLAIMS_QUERY, {
+                "search_text": or_text, "limit": budget * 2,
+                **_access_params,
+            })]))
+
+    return attempts
 
 
 # ---------------------------------------------------------------------------
@@ -227,10 +460,20 @@ def _sanitize_claim_text(sentence: str) -> str:
 # Caret (^) is the primary signal; control characters (non-whitespace) are secondary.
 _OCR_GARBAGE_RE = re.compile(r"[\^\x00-\x08\x0b\x0c\x0e-\x1f]")
 
+# Matches the newspaper OCR failure mode where every character is space-separated,
+# producing sequences like "G O N TIN u E D" or "N E w S".  We require at least
+# 5 consecutive single-character tokens to avoid false positives on legitimate
+# initialisms (e.g. "U.S.A." or "P.O. Box").
+_OCR_SPACED_CHARS_RE = re.compile(r'(?<!\S)(?:[A-Za-z] ){5,}')
+
 
 def _is_ocr_corrupted(sentence: str) -> bool:
     """Return True if *sentence* contains characters indicating OCR corruption."""
-    return bool(_OCR_GARBAGE_RE.search(sentence))
+    if _OCR_GARBAGE_RE.search(sentence):
+        return True
+    if _OCR_SPACED_CHARS_RE.search(sentence):
+        return True
+    return False
 
 
 def _safe_str(value: object) -> str:
@@ -298,6 +541,7 @@ def _row_to_block(row: dict) -> ProvenanceBlock | None:
         access_level=_safe_str(d.get("access_level") or "public"),
         donor_restricted=bool(d.get("donor_restricted", False)),
         doc_id=_safe_str(d.get("doc_id")),
+        institution_id=_safe_str(d.get("institution_id")) or None,
     )
 
 
@@ -384,12 +628,15 @@ class ProvenanceContextAssembler:
         query_intent_map: dict[str, list[str]] | None = None,
         institution_ids: list[str] | None = None,
         anchors: dict[str, tuple[str | None, str | None, str | None]] | None = None,
+        llm_cypher_generator: object | None = None,
     ) -> None:
         self._executor = executor
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
         self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
         self._institution_ids = list(institution_ids) if institution_ids else []
+        # Optional text-to-Cypher fallback. None disables the path entirely.
+        self._llm_cypher_generator = llm_cypher_generator
         # Per-institution anchors: {inst_id: (entity_id, entity_type, relation)}
         self._anchors: dict[str, tuple[str | None, str | None, str | None]] = dict(anchors or {})
 
@@ -406,6 +653,8 @@ class ProvenanceContextAssembler:
             CLAIM_TYPE_SCOPED_QUERY: "CLAIM_TYPE_SCOPED",
             ENTITY_ANCHORED_CLAIMS_QUERY: "ENTITY_ANCHORED",
             FULLTEXT_CLAIMS_QUERY: "FULLTEXT",
+            DOC_TYPE_BROWSE_QUERY: "DOC_TYPE_BROWSE",
+            SERIES_BROWSE_QUERY: "SERIES_BROWSE",
         }
         for inst_id in self._institution_ids:
             spec = self._anchors.get(inst_id)
@@ -441,6 +690,10 @@ class ProvenanceContextAssembler:
         self._last_candidate_count: int = 0
         self._last_ocr_dropped: int = 0
         self._last_context_count: int = 0
+        self._last_plan_trace: RetrievalPlanTrace | None = None
+        # Tracks which cascade rung produced the rows that fed synthesis.
+        # Read by the web layer to set SynthesisResult.retrieval_path.
+        self._last_retrieval_path: RetrievalPath = "rule_based"
 
     def assemble(
         self,
@@ -451,6 +704,9 @@ class ProvenanceContextAssembler:
         is_hybrid: bool = False,
         permitted_levels: list[str] | None = None,
         institution_ids: list[str] | None = None,
+        intent: QueryIntent | None = None,
+        doc_types: list[str] | None = None,
+        series: list[str] | None = None,
     ) -> tuple[list[ProvenanceBlock], str]:
         """Retrieve and serialise provenance blocks for *query_text*.
 
@@ -465,35 +721,163 @@ class ProvenanceContextAssembler:
         inferred_claim_types = _infer_claim_types(query_text, intent_map=self._query_intent_map)
         effective_ids = list(institution_ids) if institution_ids else list(self._institution_ids)
 
-        plan = _select_retrieval_plan(
+        # Merge caller-supplied doc_types with any detected in the query intent.
+        effective_doc_types: list[str] | None = None
+        intent_doc_hints = list(getattr(intent, "doc_type_hints", None) or [])
+        caller_types = list(doc_types) if doc_types else []
+        merged_types = list(dict.fromkeys(caller_types + intent_doc_hints))
+        if merged_types:
+            effective_doc_types = merged_types
+
+        # Merge caller-supplied series with any detected in the query intent.
+        effective_series: list[str] | None = None
+        intent_series_hints = list(getattr(intent, "series_hints", None) or [])
+        caller_series = list(series) if series else []
+        merged_series = list(dict.fromkeys(caller_series + intent_series_hints))
+        if merged_series:
+            effective_series = merged_series
+
+        attempts = _select_retrieval_plan(
             query_text, entity_context, year_min, year_max, budget,
             permitted_levels=permitted_levels,
             institution_ids=effective_ids,
             intent_map=self._query_intent_map,
             anchor_temporal_plans=self._anchor_temporal_plans,
             anchor_document_plans=self._anchor_document_plans,
+            doc_types=effective_doc_types,
+            series=effective_series,
         )
 
         rows: list[dict] = []
         claim_rel_types: dict[str, list[str]] = {}
         seen_claim_ids: set[str] = set()
-        last_template = plan[-1][0] if plan else FULLTEXT_CLAIMS_QUERY
+        last_template: str = FULLTEXT_CLAIMS_QUERY
 
-        for template, params in plan:
-            raw = self._executor.run(template, params)
-            for r in raw:
-                c = r.get("c") or {}
-                cid = c.get("claim_id")
-                if cid:
-                    rel_type = r.get("traversal_rel_type")
-                    if rel_type and rel_type not in claim_rel_types.get(cid, []):
-                        claim_rel_types.setdefault(cid, []).append(rel_type)
-                # Dedupe across multi-entity and multi-corpus-anchor plans.
-                if cid and cid not in seen_claim_ids:
-                    seen_claim_ids.add(cid)
-                    rows.append(r)
-                elif not cid:
-                    rows.append(r)
+        resolved_ids_for_trace = list(
+            dict.fromkeys(e.entity_id for e in entity_context.resolved)
+        )
+        trace = RetrievalPlanTrace(
+            attempts=[],
+            resolved_entity_ids=resolved_ids_for_trace,
+            selected_label="",
+        )
+
+        for label, queries in attempts:
+            attempt_rows: list[dict] = []
+            attempt_seen: set[str] = set()
+            attempt_rel_types: dict[str, list[str]] = {}
+            for template, params in queries:
+                raw = self._executor.run(template, params)
+                for r in raw:
+                    c = r.get("c") or {}
+                    cid = c.get("claim_id")
+                    if cid:
+                        rel_type = r.get("traversal_rel_type")
+                        if rel_type and rel_type not in attempt_rel_types.get(cid, []):
+                            attempt_rel_types.setdefault(cid, []).append(rel_type)
+                    if cid and cid not in attempt_seen:
+                        attempt_seen.add(cid)
+                        attempt_rows.append(r)
+                    elif not cid:
+                        attempt_rows.append(r)
+
+            trace.attempts.append(RetrievalPlanAttempt(
+                label=label,
+                template_names=[
+                    self._template_names.get(t, "unknown") for t, _ in queries
+                ],
+                row_count=len(attempt_rows),
+            ))
+
+            if len(attempt_rows) >= _MIN_RESULTS_THRESHOLD:
+                rows = attempt_rows
+                claim_rel_types = attempt_rel_types
+                seen_claim_ids = attempt_seen
+                last_template = queries[-1][0] if queries else FULLTEXT_CLAIMS_QUERY
+                trace.selected_label = label
+                break
+        else:
+            # No attempt produced rows; keep the final attempt's (empty) state
+            # so downstream logic sees an empty-but-valid result.
+            if attempts:
+                trace.selected_label = attempts[-1][0]
+                last_template = (
+                    attempts[-1][1][-1][0] if attempts[-1][1] else FULLTEXT_CLAIMS_QUERY
+                )
+
+        # Determine which retrieval path produced the rows. Defaults to
+        # rule_based; the LLM fallback below may override to llm_cypher,
+        # and the empty case below to fulltext_fallback or empty.
+        retrieval_path: RetrievalPath = "rule_based"
+
+        # --- B1: text-to-Cypher LLM fallback ---------------------------------
+        # Fires only when the rule-based cascade returned zero rows AND the
+        # classifier is not highly confident in the intent (low-confidence
+        # classifications are the ones most likely to have routed wrong).
+        # Confident-but-zero answers are semantically meaningful and should
+        # not be papered over with an LLM call.
+        if (
+            not rows
+            and self._llm_cypher_generator is not None
+            and (intent is None or intent.classifier_confidence < _LLM_FALLBACK_CONFIDENCE_CEILING)
+        ):
+            llm_cypher = None
+            try:
+                llm_cypher = self._llm_cypher_generator.generate(query_text, intent)
+            except Exception as exc:
+                _log.info("LLM cypher generation raised: %s", exc)
+            if llm_cypher:
+                llm_params = {
+                    "institution_ids": effective_ids,
+                    "permitted_levels": permitted_levels if permitted_levels is not None else ["public"],
+                    "entity_id": (
+                        entity_context.resolved[0].entity_id
+                        if entity_context.resolved
+                        else ""
+                    ),
+                    "entity_ids": [e.entity_id for e in entity_context.resolved],
+                    "anchor_id": (
+                        entity_context.resolved[0].entity_id
+                        if entity_context.resolved
+                        else ""
+                    ),
+                    "claim_types": inferred_claim_types,
+                    "year_min": year_min,
+                    "year_max": year_max,
+                    "limit": budget * 2,
+                    "search_text": _sanitize_fulltext(query_text),
+                }
+                try:
+                    llm_rows = self._executor.run(llm_cypher, llm_params)
+                except Exception as exc:
+                    _log.info("LLM cypher execution failed: %s", exc)
+                    llm_rows = []
+                attempt_seen: set[str] = set()
+                attempt_rows: list[dict] = []
+                for r in llm_rows:
+                    cid = (r.get("c") or {}).get("claim_id")
+                    if cid and cid not in attempt_seen:
+                        attempt_seen.add(cid)
+                        attempt_rows.append(r)
+                    elif not cid:
+                        attempt_rows.append(r)
+                trace.attempts.append(RetrievalPlanAttempt(
+                    label="llm_cypher",
+                    template_names=["LLM_CYPHER"],
+                    row_count=len(attempt_rows),
+                ))
+                if attempt_rows:
+                    rows = attempt_rows
+                    seen_claim_ids = attempt_seen
+                    last_template = llm_cypher
+                    trace.selected_label = "llm_cypher"
+                    retrieval_path = "llm_cypher"
+            else:
+                trace.attempts.append(RetrievalPlanAttempt(
+                    label="llm_cypher:declined",
+                    template_names=["LLM_CYPHER"],
+                    row_count=0,
+                ))
 
         # Post-filter by claim_type when entity-anchored path over-fetches (Case 3).
         if last_template == ENTITY_ANCHORED_CLAIMS_QUERY and inferred_claim_types:
@@ -508,13 +892,20 @@ class ProvenanceContextAssembler:
             (r.get("c") or {}).get("claim_type", "unknown") for r in rows
         )
         _log.debug(
-            "retrieval: templates=%s n_rows=%d claim_type_dist=%s",
-            [self._template_names.get(t, "unknown") for t, _ in plan],
+            "retrieval: selected=%s attempts=%s n_rows=%d claim_type_dist=%s",
+            trace.selected_label,
+            [(a.label, a.row_count) for a in trace.attempts],
             len(rows),
             dict(claim_types_in_result),
         )
 
         self._last_candidate_count = len(rows)
+        self._last_plan_trace = trace
+        if not rows:
+            retrieval_path = "empty"
+        elif retrieval_path == "rule_based" and last_template == FULLTEXT_CLAIMS_QUERY:
+            retrieval_path = "fulltext_fallback"
+        self._last_retrieval_path = retrieval_path
 
         # Convert rows → blocks, filter None (including OCR-corrupted), rank by confidence, cap.
         blocks_raw: list[ProvenanceBlock] = []

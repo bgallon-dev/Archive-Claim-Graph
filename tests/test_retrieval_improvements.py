@@ -216,8 +216,11 @@ class TestSelectRetrievalStrategy:
             query, entity_ctx, year_min, year_max, budget,
             anchor_temporal_plans=[(_TEST_ANCHOR_ID, _TEST_ANCHOR_TEMPORAL_CYPHER)],
         )
-        # Tests expect a single (template, params) tuple for simplicity.
-        return plan[0]
+        # Plan is now a list of (label, [(template, params), ...]) attempts.
+        # These tests pre-date the relaxation chain and only assert the shape
+        # of the first rung, so unwrap the primary attempt's first query.
+        _label, queries = plan[0]
+        return queries[0]
 
     # --- Fulltext fallback ---
 

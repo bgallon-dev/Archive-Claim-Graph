@@ -66,6 +66,7 @@ class DatabaseManager:
             conn = sqlite3.connect(str(path), check_same_thread=False)
             conn.row_factory = sqlite3.Row
             conn.execute("PRAGMA journal_mode=WAL")
+            conn.execute("PRAGMA busy_timeout=5000")
             conn.execute("PRAGMA foreign_keys=ON")
             self._conns[name] = conn
         return self._conns[name]
@@ -205,19 +206,29 @@ def _migrate_conv_log(conn: sqlite3.Connection) -> None:
         _SAVED_SEARCH_SCHEMA_SQL,
         _SCHEMA_SQL,
     )
+    from gemynd.retrieval.cypher_cache import _SCHEMA_SQL as _CYPHER_CACHE_SCHEMA_SQL
 
-    conn.executescript(_SCHEMA_SQL)
-    # Column migrations for databases predating newer columns.
+    # Column migrations must run BEFORE executescript: _SCHEMA_SQL includes a
+    # CREATE INDEX on (user_id, session_id, turn_number), which raises
+    # `no such column: user_id` against legacy databases that predate those
+    # columns and aborts the whole script. On a fresh DB the conversation
+    # table doesn't exist yet, so each ALTER raises OperationalError and we
+    # fall through to executescript which creates the table at full schema.
     for ddl in (
         "ALTER TABLE conversation ADD COLUMN session_id TEXT",
         "ALTER TABLE conversation ADD COLUMN turn_number INTEGER NOT NULL DEFAULT 1",
         "ALTER TABLE conversation ADD COLUMN request_id TEXT",
+        "ALTER TABLE conversation ADD COLUMN user_id TEXT",
+        "ALTER TABLE conversation ADD COLUMN response_json TEXT",
     ):
         try:
             conn.execute(ddl)
         except sqlite3.OperationalError:
-            pass  # column already exists
+            pass  # column already exists, or table not yet created on fresh DB
+
+    conn.executescript(_SCHEMA_SQL)
     conn.executescript(_SAVED_SEARCH_SCHEMA_SQL)
+    conn.executescript(_CYPHER_CACHE_SCHEMA_SQL)
 
 
 def _migrate_token_usage(conn: sqlite3.Connection) -> None:

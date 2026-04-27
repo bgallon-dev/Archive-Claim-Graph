@@ -508,6 +508,7 @@ class StructureBundle:
     sections: list[SectionRecord]
     paragraphs: list[ParagraphRecord]
     annotations: list[AnnotationRecord]
+    source_metadata: dict[str, Any] | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -516,6 +517,7 @@ class StructureBundle:
             "sections": [item.to_dict() for item in self.sections],
             "paragraphs": [item.to_dict() for item in self.paragraphs],
             "annotations": [item.to_dict() for item in self.annotations],
+            "source_metadata": self.source_metadata,
         }
 
     @classmethod
@@ -526,6 +528,7 @@ class StructureBundle:
             sections=[SectionRecord.from_dict(row) for row in payload["sections"]],
             paragraphs=[ParagraphRecord.from_dict(row) for row in payload["paragraphs"]],
             annotations=[AnnotationRecord.from_dict(row) for row in payload["annotations"]],
+            source_metadata=payload.get("source_metadata"),
         )
 
 

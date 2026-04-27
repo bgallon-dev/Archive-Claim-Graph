@@ -382,6 +382,7 @@ body {
   border-radius: var(--radius-pill);
   font-weight: 500;
   display: inline-block;
+  white-space: nowrap;
 }
 .badge-warm { background: var(--bark-100); color: var(--bark-700); }
 .badge-outline { background: transparent; border: 1px solid var(--border-medium); color: var(--text-secondary); }
@@ -903,13 +904,17 @@ summary { cursor: pointer; user-select: none; color: var(--text-secondary); font
 summary:hover { opacity: 0.8; }
 .table-wrap { overflow-x: auto; margin-top: 0.4rem; }
 .coverage { font-size: 11px; color: var(--text-tertiary); margin-top: 0.4rem; border-top: 1px solid var(--border-light); padding-top: 0.3rem; }
-.sources-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; }
-.sources-table th, .sources-table td { padding: 3px 8px; border: 1px solid var(--border-light); text-align: left; }
+.sources-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; table-layout: fixed; }
+.sources-table th, .sources-table td { padding: 4px 8px; border: 1px solid var(--border-light); text-align: left; vertical-align: top; }
 .sources-table th { background: var(--bark-50); font-weight: 500; color: var(--text-secondary); font-size: 11px; }
-.src-text { font-size: 12px; line-height: 1.4; max-width: 420px; }
-.src-meta { font-size: 11px; white-space: nowrap; vertical-align: top; }
+.sources-table th:nth-child(1), .sources-table td:nth-child(1) { width: 38%; }
+.sources-table th:nth-child(2), .sources-table td:nth-child(2) { width: 30%; }
+.sources-table th:nth-child(3), .sources-table td:nth-child(3) { width: 18%; }
+.sources-table th:nth-child(4), .sources-table td:nth-child(4) { width: 14%; }
+.src-text { font-size: 12px; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
+.src-meta { font-size: 11px; white-space: normal; word-break: break-word; }
 .src-doc { font-size: 11px; color: var(--text-secondary); }
-.src-label { font-size: 11px; background: var(--bark-50); border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
+.src-label { font-size: 11px; background: var(--bark-50); border-radius: 3px; padding: 1px 5px; white-space: nowrap; display: inline-block; margin: 1px 1px 0 0; }
 .claim-ids { font-family: monospace; font-size: 12px; margin-top: 0.25rem; opacity: 0.85; }
 
 /* Notes panel */

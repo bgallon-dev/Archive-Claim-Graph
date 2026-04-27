@@ -374,3 +374,43 @@ def load_validator_verbs(
     with path.open(encoding="utf-8") as fh:
         data: dict[str, Any] = yaml.safe_load(fh) or {}
     return tuple(str(v).strip().lower() for v in (data.get("verbs") or []) if v)
+
+
+# ── Entity type inference rules ──────────────────────────────────────────────
+
+def load_entity_type_rules(
+    resources_dir: Path | None = None,
+) -> list[dict[str, Any]]:
+    """Return ordered rules cascade for entity-type inference.
+
+    Each rule dict has ``name``, ``target_type``, ``match_mode``, and
+    (depending on mode) ``keywords`` or ``patterns``.  Regex patterns are
+    pre-compiled so the extractor does not recompile on every sentence.
+    Returns ``[]`` if the file is absent — callers may then fall back to
+    hardcoded defaults.
+    """
+    path = _resource_path("entity_type_rules", resources_dir)
+    if not path.exists():
+        path = _dir(resources_dir) / "entity_type_rules.yaml"
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+    result: list[dict[str, Any]] = []
+    for entry in data.get("rules") or []:
+        mode = str(entry.get("match_mode", "")).strip()
+        rule: dict[str, Any] = {
+            "name": str(entry.get("name", "")),
+            "target_type": str(entry.get("target_type", "Person")),
+            "match_mode": mode,
+        }
+        if mode == "any_token_uppercase":
+            rule["keywords"] = frozenset(
+                str(k).strip().upper() for k in (entry.get("keywords") or []) if k
+            )
+        elif mode == "regex_any":
+            rule["patterns"] = tuple(
+                _safe_compile(str(p)) for p in (entry.get("patterns") or []) if p
+            )
+        result.append(rule)
+    return result

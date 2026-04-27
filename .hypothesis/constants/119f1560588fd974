@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\enrichment\cross_corpus_ner.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.05, 0.08, 0.65, 0.79, 0.85, 100, 500, 'OCRConfusionMatrix', 'POSSIBLY_REFERS_TO', 'Person', 'REFERS_TO', 'Report written to %s', '\\1', 'and', 'april', 'august', 'avenue', 'block', 'but', 'city', 'clean_text', 'collapsed_form', 'county', 'cross_corpus_ner', 'december', 'dr', 'entity_id', 'entity_name', 'february', 'for', 'friday', 'hon', 'january', 'july', 'june', 'march', 'monday', 'mr', 'mrs', 'ms', 'name', 'nor', 'normalized_form', 'november', 'ocr_suspect', 'october', 'paragraph_id', 'prof', 'raw_ocr_text', 'relation_type', 'rev', 'road', 'saturday', 'score', 'september', 'so', 'spokane', 'state', 'street', 'sunday', 'surface_form', 'the', 'thursday', 'tuesday', 'utf-8', 'w', 'washington', 'wednesday', 'yet']

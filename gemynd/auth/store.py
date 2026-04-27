@@ -73,6 +73,7 @@ class UserStore:
     def _connect(self) -> sqlite3.Connection:
         conn = sqlite3.connect(self._path, check_same_thread=False)
         conn.row_factory = sqlite3.Row
+        conn.execute("PRAGMA busy_timeout=5000")
         return conn
 
     def _row_to_user(self, row: sqlite3.Row) -> User:

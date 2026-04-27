@@ -13,8 +13,13 @@ from gemynd.core.claim_contract import (
     claim_relation_priority,
     validate_claim_link_relation,
 )
+from gemynd.core.entity_type_inference import infer_entity_type
 from gemynd.core.resolver import default_seed_entities
-from gemynd.shared.resource_loader import load_claim_type_patterns, load_claim_role_policy
+from gemynd.shared.resource_loader import (
+    load_claim_type_patterns,
+    load_claim_role_policy,
+    load_entity_type_rules,
+)
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -239,6 +244,8 @@ class RuleBasedClaimExtractor:
         if config is not None:
             self._ROLE_POLICY = config.claim_role_policy
             self._type_scored_patterns = config.claim_type_patterns
+            self._seed_entities_all = list(config.seed_entities)
+            self._entity_type_rules = list(config.entity_type_rules)
             self._species_terms  = _seed_terms("Species",         seed=config.seed_entities)
             self._habitat_terms  = _seed_terms("Habitat",         seed=config.seed_entities)
             self._method_terms   = _seed_terms("SurveyMethod",    seed=config.seed_entities)
@@ -248,6 +255,8 @@ class RuleBasedClaimExtractor:
             self._ROLE_POLICY = load_claim_role_policy(resources_dir)
             self._type_scored_patterns = load_claim_type_patterns(resources_dir)
             _seed = default_seed_entities(resources_dir)
+            self._seed_entities_all = list(_seed)
+            self._entity_type_rules = load_entity_type_rules(resources_dir)
             self._species_terms  = _seed_terms("Species",               seed=_seed)
             self._habitat_terms  = _seed_terms("Habitat",               seed=_seed)
             self._method_terms   = _seed_terms("SurveyMethod",          seed=_seed)
@@ -256,6 +265,8 @@ class RuleBasedClaimExtractor:
         else:
             self._ROLE_POLICY          = _default_role_policy()
             self._type_scored_patterns = _default_type_patterns()
+            self._seed_entities_all    = list(default_seed_entities())
+            self._entity_type_rules    = load_entity_type_rules()
             self._species_terms        = _default_species_terms()
             self._habitat_terms        = _default_habitat_terms()
             self._method_terms         = _default_method_terms()
@@ -416,7 +427,11 @@ class RuleBasedClaimExtractor:
         if not subject_match:
             return []
         surface = subject_match.group(1).strip()
-        entity_type_hint = "Organization" if any(token in surface for token in ("Club", "Council", "Assn", "Association", "WPA")) else "Person"
+        entity_type_hint = infer_entity_type(
+            surface,
+            seed_entities=self._seed_entities_all,
+            rules=self._entity_type_rules,
+        )
         return [
             self._make_link(
                 surface,

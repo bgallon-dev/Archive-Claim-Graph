@@ -60,6 +60,8 @@ _UNIVERSAL_INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX document_deleted_at IF NOT EXISTS FOR (n:Document) ON (n.deleted_at)",
     "CREATE INDEX claim_quarantine IF NOT EXISTS FOR (n:Claim) ON (n.quarantine_status)",
     "CREATE INDEX document_quarantine IF NOT EXISTS FOR (n:Document) ON (n.quarantine_status)",
+    "CREATE INDEX document_doc_type IF NOT EXISTS FOR (n:Document) ON (n.doc_type)",
+    "CREATE INDEX document_series IF NOT EXISTS FOR (n:Document) ON (n.series)",
 ]
 
 _DERIVATION_INDEX_STATEMENTS: list[str] = [
@@ -183,38 +185,52 @@ WHERE d.institution_id IN $institution_ids
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity {entity_id: $entity_id})
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
+WITH d, c, type(rel) AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
-WITH d, pg, sec, para, c, obs, sp, y, type(rel) AS traversal_rel_type, collect(DISTINCT m) AS measurements
-WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
-  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WITH d, pg, sec, para, c, obs, sp, y, traversal_rel_type, collect(DISTINCT m) AS measurements
 RETURN d, pg, sec, para, c, obs, sp, y, measurements, traversal_rel_type
 ORDER BY c.extraction_confidence DESC
-LIMIT $limit
 """
 
 FULLTEXT_CLAIMS_QUERY = """
 CALL db.index.fulltext.queryNodes('claim_normalized_sentence', $search_text)
 YIELD node AS c, score
-MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
-MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d:Document)
+WITH c, score
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (d:Document)-[:PROCESSED_BY]->(lr:ExtractionRun {run_id: c.run_id})
 WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WITH c, d, score
+ORDER BY score DESC
+LIMIT $limit
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
-RETURN d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements, score
+WITH d, pg, sec, para, c, obs, sp, y, score, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements, score
 ORDER BY score DESC
-LIMIT $limit
 """
 
 TEMPORAL_CLAIMS_QUERY = """
@@ -230,6 +246,9 @@ WHERE ($year_min IS NULL OR y.year >= $year_min)
   AND ($year_max IS NULL OR y.year <= $year_max)
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WITH d, c, obs, y
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
@@ -237,7 +256,6 @@ OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 RETURN d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements,
        'IN_YEAR' AS traversal_rel_type
 ORDER BY y.year, c.extraction_confidence DESC
-LIMIT $limit
 """
 
 _CYPHER_IDENT_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
@@ -269,22 +287,26 @@ WHERE d.institution_id IN $institution_ids
 MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
-MATCH (c:Claim {{run_id: lr.run_id}})
+MATCH (c:Claim {{run_id: lr.run_id}})-[:SUPPORTS]->(obs_f:Observation)-[:IN_YEAR]->(y_f:Year)
 WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
-MATCH (c)-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
-WHERE ($year_min IS NULL OR y.year >= $year_min)
-  AND ($year_max IS NULL OR y.year <= $year_max)
+  AND ($year_min IS NULL OR y_f.year >= $year_min)
+  AND ($year_max IS NULL OR y_f.year <= $year_max)
+WITH DISTINCT d, c, y_f
+ORDER BY y_f.year, c.extraction_confidence DESC
+LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)
            <-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+MATCH (c)-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
+WHERE y = y_f
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
-RETURN d, pg, sec, para, c, obs, sp, y,
-       collect(DISTINCT m) AS measurements,
+WITH d, pg, sec, para, c, obs, sp, y,
+     collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
        '{anchor_relation}' AS traversal_rel_type
 ORDER BY y.year, c.extraction_confidence DESC
-LIMIT $limit
 """
 
 
@@ -315,6 +337,18 @@ MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
 MATCH (c:Claim {{run_id: lr.run_id}})
 WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS {{ (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }}
+    OR EXISTS {{
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }}
+  )
+WITH d, c
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)
            <-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
@@ -323,12 +357,9 @@ OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
-WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
-  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
 RETURN d, pg, sec, para, c, obs, sp, y, measurements,
        '{anchor_relation}' AS traversal_rel_type
 ORDER BY c.extraction_confidence DESC
-LIMIT $limit
 """
 
 MULTI_ENTITY_CLAIMS_QUERY = """
@@ -343,21 +374,30 @@ MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity)
 WHERE e.entity_id IN $entity_ids
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
+WITH d, c, type(rel) AS traversal_rel_type,
+     collect(DISTINCT e.entity_id) AS matched_entity_ids
+ORDER BY size(matched_entity_ids) DESC, c.extraction_confidence DESC
+LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
-WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
-  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
-WITH d, pg, sec, para, c, obs, sp, y, type(rel) AS traversal_rel_type,
-     collect(DISTINCT m) AS measurements,
-     collect(DISTINCT e.entity_id) AS matched_entity_ids
+WITH d, pg, sec, para, c, obs, sp, y, traversal_rel_type, matched_entity_ids,
+     collect(DISTINCT m) AS measurements
 RETURN d, pg, sec, para, c, obs, sp, y, measurements, traversal_rel_type,
        matched_entity_ids
 ORDER BY size(matched_entity_ids) DESC, c.extraction_confidence DESC
-LIMIT $limit
 """
 
 CLAIM_TYPE_SCOPED_QUERY = """
@@ -371,22 +411,103 @@ MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})
 WHERE c.claim_type IN $claim_types
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND ($entity_ids IS NULL OR EXISTS {
+    MATCH (c)-[]->(e:Entity) WHERE e.entity_id IN $entity_ids
+  })
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
+WITH d, c
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
-WHERE ($year_min IS NULL OR y IS NULL OR y.year >= $year_min)
-  AND ($year_max IS NULL OR y IS NULL OR y.year <= $year_max)
-  AND ($entity_ids IS NULL OR EXISTS {
-    MATCH (c)-[]->(e:Entity) WHERE e.entity_id IN $entity_ids
-  })
 WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
 RETURN d, pg, sec, para, c, obs, sp, y, measurements,
        c.claim_type AS traversal_rel_type
 ORDER BY c.extraction_confidence DESC
+"""
+
+DOC_TYPE_BROWSE_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+  AND d.doc_type IN $doc_types
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
+WITH d, c
+ORDER BY c.extraction_confidence DESC
 LIMIT $limit
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       'DOC_TYPE_BROWSE' AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+"""
+
+SERIES_BROWSE_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+  AND d.series IN $series
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
+WITH d, c
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       'SERIES_BROWSE' AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
 """
 
 @functools.lru_cache(maxsize=32)
@@ -692,7 +813,7 @@ RETURN
   count(CASE WHEN c.extraction_confidence >= 0.85 THEN 1 ELSE null END) AS high_count,
   count(CASE WHEN c.extraction_confidence >= 0.70 AND c.extraction_confidence < 0.85 THEN 1 ELSE null END) AS medium_count,
   count(CASE WHEN c.extraction_confidence < 0.70 THEN 1 ELSE null END) AS low_count,
-  count(CASE WHEN c.certainty = 'uncertain' THEN 1 ELSE null END) AS uncertain_epistemic_count
+  count(CASE WHEN c.epistemic_status = 'uncertain' THEN 1 ELSE null END) AS uncertain_epistemic_count
 """
 
 # ---------------------------------------------------------------------------

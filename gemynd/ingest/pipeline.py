@@ -34,6 +34,7 @@ from gemynd.core.resolver import DictionaryFuzzyResolver, EntityResolver, defaul
 from gemynd.core.domain_config import DomainConfig, load_domain_config
 from .spelling_review import build_spelling_review_queue as _build_spelling_review_queue
 from .source_parser import parse_source_file, parse_source_payload
+from .land_patent_builder import build_land_patent_semantic
 from .extraction_result import (
     ExtractionResult,
     PersistResult,
@@ -360,20 +361,26 @@ def extract_document(
     """
     resources_dir = Path(domain_dir_str) if domain_dir_str else None
     structure = parse_source(input_item)
-    resolver: EntityResolver | None = None
-    if supplementary_entity_rows:
-        resolver = DictionaryFuzzyResolver(
-            seed_entities=default_seed_entities(resources_dir),
-            supplementary_candidates=supplementary_entity_rows,
-            resources_dir=resources_dir,
+    if structure.document.doc_type == "land_patent":
+        semantic = build_land_patent_semantic(
+            structure,
+            run_overrides={"run_id": run_id} if run_id else None,
         )
-    semantic = extract_semantic(
-        structure,
-        resolver=resolver,
-        resources_dir=resources_dir,
-        run_overrides={"run_id": run_id} if run_id else None,
-        no_llm=no_llm,
-    )
+    else:
+        resolver: EntityResolver | None = None
+        if supplementary_entity_rows:
+            resolver = DictionaryFuzzyResolver(
+                seed_entities=default_seed_entities(resources_dir),
+                supplementary_candidates=supplementary_entity_rows,
+                resources_dir=resources_dir,
+            )
+        semantic = extract_semantic(
+            structure,
+            resolver=resolver,
+            resources_dir=resources_dir,
+            run_overrides={"run_id": run_id} if run_id else None,
+            no_llm=no_llm,
+        )
     return ExtractionResult(
         structure=structure,
         semantic=semantic,

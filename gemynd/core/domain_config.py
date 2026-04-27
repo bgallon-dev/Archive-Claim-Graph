@@ -102,6 +102,17 @@ class DomainConfig:
     # Retrieval-layer fields
     institution_id: str = ""
     expected_claim_shares: dict[str, float] = field(default_factory=dict)
+    # Maps ``entity_type`` → ``{"builder": method_name, "param": keyword_arg}``
+    # so the web layer can dispatch analytical queries without hardcoded
+    # species/habitat checks. Loaded from ``analytical_queries`` block in
+    # ``domain_profile.yaml``. Empty dict means the domain has no analytical
+    # path and the hybrid bucket collapses to the conversational path.
+    analytical_queries: dict[str, dict[str, str]] = field(default_factory=dict)
+    # Opt-in flag for the text-to-Cypher LLM fallback (plan B6). Default off
+    # so domains have to consciously accept the additional API cost and the
+    # validator-bound trust model. Read from
+    # ``enable_llm_cypher`` in ``domain_profile.yaml``.
+    enable_llm_cypher: bool = False
 
     # Phase 8 — derivation role externalization.  Role name → resolver
     # spec (how to find the entity from the claim's links), plus two
@@ -112,6 +123,10 @@ class DomainConfig:
     role_resolution: dict[str, RoleResolver] = field(default_factory=dict)
     observation_role_edges: dict[str, tuple[str, str]] = field(default_factory=dict)
     event_role_edges: dict[str, tuple[str, str]] = field(default_factory=dict)
+
+    # Entity-type inference cascade (corporate/gov patterns). Consulted
+    # only after seed-vocabulary lookup; see ``entity_type_inference``.
+    entity_type_rules: list[dict[str, Any]] = field(default_factory=list)
 
     @property
     def extraction_stopwords(self) -> frozenset[str]:
@@ -257,6 +272,27 @@ class CompositeDomainConfig:
         return list(seen.values())
 
     @property
+    def enable_llm_cypher(self) -> bool:
+        """True iff any member corpus opts in to the LLM-Cypher fallback."""
+        return any(c.enable_llm_cypher for c in self.members)
+
+    @property
+    def analytical_queries(self) -> dict[str, dict[str, str]]:
+        """Union of per-corpus analytical_queries maps.
+
+        First corpus to declare a dispatch for a given entity_type wins;
+        later corpora with a different builder for the same type are
+        ignored (this keeps dispatch deterministic when two corpora share
+        an entity_type but have mismatched builder methods).
+        """
+        merged: dict[str, dict[str, str]] = {}
+        for c in self.members:
+            for entity_type, spec in c.analytical_queries.items():
+                if entity_type not in merged:
+                    merged[entity_type] = dict(spec)
+        return merged
+
+    @property
     def preferred_entity_types(self) -> dict[str, list[str]]:
         """Union of preferred_entity_types maps across all member corpora.
 
@@ -379,6 +415,7 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         load_derivation_registry,
         load_domain_profile,
         load_domain_schema,
+        load_entity_type_rules,
         load_measurement_species,
         load_measurement_units,
         load_negative_entities,
@@ -520,9 +557,12 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         validator_heading_re=validator_heading_re,
         institution_id=profile.get("institution_id", ""),
         expected_claim_shares=profile.get("expected_claim_shares") or {},
+        analytical_queries=profile.get("analytical_queries") or {},
+        enable_llm_cypher=bool(profile.get("enable_llm_cypher", False)),
         role_resolution=role_resolution,
         observation_role_edges=observation_role_edges,
         event_role_edges=event_role_edges,
+        entity_type_rules=load_entity_type_rules(resources_dir),
     )
     _validate_config(config, resources_dir)
     return config

@@ -16,6 +16,10 @@ class QueryIntent:
     year_max: int | None = None
     # Claim types inferred from query vocabulary (optional hint for Cypher filtering).
     claim_types: list[str] = field(default_factory=list)
+    # Document types inferred from query vocabulary (e.g. "land_grant", "glo_record").
+    doc_type_hints: list[str] = field(default_factory=list)
+    # Document series inferred from query vocabulary (e.g. "BLM GLO Records").
+    series_hints: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -39,6 +43,9 @@ class EntityContext:
     ambiguous: list[str] = field(default_factory=list)
     # No match found above maybe_threshold.
     unresolved: list[str] = field(default_factory=list)
+    # POSSIBLY_REFERS_TO matches retained with graph IDs so the retrieval plan
+    # can optionally include them when a strong anchor already exists.
+    maybe_resolved: list[ResolvedEntity] = field(default_factory=list)
 
 
 @dataclass
@@ -90,6 +97,25 @@ class ProvenanceBlock:
     donor_restricted: bool = False
     # Document identifier; used for archivist annotation lookup in context assembly.
     doc_id: str = ""
+    institution_id: str | None = None
+
+
+@dataclass
+class RetrievalPlanAttempt:
+    """One rung of the relaxation ladder attempted by the router."""
+
+    label: str
+    template_names: list[str]
+    row_count: int
+
+
+@dataclass
+class RetrievalPlanTrace:
+    """Structured trace of router decisions for a single query."""
+
+    attempts: list[RetrievalPlanAttempt] = field(default_factory=list)
+    resolved_entity_ids: list[str] = field(default_factory=list)
+    selected_label: str = ""
 
 
 @dataclass
@@ -103,6 +129,10 @@ class RetrievalStats:
     documents_in_context: int     # unique doc_titles in context blocks
     corpus_total_paragraphs: int  # cached at startup
     corpus_total_documents: int   # cached at startup
+    plan_trace: RetrievalPlanTrace | None = None
+
+
+RetrievalPath = Literal["rule_based", "llm_cypher", "fulltext_fallback", "empty"]
 
 
 @dataclass
@@ -121,3 +151,6 @@ class SynthesisResult:
     ambiguous_entities: list[str] = field(default_factory=list)
     # Coverage metadata for the retrieval pass.
     retrieval_stats: RetrievalStats | None = None
+    # Which retrieval path produced the provenance context. UI flags
+    # llm_cypher answers as "lower trust" for archivist reviewers.
+    retrieval_path: RetrievalPath = "rule_based"

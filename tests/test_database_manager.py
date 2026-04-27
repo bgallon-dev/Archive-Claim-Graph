@@ -107,6 +107,57 @@ class TestMigrations:
         manager.run_migrations()
         manager.run_migrations()  # should not raise
 
+    def test_conv_log_legacy_schema_recovers(self, tmp_path):
+        """Legacy conversation_log.db without user_id/response_json must migrate cleanly.
+
+        Regression: _SCHEMA_SQL contains CREATE INDEX on (user_id, ...). On a
+        legacy DB the executescript used to abort with `no such column: user_id`
+        before the column-add ALTERs ran, leaving the schema permanently stuck.
+        """
+        legacy_path = tmp_path / "conversation_log.db"
+        legacy_conn = sqlite3.connect(str(legacy_path))
+        try:
+            legacy_conn.executescript(
+                """
+                CREATE TABLE conversation (
+                    conversation_id       TEXT PRIMARY KEY,
+                    query_text            TEXT NOT NULL,
+                    bucket                TEXT NOT NULL,
+                    classifier_confidence REAL NOT NULL,
+                    year_min              INTEGER,
+                    year_max              INTEGER,
+                    retrieval_path        TEXT NOT NULL,
+                    created_at            TEXT NOT NULL
+                );
+                """
+            )
+            legacy_conn.commit()
+        finally:
+            legacy_conn.close()
+
+        settings = Settings(
+            users_db=str(tmp_path / "users.db"),
+            review_db=str(tmp_path / "review.db"),
+            ingest_db=str(tmp_path / "ingest.db"),
+            conv_log_db=str(legacy_path),
+            token_usage_db=str(tmp_path / "token_usage.db"),
+            write_audit_db=str(tmp_path / "write_audit.db"),
+        )
+        mgr = DatabaseManager(settings)
+        try:
+            mgr.run_migrations()  # must not warn or raise
+            conn = mgr.get_connection("conv_log")
+            cols = {r[1] for r in conn.execute("PRAGMA table_info(conversation)")}
+            assert {"user_id", "response_json", "session_id", "turn_number", "request_id"} <= cols
+            indexes = {
+                r[0] for r in conn.execute(
+                    "SELECT name FROM sqlite_master WHERE type='index' AND tbl_name='conversation'"
+                )
+            }
+            assert "idx_conversation_user_session" in indexes
+        finally:
+            mgr.close_all()
+
 
 class TestAnnotationOptional:
     def test_no_annotation_db(self, tmp_path):

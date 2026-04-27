@@ -340,6 +340,7 @@ class TokenUsageLogger:
         self._db_path.parent.mkdir(parents=True, exist_ok=True)
         conn = sqlite3.connect(str(self._db_path))
         conn.execute("PRAGMA journal_mode=WAL")
+        conn.execute("PRAGMA busy_timeout=5000")
         if not self._skip_init:
             _init_db(conn)
         while True:
@@ -382,6 +383,7 @@ class TokenUsageStore:
         self._conn = sqlite3.connect(str(self._db_path), check_same_thread=False)
         self._conn.row_factory = sqlite3.Row
         self._conn.execute("PRAGMA journal_mode=WAL")
+        self._conn.execute("PRAGMA busy_timeout=5000")
 
     def today_summary(self, institution_id: str = "") -> dict[str, Any]:
         date_key = datetime.now(timezone.utc).strftime("%Y-%m-%d")

@@ -24,6 +24,16 @@ resources:
 year_validation:
   tolerance: 10
   action: flag
+  min_year: 1880
+  max_year: 2029
+
+# The newspaper corpus has no domain-specific analytical templates today;
+# queries all flow through the conversational retrieval path. New
+# analytical builders can be registered here by entity_type.
+analytical_queries: {}
+
+# Text-to-Cypher LLM fallback (plan B6). Off by default per domain.
+enable_llm_cypher: false
 
 # Synthetic corpus anchor: every newspaper document is treated as being
 # "about Spokane" so the retrieval layer's anchor-based temporal query

@@ -56,6 +56,7 @@ class CachedClaimAdapter:
         self._db_path = resolved
         self._db_path.parent.mkdir(parents=True, exist_ok=True)
         self._conn = sqlite3.connect(str(self._db_path))
+        self._conn.execute("PRAGMA busy_timeout=5000")
         self._conn.execute(_INIT_SQL)
         self._conn.commit()
         self._hits = 0

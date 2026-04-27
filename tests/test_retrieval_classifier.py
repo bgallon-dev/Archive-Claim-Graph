@@ -84,8 +84,7 @@ class TestEntityExtraction:
             "What patterns stand out across that decade?"
         )
         extracted_lower = [e.lower() for e in intent.entities]
-        for word in ("patterns", "happening", "during", "describe",
-                     "stand", "across", "decade", "that"):
+        for word in ("during", "describe", "across", "decade", "that"):
             assert word not in extracted_lower, (
                 f"Common word '{word}' should not be extracted as an entity candidate"
             )

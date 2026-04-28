@@ -9,7 +9,7 @@ Claim-centric archival knowledge graph engine. Five pipeline layers (parse, extr
 - `from_dict()` silently drops unknown keys. `SemanticBundle.from_dict()` must use `.get()` with defaults for backward compat with older serialized bundles.
 - `ClaimRecord.certainty` is the Python field; it serializes as `epistemic_status` in `to_dict()`. Both names handled in `from_dict()`. Do not add a second field for the same concept.
 - Deterministic IDs via `core/ids.py` using `stable_hash()` (SHA-1 prefix). IDs are type-prefixed (`doc_`, `run_`, `year_`). Never use `uuid4` except for SQLite primary keys in stores.
-- `DomainConfig` (from `core/domain_config.py`) is the single entry point for domain configuration. Never call `resource_loader` functions directly from pipeline code.
+- `DomainConfig` (from `core/domain_config.py`) is the single entry point for domain configuration. Never call `resource_loader` functions directly from pipeline code. Multi-corpus deployments use `load_composite_domain_config()` which returns a `CompositeDomainConfig` whose merge semantics are field-specific (see `core/CLAUDE.md`).
 - All Anthropic API calls must go through `MeteredAnthropicClient` (`shared/token_tracker.py`).
 - SQLite stores use WAL mode, `check_same_thread=False`, `foreign_keys=ON`. All databases registered in `shared/database_manager.py`.
 - Use `logging.getLogger(__name__)` in all modules.

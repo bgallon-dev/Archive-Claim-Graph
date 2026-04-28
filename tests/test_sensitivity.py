@@ -258,3 +258,223 @@ class TestAutoQuarantineThreshold:
             f"No claim should be quarantined at confidence=0.84 (below threshold), "
             f"but found: {[(c.claim_id, c.quarantine_reason) for c in quarantined]}"
         )
+
+
+# ---------------------------------------------------------------------------
+# Case 6 — Era-aware PII relaxation (commercial vs residential addresses)
+# ---------------------------------------------------------------------------
+
+from gemynd.core.models import (
+    DocumentRecord,
+    ExtractionRunRecord,
+    SemanticBundle,
+    StructureBundle,
+)
+from gemynd.ingest.sensitivity_gate import (
+    DefaultSensitivityGate,
+    _classify_address_context,
+)
+
+
+def _structure(report_year: int | None) -> StructureBundle:
+    return StructureBundle(
+        document=DocumentRecord(
+            doc_id="doc_test",
+            title="Test Document",
+            report_year=report_year,
+            institution_id="test",
+        ),
+        pages=[],
+        sections=[],
+        paragraphs=[],
+        annotations=[],
+    )
+
+
+def _semantic(claims: list[ClaimRecord]) -> SemanticBundle:
+    return SemanticBundle(
+        extraction_run=ExtractionRunRecord(run_id="run_test"),
+        claims=claims,
+        measurements=[],
+        mentions=[],
+        entities=[],
+        entity_resolutions=[],
+        claim_entity_links=[],
+        claim_link_diagnostics=[],
+        claim_location_links=[],
+        claim_period_links=[],
+        document_anchor_links=[],
+        document_period_links=[],
+        document_signed_by_links=[],
+        person_affiliation_links=[],
+    )
+
+
+def _pii_proposal(
+    claim_id: str,
+    matched_pattern: str = "address",
+    all_patterns: list[str] | None = None,
+    confidence: float = 0.85,
+) -> DetectorProposal:
+    return DetectorProposal(
+        anti_pattern_id="ap_pii_exposure",
+        issue_class="pii_exposure",
+        proposal_type="quarantine_claim",
+        confidence=confidence,
+        targets=[
+            ProposalTarget(
+                proposal_id="",
+                target_kind="claim",
+                target_id=claim_id,
+                target_role="flagged_claim",
+                exists_in_snapshot=True,
+            )
+        ],
+        evidence_snapshot={
+            "matched_pattern": matched_pattern,
+            "all_patterns": all_patterns or [matched_pattern],
+        },
+    )
+
+
+def _run_gate(
+    report_year: int | None,
+    sentence: str,
+    matched_pattern: str = "address",
+    all_patterns: list[str] | None = None,
+    config_override: dict | None = None,
+) -> ClaimRecord:
+    """Run the gate with a single synthetic proposal and return the resulting claim."""
+    claim = _claim("c_era", sentence)
+    structure = _structure(report_year)
+    semantic = _semantic([claim])
+
+    def _stub(structure, semantic, snapshot_id):
+        return [_pii_proposal("c_era", matched_pattern, all_patterns)]
+
+    with patch(_SENSITIVITY_DETECT, side_effect=_stub):
+        if config_override is not None:
+            with patch(
+                "gemynd.review.detectors.sensitivity_monitor._load_config",
+                return_value=config_override,
+            ):
+                DefaultSensitivityGate()(structure, semantic)
+        else:
+            DefaultSensitivityGate()(structure, semantic)
+    return semantic.claims[0]
+
+
+class TestEraRelaxation:
+    """Era-aware PII relaxation: pre-cutoff commercial addresses surface;
+    pre-cutoff residential or ambiguous addresses stay quarantined; modern
+    PII (SSN/phone/email/DOB) stays quarantined in all eras."""
+
+    def test_pre_1950_commercial_address_surfaces(self):
+        claim = _run_gate(
+            report_year=1908,
+            sentence="The Carpenters union opened its office at 10 Mill street.",
+        )
+        assert claim.quarantine_status == "active"
+
+    def test_pre_1950_residential_address_quarantined(self):
+        claim = _run_gate(
+            report_year=1908,
+            sentence="Mrs. Finley at her home, 02427 Lancaster street.",
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_pre_1950_ambiguous_address_quarantined(self):
+        claim = _run_gate(
+            report_year=1908,
+            sentence="John was at 142 Main street yesterday.",
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_pre_1950_address_with_phone_still_quarantined(self):
+        # Multi-pattern: address + phone → era relaxation does NOT apply
+        claim = _run_gate(
+            report_year=1908,
+            sentence="Carpenters union office at 10 Mill street, call 509-555-1234.",
+            matched_pattern="phone",
+            all_patterns=["phone", "address"],
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_pre_1950_ssn_still_quarantined(self):
+        claim = _run_gate(
+            report_year=1908,
+            sentence="The veteran's pension file lists 123-45-6789.",
+            matched_pattern="ssn",
+            all_patterns=["ssn"],
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_post_1950_commercial_address_quarantined(self):
+        # Post-cutoff: era relaxation does NOT apply, commercial sentence is irrelevant
+        claim = _run_gate(
+            report_year=2007,
+            sentence="The Carpenters union opened its office at 10 Mill street.",
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_no_report_year_uses_default(self):
+        claim = _run_gate(
+            report_year=None,
+            sentence="The Carpenters union opened its office at 10 Mill street.",
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_era_relaxation_disabled_uses_default(self):
+        config = {
+            "pii_detection": {
+                "auto_quarantine_threshold": 0.85,
+                "era_relaxation": {
+                    "enabled": False,
+                    "cutoff_year": 1950,
+                    "address_commercial_keywords": ["union", "office"],
+                    "address_residential_keywords": ["home"],
+                },
+            },
+        }
+        claim = _run_gate(
+            report_year=1908,
+            sentence="The Carpenters union opened its office at 10 Mill street.",
+            config_override=config,
+        )
+        assert claim.quarantine_status == "quarantined"
+
+    def test_residential_signal_wins_over_commercial(self):
+        # Saloon owner died at his home above the bar — death notice context wins
+        claim = _run_gate(
+            report_year=1908,
+            sentence="The saloon owner died at his home, 50 Oak street.",
+        )
+        assert claim.quarantine_status == "quarantined"
+
+
+class TestClassifyAddressContext:
+    """Direct unit tests for the address-classification helper."""
+
+    _CFG = {
+        "address_commercial_keywords": ["union", "office", "company", "saloon"],
+        "address_residential_keywords": ["home", "residence", "died", "funeral"],
+    }
+
+    @pytest.mark.parametrize("sentence,expected", [
+        ("The Carpenters union opened its office at 10 Mill street.", "commercial"),
+        ("Mrs. Finley at her home, 02427 Lancaster street.", "residential"),
+        ("Funeral services held for J. Powell, 142 Main street.", "residential"),
+        ("John was seen at 142 Main street yesterday.", "ambiguous"),
+        ("", "ambiguous"),
+        ("The COMPANY headquarters at 1 Wall street.", "commercial"),  # case-insensitive
+    ])
+    def test_classification(self, sentence, expected):
+        assert _classify_address_context(sentence, self._CFG) == expected
+
+    def test_residential_wins_when_both_match(self):
+        sentence = "The saloon owner died at his home, 50 Oak street."
+        assert _classify_address_context(sentence, self._CFG) == "residential"
+
+    def test_empty_keyword_lists_returns_ambiguous(self):
+        sentence = "The Carpenters union opened its office at 10 Mill street."
+        assert _classify_address_context(sentence, {}) == "ambiguous"

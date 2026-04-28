@@ -47,13 +47,18 @@ document_anchor:
     - turnbull
   entity_type: Refuge
   relation: ABOUT_REFUGE
-  name: Turnbull Refuge
-  normalized_form: turnbull refuge
+  name: Turnbull
+  normalized_form: turnbull
   hierarchy_child_types: [Place]
   hierarchy_relation: LOCATED_IN_REFUGE
+  # Domain-specific stopwords filtered from query surface-form extraction.
+  # Distinct from title_keywords: those drive ingest-time document anchoring,
+  # these prevent generic domain words from being treated as queryable entities.
+  extraction_stopwords:
+    - refuge
   properties:
     refuge_id: turnbull_refuge
-    name: Turnbull Refuge
+    name: Turnbull
 
 institution_id: turnbull
 

@@ -14,13 +14,20 @@ from typing import TYPE_CHECKING, Any
 
 from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
+    CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY,
+    COUNT_CLAIMS_FOR_ENTITY_QUERY,
     DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
+    FREQUENCY_RANKING_FOR_TYPE_QUERY,
     FULLTEXT_CLAIMS_QUERY,
+    LIST_DOCUMENTS_FOR_ENTITY_QUERY,
+    LIST_DOCUMENTS_FOR_YEAR_QUERY,
+    LOCATIONS_FOR_ENTITY_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
     PROVENANCE_CHAIN_QUERY,
     SERIES_BROWSE_QUERY,
     TEMPORAL_CLAIMS_QUERY,
+    YEAR_RANGE_FOR_ENTITY_QUERY,
     build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
@@ -93,7 +100,283 @@ class InMemoryQueryExecutor:
             return self._series_browse(p)
         if cypher is PROVENANCE_CHAIN_QUERY:
             return self._provenance_chain(p)
+        if cypher is COUNT_CLAIMS_FOR_ENTITY_QUERY:
+            return self._count_claims_for_entity(p)
+        if cypher is YEAR_RANGE_FOR_ENTITY_QUERY:
+            return self._year_range_for_entity(p)
+        if cypher is LIST_DOCUMENTS_FOR_ENTITY_QUERY:
+            return self._list_documents_for_entity(p)
+        if cypher is LIST_DOCUMENTS_FOR_YEAR_QUERY:
+            return self._list_documents_for_year(p)
+        if cypher is LOCATIONS_FOR_ENTITY_QUERY:
+            return self._locations_for_entity(p)
+        if cypher is CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY:
+            return self._co_occurring_entities_for_entity(p)
+        if cypher is FREQUENCY_RANKING_FOR_TYPE_QUERY:
+            return self._frequency_ranking_for_type(p)
         return self._generic_dispatch(cypher, p)
+
+    def _count_claims_for_entity(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: count active Claims linked to a given entity."""
+        entity_id = p["entity_id"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+        seen: set[str] = set()
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id):
+                if self._claim_entity_rel(claim_id, entity_id) is not None:
+                    seen.add(claim_id)
+        return [{"n": len(seen)}]
+
+    def _year_range_for_entity(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: temporal coverage for a given entity.
+
+        Mirrors YEAR_RANGE_FOR_ENTITY_QUERY: prefers observation year, falls
+        back to the document's report_year when an observation has no
+        IN_YEAR link or no observation exists at all.
+        """
+        entity_id = p["entity_id"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+
+        # year → set of claim_ids attributed to that year
+        years_to_claims: dict[int, set[str]] = {}
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            doc_props = self._w.node_store.get("Document", {}).get(doc_id, {})
+            doc_year = doc_props.get("report_year")
+            for claim_id in self._claims_for_run(run_id):
+                if self._claim_entity_rel(claim_id, entity_id) is None:
+                    continue
+                # Find observation year if present.
+                obs_ids = self._observations_for_claim(claim_id)
+                effective_year: int | None = None
+                for obs_id in obs_ids:
+                    y_node = self._year_for_obs(obs_id)
+                    if y_node is not None:
+                        y = y_node.get("year")
+                        if y is not None:
+                            effective_year = int(y)
+                            break
+                if effective_year is None and doc_year is not None:
+                    effective_year = int(doc_year)
+                if effective_year is None:
+                    continue
+                years_to_claims.setdefault(effective_year, set()).add(claim_id)
+
+        if not years_to_claims:
+            return [{
+                "earliest_year": None,
+                "latest_year": None,
+                "distinct_years": 0,
+                "total_claims": 0,
+            }]
+        return [{
+            "earliest_year": min(years_to_claims),
+            "latest_year": max(years_to_claims),
+            "distinct_years": len(years_to_claims),
+            "total_claims": sum(len(s) for s in years_to_claims.values()),
+        }]
+
+    def _list_documents_for_entity(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: documents containing claims linked to a given entity,
+        ranked by claim count desc.
+        """
+        entity_id = p["entity_id"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+
+        doc_to_claims: dict[str, set[str]] = {}
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id):
+                if self._claim_entity_rel(claim_id, entity_id) is not None:
+                    doc_to_claims.setdefault(doc_id, set()).add(claim_id)
+
+        rows: list[dict] = []
+        for doc_id, claim_ids in doc_to_claims.items():
+            d = self._w.node_store.get("Document", {}).get(doc_id, {})
+            rows.append({
+                "doc_id": doc_id,
+                "title": d.get("title"),
+                "doc_type": d.get("doc_type"),
+                "date_start": d.get("date_start"),
+                "date_end": d.get("date_end"),
+                "report_year": d.get("report_year"),
+                "institution_id": d.get("institution_id"),
+                "claim_count": len(claim_ids),
+            })
+        rows.sort(key=lambda r: r["claim_count"], reverse=True)
+        return rows[:50]
+
+    def _list_documents_for_year(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: documents whose report_year matches $target_year,
+        with their claim count.  Includes documents with zero claims so the
+        user sees the full year roster.
+        """
+        target_year = p["target_year"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+
+        rows: list[dict] = []
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            d = self._w.node_store.get("Document", {}).get(doc_id, {})
+            if d.get("report_year") != target_year:
+                continue
+            run_id = self._latest_run_id(doc_id)
+            claim_ids: set[str] = set()
+            if run_id:
+                for claim_id in self._claims_for_run(run_id):
+                    claim_ids.add(claim_id)
+            rows.append({
+                "doc_id": doc_id,
+                "title": d.get("title"),
+                "doc_type": d.get("doc_type"),
+                "date_start": d.get("date_start"),
+                "date_end": d.get("date_end"),
+                "report_year": d.get("report_year"),
+                "institution_id": d.get("institution_id"),
+                "claim_count": len(claim_ids),
+            })
+        rows.sort(key=lambda r: (r.get("date_start") or "", r.get("title") or ""))
+        return rows[:50]
+
+    def _locations_for_entity(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: places where active claims about the entity occurred.
+
+        Mirrors LOCATIONS_FOR_ENTITY_QUERY: walks Claim -> OCCURRED_AT -> Place|Refuge,
+        ranks by claim count desc, caps at 25.
+        """
+        entity_id = p["entity_id"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+
+        place_to_claims: dict[str, set[str]] = {}
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id):
+                if self._claim_entity_rel(claim_id, entity_id) is None:
+                    continue
+                # Walk OCCURRED_AT to Place/Refuge nodes.
+                for sl, si, rt, el, ei, _ in self._w.rel_store:
+                    if (sl == "Claim" and si == claim_id and rt == "OCCURRED_AT"
+                            and el in ("Place", "Refuge")):
+                        place_to_claims.setdefault(ei, set()).add(claim_id)
+
+        rows: list[dict] = []
+        for place_id, claim_ids in place_to_claims.items():
+            # Find the place's actual label (Place or Refuge) and properties.
+            place_props = (
+                self._w.node_store.get("Place", {}).get(place_id)
+                or self._w.node_store.get("Refuge", {}).get(place_id)
+                or {}
+            )
+            place_type = "Place" if place_id in self._w.node_store.get("Place", {}) else "Refuge"
+            rows.append({
+                "place_id": place_id,
+                "place_name": place_props.get("name"),
+                "place_type": place_type,
+                "claim_count": len(claim_ids),
+            })
+        rows.sort(key=lambda r: r["claim_count"], reverse=True)
+        return rows[:25]
+
+    def _co_occurring_entities_for_entity(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: entities that co-occur in the same claims as the
+        anchor entity, ranked by co-occurrence count desc, capped at 25.
+        """
+        entity_id = p["entity_id"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+
+        # entity_id (other) → set of claim_ids the pair appears in
+        other_to_claims: dict[str, set[str]] = {}
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id):
+                if self._claim_entity_rel(claim_id, entity_id) is None:
+                    continue
+                # Find OTHER entities this same claim points to.
+                for sl, si, rt, el, ei, _ in self._w.rel_store:
+                    if sl != "Claim" or si != claim_id:
+                        continue
+                    if ei == entity_id:
+                        continue
+                    if el not in self._entity_labels:
+                        continue
+                    other_to_claims.setdefault(ei, set()).add(claim_id)
+
+        rows: list[dict] = []
+        for other_id, claim_ids in other_to_claims.items():
+            # Locate the other entity's node to read name + label.
+            other_label = ""
+            other_props: dict = {}
+            for label in self._entity_labels:
+                node = self._w.node_store.get(label, {}).get(other_id)
+                if node is not None:
+                    other_label = label
+                    other_props = node
+                    break
+            rows.append({
+                "entity_id": other_id,
+                "name": other_props.get("name"),
+                "entity_type": other_label,
+                "co_occurrence_count": len(claim_ids),
+            })
+        rows.sort(key=lambda r: r["co_occurrence_count"], reverse=True)
+        return rows[:25]
+
+    def _frequency_ranking_for_type(self, p: dict) -> list[dict]:
+        """Tier 1 lookup: top-N entities of a given label by claim count,
+        scoped by access control.
+        """
+        entity_label = p["entity_label"]
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+        limit = int(p.get("limit", 10))
+
+        # Collect entity_ids of the requested label first.
+        candidate_ids = list(self._w.node_store.get(entity_label, {}).keys())
+        if not candidate_ids:
+            return []
+
+        entity_to_claims: dict[str, set[str]] = {}
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id):
+                # For each claim, check if it links to any of our candidate entities.
+                for sl, si, rt, el, ei, _ in self._w.rel_store:
+                    if sl != "Claim" or si != claim_id:
+                        continue
+                    if el != entity_label:
+                        continue
+                    if ei in candidate_ids:
+                        entity_to_claims.setdefault(ei, set()).add(claim_id)
+
+        rows: list[dict] = []
+        for entity_id, claim_ids in entity_to_claims.items():
+            props = self._w.node_store.get(entity_label, {}).get(entity_id, {})
+            rows.append({
+                "entity_id": entity_id,
+                "name": props.get("name"),
+                "entity_type": entity_label,
+                "claim_count": len(claim_ids),
+            })
+        rows.sort(key=lambda r: r["claim_count"], reverse=True)
+        return rows[:limit]
 
     # ── query handlers ──────────────────────────────────────────────────────
 
@@ -126,7 +409,14 @@ class InMemoryQueryExecutor:
             key=lambda r: (r.get("c") or {}).get("extraction_confidence", 0.0),
             reverse=True,
         )
-        return rows[:limit]
+        # Per-corpus stratification mirrors the Cypher template: each institution_id
+        # contributes up to `limit` candidates so the higher-confidence corpus cannot
+        # monopolise the candidate pool before downstream truncation.
+        by_corpus: dict[str, list[dict]] = {}
+        for row in rows:
+            corpus = (row.get("d") or {}).get("institution_id") or ""
+            by_corpus.setdefault(corpus, []).append(row)
+        return [r for corpus_rows in by_corpus.values() for r in corpus_rows[:limit]]
 
     def _temporal(self, p: dict) -> list[dict]:
         institution_ids = p.get("institution_ids") or []

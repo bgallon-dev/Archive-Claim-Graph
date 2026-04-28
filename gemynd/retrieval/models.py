@@ -34,6 +34,65 @@ class ResolvedEntity:
 
 
 @dataclass
+class Tier1Intent:
+    """Detected structural-lookup intent that bypasses the synthesis engine.
+
+    Tier 1 covers questions whose answer is fully derivable from the graph
+    without LLM reasoning (counts, bare lists, year ranges).  When a query
+    matches a Tier 1 pattern AND its required filters resolve cleanly, the
+    request handler runs a focused Cypher and returns a deterministic answer
+    in well under a second.
+
+    Operations:
+      - count_claims_for_entity            "How many claims mention X?"
+      - year_range_for_entity              "What years cover X?" / "When was X documented?"
+      - list_documents_for_entity          "List documents about X"
+      - list_documents_for_year            "List documents from 1909"
+      - locations_for_entity               "Where does X appear?" / "What places ..."
+      - co_occurring_entities_for_entity   "Who appears with X?" / "What entities ..."
+      - frequency_ranking_for_type         "Top 10 people by claim count" / "Most common species"
+    """
+
+    operation: Literal[
+        "count_claims_for_entity",
+        "year_range_for_entity",
+        "list_documents_for_entity",
+        "list_documents_for_year",
+        "locations_for_entity",
+        "co_occurring_entities_for_entity",
+        "frequency_ranking_for_type",
+    ]
+    entity_id: str = ""             # populated for entity-anchored operations
+    entity_name: str = ""           # surface form, or year/type label otherwise
+    entity_type: str = ""           # entity label, "Year", or target type for ranking
+    target_year: int | None = None  # populated for year-anchored operations
+    target_label: str = ""          # populated for type-anchored ops (frequency_ranking)
+    limit: int = 25                 # row cap for list / ranking ops
+
+
+@dataclass
+class Tier1Result:
+    """Structured output of a Tier 1 lookup, ready for response serialisation.
+
+    Different operations populate different subsets of fields; the frontend
+    introspects ``operation`` and renders the appropriate shape (count badge,
+    document table, year range, etc.).
+    """
+
+    operation: str
+    entity_name: str
+    answer_text: str
+    count: int = 0
+    items: list[dict[str, Any]] = field(default_factory=list)
+    # Populated by year_range_for_entity:
+    earliest_year: int | None = None
+    latest_year: int | None = None
+    distinct_years: int | None = None
+    # Populated by list_documents_for_year:
+    target_year: int | None = None
+
+
+@dataclass
 class EntityContext:
     """Output of Layer 1: entity resolution gateway."""
 
@@ -98,6 +157,9 @@ class ProvenanceBlock:
     # Document identifier; used for archivist annotation lookup in context assembly.
     doc_id: str = ""
     institution_id: str | None = None
+    # Archival series (e.g. "BLM GLO Records") for citation provenance disambiguation
+    # in composite collections.  None when the document is not part of a named series.
+    series: str | None = None
 
 
 @dataclass

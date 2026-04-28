@@ -15,15 +15,23 @@ from __future__ import annotations
 import collections
 import logging
 import re
+import time
 
 from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
+    CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY,
+    COUNT_CLAIMS_FOR_ENTITY_QUERY,
     DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
+    FREQUENCY_RANKING_FOR_TYPE_QUERY,
     FULLTEXT_CLAIMS_QUERY,
+    LIST_DOCUMENTS_FOR_ENTITY_QUERY,
+    LIST_DOCUMENTS_FOR_YEAR_QUERY,
+    LOCATIONS_FOR_ENTITY_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
     SERIES_BROWSE_QUERY,
     TEMPORAL_CLAIMS_QUERY,
+    YEAR_RANGE_FOR_ENTITY_QUERY,
     build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
@@ -35,12 +43,14 @@ from .models import (
     RetrievalPath,
     RetrievalPlanAttempt,
     RetrievalPlanTrace,
+    Tier1Intent,
+    Tier1Result,
 )
 
 _log = logging.getLogger(__name__)
 
 # Default context window budgets.
-_BUDGET_CONVERSATIONAL = 30
+_BUDGET_CONVERSATIONAL = 60
 
 _BUDGET_HYBRID = 4
 
@@ -230,11 +240,21 @@ def _select_retrieval_plan(
             for resolved_id in resolved_ids:
                 doc_cypher = anchor_document_plans.get(resolved_id)
                 if doc_cypher is not None:
+                    # Do NOT apply inferred_claim_types here.  The doc-anchor
+                    # path's purpose is to surface ALL claims from documents
+                    # structurally linked to the anchor entity (e.g. Turnbull
+                    # NWR docs linked via ABOUT_REFUGE).  Claim-type filtering
+                    # defeats this when the inferred type is corpus-specific
+                    # — e.g. "turnbull_prehistory" exists in the newspaper
+                    # corpus but not in Turnbull NWR docs, so filtering by it
+                    # removes 100% of Turnbull NWR content from the doc-anchor
+                    # path.  Topical filtering still happens via the post-
+                    # filter on entity-anchored rows (line ~1093).
                     queries.append((doc_cypher, {
                         "anchor_id": resolved_id,
                         "year_min": ymin,
                         "year_max": ymax,
-                        "claim_types": inferred_claim_types,
+                        "claim_types": None,
                         "limit": budget * 3,
                         **_access_params,
                     }))
@@ -542,7 +562,198 @@ def _row_to_block(row: dict) -> ProvenanceBlock | None:
         donor_restricted=bool(d.get("donor_restricted", False)),
         doc_id=_safe_str(d.get("doc_id")),
         institution_id=_safe_str(d.get("institution_id")) or None,
+        series=_safe_str(d.get("series")) or None,
     )
+
+
+def _block_year(block: ProvenanceBlock) -> int | None:
+    """Return the best available year for a block: observation year, then doc start year."""
+    if block.year is not None:
+        return block.year
+    if block.doc_date_start:
+        try:
+            return int(block.doc_date_start[:4])
+        except (ValueError, IndexError):
+            pass
+    return None
+
+
+def _temporally_diversified_take(
+    blocks: list[ProvenanceBlock],
+    budget: int,
+    *,
+    min_year_buckets: int = 5,
+) -> list[ProvenanceBlock]:
+    """Return up to *budget* blocks with proportional coverage across years.
+
+    When the result set spans fewer than *min_year_buckets* distinct non-None
+    years, falls back to simple top-N by confidence (blocks must already be
+    sorted descending before calling).  Undated blocks (year=None) share one
+    bucket and receive a proportional share.
+    """
+    by_year: dict[int | None, list[ProvenanceBlock]] = {}
+    for b in blocks:
+        by_year.setdefault(_block_year(b), []).append(b)
+
+    dated_keys = [y for y in by_year if y is not None]
+    if len(dated_keys) < min_year_buckets:
+        return blocks[:budget]
+
+    total = len(blocks)
+    quotas: dict[int | None, int] = {
+        year: max(1, round(budget * len(year_blocks) / total))
+        for year, year_blocks in by_year.items()
+    }
+
+    # Trim any overflow (from rounding + min-1 floor) from the largest bucket.
+    overflow = sum(quotas.values()) - budget
+    if overflow > 0:
+        for year in sorted(quotas, key=lambda y: -quotas[y]):
+            if overflow == 0:
+                break
+            take = min(overflow, quotas[year] - 1)
+            quotas[year] -= take
+            overflow -= take
+
+    selected: list[ProvenanceBlock] = []
+    for year, year_blocks in by_year.items():
+        selected.extend(year_blocks[:quotas[year]])
+    return selected
+
+
+def _stratified_budget_cap(
+    blocks: list[ProvenanceBlock],
+    budget: int,
+    *,
+    min_corpus_threshold: int = 5,
+) -> list[ProvenanceBlock]:
+    """Apply budget cap with per-corpus and per-year diversification.
+
+    When multiple corpora are present and at least two each have
+    *min_corpus_threshold* blocks, the budget is split equally across them
+    (largest corpus absorbs the remainder).  Within each corpus's quota,
+    temporal diversification is applied via :func:`_temporally_diversified_take`.
+
+    Falls back to pure temporal diversification when only one corpus is
+    significant (including single-corpus deployments).
+
+    Assumes *blocks* is already sorted by extraction_confidence descending.
+    """
+    by_corpus: dict[str, list[ProvenanceBlock]] = {}
+    for b in blocks:
+        by_corpus.setdefault(b.institution_id or "", []).append(b)
+
+    significant = {k: v for k, v in by_corpus.items() if len(v) >= min_corpus_threshold}
+    if len(significant) <= 1:
+        return _temporally_diversified_take(blocks, budget)
+
+    # Sort corpora largest-first so the remainder goes to the biggest corpus.
+    ordered = sorted(significant.items(), key=lambda kv: -len(kv[1]))
+    n = len(ordered)
+    quota_per = budget // n
+    remainder = budget - quota_per * n
+
+    selected: list[ProvenanceBlock] = []
+    for i, (_, corpus_blocks) in enumerate(ordered):
+        quota = quota_per + (remainder if i == 0 else 0)
+        selected.extend(_temporally_diversified_take(corpus_blocks, quota))
+    return selected
+
+
+def _build_retrieval_summary(
+    candidates: list[ProvenanceBlock],
+    selected: list[ProvenanceBlock],
+) -> str:
+    """Return a bracketed header line describing truncation, or '' if not truncated."""
+    if len(selected) >= len(candidates):
+        return ""
+
+    corpus_counts: dict[str, int] = {}
+    corpus_years: dict[str, list[int]] = {}
+    for b in selected:
+        corp = b.institution_id or "unknown"
+        corpus_counts[corp] = corpus_counts.get(corp, 0) + 1
+        y = _block_year(b)
+        if y is not None:
+            corpus_years.setdefault(corp, []).append(y)
+
+    parts: list[str] = []
+    for corp in sorted(corpus_counts):
+        n = corpus_counts[corp]
+        years = corpus_years.get(corp, [])
+        if years:
+            parts.append(f"{n} from {corp} ({min(years)}–{max(years)})")
+        else:
+            parts.append(f"{n} from {corp}")
+
+    breakdown = ", ".join(parts)
+    return (
+        f"[RETRIEVAL SUMMARY: {len(selected)} of {len(candidates)} candidate claims"
+        f" — {breakdown}]"
+    )
+
+
+_OCR_TITLE_SPACED_CAPS_RE = re.compile(r"[A-Z] [A-Z] [A-Z]")
+
+
+def _is_ocr_garbage_title(title: str) -> bool:
+    """Heuristic: True when *title* looks like OCR noise rather than a real headline.
+
+    Three signals (any one trips it):
+      * upper-case ratio above 55% — mostly all-caps OCR headline
+      * three or more single-letter caps separated by single spaces (e.g. "G O N")
+      * length above 120 chars — runaway capture of a whole headline as title
+    """
+    if not title:
+        return False
+    upper_ratio = sum(1 for c in title if c.isupper()) / max(len(title), 1)
+    return (
+        upper_ratio > 0.55
+        or bool(_OCR_TITLE_SPACED_CAPS_RE.search(title))
+        or len(title) > 120
+    )
+
+
+def _scrub_doc_list_titles(rows: "list[dict]") -> "list[dict]":
+    """Tier 1 list-operation hygiene.
+
+    The list_documents_* Cypher templates return raw Document.title values,
+    which in newspaper corpora frequently come back as OCR-degraded headlines
+    (e.g. "SPOKANE TELLS NO HARD LUCK HISTORY Cit..."). Apply the same
+    detector used by the synthesis context: replace the garbage title with
+    None so the frontend can render a clean fallback ("title unavailable")
+    while still showing the surrounding date / type / institution columns
+    that let the user identify the document.
+
+    The original raw title is preserved on the row as ``title_raw`` for
+    debugging / archivist annotation flows that need to see what was
+    actually stored.
+    """
+    out: list[dict] = []
+    for row in rows:
+        new_row = dict(row)
+        title = (new_row.get("title") or "").strip()
+        if title and _is_ocr_garbage_title(title):
+            new_row["title_raw"] = title
+            new_row["title"] = None
+        out.append(new_row)
+    return out
+
+
+def _display_doc_title(block: ProvenanceBlock) -> str:
+    """Title used in the synthesis context block.
+
+    Returns the raw title when usable; otherwise a structured fallback that
+    keeps the document distinguishable to the model even when OCR mangled the
+    headline (the date and page already render on adjacent lines, so the
+    fallback only needs to preserve the institution).
+    """
+    title = block.doc_title or ""
+    if title and not _is_ocr_garbage_title(title):
+        return title
+    if block.institution_id:
+        return f"[{block.institution_id} document — title OCR degraded]"
+    return "[document title unavailable]"
 
 
 def _serialise_block(
@@ -566,7 +777,7 @@ def _serialise_block(
     )
 
     lines: list[str] = [
-        f"DOCUMENT: {block.doc_title}{date_range}{retrieval_note}",
+        f"DOCUMENT: {_display_doc_title(block)}{date_range}{retrieval_note}",
     ]
     if archivist_note:
         note_text = (archivist_note.get("note_text") or "").strip()
@@ -694,6 +905,10 @@ class ProvenanceContextAssembler:
         # Tracks which cascade rung produced the rows that fed synthesis.
         # Read by the web layer to set SynthesisResult.retrieval_path.
         self._last_retrieval_path: RetrievalPath = "rule_based"
+        # Wall-clock duration (ms) of the LLM-cypher generator call.  None when
+        # the rule-based cascade satisfied the query and the LLM fallback never
+        # fired.  Read by the web layer for per-stage instrumentation.
+        self._last_llm_cypher_ms: float | None = None
 
     def assemble(
         self,
@@ -717,6 +932,9 @@ class ProvenanceContextAssembler:
         context_text:
             Serialised string ready for injection into the synthesis prompt.
         """
+        # Reset per-call instrumentation; these track stage timings the web
+        # layer reads after assemble() returns.
+        self._last_llm_cypher_ms = None
         budget = self._budget_hybrid if is_hybrid else self._budget_conversational
         inferred_claim_types = _infer_claim_types(query_text, intent_map=self._query_intent_map)
         effective_ids = list(institution_ids) if institution_ids else list(self._institution_ids)
@@ -822,10 +1040,12 @@ class ProvenanceContextAssembler:
             and (intent is None or intent.classifier_confidence < _LLM_FALLBACK_CONFIDENCE_CEILING)
         ):
             llm_cypher = None
+            _t0_llm = time.perf_counter()
             try:
                 llm_cypher = self._llm_cypher_generator.generate(query_text, intent)
             except Exception as exc:
                 _log.info("LLM cypher generation raised: %s", exc)
+            self._last_llm_cypher_ms = (time.perf_counter() - _t0_llm) * 1000
             if llm_cypher:
                 llm_params = {
                     "institution_ids": effective_ids,
@@ -917,7 +1137,7 @@ class ProvenanceContextAssembler:
 
         self._last_ocr_dropped = self._last_candidate_count - len(blocks_raw)
         blocks_raw.sort(key=lambda b: b.extraction_confidence, reverse=True)
-        blocks = blocks_raw[:budget]
+        blocks = _stratified_budget_cap(blocks_raw, budget)
         self._last_context_count = len(blocks)
 
         # Batch-lookup archivist notes for documents present in context.
@@ -931,7 +1151,240 @@ class ProvenanceContextAssembler:
             _serialise_block(b, archivist_note=_notes.get(b.doc_id) if b.doc_id else None)
             for b in blocks
         )
+        summary = _build_retrieval_summary(blocks_raw, blocks)
+        if summary:
+            context_text = summary + "\n\n" + context_text
         return blocks, context_text
+
+    def tier_1_lookup(
+        self,
+        intent: Tier1Intent,
+        *,
+        institution_ids: list[str] | None = None,
+        permitted_levels: list[str] | None = None,
+    ) -> Tier1Result:
+        """Run a structural-lookup Cypher and return a deterministic result.
+
+        Used by the request handler when ``detect_tier1_intent`` returns a
+        non-None intent — short-circuits the full retrieval + synthesis pipeline
+        for queries whose answer is fully derivable from the graph.
+        """
+        effective_ids = list(institution_ids) if institution_ids else list(self._institution_ids)
+        effective_levels = list(permitted_levels) if permitted_levels else ["public"]
+
+        if intent.operation == "count_claims_for_entity":
+            rows = self._executor.run(
+                COUNT_CLAIMS_FOR_ENTITY_QUERY,
+                {
+                    "entity_id": intent.entity_id,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                },
+            )
+            n = int(rows[0]["n"]) if rows else 0
+            plural = "s" if n != 1 else ""
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=intent.entity_name,
+                count=n,
+                answer_text=(
+                    f"{intent.entity_name} appears in {n} claim{plural} in this collection."
+                ),
+            )
+
+        if intent.operation == "year_range_for_entity":
+            rows = self._executor.run(
+                YEAR_RANGE_FOR_ENTITY_QUERY,
+                {
+                    "entity_id": intent.entity_id,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                },
+            )
+            row = rows[0] if rows else {}
+            earliest = row.get("earliest_year")
+            latest = row.get("latest_year")
+            distinct = int(row.get("distinct_years") or 0)
+            total = int(row.get("total_claims") or 0)
+            if earliest is None or latest is None:
+                answer = (
+                    f"No dated claims found for {intent.entity_name} in this collection."
+                )
+            elif earliest == latest:
+                answer = (
+                    f"{intent.entity_name} is documented in {earliest} "
+                    f"({total} claim{'s' if total != 1 else ''})."
+                )
+            else:
+                answer = (
+                    f"{intent.entity_name} is documented from {earliest} to {latest} "
+                    f"across {distinct} distinct year{'s' if distinct != 1 else ''} "
+                    f"({total} claim{'s' if total != 1 else ''} total)."
+                )
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=intent.entity_name,
+                count=total,
+                earliest_year=earliest,
+                latest_year=latest,
+                distinct_years=distinct,
+                answer_text=answer,
+            )
+
+        if intent.operation == "list_documents_for_entity":
+            rows = self._executor.run(
+                LIST_DOCUMENTS_FOR_ENTITY_QUERY,
+                {
+                    "entity_id": intent.entity_id,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                },
+            )
+            items = _scrub_doc_list_titles(rows)
+            n = len(items)
+            if n == 0:
+                answer = f"No documents found for {intent.entity_name} in this collection."
+            else:
+                top = items[0]
+                top_title = top.get("title") or top.get("doc_id") or "(untitled)"
+                answer = (
+                    f"{intent.entity_name} appears in {n} document{'s' if n != 1 else ''}. "
+                    f"Top by claim count: \"{top_title}\" ({top.get('claim_count', 0)} claims)."
+                )
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=intent.entity_name,
+                count=n,
+                items=items,
+                answer_text=answer,
+            )
+
+        if intent.operation == "list_documents_for_year":
+            rows = self._executor.run(
+                LIST_DOCUMENTS_FOR_YEAR_QUERY,
+                {
+                    "target_year": intent.target_year,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                },
+            )
+            items = _scrub_doc_list_titles(rows)
+            n = len(items)
+            year_label = str(intent.target_year)
+            if n == 0:
+                answer = f"No documents found in this collection for {year_label}."
+            else:
+                answer = (
+                    f"{n} document{'s' if n != 1 else ''} from {year_label} "
+                    f"in this collection (sorted by date)."
+                )
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=year_label,
+                count=n,
+                items=items,
+                target_year=intent.target_year,
+                answer_text=answer,
+            )
+
+        if intent.operation == "locations_for_entity":
+            rows = self._executor.run(
+                LOCATIONS_FOR_ENTITY_QUERY,
+                {
+                    "entity_id": intent.entity_id,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                },
+            )
+            items = list(rows)
+            n = len(items)
+            if n == 0:
+                answer = (
+                    f"No locations recorded for {intent.entity_name} in this collection."
+                )
+            else:
+                top = items[0]
+                top_name = top.get("place_name") or "(unnamed place)"
+                answer = (
+                    f"{intent.entity_name} appears in {n} location{'s' if n != 1 else ''}. "
+                    f"Top by claim count: {top_name} ({top.get('claim_count', 0)} claims)."
+                )
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=intent.entity_name,
+                count=n,
+                items=items,
+                answer_text=answer,
+            )
+
+        if intent.operation == "co_occurring_entities_for_entity":
+            rows = self._executor.run(
+                CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY,
+                {
+                    "entity_id": intent.entity_id,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                },
+            )
+            items = list(rows)
+            n = len(items)
+            if n == 0:
+                answer = (
+                    f"No co-occurring entities found for {intent.entity_name} "
+                    f"in this collection."
+                )
+            else:
+                top = items[0]
+                top_name = top.get("name") or "(unnamed entity)"
+                top_type = top.get("entity_type") or ""
+                type_suffix = f" [{top_type}]" if top_type else ""
+                answer = (
+                    f"{intent.entity_name} co-occurs with {n} other "
+                    f"entit{'ies' if n != 1 else 'y'} in this collection. "
+                    f"Top: {top_name}{type_suffix} "
+                    f"({top.get('co_occurrence_count', 0)} shared claims)."
+                )
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=intent.entity_name,
+                count=n,
+                items=items,
+                answer_text=answer,
+            )
+
+        if intent.operation == "frequency_ranking_for_type":
+            rows = self._executor.run(
+                FREQUENCY_RANKING_FOR_TYPE_QUERY,
+                {
+                    "entity_label": intent.target_label,
+                    "institution_ids": effective_ids,
+                    "permitted_levels": effective_levels,
+                    "limit": intent.limit,
+                },
+            )
+            items = list(rows)
+            n = len(items)
+            type_label = intent.entity_name or intent.target_label.lower()
+            if n == 0:
+                answer = (
+                    f"No {type_label} found in this collection."
+                )
+            else:
+                top = items[0]
+                top_name = top.get("name") or "(unnamed)"
+                answer = (
+                    f"Top {n} {type_label} by claim count. "
+                    f"Leading: {top_name} ({top.get('claim_count', 0)} claims)."
+                )
+            return Tier1Result(
+                operation=intent.operation,
+                entity_name=type_label,
+                count=n,
+                items=items,
+                answer_text=answer,
+            )
+
+        raise ValueError(f"Unknown Tier 1 operation: {intent.operation}")
 
     def chain_for_claim(
         self,

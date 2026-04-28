@@ -609,3 +609,778 @@ class TestIntegrationWithAssembler:
             if block is not None:
                 assert block.claim_id
                 assert block.doc_title is not None
+
+
+# ---------------------------------------------------------------------------
+# Per-corpus stratification (cross-corpus equity in the candidate pool)
+# ---------------------------------------------------------------------------
+
+def _build_two_corpus_writer(
+    *,
+    n_per_corpus: int = 30,
+    high_conf: float = 0.90,
+    low_conf: float = 0.70,
+):
+    """Construct a minimal InMemoryGraphWriter with two corpora sharing one anchor entity.
+
+    Built by directly populating node_store / rel_store rather than running the full
+    ingestion pipeline, so the test isolates the per-corpus retrieval behaviour from
+    extraction/derivation logic.
+    """
+    from gemynd.ingest.graph.writer import InMemoryGraphWriter
+
+    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+
+    writer.node_store["Place"]["place_anchor"] = {
+        "entity_id": "place_anchor",
+        "name": "Anchor",
+    }
+
+    def _add_corpus(institution_id: str, n_claims: int, base_conf: float) -> None:
+        doc_id = f"doc_{institution_id}"
+        run_id = f"run_{institution_id}"
+        page_id = f"page_{institution_id}"
+        sec_id = f"sec_{institution_id}"
+        para_id = f"para_{institution_id}"
+
+        writer.node_store["Document"][doc_id] = {
+            "doc_id": doc_id,
+            "title": f"Doc {institution_id}",
+            "institution_id": institution_id,
+            "access_level": "public",
+            "deleted_at": None,
+            "quarantine_status": None,
+        }
+        writer.node_store["ExtractionRun"][run_id] = {
+            "run_id": run_id,
+            "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.rel_store[("Document", doc_id, "PROCESSED_BY", "ExtractionRun", run_id, None)] = {
+            "run_id": run_id,
+            "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.node_store["Page"][page_id] = {"page_id": page_id, "page_number": 1}
+        writer.node_store["Section"][sec_id] = {"section_id": sec_id}
+        writer.node_store["Paragraph"][para_id] = {"paragraph_id": para_id}
+        writer.rel_store[("Document", doc_id, "HAS_PAGE", "Page", page_id, None)] = {}
+        writer.rel_store[("Page", page_id, "HAS_SECTION", "Section", sec_id, None)] = {}
+        writer.rel_store[("Section", sec_id, "HAS_PARAGRAPH", "Paragraph", para_id, None)] = {}
+
+        for i in range(n_claims):
+            cid = f"claim_{institution_id}_{i:03d}"
+            writer.node_store["Claim"][cid] = {
+                "claim_id": cid,
+                "claim_type": "test_type",
+                "extraction_confidence": base_conf - i * 0.001,
+                "source_sentence": f"test sentence {i}",
+                "run_id": run_id,
+                "quarantine_status": None,
+                "certainty": "observed",
+            }
+            writer.rel_store[("Paragraph", para_id, "HAS_CLAIM", "Claim", cid, None)] = {
+                "run_id": run_id,
+            }
+            writer.rel_store[("Claim", cid, "ABOUT", "Place", "place_anchor", None)] = {}
+
+    _add_corpus("corp_high", n_per_corpus, high_conf)
+    _add_corpus("corp_low", n_per_corpus, low_conf)
+    return writer
+
+
+class TestEntityAnchoredPerCorpusStratification:
+    """The Spokane/Turnbull regression: validates that the per-corpus LIMIT
+    rewrite of ENTITY_ANCHORED_CLAIMS_QUERY actually returns both corpora
+    when one has uniformly higher confidence than the other.
+    """
+
+    def test_both_corpora_represented_when_confidence_distributions_differ(self):
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+
+        writer = _build_two_corpus_writer(n_per_corpus=30, high_conf=0.90, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+
+        rows = executor.run(
+            ENTITY_ANCHORED_CLAIMS_QUERY,
+            {
+                "entity_id": "place_anchor",
+                "year_min": None,
+                "year_max": None,
+                "limit": 20,
+                "institution_ids": ["corp_high", "corp_low"],
+                "permitted_levels": ["public"],
+            },
+        )
+        high_count = sum(1 for r in rows if r["d"]["institution_id"] == "corp_high")
+        low_count = sum(1 for r in rows if r["d"]["institution_id"] == "corp_low")
+
+        # Pre-fix behaviour: top 20 by global confidence → high_count=20, low_count=0
+        # Post-fix behaviour: per-corpus LIMIT → high_count=20, low_count=20
+        assert high_count == 20, f"corp_high underrepresented: {high_count}"
+        assert low_count == 20, f"corp_low excluded by global confidence sort: {low_count}"
+        assert len(rows) == 40
+
+    def test_single_corpus_preserves_original_limit(self):
+        """Single-corpus queries must behave identically to the pre-fix LIMIT $limit."""
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+
+        writer = _build_two_corpus_writer(n_per_corpus=30, high_conf=0.90, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+
+        rows = executor.run(
+            ENTITY_ANCHORED_CLAIMS_QUERY,
+            {
+                "entity_id": "place_anchor",
+                "year_min": None,
+                "year_max": None,
+                "limit": 20,
+                "institution_ids": ["corp_high"],  # single corpus only
+                "permitted_levels": ["public"],
+            },
+        )
+        assert len(rows) == 20
+        assert all(r["d"]["institution_id"] == "corp_high" for r in rows)
+
+    def test_corpus_with_no_matches_does_not_break_query(self):
+        """Querying with multiple institution_ids but only one having data should still return results."""
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+
+        writer = _build_two_corpus_writer(n_per_corpus=30, high_conf=0.90, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+
+        rows = executor.run(
+            ENTITY_ANCHORED_CLAIMS_QUERY,
+            {
+                "entity_id": "place_anchor",
+                "year_min": None,
+                "year_max": None,
+                "limit": 20,
+                "institution_ids": ["corp_high", "ghost_corp"],  # ghost has no docs
+                "permitted_levels": ["public"],
+            },
+        )
+        assert len(rows) == 20
+        assert all(r["d"]["institution_id"] == "corp_high" for r in rows)
+
+
+# ---------------------------------------------------------------------------
+# Tier 1 — count_claims_for_entity end-to-end against in-memory graph
+# ---------------------------------------------------------------------------
+
+class TestTier1CountClaimsForEntity:
+    """Validates the full Tier 1 path: assembler.tier_1_lookup() → InMemory
+    executor → COUNT_CLAIMS_FOR_ENTITY_QUERY handler → integer answer."""
+
+    def test_count_aggregates_across_corpora(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=30, high_conf=0.85, low_conf=0.75)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(
+            executor=executor,
+            institution_ids=["corp_high", "corp_low"],
+        )
+        intent = Tier1Intent(
+            operation="count_claims_for_entity",
+            entity_id="place_anchor",
+            entity_name="Anchor",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high", "corp_low"],
+            permitted_levels=["public"],
+        )
+        # 30 + 30 active claims linked to the shared anchor entity.
+        assert result.count == 60
+        assert result.entity_name == "Anchor"
+        assert result.operation == "count_claims_for_entity"
+        assert "60 claims" in result.answer_text
+
+    def test_count_respects_institution_scope(self):
+        """Querying with only one institution_id must exclude the other corpus."""
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=30, high_conf=0.85, low_conf=0.75)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(
+            executor=executor,
+            institution_ids=["corp_high"],
+        )
+        intent = Tier1Intent(
+            operation="count_claims_for_entity",
+            entity_id="place_anchor",
+            entity_name="Anchor",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high"],
+            permitted_levels=["public"],
+        )
+        assert result.count == 30  # only the high-corpus rows
+
+    def test_count_returns_zero_for_unknown_entity(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=10, high_conf=0.80, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(
+            executor=executor,
+            institution_ids=["corp_high", "corp_low"],
+        )
+        intent = Tier1Intent(
+            operation="count_claims_for_entity",
+            entity_id="ghost_entity",
+            entity_name="Ghost",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high", "corp_low"],
+            permitted_levels=["public"],
+        )
+        assert result.count == 0
+        assert "0 claims" in result.answer_text
+
+    def test_singular_in_answer(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=1, high_conf=0.80, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+        intent = Tier1Intent(
+            operation="count_claims_for_entity",
+            entity_id="place_anchor",
+            entity_name="Anchor",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high"],  # only one corpus → 1 claim
+            permitted_levels=["public"],
+        )
+        assert result.count == 1
+        # No trailing "s" when count == 1
+        assert " 1 claim " in result.answer_text or result.answer_text.endswith(" 1 claim.")
+
+    def test_unknown_operation_raises(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=1, high_conf=0.80, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+        # Forge an unknown operation by direct construction (bypasses Literal check).
+        intent = Tier1Intent.__new__(Tier1Intent)
+        intent.operation = "frequency_ranking"  # type: ignore[assignment]
+        intent.entity_id = "x"
+        intent.entity_name = "x"
+        intent.entity_type = "Place"
+        intent.target_year = None
+        with pytest.raises(ValueError, match="Unknown Tier 1 operation"):
+            assembler.tier_1_lookup(
+                intent, institution_ids=["corp_high"], permitted_levels=["public"]
+            )
+
+
+class TestTier1ListDocumentsForEntity:
+    """Validates the LIST_DOCUMENTS_FOR_ENTITY_QUERY end-to-end."""
+
+    def test_returns_documents_with_claim_counts(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=30, high_conf=0.85, low_conf=0.75)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="list_documents_for_entity",
+            entity_id="place_anchor",
+            entity_name="Anchor",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high", "corp_low"],
+            permitted_levels=["public"],
+        )
+        # Two documents in the test fixture, each contributing 30 claims.
+        assert result.count == 2
+        assert len(result.items) == 2
+        assert all("claim_count" in r for r in result.items)
+        assert all("title" in r for r in result.items)
+
+    def test_returns_empty_for_unknown_entity(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=10, high_conf=0.80, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="list_documents_for_entity",
+            entity_id="ghost_entity",
+            entity_name="Ghost",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high", "corp_low"],
+            permitted_levels=["public"],
+        )
+        assert result.count == 0
+        assert result.items == []
+        assert "No documents found" in result.answer_text
+
+
+class TestTier1ListDocumentsForYear:
+    """Validates the LIST_DOCUMENTS_FOR_YEAR_QUERY end-to-end.  Uses a custom
+    writer fixture with explicit report_year values per document.
+    """
+
+    def _build_year_writer(self):
+        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+        for doc_id, year, title in [
+            ("doc_1909_a", 1909, "January Report"),
+            ("doc_1909_b", 1909, "December Editorial"),
+            ("doc_1910_a", 1910, "Annual Summary"),
+        ]:
+            writer.node_store["Document"][doc_id] = {
+                "doc_id": doc_id,
+                "title": title,
+                "report_year": year,
+                "date_start": f"{year}-01-15" if "January" in title else f"{year}-12-15",
+                "institution_id": "corp_high",
+                "access_level": "public",
+                "deleted_at": None,
+                "quarantine_status": None,
+                "doc_type": "newspaper",
+            }
+        return writer
+
+    def test_returns_only_target_year(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_year_writer()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="list_documents_for_year",
+            target_year=1909,
+            entity_name="1909",
+            entity_type="Year",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high"],
+            permitted_levels=["public"],
+        )
+        assert result.count == 2
+        assert {r["doc_id"] for r in result.items} == {"doc_1909_a", "doc_1909_b"}
+        assert result.target_year == 1909
+
+    def test_returns_empty_for_year_with_no_documents(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_year_writer()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="list_documents_for_year",
+            target_year=1850,
+            entity_name="1850",
+            entity_type="Year",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high"],
+            permitted_levels=["public"],
+        )
+        assert result.count == 0
+        assert result.items == []
+        assert "No documents" in result.answer_text
+
+
+class TestTier1YearRangeForEntity:
+    """Validates the YEAR_RANGE_FOR_ENTITY_QUERY end-to-end.  Uses the standard
+    two-corpus writer where documents have no report_year — so we exercise
+    the no-data fallback path here, then a custom fixture for the populated
+    case.
+    """
+
+    def test_returns_zero_when_no_dated_claims(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = _build_two_corpus_writer(n_per_corpus=10, high_conf=0.80, low_conf=0.70)
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="year_range_for_entity",
+            entity_id="place_anchor",
+            entity_name="Anchor",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp_high", "corp_low"],
+            permitted_levels=["public"],
+        )
+        # Two-corpus fixture documents have no report_year, so coverage is empty.
+        assert result.earliest_year is None
+        assert result.latest_year is None
+        assert "No dated claims" in result.answer_text
+
+    def test_returns_year_range_from_doc_report_year(self):
+        """When documents have report_year set, that's the fallback when
+        observations lack IN_YEAR edges."""
+        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+        writer.node_store["Place"]["place_x"] = {"entity_id": "place_x", "name": "X"}
+        for year, doc_id in [(1903, "doc_a"), (1907, "doc_b"), (1910, "doc_c")]:
+            run_id = f"run_{doc_id}"
+            writer.node_store["Document"][doc_id] = {
+                "doc_id": doc_id,
+                "title": f"Doc {year}",
+                "institution_id": "corp",
+                "access_level": "public",
+                "deleted_at": None,
+                "quarantine_status": None,
+                "report_year": year,
+            }
+            writer.node_store["ExtractionRun"][run_id] = {
+                "run_id": run_id,
+                "run_timestamp": "2024-01-01T00:00:00",
+            }
+            writer.rel_store[("Document", doc_id, "PROCESSED_BY", "ExtractionRun", run_id, None)] = {
+                "run_id": run_id,
+                "run_timestamp": "2024-01-01T00:00:00",
+            }
+            cid = f"claim_{year}"
+            writer.node_store["Claim"][cid] = {
+                "claim_id": cid,
+                "claim_type": "test",
+                "extraction_confidence": 0.9,
+                "source_sentence": "sentence",
+                "run_id": run_id,
+                "quarantine_status": None,
+                "certainty": "observed",
+            }
+            page_id, sec_id, para_id = f"p_{doc_id}", f"s_{doc_id}", f"par_{doc_id}"
+            writer.node_store["Page"][page_id] = {"page_id": page_id, "page_number": 1}
+            writer.node_store["Section"][sec_id] = {"section_id": sec_id}
+            writer.node_store["Paragraph"][para_id] = {"paragraph_id": para_id}
+            writer.rel_store[("Document", doc_id, "HAS_PAGE", "Page", page_id, None)] = {}
+            writer.rel_store[("Page", page_id, "HAS_SECTION", "Section", sec_id, None)] = {}
+            writer.rel_store[("Section", sec_id, "HAS_PARAGRAPH", "Paragraph", para_id, None)] = {}
+            writer.rel_store[("Paragraph", para_id, "HAS_CLAIM", "Claim", cid, None)] = {"run_id": run_id}
+            writer.rel_store[("Claim", cid, "ABOUT", "Place", "place_x", None)] = {}
+
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+        intent = Tier1Intent(
+            operation="year_range_for_entity",
+            entity_id="place_x",
+            entity_name="X",
+            entity_type="Place",
+        )
+        result = assembler.tier_1_lookup(
+            intent,
+            institution_ids=["corp"],
+            permitted_levels=["public"],
+        )
+        assert result.earliest_year == 1903
+        assert result.latest_year == 1910
+        assert result.distinct_years == 3
+        assert result.count == 3
+        assert "1903 to 1910" in result.answer_text
+        assert "3 distinct years" in result.answer_text
+
+
+class TestTier1LocationsForEntity:
+    """Validates LOCATIONS_FOR_ENTITY_QUERY end-to-end."""
+
+    def _build_writer_with_places(self):
+        """Build a writer where two claims about an anchor entity also link
+        OCCURRED_AT to two different Place nodes (Spokane and Cheney)."""
+        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+
+        writer.node_store["Person"]["person_x"] = {"entity_id": "person_x", "name": "X"}
+        writer.node_store["Place"]["place_spokane"] = {"entity_id": "place_spokane", "name": "Spokane"}
+        writer.node_store["Place"]["place_cheney"] = {"entity_id": "place_cheney", "name": "Cheney"}
+
+        # Doc + run
+        writer.node_store["Document"]["doc_a"] = {
+            "doc_id": "doc_a", "title": "Doc A", "institution_id": "corp",
+            "access_level": "public", "deleted_at": None, "quarantine_status": None,
+        }
+        writer.node_store["ExtractionRun"]["run_a"] = {
+            "run_id": "run_a", "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.rel_store[("Document", "doc_a", "PROCESSED_BY", "ExtractionRun", "run_a", None)] = {
+            "run_id": "run_a", "run_timestamp": "2024-01-01T00:00:00",
+        }
+        # Structure
+        writer.node_store["Page"]["pg_a"] = {"page_id": "pg_a", "page_number": 1}
+        writer.node_store["Section"]["sec_a"] = {"section_id": "sec_a"}
+        writer.node_store["Paragraph"]["para_a"] = {"paragraph_id": "para_a"}
+        writer.rel_store[("Document", "doc_a", "HAS_PAGE", "Page", "pg_a", None)] = {}
+        writer.rel_store[("Page", "pg_a", "HAS_SECTION", "Section", "sec_a", None)] = {}
+        writer.rel_store[("Section", "sec_a", "HAS_PARAGRAPH", "Paragraph", "para_a", None)] = {}
+
+        # Three claims: two OCCURRED_AT Spokane, one at Cheney.
+        for cid, place_id in [("c_1", "place_spokane"), ("c_2", "place_spokane"), ("c_3", "place_cheney")]:
+            writer.node_store["Claim"][cid] = {
+                "claim_id": cid, "claim_type": "test", "extraction_confidence": 0.9,
+                "source_sentence": "s", "run_id": "run_a", "quarantine_status": None,
+                "certainty": "observed",
+            }
+            writer.rel_store[("Paragraph", "para_a", "HAS_CLAIM", "Claim", cid, None)] = {"run_id": "run_a"}
+            writer.rel_store[("Claim", cid, "ABOUT", "Person", "person_x", None)] = {}
+            writer.rel_store[("Claim", cid, "OCCURRED_AT", "Place", place_id, None)] = {}
+        return writer
+
+    def test_returns_ranked_places(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_writer_with_places()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="locations_for_entity",
+            entity_id="person_x", entity_name="X", entity_type="Person",
+        )
+        result = assembler.tier_1_lookup(
+            intent, institution_ids=["corp"], permitted_levels=["public"],
+        )
+        assert result.count == 2
+        # Spokane should rank first (2 claims) above Cheney (1 claim).
+        assert result.items[0]["place_name"] == "Spokane"
+        assert result.items[0]["claim_count"] == 2
+        assert result.items[1]["place_name"] == "Cheney"
+        assert result.items[1]["claim_count"] == 1
+
+    def test_returns_empty_for_entity_without_locations(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_writer_with_places()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="locations_for_entity",
+            entity_id="ghost_entity", entity_name="Ghost", entity_type="Person",
+        )
+        result = assembler.tier_1_lookup(
+            intent, institution_ids=["corp"], permitted_levels=["public"],
+        )
+        assert result.count == 0
+        assert "No locations recorded" in result.answer_text
+
+
+class TestTier1CoOccurringEntities:
+    """Validates CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY end-to-end."""
+
+    def _build_writer_with_co_occurrence(self):
+        """A writer where the anchor person co-occurs with two other entities
+        (one species, one place) across multiple claims."""
+        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+
+        writer.node_store["Person"]["person_anchor"] = {"entity_id": "person_anchor", "name": "Anchor"}
+        writer.node_store["Species"]["species_mallard"] = {"entity_id": "species_mallard", "name": "Mallard"}
+        writer.node_store["Place"]["place_a"] = {"entity_id": "place_a", "name": "Place A"}
+
+        writer.node_store["Document"]["doc_a"] = {
+            "doc_id": "doc_a", "title": "Doc A", "institution_id": "corp",
+            "access_level": "public", "deleted_at": None, "quarantine_status": None,
+        }
+        writer.node_store["ExtractionRun"]["run_a"] = {
+            "run_id": "run_a", "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.rel_store[("Document", "doc_a", "PROCESSED_BY", "ExtractionRun", "run_a", None)] = {
+            "run_id": "run_a", "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.node_store["Page"]["pg_a"] = {"page_id": "pg_a", "page_number": 1}
+        writer.node_store["Section"]["sec_a"] = {"section_id": "sec_a"}
+        writer.node_store["Paragraph"]["para_a"] = {"paragraph_id": "para_a"}
+        writer.rel_store[("Document", "doc_a", "HAS_PAGE", "Page", "pg_a", None)] = {}
+        writer.rel_store[("Page", "pg_a", "HAS_SECTION", "Section", "sec_a", None)] = {}
+        writer.rel_store[("Section", "sec_a", "HAS_PARAGRAPH", "Paragraph", "para_a", None)] = {}
+
+        # 3 claims with anchor + mallard, 1 claim with anchor + place_a
+        for i, partner in enumerate(
+            [("Species", "species_mallard"), ("Species", "species_mallard"),
+             ("Species", "species_mallard"), ("Place", "place_a")]
+        ):
+            cid = f"c_{i}"
+            writer.node_store["Claim"][cid] = {
+                "claim_id": cid, "claim_type": "test", "extraction_confidence": 0.9,
+                "source_sentence": "s", "run_id": "run_a", "quarantine_status": None,
+                "certainty": "observed",
+            }
+            writer.rel_store[("Paragraph", "para_a", "HAS_CLAIM", "Claim", cid, None)] = {"run_id": "run_a"}
+            writer.rel_store[("Claim", cid, "ABOUT", "Person", "person_anchor", None)] = {}
+            writer.rel_store[("Claim", cid, "ABOUT", partner[0], partner[1], None)] = {}
+        return writer
+
+    def test_returns_ranked_co_occurring(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_writer_with_co_occurrence()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="co_occurring_entities_for_entity",
+            entity_id="person_anchor", entity_name="Anchor", entity_type="Person",
+        )
+        result = assembler.tier_1_lookup(
+            intent, institution_ids=["corp"], permitted_levels=["public"],
+        )
+        assert result.count == 2
+        # Mallard should rank first (3 shared claims) above Place A (1).
+        assert result.items[0]["entity_id"] == "species_mallard"
+        assert result.items[0]["co_occurrence_count"] == 3
+        assert result.items[0]["entity_type"] == "Species"
+        assert result.items[1]["entity_id"] == "place_a"
+        assert result.items[1]["co_occurrence_count"] == 1
+
+
+class TestTier1FrequencyRanking:
+    """Validates FREQUENCY_RANKING_FOR_TYPE_QUERY end-to-end."""
+
+    def _build_writer_with_persons(self):
+        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+
+        for pid, name in [("p_a", "Alice"), ("p_b", "Bob"), ("p_c", "Carol")]:
+            writer.node_store["Person"][pid] = {"entity_id": pid, "name": name}
+
+        writer.node_store["Document"]["doc_a"] = {
+            "doc_id": "doc_a", "title": "Doc A", "institution_id": "corp",
+            "access_level": "public", "deleted_at": None, "quarantine_status": None,
+        }
+        writer.node_store["ExtractionRun"]["run_a"] = {
+            "run_id": "run_a", "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.rel_store[("Document", "doc_a", "PROCESSED_BY", "ExtractionRun", "run_a", None)] = {
+            "run_id": "run_a", "run_timestamp": "2024-01-01T00:00:00",
+        }
+        writer.node_store["Page"]["pg_a"] = {"page_id": "pg_a", "page_number": 1}
+        writer.node_store["Section"]["sec_a"] = {"section_id": "sec_a"}
+        writer.node_store["Paragraph"]["para_a"] = {"paragraph_id": "para_a"}
+        writer.rel_store[("Document", "doc_a", "HAS_PAGE", "Page", "pg_a", None)] = {}
+        writer.rel_store[("Page", "pg_a", "HAS_SECTION", "Section", "sec_a", None)] = {}
+        writer.rel_store[("Section", "sec_a", "HAS_PARAGRAPH", "Paragraph", "para_a", None)] = {}
+
+        # Alice: 5 claims, Bob: 2, Carol: 1
+        counts = [("p_a", 5), ("p_b", 2), ("p_c", 1)]
+        i = 0
+        for pid, n in counts:
+            for _ in range(n):
+                cid = f"c_{i}"; i += 1
+                writer.node_store["Claim"][cid] = {
+                    "claim_id": cid, "claim_type": "test", "extraction_confidence": 0.9,
+                    "source_sentence": "s", "run_id": "run_a", "quarantine_status": None,
+                    "certainty": "observed",
+                }
+                writer.rel_store[("Paragraph", "para_a", "HAS_CLAIM", "Claim", cid, None)] = {"run_id": "run_a"}
+                writer.rel_store[("Claim", cid, "ABOUT", "Person", pid, None)] = {}
+        return writer
+
+    def test_top_n_persons_ranked_by_claim_count(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_writer_with_persons()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="frequency_ranking_for_type",
+            entity_name="people", target_label="Person", limit=10,
+        )
+        result = assembler.tier_1_lookup(
+            intent, institution_ids=["corp"], permitted_levels=["public"],
+        )
+        assert result.count == 3
+        assert result.items[0]["name"] == "Alice"
+        assert result.items[0]["claim_count"] == 5
+        assert result.items[1]["name"] == "Bob"
+        assert result.items[2]["name"] == "Carol"
+
+    def test_limit_clamps_results(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_writer_with_persons()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="frequency_ranking_for_type",
+            entity_name="people", target_label="Person", limit=2,
+        )
+        result = assembler.tier_1_lookup(
+            intent, institution_ids=["corp"], permitted_levels=["public"],
+        )
+        assert result.count == 2
+        assert result.items[0]["name"] == "Alice"
+        assert result.items[1]["name"] == "Bob"
+
+    def test_unknown_entity_label_returns_empty(self):
+        from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
+        from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+        from gemynd.retrieval.models import Tier1Intent
+
+        writer = self._build_writer_with_persons()
+        executor = InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
+        assembler = ProvenanceContextAssembler(executor=executor)
+
+        intent = Tier1Intent(
+            operation="frequency_ranking_for_type",
+            entity_name="aliens", target_label="Alien", limit=10,
+        )
+        result = assembler.tier_1_lookup(
+            intent, institution_ids=["corp"], permitted_levels=["public"],
+        )
+        assert result.count == 0
+        assert "No aliens" in result.answer_text
+

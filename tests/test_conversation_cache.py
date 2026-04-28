@@ -278,3 +278,98 @@ def test_purge_older_than_drops_old_and_keeps_recent(store):
     assert deleted == 1
     remaining = [s["session_id"] for s in store.list_user_sessions("alice")]
     assert remaining == ["sess_new"]
+
+
+# ---------------------------------------------------------------------------
+# Per-stage timing instrumentation (timing_json column on retrieval_event)
+# ---------------------------------------------------------------------------
+
+import json as _json
+
+
+def test_timing_json_persisted_when_present(tmp_path):
+    """LogRecord.timing_ms is serialised into retrieval_event.timing_json."""
+    db_path = tmp_path / "conv_log.db"
+    conn = sqlite3.connect(str(db_path))
+    _init_db(conn)
+    rec = _make_record(
+        conversation_id="conv_timing_a",
+        query_text="q",
+        created_at="2026-04-28T00:00:00",
+        session_id="sess_a",
+        turn_number=1,
+        user_id="alice",
+        response_json=None,
+    )
+    rec.timing_ms = {"assemble_ms": 412.7, "synthesise_ms": 35210.5, "synthesise_ok": 1.0}
+    _write_record(conn, rec)
+    row = conn.execute(
+        "SELECT timing_json FROM retrieval_event WHERE conversation_id = ?",
+        ("conv_timing_a",),
+    ).fetchone()
+    conn.close()
+    assert row[0] is not None
+    parsed = _json.loads(row[0])
+    assert parsed["assemble_ms"] == 412.7
+    assert parsed["synthesise_ms"] == 35210.5
+    assert parsed["synthesise_ok"] == 1.0
+
+
+def test_timing_json_null_when_absent(tmp_path):
+    """Empty timing_ms dict persists as NULL — preserves space + grep simplicity."""
+    db_path = tmp_path / "conv_log.db"
+    conn = sqlite3.connect(str(db_path))
+    _init_db(conn)
+    rec = _make_record(
+        conversation_id="conv_timing_b",
+        query_text="q",
+        created_at="2026-04-28T00:00:00",
+        session_id="sess_b",
+        turn_number=1,
+        user_id="alice",
+        response_json=None,
+    )
+    # rec.timing_ms is the default empty dict; we don't override it
+    _write_record(conn, rec)
+    row = conn.execute(
+        "SELECT timing_json FROM retrieval_event WHERE conversation_id = ?",
+        ("conv_timing_b",),
+    ).fetchone()
+    conn.close()
+    assert row[0] is None
+
+
+def test_init_db_migrates_pre_existing_retrieval_event_table(tmp_path):
+    """_init_db must add timing_json to retrieval_event tables that predate the column.
+
+    Simulates the realistic upgrade path: the conversation table is already
+    fully migrated (post all the user_id/session_id/etc. ALTERs), and only
+    retrieval_event is missing the new timing_json column.
+    """
+    db_path = tmp_path / "conv_log.db"
+    conn = sqlite3.connect(str(db_path))
+    # Initialise the current schema first (this runs all conversation column
+    # migrations), then drop and recreate retrieval_event WITHOUT timing_json
+    # to simulate the gap.
+    _init_db(conn)
+    conn.execute("DROP TABLE retrieval_event")
+    conn.execute(
+        """CREATE TABLE retrieval_event (
+            conversation_id TEXT PRIMARY KEY REFERENCES conversation(conversation_id),
+            entity_ids_resolved TEXT NOT NULL,
+            entity_types_resolved TEXT NOT NULL,
+            candidates_retrieved INTEGER NOT NULL,
+            ocr_dropped INTEGER NOT NULL,
+            claims_in_context INTEGER NOT NULL
+        )"""
+    )
+    conn.commit()
+    cols_before = {r[1] for r in conn.execute("PRAGMA table_info(retrieval_event)").fetchall()}
+    assert "timing_json" not in cols_before
+    # Re-running _init_db should add the missing column via the ALTER migration.
+    _init_db(conn)
+    cols_after = {r[1] for r in conn.execute("PRAGMA table_info(retrieval_event)").fetchall()}
+    assert "timing_json" in cols_after
+    # Migration must be idempotent — running again must not error.
+    _init_db(conn)
+    conn.close()

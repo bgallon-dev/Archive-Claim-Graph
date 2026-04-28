@@ -14,10 +14,16 @@ import pytest
 
 from gemynd.retrieval.context_assembler import (
     ProvenanceContextAssembler,
+    _build_retrieval_summary,
+    _display_doc_title,
     _infer_claim_types,
+    _is_ocr_garbage_title,
     _row_to_block,
+    _scrub_doc_list_titles,
     _select_retrieval_plan,
     _serialise_block,
+    _stratified_budget_cap,
+    _temporally_diversified_take,
 )
 from gemynd.retrieval.models import EntityContext, ProvenanceBlock, ResolvedEntity
 
@@ -35,6 +41,7 @@ def _make_raw_row(
     doc_title: str = "Annual Report 1942",
     year: int | None = 1942,
     species: str | None = "Mallard",
+    institution_id: str = "turnbull",
 ) -> dict:
     return {
         "c": {
@@ -44,7 +51,12 @@ def _make_raw_row(
             "certainty": epistemic,
             "source_sentence": sentence,
         },
-        "d": {"title": doc_title, "date_start": "1942-01-01", "date_end": "1942-12-31"},
+        "d": {
+            "title": doc_title,
+            "date_start": "1942-01-01",
+            "date_end": "1942-12-31",
+            "institution_id": institution_id,
+        },
         "pg": {"page_number": 3},
         "para": {"paragraph_id": "para-001"},
         "obs": {"observation_type": "species_count", "observation_id": "obs-001"},
@@ -70,6 +82,7 @@ def _make_block(**kwargs) -> ProvenanceBlock:
         species_name="Mallard",
         year=1942,
         measurements=[],
+        institution_id="turnbull",
     )
     defaults.update(kwargs)
     return ProvenanceBlock(**defaults)
@@ -121,6 +134,92 @@ class TestRowToBlock:
         block = _row_to_block(row)
         assert block is not None
         assert block.measurements == []
+
+    def test_series_populated_from_document(self):
+        row = _make_raw_row()
+        row["d"]["series"] = "BLM GLO Records"
+        block = _row_to_block(row)
+        assert block is not None
+        assert block.series == "BLM GLO Records"
+
+    def test_series_none_when_absent(self):
+        row = _make_raw_row()
+        block = _row_to_block(row)
+        assert block is not None
+        assert block.series is None
+
+
+# ---------------------------------------------------------------------------
+# OCR garbage detection / display title fallback
+# ---------------------------------------------------------------------------
+
+class TestOcrGarbageDetection:
+    def test_clean_title_not_garbage(self):
+        assert not _is_ocr_garbage_title("Annual Report 1942")
+        assert not _is_ocr_garbage_title("The History of Spokane")
+
+    def test_empty_title_not_garbage(self):
+        assert not _is_ocr_garbage_title("")
+
+    def test_spaced_caps_flagged(self):
+        assert _is_ocr_garbage_title("G O N TIN U E D h o")
+        assert _is_ocr_garbage_title("X Y Z something")
+
+    def test_mostly_uppercase_flagged(self):
+        assert _is_ocr_garbage_title("LANDS LANDSI LANDSI")
+        assert _is_ocr_garbage_title("THE WOMlEslN'S CORNER")
+
+    def test_runaway_length_flagged(self):
+        long_title = "A" + "a" * 130
+        assert _is_ocr_garbage_title(long_title)
+
+
+class TestDisplayDocTitle:
+    def test_clean_title_returned_verbatim(self):
+        block = _make_block(doc_title="Annual Report 1942")
+        assert _display_doc_title(block) == "Annual Report 1942"
+
+    def test_garbage_title_falls_back_to_institution(self):
+        block = _make_block(
+            doc_title="G O N TIN U E D h o",
+            institution_id="spokane_newspaper",
+        )
+        result = _display_doc_title(block)
+        assert "G O N TIN" not in result
+        assert "spokane_newspaper" in result
+        assert "OCR degraded" in result
+
+    def test_empty_title_with_institution(self):
+        block = _make_block(doc_title="", institution_id="turnbull")
+        result = _display_doc_title(block)
+        assert "turnbull" in result
+        assert "OCR degraded" in result
+
+    def test_garbage_title_no_institution_uses_placeholder(self):
+        block = _make_block(
+            doc_title="LANDS LANDSI LANDSI",
+            institution_id=None,
+        )
+        result = _display_doc_title(block)
+        assert "LANDS" not in result
+        assert "unavailable" in result
+
+    def test_serialise_block_uses_display_title(self):
+        block = _make_block(
+            doc_title="G O N TIN U E D h o",
+            institution_id="spokane_newspaper",
+        )
+        text = _serialise_block(block)
+        # The garbage title must NOT appear in the synthesis context
+        assert "G O N TIN" not in text
+        # Structured fallback must
+        assert "spokane_newspaper" in text
+        assert "OCR degraded" in text
+
+    def test_serialise_block_keeps_clean_title(self):
+        block = _make_block(doc_title="The History of Spokane")
+        text = _serialise_block(block)
+        assert "The History of Spokane" in text
 
 
 # ---------------------------------------------------------------------------
@@ -445,6 +544,182 @@ class TestDuplicateEntityIdDedup:
         assert called_query == ENTITY_ANCHORED_CLAIMS_QUERY
 
 
+# ---------------------------------------------------------------------------
+# Temporal diversification
+# ---------------------------------------------------------------------------
+
+class TestTemporalDiversification:
+    def _blocks(self, years: list[int | None], base_conf: float = 0.80) -> list[ProvenanceBlock]:
+        return [
+            _make_block(claim_id=f"c-{i}", year=y, extraction_confidence=base_conf - i * 0.001)
+            for i, y in enumerate(years)
+        ]
+
+    def test_diverse_years_sampled(self):
+        years = [1938, 1939, 1940, 1941, 1942] * 2  # 10 blocks, 5 years
+        blocks = self._blocks(years)
+        result = _temporally_diversified_take(blocks, 5)
+        result_years = {b.year for b in result}
+        assert result_years == {1938, 1939, 1940, 1941, 1942}
+
+    def test_single_year_falls_through(self):
+        blocks = self._blocks([1942] * 10)
+        result = _temporally_diversified_take(blocks, 5)
+        assert len(result) == 5
+        # Falls through to top-N; original order (desc confidence) preserved
+        assert result == blocks[:5]
+
+    def test_below_min_buckets_falls_through(self):
+        # 4 distinct years < min_year_buckets=5
+        years = [1938, 1939, 1940, 1941] * 3
+        blocks = self._blocks(years)
+        result = _temporally_diversified_take(blocks, 6, min_year_buckets=5)
+        assert result == blocks[:6]
+
+    def test_none_year_bucketed_separately(self):
+        # Mix of dated and undated — must not crash
+        years = [1938, 1939, 1940, 1941, 1942, None, None]
+        blocks = self._blocks(years)
+        result = _temporally_diversified_take(blocks, 5)
+        assert 1 <= len(result) <= 5
+
+    def test_proportional_distribution(self):
+        # 8 blocks from 1940, 2 from 1945 + 3 more years to exceed min_year_buckets
+        years = [1940] * 8 + [1941] * 1 + [1942] * 1 + [1943] * 1 + [1945] * 2
+        blocks = self._blocks(years)
+        result = _temporally_diversified_take(blocks, 6)
+        year_counts = {}
+        for b in result:
+            year_counts[b.year] = year_counts.get(b.year, 0) + 1
+        # 1940 should get more slots than 1945 (proportional to its share)
+        assert year_counts.get(1940, 0) > year_counts.get(1945, 0)
+
+
+# ---------------------------------------------------------------------------
+# Stratified budget cap
+# ---------------------------------------------------------------------------
+
+class TestStratifiedBudgetCap:
+    def _corpus_blocks(
+        self,
+        institution_id: str,
+        n: int,
+        base_conf: float,
+        years: list[int] | None = None,
+        id_prefix: str | None = None,
+    ) -> list[ProvenanceBlock]:
+        prefix = id_prefix or institution_id
+        return [
+            _make_block(
+                claim_id=f"{prefix}-{i}",
+                institution_id=institution_id,
+                extraction_confidence=base_conf - i * 0.001,
+                year=(years[i % len(years)] if years else 1942),
+            )
+            for i in range(n)
+        ]
+
+    def test_equal_split_two_corpora(self):
+        corp_a = self._corpus_blocks("corp_a", 30, base_conf=0.90)
+        corp_b = self._corpus_blocks("corp_b", 30, base_conf=0.70)
+        all_blocks = corp_a + corp_b
+        all_blocks.sort(key=lambda b: b.extraction_confidence, reverse=True)
+
+        result = _stratified_budget_cap(all_blocks, 20)
+        assert len(result) == 20
+        a_count = sum(1 for b in result if b.institution_id == "corp_a")
+        b_count = sum(1 for b in result if b.institution_id == "corp_b")
+        # Both corpora represented — without stratification corp_b would get 0
+        assert a_count >= 9
+        assert b_count >= 9
+
+    def test_single_corpus_delegates(self):
+        blocks = self._corpus_blocks("only_corp", 30, base_conf=0.80)
+        result = _stratified_budget_cap(blocks, 10)
+        assert len(result) == 10
+        assert all(b.institution_id == "only_corp" for b in result)
+
+    def test_below_threshold_corpus_not_stratified(self):
+        # corp_b has only 3 blocks (< min_corpus_threshold=5): no stratification
+        corp_a = self._corpus_blocks("corp_a", 30, base_conf=0.80)
+        corp_b = self._corpus_blocks("corp_b", 3, base_conf=0.70)
+        all_blocks = corp_a + corp_b
+        all_blocks.sort(key=lambda b: b.extraction_confidence, reverse=True)
+
+        result = _stratified_budget_cap(all_blocks, 10, min_corpus_threshold=5)
+        assert len(result) == 10
+        # Falls through to temporal-only path; corp_b claims may or may not appear
+        b_count = sum(1 for b in result if b.institution_id == "corp_b")
+        a_count = sum(1 for b in result if b.institution_id == "corp_a")
+        assert a_count >= b_count  # single-year fallback picks top-10 by confidence
+
+    def test_remainder_to_largest_corpus(self):
+        corp_a = self._corpus_blocks("corp_a", 20, base_conf=0.80)
+        corp_b = self._corpus_blocks("corp_b", 20, base_conf=0.70)
+        all_blocks = corp_a + corp_b
+        all_blocks.sort(key=lambda b: b.extraction_confidence, reverse=True)
+
+        result = _stratified_budget_cap(all_blocks, 11)
+        assert len(result) == 11
+        a_count = sum(1 for b in result if b.institution_id == "corp_a")
+        b_count = sum(1 for b in result if b.institution_id == "corp_b")
+        # Largest corpus (corp_a, highest conf → first after sort) gets 6; other gets 5
+        assert abs(a_count - b_count) == 1
+
+    def test_temporal_applied_within_each_corpus(self):
+        years = [1938, 1939, 1940, 1941, 1942, 1943]
+        corp_a = self._corpus_blocks("corp_a", 12, base_conf=0.85, years=years)
+        corp_b = self._corpus_blocks("corp_b", 12, base_conf=0.75, years=years)
+        all_blocks = corp_a + corp_b
+        all_blocks.sort(key=lambda b: b.extraction_confidence, reverse=True)
+
+        result = _stratified_budget_cap(all_blocks, 12)
+        a_years = {b.year for b in result if b.institution_id == "corp_a"}
+        b_years = {b.year for b in result if b.institution_id == "corp_b"}
+        # Each corpus should contribute multiple years (temporal diversification fired)
+        assert len(a_years) >= 2
+        assert len(b_years) >= 2
+
+
+# ---------------------------------------------------------------------------
+# Retrieval summary
+# ---------------------------------------------------------------------------
+
+class TestRetrievalSummary:
+    def _make_selected(
+        self,
+        specs: list[tuple[str, int, int]],  # (institution_id, year, count)
+    ) -> list[ProvenanceBlock]:
+        blocks: list[ProvenanceBlock] = []
+        i = 0
+        for institution_id, year, count in specs:
+            for _ in range(count):
+                blocks.append(_make_block(claim_id=f"c-{i}", institution_id=institution_id, year=year))
+                i += 1
+        return blocks
+
+    def test_no_header_when_not_truncated(self):
+        blocks = self._make_selected([("turnbull", 1942, 5)])
+        assert _build_retrieval_summary(blocks, blocks) == ""
+
+    def test_header_shows_total_and_selected(self):
+        candidates = self._make_selected([("turnbull", 1942, 100)])
+        selected = candidates[:30]
+        summary = _build_retrieval_summary(candidates, selected)
+        assert "30 of 100" in summary
+
+    def test_multi_corpus_year_range(self):
+        spokane = self._make_selected([("spokane_newspaper", 1902, 5), ("spokane_newspaper", 1910, 10)])
+        turnbull = self._make_selected([("turnbull", 1937, 5), ("turnbull", 2007, 10)])
+        candidates = spokane + turnbull + self._make_selected([("spokane_newspaper", 1905, 100)])
+        selected = spokane + turnbull
+        summary = _build_retrieval_summary(candidates, selected)
+        assert "spokane_newspaper" in summary
+        assert "turnbull" in summary
+        assert "1902" in summary
+        assert "1937" in summary
+
+
 class TestClaimTypePostFilter:
     def test_post_filter_applied_for_entity_plus_claim_type(self):
         mock_executor = MagicMock()
@@ -479,3 +754,175 @@ class TestClaimTypePostFilter:
         # "habitat" triggers claim_type filter but no rows match — should fall back to all rows
         blocks, _ = assembler.assemble("habitat conditions for mallard", entity_ctx)
         assert len(blocks) == 2
+
+
+# ---------------------------------------------------------------------------
+# End-to-end assembler integration — exercises the diagnostic failure modes
+# through the full assemble() pipeline rather than the helpers in isolation.
+# ---------------------------------------------------------------------------
+
+class TestAssemblerIntegration:
+    def test_cross_corpus_blending_both_corpora_represented(self):
+        """The Spokane/Turnbull pathology: high-conf corpus would crowd out lower-conf one.
+
+        Pre-fix: 30 Spokane Press claims at 0.82 + 30 Turnbull claims at 0.72, budget=20
+        → 20 Spokane, 0 Turnbull. The diagnostic baseline observed exactly this.
+        Post-fix: stratified split surfaces both corpora.
+        """
+        spokane = [
+            _make_raw_row(
+                claim_id=f"sp-{i:03d}",
+                confidence=0.82 - i * 0.001,
+                institution_id="spokane_newspaper",
+                year=1905,
+                doc_title=f"Spokane Press {i}",
+            )
+            for i in range(30)
+        ]
+        turnbull = [
+            _make_raw_row(
+                claim_id=f"tb-{i:03d}",
+                confidence=0.72 - i * 0.001,
+                institution_id="turnbull",
+                year=1950,
+                doc_title=f"Refuge Report {i}",
+            )
+            for i in range(30)
+        ]
+        mock_executor = MagicMock()
+        mock_executor.run.return_value = spokane + turnbull
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor, budget_conversational=20)
+        blocks, _ = assembler.assemble("query", EntityContext())
+
+        spokane_count = sum(1 for b in blocks if b.institution_id == "spokane_newspaper")
+        turnbull_count = sum(1 for b in blocks if b.institution_id == "turnbull")
+        assert spokane_count >= 8, f"spokane_newspaper underrepresented: {spokane_count}"
+        assert turnbull_count >= 8, f"turnbull excluded by confidence sort: {turnbull_count}"
+        assert spokane_count + turnbull_count == 20
+
+    def test_temporal_diversification_high_volume_entity(self):
+        """The mallard pathology: 383 active claims spanning 1938–1963, but the answer covered
+        only 1939 and 1997 because tied confidence produced near-arbitrary year selection.
+
+        Synthetic version: 27 claims spanning 9 years at near-identical confidence.
+        Without temporal diversification, top-by-confidence would cluster on whichever year
+        sorted first within ties.
+        """
+        years = [1938, 1940, 1942, 1945, 1948, 1950, 1955, 1960, 1963]
+        rows = [
+            _make_raw_row(
+                claim_id=f"m-{i:03d}",
+                confidence=0.78 - i * 0.0001,
+                year=year,
+                institution_id="turnbull",
+            )
+            for i, year in enumerate(years * 3)
+        ]
+        mock_executor = MagicMock()
+        mock_executor.run.return_value = rows
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor, budget_conversational=10)
+        blocks, _ = assembler.assemble("query", EntityContext())
+
+        result_years = {b.year for b in blocks}
+        decades = {y // 10 for y in result_years if y is not None}
+        assert len(result_years) >= 5, f"clustered on too few years: {result_years}"
+        assert len(decades) >= 3, f"missed decade coverage: {sorted(decades)}"
+
+    def test_retrieval_summary_header_present_when_truncated(self):
+        rows = [
+            _make_raw_row(
+                claim_id=f"c-{i:03d}",
+                institution_id="turnbull" if i < 25 else "spokane_newspaper",
+                year=1942 if i < 25 else 1905,
+            )
+            for i in range(50)
+        ]
+        mock_executor = MagicMock()
+        mock_executor.run.return_value = rows
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor, budget_conversational=10)
+        _, context_text = assembler.assemble("query", EntityContext())
+
+        assert context_text.startswith("[RETRIEVAL SUMMARY:")
+        assert "10 of 50" in context_text
+        # Both corpora named in the breakdown when both surface in selection
+        first_line = context_text.split("\n")[0]
+        assert "turnbull" in first_line or "spokane_newspaper" in first_line
+
+    def test_no_summary_header_when_all_candidates_fit(self):
+        rows = [_make_raw_row(claim_id=f"c-{i:03d}") for i in range(5)]
+        mock_executor = MagicMock()
+        mock_executor.run.return_value = rows
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor, budget_conversational=10)
+        _, context_text = assembler.assemble("query", EntityContext())
+
+        assert not context_text.startswith("[RETRIEVAL SUMMARY:")
+
+    def test_garbage_doc_title_replaced_in_synthesis_context(self):
+        """OCR-degraded titles must not leak into the context_text seen by the synthesis engine.
+
+        Pre-fix (verified by the followup diagnostic): _serialise_block used raw block.doc_title,
+        which sent strings like "G ON TIN UE D p A G E Q n Z" to the LLM. The chat UI's
+        _citation_label() filter never reached the synthesis path.
+        """
+        rows = [
+            _make_raw_row(
+                claim_id="garbage-001",
+                doc_title="G O N TIN U E D h o",
+                institution_id="spokane_newspaper",
+            ),
+        ]
+        mock_executor = MagicMock()
+        mock_executor.run.return_value = rows
+
+        assembler = ProvenanceContextAssembler(executor=mock_executor)
+        _, context_text = assembler.assemble("query", EntityContext())
+
+        assert "G O N TIN" not in context_text
+        assert "spokane_newspaper" in context_text
+        assert "OCR degraded" in context_text
+
+
+# ---------------------------------------------------------------------------
+# Tier 1 list operations: scrub OCR-garbage titles before they reach the UI
+# ---------------------------------------------------------------------------
+
+class TestScrubDocListTitles:
+    def test_clean_titles_pass_through_unchanged(self):
+        rows = [
+            {"doc_id": "d1", "title": "Annual Report 1942", "claim_count": 5},
+            {"doc_id": "d2", "title": "The History of Spokane", "claim_count": 3},
+        ]
+        out = _scrub_doc_list_titles(rows)
+        assert out[0]["title"] == "Annual Report 1942"
+        assert out[1]["title"] == "The History of Spokane"
+        assert "title_raw" not in out[0]
+
+    def test_garbage_title_replaced_with_none(self):
+        rows = [{"doc_id": "d1", "title": "G O N TIN U E D h o", "claim_count": 5}]
+        out = _scrub_doc_list_titles(rows)
+        assert out[0]["title"] is None
+        # Original preserved for archivist follow-up.
+        assert out[0]["title_raw"] == "G O N TIN U E D h o"
+
+    def test_all_caps_garbage_replaced(self):
+        rows = [{"doc_id": "d1", "title": "SPOKANE TELLS NO HARD LUCK HISTORY"}]
+        out = _scrub_doc_list_titles(rows)
+        assert out[0]["title"] is None
+        assert out[0]["title_raw"] == "SPOKANE TELLS NO HARD LUCK HISTORY"
+
+    def test_empty_title_unchanged(self):
+        rows = [{"doc_id": "d1", "title": "", "claim_count": 0}]
+        out = _scrub_doc_list_titles(rows)
+        # Empty input is not OCR garbage; left alone (frontend handles missing).
+        assert out[0]["title"] == ""
+        assert "title_raw" not in out[0]
+
+    def test_does_not_mutate_input_rows(self):
+        rows = [{"doc_id": "d1", "title": "G O N TIN U E D"}]
+        original_title = rows[0]["title"]
+        _scrub_doc_list_titles(rows)
+        assert rows[0]["title"] == original_title  # input untouched

@@ -203,7 +203,13 @@ preferred_entity_types:
   agricultural_condition:   [Place, Organization, Event]
   land_policy_action:       [Place, Person, Organization]
   farm_organization:        [Organization, Place, Person]
-  turnbull_prehistory:      [Place, Organization, Person]
+  # Refuge is the canonical anchor entity for the Turnbull NWR domain — when
+  # a query mentions "turnbull" or "refuge" the resolver should not demote
+  # the Refuge entity below REFERS_TO threshold just because this claim_type
+  # was originally designed for ecological-prehistory Place/Organization/Person
+  # content.  Listing Refuge first makes it the primary preferred type so
+  # exact-name matches against the Refuge node remain definitive.
+  turnbull_prehistory:      [Refuge, Place, Organization, Person]
   civic_development:        [Organization, Place, Person]
   infrastructure_project:   [Place, Organization, Person]
   mining_activity:          [Place, Organization, Person]

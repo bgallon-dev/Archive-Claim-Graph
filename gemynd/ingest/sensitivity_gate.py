@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import logging
 from datetime import datetime, timezone
+from typing import Any
 
 from gemynd.core.models import SemanticBundle, StructureBundle
 from gemynd.ingest.extraction_result import (
@@ -11,6 +12,58 @@ from gemynd.ingest.extraction_result import (
 )
 
 _log = logging.getLogger(__name__)
+
+
+def _classify_address_context(sentence: str, cfg_era: dict[str, Any]) -> str:
+    """Return 'commercial', 'residential', or 'ambiguous' for an address sentence.
+
+    Residential signals win when both vocabularies match in the same sentence —
+    a saloon owner who died at his home above the bar is still a death notice.
+    """
+    text = (sentence or "").lower()
+    commercial_kws = cfg_era.get("address_commercial_keywords") or []
+    residential_kws = cfg_era.get("address_residential_keywords") or []
+    if any(kw in text for kw in residential_kws):
+        return "residential"
+    if any(kw in text for kw in commercial_kws):
+        return "commercial"
+    return "ambiguous"
+
+
+def _should_relax_pii_proposal(
+    prop: Any,
+    structure: StructureBundle,
+    semantic: SemanticBundle,
+    cfg_era: dict[str, Any],
+) -> bool:
+    """Return True when an address-only PII proposal in a pre-cutoff document
+    should be allowed through (commercial-anchored).  All other proposals,
+    eras, and patterns fall through to the normal threshold gate.
+    """
+    if not cfg_era.get("enabled"):
+        return False
+    if getattr(prop, "issue_class", None) != "pii_exposure":
+        return False
+    evidence = getattr(prop, "evidence_snapshot", None) or {}
+    matched = evidence.get("matched_pattern")
+    all_patterns = list(evidence.get("all_patterns") or [])
+    if matched != "address" or all_patterns != ["address"]:
+        return False
+    report_year = getattr(structure.document, "report_year", None)
+    if report_year is None or report_year >= cfg_era.get("cutoff_year", 1950):
+        return False
+    # Find the source sentence for the targeted claim.
+    target_claim_id = next(
+        (t.target_id for t in (prop.targets or []) if t.target_kind == "claim"),
+        None,
+    )
+    if not target_claim_id:
+        return False
+    sentence = next(
+        (c.source_sentence for c in semantic.claims if c.claim_id == target_claim_id),
+        "",
+    )
+    return _classify_address_context(sentence, cfg_era) == "commercial"
 
 
 class DefaultSensitivityGate:
@@ -33,13 +86,15 @@ class DefaultSensitivityGate:
 
             proposals = _sm.detect(structure, semantic, snapshot_id="")
             cfg = _sm._load_config()
-            threshold = (
-                cfg.get("pii_detection", {}).get("auto_quarantine_threshold", 0.85)
-            )
+            pii_cfg = cfg.get("pii_detection", {})
+            threshold = pii_cfg.get("auto_quarantine_threshold", 0.85)
+            era_cfg = pii_cfg.get("era_relaxation", {}) or {}
 
             seen: set[str] = set()
             for prop in proposals:
                 if prop.confidence >= threshold:
+                    if _should_relax_pii_proposal(prop, structure, semantic, era_cfg):
+                        continue
                     for target in prop.targets:
                         if target.target_kind == "claim" and target.target_id not in seen:
                             for claim in semantic.claims:

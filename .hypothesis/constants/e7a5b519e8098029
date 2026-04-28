@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\retrieval\conversation_log.py
+# hypothesis_version: 6.151.9
+
+[1.0, 24.0, 3600.0, 200, 500, ' AND ', ',', '...', '?', 'BEGIN', 'QueryHistoryStore', 'WHERE ', 'bucket = ?', 'conv-log-retention', 'conv-log-writer', 'conversation_id', 'created_at', 'int | None', 'list[dict]', 'query_text', 'query_text LIKE ?', 'request_id', 'response_json', 'session_id', 'str | None', 'str | Path', 'timing_json', 'title', 'turn_count', 'turn_number', 'updated_at', 'user_id']

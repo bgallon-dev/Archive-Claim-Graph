@@ -26,6 +26,7 @@ import os
 import re
 import sqlite3 as _sqlite3
 import statistics as _statistics
+import time
 from contextlib import asynccontextmanager
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -43,7 +44,7 @@ except Exception:  # pragma: no cover - optional dependency
 from .auth import UserContext, require_user
 from gemynd.auth.dependencies import NeedsLoginException, require_admin, require_archivist_or_admin
 from gemynd.auth.router import create_auth_router
-from ..classifier import classify_query
+from ..classifier import classify_query, detect_tier1_intent
 from ..context_assembler import ProvenanceContextAssembler, _serialise_block
 from ..conversation_log import (
     ClaimInteraction,
@@ -73,7 +74,7 @@ from gemynd.core.graph.cypher import (
     ENTITY_NEIGHBORHOOD_QUERY,
 )
 from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
-from ..context_assembler import _infer_claim_types
+from ..context_assembler import _infer_claim_types, _is_ocr_garbage_title
 from ..entity_gateway import EntityResolutionGateway
 from ..executor import Neo4jQueryExecutor
 from ..models import RetrievalStats, SynthesisResult
@@ -91,28 +92,30 @@ def _citation_label(b: "ProvenanceBlock") -> str:  # type: ignore[name-defined]
 
     Prefers institution + date + page over the raw OCR doc_title, which is
     often garbage in newspaper corpora (e.g. 'G O N TIN u E D h o').
+
+    When ``series`` is set, the provenance segment is rendered as
+    "<series> via <institution>" to disambiguate composite collections (e.g. BLM
+    GLO patent records ingested under the Turnbull institution_id).
     """
     parts: list[str] = []
-    if b.institution_id:
-        parts.append(b.institution_id.replace("_", " ").title())
+    series = (b.series or "").strip() if hasattr(b, "series") else ""
+    institution_pretty = b.institution_id.replace("_", " ").title() if b.institution_id else ""
+    if series and institution_pretty:
+        parts.append(f"{series} via {institution_pretty}")
+    elif series:
+        parts.append(series)
+    elif institution_pretty:
+        parts.append(institution_pretty)
     if b.doc_date_start:
         parts.append(b.doc_date_start)
     if b.page_number is not None:
         parts.append(f"pp{b.page_number}")
     if parts:
         return " — ".join(parts)
-    # Fallback to doc_title, but suppress OCR garbage: all-caps-heavy titles,
-    # spaced single-char runs, or very long headlines are unhelpful noise.
+    # Fallback to doc_title, but suppress OCR garbage via the shared detector.
     title = b.doc_title or ""
-    if title:
-        upper_ratio = sum(1 for c in title if c.isupper()) / max(len(title), 1)
-        is_garbage = (
-            upper_ratio > 0.55                    # mostly all-caps OCR headline
-            or re.search(r"[A-Z] [A-Z] [A-Z]", title)   # spaced-char OCR
-            or len(title) > 120                   # whole headline ingested as title
-        )
-        if not is_garbage:
-            return title
+    if title and not _is_ocr_garbage_title(title):
+        return title
     return b.doc_id or ""
 
 
@@ -188,6 +191,10 @@ class QueryResponse(BaseModel):
     supporting_claims_detail: list[dict[str, Any]] = Field(default_factory=list)
     # Each entry: {claim_id, confidence, epistemic_status, claim_type, doc_id, doc_title}
     user_can_annotate: bool = False  # True when the requesting user has archivist/admin role
+    # Tier 1 fast-path output: present when the query was answered directly from
+    # the graph without LLM synthesis. UI renders structured fields (count, items)
+    # rather than parsing answer prose. None for normal synthesis-path responses.
+    tier_1_result: dict[str, Any] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -860,6 +867,19 @@ def create_app(
             executor=executor,
         )
         synthesis_ctx = _composite.synthesis_context()
+        # Surface key-loading state at startup so a missing/short key is visible
+        # before the first query rather than buried in a per-request exception.
+        if api_key:
+            _log.info(
+                "synthesis: Anthropic API key loaded (length=%d, prefix=%s...)",
+                len(api_key),
+                api_key[:7],
+            )
+        else:
+            _log.warning(
+                "synthesis: no Anthropic API key found (checked Anthropic_API_Key, "
+                "ANTHROPIC_API_KEY env vars and CLI param). All synthesis calls will fail."
+            )
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,
             max_tokens=max_tokens,
@@ -1063,6 +1083,131 @@ def create_app(
         _log.debug("resolved: %s", [(r.surface_form, r.entity_id, r.resolution_confidence) for r in entity_ctx.resolved])
         _log.debug("unresolved: %s", entity_ctx.unresolved)
 
+        # ------------------------------------------------------------------
+        # Tier 1 fast-path: structural-lookup queries that bypass synthesis.
+        # When the classifier detects a "how many ..." pattern AND entity
+        # resolution returns exactly one high-confidence entity, we run a
+        # focused Cypher and return a deterministic answer in well under a
+        # second (vs. 30–120s for the full synthesis path).
+        # ------------------------------------------------------------------
+        tier_1_intent = detect_tier1_intent(
+            req.text,
+            entity_ctx,
+            year_min=intent.year_min,
+            year_max=intent.year_max,
+        )
+        if tier_1_intent is not None and req.mode != "analytical":
+            _t0 = time.perf_counter()
+            try:
+                tier_1_result = assembler.tier_1_lookup(
+                    tier_1_intent,
+                    institution_ids=user.permitted_institution_ids,
+                    permitted_levels=user.permitted_levels,
+                )
+                tier_1_ok = True
+            except Exception as exc:
+                # On any failure, fall through to the normal synthesis path
+                # rather than returning a broken short-circuit response.
+                _log.exception("tier_1 lookup failed (%s); falling through to synthesis", exc)
+                tier_1_intent = None
+                tier_1_ok = False
+
+            if tier_1_intent is not None and tier_1_ok:
+                tier_1_ms = round((time.perf_counter() - _t0) * 1000, 1)
+                _tier1_caveat_by_op = {
+                    "count_claims_for_entity": (
+                        "Direct graph count — reflects active claims linked to "
+                        "the resolved entity under the requesting user's "
+                        "permission scope."
+                    ),
+                    "year_range_for_entity": (
+                        "Direct graph lookup — year range reflects observation "
+                        "years for active claims, falling back to the document's "
+                        "report_year when an observation has no year link."
+                    ),
+                    "list_documents_for_entity": (
+                        "Direct graph lookup — documents are ranked by the count "
+                        "of active claims linking them to the resolved entity, "
+                        "capped at 50."
+                    ),
+                    "list_documents_for_year": (
+                        "Direct graph lookup — documents whose report_year "
+                        "matches the requested year, sorted by date_start, "
+                        "capped at 50."
+                    ),
+                    "locations_for_entity": (
+                        "Direct graph lookup — places linked to the entity via "
+                        "OCCURRED_AT, ranked by claim count, capped at 25."
+                    ),
+                    "co_occurring_entities_for_entity": (
+                        "Direct graph lookup — other entities appearing in the "
+                        "same active claims as the resolved entity, ranked by "
+                        "shared-claim count, capped at 25."
+                    ),
+                    "frequency_ranking_for_type": (
+                        "Direct graph lookup — entities of the requested type, "
+                        "ranked by total active claim count under the user's "
+                        "permission scope."
+                    ),
+                }
+                tier_1_response = QueryResponse(
+                    answer=tier_1_result.answer_text,
+                    confidence_assessment=(
+                        "Direct graph lookup — no LLM synthesis was performed."
+                    ),
+                    supporting_claim_ids=[],
+                    caveats=[
+                        _tier1_caveat_by_op.get(
+                            tier_1_result.operation,
+                            "Direct graph lookup — no LLM synthesis was performed.",
+                        ),
+                    ],
+                    ambiguous_entities=entity_ctx.ambiguous,
+                    synthesis_available=True,
+                    tier_1_result={
+                        "operation": tier_1_result.operation,
+                        "entity_name": tier_1_result.entity_name,
+                        "count": tier_1_result.count,
+                        "items": tier_1_result.items,
+                        "earliest_year": tier_1_result.earliest_year,
+                        "latest_year": tier_1_result.latest_year,
+                        "distinct_years": tier_1_result.distinct_years,
+                        "target_year": tier_1_result.target_year,
+                    },
+                )
+
+                # Log Tier 1 queries to the conversation log so timing analytics
+                # include them and the chat UI's history view can replay them.
+                conv_logger: ConversationLogger | None = state.get("conv_logger")
+                if conv_logger is not None:
+                    try:
+                        _tier1_resp_json = tier_1_response.model_dump_json()
+                    except Exception:
+                        _tier1_resp_json = None
+                    conv_logger.enqueue(LogRecord(
+                        conversation_id=conversation_id,
+                        query_text=req.text,
+                        bucket=intent.bucket,
+                        classifier_confidence=intent.classifier_confidence,
+                        year_min=intent.year_min,
+                        year_max=intent.year_max,
+                        retrieval_path="tier_1",
+                        created_at=created_at,
+                        entity_ids_resolved=[e.entity_id for e in entity_ctx.resolved],
+                        entity_types_resolved=[e.entity_type for e in entity_ctx.resolved],
+                        candidates_retrieved=tier_1_result.count,
+                        ocr_dropped=0,
+                        claims_in_context=0,
+                        session_id=req.session_id,
+                        turn_number=turn_number,
+                        request_id=getattr(request.state, "request_id", None),
+                        user_id=user.user_id,
+                        response_json=_tier1_resp_json,
+                        claim_interactions=[],
+                        timing_ms={"tier_1_ms": tier_1_ms},
+                    ))
+                return tier_1_response
+
         is_hybrid = intent.bucket == "hybrid"
         analytical_result = None
 
@@ -1096,7 +1241,11 @@ def create_app(
                 )
                 break
 
-        # Layer 2B: conversational path.
+        # Layer 2B: conversational path. Wall-clock instrumentation feeds
+        # conversation_log.timing_json so we can attribute end-to-end latency
+        # to retrieval vs. synthesis vs. LLM-cypher fallback after the fact.
+        _stage_timings: dict[str, Any] = {}
+        _t0 = time.perf_counter()
         blocks, context_text = assembler.assemble(
             query_text=req.text,
             entity_context=entity_ctx,
@@ -1109,6 +1258,16 @@ def create_app(
             doc_types=req.doc_types,
             series=req.series,
         )
+        _stage_timings["assemble_ms"] = round((time.perf_counter() - _t0) * 1000, 1)
+        if assembler._last_llm_cypher_ms is not None:
+            _stage_timings["llm_cypher_ms"] = round(assembler._last_llm_cypher_ms, 1)
+        # Capture which retrieval rung fired so timing analytics can correlate
+        # latency with Cypher path (entity_anchored vs claim_type_scoped vs
+        # fulltext, etc.).  Stored as the cascade's selected_label string.
+        _plan_trace = assembler._last_plan_trace
+        if _plan_trace and _plan_trace.selected_label:
+            # Store as a JSON string field so SQL `json_extract` works.
+            _stage_timings["selected_rung"] = _plan_trace.selected_label  # type: ignore[assignment]
 
         # Build coverage stats before synthesis.
         corpus = state["corpus_stats"]
@@ -1125,6 +1284,7 @@ def create_app(
 
         # Layer 3: synthesis.
         synthesis_available = True
+        _t0 = time.perf_counter()
         try:
             result: SynthesisResult = engine.synthesise(
                 query=req.text,
@@ -1133,10 +1293,19 @@ def create_app(
                 analytical_result=analytical_result,
                 conversation_history=[t.model_dump() for t in req.conversation_history],
             )
-        except Exception:
+        except Exception as exc:
             # API unavailable, rate-limited, or response unparseable.
             # Return retrieved provenance blocks with a fallback answer so the
             # archivist can read source sentences directly without a 500 error.
+            # Log with traceback so operators can diagnose the underlying cause —
+            # the bare-except previously swallowed authentication failures, model
+            # name typos, network errors, and JSON parse failures indistinguishably.
+            _log.exception(
+                "synthesis failed (%s: %s); returning fallback response with %d retrieved blocks",
+                type(exc).__name__,
+                exc,
+                len(blocks),
+            )
             synthesis_available = False
             result = SynthesisResult(
                 answer=(
@@ -1145,8 +1314,15 @@ def create_app(
                 ),
                 confidence_assessment="",
                 supporting_claim_ids=[b.claim_id for b in blocks],
-                caveats=["AI synthesis was unavailable at query time. Source provenance blocks were retrieved successfully."],
+                caveats=[
+                    "AI synthesis was unavailable at query time. Source provenance blocks were retrieved successfully.",
+                    f"Synthesis error: {type(exc).__name__}: {exc}",
+                ],
             )
+        # Capture synthesis wall-clock on both success and failure paths so the
+        # timing data distinguishes "API was slow" from "API errored fast".
+        _stage_timings["synthesise_ms"] = round((time.perf_counter() - _t0) * 1000, 1)
+        _stage_timings["synthesise_ok"] = 1.0 if synthesis_available else 0.0
         # Stamp the retrieval path the assembler chose for this query so the
         # UI can flag llm_cypher answers as lower-trust.
         result.retrieval_path = assembler._last_retrieval_path
@@ -1255,6 +1431,7 @@ def create_app(
                     )
                     for b in blocks
                 ],
+                timing_ms=_stage_timings,
             ))
 
         return response

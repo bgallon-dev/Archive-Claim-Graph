@@ -130,13 +130,31 @@ class DomainConfig:
 
     @property
     def extraction_stopwords(self) -> frozenset[str]:
-        """Domain-specific stopwords derived from document_anchor fields."""
+        """Query-time stopwords for entity surface-form extraction.
+
+        Sourced exclusively from the explicit ``extraction_stopwords`` list
+        under ``document_anchor`` in ``domain_profile.yaml``.
+
+        ``title_keywords`` and ``normalized_form`` are deliberately **not**
+        consulted here, despite both naming the anchor entity: those fields
+        drive ingest-time document anchoring and ID generation respectively,
+        and pulling them into query stopwords causes catastrophic resolution
+        failures in composite (multi-corpus) deployments. Concretely, if the
+        Turnbull anchor's ``normalized_form: turnbull`` were stopworded at
+        query time, a query like *"What entities are associated with turnbull
+        refuge"* would have no surface forms left for the resolver, the
+        gateway would return an empty entity set, and the cascade would
+        fall through to ``claim_type_scoped`` against the newspaper corpus —
+        returning all-Spokane content instead of Refuge content.
+
+        Single-corpus deployments that previously relied on the implicit
+        derivation can re-add the anchor name explicitly under
+        ``document_anchor.extraction_stopwords`` if they need that behavior.
+        """
         words: set[str] = set()
         if self.domain_anchor:
-            for kw in self.domain_anchor.get("title_keywords", []):
-                words.add(kw.lower())
-            nf = self.domain_anchor.get("normalized_form", "")
-            words.update(tok.lower() for tok in nf.split() if len(tok) > 2)
+            for sw in self.domain_anchor.get("extraction_stopwords", []):
+                words.add(sw.lower())
         return frozenset(words)
 
     @property
@@ -296,16 +314,40 @@ class CompositeDomainConfig:
     def preferred_entity_types(self) -> dict[str, list[str]]:
         """Union of preferred_entity_types maps across all member corpora.
 
-        For each claim type, preserve ordering from the first member that
-        defines it, then append any additional types from later members.
+        For each claim_type, walk every member corpus's list. New entity_types
+        are inserted into the merged list relative to the **nearest shared
+        anchor** — the next entity_type in the source list that already exists
+        in the merged list. The new type is placed immediately before that
+        anchor, mirroring the source corpus's stated relative preference. If
+        no shared anchor follows in the source list, the new type is appended
+        at the end.
+
+        Why anchor-relative insertion rather than append-at-end: the latter
+        was silently lossy when a later corpus's list was a better-ordered
+        superset of an earlier one (e.g. newspaper's
+        ``[Refuge, Place, Organization, Person]`` vs Turnbull's
+        ``[Place, Organization, Person]`` for the shared ``turnbull_prehistory``
+        claim_type — Refuge would land in the least-preferred slot and the
+        resolver would demote the Refuge candidate below REFERS_TO threshold).
+        Anchoring on shared types lets a later corpus correctly raise a
+        newly-introduced type into a prominent position when the surrounding
+        ordering agrees, while preserving first-corpus-wins for fully
+        disjoint additions (which simply append).
         """
         merged: dict[str, list[str]] = {}
         for c in self.members:
             for claim_type, types in c.preferred_entity_types.items():
                 existing = merged.setdefault(claim_type, [])
-                for et in types:
-                    if et not in existing:
-                        existing.append(et)
+                for src_pos, et in enumerate(types):
+                    if et in existing:
+                        continue
+                    insert_at = len(existing)
+                    for after_pos in range(src_pos + 1, len(types)):
+                        anchor = types[after_pos]
+                        if anchor in existing:
+                            insert_at = existing.index(anchor)
+                            break
+                    existing.insert(insert_at, et)
         return merged
 
     # ---- per-corpus helpers ---------------------------------------------

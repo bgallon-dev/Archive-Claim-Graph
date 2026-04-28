@@ -144,7 +144,7 @@ preferred_entity_types:
   habitat_condition:     [Habitat, Place, Refuge, Species]
   weather_observation:   [Place, Refuge, Habitat]
   management_action:     [Species, Activity, Place, Refuge, Organization]
-  predator_control:      [Species, Activity]
+  predator_control:      [Species, Activity, Refuge]
   fire_incident:         [Place, Refuge, Habitat, Activity]
   economic_use:          [Activity, Place, Refuge, Species]
   development_activity:  [Activity, Place, Refuge, Organization]

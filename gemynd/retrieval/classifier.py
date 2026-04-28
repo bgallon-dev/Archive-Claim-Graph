@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 
 from gemynd.core.resolver import normalize_name
-from .models import QueryIntent
+from .models import EntityContext, QueryIntent, Tier1Intent
 
 # Fallback year-range bounds used when the caller does not supply domain
 # bounds. Spans 1800–2029 to accept any year a historical archive query is
@@ -329,4 +329,214 @@ def classify_query(
         claim_types=[],
         doc_type_hints=_extract_doc_type_hints(text),
         series_hints=_extract_series_hints(text),
+    )
+
+
+# ---------------------------------------------------------------------------
+# Tier 1 — structural-lookup intent detection (skips synthesis entirely)
+# ---------------------------------------------------------------------------
+
+# Minimum entity-resolution confidence required to short-circuit.  Entity must
+# also be a definitive REFERS_TO match (not POSSIBLY_REFERS_TO).
+#
+# Threshold matches the resolver's own REFERS_TO floor (0.85, see
+# core/resolver.py ResolutionPolicy).  REFERS_TO already requires a
+# uniqueness gap of ≥0.05 over the next-best candidate, so by the time we
+# get a REFERS_TO match the resolver has already proven the result is
+# unambiguous.  Setting the Tier 1 threshold higher than the REFERS_TO
+# floor gates out legitimate surface-form variants (e.g. "Turnbull Refuge"
+# resolves to the canonical Turnbull entity at 0.88 via substring match)
+# without buying any additional safety.
+_TIER1_MIN_CONFIDENCE = 0.85
+
+
+# Mapping from natural-language type words → graph entity labels for the
+# frequency-ranking operation.  Only entries here will route to Tier 1; words
+# not in this map fall through to synthesis (a query asking for "top 10
+# something" where "something" isn't a known label is too ambiguous to short-
+# circuit).  Singular and plural forms both map.
+_TIER1_TYPE_KEYWORDS: dict[str, str] = {
+    "person": "Person",
+    "people": "Person",
+    "place": "Place",
+    "places": "Place",
+    "location": "Place",
+    "locations": "Place",
+    "species": "Species",
+    "organization": "Organization",
+    "organizations": "Organization",
+    "refuge": "Refuge",
+    "refuges": "Refuge",
+}
+
+# Frequency-ranking pattern: matches "top N people", "most common places",
+# "which species appear most", etc.  Captures (optional) limit and the type
+# keyword.  Type keyword must be in _TIER1_TYPE_KEYWORDS or the match is
+# discarded.
+_TIER1_FREQ_RE = re.compile(
+    r"^\s*(?:"
+    r"top\s+(?P<n>\d+)\s+(?P<type1>[a-z]+)"                       # "top 10 people"
+    r"|most\s+(?:documented|mentioned|frequent|common)\s+(?P<type2>[a-z]+)"  # "most common species"
+    r"|which\s+(?P<type3>[a-z]+)\s+appear\s+most"                 # "which people appear most"
+    r")\b",
+    re.IGNORECASE,
+)
+
+
+# Pattern registry. Each entry is (operation, regex, requirement). Matching
+# anchors at the start of the query so a buried "how many" inside a longer
+# narrative question still falls through to normal synthesis.
+#
+# requirement is one of:
+#   "one_entity"  — exactly one resolved entity at REFERS_TO ≥ 0.90
+#   "exact_year"  — year_min == year_max and both non-None (single-year filter)
+#   "type_keyword" — query matches _TIER1_FREQ_RE AND the captured type word
+#                    is in _TIER1_TYPE_KEYWORDS (handled by detect logic, not
+#                    in the simple registry loop)
+_TIER1_PATTERNS: list[tuple[str, "re.Pattern[str]", str]] = [
+    # "How many claims/documents/mentions about X?"
+    (
+        "count_claims_for_entity",
+        re.compile(r"^\s*how\s+many\b", re.IGNORECASE),
+        "one_entity",
+    ),
+    # "What years was X documented?" / "When was X documented?" / "Date range for X"
+    (
+        "year_range_for_entity",
+        re.compile(
+            r"^\s*(what\s+years?|when\s+was|date\s+range\s+for|time\s+period\s+for)\b",
+            re.IGNORECASE,
+        ),
+        "one_entity",
+    ),
+    # "List documents about X" / "Show me documents mentioning X" / "Which documents mention X"
+    # The required object word ("documents") + connective ("about|mentioning|that mention")
+    # gates this away from generic listing queries that aren't entity-anchored.
+    (
+        "list_documents_for_entity",
+        re.compile(
+            r"^\s*(list|show\s+me|which|what)\s+documents?\s+"
+            r"(about|mentioning|that\s+mention|on|covering|discuss(?:ing)?|featuring)\b",
+            re.IGNORECASE,
+        ),
+        "one_entity",
+    ),
+    # "List documents from 1909" / "Show documents in 1909" / "What documents were published in 1909"
+    # Year is captured by the existing year-range extractor; we only fire when
+    # exactly one year was identified (year_min == year_max).
+    (
+        "list_documents_for_year",
+        re.compile(
+            r"^\s*(list|show\s+me|which|what)\s+documents?\s+"
+            r"(from|in|published\s+in|dated|written\s+in)\s+\d{4}\b",
+            re.IGNORECASE,
+        ),
+        "exact_year",
+    ),
+    # "Where does X appear?" / "What places are associated with X?" / "Where is X mentioned?"
+    # The verb forms ("does .* appear", "is .* mentioned") and noun forms
+    # ("places", "locations") all gate to the same operation.
+    (
+        "locations_for_entity",
+        re.compile(
+            r"^\s*(where\s+(does|is)|what\s+(places|locations)|which\s+(places|locations))\b",
+            re.IGNORECASE,
+        ),
+        "one_entity",
+    ),
+    # "Who appears with X?" / "What entities are associated with X?" / "Co-occur with X"
+    # Strict pattern — needs an explicit relational verb so a vague "who is X"
+    # falls through to synthesis (which is the right move for biographical Qs).
+    (
+        "co_occurring_entities_for_entity",
+        re.compile(
+            r"^\s*(who\s+(appears|is\s+mentioned|co-?occurs?)\s+with"
+            r"|what\s+entities\s+(appear|are\s+associated|co-?occur)\s+with"
+            r"|which\s+entities\s+(appear|are\s+associated|co-?occur)\s+with)\b",
+            re.IGNORECASE,
+        ),
+        "one_entity",
+    ),
+]
+
+
+def detect_tier1_intent(
+    query_text: str,
+    entity_ctx: "EntityContext",
+    *,
+    year_min: int | None = None,
+    year_max: int | None = None,
+) -> "Tier1Intent | None":
+    """Return a Tier1Intent when the query matches a structural-lookup pattern
+    AND its required filters resolve cleanly.  Returns ``None`` otherwise —
+    the caller falls through to the normal synthesis path.
+
+    Conservative by design: the cost of a false positive (terse graph output
+    when the user wanted narrative analysis) is worse than the cost of a
+    false negative (an extra few seconds of synthesis on a structural query).
+    Patterns must anchor at the start of the query and required filters must
+    bind cleanly; any ambiguity falls through.
+    """
+    if not query_text:
+        return None
+    # Frequency-ranking is checked separately because it requires keyword
+    # extraction (entity-type word from a closed vocabulary, optional limit N).
+    freq_intent = _detect_frequency_ranking(query_text)
+    if freq_intent is not None:
+        return freq_intent
+    for operation, regex, requirement in _TIER1_PATTERNS:
+        if not regex.match(query_text):
+            continue
+        if requirement == "one_entity":
+            if len(entity_ctx.resolved) != 1:
+                continue
+            entity = entity_ctx.resolved[0]
+            if entity.resolution_relation != "REFERS_TO":
+                continue
+            if entity.resolution_confidence < _TIER1_MIN_CONFIDENCE:
+                continue
+            return Tier1Intent(
+                operation=operation,  # type: ignore[arg-type]
+                entity_id=entity.entity_id,
+                entity_name=entity.surface_form,
+                entity_type=entity.entity_type,
+            )
+        if requirement == "exact_year":
+            if year_min is None or year_min != year_max:
+                continue
+            return Tier1Intent(
+                operation=operation,  # type: ignore[arg-type]
+                entity_id="",
+                entity_name=str(year_min),
+                entity_type="Year",
+                target_year=year_min,
+            )
+    return None
+
+
+def _detect_frequency_ranking(query_text: str) -> "Tier1Intent | None":
+    """Match top-N / most-X / which-X-appear-most patterns and resolve the
+    type keyword to a graph entity label.  Returns None when the query
+    doesn't match or the type word isn't in the closed vocabulary.
+    """
+    m = _TIER1_FREQ_RE.match(query_text)
+    if m is None:
+        return None
+    type_word = (m.group("type1") or m.group("type2") or m.group("type3") or "").lower()
+    label = _TIER1_TYPE_KEYWORDS.get(type_word)
+    if label is None:
+        return None  # type word not in closed vocab → fall through to synthesis
+    n_capture = m.group("n")
+    limit = int(n_capture) if n_capture else 10
+    # Sanity-cap the limit so a hostile query like "top 99999 people" can't
+    # ask Neo4j for an unbounded result; the frontend table also won't render
+    # more than a few hundred rows usefully.
+    limit = max(1, min(limit, 100))
+    return Tier1Intent(
+        operation="frequency_ranking_for_type",
+        entity_id="",
+        entity_name=type_word,        # surface form for the answer text
+        entity_type=label,             # canonical entity label
+        target_label=label,
+        limit=limit,
     )

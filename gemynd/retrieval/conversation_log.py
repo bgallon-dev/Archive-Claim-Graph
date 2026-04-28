@@ -21,7 +21,7 @@ import sqlite3
 import threading
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     pass
@@ -80,6 +80,13 @@ class LogRecord:
     response_json: str | None = None
     # per-claim rows
     claim_interactions: list[ClaimInteraction] = field(default_factory=list)
+    # Per-query instrumentation.  Most values are wall-clock durations in
+    # milliseconds (e.g. {"assemble_ms": 450.3, "synthesise_ms": 12500.0,
+    # "llm_cypher_ms": 320.0}); some keys carry diagnostic strings (e.g.
+    # "selected_rung": "entity_anchored").  Empty dict when instrumentation
+    # is unavailable; never raises if a stage is missing.  Persisted as
+    # JSON in the retrieval_event.timing_json column.
+    timing_ms: dict[str, Any] = field(default_factory=dict)
 
 
 # ---------------------------------------------------------------------------
@@ -114,7 +121,8 @@ CREATE TABLE IF NOT EXISTS retrieval_event (
     entity_types_resolved TEXT NOT NULL,
     candidates_retrieved  INTEGER NOT NULL,
     ocr_dropped           INTEGER NOT NULL,
-    claims_in_context     INTEGER NOT NULL
+    claims_in_context     INTEGER NOT NULL,
+    timing_json           TEXT  -- JSON {stage_name: duration_ms}, e.g. {"assemble_ms": 450.3, "synthesise_ms": 12500.0}
 );
 
 CREATE TABLE IF NOT EXISTS claim_interaction (
@@ -138,6 +146,7 @@ def _init_db(conn: sqlite3.Connection) -> None:
         ("request_id", "ALTER TABLE conversation ADD COLUMN request_id TEXT"),
         ("user_id", "ALTER TABLE conversation ADD COLUMN user_id TEXT"),
         ("response_json", "ALTER TABLE conversation ADD COLUMN response_json TEXT"),
+        ("timing_json", "ALTER TABLE retrieval_event ADD COLUMN timing_json TEXT"),
     ):
         try:
             conn.execute(ddl)
@@ -177,8 +186,8 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
     conn.execute(
         """INSERT OR IGNORE INTO retrieval_event
            (conversation_id, entity_ids_resolved, entity_types_resolved,
-            candidates_retrieved, ocr_dropped, claims_in_context)
-           VALUES (?, ?, ?, ?, ?, ?)""",
+            candidates_retrieved, ocr_dropped, claims_in_context, timing_json)
+           VALUES (?, ?, ?, ?, ?, ?, ?)""",
         (
             record.conversation_id,
             json.dumps(record.entity_ids_resolved),
@@ -186,6 +195,7 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
             record.candidates_retrieved,
             record.ocr_dropped,
             record.claims_in_context,
+            json.dumps(record.timing_ms) if record.timing_ms else None,
         ),
     )
     for ci in record.claim_interactions:
@@ -310,6 +320,17 @@ class QueryHistoryStore:
         if conn is not None:
             self._conn = conn
             self._lock = threading.Lock()
+            # Run schema + migrations even when conn is passed in.  This is
+            # the production path (db_mgr-managed connection from app.py),
+            # and ConversationLogger uses skip_init=True so without this call
+            # no one would ever apply column migrations to existing
+            # databases.  _init_db is idempotent: CREATE TABLE IF NOT EXISTS
+            # is a no-op when the table exists; ALTERs are wrapped in
+            # try/except OperationalError so already-added columns are
+            # skipped.  Also ensures the saved_search table exists.
+            _init_db(self._conn)
+            self._conn.executescript(_SAVED_SEARCH_SCHEMA_SQL)
+            self._conn.commit()
             return
         _p = Path(db_path)
         _p.parent.mkdir(parents=True, exist_ok=True)
@@ -319,7 +340,7 @@ class QueryHistoryStore:
         self._conn.execute("PRAGMA busy_timeout=5000")
         self._conn.execute("PRAGMA foreign_keys=ON")
         # Ensure base tables exist (harmless if ConversationLogger already created them).
-        self._conn.executescript(_SCHEMA_SQL)
+        _init_db(self._conn)
         self._conn.executescript(_SAVED_SEARCH_SCHEMA_SQL)
         self._conn.commit()
         self._lock = threading.Lock()

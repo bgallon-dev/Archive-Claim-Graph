@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\sensitivity_gate.py
+# hypothesis_version: 6.151.9
+
+[0.85, 1950, 'active', 'address', 'all_patterns', 'ambiguous', 'claim', 'commercial', 'cutoff_year', 'enabled', 'era_relaxation', 'evidence_snapshot', 'issue_class', 'matched_pattern', 'pii_detection', 'pii_exposure', 'quarantined', 'report_year', 'residential']

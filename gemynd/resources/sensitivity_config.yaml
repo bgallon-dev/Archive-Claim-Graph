@@ -19,6 +19,46 @@ pii_detection:
     email: true
     address: true
     date_of_birth: true
+  # Era-aware relaxation. In documents with report_year < cutoff_year, claims
+  # whose ONLY matched PII pattern is "address" are classified by surrounding
+  # sentence vocabulary: commercially-anchored addresses surface
+  # unconditionally; residential or funerary addresses stay quarantined;
+  # ambiguous addresses stay quarantined (conservative default). Other PII
+  # patterns (SSN, phone, email, DOB) remain suppressed in all eras.
+  era_relaxation:
+    enabled: true
+    cutoff_year: 1950
+    address_commercial_keywords:
+      - company
+      - union
+      - office
+      - store
+      - shop
+      - saloon
+      - meeting
+      - hall
+      - factory
+      - plant
+      - department
+      - bank
+      - hotel
+      - club
+      - association
+      - society
+      - committee
+      - firm
+      - works
+    address_residential_keywords:
+      - home
+      - residence
+      - died
+      - funeral
+      - widow
+      - widower
+      - deceased
+      - lived at
+      - his home
+      - her home
 
 living_person:
   enabled: true

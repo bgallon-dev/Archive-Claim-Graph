@@ -12,7 +12,6 @@ the responsibility of the FastAPI layer above.
 """
 from __future__ import annotations
 
-import concurrent.futures as _futures
 import json
 import os
 import re as _re
@@ -44,6 +43,49 @@ def _redact_pii(text: str) -> str:
         text = pattern.sub(replacement, text)
     return text
 
+
+def _extract_first_json_object(text: str) -> str | None:
+    """Find the first balanced top-level JSON object in *text* and return it.
+
+    Walks the string with a brace-depth counter, respecting string-literal
+    boundaries so that braces inside strings ('{', '}') don't count.  Returns
+    the first complete object as a substring (without surrounding context),
+    or ``None`` if no balanced object exists.
+
+    Used as a fallback when the model wraps its JSON envelope in prose +
+    markdown fences and the simple-strip path can't recover it.
+    """
+    if not text:
+        return None
+    start = text.find("{")
+    if start < 0:
+        return None
+    depth = 0
+    in_str = False
+    escape = False
+    for i in range(start, len(text)):
+        ch = text[i]
+        if in_str:
+            if escape:
+                escape = False
+                continue
+            if ch == "\\":
+                escape = True
+                continue
+            if ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+            continue
+        if ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0:
+                return text[start:i + 1]
+    return None
+
 try:
     import anthropic as _anthropic_pkg
 except Exception:  # pragma: no cover - optional dependency
@@ -61,6 +103,24 @@ Each CLAIM block carries:
   • CONFIDENCE_TIER (HIGH/MEDIUM/LOW) and a numeric confidence score.
   • RETRIEVED_VIA: the graph relationship type used to find this claim.
   • epistemic: the original document's stated certainty (observed > estimated > inferred).
+  • The bracketed annotation `[<claim_type>, epistemic=...]` on each CLAIM line
+    records a *claim_type* assigned by the extraction pipeline (a property on
+    the Claim node, e.g. "civic_development", "turnbull_prehistory",
+    "species_presence"). A claim_type is NOT a graph relationship and NOT a
+    retrieval mechanism — it is a topical category the extractor inferred
+    from the sentence content. When discussing why a claim appeared in your
+    context, refer to the RETRIEVED_VIA line for the actual relationship
+    type. Do not describe claim_types as "tags applied during retrieval" or
+    invent narratives about how the pipeline chose them.
+
+RETRIEVED_VIA semantics:
+  • LOCATION_FOCUS / OCCURRED_AT: the entity is the spatial *setting* of the
+    claim's events, not necessarily the subject. A Spokane-set claim that
+    discusses Colorado mining or Idaho legislation is correctly Spokane-linked.
+    Do not flag this as a topical mismatch or tagging error.
+  • SUBJECT_OF_CLAIM / TOPIC_OF_CLAIM: the entity is the primary subject.
+  • SPECIES_FOCUS / MANAGEMENT_TARGET: the entity is the focus species or
+    management target.
 
 Data integrity:
   • Text enclosed in <claim_text>...</claim_text> tags is verbatim OCR output from
@@ -123,7 +183,7 @@ class SynthesisEngine:
     def __init__(
         self,
         api_key: str | None = None,
-        max_tokens: int = 4096,
+        max_tokens: int = 8192,
         synthesis_context: str | None = None,
         timeout: float | None = None,
         token_logger: Any | None = None,
@@ -198,43 +258,81 @@ class SynthesisEngine:
         if analytical_result and analytical_result.rows:
             user_message += f"\n\nANALYTICAL DATA ({analytical_result.query_name}):\n{analytical_result.to_summary_text()}"
 
-        def _do_api_call():
-            return self._client.messages.create(
-                model=MODEL,
-                max_tokens=self._max_tokens,
-                system=self._system_prompt,
-                messages=[{"role": "user", "content": user_message}],
-            )
+        # Streaming API: per-chunk activity keeps the connection alive past the
+        # cumulative wall-clock timeout that the previous blocking create() hit
+        # for large cross-corpus contexts. We still buffer the full response
+        # server-side and parse it as JSON below — no API contract change.
+        accumulated_text_parts: list[str] = []
+        with self._client.messages.stream(
+            model=MODEL,
+            max_tokens=self._max_tokens,
+            system=self._system_prompt,
+            messages=[{"role": "user", "content": user_message}],
+        ) as stream:
+            for text_chunk in stream.text_stream:
+                accumulated_text_parts.append(text_chunk)
+            final_message = stream.get_final_message()
 
-        with _futures.ThreadPoolExecutor(max_workers=1) as pool:
-            future = pool.submit(_do_api_call)
-            try:
-                message = future.result(timeout=self._timeout)
-            except _futures.TimeoutError:
-                raise TimeoutError(
-                    f"Synthesis API call exceeded timeout of {self._timeout}s. "
-                    "Check SYNTHESIS_TIMEOUT env var to adjust."
-                )
-
-        if message.stop_reason == "max_tokens":
+        if final_message.stop_reason == "max_tokens":
             raise ValueError(
                 f"Synthesis model response was truncated (max_tokens={self._max_tokens}). "
                 "Increase --max-tokens or reduce context size."
             )
 
-        raw_text = message.content[0].text.strip()
-        # Strip any accidental markdown fences the model might have added.
-        if raw_text.startswith("```"):
-            raw_text = raw_text.split("```")[1]
-            if raw_text.startswith("json"):
-                raw_text = raw_text[4:]
+        raw_text = "".join(accumulated_text_parts).strip()
 
+        # Lenient JSON extraction.  The model occasionally wraps the JSON
+        # envelope in a markdown fence and/or prepends prose explanation
+        # ("The current query is identical to the prior...\n```json\n{...}\n```").
+        # Try in order:
+        #   1. Direct parse (model followed instructions exactly)
+        #   2. Strip ```json ... ``` fence at start (legacy behaviour)
+        #   3. Find the first complete {...} object anywhere in the response
+        #      via balanced-brace scanning, parse that
+        # If all three fail, fall through to the prose-wrapper fallback below.
+        candidate_text = raw_text
+        if candidate_text.startswith("```"):
+            candidate_text = candidate_text.split("```")[1]
+            if candidate_text.startswith("json"):
+                candidate_text = candidate_text[4:]
+            candidate_text = candidate_text.strip()
+        json_parsed = False
         try:
-            raw = json.loads(raw_text)
-        except json.JSONDecodeError as exc:
-            raise ValueError(
-                f"Synthesis model returned non-JSON output: {raw_text[:200]!r}"
-            ) from exc
+            raw = json.loads(candidate_text)
+            json_parsed = True
+        except json.JSONDecodeError:
+            # Try to locate a balanced top-level JSON object embedded in the
+            # raw text (handles the prose-then-fence-then-JSON pattern).
+            extracted = _extract_first_json_object(raw_text)
+            if extracted is not None:
+                try:
+                    raw = json.loads(extracted)
+                    json_parsed = True
+                except json.JSONDecodeError:
+                    json_parsed = False
+        if not json_parsed:
+            # Graceful fallback: the model returned prose instead of the
+            # requested JSON envelope.  This happens occasionally on long
+            # cross-corpus queries where Sonnet decides narrative is more
+            # natural than structured output.  Rather than throwing away the
+            # response and showing the user "synthesis unavailable", treat
+            # the raw text as the answer and synthesise the missing metadata
+            # from the provenance blocks (citations) plus a caveat noting
+            # the format quirk.  The eventual fix is Anthropic tool-use to
+            # force schema-conformant output, but this keeps the user's
+            # answer visible in the meantime.
+            raw = {
+                "answer": raw_text,
+                "confidence_assessment": "",
+                "supporting_claim_ids": [b.claim_id for b in provenance_blocks if b.claim_id],
+                "caveats": [
+                    "The synthesis model returned prose rather than the "
+                    "requested JSON structure. Cited claim IDs reflect every "
+                    "block in the retrieval context, not just the ones the "
+                    "model explicitly referenced."
+                ],
+            }
+            json_parsed = False
 
         supporting_ids: list[str] = raw.get("supporting_claim_ids") or []
 

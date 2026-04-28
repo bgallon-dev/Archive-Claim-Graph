@@ -139,8 +139,129 @@ function formatTable(ar) {
     + '<div class="table-wrap"><table class="mini-table"><thead><tr>' + headers + '</tr></thead><tbody>' + rows + '</tbody></table></div></details>';
 }
 
+function formatTier1Documents(items) {
+  // Render a structural document list for Tier 1 list operations.  Uses a
+  // dedicated .tier1-docs-table class with title-favoured column widths
+  // (title=56%, date=14%, type=22%, claims=8%); the .sources-table layout
+  // is wrong here because that one weights for a long claim sentence in
+  // column 1, not a short-to-medium document title.
+  if (!items || items.length === 0) return '';
+  var rows = items.map(function(d) {
+    // OCR-degraded titles are scrubbed to null server-side and the original
+    // is preserved as title_raw for archivist follow-up.  Fall back to a
+    // clean "(title unavailable)" placeholder so the user identifies the
+    // document by date+type+corpus instead of seeing OCR garbage.
+    var titleCell;
+    if (d.title) {
+      titleCell = '<span class="doc-title">' + esc(d.title) + '</span>';
+    } else {
+      var hint = '';
+      if (d.title_raw) {
+        // Tooltip reveals the raw OCR string for debugging without showing
+        // it in the visible cell.
+        hint = ' title="OCR-degraded: ' + esc(d.title_raw) + '"';
+      }
+      titleCell = '<span class="doc-title doc-title-missing"' + hint + '>(title unavailable)</span>';
+    }
+    var dateLabel = '';
+    if (d.date_start && d.date_end && d.date_start !== d.date_end) {
+      dateLabel = esc(d.date_start) + ' \u2013 ' + esc(d.date_end);
+    } else if (d.date_start) {
+      dateLabel = esc(d.date_start);
+    } else if (d.report_year != null) {
+      dateLabel = esc(String(d.report_year));
+    }
+    var typeBits = [];
+    if (d.doc_type) typeBits.push('<span class="src-label">' + esc(d.doc_type) + '</span>');
+    if (d.institution_id) typeBits.push('<span class="src-label">' + esc(d.institution_id) + '</span>');
+    var n = (d.claim_count != null) ? d.claim_count : '';
+    return '<tr>'
+      + '<td>' + titleCell + '</td>'
+      + '<td class="src-meta">' + dateLabel + '</td>'
+      + '<td class="src-meta">' + typeBits.join(' ') + '</td>'
+      + '<td>' + n + '</td>'
+      + '</tr>';
+  }).join('');
+  return '<details open><summary>Documents (' + items.length + ')</summary>'
+    + '<table class="tier1-docs-table"><thead><tr>'
+    + '<th>Title</th><th>Date</th><th>Type</th><th>Claims</th>'
+    + '</tr></thead><tbody>' + rows + '</tbody></table></details>';
+}
+
+function formatTier1RankedEntities(items, opts) {
+  // Generic ranked-list renderer for locations_for_entity,
+  // co_occurring_entities_for_entity, and frequency_ranking_for_type.
+  // opts: {nameKey, typeKey, countKey, countLabel, summaryLabel}
+  if (!items || items.length === 0) return '';
+  var rows = items.map(function(d) {
+    var name = d[opts.nameKey] || '<em>(unnamed)</em>';
+    var type = d[opts.typeKey] ? '<span class="src-label">' + esc(d[opts.typeKey]) + '</span>' : '';
+    var count = (d[opts.countKey] != null) ? d[opts.countKey] : '';
+    return '<tr>'
+      + '<td><span class="doc-title">' + esc(name) + '</span></td>'
+      + '<td class="src-meta">' + type + '</td>'
+      + '<td>' + count + '</td>'
+      + '</tr>';
+  }).join('');
+  return '<details open><summary>' + esc(opts.summaryLabel)
+    + ' (' + items.length + ')</summary>'
+    + '<table class="tier1-ranked-table"><thead><tr>'
+    + '<th>Name</th><th>Type</th><th>' + esc(opts.countLabel) + '</th>'
+    + '</tr></thead><tbody>' + rows + '</tbody></table></details>';
+}
+
+function formatTier1YearRange(t1) {
+  // Compact year-range badge for year_range_for_entity.  The answer text
+  // already names the range; this surfaces the structured numbers as a
+  // small visible artefact.
+  if (t1.earliest_year == null || t1.latest_year == null) return '';
+  var label = (t1.earliest_year === t1.latest_year)
+    ? String(t1.earliest_year)
+    : (t1.earliest_year + ' \u2013 ' + t1.latest_year);
+  var detail = (t1.distinct_years != null)
+    ? ' (' + t1.distinct_years + ' distinct year' + (t1.distinct_years === 1 ? '' : 's') + ')'
+    : '';
+  return '<div class="meta-row"><span class="src-label">Year range: '
+    + esc(label) + esc(detail) + '</span></div>';
+}
+
 function formatResponse(data) {
   var html = '<p class="answer">' + esc(data.answer) + '</p>';
+
+  // Tier 1 fast-path output: render structured fields when present.  These
+  // populate `tier_1_result` for queries the classifier routed to a graph
+  // lookup instead of LLM synthesis.
+  if (data.tier_1_result) {
+    var t1 = data.tier_1_result;
+    if (t1.operation === 'year_range_for_entity') {
+      html += formatTier1YearRange(t1);
+    }
+    if (t1.operation === 'list_documents_for_entity'
+        || t1.operation === 'list_documents_for_year') {
+      html += formatTier1Documents(t1.items);
+    }
+    if (t1.operation === 'locations_for_entity') {
+      html += formatTier1RankedEntities(t1.items, {
+        nameKey: 'place_name', typeKey: 'place_type',
+        countKey: 'claim_count', countLabel: 'Claims',
+        summaryLabel: 'Locations',
+      });
+    }
+    if (t1.operation === 'co_occurring_entities_for_entity') {
+      html += formatTier1RankedEntities(t1.items, {
+        nameKey: 'name', typeKey: 'entity_type',
+        countKey: 'co_occurrence_count', countLabel: 'Shared claims',
+        summaryLabel: 'Co-occurring entities',
+      });
+    }
+    if (t1.operation === 'frequency_ranking_for_type') {
+      html += formatTier1RankedEntities(t1.items, {
+        nameKey: 'name', typeKey: 'entity_type',
+        countKey: 'claim_count', countLabel: 'Claims',
+        summaryLabel: 'Top entities',
+      });
+    }
+  }
 
   if (data.ambiguous_entities && data.ambiguous_entities.length > 0) {
     html += '<div class="warning">\u26a0 Ambiguous: ' + data.ambiguous_entities.map(esc).join(', ') + '</div>';

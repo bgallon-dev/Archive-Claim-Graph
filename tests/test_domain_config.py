@@ -14,6 +14,7 @@ from gemynd.core.domain_config import (
     RoleResolver,
     _validate_config,
     load_domain_config,
+    merge_domain_configs,
 )
 from gemynd.core.models import ClaimRecord
 from gemynd.ingest.derivation_context import _get_spec, build_derivation_contexts
@@ -392,12 +393,25 @@ def test_domain_config_expected_claim_shares_loaded() -> None:
     assert len(config.expected_claim_shares) == 7
 
 
-def test_domain_config_extraction_stopwords_derived() -> None:
+def test_domain_config_extraction_stopwords_explicit_only() -> None:
+    """Query-time extraction_stopwords come from the explicit list under
+    document_anchor — NOT from title_keywords or normalized_form. Those
+    fields drive ingest-time anchoring and ID generation; pulling them into
+    query stopwords causes resolution failures in composite deployments
+    (the anchor's own name becomes unresolvable as a query surface form).
+    See domain_config.py:DomainConfig.extraction_stopwords for the full
+    rationale.
+    """
     config = load_domain_config(_RESOURCES_DIR)
     stopwords = config.extraction_stopwords
-    assert "turnbull" in stopwords
-    assert "tbl" in stopwords
-    assert "refuge" in stopwords
+    # "refuge" is the only explicit entry in domain_profile.yaml's
+    # document_anchor.extraction_stopwords list.
+    assert stopwords == frozenset({"refuge"}), (
+        f"expected only explicit stopwords; got {stopwords}"
+    )
+    # Sanity-check: title_keywords and normalized_form must NOT leak in.
+    assert "turnbull" not in stopwords
+    assert "tbl" not in stopwords
 
 
 def test_domain_config_extraction_stopwords_empty_when_no_anchor() -> None:
@@ -599,3 +613,84 @@ def test_domain_config_role_maps_absent_section_degrades_to_empty(tmp_path: Path
     assert config.role_resolution == {}
     assert config.observation_role_edges == {}
     assert config.event_role_edges == {}
+
+
+# ---------------------------------------------------------------------------
+# CompositeDomainConfig.preferred_entity_types — insert-at-source-position merge
+#
+# Regression coverage for a bug where the old append-at-end merge silently
+# demoted entity_types into the least-preferred slot whenever a later-loading
+# corpus wanted them prominently. Concretely: Turnbull defined
+# turnbull_prehistory: [Place, Organization, Person] and the newspaper corpus
+# (loaded second) defined [Refuge, Place, Organization, Person]; the merge
+# appended Refuge at the end, the resolver applied a position-3 penalty, and
+# Refuge dropped below the REFERS_TO threshold for queries about the refuge.
+# ---------------------------------------------------------------------------
+
+
+def _config_with_preferred(mapping: dict[str, list[str]]) -> DomainConfig:
+    return _minimal_domain_config(preferred_entity_types=mapping)
+
+
+class TestPreferredEntityTypesMerge:
+    def test_later_corpus_introduces_new_type_at_its_source_position(self) -> None:
+        """The actual production bug: newspaper introduces Refuge at position 0
+        of a list whose other entries Turnbull already defined. Refuge must
+        land at position 0 in the merged list, not at the end."""
+        first = _config_with_preferred({"ct": ["Place", "Organization", "Person"]})
+        second = _config_with_preferred({"ct": ["Refuge", "Place", "Organization", "Person"]})
+        composite = merge_domain_configs([first, second])
+        assert composite.preferred_entity_types["ct"] == [
+            "Refuge", "Place", "Organization", "Person"
+        ]
+
+    def test_later_corpus_inserts_in_middle(self) -> None:
+        first = _config_with_preferred({"ct": ["A", "C"]})
+        second = _config_with_preferred({"ct": ["A", "B", "C"]})
+        composite = merge_domain_configs([first, second])
+        assert composite.preferred_entity_types["ct"] == ["A", "B", "C"]
+
+    def test_later_corpus_appends_trailing_additions(self) -> None:
+        """Types added by a later corpus *after* the last shared anchor have
+        no remaining anchor to insert before, so they append in order."""
+        first = _config_with_preferred({"ct": ["A"]})
+        second = _config_with_preferred({"ct": ["A", "B", "C", "D"]})
+        composite = merge_domain_configs([first, second])
+        assert composite.preferred_entity_types["ct"] == ["A", "B", "C", "D"]
+
+    def test_first_corpus_order_wins_when_both_define_same_types(self) -> None:
+        """When two corpora list the same types in different orders, the
+        first corpus's order is authoritative — a later corpus can introduce
+        new types but not reorder existing ones."""
+        first = _config_with_preferred({"ct": ["B", "A"]})
+        second = _config_with_preferred({"ct": ["A", "B"]})
+        composite = merge_domain_configs([first, second])
+        assert composite.preferred_entity_types["ct"] == ["B", "A"]
+
+    def test_disjoint_lists_concatenate(self) -> None:
+        first = _config_with_preferred({"ct": ["A", "B"]})
+        second = _config_with_preferred({"ct": ["X", "Y"]})
+        composite = merge_domain_configs([first, second])
+        assert composite.preferred_entity_types["ct"] == ["A", "B", "X", "Y"]
+
+    def test_single_corpus_unchanged(self) -> None:
+        only = _config_with_preferred({"ct": ["A", "B", "C"]})
+        composite = merge_domain_configs([only])
+        assert composite.preferred_entity_types["ct"] == ["A", "B", "C"]
+
+    def test_three_way_merge_late_introductions_interleave(self) -> None:
+        first = _config_with_preferred({"ct": ["B", "D"]})
+        second = _config_with_preferred({"ct": ["A", "B", "C", "D"]})
+        third = _config_with_preferred({"ct": ["A", "B", "C", "D", "E"]})
+        composite = merge_domain_configs([first, second, third])
+        # first sets [B, D]. second introduces A at pos 0 → [A, B, D] then C
+        # at pos 2 → [A, B, C, D]. third introduces E at pos 4 → [A, B, C, D, E].
+        assert composite.preferred_entity_types["ct"] == ["A", "B", "C", "D", "E"]
+
+    def test_disjoint_claim_types_coexist(self) -> None:
+        """Two corpora defining different claim_types both appear in the merge."""
+        first = _config_with_preferred({"ct_one": ["A"]})
+        second = _config_with_preferred({"ct_two": ["X"]})
+        composite = merge_domain_configs([first, second])
+        assert composite.preferred_entity_types["ct_one"] == ["A"]
+        assert composite.preferred_entity_types["ct_two"] == ["X"]

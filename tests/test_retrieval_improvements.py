@@ -33,6 +33,36 @@ from gemynd.retrieval.context_assembler import (
     _row_to_block,
     _serialise_block,
 )
+
+
+class _FakeStreamCM:
+    """Fake Anthropic stream context manager mirroring SynthesisEngine's call site."""
+
+    def __init__(self, response_text: str, stop_reason: str = "end_turn") -> None:
+        self._response_text = response_text
+        self._stop_reason = stop_reason
+
+    def __enter__(self):
+        self.text_stream = iter([self._response_text])
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def get_final_message(self):
+        msg = MagicMock()
+        msg.stop_reason = self._stop_reason
+        msg.model = "claude-sonnet-4-6"
+        msg.usage.input_tokens = 100
+        msg.usage.output_tokens = 200
+        return msg
+
+
+def _stream_mock_client(response_text: str) -> MagicMock:
+    """Build a mock anthropic client whose messages.stream() yields response_text."""
+    client = MagicMock()
+    client.messages.stream.return_value = _FakeStreamCM(response_text)
+    return client
 from gemynd.retrieval.models import (
     EntityContext,
     ProvenanceBlock,
@@ -462,13 +492,7 @@ class TestSynthesisPromptBehavior:
     def _make_engine(self, response_text: str):
         from gemynd.retrieval.synthesis import SynthesisEngine
         engine = SynthesisEngine.__new__(SynthesisEngine)
-        content_block = MagicMock()
-        content_block.text = response_text
-        message = MagicMock()
-        message.content = [content_block]
-        client = MagicMock()
-        client.messages.create.return_value = message
-        engine._client = client
+        engine._client = _stream_mock_client(response_text)
         engine._max_tokens = 1000
         engine._timeout = 60
         from gemynd.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT
@@ -680,18 +704,13 @@ class TestEndToEndRetrievalPath:
         )
 
         engine = SynthesisEngine.__new__(SynthesisEngine)
-        content_block = MagicMock()
-        content_block.text = json.dumps({
+        response_text = json.dumps({
             "answer": synthesis_answer,
             "confidence_assessment": "Adequate evidence.",
             "supporting_claim_ids": [r["c"]["claim_id"] for r in rows[:3]],
             "caveats": [],
         })
-        message = MagicMock()
-        message.content = [content_block]
-        client = MagicMock()
-        client.messages.create.return_value = message
-        engine._client = client
+        engine._client = _stream_mock_client(response_text)
         engine._max_tokens = 1000
         engine._timeout = 60
         from gemynd.retrieval.synthesis import _build_system_prompt, _DEFAULT_SYNTHESIS_CONTEXT

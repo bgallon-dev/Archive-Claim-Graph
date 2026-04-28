@@ -176,6 +176,173 @@ RETURN d, pg, sec, para, c, obs, sp, y,
        collect(DISTINCT om) + collect(DISTINCT dm) AS measurements
 """
 
+# Tier 1 — count active claims linked to a single resolved entity, scoped by
+# the same access-control filters as the full retrieval path.  Skips paragraph
+# / page traversal because the answer is just a number.
+COUNT_CLAIMS_FOR_ENTITY_QUERY = """
+MATCH (e {entity_id: $entity_id})
+MATCH (c:Claim)-[]->(e)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+RETURN count(DISTINCT c) AS n
+"""
+
+# Tier 1 — temporal coverage for a single resolved entity.  Returns the
+# earliest/latest year and a count of distinct years, falling back to the
+# document's report_year when an observation has no IN_YEAR link (some claim
+# types are derived without an Observation→Year edge).
+YEAR_RANGE_FOR_ENTITY_QUERY = """
+MATCH (e {entity_id: $entity_id})
+MATCH (c:Claim)-[]->(e)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+OPTIONAL MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(y:Year)
+WITH d, c, coalesce(y.year, d.report_year) AS effective_year
+WITH effective_year, count(DISTINCT c) AS claim_count
+WHERE effective_year IS NOT NULL
+RETURN min(effective_year) AS earliest_year,
+       max(effective_year) AS latest_year,
+       count(effective_year) AS distinct_years,
+       sum(claim_count) AS total_claims
+"""
+
+# Tier 1 — list documents that contain at least one active claim linked to a
+# single resolved entity.  Ranked by claim count descending, capped at 50.
+LIST_DOCUMENTS_FOR_ENTITY_QUERY = """
+MATCH (e {entity_id: $entity_id})
+MATCH (c:Claim)-[]->(e)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WITH d, count(DISTINCT c) AS claim_count
+RETURN d.doc_id AS doc_id,
+       d.title AS title,
+       d.doc_type AS doc_type,
+       d.date_start AS date_start,
+       d.date_end AS date_end,
+       d.report_year AS report_year,
+       d.institution_id AS institution_id,
+       claim_count
+ORDER BY claim_count DESC
+LIMIT 50
+"""
+
+# Tier 1 — places where claims about a single resolved entity occurred.
+# Returns ranked Place / Refuge nodes by claim count, capped at 25.  Uses the
+# OCCURRED_AT relation (Claim -> Place|Refuge), filtered through the same
+# document access-control structure as the rest of the retrieval layer.
+LOCATIONS_FOR_ENTITY_QUERY = """
+MATCH (e {entity_id: $entity_id})
+MATCH (c:Claim)-[]->(e)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+MATCH (c)-[:OCCURRED_AT]->(p)
+WHERE p:Place OR p:Refuge
+RETURN p.entity_id AS place_id,
+       p.name AS place_name,
+       [x IN labels(p) WHERE x <> 'Entity'][0] AS place_type,
+       count(DISTINCT c) AS claim_count
+ORDER BY claim_count DESC
+LIMIT 25
+"""
+
+# Tier 1 — entities that co-occur in claims with a single resolved entity.
+# Distinct from ENTITY_NEIGHBORHOOD_QUERY (which uses a non-existent
+# ExtractionRun-PRODUCED-Claim edge); this one uses the structural HAS_CLAIM
+# chain that production retrieval depends on, so it actually returns rows.
+# Returns ranked co-occurring entities with counts and entity types, capped at 25.
+CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY = """
+MATCH (anchor {entity_id: $entity_id})
+MATCH (c:Claim)-[]->(anchor)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+MATCH (c)-[r2]->(other)
+WHERE other.entity_id IS NOT NULL
+  AND other.entity_id <> $entity_id
+  AND any(lbl IN labels(other) WHERE lbl <> 'Entity')
+RETURN other.entity_id AS entity_id,
+       other.name AS name,
+       [x IN labels(other) WHERE x <> 'Entity'][0] AS entity_type,
+       count(DISTINCT c) AS co_occurrence_count
+ORDER BY co_occurrence_count DESC
+LIMIT 25
+"""
+
+# Tier 1 — top-N entities of a given label by claim count, scoped by access
+# control.  Caller passes $entity_label (e.g. "Person", "Place", "Species")
+# and $limit; we apply the label filter via a labels() check rather than
+# direct interpolation to keep the template parameterised.
+FREQUENCY_RANKING_FOR_TYPE_QUERY = """
+MATCH (e:Entity)
+WHERE $entity_label IN labels(e)
+MATCH (c:Claim)-[]->(e)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+RETURN e.entity_id AS entity_id,
+       e.name AS name,
+       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type,
+       count(DISTINCT c) AS claim_count
+ORDER BY claim_count DESC
+LIMIT $limit
+"""
+
+
+# Tier 1 — list documents matching a specific report_year.  Includes documents
+# with no extracted claims (claim_count may be 0) so the user can see the full
+# year roster.  Ranked by date_start ascending, capped at 50.
+LIST_DOCUMENTS_FOR_YEAR_QUERY = """
+MATCH (d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+  AND d.report_year = $target_year
+OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
+              -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
+WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
+WITH d, count(DISTINCT c) AS claim_count
+RETURN d.doc_id AS doc_id,
+       d.title AS title,
+       d.doc_type AS doc_type,
+       d.date_start AS date_start,
+       d.date_end AS date_end,
+       d.report_year AS report_year,
+       d.institution_id AS institution_id,
+       claim_count
+ORDER BY d.date_start ASC, d.title ASC
+LIMIT 50
+"""
+
+
 ENTITY_ANCHORED_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE d.institution_id IN $institution_ids
@@ -197,7 +364,13 @@ WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
   )
 WITH d, c, type(rel) AS traversal_rel_type
 ORDER BY c.extraction_confidence DESC
-LIMIT $limit
+// Per-corpus stratification: each institution_id contributes up to $limit candidates
+// before downstream truncation, so a higher-confidence corpus cannot monopolise the
+// pool when both have claims attached to the anchor entity.
+WITH d.institution_id AS corpus,
+     collect({d: d, c: c, traversal_rel_type: traversal_rel_type}) AS rows
+UNWIND rows[..$limit] AS row
+WITH row.d AS d, row.c AS c, row.traversal_rel_type AS traversal_rel_type
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)

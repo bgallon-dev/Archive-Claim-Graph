@@ -168,7 +168,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     query_serve_parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default 127.0.0.1).")
     query_serve_parser.add_argument("--port", type=int, default=8788, help="Port to bind (default 8788).")
-    query_serve_parser.add_argument("--max-tokens", type=int, default=4096, help="Max tokens for synthesis model response (default 4096).")
+    query_serve_parser.add_argument("--max-tokens", type=int, default=8192, help="Max tokens for synthesis model response (default 8192). Cross-corpus historical synthesis routinely exceeds 4096 tokens; the bumped default leaves headroom for thematic answers spanning multiple decades and corpora without truncation.")
     query_serve_parser.add_argument(
         "--annotation-db",
         default=os.environ.get("ANNOTATION_DB"),

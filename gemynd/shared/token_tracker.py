@@ -491,8 +491,51 @@ class TokenUsageStore:
 # MeteredAnthropicClient (transparent wrapper)
 # ---------------------------------------------------------------------------
 
+class _MeteredStream:
+    """Wraps ``client.messages.stream()``'s context manager so the final
+    message's usage is recorded on exit, mirroring ``_MeteredMessages.create()``.
+    """
+
+    def __init__(
+        self,
+        inner_cm: Any,
+        logger: TokenUsageLogger,
+        caller: str,
+        institution_id: str,
+        request_id_func: Callable[[], str | None] | None,
+    ) -> None:
+        self._inner_cm = inner_cm
+        self._inner_stream: Any = None
+        self._logger = logger
+        self._caller = caller
+        self._institution_id = institution_id
+        self._request_id_func = request_id_func
+
+    def __enter__(self) -> Any:
+        self._inner_stream = self._inner_cm.__enter__()
+        return self._inner_stream
+
+    def __exit__(self, exc_type: Any, exc: Any, tb: Any) -> Any:
+        try:
+            if exc_type is None and self._inner_stream is not None:
+                final = self._inner_stream.get_final_message()
+                self._logger.enqueue(TokenUsageRecord(
+                    caller=self._caller,
+                    model=final.model,
+                    input_tokens=final.usage.input_tokens,
+                    output_tokens=final.usage.output_tokens,
+                    cache_hit=False,
+                    stop_reason=final.stop_reason or "",
+                    request_id=self._request_id_func() if self._request_id_func else None,
+                    institution_id=self._institution_id,
+                ))
+        except Exception:  # noqa: BLE001 — metering must never break the call
+            _log.debug("token_tracker: failed to record stream usage", exc_info=True)
+        return self._inner_cm.__exit__(exc_type, exc, tb)
+
+
 class _MeteredMessages:
-    """Proxy for ``client.messages`` that meters ``create()`` calls."""
+    """Proxy for ``client.messages`` that meters ``create()`` and ``stream()`` calls."""
 
     def __init__(
         self,
@@ -526,6 +569,15 @@ class _MeteredMessages:
             _log.debug("token_tracker: failed to record usage", exc_info=True)
         return response
 
+    def stream(self, **kwargs: Any) -> Any:
+        return _MeteredStream(
+            self._real.stream(**kwargs),
+            self._logger,
+            self._caller,
+            self._institution_id,
+            self._request_id_func,
+        )
+
     def __getattr__(self, name: str) -> Any:
         return getattr(self._real, name)
 
@@ -533,9 +585,10 @@ class _MeteredMessages:
 class MeteredAnthropicClient:
     """Drop-in wrapper around ``anthropic.Anthropic`` that meters token usage.
 
-    Transparently proxies all attribute access to the underlying client.  Only
-    ``messages.create()`` is intercepted to read the ``usage`` field from the
-    response and enqueue a :class:`TokenUsageRecord`.
+    Transparently proxies all attribute access to the underlying client.
+    Both ``messages.create()`` and ``messages.stream()`` are intercepted to
+    read the ``usage`` field from the response (or from the stream's final
+    message) and enqueue a :class:`TokenUsageRecord`.
 
     Parameters
     ----------

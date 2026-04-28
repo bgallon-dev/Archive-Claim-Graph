@@ -196,16 +196,27 @@ class EntityResolutionGateway:
         # against stale seed_entities.csv ids that would otherwise produce
         # silent zero-result queries downstream.
         if self._executor is not None and resolved:
+            pre_filter_ids = [(r.surface_form, r.entity_id, r.entity_type) for r in resolved]
             live = self._filter_live_ids([r.entity_id for r in resolved])
             dropped = [r for r in resolved if r.entity_id not in live]
             if dropped:
-                _log.debug(
-                    "gateway dropped %d stale entity_ids: %s",
+                # Bumped from debug → info because silent drops here have a
+                # disproportionate downstream effect: an empty resolved list
+                # forces the cascade to claim_type_scoped or fulltext, which
+                # changes the answer shape entirely.  An ops-level log entry
+                # makes this visible without enabling DEBUG everywhere.
+                _log.info(
+                    "gateway dropped %d resolved entity_ids as not-in-live-graph "
+                    "(pre-filter: %s; survived: %s)",
                     len(dropped),
-                    [(r.surface_form, r.entity_id) for r in dropped],
+                    pre_filter_ids,
+                    sorted(live),
                 )
                 unresolved.extend(r.surface_form for r in dropped)
                 resolved = [r for r in resolved if r.entity_id in live]
+        elif self._executor is None and resolved:
+            # No executor → no live-id filter ran.  Tests use this path.
+            pass
 
         # Remove from ambiguous any surface form already covered by a resolved entity
         resolved_surface_forms = {r.surface_form.lower() for r in resolved}

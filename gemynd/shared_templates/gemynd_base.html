@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/htmx.org@1.9.12"
-  integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2uodhFl9m+DEk9HNyNnBj5ld7DLUmKpZ3Q"
+  integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
   crossorigin="anonymous"></script>
 {% block head %}{% endblock %}
 <style>
@@ -911,6 +911,26 @@ summary:hover { opacity: 0.8; }
 .sources-table th:nth-child(2), .sources-table td:nth-child(2) { width: 30%; }
 .sources-table th:nth-child(3), .sources-table td:nth-child(3) { width: 18%; }
 .sources-table th:nth-child(4), .sources-table td:nth-child(4) { width: 14%; }
+/* Tier 1 list-operations table: column widths favour the document title since
+ * that's the primary identifier for a doc list (vs. claim sentence in
+ * .sources-table where the long-form text is the claim itself). */
+.tier1-docs-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; table-layout: fixed; }
+.tier1-docs-table th, .tier1-docs-table td { padding: 4px 8px; border: 1px solid var(--border-light); text-align: left; vertical-align: top; }
+.tier1-docs-table th { background: var(--bark-50); font-weight: 500; color: var(--text-secondary); font-size: 11px; }
+.tier1-docs-table th:nth-child(1), .tier1-docs-table td:nth-child(1) { width: 56%; }
+.tier1-docs-table th:nth-child(2), .tier1-docs-table td:nth-child(2) { width: 14%; }
+.tier1-docs-table th:nth-child(3), .tier1-docs-table td:nth-child(3) { width: 22%; }
+.tier1-docs-table th:nth-child(4), .tier1-docs-table td:nth-child(4) { width: 8%; text-align: right; }
+.tier1-docs-table .doc-title { font-size: 12px; line-height: 1.35; word-break: break-word; }
+.tier1-docs-table .doc-title-missing { font-style: italic; color: var(--text-tertiary); }
+/* Ranked-list table for locations / co-occurring entities / frequency ranking.
+ * Three columns: name (60%), type (25%), count (15% right-aligned). */
+.tier1-ranked-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 0.4rem; table-layout: fixed; }
+.tier1-ranked-table th, .tier1-ranked-table td { padding: 4px 8px; border: 1px solid var(--border-light); text-align: left; vertical-align: top; }
+.tier1-ranked-table th { background: var(--bark-50); font-weight: 500; color: var(--text-secondary); font-size: 11px; }
+.tier1-ranked-table th:nth-child(1), .tier1-ranked-table td:nth-child(1) { width: 60%; }
+.tier1-ranked-table th:nth-child(2), .tier1-ranked-table td:nth-child(2) { width: 25%; }
+.tier1-ranked-table th:nth-child(3), .tier1-ranked-table td:nth-child(3) { width: 15%; text-align: right; }
 .src-text { font-size: 12px; line-height: 1.4; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; }
 .src-meta { font-size: 11px; white-space: normal; word-break: break-word; }
 .src-doc { font-size: 11px; color: var(--text-secondary); }

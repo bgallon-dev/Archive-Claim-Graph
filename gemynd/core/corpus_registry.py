@@ -14,6 +14,7 @@ Usage::
 """
 from __future__ import annotations
 
+import dataclasses
 import logging
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -35,6 +36,7 @@ class CorpusEntry:
     description: str = ""
     created_at: str = ""
     is_default: bool = False
+    source_links: tuple[dict[str, Any], ...] = ()
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -44,6 +46,7 @@ class CorpusEntry:
             "description": self.description,
             "created_at": self.created_at,
             "is_default": self.is_default,
+            "source_links": [dict(sl) for sl in self.source_links],
         }
 
     @classmethod
@@ -55,6 +58,7 @@ class CorpusEntry:
             description=data.get("description", ""),
             created_at=data.get("created_at", ""),
             is_default=data.get("is_default", False),
+            source_links=tuple(dict(sl) for sl in data.get("source_links", []) or []),
         )
 
 
@@ -134,23 +138,9 @@ def set_default(corpus_id: str, path: Path | None = None) -> None:
     for entry in entries:
         if entry.corpus_id == corpus_id:
             found = True
-            updated.append(CorpusEntry(
-                corpus_id=entry.corpus_id,
-                display_name=entry.display_name,
-                resources_dir=entry.resources_dir,
-                description=entry.description,
-                created_at=entry.created_at,
-                is_default=True,
-            ))
+            updated.append(dataclasses.replace(entry, is_default=True))
         elif entry.is_default:
-            updated.append(CorpusEntry(
-                corpus_id=entry.corpus_id,
-                display_name=entry.display_name,
-                resources_dir=entry.resources_dir,
-                description=entry.description,
-                created_at=entry.created_at,
-                is_default=False,
-            ))
+            updated.append(dataclasses.replace(entry, is_default=False))
         else:
             updated.append(entry)
     if not found:

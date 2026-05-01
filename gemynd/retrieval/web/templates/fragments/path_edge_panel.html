@@ -1,0 +1,48 @@
+<div class="path-edge-panel" id="path-edge-panel-inner">
+  <header class="path-edge-panel-head">
+    <p class="path-edge-panel-title">
+      Claims linking <strong>{{ from_name }}</strong> &amp; <strong>{{ to_name }}</strong>
+      {% if year_min or year_max %}
+      <span style="color:var(--text-tertiary);font-weight:400;font-size:12px;">
+        · {{ year_min or '…' }}–{{ year_max or '…' }}
+      </span>
+      {% endif %}
+    </p>
+    <button type="button" class="path-edge-panel-close" aria-label="Close"
+            onclick="document.getElementById('path-edge-panel').innerHTML = ''">×</button>
+  </header>
+
+  {% if claims %}
+  <div class="coassert-list">
+    {% for c in claims %}
+    <div class="coassert-card">
+      <p class="coassert-sentence">"{{ c.sentence }}"</p>
+      <div class="coassert-meta">
+        <span class="conf-pill {{ c.confidence | conf_tier_class }}">
+          {{ "%.2f"|format(c.confidence) }}
+        </span>
+        {% if c.claim_type %}<span class="badge badge-warm">{{ c.claim_type }}</span>{% endif %}
+        {% if c.from_relation and c.to_relation and c.from_relation != c.to_relation %}
+        <span class="coassert-rels">{{ c.from_relation }} → {{ c.to_relation }}</span>
+        {% endif %}
+        <span>· {{ c.institution_id or '—' }}</span>
+        {% if c.doc_date_start %}<span>· {{ c.doc_date_start }}</span>
+        {% elif c.doc_report_year %}<span>· {{ c.doc_report_year }}</span>
+        {% endif %}
+        <span style="color:var(--text-tertiary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.doc_title }}</span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="path-edge-panel-actions">
+    <a href="/?q={{ ('claims linking ' ~ from_name ~ ' and ' ~ to_name) | urlencode }}"
+       target="_blank" rel="noopener">Search these in chat ↗</a>
+  </div>
+  {% else %}
+  <p class="empty-state" style="margin:0.5rem 0;">
+    No active claims directly link these two entities
+    {% if year_min or year_max %}within the selected year window{% endif %}.
+    The path-finder may have used a longer connection.
+  </p>
+  {% endif %}
+</div>

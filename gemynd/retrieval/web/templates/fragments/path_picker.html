@@ -1,0 +1,16 @@
+<div class="paths-picker" data-slot="{{ slot }}">
+  <label for="paths-picker-input-{{ slot }}">{{ label_text }}</label>
+  <input type="hidden" name="{{ slot }}" value="">
+  <input type="text"
+         class="paths-picker-input"
+         id="paths-picker-input-{{ slot }}"
+         placeholder="Type a name…"
+         autocomplete="off"
+         spellcheck="false">
+  <div class="paths-picker-chip">
+    <span class="paths-picker-chip-name"></span>
+    <span class="paths-picker-chip-type"></span>
+    <button type="button" class="paths-picker-chip-clear" aria-label="Change">×</button>
+  </div>
+  <div class="paths-picker-dropdown"></div>
+</div>

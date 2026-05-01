@@ -59,6 +59,14 @@ from gemynd.core.graph.cypher import (
     SOFT_DELETE_DOCUMENT_QUERY,
     RESTORE_DOCUMENT_QUERY,
     LIST_DOCUMENTS_QUERY,
+    LIST_DOCUMENTS_PAGINATED_QUERY,
+    COUNT_DOCUMENTS_QUERY,
+    DOCUMENT_FACETS_QUERY,
+    LIST_CLAIMS_FOR_DOCUMENT_QUERY,
+    GET_DOCUMENT_HEADER_QUERY,
+    GET_DOCUMENT_SOURCE_TEXT_QUERY,
+    GET_DOCUMENT_PARAGRAPHS_QUERY,
+    ENTITY_DEGREE_QUERY,
     STATS_DOC_OVERVIEW_QUERY,
     STATS_DOC_TYPE_QUERY,
     STATS_CLAIM_TYPE_QUERY,
@@ -74,7 +82,11 @@ from gemynd.core.graph.cypher import (
     ENTITY_NEIGHBORHOOD_QUERY,
 )
 from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
-from ..context_assembler import _infer_claim_types, _is_ocr_garbage_title
+from ..context_assembler import (
+    _infer_claim_types,
+    _is_ocr_garbage_title,
+    _scrub_doc_list_titles,
+)
 from ..entity_gateway import EntityResolutionGateway
 from ..executor import Neo4jQueryExecutor
 from ..models import RetrievalStats, SynthesisResult
@@ -117,6 +129,43 @@ def _citation_label(b: "ProvenanceBlock") -> str:  # type: ignore[name-defined]
     if title and not _is_ocr_garbage_title(title):
         return title
     return b.doc_id or ""
+
+
+def _build_source_links(
+    doc: dict[str, Any],
+    source_link_configs: list[dict[str, Any]],
+) -> list[dict[str, str]]:
+    """Render per-document external links from a corpus's source_link templates.
+
+    Each template declares ``requires`` — fields that must be non-empty on the
+    document for the link to render. Documents missing any required field
+    simply don't contribute that link (no error, no broken URL).
+
+    Returns a list of {label, url, note} dicts ready for template iteration.
+    """
+    out: list[dict[str, str]] = []
+    for cfg in source_link_configs:
+        required = cfg.get("requires") or []
+        values: dict[str, str] = {}
+        ok = True
+        for field in required:
+            v = doc.get(field)
+            if v in (None, ""):
+                ok = False
+                break
+            values[field] = str(v)
+        if not ok:
+            continue
+        try:
+            url = cfg["template"].format(**values)
+        except (KeyError, IndexError):
+            continue
+        out.append({
+            "label": cfg.get("label", "View source"),
+            "url": url,
+            "note": cfg.get("note", ""),
+        })
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -899,6 +948,21 @@ def _apply_composite_scope(
     return user
 
 
+def _corpus_labels_for_composite(composite: Any) -> dict[str, str]:
+    """Return display labels keyed by corpus/institution id."""
+    labels: dict[str, str] = {}
+    if composite is None:
+        return labels
+    for member in getattr(composite, "members", []) or []:
+        institution_id = getattr(member, "institution_id", "")
+        if not institution_id:
+            continue
+        labels[institution_id] = (
+            getattr(member, "synthesis_context_label", None) or institution_id
+        )
+    return labels
+
+
 # ---------------------------------------------------------------------------
 # App factory
 # ---------------------------------------------------------------------------
@@ -976,6 +1040,21 @@ def create_app(
         state["domain_config"] = _domain_config
         state["composite_config"] = _composite
 
+        # Per-corpus source_link templates for the /documents retrieval surface.
+        # Loaded from data/corpus_registry.yaml; entries with no source_links
+        # block simply contribute an empty list. Skipped silently when the
+        # registry isn't on disk (e.g. tests using --domain-dir).
+        from gemynd.core.corpus_registry import load_registry as _load_corpus_registry
+        try:
+            _corpus_entries = _load_corpus_registry()
+        except Exception:
+            _log.warning("Could not load corpus_registry for source_links", exc_info=True)
+            _corpus_entries = []
+        state["source_links_by_corpus"] = {
+            entry.corpus_id: [dict(sl) for sl in entry.source_links]
+            for entry in _corpus_entries
+        }
+
         # Pre-compute classifier inputs so each /query call avoids rebuilding
         # the seed vocab set and year bounds on every request.
         state["classifier_seed_vocab"] = frozenset(
@@ -1010,6 +1089,40 @@ def create_app(
             CORPUS_STATS_QUERY, {"institution_ids": _composite.institution_ids}
         )
         state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
+
+        # --- Path-finder caches (Mode 1) ---
+        # Per-entity claim count, used for inverse-frequency path weighting and
+        # the degree-cap that rejects paths through generic hub entities.
+        # Plus total active-claim count for the inverse-frequency normalizer.
+        # Failures are logged but non-fatal: the path-finder degrades to
+        # uniform weights with degree {} rather than blocking app startup.
+        try:
+            _degree_rows = executor.run(ENTITY_DEGREE_QUERY, {})
+            state["entity_degree"] = {
+                r["entity_id"]: int(r.get("degree") or 0)
+                for r in _degree_rows
+                if r.get("entity_id")
+            }
+        except Exception:
+            _log.warning("Could not load ENTITY_DEGREE_QUERY for path-finder", exc_info=True)
+            state["entity_degree"] = {}
+        try:
+            _total_rows = executor.run(
+                "MATCH (c:Claim) "
+                "WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active' "
+                "RETURN count(c) AS total",
+                {},
+            )
+            state["total_active_claims"] = int(_total_rows[0]["total"]) if _total_rows else 0
+        except Exception:
+            _log.warning("Could not load total_active_claims for path-finder", exc_info=True)
+            state["total_active_claims"] = 0
+        _nonzero_degree = sum(1 for v in state["entity_degree"].values() if v > 0)
+        _log.info(
+            "Path-finder caches loaded: %d entities (%d with non-zero degree), "
+            "%d active claims corpus-wide",
+            len(state["entity_degree"]), _nonzero_degree, state["total_active_claims"],
+        )
 
         # --- DatabaseManager: centralised SQLite lifecycle ---
         from gemynd.shared.database_manager import DatabaseManager
@@ -1936,8 +2049,214 @@ def create_app(
         return {"nodes": nodes, "edges": edges, "center": center}
 
     # ------------------------------------------------------------------
-    # GET /documents  — admin: list all documents including soft-deleted
+    # GET /paths           — Mode 1 page shell
+    # GET /paths/results   — HTMX fragment: cascade-rendered HTML
     # ------------------------------------------------------------------
+    @app.get("/paths", response_class=HTMLResponse, include_in_schema=False)
+    def paths_page(
+        request: Request,
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        bounds = state.get("classifier_year_bounds") or (None, None)
+        return _templates.TemplateResponse("paths.html", {
+            "request": request,
+            "active_page": "paths",
+            "corpus_year_min": bounds[0],
+            "corpus_year_max": bounds[1],
+            **_user_ctx(user),
+        })
+
+    @app.get("/paths/results", response_class=HTMLResponse, include_in_schema=False)
+    def paths_results(
+        request: Request,
+        from_id: str = Query(..., alias="from"),
+        to_id: str = Query(..., alias="to"),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
+        max_hops: int = Query(2, ge=1, le=2),
+        include_paths: bool = Query(False),
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        if not _ENTITY_ID_RE.match(from_id):
+            raise HTTPException(status_code=400, detail="Invalid from entity_id")
+        if not _ENTITY_ID_RE.match(to_id):
+            raise HTTPException(status_code=400, detail="Invalid to entity_id")
+        if from_id == to_id:
+            return _templates.TemplateResponse(
+                "fragments/path_results.html",
+                {"request": request, "error": "Pick two different entities.",
+                 **_user_ctx(user)},
+            )
+        from gemynd.retrieval.web.path_finder import find_paths, path_result_to_dict
+
+        def _parse_year(v: str | None) -> int | None:
+            if not v:
+                return None
+            try:
+                return int(v.strip())
+            except (ValueError, AttributeError):
+                return None
+
+        executor: Neo4jQueryExecutor = state["executor"]
+        try:
+            result = find_paths(
+                executor.run,
+                from_id=from_id, to_id=to_id,
+                institution_ids=user.permitted_institution_ids,
+                permitted_levels=user.permitted_levels,
+                year_min=_parse_year(year_min), year_max=_parse_year(year_max),
+                max_hops=max_hops,
+                degree=state.get("entity_degree", {}),
+                corpus_total_claims=int(state.get("total_active_claims", 0)),
+                include_paths_when_co_asserted=include_paths,
+            )
+        except Exception as exc:
+            # Most likely a Neo4j TransientError when the join cardinality
+            # exceeds the configured transaction memory budget. Surface as a
+            # graceful in-page message rather than a 500 — this happens for
+            # extreme hub-to-hub queries where even the Cypher-level hub
+            # exclusion can't fully bound the search.
+            from neo4j.exceptions import TransientError
+            if isinstance(exc, TransientError):
+                _log.warning("Path query exhausted Neo4j memory: %s", exc)
+                return _templates.TemplateResponse(
+                    "fragments/path_results.html",
+                    {"request": request,
+                     "error": ("This path search exceeded the database's "
+                               "memory budget. Try narrowing the year range, "
+                               "or pick more specific endpoints."),
+                     **_user_ctx(user)},
+                )
+            raise
+        # Fetch endpoint metadata for display (names, types).
+        head_rows = executor.run(
+            "MATCH (e {entity_id: $entity_id}) "
+            "RETURN e.entity_id AS entity_id, e.name AS name, "
+            "       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type",
+            {"entity_id": from_id},
+        )
+        from_meta = head_rows[0] if head_rows else {"entity_id": from_id, "name": from_id, "entity_type": ""}
+        head_rows = executor.run(
+            "MATCH (e {entity_id: $entity_id}) "
+            "RETURN e.entity_id AS entity_id, e.name AS name, "
+            "       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type",
+            {"entity_id": to_id},
+        )
+        to_meta = head_rows[0] if head_rows else {"entity_id": to_id, "name": to_id, "entity_type": ""}
+
+        return _templates.TemplateResponse("fragments/path_results.html", {
+            "request": request,
+            "from_meta": from_meta,
+            "to_meta": to_meta,
+            "result": path_result_to_dict(result),
+            "year_min": _parse_year(year_min),
+            "year_max": _parse_year(year_max),
+            "include_paths": include_paths,
+            "error": None,
+            **_user_ctx(user),
+        })
+
+    # ------------------------------------------------------------------
+    # GET /paths/edge  — HTMX side-panel: all claims linking two entities
+    # ------------------------------------------------------------------
+    @app.get("/paths/edge", response_class=HTMLResponse, include_in_schema=False)
+    def paths_edge_panel(
+        request: Request,
+        from_id: str = Query(..., alias="from"),
+        to_id: str = Query(..., alias="to"),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        if not _ENTITY_ID_RE.match(from_id):
+            raise HTTPException(status_code=400, detail="Invalid from entity_id")
+        if not _ENTITY_ID_RE.match(to_id):
+            raise HTTPException(status_code=400, detail="Invalid to entity_id")
+
+        def _parse_year(v: str | None) -> int | None:
+            if not v:
+                return None
+            try:
+                return int(v.strip())
+            except (ValueError, AttributeError):
+                return None
+
+        from gemynd.core.graph.cypher import CO_ASSERTING_CLAIMS_QUERY
+        executor: Neo4jQueryExecutor = state["executor"]
+        rows = executor.run(CO_ASSERTING_CLAIMS_QUERY, {
+            "from_id": from_id, "to_id": to_id,
+            "institution_ids": user.permitted_institution_ids,
+            "permitted_levels": user.permitted_levels,
+            "year_min": _parse_year(year_min),
+            "year_max": _parse_year(year_max),
+        })
+        # Endpoint name lookup for the panel title.
+        head_rows = executor.run(
+            "MATCH (e {entity_id: $entity_id}) "
+            "RETURN e.name AS name",
+            {"entity_id": from_id},
+        )
+        from_name = (head_rows[0]["name"] if head_rows else from_id) or from_id
+        head_rows = executor.run(
+            "MATCH (e {entity_id: $entity_id}) "
+            "RETURN e.name AS name",
+            {"entity_id": to_id},
+        )
+        to_name = (head_rows[0]["name"] if head_rows else to_id) or to_id
+        return _templates.TemplateResponse("fragments/path_edge_panel.html", {
+            "request": request,
+            "from_id": from_id, "to_id": to_id,
+            "from_name": from_name, "to_name": to_name,
+            "claims": rows,
+            "year_min": _parse_year(year_min),
+            "year_max": _parse_year(year_max),
+            **_user_ctx(user),
+        })
+
+    # ------------------------------------------------------------------
+    # GET /api/path  — Mode 1: cascade-shaped path-finding between two entities
+    # ------------------------------------------------------------------
+    @app.get("/api/path")
+    def api_path(
+        from_id: str = Query(..., alias="from"),
+        to_id: str = Query(..., alias="to"),
+        year_min: int | None = Query(None),
+        year_max: int | None = Query(None),
+        max_hops: int = Query(2, ge=1, le=2),
+        include_paths: bool = Query(False),
+        user: UserContext = Depends(require_user_scoped),
+    ) -> dict[str, Any]:
+        if not _ENTITY_ID_RE.match(from_id):
+            raise HTTPException(status_code=400, detail="Invalid from entity_id")
+        if not _ENTITY_ID_RE.match(to_id):
+            raise HTTPException(status_code=400, detail="Invalid to entity_id")
+        if from_id == to_id:
+            raise HTTPException(status_code=400, detail="from and to must be different entities")
+        from gemynd.retrieval.web.path_finder import find_paths, path_result_to_dict
+        executor: Neo4jQueryExecutor = state["executor"]
+        result = find_paths(
+            executor.run,
+            from_id=from_id, to_id=to_id,
+            institution_ids=user.permitted_institution_ids,
+            permitted_levels=user.permitted_levels,
+            year_min=year_min, year_max=year_max,
+            max_hops=max_hops,
+            degree=state.get("entity_degree", {}),
+            corpus_total_claims=int(state.get("total_active_claims", 0)),
+            include_paths_when_co_asserted=include_paths,
+        )
+        return {
+            "endpoints": {"from": from_id, "to": to_id},
+            **path_result_to_dict(result),
+        }
+
+    # ------------------------------------------------------------------
+    # GET /documents  — faceted retrieval surface for all logged-in users
+    # GET /documents/list — HTMX partial: filtered/paginated row block
+    # GET /document/{doc_id}/panel — HTMX partial: per-document detail panel
+    # ------------------------------------------------------------------
+    _DOCS_PAGE_SIZE = 50
+
     def _list_documents_json(user: UserContext = Depends(require_admin_scoped)) -> dict[str, Any]:
         """JSON list for /v1/documents API."""
         executor: Neo4jQueryExecutor = state["executor"]
@@ -1947,20 +2266,280 @@ def create_app(
         )
         return {"institution_ids": user.permitted_institution_ids, "documents": rows}
 
-    @app.get("/documents", response_class=HTMLResponse, include_in_schema=False)
-    def list_documents(request: Request, user: UserContext = Depends(require_admin_scoped)):
+    def _truncate_snippet(text: str | None, length: int = 160) -> str:
+        if not text:
+            return ""
+        s = " ".join(text.split())
+        return s if len(s) <= length else s[: length - 1].rstrip() + "…"
+
+    def _decorate_document_rows(
+        rows: list[dict[str, Any]],
+    ) -> list[dict[str, Any]]:
+        """Apply OCR-title scrubbing, snippet truncation, and per-corpus
+        source-link rendering to a batch of document rows."""
+        scrubbed = _scrub_doc_list_titles(rows)
+        links_by_corpus: dict[str, list[dict[str, Any]]] = state.get(
+            "source_links_by_corpus", {}
+        ) or {}
+        out: list[dict[str, Any]] = []
+        for row in scrubbed:
+            new_row = dict(row)
+            new_row["snippet"] = _truncate_snippet(row.get("snippet"))
+            corpus_id = (row.get("institution_id") or "").strip()
+            cfgs = links_by_corpus.get(corpus_id, [])
+            new_row["source_links"] = _build_source_links(row, cfgs)
+            out.append(new_row)
+        return out
+
+    def _parse_docs_filters(
+        q: str,
+        institution: list[str] | None,
+        doc_type: list[str] | None,
+        year_min: str | None,
+        year_max: str | None,
+        status: str,
+    ) -> dict[str, Any]:
+        """Normalize raw query-string filter values into Cypher parameters.
+
+        ``year_min`` / ``year_max`` arrive as strings because the form ships
+        empty inputs as ``year_min=`` (which would 422 if typed as int). Empty
+        and unparseable values collapse to None.
+        """
+        def _parse_year(v: str | None) -> int | None:
+            if v is None:
+                return None
+            stripped = v.strip()
+            if not stripped:
+                return None
+            try:
+                return int(stripped)
+            except ValueError:
+                return None
+
+        valid_status = status if status in ("active", "deleted", "all") else "active"
+        return {
+            "search": (q or "").strip() or None,
+            "institution_filter": [i for i in (institution or []) if i] or None,
+            "doc_types": [d for d in (doc_type or []) if d] or None,
+            "year_min": _parse_year(year_min),
+            "year_max": _parse_year(year_max),
+            "status": valid_status,
+        }
+
+    def _docs_list_context(
+        user: UserContext,
+        request: Request,
+        filters: dict[str, Any],
+        page: int,
+    ) -> dict[str, Any]:
+        """Run the paginated query + count and assemble the row-fragment context."""
         executor: Neo4jQueryExecutor = state["executor"]
-        rows = executor.run(
-            LIST_DOCUMENTS_QUERY,
+        offset = max(0, (page - 1) * _DOCS_PAGE_SIZE)
+        params = {
+            "institution_ids": user.permitted_institution_ids,
+            **filters,
+            "offset": offset,
+            "limit": _DOCS_PAGE_SIZE,
+        }
+        rows = executor.run(LIST_DOCUMENTS_PAGINATED_QUERY, params)
+        decorated = _decorate_document_rows(rows)
+        count_rows = executor.run(
+            COUNT_DOCUMENTS_QUERY,
+            {k: v for k, v in params.items() if k not in ("offset", "limit")},
+        )
+        total = int(count_rows[0]["total"]) if count_rows else 0
+        total_pages = max(1, (total + _DOCS_PAGE_SIZE - 1) // _DOCS_PAGE_SIZE)
+        return {
+            "request": request,
+            "documents": decorated,
+            "page": page,
+            "total_pages": total_pages,
+            "total": total,
+            "page_size": _DOCS_PAGE_SIZE,
+            "filters": filters,
+            "corpus_labels": _corpus_labels_for_composite(
+                state.get("composite_config")
+            ),
+            **_user_ctx(user),
+        }
+
+    @app.get("/documents", response_class=HTMLResponse, include_in_schema=False)
+    def list_documents(
+        request: Request,
+        q: str = Query(""),
+        institution: list[str] | None = Query(None),
+        doc_type: list[str] | None = Query(None),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
+        status: str = Query("active"),
+        page: int = Query(1, ge=1),
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        executor: Neo4jQueryExecutor = state["executor"]
+        facets = executor.run(
+            DOCUMENT_FACETS_QUERY,
             {"institution_ids": user.permitted_institution_ids},
         )
-        return _templates.TemplateResponse("admin_documents.html", {
-            "request": request,
+        facet_row = facets[0] if facets else {
+            "doc_types": [], "institutions": [],
+            "year_min": None, "year_max": None, "total_documents": 0,
+        }
+        filters = _parse_docs_filters(q, institution, doc_type, year_min, year_max, status)
+        ctx = _docs_list_context(user, request, filters, page)
+        ctx.update({
             "active_page": "documents",
-            **_user_ctx(user),
-            "documents": rows,
+            "facets": {
+                "doc_types": sorted([dt for dt in (facet_row.get("doc_types") or []) if dt]),
+                "institutions": sorted([i for i in (facet_row.get("institutions") or []) if i]),
+                "year_min": facet_row.get("year_min"),
+                "year_max": facet_row.get("year_max"),
+                "total_documents": facet_row.get("total_documents") or 0,
+            },
             "institution_ids": user.permitted_institution_ids,
         })
+        return _templates.TemplateResponse("documents.html", ctx)
+
+    @app.get("/documents/list", response_class=HTMLResponse, include_in_schema=False)
+    def list_documents_partial(
+        request: Request,
+        q: str = Query(""),
+        institution: list[str] | None = Query(None),
+        doc_type: list[str] | None = Query(None),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
+        status: str = Query("active"),
+        page: int = Query(1, ge=1),
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        filters = _parse_docs_filters(q, institution, doc_type, year_min, year_max, status)
+        ctx = _docs_list_context(user, request, filters, page)
+        return _templates.TemplateResponse("fragments/documents_list.html", ctx)
+
+    def _fetch_document_ocr_text(
+        doc_id: str,
+        user: UserContext,
+    ) -> tuple[str, str]:
+        """Return (clean_text, raw_ocr_text) for a document.
+
+        Reads the Document-level properties first; falls back to walking
+        paragraphs in graph order when those are empty (some ingestion paths
+        persist OCR only at paragraph granularity).
+        """
+        executor: Neo4jQueryExecutor = state["executor"]
+        rows = executor.run(
+            GET_DOCUMENT_SOURCE_TEXT_QUERY,
+            {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
+        )
+        if not rows:
+            return "", ""
+        head = rows[0]
+        clean_text = (head.get("clean_text") or "").strip()
+        raw_ocr_text = (head.get("raw_ocr_text") or "").strip()
+        if clean_text or raw_ocr_text:
+            return clean_text, raw_ocr_text
+        para_rows = executor.run(
+            GET_DOCUMENT_PARAGRAPHS_QUERY,
+            {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
+        )
+        clean_chunks: list[str] = []
+        raw_chunks: list[str] = []
+        for p in para_rows:
+            ct = (p.get("clean_text") or "").strip()
+            rt = (p.get("raw_ocr_text") or "").strip()
+            if ct:
+                clean_chunks.append(ct)
+            if rt:
+                raw_chunks.append(rt)
+        return "\n\n".join(clean_chunks), "\n\n".join(raw_chunks)
+
+    def _render_document_modal(
+        doc_id: str,
+        request: Request,
+        user: UserContext,
+        tab: str = "ocr",
+        view: str = "clean",
+    ) -> HTMLResponse:
+        """Render the unified per-document modal with the requested tab active."""
+        executor: Neo4jQueryExecutor = state["executor"]
+        header_rows = executor.run(
+            GET_DOCUMENT_HEADER_QUERY,
+            {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
+        )
+        if not header_rows:
+            raise HTTPException(status_code=404, detail="Document not found")
+        decorated = _decorate_document_rows(header_rows)
+        doc = decorated[0]
+
+        active_tab = tab if tab in ("ocr", "claims", "notes") else "ocr"
+
+        # OCR tab content
+        clean_text = ""
+        raw_ocr_text = ""
+        has_clean = False
+        has_raw = False
+        ocr_body = ""
+        view_mode = "clean"
+        if active_tab == "ocr":
+            clean_text, raw_ocr_text = _fetch_document_ocr_text(doc_id, user)
+            has_clean = bool(clean_text)
+            has_raw = bool(raw_ocr_text)
+            view_mode = view if view in ("clean", "raw") else "clean"
+            if view_mode == "raw" and not has_raw and has_clean:
+                view_mode = "clean"
+            if view_mode == "clean" and not has_clean and has_raw:
+                view_mode = "raw"
+            ocr_body = clean_text if view_mode == "clean" else raw_ocr_text
+
+        # Claims tab content
+        claims: list[dict[str, Any]] = []
+        if active_tab == "claims":
+            claims = executor.run(
+                LIST_CLAIMS_FOR_DOCUMENT_QUERY,
+                {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
+            )
+
+        # Claim count is needed by the tab nav badge regardless of active tab.
+        # Cheap to compute as a side query; in practice deferring until claim
+        # tab is opened would mean the badge says "Claims" not "Claims (N)".
+        count_rows = executor.run(
+            "MATCH (d:Document {doc_id: $doc_id}) "
+            "WHERE d.institution_id IN $institution_ids "
+            "OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)"
+            "-[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim) "
+            "WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active' "
+            "RETURN count(c) AS n",
+            {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
+        )
+        claim_count = int(count_rows[0]["n"]) if count_rows else 0
+
+        return _templates.TemplateResponse(
+            "fragments/document_modal.html",
+            {
+                "request": request,
+                "doc": doc,
+                "active_tab": active_tab,
+                "claims": claims,
+                "claim_count": claim_count,
+                "ocr_body": ocr_body,
+                "view_mode": view_mode,
+                "has_clean": has_clean,
+                "has_raw": has_raw,
+                **_user_ctx(user),
+            },
+        )
+
+    @app.get("/document/{doc_id}/modal",
+             response_class=HTMLResponse, include_in_schema=False)
+    def document_modal(
+        doc_id: str,
+        request: Request,
+        tab: str = Query("ocr"),
+        view: str = Query("clean"),
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        if not _DOC_ID_RE.match(doc_id):
+            raise HTTPException(status_code=400, detail="Invalid doc_id format")
+        return _render_document_modal(doc_id, request, user, tab=tab, view=view)
 
     # ------------------------------------------------------------------
     # GET /document/{doc_id}/notes-panel  — HTMX partial: archivist notes
@@ -2253,14 +2832,7 @@ def create_app(
                 performed_by=deleted_by,
             )
         if request.headers.get("HX-Request") == "true":
-            doc = {
-                "doc_id": doc_id,
-                "title": rows[0].get("title"),
-                "access_level": rows[0].get("access_level"),
-                "institution_id": rows[0].get("institution_id"),
-                "deleted_at": deleted_at,
-            }
-            return _templates.TemplateResponse("fragments/document_row.html", {"request": request, "doc": doc})
+            return _render_document_modal(doc_id, request, user)
         return {"status": "deleted", "doc_id": doc_id, "deleted_at": deleted_at, "deleted_by": deleted_by}
 
     # ------------------------------------------------------------------
@@ -2294,14 +2866,7 @@ def create_app(
                 performed_by=performed_by,
             )
         if request.headers.get("HX-Request") == "true":
-            doc = {
-                "doc_id": doc_id,
-                "title": rows[0].get("title"),
-                "access_level": rows[0].get("access_level"),
-                "institution_id": rows[0].get("institution_id"),
-                "deleted_at": None,
-            }
-            return _templates.TemplateResponse("fragments/document_row.html", {"request": request, "doc": doc})
+            return _render_document_modal(doc_id, request, user)
         return {"status": "restored", "doc_id": doc_id, "restored_at": restored_at}
 
     # ------------------------------------------------------------------

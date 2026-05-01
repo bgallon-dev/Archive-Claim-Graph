@@ -1,0 +1,27 @@
+{% if total == 0 %}
+<p class="empty-state">No documents match the current filters.</p>
+{% else %}
+<p class="docs-result-count">
+  {{ total }} document{% if total != 1 %}s{% endif %}{% if total_pages > 1 %} · page {{ page }} of {{ total_pages }}{% endif %}
+</p>
+<div class="docs-list">
+  {% for doc in documents %}
+  {% include "fragments/document_row.html" %}
+  {% endfor %}
+</div>
+{% if total_pages > 1 %}
+<nav class="pagination" aria-label="Pagination">
+  {% if page > 1 %}
+  <a href="#" hx-get="/documents/list?page={{ page - 1 }}"
+     hx-target="#documents-list" hx-include="#docs-filter-form"
+     hx-push-url="true">← Prev</a>
+  {% endif %}
+  <span>Page {{ page }} of {{ total_pages }}</span>
+  {% if page < total_pages %}
+  <a href="#" hx-get="/documents/list?page={{ page + 1 }}"
+     hx-target="#documents-list" hx-include="#docs-filter-form"
+     hx-push-url="true">Next →</a>
+  {% endif %}
+</nav>
+{% endif %}
+{% endif %}

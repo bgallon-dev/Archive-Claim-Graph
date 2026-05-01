@@ -1,37 +1,53 @@
-<tr id="doc-{{ doc.doc_id }}">
-  <td>
-    {% if doc.deleted_at %}
-      <span style="text-decoration:line-through;color:var(--text-tertiary)">{{ doc.title or doc.doc_id }}</span>
-    {% else %}
-      {{ doc.title or doc.doc_id }}
+<article class="doc-card{% if doc.deleted_at %} doc-card-deleted{% endif %}"
+         id="doc-{{ doc.doc_id }}"
+         hx-get="/document/{{ doc.doc_id }}/modal"
+         hx-target="#document-modal"
+       hx-swap="innerHTML"
+       hx-trigger="click"
+       style="cursor:pointer">
+  {% set corpus_label = (corpus_labels | default({})).get(doc.institution_id) or doc.institution_id %}
+  <header class="doc-card-head">
+    <div class="doc-card-meta">
+      {% if doc.date_start %}
+      <span class="doc-date">{{ doc.date_start }}{% if doc.date_end and doc.date_end != doc.date_start %} – {{ doc.date_end }}{% endif %}</span>
+      {% elif doc.report_year %}
+      <span class="doc-date">{{ doc.report_year }}</span>
+      {% endif %}
+      {% if doc.institution_id %}
+      <span class="badge badge-outline">{{ corpus_label }}</span>
+      {% endif %}
+      {% if doc.doc_type and doc.doc_type != 'narrative_report' %}
+      <span class="badge badge-warm">{{ doc.doc_type }}</span>
+      {% endif %}
+      {% if doc.access_level == 'restricted' %}
+      <span class="badge badge-amber">restricted</span>
+      {% elif doc.access_level == 'staff_only' %}
+      <span class="badge badge-blue">staff only</span>
+      {% elif doc.access_level == 'indigenous_restricted' %}
+      <span class="badge badge-red">indigenous</span>
+      {% endif %}
+      {% if doc.deleted_at %}<span class="badge badge-red">Deleted</span>{% endif %}
+    </div>
+    {% if doc.claim_count is defined and doc.claim_count is not none %}
+    <div class="doc-card-claim-count">
+      {{ doc.claim_count }} claim{% if doc.claim_count != 1 %}s{% endif %}
+    </div>
     {% endif %}
-  </td>
-  <td>
-    <span class="badge badge-outline">{{ doc.institution_id or "—" }}</span>
-  </td>
-  <td>
-    {% if doc.access_level == 'public' %}<span class="badge badge-outline">public</span>
-    {% elif doc.access_level == 'restricted' %}<span class="badge badge-amber">restricted</span>
-    {% elif doc.access_level == 'staff_only' %}<span class="badge badge-blue">staff only</span>
-    {% elif doc.access_level == 'indigenous_restricted' %}<span class="badge badge-red">indigenous</span>
-    {% else %}<span class="badge badge-outline">{{ doc.access_level or 'unknown' }}</span>
+  </header>
+  <h3 class="doc-card-title">
+    {% if doc.title %}{{ doc.title }}
+    {% else %}<span class="doc-title-degraded" title="{{ doc.title_raw or doc.doc_id }}">[{{ corpus_label or 'document' }} — title OCR degraded]</span>
     {% endif %}
-  </td>
-  <td>
-    {% if doc.deleted_at %}<span class="badge badge-red">Deleted</span>
-    {% else %}Active
-    {% endif %}
-  </td>
-  <td>
-    {% if doc.deleted_at %}
-      <a hx-post="/document/{{ doc.doc_id }}/restore"
-         hx-target="#doc-{{ doc.doc_id }}" hx-swap="outerHTML"
-         class="action-link action-link-blue" style="cursor:pointer">Restore</a>
-    {% else %}
-      <a hx-delete="/document/{{ doc.doc_id }}?confirm=true"
-         hx-target="#doc-{{ doc.doc_id }}" hx-swap="outerHTML"
-         hx-confirm="Soft-delete this document? It can be restored later."
-         class="action-link action-link-danger" style="cursor:pointer">Delete</a>
-    {% endif %}
-  </td>
-</tr>
+  </h3>
+  {% if doc.snippet %}
+  <p class="doc-card-snippet">{{ doc.snippet }}</p>
+  {% endif %}
+  {% if doc.source_links %}
+  <div class="doc-card-links" onclick="event.stopPropagation()">
+    {% for link in doc.source_links %}
+    <a href="{{ link.url }}" target="_blank" rel="noopener" class="doc-source-btn"
+       {% if link.note %}title="{{ link.note }}"{% endif %}>↗ {{ link.label }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>

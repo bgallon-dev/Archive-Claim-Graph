@@ -806,6 +806,352 @@ RETURN d.doc_id AS doc_id, d.title AS title, d.access_level AS access_level,
 ORDER BY d.institution_id, d.title
 """
 
+# Paginated document listing for the /documents retrieval surface. Joins each
+# Document to its highest-confidence active Claim to surface a snippet so the
+# title-mangled-by-OCR newspaper rows remain identifiable, and aggregates a
+# claim count per document. All filter parameters accept null to mean "off".
+#
+# $status accepts: 'active' (deleted_at IS NULL), 'deleted' (deleted_at IS NOT
+# NULL), or 'all'.
+#
+# Year filtering uses an effective year derived from report_year first, then
+# the leading 4 chars of date_start. Documents missing both are excluded only
+# when year_min/year_max are non-null.
+LIST_DOCUMENTS_PAGINATED_QUERY = """
+MATCH (d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND ($status = 'all'
+       OR ($status = 'active' AND d.deleted_at IS NULL)
+       OR ($status = 'deleted' AND d.deleted_at IS NOT NULL))
+  AND ($institution_filter IS NULL OR d.institution_id IN $institution_filter)
+  AND ($doc_types IS NULL OR d.doc_type IN $doc_types)
+  AND ($search IS NULL OR toLower(coalesce(d.title, '')) CONTAINS toLower($search))
+WITH d, coalesce(d.report_year,
+                 CASE WHEN d.date_start IS NOT NULL AND size(d.date_start) >= 4
+                      THEN toInteger(substring(d.date_start, 0, 4))
+                      ELSE null END) AS effective_year
+WHERE ($year_min IS NULL OR (effective_year IS NOT NULL AND effective_year >= $year_min))
+  AND ($year_max IS NULL OR (effective_year IS NOT NULL AND effective_year <= $year_max))
+OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
+              -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
+WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
+WITH d, effective_year, c
+ORDER BY c.extraction_confidence DESC
+WITH d, effective_year, collect(c) AS claims
+RETURN d.doc_id AS doc_id,
+       d.title AS title,
+       d.doc_type AS doc_type,
+       d.date_start AS date_start,
+       d.date_end AS date_end,
+       d.report_year AS report_year,
+       effective_year AS effective_year,
+       d.institution_id AS institution_id,
+       d.archive_ref AS archive_ref,
+       d.access_level AS access_level,
+       d.deleted_at AS deleted_at,
+       size(claims) AS claim_count,
+       claims[0].normalized_sentence AS snippet
+ORDER BY coalesce(d.date_start, toString(d.report_year), '') DESC, d.doc_id
+SKIP $offset
+LIMIT $limit
+"""
+
+# Count of documents matching the same filters as
+# LIST_DOCUMENTS_PAGINATED_QUERY — used to drive pagination totals.
+COUNT_DOCUMENTS_QUERY = """
+MATCH (d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND ($status = 'all'
+       OR ($status = 'active' AND d.deleted_at IS NULL)
+       OR ($status = 'deleted' AND d.deleted_at IS NOT NULL))
+  AND ($institution_filter IS NULL OR d.institution_id IN $institution_filter)
+  AND ($doc_types IS NULL OR d.doc_type IN $doc_types)
+  AND ($search IS NULL OR toLower(coalesce(d.title, '')) CONTAINS toLower($search))
+WITH d, coalesce(d.report_year,
+                 CASE WHEN d.date_start IS NOT NULL AND size(d.date_start) >= 4
+                      THEN toInteger(substring(d.date_start, 0, 4))
+                      ELSE null END) AS effective_year
+WHERE ($year_min IS NULL OR (effective_year IS NOT NULL AND effective_year >= $year_min))
+  AND ($year_max IS NULL OR (effective_year IS NOT NULL AND effective_year <= $year_max))
+RETURN count(d) AS total
+"""
+
+# Facet values for the /documents filter rail: distinct doc_types and the
+# observed year span. Driven off the same institution allowlist, no other
+# filters applied so the facet options don't disappear when a filter is on.
+DOCUMENT_FACETS_QUERY = """
+MATCH (d:Document)
+WHERE d.institution_id IN $institution_ids
+WITH d, coalesce(d.report_year,
+                 CASE WHEN d.date_start IS NOT NULL AND size(d.date_start) >= 4
+                      THEN toInteger(substring(d.date_start, 0, 4))
+                      ELSE null END) AS effective_year
+RETURN collect(DISTINCT d.doc_type) AS doc_types,
+       collect(DISTINCT d.institution_id) AS institutions,
+       min(effective_year) AS year_min,
+       max(effective_year) AS year_max,
+       count(d) AS total_documents
+"""
+
+# Per-document claims listing for the document detail panel. Returns top
+# 50 active claims ordered by extraction_confidence descending.
+LIST_CLAIMS_FOR_DOCUMENT_QUERY = """
+MATCH (d:Document {doc_id: $doc_id})
+WHERE d.institution_id IN $institution_ids
+MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
+      -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
+WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
+RETURN c.claim_id AS claim_id,
+       c.normalized_sentence AS sentence,
+       c.claim_type AS claim_type,
+       c.extraction_confidence AS confidence,
+       c.epistemic_status AS epistemic_status
+ORDER BY c.extraction_confidence DESC
+LIMIT 50
+"""
+
+# OCR text fetch for the in-app source preview modal. Returns both the raw
+# OCR string and the normalized clean_text so the modal can offer a
+# clean/raw toggle. Either field may be empty depending on how the document
+# was ingested; the route handler decides what to surface.
+GET_DOCUMENT_SOURCE_TEXT_QUERY = """
+MATCH (d:Document {doc_id: $doc_id})
+WHERE d.institution_id IN $institution_ids
+RETURN d.doc_id AS doc_id,
+       d.title AS title,
+       d.institution_id AS institution_id,
+       d.clean_text AS clean_text,
+       d.raw_ocr_text AS raw_ocr_text,
+       d.page_count AS page_count
+"""
+
+# Per-document paragraph reconstruction — used when the document-level
+# clean_text / raw_ocr_text properties are empty (some ingestion paths only
+# persist text at the paragraph granularity). Walks Document → Page →
+# Section → Paragraph in graph order.
+GET_DOCUMENT_PARAGRAPHS_QUERY = """
+MATCH (d:Document {doc_id: $doc_id})
+WHERE d.institution_id IN $institution_ids
+MATCH (d)-[:HAS_PAGE]->(p:Page)-[:HAS_SECTION]->(s:Section)
+      -[:HAS_PARAGRAPH]->(para:Paragraph)
+RETURN p.page_id AS page_id,
+       p.page_number AS page_number,
+       s.section_id AS section_id,
+       s.heading AS section_heading,
+       para.paragraph_id AS paragraph_id,
+       para.clean_text AS clean_text,
+       para.raw_ocr_text AS raw_ocr_text
+ORDER BY p.page_number, s.section_id, para.paragraph_id
+"""
+
+# Document header for the detail panel — single-row metadata fetch.
+GET_DOCUMENT_HEADER_QUERY = """
+MATCH (d:Document {doc_id: $doc_id})
+WHERE d.institution_id IN $institution_ids
+RETURN d.doc_id AS doc_id,
+       d.title AS title,
+       d.doc_type AS doc_type,
+       d.date_start AS date_start,
+       d.date_end AS date_end,
+       d.report_year AS report_year,
+       d.institution_id AS institution_id,
+       d.archive_ref AS archive_ref,
+       d.access_level AS access_level,
+       d.deleted_at AS deleted_at,
+       d.deleted_by AS deleted_by
+"""
+
+# ---------------------------------------------------------------------------
+# Mode 1: entity-to-entity path-finding
+#
+# Researchers ask "how is A connected to B?" and the system answers in a
+# cascade: direct co-assertion (one claim mentions both) → 1-hop (one
+# intermediate entity) → 2-hop → 3-hop. The first non-empty layer wins.
+# All queries apply the standard institution + access-level + soft-delete
+# filter on every claim's owning document, plus an optional year window.
+# ---------------------------------------------------------------------------
+
+# Direct co-assertion: claims that name both entities. The dominant case
+# in primary-source research — most "how are A and B connected" questions
+# have a direct answer if one exists. Returns top 25 by extraction
+# confidence so the strongest evidence ranks first.
+CO_ASSERTING_CLAIMS_QUERY = """
+MATCH (a {entity_id: $from_id})
+MATCH (b {entity_id: $to_id})
+MATCH (c:Claim)-[r1]->(a)
+MATCH (c)-[r2]->(b)
+WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
+WHERE d.institution_id IN $institution_ids
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+WITH a, b, c, r1, r2, d,
+     coalesce(d.report_year,
+              CASE WHEN d.date_start IS NOT NULL AND size(d.date_start) >= 4
+                   THEN toInteger(substring(d.date_start, 0, 4))
+                   ELSE null END) AS effective_year
+WHERE ($year_min IS NULL OR (effective_year IS NOT NULL AND effective_year >= $year_min))
+  AND ($year_max IS NULL OR (effective_year IS NOT NULL AND effective_year <= $year_max))
+RETURN c.claim_id AS claim_id,
+       c.normalized_sentence AS sentence,
+       c.claim_type AS claim_type,
+       c.extraction_confidence AS confidence,
+       type(r1) AS from_relation,
+       type(r2) AS to_relation,
+       d.doc_id AS doc_id,
+       d.title AS doc_title,
+       d.date_start AS doc_date_start,
+       d.report_year AS doc_report_year,
+       d.institution_id AS institution_id
+ORDER BY c.extraction_confidence DESC
+LIMIT 25
+"""
+
+# Per-entity claim count, used for inverse-frequency path weighting and the
+# 95th-percentile degree cap that filters paths through generic hub
+# entities. Cached at app startup; recomputed only on TTL expiry.
+#
+# count(DISTINCT c) — without DISTINCT, an entity that's referenced multiple
+# times by the same claim (e.g. via both LOCATION_FOCUS and TOPIC_OF_CLAIM)
+# would be counted once per relation, inflating the degree above
+# corpus_total_claims and producing negative inverse-frequency weights.
+ENTITY_DEGREE_QUERY = """
+MATCH (e:Entity)
+OPTIONAL MATCH (e)<-[]-(c:Claim)
+WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
+RETURN e.entity_id AS entity_id, count(DISTINCT c) AS degree
+"""
+
+# 1-hop path: A ←c1→ I ←c2→ B (one intermediate entity, two claims). Each
+# row is one candidate path. Multiple rows for the same intermediate are
+# expected — Python collapses them into path-families before ranking.
+PATHS_1_HOP_QUERY = """
+MATCH (a {entity_id: $from_id})
+MATCH (b {entity_id: $to_id})
+MATCH (c1:Claim)-[r1]->(a)
+WHERE c1.quarantine_status IS NULL OR c1.quarantine_status = 'active'
+MATCH (c1)-[r2]->(i)
+WHERE i.entity_id IS NOT NULL
+  AND i.entity_id <> $from_id AND i.entity_id <> $to_id
+  AND any(lbl IN labels(i) WHERE lbl <> 'Entity')
+  AND none(lbl IN labels(i) WHERE lbl IN ['Period', 'Year', 'Date'])
+  AND NOT i.entity_id IN $excluded_intermediate_ids
+MATCH (c2:Claim)-[r3]->(i)
+WHERE c2 <> c1
+  AND (c2.quarantine_status IS NULL OR c2.quarantine_status = 'active')
+MATCH (c2)-[r4]->(b)
+MATCH (c1)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d1:Document)
+WHERE d1.institution_id IN $institution_ids
+  AND d1.access_level IN $permitted_levels
+  AND d1.deleted_at IS NULL
+MATCH (c2)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d2:Document)
+WHERE d2.institution_id IN $institution_ids
+  AND d2.access_level IN $permitted_levels
+  AND d2.deleted_at IS NULL
+WITH a, b, i, c1, c2, r1, r2, r3, r4, d1, d2,
+     coalesce(d1.report_year,
+              CASE WHEN d1.date_start IS NOT NULL AND size(d1.date_start) >= 4
+                   THEN toInteger(substring(d1.date_start, 0, 4))
+                   ELSE null END) AS y1,
+     coalesce(d2.report_year,
+              CASE WHEN d2.date_start IS NOT NULL AND size(d2.date_start) >= 4
+                   THEN toInteger(substring(d2.date_start, 0, 4))
+                   ELSE null END) AS y2
+WHERE ($year_min IS NULL OR (y1 IS NOT NULL AND y1 >= $year_min AND y2 IS NOT NULL AND y2 >= $year_min))
+  AND ($year_max IS NULL OR (y1 IS NOT NULL AND y1 <= $year_max AND y2 IS NOT NULL AND y2 <= $year_max))
+RETURN i.entity_id AS i1_id, i.name AS i1_name,
+       [x IN labels(i) WHERE x <> 'Entity'][0] AS i1_type,
+       c1.claim_id AS e1_claim_id, c1.normalized_sentence AS e1_sentence,
+       c1.extraction_confidence AS e1_conf,
+       type(r1) AS e1_from_rel, type(r2) AS e1_to_rel,
+       d1.doc_id AS e1_doc_id, d1.title AS e1_doc_title, d1.date_start AS e1_doc_date,
+       c2.claim_id AS e2_claim_id, c2.normalized_sentence AS e2_sentence,
+       c2.extraction_confidence AS e2_conf,
+       type(r3) AS e2_from_rel, type(r4) AS e2_to_rel,
+       d2.doc_id AS e2_doc_id, d2.title AS e2_doc_title, d2.date_start AS e2_doc_date
+ORDER BY (c1.extraction_confidence + c2.extraction_confidence) DESC
+LIMIT 100
+"""
+
+# 2-hop path: A ←c1→ I1 ←c2→ I2 ←c3→ B (two intermediates, three claims).
+PATHS_2_HOP_QUERY = """
+MATCH (a {entity_id: $from_id})
+MATCH (b {entity_id: $to_id})
+MATCH (c1:Claim)-[r1]->(a)
+WHERE c1.quarantine_status IS NULL OR c1.quarantine_status = 'active'
+MATCH (c1)-[r2]->(i1)
+WHERE i1.entity_id IS NOT NULL
+  AND i1.entity_id <> $from_id AND i1.entity_id <> $to_id
+  AND any(lbl IN labels(i1) WHERE lbl <> 'Entity')
+  AND none(lbl IN labels(i1) WHERE lbl IN ['Period', 'Year', 'Date'])
+  AND NOT i1.entity_id IN $excluded_intermediate_ids
+MATCH (c2:Claim)-[r3]->(i1)
+WHERE c2 <> c1
+  AND (c2.quarantine_status IS NULL OR c2.quarantine_status = 'active')
+MATCH (c2)-[r4]->(i2)
+WHERE i2.entity_id IS NOT NULL
+  AND i2.entity_id <> $from_id AND i2.entity_id <> $to_id
+  AND i2.entity_id <> i1.entity_id
+  AND any(lbl IN labels(i2) WHERE lbl <> 'Entity')
+  AND none(lbl IN labels(i2) WHERE lbl IN ['Period', 'Year', 'Date'])
+  AND NOT i2.entity_id IN $excluded_intermediate_ids
+MATCH (c3:Claim)-[r5]->(i2)
+WHERE c3 <> c1 AND c3 <> c2
+  AND (c3.quarantine_status IS NULL OR c3.quarantine_status = 'active')
+MATCH (c3)-[r6]->(b)
+MATCH (c1)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d1:Document)
+WHERE d1.institution_id IN $institution_ids
+  AND d1.access_level IN $permitted_levels
+  AND d1.deleted_at IS NULL
+MATCH (c2)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d2:Document)
+WHERE d2.institution_id IN $institution_ids
+  AND d2.access_level IN $permitted_levels
+  AND d2.deleted_at IS NULL
+MATCH (c3)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
+      <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d3:Document)
+WHERE d3.institution_id IN $institution_ids
+  AND d3.access_level IN $permitted_levels
+  AND d3.deleted_at IS NULL
+WITH a, b, i1, i2, c1, c2, c3, r1, r2, r3, r4, r5, r6, d1, d2, d3,
+     coalesce(d1.report_year,
+              CASE WHEN d1.date_start IS NOT NULL AND size(d1.date_start) >= 4
+                   THEN toInteger(substring(d1.date_start, 0, 4))
+                   ELSE null END) AS y1,
+     coalesce(d2.report_year,
+              CASE WHEN d2.date_start IS NOT NULL AND size(d2.date_start) >= 4
+                   THEN toInteger(substring(d2.date_start, 0, 4))
+                   ELSE null END) AS y2,
+     coalesce(d3.report_year,
+              CASE WHEN d3.date_start IS NOT NULL AND size(d3.date_start) >= 4
+                   THEN toInteger(substring(d3.date_start, 0, 4))
+                   ELSE null END) AS y3
+WHERE ($year_min IS NULL OR (y1 IS NOT NULL AND y1 >= $year_min AND y2 IS NOT NULL AND y2 >= $year_min AND y3 IS NOT NULL AND y3 >= $year_min))
+  AND ($year_max IS NULL OR (y1 IS NOT NULL AND y1 <= $year_max AND y2 IS NOT NULL AND y2 <= $year_max AND y3 IS NOT NULL AND y3 <= $year_max))
+RETURN i1.entity_id AS i1_id, i1.name AS i1_name,
+       [x IN labels(i1) WHERE x <> 'Entity'][0] AS i1_type,
+       i2.entity_id AS i2_id, i2.name AS i2_name,
+       [x IN labels(i2) WHERE x <> 'Entity'][0] AS i2_type,
+       c1.claim_id AS e1_claim_id, c1.normalized_sentence AS e1_sentence,
+       c1.extraction_confidence AS e1_conf,
+       type(r1) AS e1_from_rel, type(r2) AS e1_to_rel,
+       d1.doc_id AS e1_doc_id, d1.title AS e1_doc_title, d1.date_start AS e1_doc_date,
+       c2.claim_id AS e2_claim_id, c2.normalized_sentence AS e2_sentence,
+       c2.extraction_confidence AS e2_conf,
+       type(r3) AS e2_from_rel, type(r4) AS e2_to_rel,
+       d2.doc_id AS e2_doc_id, d2.title AS e2_doc_title, d2.date_start AS e2_doc_date,
+       c3.claim_id AS e3_claim_id, c3.normalized_sentence AS e3_sentence,
+       c3.extraction_confidence AS e3_conf,
+       type(r5) AS e3_from_rel, type(r6) AS e3_to_rel,
+       d3.doc_id AS e3_doc_id, d3.title AS e3_doc_title, d3.date_start AS e3_doc_date
+ORDER BY (c1.extraction_confidence + c2.extraction_confidence + c3.extraction_confidence) DESC
+LIMIT 100
+"""
+
 # ---------------------------------------------------------------------------
 # Integrity verification query (used by CLI verify-integrity command)
 # ---------------------------------------------------------------------------

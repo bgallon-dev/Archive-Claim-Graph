@@ -249,3 +249,30 @@ class EntityResolutionGateway:
             unresolved=unresolved,
             maybe_resolved=maybe_resolved,
         )
+
+    def resolve_candidates(self, surface_form: str) -> list[ResolvedEntity]:
+        """Return all candidate entities for a single *surface_form*.
+
+        Distinct from :meth:`resolve` (which partitions REFERS_TO from
+        POSSIBLY_REFERS_TO across many surface forms): this returns the
+        merged list above the maybe-threshold for a single form, sorted by
+        confidence descending. Used by the path-finder's endpoint picker
+        to surface explicit disambiguation when a name like "Spokane" maps
+        to multiple entities (city / press / tribe / person).
+
+        Live-graph filtering is applied so that stale seed-entity ids
+        don't survive into the disambiguation list.
+        """
+        if not surface_form:
+            return []
+        ctx = self.resolve([surface_form])
+        merged: dict[str, ResolvedEntity] = {}
+        for entity in ctx.resolved + ctx.maybe_resolved:
+            existing = merged.get(entity.entity_id)
+            if existing is None or entity.resolution_confidence > existing.resolution_confidence:
+                merged[entity.entity_id] = entity
+        return sorted(
+            merged.values(),
+            key=lambda e: e.resolution_confidence,
+            reverse=True,
+        )

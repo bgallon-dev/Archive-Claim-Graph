@@ -1,0 +1,446 @@
+{% extends "retrieval_stats_base.html" %}
+{% block title %}Paths - Gemynd{% endblock %}
+
+{% block head %}
+<style>
+.paths-page-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 1rem 1.25rem;
+  align-items: end;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 1.5rem;
+}
+.paths-picker { position: relative; min-width: 0; }
+.paths-picker > label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.paths-picker-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.paths-picker-input:focus { border-color: var(--bark-400); }
+.paths-picker-chip {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px 8px 12px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--bark-50);
+  font-size: 13px;
+}
+.paths-picker.committed .paths-picker-input { display: none; }
+.paths-picker.committed .paths-picker-chip { display: flex; }
+.paths-picker-chip-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.paths-picker-chip-type {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: lowercase;
+}
+.paths-picker-chip-clear {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 4px;
+}
+.paths-picker-chip-clear:hover { color: var(--accent-red-text); }
+
+.paths-picker-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(26, 20, 16, 0.08);
+  z-index: 50;
+  max-height: 260px;
+  overflow-y: auto;
+  display: none;
+}
+.paths-picker-dropdown.open { display: block; }
+.paths-picker-result {
+  padding: 7px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+.paths-picker-result:last-child { border-bottom: none; }
+.paths-picker-result:hover,
+.paths-picker-result.active { background: var(--bark-50); }
+.paths-picker-result-name { flex: 1; color: var(--text-primary); }
+.paths-picker-result-type {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: lowercase;
+}
+.paths-picker-empty {
+  padding: 7px 12px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.paths-find-btn {
+  font-family: var(--font-body);
+  background: var(--bark-700);
+  color: var(--text-inverse);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  height: 38px;
+}
+.paths-find-btn:disabled {
+  background: var(--bark-300);
+  color: var(--text-tertiary);
+  cursor: not-allowed;
+}
+.paths-find-btn:not(:disabled):hover { background: var(--bark-600); }
+
+.paths-options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+.paths-options input[type="number"] {
+  width: 70px;
+  padding: 4px 6px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 12px;
+}
+.paths-options label { display: inline-flex; align-items: center; gap: 4px; }
+
+#path-results-container { min-height: 4rem; }
+#path-results-container:empty::before {
+  content: "Pick two entities above to find how they connect.";
+  display: block;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 2rem 0;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<p class="page-title">Paths</p>
+<p class="page-sub">
+  Find how two entities connect — through claims that mention both directly,
+  or through intermediate entities they share.
+</p>
+
+<form id="paths-form"
+      hx-get="/paths/results"
+      hx-target="#path-results-container"
+      hx-swap="innerHTML"
+      hx-trigger="submit"
+      hx-push-url="true">
+  <div class="paths-page-form">
+    {% with slot="from", label_text="From" %}
+    {% include "fragments/path_picker.html" %}
+    {% endwith %}
+
+    {% with slot="to", label_text="To" %}
+    {% include "fragments/path_picker.html" %}
+    {% endwith %}
+
+    <button type="submit" class="paths-find-btn" id="paths-find-btn" disabled>Find paths</button>
+  </div>
+
+  <div class="paths-options">
+    {% if corpus_year_min and corpus_year_max %}
+    <label>
+      Years
+      <input type="number" name="year_min" min="{{ corpus_year_min }}" max="{{ corpus_year_max }}"
+             placeholder="{{ corpus_year_min }}">
+      <span>–</span>
+      <input type="number" name="year_max" min="{{ corpus_year_min }}" max="{{ corpus_year_max }}"
+             placeholder="{{ corpus_year_max }}">
+    </label>
+    {% endif %}
+    <label>
+      <input type="checkbox" name="include_paths" value="true">
+      Show indirect paths even when direct claims exist
+    </label>
+  </div>
+</form>
+
+<div id="path-results-container"></div>
+<div id="sankey-tooltip" class="sankey-tooltip" role="tooltip" aria-hidden="true"></div>
+
+<script>
+// -- Sankey ribbon hover tooltip + click-to-load edge panel ----------------
+(function () {
+  const tooltip = document.getElementById('sankey-tooltip');
+  if (!tooltip) return;
+
+  function escapeHtml(s) {
+    return (s || '').replace(/[&<>"']/g, function (m) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+    });
+  }
+
+  function showTooltipFor(ribbon, evt) {
+    const d = ribbon.dataset;
+    const sentence = escapeHtml(d.sentence);
+    const fromName = escapeHtml(d.fromName);
+    const toName = escapeHtml(d.toName);
+    const fromRel = escapeHtml(d.fromRel);
+    const toRel = escapeHtml(d.toRel);
+    const conf = d.confidence;
+    const docTitle = escapeHtml(d.docTitle);
+    const docDate = escapeHtml(d.docDate);
+
+    // Hide the relation pair when both sides are identical — that's the
+    // degenerate signal case (LOCATION_FOCUS · LOCATION_FOCUS, etc.) that
+    // adds no information.
+    const relMarkup = (fromRel && toRel && fromRel !== toRel)
+      ? '<span class="sankey-tooltip-rel">' + fromRel + ' → ' + toRel + '</span>'
+      : '';
+    tooltip.innerHTML =
+      '<div class="sankey-tooltip-sentence">"' + sentence + '"</div>' +
+      '<div class="sankey-tooltip-meta">' +
+        relMarkup +
+        '<span>conf ' + conf + '</span>' +
+        (docDate ? '<span>' + docDate + '</span>' : '') +
+        (docTitle ? '<span>· ' + docTitle + '</span>' : '') +
+      '</div>' +
+      '<div class="sankey-tooltip-meta" style="margin-top:0.2rem;">' +
+        '<span>' + fromName + ' → ' + toName + '</span>' +
+        '<span style="color:var(--bark-300);">click to see all supporting claims</span>' +
+      '</div>';
+    positionTooltip(evt);
+    tooltip.classList.add('open');
+    tooltip.setAttribute('aria-hidden', 'false');
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('open');
+    tooltip.setAttribute('aria-hidden', 'true');
+  }
+
+  function positionTooltip(evt) {
+    // Place tooltip near cursor, but flip if it would overflow viewport.
+    const margin = 14;
+    const tipWidth = tooltip.offsetWidth || 280;
+    const tipHeight = tooltip.offsetHeight || 80;
+    let x = evt.clientX + margin;
+    let y = evt.clientY + margin;
+    if (x + tipWidth > window.innerWidth - 12) x = evt.clientX - tipWidth - margin;
+    if (y + tipHeight > window.innerHeight - 12) y = evt.clientY - tipHeight - margin;
+    tooltip.style.left = Math.max(8, x) + 'px';
+    tooltip.style.top = Math.max(8, y) + 'px';
+  }
+
+  function getYearParams() {
+    // Pull year_min / year_max off the paths form so the side-panel scope
+    // matches the Sankey scope.
+    const form = document.getElementById('paths-form');
+    if (!form) return '';
+    const ymin = (form.querySelector('input[name="year_min"]') || {}).value || '';
+    const ymax = (form.querySelector('input[name="year_max"]') || {}).value || '';
+    const parts = [];
+    if (ymin) parts.push('year_min=' + encodeURIComponent(ymin));
+    if (ymax) parts.push('year_max=' + encodeURIComponent(ymax));
+    return parts.length ? '&' + parts.join('&') : '';
+  }
+
+  // Delegate from document so listeners survive HTMX swaps of the results
+  // container without re-binding.
+  document.addEventListener('mouseenter', function (evt) {
+    const t = evt.target;
+    if (!(t instanceof Element) || !t.matches('.sankey-ribbon')) return;
+    showTooltipFor(t, evt);
+  }, true);
+  document.addEventListener('mousemove', function (evt) {
+    if (!tooltip.classList.contains('open')) return;
+    positionTooltip(evt);
+  });
+  document.addEventListener('mouseleave', function (evt) {
+    const t = evt.target;
+    if (!(t instanceof Element) || !t.matches('.sankey-ribbon')) return;
+    hideTooltip();
+  }, true);
+  document.addEventListener('click', function (evt) {
+    const t = evt.target;
+    if (!(t instanceof Element) || !t.matches('.sankey-ribbon')) return;
+    hideTooltip();
+    const fromId = t.dataset.fromId;
+    const toId = t.dataset.toId;
+    if (!fromId || !toId) return;
+    // HTMX fetch the edge panel into the in-page container.
+    const panel = document.getElementById('path-edge-panel');
+    if (!panel) return;
+    const url = '/paths/edge?from=' + encodeURIComponent(fromId)
+              + '&to=' + encodeURIComponent(toId)
+              + getYearParams();
+    htmx.ajax('GET', url, { target: '#path-edge-panel', swap: 'innerHTML' });
+  });
+})();
+</script>
+
+<script>
+(function () {
+  const form = document.getElementById('paths-form');
+  const findBtn = document.getElementById('paths-find-btn');
+
+  function refreshSubmitState() {
+    const fromId = form.querySelector('input[name="from"]').value;
+    const toId = form.querySelector('input[name="to"]').value;
+    findBtn.disabled = !(fromId && toId && fromId !== toId);
+  }
+
+  // Each picker is a small autocomplete widget. Wire one set of handlers
+  // per slot so two pickers coexist without ID collisions.
+  document.querySelectorAll('.paths-picker').forEach(function (picker) {
+    const slot = picker.dataset.slot;            // "from" or "to"
+    const input = picker.querySelector('.paths-picker-input');
+    const dropdown = picker.querySelector('.paths-picker-dropdown');
+    const hidden = picker.querySelector('input[type="hidden"]');
+    const chip = picker.querySelector('.paths-picker-chip');
+    const chipName = picker.querySelector('.paths-picker-chip-name');
+    const chipType = picker.querySelector('.paths-picker-chip-type');
+    const clearBtn = picker.querySelector('.paths-picker-chip-clear');
+
+    let lastFetch = 0;
+    let debounceTimer = null;
+
+    function closeDropdown() { dropdown.classList.remove('open'); }
+    function openDropdown() { if (dropdown.children.length > 0) dropdown.classList.add('open'); }
+
+    function commit(entityId, name, entityType) {
+      hidden.value = entityId;
+      chipName.textContent = name || entityId;
+      chipType.textContent = entityType || '';
+      picker.classList.add('committed');
+      closeDropdown();
+      refreshSubmitState();
+    }
+
+    function clearCommit() {
+      hidden.value = '';
+      picker.classList.remove('committed');
+      input.value = '';
+      input.focus();
+      refreshSubmitState();
+    }
+
+    function renderResults(rows) {
+      dropdown.innerHTML = '';
+      if (!rows || rows.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'paths-picker-empty';
+        empty.textContent = 'No matching entities.';
+        dropdown.appendChild(empty);
+      } else {
+        rows.forEach(function (r) {
+          const div = document.createElement('div');
+          div.className = 'paths-picker-result';
+          div.innerHTML = '<span class="paths-picker-result-name"></span>' +
+                          '<span class="paths-picker-result-type"></span>';
+          div.querySelector('.paths-picker-result-name').textContent = r.name || r.entity_id;
+          div.querySelector('.paths-picker-result-type').textContent = r.entity_type || '';
+          div.addEventListener('mousedown', function (e) {
+            // mousedown (not click) so it fires before blur closes the dropdown
+            e.preventDefault();
+            commit(r.entity_id, r.name, r.entity_type);
+          });
+          dropdown.appendChild(div);
+        });
+      }
+      openDropdown();
+    }
+
+    async function fetchSuggestions(q) {
+      if (!q || q.trim().length < 2) {
+        dropdown.innerHTML = '';
+        closeDropdown();
+        return;
+      }
+      const myFetchId = ++lastFetch;
+      try {
+        const resp = await fetch('/api/entities/search?q=' + encodeURIComponent(q.trim()) + '&limit=10', {
+          credentials: 'same-origin',
+        });
+        if (!resp.ok || myFetchId !== lastFetch) return;
+        const rows = await resp.json();
+        if (myFetchId !== lastFetch) return;
+        renderResults(rows);
+      } catch (err) {
+        // Silent — autocomplete failures don't block the form.
+      }
+    }
+
+    input.addEventListener('input', function () {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function () {
+        fetchSuggestions(input.value);
+      }, 200);
+    });
+    input.addEventListener('focus', function () {
+      if (input.value.trim().length >= 2 && dropdown.children.length > 0) {
+        openDropdown();
+      }
+    });
+    input.addEventListener('blur', function () {
+      // Delay so a click on a result still fires.
+      setTimeout(closeDropdown, 120);
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeDropdown();
+        input.blur();
+      }
+    });
+    clearBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      clearCommit();
+    });
+  });
+
+  refreshSubmitState();
+})();
+</script>
+{% endblock %}

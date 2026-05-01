@@ -1,0 +1,110 @@
+<div class="source-modal-backdrop"
+     onclick="if (event.target === this) document.getElementById('document-modal').innerHTML = ''">
+  <div class="source-modal" role="dialog" aria-labelledby="doc-modal-title">
+    <header class="source-modal-head">
+      <div class="source-modal-titles">
+        <h2 class="source-modal-title" id="doc-modal-title">
+          {% if doc.title %}{{ doc.title }}
+          {% else %}<span class="doc-title-degraded" title="{{ doc.title_raw or doc.doc_id }}">[{{ doc.institution_id or 'document' }} — title OCR degraded]</span>
+          {% endif %}
+        </h2>
+        <p class="source-modal-meta">
+          {% if doc.date_start %}{{ doc.date_start }}{% if doc.date_end and doc.date_end != doc.date_start %} – {{ doc.date_end }}{% endif %} ·
+          {% elif doc.report_year %}{{ doc.report_year }} ·
+          {% endif %}
+          {{ doc.institution_id or '—' }}
+          {% if doc.doc_type and doc.doc_type != 'narrative_report' %} · {{ doc.doc_type }}{% endif %}
+          {% if doc.access_level == 'restricted' %}
+          <span class="badge badge-amber" style="margin-left:6px">restricted</span>
+          {% elif doc.access_level == 'staff_only' %}
+          <span class="badge badge-blue" style="margin-left:6px">staff only</span>
+          {% elif doc.access_level == 'indigenous_restricted' %}
+          <span class="badge badge-red" style="margin-left:6px">indigenous</span>
+          {% endif %}
+          {% if doc.deleted_at %}
+          <span class="badge badge-red" style="margin-left:6px">Deleted{% if doc.deleted_at|length >= 10 %} {{ doc.deleted_at[:10] }}{% endif %}</span>
+          {% endif %}
+        </p>
+      </div>
+      <button class="source-modal-close" type="button" aria-label="Close"
+              onclick="document.getElementById('document-modal').innerHTML = ''">×</button>
+    </header>
+
+    <nav class="source-modal-tabs">
+      <button type="button" class="source-modal-tab{% if active_tab == 'ocr' %} active{% endif %}"
+              hx-get="/document/{{ doc.doc_id }}/modal?tab=ocr"
+              hx-target="#document-modal" hx-swap="innerHTML">OCR text</button>
+      <button type="button" class="source-modal-tab{% if active_tab == 'claims' %} active{% endif %}"
+              hx-get="/document/{{ doc.doc_id }}/modal?tab=claims"
+              hx-target="#document-modal" hx-swap="innerHTML">Claims{% if claim_count %} ({{ claim_count }}){% endif %}</button>
+      <button type="button" class="source-modal-tab{% if active_tab == 'notes' %} active{% endif %}"
+              hx-get="/document/{{ doc.doc_id }}/modal?tab=notes"
+              hx-target="#document-modal" hx-swap="innerHTML">Notes</button>
+      {% if doc.source_links %}
+      <span class="source-modal-tabs-spacer"></span>
+      {% for link in doc.source_links %}
+      <a href="{{ link.url }}" target="_blank" rel="noopener" class="source-modal-extlink"
+         {% if link.note %}title="{{ link.note }}"{% endif %}>↗ {{ link.label }}</a>
+      {% endfor %}
+      {% endif %}
+    </nav>
+
+    <div class="source-modal-body">
+      {% if active_tab == 'ocr' %}
+        {% if has_clean and has_raw %}
+        <div class="source-modal-subtabs">
+          <button type="button" class="source-modal-subtab{% if view_mode == 'clean' %} active{% endif %}"
+                  hx-get="/document/{{ doc.doc_id }}/modal?tab=ocr&view=clean"
+                  hx-target="#document-modal" hx-swap="innerHTML">Clean</button>
+          <button type="button" class="source-modal-subtab{% if view_mode == 'raw' %} active{% endif %}"
+                  hx-get="/document/{{ doc.doc_id }}/modal?tab=ocr&view=raw"
+                  hx-target="#document-modal" hx-swap="innerHTML">Raw OCR</button>
+        </div>
+        {% endif %}
+        {% if ocr_body %}
+        <pre class="source-modal-text">{{ ocr_body }}</pre>
+        {% else %}
+        <p class="empty-state">No OCR text stored for this document.</p>
+        {% endif %}
+
+      {% elif active_tab == 'claims' %}
+        {% if claims %}
+        <ul class="detail-claim-list">
+          {% for c in claims %}
+          <li class="detail-claim">
+            <span class="conf-pill {{ c.confidence | conf_tier_class }}">
+              {% if c.confidence is not none %}{{ "%.2f"|format(c.confidence) }}{% else %}—{% endif %}
+            </span>
+            <span class="claim-type">{{ c.claim_type }}</span>
+            <p class="claim-sentence">{{ c.sentence }}</p>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <p class="empty-state">No active claims for this document.</p>
+        {% endif %}
+
+      {% elif active_tab == 'notes' %}
+        <div hx-get="/document/{{ doc.doc_id }}/notes-panel"
+             hx-trigger="load" hx-swap="innerHTML">
+          <p class="empty-state">Loading notes…</p>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if is_admin %}
+    <footer class="source-modal-footer">
+      {% if doc.deleted_at %}
+      <button hx-post="/document/{{ doc.doc_id }}/restore"
+              hx-target="#document-modal" hx-swap="innerHTML"
+              class="btn-sm btn-accept" type="button">Restore document</button>
+      {% else %}
+      <button hx-delete="/document/{{ doc.doc_id }}?confirm=true"
+              hx-confirm="Soft-delete this document? It can be restored later."
+              hx-target="#document-modal" hx-swap="innerHTML"
+              class="btn-sm btn-reject" type="button">Soft-delete</button>
+      {% endif %}
+    </footer>
+    {% endif %}
+  </div>
+</div>

@@ -1,5 +1,9 @@
-<tr id="user-{{ user.user_id }}"{% if not user.is_active %} style="opacity:0.5"{% endif %}>
-  <td>{{ user.email }}</td>
+<tr id="user-{{ user.user_id }}">
+  <td>
+    {% if user.is_active %}{{ user.email }}
+    {% else %}<span style="color:var(--text-tertiary)">{{ user.email }}</span>
+    {% endif %}
+  </td>
   <td>
     {% if user.role == 'admin' %}<span class="badge badge-warm">admin</span>
     {% elif user.role == 'archivist' %}<span class="badge badge-blue">archivist</span>
@@ -9,7 +13,7 @@
   </td>
   <td>
     {% if user.is_active %}Active
-    {% else %}Inactive
+    {% else %}<span class="badge badge-amber">Inactive</span>
     {% endif %}
   </td>
   <td>

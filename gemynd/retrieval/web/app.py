@@ -222,11 +222,40 @@ _SAVED_ID_RE = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-
 # Gap detection helpers and HTML renderer
 # ---------------------------------------------------------------------------
 
+def _temporal_year_data(temporal_rows: list[dict]) -> dict[int, dict[str, int]]:
+    """Return year-keyed document and claim counts, coercing Neo4j values to ints."""
+    year_data: dict[int, dict[str, int]] = {}
+    for row in temporal_rows:
+        if row.get("year") is None:
+            continue
+        year = int(row["year"])
+        year_data[year] = {
+            "doc_count": int(row.get("doc_count") or 0),
+            "claim_count": int(row.get("claim_count") or 0),
+        }
+    return year_data
+
+
+def _temporal_gap_threshold(temporal_rows: list[dict]) -> float:
+    year_data = _temporal_year_data(temporal_rows)
+    if not year_data:
+        return 0.0
+    min_year, max_year = min(year_data), max(year_data)
+    active = [
+        year_data.get(y, {}).get("doc_count", 0)
+        for y in range(min_year, max_year + 1)
+        if year_data.get(y, {}).get("doc_count", 0) > 0
+    ]
+    if not active:
+        return 0.0
+    return float(max(1, _statistics.median(active) * 0.2))
+
+
 def _compute_temporal_gaps(temporal_rows: list[dict]) -> list[dict]:
     """Return consecutive sparse-year periods that fall between active coverage."""
     if not temporal_rows:
         return []
-    year_data = {row["year"]: row.get("doc_count", 0) for row in temporal_rows}
+    year_data = {year: row["doc_count"] for year, row in _temporal_year_data(temporal_rows).items()}
     all_years = sorted(year_data)
     if len(all_years) < 2:
         return []
@@ -235,8 +264,7 @@ def _compute_temporal_gaps(temporal_rows: list[dict]) -> list[dict]:
     active = [v for v in full.values() if v > 0]
     if not active:
         return []
-    median_active = _statistics.median(active)
-    gap_threshold = max(1, median_active * 0.2)
+    gap_threshold = _temporal_gap_threshold(temporal_rows)
 
     gaps: list[dict] = []
     current_gap: list[int] = []
@@ -259,6 +287,42 @@ def _compute_temporal_gaps(temporal_rows: list[dict]) -> list[dict]:
                          "years_count": len(current_gap),
                          "before_docs": before_docs, "after_docs": 0})
     return gaps
+
+
+def _build_temporal_timeline(temporal_rows: list[dict]) -> dict:
+    year_data = _temporal_year_data(temporal_rows)
+    if not year_data:
+        return {"years": [], "max_doc_count": 0, "start_year": None, "end_year": None}
+
+    min_year, max_year = min(year_data), max(year_data)
+    max_doc_count = max((row["doc_count"] for row in year_data.values()), default=0)
+    gap_threshold = _temporal_gap_threshold(temporal_rows)
+    years = []
+    for year in range(min_year, max_year + 1):
+        doc_count = year_data.get(year, {}).get("doc_count", 0)
+        claim_count = year_data.get(year, {}).get("claim_count", 0)
+        if year == min_year or year == max_year or year % 10 == 0:
+            tick_label = str(year)
+        else:
+            tick_label = ""
+        opacity = "0.00"
+        if max_doc_count and doc_count:
+            opacity = f"{0.18 + (0.82 * (doc_count / max_doc_count)):.2f}"
+        years.append({
+            "year": year,
+            "doc_count": doc_count,
+            "claim_count": claim_count,
+            "is_gap": doc_count <= gap_threshold,
+            "opacity": opacity,
+            "tick_label": tick_label,
+        })
+
+    return {
+        "years": years,
+        "max_doc_count": max_doc_count,
+        "start_year": min_year,
+        "end_year": max_year,
+    }
 
 
 _RESTRICTED_ACCESS_LEVELS = frozenset({"restricted", "indigenous_restricted", "staff_only"})
@@ -330,6 +394,8 @@ def _build_stats_context(
     low = confidence.get("low_count") or 0
     uncertain_epistemic = confidence.get("uncertain_epistemic_count") or 0
     total_entities = sum(r.get("count", 0) for r in entity_types)
+    claims_per_doc = total_claims / total_docs if total_docs else 0.0
+    entities_per_doc = total_entities / total_docs if total_docs else 0.0
 
     date_span = f"{earliest} – {latest}" if earliest != "—" else "—"
 
@@ -345,15 +411,67 @@ def _build_stats_context(
                 for y, c in year_map.items():
                     d = (y // 10) * 10
                     decade_map[d] = decade_map.get(d, 0) + c
-                for d in range((min_year // 10) * 10, max_year + 10, 10):
+                start_decade = (min_year // 10) * 10
+                end_decade = (max_year // 10) * 10
+                for d in range(start_decade, end_decade + 1, 10):
                     cnt = decade_map.get(d, 0)
-                    temporal_rows.append({"label": f"{d}s", "count": cnt, "is_gap": cnt == 0})
+                    decade_counts = [year_map.get(y, 0) for y in range(d, d + 10)]
+                    decade_peak = max(decade_counts) if decade_counts else 0
+                    segments = []
+                    for y, year_count in zip(range(d, d + 10), decade_counts):
+                        opacity = 0.0
+                        if decade_peak and year_count:
+                            opacity = 0.22 + (0.78 * (year_count / decade_peak))
+                        segments.append({
+                            "year": y,
+                            "count": year_count,
+                            "opacity": f"{opacity:.2f}",
+                        })
+                    temporal_rows.append({
+                        "label": f"{d}s",
+                        "count": cnt,
+                        "is_gap": cnt == 0,
+                        "segments": segments,
+                    })
             else:
                 for y in range(min_year, max_year + 1):
                     cnt = year_map.get(y, 0)
-                    temporal_rows.append({"label": str(y), "count": cnt, "is_gap": cnt == 0})
+                    temporal_rows.append({
+                        "label": str(y),
+                        "count": cnt,
+                        "is_gap": cnt == 0,
+                        "segments": [],
+                    })
 
     safe_total = max(total_claims, 1)
+    temporal_max_count = max((row["count"] for row in temporal_rows), default=0)
+    temporal_max_label = ""
+    for row in temporal_rows:
+        if temporal_max_count:
+            row["width_pct"] = round(row["count"] / temporal_max_count * 100)
+        else:
+            row["width_pct"] = 0
+        if row["count"] == temporal_max_count and temporal_max_count and not temporal_max_label:
+            temporal_max_label = row["label"]
+
+    high_pct = high * 100 // safe_total
+    medium_pct = medium * 100 // safe_total
+    low_pct = low * 100 // safe_total
+    confidence_rows = [
+        {"label": "High", "count": high, "pct": high_pct, "color": "var(--bark-700)"},
+        {"label": "Medium", "count": medium, "pct": medium_pct, "color": "var(--accent-amber-text)"},
+        {"label": "Low", "count": low, "pct": low_pct, "color": "var(--accent-red-text)"},
+    ]
+    if total_claims <= 0:
+        confidence_qualifier = "No active claims are available for confidence calibration."
+    elif low_pct >= 25:
+        confidence_qualifier = "Elevated low-confidence share; review low-confidence claims before treating extracted patterns as stable."
+    elif high_pct >= 70 and low_pct <= 10:
+        confidence_qualifier = "Strong local confidence profile; most active claims meet the high-confidence threshold."
+    elif medium_pct + low_pct >= 40:
+        confidence_qualifier = "Mixed local confidence profile; use claim-level confidence when comparing evidence."
+    else:
+        confidence_qualifier = "Confidence distribution is calibrated to local thresholds only; no external benchmark is configured."
     conf_avg_str = f"{avg_conf:.2f}" if avg_conf is not None else "—"
 
     return {
@@ -363,16 +481,22 @@ def _build_stats_context(
         "date_span": date_span,
         "total_pages": total_pages,
         "donor_restricted": donor_restricted,
+        "claims_per_doc": f"{claims_per_doc:.1f}",
+        "entities_per_doc": f"{entities_per_doc:.1f}",
         "doc_types": doc_types,
         "claim_types": claim_types,
         "entity_types": entity_types,
         "temporal_rows": temporal_rows,
+        "temporal_max_count": temporal_max_count,
+        "temporal_max_label": temporal_max_label,
         "high": high,
         "medium": medium,
         "low": low,
-        "high_pct": high * 100 // safe_total,
-        "medium_pct": medium * 100 // safe_total,
-        "low_pct": low * 100 // safe_total,
+        "high_pct": high_pct,
+        "medium_pct": medium_pct,
+        "low_pct": low_pct,
+        "confidence_rows": confidence_rows,
+        "confidence_qualifier": confidence_qualifier,
         "uncertain_epistemic": uncertain_epistemic,
         "conf_avg_str": conf_avg_str,
     }
@@ -388,19 +512,117 @@ def _compute_topic_rows(
         actual = actual_shares.get(claim_type, 0.0)
         actual_pct = round(actual * 100, 1)
         expected_pct = round(expected * 100, 1)
-        if actual < expected * 0.25:
-            status = "gap"
-        elif actual < expected * 0.50:
-            status = "thin"
-        else:
-            status = "ok"
+        width_scale = max(actual_pct, expected_pct)
+        actual_width_pct = round(actual_pct / width_scale * 100, 1) if width_scale else 0.0
+        expected_width_pct = round(expected_pct / width_scale * 100, 1) if width_scale else 0.0
+        status = _topic_status(actual, expected)
         rows.append({
             "claim_type": claim_type,
             "actual_pct": actual_pct,
             "expected_pct": expected_pct,
+            "actual_width_pct": actual_width_pct,
+            "expected_width_pct": expected_width_pct,
+            "delta_pct": round(actual_pct - expected_pct, 1),
             "status": status,
         })
     return rows
+
+
+def _topic_status(actual: float, expected: float) -> str:
+    if expected <= 0:
+        return "ok"
+    if actual < expected * 0.25:
+        return "gap"
+    if actual < expected * 0.50:
+        return "thin"
+    return "ok"
+
+
+def _worst_topic_status(statuses: list[str]) -> str:
+    rank = {"ok": 0, "thin": 1, "gap": 2}
+    return max(statuses or ["ok"], key=lambda status: rank.get(status, 0))
+
+
+def _coverage_median(rows: list[dict], count_key: str) -> float:
+    for row in rows:
+        for key in ("coverage_median", "median_claim_count", "median_count"):
+            value = row.get(key)
+            if value is not None:
+                return float(value)
+    counts = [int(row.get(count_key) or 0) for row in rows]
+    return float(_statistics.median(counts)) if counts else 0.0
+
+
+def _claim_count_label(count: int) -> str:
+    return "1 claim" if count == 1 else f"{count} claims"
+
+
+def _enrich_thin_rows(rows: list[dict], count_key: str, median: float) -> list[dict]:
+    enriched = []
+    for row in rows:
+        count = int(row.get(count_key) or 0)
+        copy = dict(row)
+        copy["claim_count_label"] = _claim_count_label(count)
+        copy["median_pct"] = round(count / median * 100) if median > 0 else None
+        enriched.append(copy)
+    return enriched
+
+
+def _build_per_corpus_comparison(
+    expected_shares_by_corpus: dict[str, dict[str, float]],
+    counts_by_corpus: dict[str, dict[str, int]],
+) -> dict:
+    corpora = []
+    actual_shares_by_corpus: dict[str, dict[str, float]] = {}
+    for inst in sorted(expected_shares_by_corpus):
+        counts = counts_by_corpus.get(inst, {})
+        total = sum(counts.values())
+        actual_shares_by_corpus[inst] = {
+            claim_type: count / total
+            for claim_type, count in counts.items()
+        } if total else {}
+        corpora.append({"institution_id": inst, "total_claims": total})
+
+    claim_types = sorted(
+        {
+            claim_type
+            for shares in expected_shares_by_corpus.values()
+            for claim_type in shares
+        } | {
+            claim_type
+            for counts in counts_by_corpus.values()
+            for claim_type in counts
+        }
+    )
+
+    rows = []
+    for claim_type in claim_types:
+        cells = []
+        statuses = []
+        for corpus in corpora:
+            inst = corpus["institution_id"]
+            expected = expected_shares_by_corpus.get(inst, {}).get(claim_type, 0.0)
+            actual = actual_shares_by_corpus.get(inst, {}).get(claim_type, 0.0)
+            status = _topic_status(actual, expected)
+            statuses.append(status)
+            actual_pct = round(actual * 100, 1)
+            expected_pct = round(expected * 100, 1)
+            width_scale = max(actual_pct, expected_pct)
+            cells.append({
+                "institution_id": inst,
+                "actual_pct": actual_pct,
+                "expected_pct": expected_pct,
+                "actual_width_pct": round(actual_pct / width_scale * 100, 1) if width_scale else 0.0,
+                "expected_width_pct": round(expected_pct / width_scale * 100, 1) if width_scale else 0.0,
+                "status": status,
+            })
+        rows.append({
+            "claim_type": claim_type,
+            "cells": cells,
+            "status": _worst_topic_status(statuses),
+        })
+
+    return {"corpora": corpora, "rows": rows}
 
 
 def _build_gaps_context(
@@ -413,11 +635,29 @@ def _build_gaps_context(
     per_corpus_claim_types: list[dict] | None = None,
 ) -> dict:
     temporal_gaps = _compute_temporal_gaps(temporal)
-    year_span = f"{temporal[0]['year']}–{temporal[-1]['year']}" if temporal else "unknown"
+    temporal_timeline = _build_temporal_timeline(temporal)
+    temporal_gap_threshold = _temporal_gap_threshold(temporal)
+    if temporal_timeline["start_year"] is not None:
+        year_span = f"{temporal_timeline['start_year']}-{temporal_timeline['end_year']}"
+    else:
+        year_span = "unknown"
 
+    entity_depth_median = _coverage_median(entity_depth, "primary_claim_count")
+    enriched_entity_depth = _enrich_thin_rows(
+        entity_depth,
+        "primary_claim_count",
+        entity_depth_median,
+    )
     entity_depth_by_type: dict[str, list[dict]] = {}
-    for row in entity_depth:
+    for row in enriched_entity_depth:
         entity_depth_by_type.setdefault(row["entity_type"], []).append(row)
+
+    geo_coverage_median = _coverage_median(geo_coverage, "location_specific_claims")
+    enriched_geo_coverage = _enrich_thin_rows(
+        geo_coverage,
+        "location_specific_claims",
+        geo_coverage_median,
+    )
 
     # Blended topical share: union of claim_types across corpora, share
     # computed against the unioned total.
@@ -477,16 +717,22 @@ def _build_gaps_context(
             "total_claims": corpus_total,
             "topic_rows": _compute_topic_rows(corpus_actual, shares),
         })
+    per_corpus_comparison = _build_per_corpus_comparison(_shares_by_corpus, per_corpus_counts)
 
     return {
         "temporal_gaps": temporal_gaps,
+        "temporal_timeline": temporal_timeline,
+        "temporal_gap_threshold": temporal_gap_threshold,
         "year_span": year_span,
+        "entity_depth_median": entity_depth_median,
         "entity_depth_by_type": sorted(entity_depth_by_type.items()),
-        "geo_coverage": geo_coverage,
+        "geo_coverage_median": geo_coverage_median,
+        "geo_coverage": enriched_geo_coverage,
         "show_unclassified_banner": show_unclassified_banner,
         "unclassified_pct": unclassified_pct,
         "topic_rows": topic_rows,
         "per_corpus_panels": per_corpus_panels,
+        "per_corpus_comparison": per_corpus_comparison,
         "conv_gaps": conv_gaps,
     }
 
@@ -501,6 +747,24 @@ def _build_history_context(
     offset: int,
 ) -> dict:
     import urllib.parse as _urlparse
+
+    def _rerun_url(
+        query_text: str,
+        rerun_bucket: str,
+        year_min: object,
+        year_max: object,
+        conversation_id: str,
+    ) -> str:
+        params: dict[str, str] = {"q": query_text}
+        if rerun_bucket:
+            params["bucket"] = rerun_bucket
+        if year_min is not None and str(year_min) != "":
+            params["year_min"] = str(year_min)
+        if year_max is not None and str(year_max) != "":
+            params["year_max"] = str(year_max)
+        if conversation_id:
+            params["conversation_id"] = conversation_id
+        return "/?" + _urlparse.urlencode(params)
 
     prev_offset = max(0, offset - limit)
     next_offset = offset + limit
@@ -530,7 +794,7 @@ def _build_history_context(
             yr_str = "\u2014"
         ts = (row.get("created_at") or "")[:16]
         conv_id = row.get("conversation_id") or ""
-        rerun_url = "/?q=" + _urlparse.quote(qtext)
+        rerun_url = _rerun_url(qtext, bkt, yr_min, yr_max, conv_id)
         row_ctxs.append({
             "ts": ts,
             "qtext": qtext,
@@ -562,7 +826,8 @@ def _build_history_context(
         screated_by = s.get("created_by") or ""
         sts = (s.get("created_at") or "")[:16]
         saved_id = s.get("saved_id") or ""
-        srerun_url = "/?q=" + _urlparse.quote(sqtext)
+        sconv_id = s.get("conversation_id") or ""
+        srerun_url = _rerun_url(sqtext, sbkt, syr_min, syr_max, sconv_id)
         saved_ctxs.append({
             "label": slabel,
             "sqtext": sqtext,
@@ -572,6 +837,7 @@ def _build_history_context(
             "screated_by": screated_by,
             "sts": sts,
             "saved_id": saved_id,
+            "sconv_id": sconv_id,
             "srerun_url": srerun_url,
         })
 
@@ -585,11 +851,20 @@ def _build_history_context(
     shown_end = min(offset + limit, total)
     pagination = None
     if has_prev or has_next:
+        skip_back_offset = max(0, offset - (limit * 5))
+        skip_forward_offset = offset + (limit * 5)
+        if total > 0:
+            last_page_offset = ((total - 1) // limit) * limit
+            skip_forward_offset = min(skip_forward_offset, last_page_offset)
         pagination = {
             "has_prev": has_prev,
             "has_next": has_next,
             "prev_url": f"/history?offset={prev_offset}&limit={limit}{base_qs}",
             "next_url": f"/history?offset={next_offset}&limit={limit}{base_qs}",
+            "has_skip_back": offset - (limit * 5) >= 0,
+            "has_skip_forward": offset + (limit * 5) < total,
+            "skip_back_url": f"/history?offset={skip_back_offset}&limit={limit}{base_qs}",
+            "skip_forward_url": f"/history?offset={skip_forward_offset}&limit={limit}{base_qs}",
             "shown_start": offset + 1,
             "shown_end": shown_end,
             "total": total,
@@ -661,7 +936,7 @@ def create_app(
     # Shared pipeline components (initialised at startup, closed at shutdown).
     state: dict[str, Any] = {}
 
-    from gemynd.retrieval.web.rate_limit import TokenBucketLimiter
+    from gemynd.shared.rate_limit import TokenBucketLimiter
     _query_limiter = TokenBucketLimiter(
         max_calls=int(os.environ.get("QUERY_RATE_LIMIT_MAX", "20")),
         period_seconds=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
@@ -962,6 +1237,32 @@ def create_app(
         )
 
     import uuid as _uuid
+    from gemynd.shared.response_headers import authenticated_no_store
+    from gemynd.shared.csrf import GemyndCSRFMiddleware
+
+    # Innermost middleware: sets Cache-Control on authenticated responses.
+    # Decorated FIRST so it wraps closest to the handler — the cache headers
+    # are set on the way out before any outer middleware can override them.
+    @app.middleware("http")
+    async def _no_store(request: Request, call_next):
+        return await authenticated_no_store(request, call_next)
+
+    # CSRF middleware sits between cache-headers (innermost) and request-id
+    # (outermost).  Bearer-only requests are exempted at the request level
+    # by GemyndCSRFMiddleware itself.  Falls back to JWT_SECRET_KEY if
+    # CSRF_SECRET_KEY is unset so dev environments don't break — both are
+    # private HMAC secrets and can be rotated independently in production.
+    _csrf_secret = os.environ.get("CSRF_SECRET_KEY") or os.environ.get("JWT_SECRET_KEY", "")
+    _cookie_secure = os.environ.get("COOKIE_SECURE", "true").lower() != "false"
+    app.add_middleware(
+        GemyndCSRFMiddleware,
+        secret=_csrf_secret,
+        cookie_name="csrftoken",
+        cookie_samesite="strict",
+        cookie_secure=_cookie_secure,
+        cookie_httponly=False,
+        header_name="x-csrftoken",
+    )
 
     @app.middleware("http")
     async def _request_id_middleware(request: Request, call_next):
@@ -1009,7 +1310,26 @@ def create_app(
     # ------------------------------------------------------------------
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)
     def chat_ui(request: Request, user: UserContext = Depends(require_user)) -> HTMLResponse:
-        return _templates.TemplateResponse("chat.html", {"request": request, **_user_ctx(user)})
+        composite = state.get("composite_config")
+        members: list[dict[str, Any]] = []
+        if composite is not None:
+            for m in composite.members:
+                members.append({
+                    "institution_id": m.institution_id,
+                    "label": getattr(m, "synthesis_context_label", None) or m.institution_id,
+                    "topic_hints": getattr(m, "welcome_topic_hints", []) or [],
+                })
+        bounds = state.get("classifier_year_bounds") or (None, None)
+        return _templates.TemplateResponse(
+            "chat.html",
+            {
+                "request": request,
+                "composite_members": members,
+                "corpus_year_min": bounds[0],
+                "corpus_year_max": bounds[1],
+                **_user_ctx(user),
+            },
+        )
 
     # ------------------------------------------------------------------
     # POST /query
@@ -1618,22 +1938,28 @@ def create_app(
     # ------------------------------------------------------------------
     # GET /documents  — admin: list all documents including soft-deleted
     # ------------------------------------------------------------------
-    def _list_documents_json(user: UserContext = Depends(require_admin)) -> dict[str, Any]:
+    def _list_documents_json(user: UserContext = Depends(require_admin_scoped)) -> dict[str, Any]:
         """JSON list for /v1/documents API."""
         executor: Neo4jQueryExecutor = state["executor"]
-        rows = executor.run(LIST_DOCUMENTS_QUERY, {"institution_id": user.institution_id})
-        return {"institution_id": user.institution_id, "documents": rows}
+        rows = executor.run(
+            LIST_DOCUMENTS_QUERY,
+            {"institution_ids": user.permitted_institution_ids},
+        )
+        return {"institution_ids": user.permitted_institution_ids, "documents": rows}
 
     @app.get("/documents", response_class=HTMLResponse, include_in_schema=False)
-    def list_documents(request: Request, user: UserContext = Depends(require_admin)):
+    def list_documents(request: Request, user: UserContext = Depends(require_admin_scoped)):
         executor: Neo4jQueryExecutor = state["executor"]
-        rows = executor.run(LIST_DOCUMENTS_QUERY, {"institution_id": user.institution_id})
+        rows = executor.run(
+            LIST_DOCUMENTS_QUERY,
+            {"institution_ids": user.permitted_institution_ids},
+        )
         return _templates.TemplateResponse("admin_documents.html", {
             "request": request,
             "active_page": "documents",
             **_user_ctx(user),
             "documents": rows,
-            "institution_id": user.institution_id,
+            "institution_ids": user.permitted_institution_ids,
         })
 
     # ------------------------------------------------------------------
@@ -1896,7 +2222,7 @@ def create_app(
         doc_id: str,
         request: Request,
         confirm: bool = Query(default=False),
-        user: UserContext = Depends(require_admin),
+        user: UserContext = Depends(require_admin_scoped),
     ) -> dict[str, Any]:
         if not confirm:
             raise HTTPException(
@@ -1908,14 +2234,14 @@ def create_app(
         deleted_by = user.identity
         rows = executor.run(SOFT_DELETE_DOCUMENT_QUERY, {
             "doc_id": doc_id,
-            "institution_id": user.institution_id,
+            "institution_ids": user.permitted_institution_ids,
             "deleted_at": deleted_at,
             "deleted_by": deleted_by,
         })
         if not rows:
             raise HTTPException(
                 status_code=404,
-                detail=f"Document {doc_id!r} not found in institution {user.institution_id!r}",
+                detail=f"Document {doc_id!r} not found in institutions {user.permitted_institution_ids!r}",
             )
         write_audit: Any = state.get("write_audit")
         if write_audit is not None:
@@ -1923,11 +2249,17 @@ def create_app(
                 event_type="soft_delete",
                 doc_id=doc_id,
                 doc_title=rows[0].get("title"),
-                institution_id=user.institution_id,
+                institution_id=rows[0].get("institution_id"),
                 performed_by=deleted_by,
             )
         if request.headers.get("HX-Request") == "true":
-            doc = {"doc_id": doc_id, "title": rows[0].get("title"), "access_level": rows[0].get("access_level"), "deleted_at": deleted_at}
+            doc = {
+                "doc_id": doc_id,
+                "title": rows[0].get("title"),
+                "access_level": rows[0].get("access_level"),
+                "institution_id": rows[0].get("institution_id"),
+                "deleted_at": deleted_at,
+            }
             return _templates.TemplateResponse("fragments/document_row.html", {"request": request, "doc": doc})
         return {"status": "deleted", "doc_id": doc_id, "deleted_at": deleted_at, "deleted_by": deleted_by}
 
@@ -1938,17 +2270,17 @@ def create_app(
     def restore_document(
         doc_id: str,
         request: Request,
-        user: UserContext = Depends(require_admin),
+        user: UserContext = Depends(require_admin_scoped),
     ) -> dict[str, Any]:
         executor: Neo4jQueryExecutor = state["executor"]
         rows = executor.run(RESTORE_DOCUMENT_QUERY, {
             "doc_id": doc_id,
-            "institution_id": user.institution_id,
+            "institution_ids": user.permitted_institution_ids,
         })
         if not rows:
             raise HTTPException(
                 status_code=404,
-                detail=f"Document {doc_id!r} not found in institution {user.institution_id!r}",
+                detail=f"Document {doc_id!r} not found in institutions {user.permitted_institution_ids!r}",
             )
         restored_at = datetime.now(timezone.utc).isoformat()
         performed_by = user.identity
@@ -1958,11 +2290,17 @@ def create_app(
                 event_type="restore",
                 doc_id=doc_id,
                 doc_title=rows[0].get("title"),
-                institution_id=user.institution_id,
+                institution_id=rows[0].get("institution_id"),
                 performed_by=performed_by,
             )
         if request.headers.get("HX-Request") == "true":
-            doc = {"doc_id": doc_id, "title": rows[0].get("title"), "access_level": rows[0].get("access_level"), "deleted_at": None}
+            doc = {
+                "doc_id": doc_id,
+                "title": rows[0].get("title"),
+                "access_level": rows[0].get("access_level"),
+                "institution_id": rows[0].get("institution_id"),
+                "deleted_at": None,
+            }
             return _templates.TemplateResponse("fragments/document_row.html", {"request": request, "doc": doc})
         return {"status": "restored", "doc_id": doc_id, "restored_at": restored_at}
 
@@ -1999,6 +2337,203 @@ def create_app(
         "header_contamination", "boilerplate_contamination",
         "short_generic_token", "ocr_garbage_mention",
     }
+
+    def _review_card_diagnostic_html(issue_class: str, evidence: dict, *, is_sensitivity: bool) -> str:
+        import html as _html
+
+        def trunc(value: object, limit: int = 180) -> str:
+            text = str(value or "").strip()
+            if len(text) > limit:
+                text = text[: limit - 1].rstrip() + "\u2026"
+            return _html.escape(text)
+
+        if is_sensitivity:
+            matched = evidence.get("matched_term") or evidence.get("matched_pattern")
+            if matched:
+                return f"Matched term: <strong>{trunc(matched, 80)}</strong>"
+            redacted = evidence.get("redacted_sentence") or evidence.get("source_sentence")
+            if redacted:
+                return f"Evidence: <em>{trunc(redacted)}</em>"
+            return ""
+
+        sentence = evidence.get("source_sentence")
+        if sentence:
+            return f"Source: <em>{trunc(sentence)}</em>"
+        return ""
+
+    def _target_summary(targets: list[Any], limit: int = 8) -> dict[str, Any]:
+        counts: dict[str, int] = {}
+        sample = []
+        for target in targets:
+            kind = getattr(target, "target_kind", "")
+            role = getattr(target, "target_role", "")
+            key = f"{kind}:{role}" if role else kind
+            counts[key] = counts.get(key, 0) + 1
+            if len(sample) < limit:
+                target_id = getattr(target, "target_id", "")
+                sample.append({
+                    "target_kind": kind,
+                    "target_id": target_id,
+                    "target_role": role,
+                    "exists_in_snapshot": getattr(target, "exists_in_snapshot", False),
+                })
+        top_counts = sorted(counts.items(), key=lambda item: (-item[1], item[0]))[:4]
+        return {
+            "total": len(targets),
+            "sample": sample,
+            "remaining": max(0, len(targets) - len(sample)),
+            "counts": [{"label": label, "count": count} for label, count in top_counts],
+        }
+
+    def _review_objects(
+        issue_class: str,
+        evidence: dict,
+        patch_spec: dict,
+        targets: list[Any],
+        limit: int = 5,
+    ) -> dict[str, Any]:
+        def text(value: object) -> str:
+            return str(value or "").strip()
+
+        def truncate(value: object, limit_chars: int = 220) -> str:
+            value_text = " ".join(text(value).split())
+            if len(value_text) > limit_chars:
+                return value_text[: limit_chars - 1].rstrip() + "\u2026"
+            return value_text
+
+        def entity_name(value: object) -> str:
+            return text(value.get("name")) if isinstance(value, dict) else ""
+
+        def add_object(
+            items: list[dict[str, str]],
+            *,
+            kind: str,
+            label: object,
+            detail: object = "",
+            snippet: object = "",
+            meta: object = "",
+        ) -> None:
+            label_text = text(label)
+            if not label_text:
+                return
+            items.append({
+                "kind": text(kind),
+                "label": truncate(label_text, 90),
+                "detail": truncate(detail, 120),
+                "snippet": truncate(snippet, 260),
+                "meta": truncate(meta, 140),
+            })
+
+        items: list[dict[str, str]] = []
+        total = 0
+
+        if issue_class in _JUNK_CLASSES:
+            mentions = [m for m in evidence.get("affected_mentions", []) if isinstance(m, dict)]
+            total = len(mentions) or len(targets)
+            for mention in mentions[:limit]:
+                page_number = mention.get("page_number")
+                source_file = text(mention.get("source_file"))
+                page_label = f"page {page_number}" if page_number else ""
+                detail = page_label or source_file
+                if page_label and source_file:
+                    detail = f"{page_label} / {source_file}"
+                add_object(
+                    items,
+                    kind="Mention",
+                    label=mention.get("surface_form") or mention.get("normalized_form") or mention.get("mention_id"),
+                    detail=detail,
+                    snippet=mention.get("paragraph_clean_text") or mention.get("paragraph_raw_ocr_text"),
+                    meta=mention.get("mention_id"),
+                )
+
+        elif issue_class == "ocr_spelling_variant":
+            variants = [v for v in evidence.get("merge_entities", []) if isinstance(v, dict)]
+            canon = evidence.get("canonical_entity", {}) if isinstance(evidence.get("canonical_entity"), dict) else {}
+            total = len(variants) or len(targets)
+            canon_name = entity_name(canon) or patch_spec.get("canonical_name", "")
+            for variant in variants[:limit]:
+                add_object(
+                    items,
+                    kind="Entity",
+                    label=entity_name(variant) or variant.get("entity_id"),
+                    detail=f"merge into {canon_name}" if canon_name else "merge source",
+                    meta=variant.get("entity_id"),
+                )
+
+        elif issue_class == "duplicate_entity_alias":
+            alias = evidence.get("alias_entity", {}) if isinstance(evidence.get("alias_entity"), dict) else {}
+            canon = evidence.get("canonical_entity", {}) if isinstance(evidence.get("canonical_entity"), dict) else {}
+            total = 1 if alias or canon else len(targets)
+            add_object(
+                items,
+                kind="Alias",
+                label=entity_name(alias) or patch_spec.get("alias_entity_id"),
+                detail=f"resolve to {entity_name(canon) or patch_spec.get('canonical_name', '')}",
+                meta=alias.get("entity_id"),
+            )
+
+        elif issue_class in ("missing_species_focus", "missing_event_location"):
+            candidate_key = "candidate_species" if issue_class == "missing_species_focus" else "candidate_location"
+            candidate = evidence.get(candidate_key, {}) if isinstance(evidence.get(candidate_key), dict) else {}
+            relation = "SPECIES_FOCUS" if issue_class == "missing_species_focus" else "OCCURRED_AT"
+            total = 1 if candidate or evidence.get("source_sentence") else len(targets)
+            add_object(
+                items,
+                kind="Claim link",
+                label=entity_name(candidate) or candidate.get("entity_id") or relation,
+                detail=f"proposed {relation}",
+                snippet=evidence.get("source_sentence"),
+                meta=evidence.get("claim_id") or candidate.get("entity_type"),
+            )
+
+        elif issue_class == "method_overtrigger":
+            method = evidence.get("method_entity", {}) if isinstance(evidence.get("method_entity"), dict) else {}
+            total = 1 if method or evidence.get("source_sentence") else len(targets)
+            add_object(
+                items,
+                kind="Claim link",
+                label=entity_name(method) or method.get("entity_id") or "Method focus",
+                detail="overtriggered METHOD_FOCUS",
+                snippet=evidence.get("source_sentence"),
+                meta=evidence.get("claim_id") or evidence.get("compatibility"),
+            )
+
+        elif issue_class in _SENSITIVITY_CLASSES:
+            names = evidence.get("person_names", [])
+            if isinstance(names, list) and names:
+                label = ", ".join(text(name) for name in names[:3] if text(name))
+            else:
+                label = evidence.get("matched_term") or evidence.get("matched_pattern") or issue_class
+            total = 1 if label or evidence.get("source_sentence") or evidence.get("redacted_sentence") else len(targets)
+            add_object(
+                items,
+                kind="Sensitive claim",
+                label=label,
+                detail=evidence.get("matched_pattern") or issue_class,
+                snippet=evidence.get("redacted_sentence") or evidence.get("source_sentence"),
+                meta=evidence.get("claim_id") or evidence.get("most_recent_year"),
+            )
+
+        if not items:
+            total = len(targets)
+            for target in targets[:limit]:
+                kind = text(getattr(target, "target_kind", "Target"))
+                role = text(getattr(target, "target_role", ""))
+                target_id = text(getattr(target, "target_id", ""))
+                add_object(
+                    items,
+                    kind=kind or "Target",
+                    label=target_id,
+                    detail=role,
+                    meta="in snapshot" if getattr(target, "exists_in_snapshot", False) else "not in snapshot",
+                )
+
+        total = total or len(items)
+        return {
+            "items": items,
+            "total": total,
+            "remaining": max(0, total - len(items)),
+        }
 
     def _build_source_comparison_context(
         issue_class: str, evidence: dict,
@@ -2256,16 +2791,30 @@ def create_app(
         # Build card data for template
         proposal_cards = []
         for p in proposals:
+            targets = review_store.get_proposal_targets(p.proposal_id)
+            target_summary = _target_summary(targets, limit=3)
             rev = review_store.get_latest_revision(p.proposal_id)
             evidence: dict = {}
+            patch_spec: dict = {}
             if rev:
                 try:
                     evidence = _json.loads(rev.evidence_snapshot_json)
                 except Exception:
                     pass
+                try:
+                    patch_spec = _json.loads(rev.patch_spec_json)
+                except Exception:
+                    pass
 
             is_sensitivity = p.issue_class in _SENSITIVITY_CLASSES
             ic_label = _ISSUE_CLASS_LABELS.get(p.issue_class, p.issue_class)
+            review_objects = _review_objects(
+                p.issue_class,
+                evidence,
+                patch_spec,
+                targets,
+                limit=3,
+            )
 
             # Build description from evidence using key_info_html from review app
             try:
@@ -2273,15 +2822,28 @@ def create_app(
                 desc = _key_info_html(p.issue_class, evidence)
             except Exception:
                 desc = _html.escape(p.issue_class)
+            diagnostic = ""
+            if is_sensitivity or p.priority_score >= 0.80:
+                diagnostic = _review_card_diagnostic_html(
+                    p.issue_class,
+                    evidence,
+                    is_sensitivity=is_sensitivity,
+                )
 
             proposal_cards.append({
                 "proposal_id": p.proposal_id,
                 "ic_label": ic_label,
+                "is_sensitivity": is_sensitivity,
                 "badge_cls": "badge-red" if is_sensitivity else "badge-blue",
                 "border_color": "var(--accent-red-border)" if is_sensitivity else "var(--border-medium)",
                 "priority": p.priority_score,
                 "confidence": p.confidence,
+                "impact_size": p.impact_size,
                 "description": desc,
+                "diagnostic": diagnostic,
+                "target_summary": target_summary,
+                "review_objects": review_objects,
+                "needs_bulk_confirm": is_sensitivity or p.impact_size >= 100,
                 "actionable": p.status in ("queued", "deferred"),
                 "can_reject": p.status in ("queued", "deferred"),
                 "can_defer": p.status == "queued",
@@ -2309,6 +2871,8 @@ def create_app(
         # Build queue filter pills
         queue_filters = []
         for qname, qlabel in _QUEUE_LABELS.items():
+            if qname == "sensitivity":
+                continue
             qcount = queue_counts.get(qname, 0)
             if qcount > 0:
                 queue_filters.append((qname, qlabel, qcount))
@@ -2319,6 +2883,17 @@ def create_app(
         # Today's activity
         today_iso = _date.today().isoformat()
         event_counts = review_store.correction_event_counts(since_iso=today_iso)
+        daily_counts = review_store.correction_event_daily_counts(days=14)
+        max_daily_total = max((int(d["total"]) for d in daily_counts), default=0)
+        review_trend = []
+        for day in daily_counts:
+            total = int(day["total"])
+            review_trend.append({
+                "day": day["day"],
+                "total": total,
+                "height_pct": round(total / max_daily_total * 100) if max_daily_total else 0,
+            })
+        new_queued_today = review_store.proposal_count_since(today_iso, status="queued")
 
         return _templates.TemplateResponse("admin_review.html", {
             "request": request,
@@ -2333,6 +2908,8 @@ def create_app(
             "accepted_today": event_counts.get("accept", 0),
             "rejected_today": event_counts.get("reject", 0),
             "deferred_today": event_counts.get("defer", 0),
+            "review_trend": review_trend,
+            "new_queued_today": new_queued_today,
         })
 
     def _review_action_response(request: Request, action: str) -> HTMLResponse:
@@ -2464,6 +3041,7 @@ def create_app(
             raise HTTPException(status_code=404, detail="Proposal not found.")
 
         targets = review_store.get_proposal_targets(proposal_id)
+        target_summary = _target_summary(targets, limit=25)
         revisions = review_store.get_revisions(proposal_id)
         events = review_store.get_correction_events(proposal_id)
 
@@ -2471,8 +3049,10 @@ def create_app(
         patch_json = latest_rev.patch_spec_json if latest_rev else "{}"
         evidence_json = latest_rev.evidence_snapshot_json if latest_rev else "{}"
 
+        patch_dict: dict = {}
         try:
-            patch_formatted = _json.dumps(_json.loads(patch_json), indent=2)
+            patch_dict = _json.loads(patch_json)
+            patch_formatted = _json.dumps(patch_dict, indent=2)
         except Exception:
             patch_formatted = patch_json
         evidence_dict: dict = {}
@@ -2499,6 +3079,14 @@ def create_app(
         except Exception:
             source_comparison = None
 
+        review_objects = _review_objects(
+            proposal.issue_class,
+            evidence_dict,
+            patch_dict,
+            targets,
+            limit=12,
+        )
+
         # Error classification defaults for the form
         from gemynd.review.models import (
             ERROR_ROOT_CAUSE_LABELS,
@@ -2523,8 +3111,12 @@ def create_app(
             "impact_size": proposal.impact_size,
             "description": description,
             "is_active": proposal.status in ("queued", "deferred"),
+            "is_sensitivity": proposal.issue_class in _SENSITIVITY_CLASSES,
+            "needs_bulk_confirm": proposal.issue_class in _SENSITIVITY_CLASSES or proposal.impact_size >= 100,
             "source_comparison": source_comparison,
-            "targets": targets,
+            "review_objects": review_objects,
+            "targets": target_summary["sample"],
+            "target_summary": target_summary,
             "revisions": revisions,
             "events": events,
             "patch_json": patch_formatted,

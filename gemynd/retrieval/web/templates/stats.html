@@ -5,16 +5,28 @@
 <p class="page-sub">Archive overview and extraction profile</p>
 
 <div class="stat-grid">
-  <div class="stat-card"><p class="stat-card-label">Documents</p><p class="stat-card-value">{{ total_docs }}</p></div>
-  <div class="stat-card"><p class="stat-card-label">Active claims</p><p class="stat-card-value">{{ total_claims }}</p></div>
-  <div class="stat-card"><p class="stat-card-label">Entities</p><p class="stat-card-value">{{ total_entities }}</p></div>
+  <div class="stat-card">
+    <p class="stat-card-label">Documents</p>
+    <div class="stat-card-main">
+      <p class="stat-card-value">{{ total_docs }}</p>
+      {% if donor_restricted %}
+      <span class="badge badge-amber">{{ donor_restricted }} donor restricted</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="stat-card">
+    <p class="stat-card-label">Active claims</p>
+    <p class="stat-card-value">{{ total_claims }}</p>
+    <p class="stat-card-note">{{ claims_per_doc }} claims/doc</p>
+  </div>
+  <div class="stat-card">
+    <p class="stat-card-label">Entities</p>
+    <p class="stat-card-value">{{ total_entities }}</p>
+    <p class="stat-card-note">{{ entities_per_doc }} entities/doc</p>
+  </div>
   <div class="stat-card"><p class="stat-card-label">Date span</p><p class="stat-card-value">{{ date_span }}</p></div>
   <div class="stat-card"><p class="stat-card-label">Total pages</p><p class="stat-card-value">{{ total_pages }}</p></div>
 </div>
-
-{% if donor_restricted %}
-<p style="color:var(--text-secondary);font-size:13px;margin-bottom:1rem">{{ donor_restricted }} document(s) carry donor reproduction restrictions.</p>
-{% endif %}
 
 <div class="two-col">
   <div>
@@ -56,14 +68,22 @@
 </table>
 
 {% if temporal_rows %}
-<p class="section-heading">Temporal coverage</p>
+<p class="section-heading">Temporal coverage{% if temporal_max_count %}<span class="chart-note">Max: {{ temporal_max_count }} docs in {{ temporal_max_label }}</span>{% endif %}</p>
 <div style="max-width:500px">
   {% for row in temporal_rows %}
   <div class="temporal-row">
     <span class="temporal-label" style="width:60px{% if row.is_gap %};color:var(--text-tertiary){% endif %}">{{ row.label }}</span>
     <div class="bar-track">
       {% if not row.is_gap %}
-      <div class="bar-fill" style="width:{{ (row.count / temporal_rows|map(attribute='count')|max * 100)|round }}%"></div>
+        {% if row.segments %}
+        <div class="bar-fill temporal-stack" style="width:{{ row.width_pct }}%" title="{{ row.label }}: {{ row.count }} docs">
+          {% for segment in row.segments %}
+          <span class="bar-segment" style="opacity:{{ segment.opacity }}" title="{{ segment.year }}: {{ segment.count }} docs"></span>
+          {% endfor %}
+        </div>
+        {% else %}
+        <div class="bar-fill" style="width:{{ row.width_pct }}%"></div>
+        {% endif %}
       {% endif %}
     </div>
     <span class="temporal-count" style="width:36px">{% if row.is_gap %}&mdash;{% else %}{{ row.count }}{% endif %}</span>
@@ -74,11 +94,12 @@
 
 <p class="section-heading">Extraction confidence</p>
 <div style="max-width:420px">
-  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:var(--bark-700)">High</span><div class="bar-track"><div class="bar-fill" style="width:{{ high_pct }}%;background:var(--bark-700)"></div></div><span class="temporal-count" style="width:36px">{{ high_pct }}%</span></div>
-  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:var(--accent-amber-text)">Medium</span><div class="bar-track"><div class="bar-fill" style="width:{{ medium_pct }}%;background:var(--accent-amber-text)"></div></div><span class="temporal-count" style="width:36px">{{ medium_pct }}%</span></div>
-  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:var(--accent-red-text)">Low</span><div class="bar-track"><div class="bar-fill" style="width:{{ low_pct }}%;background:var(--accent-red-text)"></div></div><span class="temporal-count" style="width:36px">{{ low_pct }}%</span></div>
+  {% for row in confidence_rows %}
+  <div class="temporal-row"><span class="temporal-label" style="width:64px;font-weight:500;color:{{ row.color }}">{{ row.label }}</span><div class="bar-track"><div class="bar-fill" style="width:{{ row.pct }}%;background:{{ row.color }}"></div></div><span class="temporal-count" style="width:36px">{{ row.pct }}%</span></div>
+  {% endfor %}
 </div>
-<p style="margin-top:0.5rem;font-size:12px;color:var(--text-secondary)">Average: {{ conf_avg_str }} | Epistemic 'uncertain' flags: {{ uncertain_epistemic }}</p>
+<p style="margin-top:0.5rem;font-size:12px;color:var(--text-secondary)">{{ confidence_qualifier }}</p>
+<p style="margin-top:0.25rem;font-size:12px;color:var(--text-secondary)">Average: {{ conf_avg_str }} | Epistemic 'uncertain' flags: {{ uncertain_epistemic }}</p>
 
 <p style="margin-top:1.5rem"><a href="/gaps" class="action-link" style="font-size:13px">View gap analysis &rarr;</a></p>
 {% endblock %}

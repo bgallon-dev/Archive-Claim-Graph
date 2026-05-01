@@ -4,6 +4,7 @@ from __future__ import annotations
 import functools
 import html as _html
 import json
+import os as _os
 from pathlib import Path
 from typing import Any
 
@@ -970,6 +971,26 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
             status_code=500,
             content={"detail": "An internal error occurred."},
         )
+
+    from gemynd.shared.response_headers import authenticated_no_store
+    from gemynd.shared.csrf import GemyndCSRFMiddleware
+
+    # Innermost: sets Cache-Control on authenticated responses.
+    @app.middleware("http")
+    async def _no_store(request: Request, call_next):
+        return await authenticated_no_store(request, call_next)
+
+    _csrf_secret = _os.environ.get("CSRF_SECRET_KEY") or _os.environ.get("JWT_SECRET_KEY", "")
+    _cookie_secure = _os.environ.get("COOKIE_SECURE", "true").lower() != "false"
+    app.add_middleware(
+        GemyndCSRFMiddleware,
+        secret=_csrf_secret,
+        cookie_name="csrftoken",
+        cookie_samesite="strict",
+        cookie_secure=_cookie_secure,
+        cookie_httponly=False,
+        header_name="x-csrftoken",
+    )
 
     @app.middleware("http")
     async def _setup_guard(request: Request, call_next):

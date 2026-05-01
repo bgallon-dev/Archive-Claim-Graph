@@ -27,6 +27,7 @@
     This will apply your decision to all <strong>{{ count }}</strong> currently queued proposals matching this filter.
   </p>
   <form method="post">
+    <input type="hidden" name="csrftoken" value="{{ request.cookies.get('csrftoken', '') }}">
     <input type="hidden" name="issue_class" value="{{ issue_class }}">
     <input type="hidden" name="queue_name" value="{{ queue_name }}">
     <div style="margin-bottom:0.75rem">

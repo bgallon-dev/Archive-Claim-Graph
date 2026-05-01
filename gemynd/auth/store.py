@@ -5,6 +5,8 @@ check_same_thread=False, context-manager connections, uuid4 primary keys.
 """
 from __future__ import annotations
 
+import base64
+import hashlib
 import sqlite3
 import uuid
 from datetime import datetime, timezone
@@ -37,13 +39,14 @@ _MIGRATE_TOKEN_VERSION = (
 _VALID_ROLES = {"admin", "archivist", "readonly"}
 
 
-# Bcrypt silently discards bytes beyond position 72.  We truncate explicitly
-# so the behaviour is documented and consistent rather than surprising.
-_BCRYPT_MAX_BYTES = 72
-
-
+# SHA-256 pre-hash + base64 yields a 44-byte printable digest, well under
+# bcrypt's 72-byte limit.  This eliminates the 72-byte truncation collision
+# class entirely, so any two passwords sharing a long prefix still hash
+# differently.  Existing pre-cutover hashes (built from the truncated
+# plaintext) will not verify after this change — see auth/CLAUDE.md.
 def _prep(plain: str) -> bytes:
-    return plain.encode("utf-8")[:_BCRYPT_MAX_BYTES]
+    digest = hashlib.sha256(plain.encode("utf-8")).digest()
+    return base64.b64encode(digest)
 
 
 def hash_password(plain: str) -> str:

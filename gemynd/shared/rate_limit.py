@@ -1,11 +1,11 @@
-"""Simple in-memory per-user token bucket rate limiter.
+"""Simple in-memory per-key token bucket rate limiter.
 
-Designed for a low-concurrency single-process server (solo-operated SaaS).
-State is stored in a plain dict in RAM — not persistent across restarts and
-not shared between processes.  Sufficient for the intended deployment.
+Designed for a low-concurrency single-process server.  State lives in a
+plain dict in RAM — not persistent across restarts and not shared between
+processes.  Sufficient for the intended deployment.
 
 The sliding window evicts expired timestamps on every call, so memory stays
-bounded even under long-running processes with many distinct user keys.
+bounded even under long-running processes with many distinct keys.
 """
 from __future__ import annotations
 
@@ -36,7 +36,6 @@ class TokenBucketLimiter:
         cutoff = now - self._period
         with self._lock:
             timestamps = self._buckets.get(key, [])
-            # Evict expired timestamps from the sliding window.
             timestamps = [t for t in timestamps if t > cutoff]
             if len(timestamps) >= self._max:
                 self._buckets[key] = timestamps

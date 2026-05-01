@@ -2,12 +2,13 @@
 {% block title %}Documents - Gemynd{% endblock %}
 {% block content %}
 <p class="page-title">Documents</p>
-<p class="page-sub">{{ documents|length }} documents in {{ institution_id }} collection</p>
+<p class="page-sub">{{ documents|length }} documents across {{ institution_ids|join(", ") }}</p>
 
 <table class="mini-table">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Collection</th>
       <th>Access level</th>
       <th>Status</th>
       <th></th>

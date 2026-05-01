@@ -128,6 +128,14 @@ class DomainConfig:
     # only after seed-vocabulary lookup; see ``entity_type_inference``.
     entity_type_rules: list[dict[str, Any]] = field(default_factory=list)
 
+    # Optional human-readable label and topic hints for the chat welcome
+    # message. When unset, the welcome falls back to ``institution_id`` and
+    # an empty topic list. Loader is free to populate these from the
+    # corpus's ``domain_profile.yaml`` later without breaking existing
+    # construction sites.
+    synthesis_context_label: str | None = None
+    welcome_topic_hints: list[str] = field(default_factory=list)
+
     @property
     def extraction_stopwords(self) -> frozenset[str]:
         """Query-time stopwords for entity surface-form extraction.

@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -481,6 +481,42 @@ class ReviewStore:
                 "SELECT action, COUNT(*) AS cnt FROM correction_event GROUP BY action"
             ).fetchall()
         return {r["action"]: r["cnt"] for r in rows}
+
+    def correction_event_daily_counts(self, days: int = 14) -> list[dict[str, int | str]]:
+        """Return daily correction-event totals for the trailing *days* window."""
+        days = max(1, min(60, int(days)))
+        start = date.today() - timedelta(days=days - 1)
+        rows = self._conn.execute(
+            "SELECT substr(created_at, 1, 10) AS day, action, COUNT(*) AS cnt "
+            "FROM correction_event WHERE created_at >= ? "
+            "GROUP BY day, action ORDER BY day",
+            (start.isoformat(),),
+        ).fetchall()
+        by_day: dict[str, dict[str, int | str]] = {}
+        for i in range(days):
+            day = (start + timedelta(days=i)).isoformat()
+            by_day[day] = {"day": day, "accept": 0, "reject": 0, "defer": 0, "total": 0}
+        for row in rows:
+            day = row["day"]
+            action = row["action"]
+            if day not in by_day:
+                continue
+            count = int(row["cnt"])
+            by_day[day][action] = int(by_day[day].get(action, 0)) + count
+            by_day[day]["total"] = int(by_day[day]["total"]) + count
+        return list(by_day.values())
+
+    def proposal_count_since(self, since_iso: str, *, status: str | None = None) -> int:
+        clauses = ["created_at >= ?"]
+        params: list[object] = [since_iso]
+        if status:
+            clauses.append("status = ?")
+            params.append(status)
+        row = self._conn.execute(
+            f"SELECT COUNT(*) FROM proposal WHERE {' AND '.join(clauses)}",
+            params,
+        ).fetchone()
+        return int(row[0]) if row else 0
 
     def get_correction_events(self, proposal_id: str) -> list[CorrectionEvent]:
         rows = self._conn.execute(

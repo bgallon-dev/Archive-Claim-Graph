@@ -24,7 +24,7 @@ Natural-language query to synthesized answer. Four-step architecture: classify, 
 
 ## Web app
 
-`web/app.py` is the FastAPI query UI. Rate limiting is per-user with admin exemption (in `web/rate_limit.py`). Templates use HTMX fragments in `web/templates/fragments/`.
+`web/app.py` is the FastAPI query UI. Rate limiting is per-user with admin exemption (uses `gemynd.shared.rate_limit.TokenBucketLimiter`). Templates use HTMX fragments in `web/templates/fragments/`.
 
 ## Executor protocol
 

@@ -29,7 +29,8 @@
   <details {% if not is_active %}style="pointer-events:none;opacity:0.5"{% endif %}>
     <summary class="btn-sm btn-accept" style="cursor:pointer">Accept</summary>
     <div class="classification-form">
-      <form hx-post="/review/proposals/{{ proposal_id }}/accept" hx-target="#action-result" hx-swap="innerHTML">
+      <form hx-post="/review/proposals/{{ proposal_id }}/accept" hx-target="#action-result" hx-swap="innerHTML"
+            {% if needs_bulk_confirm %}hx-confirm="This will modify {{ impact_size }} target{{ 's' if impact_size != 1 else '' }} in the corpus. Continue?"{% endif %}>
         <label>Error classification (optional)</label>
         <select name="error_root_cause"
                 hx-get="/review/error-types-options"
@@ -98,7 +99,34 @@
   <a href="/review" class="action-link" style="margin-left:8px;font-size:12px;align-self:center">&larr; Back to queue</a>
 </div>
 
-<p class="section-heading">Targets</p>
+{% if review_objects and review_objects['items'] %}
+<p class="section-heading">Review objects{% if review_objects.total > review_objects['items']|length %}<span class="chart-note">Showing {{ review_objects['items']|length }} of {{ review_objects.total }}</span>{% endif %}</p>
+<div class="review-object-grid">
+  {% for obj in review_objects['items'] %}
+  <div class="review-object-card">
+    <div class="review-object-card-top">
+      <span class="review-object-kind">{{ obj.kind }}</span>
+      {% if obj.meta %}<span class="review-object-meta">{{ obj.meta }}</span>{% endif %}
+    </div>
+    <strong>{{ obj.label }}</strong>
+    {% if obj.detail %}<span class="review-object-detail">{{ obj.detail }}</span>{% endif %}
+    {% if obj.snippet %}<p class="review-object-snippet">{{ obj.snippet }}</p>{% endif %}
+  </div>
+  {% endfor %}
+</div>
+{% if review_objects.remaining > 0 %}
+<p class="gap-section-note">{{ review_objects.remaining }} additional review object{{ 's' if review_objects.remaining != 1 else '' }} represented by this proposal.</p>
+{% endif %}
+{% endif %}
+
+<p class="section-heading">Targets{% if target_summary and target_summary.total > targets|length %}<span class="chart-note">Showing {{ targets|length }} of {{ target_summary.total }}</span>{% endif %}</p>
+{% if target_summary and target_summary.counts %}
+<p class="gap-section-note">
+  {% for item in target_summary.counts %}
+  <span class="badge badge-outline">{{ item.count }} {{ item.label }}</span>
+  {% endfor %}
+</p>
+{% endif %}
 <table class="mini-table">
   <thead><tr><th>Kind</th><th>ID</th><th>Role</th><th>In snapshot</th></tr></thead>
   <tbody>
@@ -112,6 +140,9 @@
     {% endfor %}
   </tbody>
 </table>
+{% if target_summary and target_summary.remaining > 0 %}
+<p class="gap-section-note">{{ target_summary.remaining }} additional target{{ 's' if target_summary.remaining != 1 else '' }} omitted from this preview. Use the raw patch spec below for the full target set.</p>
+{% endif %}
 
 <details style="margin-top:1.5rem">
   <summary style="cursor:pointer;font-size:13px;color:var(--text-secondary)">Patch spec (raw JSON)</summary>

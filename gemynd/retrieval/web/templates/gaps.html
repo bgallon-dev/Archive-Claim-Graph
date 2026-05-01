@@ -2,24 +2,104 @@
 {% block title %}Gap Analysis - Gemynd{% endblock %}
 {% block content %}
 <p class="page-title">Gap analysis</p>
-<p class="page-sub">Thin coverage, absent periods, and underrepresented topics</p>
+<p class="page-sub">User demand, underrepresented topics, thin coverage, and absent periods</p>
 
-<p class="section-heading">Temporal coverage gaps</p>
-{% if temporal_gaps %}
-{% for g in temporal_gaps %}
-<div class="gap-card">
-  <p><span style="font-weight:500">{% if g.start == g.end %}{{ g.start }}{% else %}{{ g.start }}&ndash;{{ g.end }} ({{ g.years_count }} years){% endif %}</span> &mdash; {{ g.before_docs }} doc(s) before, {{ g.after_docs }} doc(s) after</p>
+<p class="section-heading">Query signal gaps</p>
+<div class="query-signal-panel">
+  <div class="query-signal-head">
+    <svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M18 14l2 2-2 2"/></svg>
+    <p>These gaps come from user behavior: topics people ask for frequently where retrieval returns thin claim context.</p>
+  </div>
+  {% if conv_gaps %}
+  <table class="mini-table signal-table">
+    <thead><tr><th>Query bucket</th><th>Query count</th><th>Avg claims</th></tr></thead>
+    <tbody>
+      {% for r in conv_gaps %}
+      <tr><td>{{ r.bucket }}</td><td>{{ r.query_count }}</td><td>{{ r.avg_claims }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="gap-empty">No query-signal gaps available.</p>
+  {% endif %}
 </div>
-{% endfor %}
-{% else %}
-<p style="color:var(--text-secondary);font-size:13px">No significant temporal gaps found across the covered range ({{ year_span }}).</p>
+
+<p class="section-heading">Topical balance (blended across corpora)</p>
+<p class="gap-section-note">Actual claim-type share vs. document-count-weighted expected profile</p>
+{% if show_unclassified_banner %}
+<div class="alert-bar" style="background:var(--accent-amber-bg);border-color:var(--accent-amber-border);color:var(--accent-amber-text)">
+  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+  <span>{{ unclassified_pct }}% of claims are unclassified assertions &mdash; this may indicate extraction difficulty.</span>
+</div>
+{% endif %}
+<table class="mini-table topic-table">
+  <thead><tr><th>Claim type</th><th>Balance</th><th>Delta</th><th>Status</th></tr></thead>
+  <tbody>
+    {% for row in topic_rows %}
+    <tr>
+      <td>{{ row.claim_type }}</td>
+      <td>
+        {% set row_scale = [row.actual_pct, row.expected_pct]|max %}
+        {% set actual_width = row.actual_width_pct|default((row.actual_pct / row_scale * 100) if row_scale else 0) %}
+        {% set expected_width = row.expected_width_pct|default((row.expected_pct / row_scale * 100) if row_scale else 0) %}
+        <div class="topic-bars">
+          <div class="topic-bar-row"><span>Actual</span><div class="topic-bar-track"><span class="topic-bar-fill topic-bar-actual" style="width:{{ actual_width|round(1) }}%"></span></div><strong>{{ row.actual_pct }}%</strong></div>
+          <div class="topic-bar-row"><span>Expected</span><div class="topic-bar-track"><span class="topic-bar-fill topic-bar-expected" style="width:{{ expected_width|round(1) }}%"></span></div><strong>{{ row.expected_pct }}%</strong></div>
+        </div>
+      </td>
+      <td>{% if row.delta_pct is defined %}{{ row.delta_pct }}%{% else %}{{ (row.actual_pct - row.expected_pct)|round(1) }}%{% endif %}</td>
+      <td>
+        {% if row.status == 'gap' %}<span class="badge badge-red">gap</span>
+        {% elif row.status == 'thin' %}<span class="badge badge-amber">thin</span>
+        {% else %}<span class="badge badge-green">ok</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if per_corpus_comparison and per_corpus_comparison.corpora|length > 1 %}
+<p class="section-heading">Per-corpus topical balance</p>
+<p class="gap-section-note">Each corpus scored against its own expected profile, aligned for cross-corpus scanning</p>
+<div class="comparison-scroll">
+  <table class="mini-table corpus-comparison-table">
+    <thead>
+      <tr>
+        <th>Claim type</th>
+        {% for corpus in per_corpus_comparison.corpora %}
+        <th>{{ corpus.institution_id }} actual</th>
+        <th>{{ corpus.institution_id }} expected</th>
+        {% endfor %}
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in per_corpus_comparison.rows %}
+      <tr>
+        <td>{{ row.claim_type }}</td>
+        {% for cell in row.cells %}
+        <td><div class="mini-meter"><span style="width:{{ cell.actual_width_pct }}%"></span></div>{{ cell.actual_pct }}%</td>
+        <td><div class="mini-meter mini-meter-expected"><span style="width:{{ cell.expected_width_pct }}%"></span></div>{{ cell.expected_pct }}%</td>
+        {% endfor %}
+        <td>
+          {% if row.status == 'gap' %}<span class="badge badge-red">gap</span>
+          {% elif row.status == 'thin' %}<span class="badge badge-amber">thin</span>
+          {% else %}<span class="badge badge-green">ok</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endif %}
 
 <p class="section-heading">Entity depth gaps</p>
 {% if entity_depth_by_type %}
-<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Entities with &le;3 primary-subject claims</p>
+<p class="gap-section-note">Entities with &le;3 primary-subject claims{% if entity_depth_median is defined %}. Corpus median: {{ entity_depth_median|round(1) }} claims{% endif %}.</p>
 {% for etype, rows in entity_depth_by_type %}
-<p style="font-size:13px;font-weight:500;margin:0.75rem 0 0.4rem">{{ etype }}</p>
+<p class="gap-group-label">{{ etype }}</p>
 <table class="mini-table">
   <thead><tr><th>Entity</th><th>Primary claims</th></tr></thead>
   <tbody>
@@ -28,9 +108,9 @@
       <td>{{ r.name }}</td>
       <td>
         {% if r.primary_claim_count <= 1 %}
-        <span class="thin-1">1 claim</span>
+        <span class="thin-1">{{ r.claim_count_label|default('1 claim') }}{% if r.median_pct is defined and r.median_pct is not none %} <span class="thin-context">&middot; {{ r.median_pct }}% of median</span>{% endif %}</span>
         {% else %}
-        <span class="thin-23">2&ndash;3 claims</span>
+        <span class="thin-23">{{ r.claim_count_label|default('2-3 claims') }}{% if r.median_pct is defined and r.median_pct is not none %} <span class="thin-context">&middot; {{ r.median_pct }}% of median</span>{% endif %}</span>
         {% endif %}
       </td>
     </tr>
@@ -39,12 +119,12 @@
 </table>
 {% endfor %}
 {% else %}
-<p style="color:var(--text-secondary);font-size:13px">No thinly-covered entities found (all entities have &gt;3 primary claims).</p>
+<p class="gap-empty">No thinly-covered entities found. All entities have more than 3 primary claims.</p>
 {% endif %}
 
-{% if geo_coverage %}
 <p class="section-heading">Geographic coverage gaps</p>
-<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Places with few geographically-specific claims</p>
+{% if geo_coverage %}
+<p class="gap-section-note">Places with few geographically-specific claims{% if geo_coverage_median is defined %}. Corpus median: {{ geo_coverage_median|round(1) }} claims{% endif %}.</p>
 <table class="mini-table">
   <thead><tr><th>Place</th><th>Type</th><th>Geo claims</th></tr></thead>
   <tbody>
@@ -54,80 +134,46 @@
       <td>{{ r.entity_type }}</td>
       <td>
         {% if r.location_specific_claims <= 1 %}
-        <span class="thin-1">1 claim</span>
+        <span class="thin-1">{{ r.claim_count_label|default('1 claim') }}{% if r.median_pct is defined and r.median_pct is not none %} <span class="thin-context">&middot; {{ r.median_pct }}% of median</span>{% endif %}</span>
         {% else %}
-        <span class="thin-23">2&ndash;3 claims</span>
+        <span class="thin-23">{{ r.claim_count_label|default('2-3 claims') }}{% if r.median_pct is defined and r.median_pct is not none %} <span class="thin-context">&middot; {{ r.median_pct }}% of median</span>{% endif %}</span>
         {% endif %}
       </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+{% else %}
+<p class="gap-empty">No geographic coverage gaps found.</p>
 {% endif %}
 
-<p class="section-heading">Topical balance (blended across corpora)</p>
-<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Actual claim-type share vs. document-count-weighted expected profile</p>
-{% if show_unclassified_banner %}
-<div class="alert-bar" style="background:var(--accent-amber-bg);border-color:var(--accent-amber-border);color:var(--accent-amber-text)">
-  <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-  <span>{{ unclassified_pct }}% of claims are unclassified assertions &mdash; this may indicate extraction difficulty.</span>
+<p class="section-heading">Temporal coverage gaps</p>
+{% if temporal_timeline is defined and temporal_timeline.years %}
+<div class="gap-timeline" aria-label="Temporal document density from {{ temporal_timeline.start_year }} to {{ temporal_timeline.end_year }}">
+  <div class="gap-timeline-track">
+    {% for year in temporal_timeline.years %}
+    <span class="gap-timeline-year{% if year.is_gap %} is-gap{% endif %}" style="opacity:{{ year.opacity }}" title="{{ year.year }}: {{ year.doc_count }} doc(s), {{ year.claim_count }} claim(s)"></span>
+    {% endfor %}
+  </div>
+  <div class="gap-timeline-labels">
+    {% for year in temporal_timeline.years %}
+    <span>{% if year.tick_label %}{{ year.tick_label }}{% endif %}</span>
+    {% endfor %}
+  </div>
 </div>
+<p class="gap-section-note">Gray bands mark years at or below the sparse threshold of {{ temporal_gap_threshold|default(0)|round(1) }} document(s). Darker bands indicate denser surrounding coverage.</p>
+{% if temporal_gaps %}
+<div class="gap-summary-list">
+  {% for g in temporal_gaps %}
+  <div class="gap-card">
+    <p><span>{% if g.start == g.end %}{{ g.start }}{% else %}{{ g.start }}&ndash;{{ g.end }} ({{ g.years_count }} years){% endif %}</span> &mdash; {{ g.before_docs }} doc(s) before, {{ g.after_docs }} doc(s) after</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="gap-empty">No significant temporal gaps found across the covered range ({{ year_span }}).</p>
 {% endif %}
-<table class="mini-table">
-  <thead><tr><th>Claim type</th><th>Actual</th><th>Expected (blended)</th><th>Status</th></tr></thead>
-  <tbody>
-    {% for row in topic_rows %}
-    <tr>
-      <td>{{ row.claim_type }}</td>
-      <td>{{ row.actual_pct }}%</td>
-      <td>{{ row.expected_pct }}%</td>
-      <td>
-        {% if row.status == 'gap' %}<span class="badge badge-red">gap</span>
-        {% elif row.status == 'thin' %}<span class="badge badge-amber">thin</span>
-        {% else %}<span class="badge badge-green">ok</span>
-        {% endif %}
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
-{% if per_corpus_panels and per_corpus_panels|length > 1 %}
-<p class="section-heading">Per-corpus topical balance</p>
-<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Each corpus scored against its own expected profile</p>
-{% for panel in per_corpus_panels %}
-<p style="font-size:13px;font-weight:500;margin:0.75rem 0 0.4rem">{{ panel.institution_id }} &mdash; {{ panel.total_claims }} claims</p>
-<table class="mini-table">
-  <thead><tr><th>Claim type</th><th>Actual</th><th>Expected</th><th>Status</th></tr></thead>
-  <tbody>
-    {% for row in panel.topic_rows %}
-    <tr>
-      <td>{{ row.claim_type }}</td>
-      <td>{{ row.actual_pct }}%</td>
-      <td>{{ row.expected_pct }}%</td>
-      <td>
-        {% if row.status == 'gap' %}<span class="badge badge-red">gap</span>
-        {% elif row.status == 'thin' %}<span class="badge badge-amber">thin</span>
-        {% else %}<span class="badge badge-green">ok</span>
-        {% endif %}
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% endfor %}
-{% endif %}
-
-{% if conv_gaps %}
-<p class="section-heading">Query signal gaps</p>
-<p style="font-size:12px;color:var(--text-secondary);margin-bottom:0.75rem">Topics queried frequently but returning fewer than 5 claims</p>
-<table class="mini-table">
-  <thead><tr><th>Query bucket</th><th>Query count</th><th>Avg claims</th></tr></thead>
-  <tbody>
-    {% for r in conv_gaps %}
-    <tr><td>{{ r.bucket }}</td><td>{{ r.query_count }}</td><td>{{ r.avg_claims }}</td></tr>
-    {% endfor %}
-  </tbody>
-</table>
+{% else %}
+<p class="gap-empty">No temporal coverage data is available.</p>
 {% endif %}
 {% endblock %}

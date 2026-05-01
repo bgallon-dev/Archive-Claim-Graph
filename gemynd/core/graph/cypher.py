@@ -785,24 +785,25 @@ HABITAT_CONDITION_QUERY = build_scope_condition_query("Habitat", "IN_HABITAT")
 
 SOFT_DELETE_DOCUMENT_QUERY = """
 MATCH (d:Document {doc_id: $doc_id})
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
 SET d.deleted_at = $deleted_at, d.deleted_by = $deleted_by
-RETURN d.doc_id AS doc_id, d.title AS title
+RETURN d.doc_id AS doc_id, d.title AS title, d.institution_id AS institution_id
 """
 
 RESTORE_DOCUMENT_QUERY = """
 MATCH (d:Document {doc_id: $doc_id})
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
 SET d.deleted_at = null, d.deleted_by = null
-RETURN d.doc_id AS doc_id, d.title AS title
+RETURN d.doc_id AS doc_id, d.title AS title, d.institution_id AS institution_id
 """
 
 LIST_DOCUMENTS_QUERY = """
 MATCH (d:Document)
-WHERE d.institution_id = $institution_id
+WHERE d.institution_id IN $institution_ids
 RETURN d.doc_id AS doc_id, d.title AS title, d.access_level AS access_level,
+       d.institution_id AS institution_id,
        d.deleted_at AS deleted_at, d.deleted_by AS deleted_by
-ORDER BY d.title
+ORDER BY d.institution_id, d.title
 """
 
 # ---------------------------------------------------------------------------
@@ -1061,9 +1062,18 @@ WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND ({label_filter})
 WITH e, count(c) AS primary_claim_count,
      [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type
-WHERE primary_claim_count <= $thin_threshold
-RETURN e.entity_id AS entity_id, e.name AS name, entity_type,
-       primary_claim_count
+WITH collect({{
+       entity_id: e.entity_id,
+       name: e.name,
+       entity_type: entity_type,
+       primary_claim_count: primary_claim_count
+     }}) AS rows,
+     percentileCont(primary_claim_count, 0.5) AS coverage_median
+UNWIND rows AS row
+WITH row, coverage_median
+WHERE row.primary_claim_count <= $thin_threshold
+RETURN row.entity_id AS entity_id, row.name AS name, row.entity_type AS entity_type,
+       row.primary_claim_count AS primary_claim_count, coverage_median
 ORDER BY primary_claim_count ASC, entity_type
 LIMIT $limit
 """
@@ -1095,10 +1105,19 @@ WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND ({label_filter})
 WITH e, count(c) AS geo_claim_count,
      [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type
-WHERE geo_claim_count <= $thin_threshold
-RETURN e.entity_id AS entity_id, e.name AS name, entity_type,
-       geo_claim_count AS location_specific_claims
-ORDER BY geo_claim_count ASC
+WITH collect({{
+       entity_id: e.entity_id,
+       name: e.name,
+       entity_type: entity_type,
+       location_specific_claims: geo_claim_count
+     }}) AS rows,
+     percentileCont(geo_claim_count, 0.5) AS coverage_median
+UNWIND rows AS row
+WITH row, coverage_median
+WHERE row.location_specific_claims <= $thin_threshold
+RETURN row.entity_id AS entity_id, row.name AS name, row.entity_type AS entity_type,
+       row.location_specific_claims AS location_specific_claims, coverage_median
+ORDER BY location_specific_claims ASC
 LIMIT $limit
 """
 

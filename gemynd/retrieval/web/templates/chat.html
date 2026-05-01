@@ -42,6 +42,84 @@
   }
   #conv-list .conv-delete:hover { color: #c00; background: #ffeaea; }
   #conv-list .conv-empty { padding: 12px; color: #888; font-style: italic; }
+
+  /* ---- Post-answer hierarchy: 3 meta-rows ---- */
+  .answer-header { margin-bottom: 0.6rem; }
+  .answer-subtitle {
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-top: 0.35rem;
+  }
+  .confidence-strip {
+    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    padding: 6px 0; margin: 0.5rem 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .confidence-strip:empty { display: none; border: none; padding: 0; margin: 0; }
+  .provenance-footer { margin-top: 0.9rem; font-size: 12px; color: var(--text-tertiary); }
+  .provenance-footer:empty { display: none; }
+  .provenance-footer .coverage { border-top: none; padding-top: 0; }
+
+  /* ---- Sources preview tile + confidence distribution ---- */
+  .source-preview {
+    display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap;
+    padding: 8px 10px; margin: 6px 0;
+    background: var(--bark-50);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    animation: source-fade 240ms ease-out;
+  }
+  @keyframes source-fade { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: none; } }
+  .source-preview .src-quote {
+    color: var(--text-primary); flex: 1; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .source-preview .src-doc { color: var(--text-secondary); font-size: 12px; }
+  .confidence-dist { font-size: 11px; color: var(--text-tertiary); margin-left: 6px; letter-spacing: 0.02em; }
+  .confidence-dist .dot {
+    display: inline-block; width: 6px; height: 6px;
+    border-radius: var(--radius-pill); vertical-align: middle; margin-right: 1px;
+  }
+  .confidence-dist .dot-high { background: var(--bark-700); }
+  .confidence-dist .dot-med  { background: var(--accent-amber-text); }
+  .confidence-dist .dot-low  { background: var(--accent-red-text); }
+  .confidence-dist .dist-bucket { margin-right: 8px; }
+
+  /* ---- Inline year-range filter (above input) ---- */
+  .year-range-inline {
+    display: flex; gap: 6px; align-items: baseline;
+    max-width: 700px; margin: 0 auto 6px;
+    font-size: 12px; color: var(--text-tertiary);
+    font-variant: small-caps; letter-spacing: 0.04em;
+  }
+  .year-range-inline .year-label { font-weight: 500; }
+  .year-range-inline .year-sep { color: var(--text-tertiary); }
+  .year-range-inline .year-input {
+    font-family: var(--font-body); font-size: 12px;
+    width: 64px; padding: 2px 6px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-medium);
+    color: var(--text-primary);
+  }
+  .year-range-inline .year-input:focus { outline: none; border-bottom-color: var(--bark-600); }
+
+  /* ---- Loading state: rotating stage glyph ---- */
+  .msg-ai .bubble.loading { opacity: 1; font-style: normal; }
+  .loading-stage { font-family: var(--font-display); color: var(--text-secondary); }
+  .loading-glyph {
+    display: inline-block; margin: 0 6px; color: var(--text-tertiary);
+    animation: glyph-wave 1.4s ease-in-out infinite;
+  }
+  @keyframes glyph-wave { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+  .loading-elapsed { font-size: 11px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; }
+
+  /* ---- Retry countdown (429) ---- */
+  .retry-countdown { font-variant-numeric: tabular-nums; font-weight: 500; }
 </style>
 <div class="chat-layout">
   <aside id="conv-sidebar" aria-label="Past conversations">
@@ -60,14 +138,6 @@
         </div>
       </div>
       <div class="settings-group">
-        <label>Year min</label>
-        <input type="number" id="year-min" placeholder="e.g. 1940" min="1900" max="2100">
-      </div>
-      <div class="settings-group">
-        <label>Year max</label>
-        <input type="number" id="year-max" placeholder="e.g. 1960" min="1900" max="2100">
-      </div>
-      <div class="settings-group">
         <label>Entity hints (comma-separated)</label>
         <input type="text" id="entity-hints" placeholder="mallard, pintail">
       </div>
@@ -77,21 +147,39 @@
   <div class="chat-scroll" id="chat-area"></div>
 
   <div class="chat-input-bar">
+    <div class="year-range-inline">
+      <span class="year-label">Scope</span>
+      <input type="number" id="year-min" class="year-input"
+             placeholder="from"
+             {% if corpus_year_min %}min="{{ corpus_year_min }}"{% endif %}
+             {% if corpus_year_max %}max="{{ corpus_year_max }}"{% endif %}>
+      <span class="year-sep">—</span>
+      <input type="number" id="year-max" class="year-input"
+             placeholder="to"
+             {% if corpus_year_min %}min="{{ corpus_year_min }}"{% endif %}
+             {% if corpus_year_max %}max="{{ corpus_year_max }}"{% endif %}>
+    </div>
     <div class="chat-input-inner">
       <textarea id="user-input" class="chat-input" rows="1" placeholder="Ask about the collection..."></textarea>
       <button id="send-btn" class="chat-send">Send</button>
     </div>
     <div style="max-width:700px;margin:6px auto 0;display:flex;gap:8px">
-      <button id="settings-toggle" class="btn-sm btn-reject" style="font-size:11px;padding:3px 10px">Settings</button>
-      <button id="new-conv-btn" class="btn-sm btn-reject" style="font-size:11px;padding:3px 10px">New conversation</button>
+      <button id="settings-toggle" class="btn-sm btn-ghost">Settings</button>
+      <button id="new-conv-btn" class="btn-sm btn-ghost">New conversation</button>
     </div>
   </div>
+  <script id="welcome-data" type="application/json">{{ composite_members | tojson }}</script>
   </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
 <script>
+function _csrfToken() {
+  var m = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
+  return m ? decodeURIComponent(m[1]) : '';
+}
+
 var conversationHistory = [];
 var HISTORY_LIMIT = 10;
 
@@ -120,11 +208,12 @@ function cellValue(v) {
   return String(v);
 }
 
-function confidenceBadge(conf) {
+function confidenceBadge(conf, compact) {
   if (conf === null || conf === undefined) return '';
   var pct = Math.round(conf * 100);
   var cls = conf >= 0.85 ? 'warm' : conf >= 0.70 ? 'amber' : 'red';
-  return '<span class="badge badge-' + cls + '">' + pct + '% confidence</span>';
+  var label = compact ? '' : ' confidence';
+  return '<span class="badge badge-' + cls + '">' + pct + '%' + label + '</span>';
 }
 
 function formatTable(ar) {
@@ -135,7 +224,30 @@ function formatTable(ar) {
     var cells = cols.map(function(c) { return '<td>' + esc(cellValue(r[c])) + '</td>'; }).join('');
     return '<tr>' + cells + '</tr>';
   }).join('');
-  return '<details class="analytical-details"><summary>Analytical result \u2014 ' + esc(ar.query_name) + ' (' + ar.rows.length + ' rows)</summary>'
+  // Build a one-line preview of the first label-ish column so the user
+  // can decide whether to expand without first opening the disclosure.
+  var labelCandidates = ['species', 'entity_name', 'name', 'place_name', 'doc_type'];
+  var labelCol = null;
+  for (var i = 0; i < labelCandidates.length; i++) {
+    if (cols.indexOf(labelCandidates[i]) !== -1) { labelCol = labelCandidates[i]; break; }
+  }
+  if (labelCol === null && cols.length > 0) labelCol = cols[0];
+  var preview = '';
+  if (labelCol) {
+    var seen = [];
+    for (var j = 0; j < ar.rows.length && seen.length < 3; j++) {
+      var v = ar.rows[j][labelCol];
+      if (v === null || v === undefined) continue;
+      var s = String(typeof v === 'object' ? JSON.stringify(v) : v);
+      if (s.length > 24) s = s.slice(0, 23) + '\u2026';
+      if (seen.indexOf(s) === -1) seen.push(s);
+    }
+    if (seen.length > 0) {
+      var ellipsis = (ar.rows.length > seen.length) ? ', \u2026' : '';
+      preview = ' \u00b7 ' + seen.map(esc).join(', ') + ellipsis;
+    }
+  }
+  return '<details class="analytical-details"><summary>Analytical result \u2014 ' + esc(ar.query_name) + ' (' + ar.rows.length + ' rows' + preview + ')</summary>'
     + '<div class="table-wrap"><table class="mini-table"><thead><tr>' + headers + '</tr></thead><tbody>' + rows + '</tbody></table></div></details>';
 }
 
@@ -225,65 +337,131 @@ function formatTier1YearRange(t1) {
     + esc(label) + esc(detail) + '</span></div>';
 }
 
+// Tier 1 operations whose structured output IS the answer; for these,
+// render the table BEFORE the prose and demote the prose to a subtitle.
+var TIER1_TABLE_FIRST = {
+  'list_documents_for_entity': true,
+  'list_documents_for_year': true,
+  'locations_for_entity': true,
+  'co_occurring_entities_for_entity': true,
+  'frequency_ranking_for_type': true,
+};
+
+function renderTier1Body(t1) {
+  if (!t1) return '';
+  if (t1.operation === 'year_range_for_entity') return formatTier1YearRange(t1);
+  if (t1.operation === 'list_documents_for_entity' || t1.operation === 'list_documents_for_year') {
+    return formatTier1Documents(t1.items);
+  }
+  if (t1.operation === 'locations_for_entity') {
+    return formatTier1RankedEntities(t1.items, {
+      nameKey: 'place_name', typeKey: 'place_type',
+      countKey: 'claim_count', countLabel: 'Claims',
+      summaryLabel: 'Locations',
+    });
+  }
+  if (t1.operation === 'co_occurring_entities_for_entity') {
+    return formatTier1RankedEntities(t1.items, {
+      nameKey: 'name', typeKey: 'entity_type',
+      countKey: 'co_occurrence_count', countLabel: 'Shared claims',
+      summaryLabel: 'Co-occurring entities',
+    });
+  }
+  if (t1.operation === 'frequency_ranking_for_type') {
+    return formatTier1RankedEntities(t1.items, {
+      nameKey: 'name', typeKey: 'entity_type',
+      countKey: 'claim_count', countLabel: 'Claims',
+      summaryLabel: 'Top entities',
+    });
+  }
+  return '';
+}
+
+function confidenceBucket(conf) {
+  if (conf >= 0.85) return 'high';
+  if (conf >= 0.70) return 'med';
+  return 'low';
+}
+
+function buildConfidenceDist(claims) {
+  var counts = { high: 0, med: 0, low: 0 };
+  claims.forEach(function(c) {
+    if (c.confidence == null) return;
+    counts[confidenceBucket(c.confidence)] += 1;
+  });
+  var parts = [];
+  ['high', 'med', 'low'].forEach(function(b) {
+    if (counts[b] === 0) return;
+    var dots = '';
+    var n = Math.min(counts[b], 8);  // cap dot rendering at 8 per bucket
+    for (var i = 0; i < n; i++) dots += '<span class="dot dot-' + b + '"></span>';
+    var label = (b === 'med') ? 'medium' : b;
+    parts.push('<span class="dist-bucket">' + dots + ' ' + counts[b] + ' ' + label + '</span>');
+  });
+  if (parts.length === 0) return '';
+  return '<span class="confidence-dist">' + parts.join('') + '</span>';
+}
+
+function buildSourcePreview(claim) {
+  if (!claim) return '';
+  var badge = (claim.confidence != null) ? confidenceBadge(claim.confidence) : '';
+  var sentence = claim.source_sentence ? esc(claim.source_sentence) : '<em>No text available</em>';
+  var docLabel = claim.doc_title ? esc(claim.doc_title) : (claim.doc_id ? esc(claim.doc_id) : '');
+  var docHtml = docLabel ? '<span class="src-doc">\u2014 ' + docLabel + '</span>' : '';
+  return '<div class="source-preview">'
+    + badge
+    + '<span class="src-quote">' + sentence + '</span>'
+    + docHtml
+    + '</div>';
+}
+
 function formatResponse(data) {
-  var html = '<p class="answer">' + esc(data.answer) + '</p>';
-
-  // Tier 1 fast-path output: render structured fields when present.  These
-  // populate `tier_1_result` for queries the classifier routed to a graph
-  // lookup instead of LLM synthesis.
-  if (data.tier_1_result) {
-    var t1 = data.tier_1_result;
-    if (t1.operation === 'year_range_for_entity') {
-      html += formatTier1YearRange(t1);
-    }
-    if (t1.operation === 'list_documents_for_entity'
-        || t1.operation === 'list_documents_for_year') {
-      html += formatTier1Documents(t1.items);
-    }
-    if (t1.operation === 'locations_for_entity') {
-      html += formatTier1RankedEntities(t1.items, {
-        nameKey: 'place_name', typeKey: 'place_type',
-        countKey: 'claim_count', countLabel: 'Claims',
-        summaryLabel: 'Locations',
-      });
-    }
-    if (t1.operation === 'co_occurring_entities_for_entity') {
-      html += formatTier1RankedEntities(t1.items, {
-        nameKey: 'name', typeKey: 'entity_type',
-        countKey: 'co_occurrence_count', countLabel: 'Shared claims',
-        summaryLabel: 'Co-occurring entities',
-      });
-    }
-    if (t1.operation === 'frequency_ranking_for_type') {
-      html += formatTier1RankedEntities(t1.items, {
-        nameKey: 'name', typeKey: 'entity_type',
-        countKey: 'claim_count', countLabel: 'Claims',
-        summaryLabel: 'Top entities',
-      });
-    }
+  // ---- Answer header (tier-1 structured-first, prose, year-range badge) ----
+  var headerInner = '';
+  var t1 = data.tier_1_result || null;
+  var tableFirst = !!(t1 && TIER1_TABLE_FIRST[t1.operation]);
+  if (tableFirst) {
+    headerInner += renderTier1Body(t1);
+    headerInner += '<p class="answer answer-subtitle">' + esc(data.answer) + '</p>';
+  } else {
+    headerInner += '<p class="answer">' + esc(data.answer) + '</p>';
+    if (t1) headerInner += renderTier1Body(t1);
   }
+  var html = '<div class="answer-header">' + headerInner + '</div>';
 
-  if (data.ambiguous_entities && data.ambiguous_entities.length > 0) {
-    html += '<div class="warning">\u26a0 Ambiguous: ' + data.ambiguous_entities.map(esc).join(', ') + '</div>';
-  }
-
+  // ---- Confidence strip (badge + ambiguity + caveat anchor) ----
+  var stripParts = [];
   var badge = confidenceBadge(data.min_extraction_confidence);
-  if (badge || data.analytical_result) {
-    html += '<div class="meta-row">' + badge + '</div>';
+  if (badge) stripParts.push(badge);
+  if (data.ambiguous_entities && data.ambiguous_entities.length > 0) {
+    stripParts.push('<span class="badge badge-amber">\u26a0 '
+      + data.ambiguous_entities.length + ' ambiguous: '
+      + data.ambiguous_entities.map(esc).join(', ') + '</span>');
+  }
+  if (data.caveats && data.caveats.length > 0) {
+    stripParts.push('<a href="#caveats-block" class="badge badge-outline">'
+      + data.caveats.length + ' caveat' + (data.caveats.length === 1 ? '' : 's') + ' \u2193</a>');
+  }
+  if (stripParts.length > 0) {
+    html += '<div class="confidence-strip">' + stripParts.join('') + '</div>';
   }
 
+  // ---- Body (analytical table + caveats) ----
   if (data.analytical_result) {
     html += formatTable(data.analytical_result);
   }
-
   if (data.caveats && data.caveats.length > 0) {
     var items = data.caveats.map(function(c) { return '<li>' + esc(c) + '</li>'; }).join('');
-    html += '<div class="caveats"><strong>Caveats:</strong><ul>' + items + '</ul></div>';
+    html += '<div class="caveats" id="caveats-block"><strong>Caveats:</strong><ul>' + items + '</ul></div>';
   }
 
+  // ---- Provenance footer (sources preview + details, notes, coverage) ----
+  var footerParts = [];
   if (data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
-    var rows = data.supporting_claims_detail.map(function(c) {
-      var badge = (c.confidence != null) ? confidenceBadge(c.confidence) : '';
+    var details = data.supporting_claims_detail;
+    footerParts.push(buildSourcePreview(details[0]));
+    var rows = details.map(function(c) {
+      var b = (c.confidence != null) ? confidenceBadge(c.confidence, true) : '';
       var ct = c.claim_type ? '<span class="src-label">' + esc(c.claim_type) + '</span>' : '';
       var epis = (c.epistemic_status && c.epistemic_status !== 'unknown')
         ? '<span class="src-label">' + esc(c.epistemic_status) + '</span>' : '';
@@ -295,16 +473,19 @@ function formatResponse(data) {
         + '<td class="src-text">' + sentence + '</td>'
         + '<td class="src-meta">' + source + '</td>'
         + '<td class="src-meta">' + ct + ' ' + epis + '</td>'
-        + '<td class="src-meta">' + badge + '</td>'
+        + '<td class="src-meta">' + b + '</td>'
         + '</tr>';
     }).join('');
-    html += '<details><summary>Sources (' + data.supporting_claims_detail.length + ' claims)</summary>'
-      + '<table class="sources-table"><thead><tr>'
+    var dist = buildConfidenceDist(details);
+    footerParts.push('<details><summary>View all ' + details.length + ' sources' + dist + '</summary>'
+      + '<table class="sources-table">'
+      + '<colgroup><col style="width:52%"><col style="width:18%"><col style="width:18%"><col style="width:12%"></colgroup>'
+      + '<thead><tr>'
       + '<th>Claim</th><th>Document</th><th>Type</th><th>Confidence</th>'
-      + '</tr></thead><tbody>' + rows + '</tbody></table></details>';
+      + '</tr></thead><tbody>' + rows + '</tbody></table></details>');
   } else if (data.supporting_claim_ids && data.supporting_claim_ids.length > 0) {
-    html += '<details><summary>Sources (' + data.supporting_claim_ids.length + ' claims)</summary>'
-      + '<p class="claim-ids">' + data.supporting_claim_ids.map(esc).join(', ') + '</p></details>';
+    footerParts.push('<details><summary>Sources (' + data.supporting_claim_ids.length + ' claims)</summary>'
+      + '<p class="claim-ids">' + data.supporting_claim_ids.map(esc).join(', ') + '</p></details>');
   }
 
   if (data.user_can_annotate && data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
@@ -314,11 +495,11 @@ function formatResponse(data) {
     });
     var docIds = Object.keys(seenDocs);
     if (docIds.length > 0) {
-      html += '<div style="margin-top:8px">';
+      var notesHtml = '<div style="margin-top:8px">';
       docIds.forEach(function(docId) {
         var eid = esc(docId);
         var etitle = esc(seenDocs[docId]);
-        html += '<div id="notes-panel-' + eid + '">'
+        notesHtml += '<div id="notes-panel-' + eid + '">'
           + '<button class="note-btn"'
           + ' hx-get="/document/' + eid + '/notes-panel"'
           + ' hx-target="#notes-panel-' + eid + '"'
@@ -326,7 +507,8 @@ function formatResponse(data) {
           + 'Add/view note \u2014 ' + etitle
           + '</button></div>';
       });
-      html += '</div>';
+      notesHtml += '</div>';
+      footerParts.push(notesHtml);
     }
   }
 
@@ -340,10 +522,45 @@ function formatResponse(data) {
     if (s.ocr_dropped > 0) {
       coverageText += ' \u2014 ' + s.ocr_dropped + ' OCR-corrupted claims excluded';
     }
-    html += '<div class="coverage">' + coverageText + '</div>';
+    footerParts.push('<div class="coverage">' + coverageText + '</div>');
+  }
+
+  if (footerParts.length > 0) {
+    html += '<div class="provenance-footer">' + footerParts.join('') + '</div>';
   }
 
   return html;
+}
+
+function buildWelcome() {
+  var members = [];
+  try {
+    members = JSON.parse(document.getElementById('welcome-data').textContent || '[]');
+  } catch (e) { members = []; }
+  if (!members || members.length === 0) {
+    return '<p>Welcome to the archive explorer. Ask a question about the collection to begin.</p>'
+      + '<p>Use <strong>Settings</strong> for mode and entity hints, or set a year range above. <em>Shift+Enter</em> for a new line.</p>';
+  }
+  var labels = members.map(function(m) { return m.label; });
+  var hints = [];
+  members.forEach(function(m) {
+    (m.topic_hints || []).forEach(function(h) {
+      if (hints.indexOf(h) === -1) hints.push(h);
+    });
+  });
+  var corpusLine;
+  if (labels.length === 1) {
+    corpusLine = 'I can help you query the ' + esc(labels[0]) + ' archive.';
+  } else {
+    corpusLine = 'I can help you query the '
+      + labels.slice(0, -1).map(esc).join(', ')
+      + ' and ' + esc(labels[labels.length - 1]) + ' archives.';
+  }
+  var hintLine = hints.length
+    ? '<p>Topics include ' + hints.slice(0, 6).map(esc).join(', ') + '.</p>'
+    : '';
+  return '<p>' + corpusLine + '</p>' + hintLine
+    + '<p>Use <strong>Settings</strong> for mode and entity hints, or set a year range above. <em>Shift+Enter</em> for a new line.</p>';
 }
 
 // ---------- Conversation sidebar (cached history) ----------
@@ -449,7 +666,10 @@ async function loadConversation(sessionId) {
 async function deleteConversation(sessionId) {
   if (!confirm('Delete this conversation?')) return;
   try {
-    var resp = await fetch('/api/conversations/' + encodeURIComponent(sessionId), {method: 'DELETE'});
+    var resp = await fetch('/api/conversations/' + encodeURIComponent(sessionId), {
+      method: 'DELETE',
+      headers: {'x-csrftoken': _csrfToken()},
+    });
     if (!resp.ok) return;
     if (activeLoadedSessionId === sessionId) {
       // The currently-open conversation was deleted — clear the chat area
@@ -504,21 +724,61 @@ async function sendMessage() {
   ta.disabled = true;
   document.getElementById('send-btn').disabled = true;
 
-  var loadingWrap = appendBubble('assistant loading', '<em>Thinking\u2026</em>');
+  var loadingWrap = appendBubble('assistant loading',
+    '<span class="loading-stage">Resolving entities</span>'
+    + '<span class="loading-glyph">\u2058</span>'
+    + '<span class="loading-elapsed"></span>');
+  var loadingStages = [
+    { at: 0,    text: 'Resolving entities' },
+    { at: 2500, text: 'Retrieving claims' },
+    { at: 8000, text: 'Synthesizing answer' },
+  ];
+  var loadingStart = Date.now();
+  var loadingTimer = setInterval(function() {
+    var elapsed = Date.now() - loadingStart;
+    var stage = null;
+    for (var i = loadingStages.length - 1; i >= 0; i--) {
+      if (elapsed >= loadingStages[i].at) { stage = loadingStages[i]; break; }
+    }
+    var stageEl = loadingWrap.querySelector('.loading-stage');
+    var elapsedEl = loadingWrap.querySelector('.loading-elapsed');
+    if (stageEl && stage) stageEl.textContent = stage.text;
+    if (elapsedEl) elapsedEl.textContent = ' (' + Math.floor(elapsed / 1000) + 's)';
+  }, 500);
 
   try {
     var resp = await fetch('/query', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json', 'x-csrftoken': _csrfToken()},
       body: JSON.stringify({text: text, mode: mode, year_range: year_range, entity_hints: entityHints, conversation_history: conversationHistory, session_id: currentSessionId}),
     });
     var bubble = loadingWrap.querySelector('.bubble');
     if (!resp.ok) {
+      clearInterval(loadingTimer);
       var detail = resp.statusText;
       try { detail = (await resp.json()).detail || detail; } catch(e) {}
       bubble.className = 'bubble error';
-      bubble.innerHTML = esc('Error ' + resp.status + ': ' + detail);
+      if (resp.status === 429) {
+        var retryAfter = parseInt(resp.headers.get('Retry-After') || '60', 10);
+        bubble.innerHTML = 'Rate limit reached. <span class="retry-countdown">Try again in '
+          + retryAfter + ' seconds.</span>';
+        var remaining = retryAfter;
+        var tickTimer = setInterval(function() {
+          remaining -= 1;
+          var el = bubble.querySelector('.retry-countdown');
+          if (!el) { clearInterval(tickTimer); return; }
+          if (remaining <= 0) {
+            clearInterval(tickTimer);
+            el.textContent = 'You can try again now.';
+            return;
+          }
+          el.textContent = 'Try again in ' + remaining + ' seconds.';
+        }, 1000);
+      } else {
+        bubble.innerHTML = esc('Error ' + resp.status + ': ' + detail);
+      }
     } else {
+      clearInterval(loadingTimer);
       var data = await resp.json();
       bubble.className = 'bubble';
       bubble.innerHTML = formatResponse(data);
@@ -532,6 +792,7 @@ async function sendMessage() {
       refreshConvSidebar();
     }
   } catch(err) {
+    clearInterval(loadingTimer);
     var bubble2 = loadingWrap.querySelector('.bubble');
     bubble2.className = 'bubble error';
     bubble2.innerHTML = esc('Network error: ' + err.message);
@@ -572,13 +833,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('send-btn').addEventListener('click', sendMessage);
 
-  appendBubble('assistant',
-    '<p>Welcome to the archive explorer. I can answer questions about species populations, management activities, habitat conditions, and more.</p>'
-    + '<p>Use <strong>Settings</strong> to adjust mode, year range, or entity hints. <em>Shift+Enter</em> for a new line.</p>'
-  );
+  appendBubble('assistant', buildWelcome());
 
-  var _urlQ = new URLSearchParams(window.location.search).get('q');
+  var _params = new URLSearchParams(window.location.search);
+  var _urlQ = _params.get('q');
   if (_urlQ) {
+    var _bucket = _params.get('bucket') || '';
+    var _mode = (_bucket === 'conversational' || _bucket === 'analytical') ? _bucket : 'auto';
+    var _modeInput = document.querySelector('input[name="mode"][value="' + _mode + '"]');
+    if (_modeInput) _modeInput.checked = true;
+    if (_bucket) document.getElementById('settings-panel').classList.add('open');
+    var _yearMin = _params.get('year_min');
+    var _yearMax = _params.get('year_max');
+    if (_yearMin !== null) document.getElementById('year-min').value = _yearMin;
+    if (_yearMax !== null) document.getElementById('year-max').value = _yearMax;
+    var _conversationId = _params.get('conversation_id');
+    if (_conversationId && /^[a-zA-Z0-9_-]{1,128}$/.test(_conversationId)) {
+      currentSessionId = _conversationId;
+    }
     ta.value = _urlQ;
     autoResize(ta);
     history.replaceState(null, '', '/');

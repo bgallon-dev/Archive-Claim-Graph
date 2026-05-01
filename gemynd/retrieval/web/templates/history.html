@@ -23,6 +23,37 @@
   border: none; border-radius: 4px;
   background: var(--bark-700); color: var(--text-inverse); cursor: pointer;
 }
+
+/* Saved-searches card: visually marks curated artefacts as distinct from
+   the lightweight recent-queries log. Heavier border, parchment fill,
+   inset table, and a small star marker on the heading. */
+.saved-searches-card {
+  background: var(--bark-50);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  padding: 4px 14px 12px;
+  margin: 0 0 1.75rem;
+}
+.saved-searches-card .section-heading {
+  margin-top: 0.75rem;
+  border-bottom-color: var(--border-medium);
+}
+.saved-marker {
+  color: var(--bark-500);
+  font-size: 0;
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+.saved-marker::before {
+  content: "\2605";
+  font-size: 13px;
+}
+.saved-searches-card .mini-table {
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 0;
+}
 </style>
 {% endblock %}
 
@@ -30,7 +61,8 @@
 <p class="page-title">Query history</p>
 <p class="page-sub">Recent queries and saved searches</p>
 
-<p class="section-heading">Saved searches</p>
+<div class="saved-searches-card">
+<p class="section-heading"><span class="saved-marker" aria-hidden="true">✦</span>Saved searches</p>
 <table class="mini-table">
   <thead><tr>
     <th>Label</th><th>Query</th><th>Type</th><th>Years</th>
@@ -48,6 +80,7 @@
       <td style="white-space:nowrap">
         <a href="{{ s.srerun_url }}" class="action-link">Re-run</a>
         <form method="POST" action="/history/saved/{{ s.saved_id }}/delete" style="display:inline;margin-left:6px">
+          <input type="hidden" name="csrftoken" value="{{ request.cookies.get('csrftoken', '') }}">
           <button type="submit" class="del-btn" onclick="return confirm('Delete this saved search?')">Delete</button>
         </form>
       </td>
@@ -58,6 +91,7 @@
     {% endif %}
   </tbody>
 </table>
+</div>
 
 <p class="section-heading">Recent queries</p>
 <form class="filter-bar" method="GET" action="/history">
@@ -95,6 +129,7 @@
         <details class="save-details">
           <summary>Save</summary>
           <form class="save-form" method="POST" action="/history/saved">
+            <input type="hidden" name="csrftoken" value="{{ request.cookies.get('csrftoken', '') }}">
             <input type="hidden" name="query_text" value="{{ row.qtext }}">
             <input type="hidden" name="bucket" value="{{ row.bkt }}">
             <input type="hidden" name="year_min" value="{{ row.yr_min }}">
@@ -115,9 +150,11 @@
 
 {% if pagination %}
 <div class="pagination">
+  {% if pagination.has_skip_back %}<a href="{{ pagination.skip_back_url }}">&laquo; Back 5</a> {% endif %}
   {% if pagination.has_prev %}<a href="{{ pagination.prev_url }}">&laquo; Previous</a> {% endif %}
   <span>{{ pagination.shown_start }}&ndash;{{ pagination.shown_end }} of {{ pagination.total }}</span>
   {% if pagination.has_next %} <a href="{{ pagination.next_url }}">Next &raquo;</a>{% endif %}
+  {% if pagination.has_skip_forward %} <a href="{{ pagination.skip_forward_url }}">Forward 5 &raquo;</a>{% endif %}
 </div>
 {% endif %}
 {% endblock %}

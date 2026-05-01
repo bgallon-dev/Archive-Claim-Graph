@@ -121,6 +121,7 @@
     <p class="login-sub">Archive explorer</p>
     {% if error %}<div class="error">{{ error }}</div>{% endif %}
     <form method="post" action="/auth/login">
+      <input type="hidden" name="csrftoken" value="{{ request.cookies.get('csrftoken', '') }}">
       <input type="hidden" name="next" value="{{ next }}">
       <input class="login-field" type="email" id="email" name="email" placeholder="Email"
              required autofocus autocomplete="username" value="{{ email_prefill }}">

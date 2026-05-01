@@ -18,7 +18,7 @@
   <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:1rem">
     <p class="section-heading" style="margin:0">Job {{ job_id[:8] }} &mdash; {{ total }} documents</p>
     {% if is_running %}
-      <span class="badge ds-extracting">Running</span>
+      <span class="badge status-running">Running</span>
     {% elif failed > 0 %}
       <span class="badge badge-red">Completed with errors</span>
     {% else %}

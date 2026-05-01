@@ -27,7 +27,7 @@
     <span class="job-id">{{ job_id[:12] }}…</span>
     <span style="font-size:13px;color:var(--text-secondary)">Started {{ created }} · {{ total }} document(s)</span>
     {% if is_running %}
-      <span class="badge ds-extracting">Running</span>
+      <span class="badge status-running">Running</span>
     {% elif job.failed_docs == 0 %}
       <span class="badge badge-green">Complete</span>
     {% else %}

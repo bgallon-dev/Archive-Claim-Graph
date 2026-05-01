@@ -14,29 +14,73 @@
 
 <div class="filter-row" style="margin-bottom:1rem">
   <a class="filter-pill{% if not active_filter %} active{% endif %}" href="/review">All queued ({{ total_queued }})</a>
+  {% if sensitivity_count > 0 %}
+  <a class="filter-pill filter-pill-danger{% if active_filter == 'sensitivity' %} active{% endif %}"
+     href="/review?queue_name=sensitivity">Sensitivity ({{ sensitivity_count }})</a>
+  {% endif %}
   {% for qname, qlabel, qcount in queue_filters %}
-  <a class="filter-pill{% if qname == 'sensitivity' %} filter-pill-danger{% endif %}{% if active_filter == qname %} active{% endif %}"
+  <a class="filter-pill{% if active_filter == qname %} active{% endif %}"
      href="/review?queue_name={{ qname }}">{{ qlabel }} ({{ qcount }})</a>
   {% endfor %}
 </div>
 
-<div class="stat-grid" style="max-width:400px;margin-bottom:1.5rem">
+<div class="review-dashboard-row">
+<div class="stat-grid review-stats">
   <div class="stat-card"><p class="stat-card-label">Accepted today</p><p class="stat-card-value-sm">{{ accepted_today }}</p></div>
   <div class="stat-card"><p class="stat-card-label">Rejected today</p><p class="stat-card-value-sm">{{ rejected_today }}</p></div>
   <div class="stat-card"><p class="stat-card-label">Deferred</p><p class="stat-card-value-sm">{{ deferred_today }}</p></div>
 </div>
+<div class="review-throughput">
+  <div>
+    <p class="stat-card-label">14-day throughput</p>
+    <p class="stat-card-note">New queued today: {{ new_queued_today|default(0) }}</p>
+  </div>
+  <div class="review-sparkline" aria-label="Daily review throughput for the past 14 days">
+    {% for day in review_trend|default([]) %}
+    <span style="height:{{ day.height_pct }}%" title="{{ day.day }}: {{ day.total }} correction events"></span>
+    {% endfor %}
+  </div>
+</div>
+</div>
 
 {% for card in proposal_cards %}
-<div id="proposal-card-{{ card.proposal_id }}" style="border:1px solid {{ card.border_color }};border-radius:var(--radius-md);padding:0.85rem;margin:0.5rem 0;background:var(--white)">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.4rem">
+<div id="proposal-card-{{ card.proposal_id }}" class="proposal-card{% if card.is_sensitivity %} sensitivity{% endif %}">
+  <div class="proposal-card-top">
     <span class="badge {{ card.badge_cls }}">{{ card.ic_label }}</span>
     <span style="font-size:12px;color:var(--text-secondary)">priority {{ '%.2f'|format(card.priority) }} / confidence {{ '%.2f'|format(card.confidence) }}</span>
   </div>
-  <p style="margin:0.3rem 0 0.5rem;font-size:13px">{{ card.description | safe }}</p>
-  <div style="display:flex;align-items:center;gap:4px">
+  <p class="proposal-card-body">{{ card.description | safe }}</p>
+  {% if card.diagnostic %}
+  <p class="proposal-card-diagnostic">{{ card.diagnostic | safe }}</p>
+  {% endif %}
+  {% if card.review_objects and card.review_objects['items'] %}
+  <div class="review-object-strip" aria-label="Objects to review">
+    {% for obj in card.review_objects['items'] %}
+    <div class="review-object-chip">
+      <span class="review-object-kind">{{ obj.kind }}</span>
+      <strong>{{ obj.label }}</strong>
+      {% if obj.detail %}<span class="review-object-meta">{{ obj.detail }}</span>{% endif %}
+      {% if obj.snippet %}<span class="review-object-snippet">{{ obj.snippet }}</span>{% endif %}
+    </div>
+    {% endfor %}
+    {% if card.review_objects.remaining > 0 %}
+    <span class="review-object-more">+{{ card.review_objects.remaining }} more</span>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% if card.target_summary and card.target_summary.total > 0 %}
+  <p class="proposal-card-diagnostic">
+    Impacts {{ card.target_summary.total }} target{{ 's' if card.target_summary.total != 1 else '' }}
+    {% if card.target_summary.counts %}
+    ({% for item in card.target_summary.counts %}{{ item.count }} {{ item.label }}{{ ', ' if not loop.last else '' }}{% endfor %})
+    {% endif %}
+  </p>
+  {% endif %}
+  <div class="proposal-card-actions">
     <button hx-post="/review/proposals/{{ card.proposal_id }}/accept"
             hx-target="#proposal-card-{{ card.proposal_id }}" hx-swap="delete"
-            class="btn-sm btn-accept"{{ '' if card.actionable else ' disabled' }}>Accept</button>
+            {% if card.needs_bulk_confirm %}hx-confirm="This will modify {{ card.impact_size }} target{{ 's' if card.impact_size != 1 else '' }} in the corpus. Continue?"{% endif %}
+            class="btn-sm btn-accept{% if card.is_sensitivity %} btn-accept-sensitive{% endif %}"{{ '' if card.actionable else ' disabled' }}>{% if card.is_sensitivity %}<span aria-hidden="true">&#128274;</span> {% endif %}Accept</button>
     {% if card.can_reject %}
     <button hx-post="/review/proposals/{{ card.proposal_id }}/reject"
             hx-target="#proposal-card-{{ card.proposal_id }}" hx-swap="delete"

@@ -18,11 +18,36 @@ from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, EmailStr, Field
 from typing import Literal
 
+from gemynd.shared.client_ip import client_ip
+from gemynd.shared.rate_limit import TokenBucketLimiter
+
 from .dependencies import NeedsLoginException, require_admin, require_login
 from .jwt_utils import create_access_token, _expire_hours
 from .models import UserContext
 from .setup import ensure_setup_token_printed, get_setup_token, is_setup_needed, mark_setup_done
 from .store import UserStore, verify_password
+
+
+# Outer per-IP bucket: catches scanners probing many usernames from one host.
+# Inner per-(IP, email) bucket: protects an individual account from credential
+# stuffing without locking out the rest of a NAT'd network (a noisy classroom
+# or dorm IP would otherwise lock out every legitimate user behind that NAT).
+_login_ip_limiter = TokenBucketLimiter(
+    max_calls=int(os.environ.get("LOGIN_RATE_LIMIT_IP_MAX", "50")),
+    period_seconds=float(os.environ.get("LOGIN_RATE_LIMIT_IP_PERIOD", "300")),
+)
+_login_account_limiter = TokenBucketLimiter(
+    max_calls=int(os.environ.get("LOGIN_RATE_LIMIT_ACCOUNT_MAX", "5")),
+    period_seconds=float(os.environ.get("LOGIN_RATE_LIMIT_ACCOUNT_PERIOD", "300")),
+)
+_setup_ip_limiter = TokenBucketLimiter(
+    max_calls=int(os.environ.get("SETUP_RATE_LIMIT_IP_MAX", "50")),
+    period_seconds=float(os.environ.get("SETUP_RATE_LIMIT_IP_PERIOD", "300")),
+)
+_setup_attempt_limiter = TokenBucketLimiter(
+    max_calls=int(os.environ.get("SETUP_RATE_LIMIT_MAX", "5")),
+    period_seconds=float(os.environ.get("SETUP_RATE_LIMIT_PERIOD", "300")),
+)
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
 _SHARED_TEMPLATES_DIR = Path(__file__).parent.parent / "shared_templates"
@@ -92,6 +117,14 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
         confirm: str = Form(...),
         setup_token: str = Form(...),
     ) -> Response:
+        ip = client_ip(request)
+        if not _setup_ip_limiter.is_allowed(ip) or not _setup_attempt_limiter.is_allowed(f"setup:{ip}"):
+            return _templates.TemplateResponse(
+                "setup.html",
+                {"request": request, "error": "Too many attempts. Try again in a few minutes.", "email_prefill": email.strip().lower()},
+                status_code=429,
+            )
+
         # Always re-check the database — never rely on in-process cache here.
         if not is_setup_needed(db_path):
             return RedirectResponse(url="/auth/login", status_code=303)
@@ -165,6 +198,14 @@ def create_auth_router(users_db_path: str = "") -> APIRouter:
         password: str = Form(...),
         next: str = Form(default="/"),
     ) -> Response:
+        ip = client_ip(request)
+        email_norm = email.strip().lower()
+        if not _login_ip_limiter.is_allowed(ip) or not _login_account_limiter.is_allowed(f"{ip}:{email_norm}"):
+            return _templates.TemplateResponse(
+                "login.html",
+                {"request": request, "error": "Too many attempts. Try again in a few minutes.", "next": _safe_next(next), "email_prefill": email},
+                status_code=429,
+            )
         user = store.get_by_email(email)
         if user is None or not user.is_active or not verify_password(password, user.hashed_password):
             return _templates.TemplateResponse(

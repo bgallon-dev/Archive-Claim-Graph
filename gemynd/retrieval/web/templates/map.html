@@ -23,6 +23,19 @@
 }
 @media(max-width:700px) { .map-layout { grid-template-columns: 1fr; } }
 #status-bar { font-size: 12px; color: var(--text-secondary); margin-bottom: 0.5rem; min-height: 1.2em; }
+#status-bar .status-relations { color: var(--text-tertiary); }
+#status-bar .status-bullet { color: var(--text-tertiary); margin: 0 0.4rem; }
+.legend-sep { color: var(--text-tertiary); margin: 0 0.2rem; }
+.legend-dot.legend-dot--ring { box-sizing: border-box; width: 12px; height: 12px; }
+.autocomplete-group-header {
+  position: sticky; top: 0;
+  background: var(--bark-50); color: var(--text-tertiary);
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+.autocomplete-empty { padding: 8px 12px; color: var(--text-tertiary); font-size: 12px; font-style: italic; }
 </style>
 {% endblock %}
 
@@ -84,6 +97,22 @@ Object.keys(ENTITY_COLORS).forEach(function(et) {
     + esc(et) + '</span>';
 });
 
+// Border encoding: corpus membership is signaled by the node's outline,
+// not its fill. Document the three states so the analytical signal is
+// legible without reading the source.
+var BORDER_LEGEND = [
+  { label: 'Turnbull-only', border: '#fff',    width: 1 },
+  { label: 'Spokane-only',  border: '#2E5D8F', width: 1 },
+  { label: 'Cross-corpus',  border: '#6B4D35', width: 3 },
+];
+legendEl.innerHTML += '<span class="legend-sep" aria-hidden="true">·</span>';
+BORDER_LEGEND.forEach(function(b) {
+  legendEl.innerHTML += '<span class="legend-item">'
+    + '<span class="legend-dot legend-dot--ring" style="background:' + DEFAULT_COLOR
+    + ';border:' + b.width + 'px solid ' + b.border + '"></span>'
+    + esc(b.label) + '</span>';
+});
+
 var input = document.getElementById('entity-input');
 var listEl = document.getElementById('autocomplete-list');
 var debounceTimer;
@@ -111,15 +140,36 @@ async function fetchSuggestions(q) {
 
 function renderSuggestions(items) {
   if (!items.length) { listEl.style.display = 'none'; return; }
-  listEl.innerHTML = items.map(function(it) {
-    return '<li data-id="' + esc(it.entity_id) + '" data-name="' + esc(it.name) + '"'
-      + ' style="padding:8px 12px;cursor:pointer;font-size:13px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-light)">'
-      + esc(it.name)
-      + '<span style="font-size:11px;background:' + entityColor(it.entity_type)
-      + ';color:#fff;border-radius:3px;padding:1px 6px">' + esc(it.entity_type) + '</span></li>';
-  }).join('');
+
+  // Group by entity_type so a search like "Spokane" shows Place, Organization,
+  // and Person matches under their own headers instead of an interleaved list.
+  // Group order: types appearing first in the API result (which already ranks
+  // by relevance), so the most-relevant type stays at the top.
+  var groups = {};
+  var groupOrder = [];
+  items.forEach(function(it) {
+    var t = it.entity_type || 'Other';
+    if (!(t in groups)) { groups[t] = []; groupOrder.push(t); }
+    groups[t].push(it);
+  });
+
+  var html = '';
+  groupOrder.forEach(function(t) {
+    html += '<li class="autocomplete-group-header" data-group="' + esc(t) + '">'
+      + esc(t) + ' <span style="opacity:0.6">(' + groups[t].length + ')</span>'
+      + '</li>';
+    groups[t].forEach(function(it) {
+      html += '<li data-id="' + esc(it.entity_id) + '" data-name="' + esc(it.name) + '"'
+        + ' class="autocomplete-item"'
+        + ' style="padding:8px 12px;cursor:pointer;font-size:13px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border-light)">'
+        + esc(it.name)
+        + '<span style="font-size:11px;background:' + entityColor(it.entity_type)
+        + ';color:#fff;border-radius:3px;padding:1px 6px">' + esc(it.entity_type) + '</span></li>';
+    });
+  });
+  listEl.innerHTML = html;
   listEl.style.display = 'block';
-  listEl.querySelectorAll('li').forEach(function(li) {
+  listEl.querySelectorAll('li.autocomplete-item').forEach(function(li) {
     li.addEventListener('mouseenter', function() { this.style.background = 'var(--bark-50)'; });
     li.addEventListener('mouseleave', function() { this.style.background = ''; });
     li.addEventListener('click', function() {
@@ -137,6 +187,61 @@ function selectEntity(id, name) {
 var cy = null;
 var statusBar = document.getElementById('status-bar');
 
+// Humanize an institution_id like "turnbull_main" → "Turnbull",
+// "spokane_newspaper" → "Spokane". Conservatively takes the segment before
+// the first underscore — deployment-agnostic and avoids stuffing the status
+// bar with verbose IDs.
+function humanizeInstitution(instId) {
+  if (!instId) return '';
+  var head = String(instId).split('_')[0];
+  if (!head) return instId;
+  return head.charAt(0).toUpperCase() + head.slice(1);
+}
+
+function buildStatusBar(data) {
+  var neighbors = data.nodes.filter(function(n) { return !n.data.is_center; });
+  var crossCount = 0;
+  var perInstitution = {};   // first-segment label → count
+  neighbors.forEach(function(n) {
+    var insts = n.data.institution_ids || [];
+    if (insts.length > 1) {
+      crossCount += 1;
+    } else if (insts.length === 1) {
+      var label = humanizeInstitution(insts[0]);
+      perInstitution[label] = (perInstitution[label] || 0) + 1;
+    }
+  });
+  var parts = [];
+  if (crossCount > 0) parts.push(crossCount + ' cross-corpus');
+  Object.keys(perInstitution).sort().forEach(function(label) {
+    parts.push(perInstitution[label] + ' ' + label + '-only');
+  });
+
+  // Top relationship types across all edges, weighted by edge co-occurrence count.
+  var relCounts = {};
+  data.edges.forEach(function(e) {
+    var w = (e.data.weight != null) ? e.data.weight : 1;
+    (e.data.relationship_types || []).forEach(function(r) {
+      relCounts[r] = (relCounts[r] || 0) + w;
+    });
+  });
+  var topRels = Object.keys(relCounts)
+    .sort(function(a, b) { return relCounts[b] - relCounts[a]; })
+    .slice(0, 3);
+
+  var html = esc(data.center.name) + ' — '
+    + neighbors.length + ' neighbor' + (neighbors.length === 1 ? '' : 's');
+  if (parts.length > 0) {
+    html += ' (' + parts.map(esc).join(', ') + ')';
+  }
+  html += ', ' + data.edges.length + ' edge' + (data.edges.length === 1 ? '' : 's');
+  if (topRels.length > 0) {
+    html += '<span class="status-bullet">·</span><span class="status-relations">top relations: '
+      + topRels.map(esc).join(', ') + '</span>';
+  }
+  return html;
+}
+
 async function loadGraph(entityId) {
   statusBar.textContent = 'Loading neighborhood\u2026';
   var cyEl = document.getElementById('cy');
@@ -147,12 +252,36 @@ async function loadGraph(entityId) {
     if (!res.ok) { statusBar.textContent = 'Error: ' + res.status; return; }
     var data = await res.json();
     renderGraph(data);
-    statusBar.textContent = data.center.name + ' \u2014 ' + (data.nodes.length - 1)
-      + ' connected entities, ' + data.edges.length + ' edges';
+    statusBar.innerHTML = buildStatusBar(data);
     showCenterDetail(data.center);
   } catch(err) {
     statusBar.textContent = 'Failed to load: ' + err.message;
   }
+}
+
+// Three canonical relation families get distinct hover hues — others fall
+// to gold. At-rest edges stay uniformly gold so the network reads as
+// ground; the palette only kicks in on hover/select to identify what kind
+// of connection the user is interrogating.
+var RELATION_PALETTE = {
+  // Spatial — Place / Refuge connections.
+  'LOCATION_FOCUS': '#2A5C1A',
+  'OCCURRED_AT':    '#2A5C1A',
+  // Temporal — Year / Period connections.
+  'OCCURRED_DURING': '#5A3E6B',
+  // Subject / topic — Person / Organization connections.
+  'SUBJECT_OF_CLAIM': '#1A3A5C',
+  'TOPIC_OF_CLAIM':   '#1A3A5C',
+  // Species — Turnbull-specific but visually canonical.
+  'SPECIES_FOCUS': '#6B4D0A',
+};
+var RELATION_DEFAULT_HUE = '#6B4D35';   // edge hover default (bark)
+function relationHue(types) {
+  if (!types || !types.length) return RELATION_DEFAULT_HUE;
+  for (var i = 0; i < types.length; i++) {
+    if (RELATION_PALETTE[types[i]]) return RELATION_PALETTE[types[i]];
+  }
+  return RELATION_DEFAULT_HUE;
 }
 
 function renderGraph(data) {
@@ -176,7 +305,12 @@ function renderGraph(data) {
         },
         'width': function(ele) { return ele.data('is_center') ? 60 : 36; },
         'height': function(ele) { return ele.data('is_center') ? 60 : 36; },
-        'font-size': 11,
+        // Center node gets typographic prominence — at default zoom its
+        // label is the most important glyph on screen. font-weight 500 is
+        // chosen because gemynd_base.html only loads DM Sans at 400/500;
+        // requesting 600 silently falls back and erases the contrast.
+        'font-size': function(ele) { return ele.data('is_center') ? 15 : 11; },
+        'font-weight': function(ele) { return ele.data('is_center') ? 500 : 400; },
         'text-valign': 'bottom',
         'text-margin-y': 4,
         'text-max-width': 90,
@@ -187,15 +321,24 @@ function renderGraph(data) {
         'text-background-padding': 2,
     }},
     { selector: 'edge', style: {
-        'width': function(ele) { return Math.max(1, Math.min(8, ele.data('weight'))); },
+        // Log-scaled thickness so heavy-tailed weight distributions read
+        // correctly — a weight of 50 should not look 6× thicker than a
+        // weight of 8 the way linear clipping at 8 made it.
+        'width': function(ele) {
+          var w = ele.data('weight') || 1;
+          return Math.max(1, Math.min(8, Math.log2(w + 1) * 2));
+        },
         'line-color': '#C4A882',
         'target-arrow-color': '#C4A882',
         'target-arrow-shape': 'triangle',
         'curve-style': 'bezier',
         'opacity': 0.8,
     }},
-    { selector: 'edge:selected, edge.highlighted', style: {
-        'line-color': '#6B4D35', 'target-arrow-color': '#6B4D35', 'opacity': 1,
+    { selector: 'edge:selected, edge.highlighted, edge.hovered', style: {
+        'line-color': function(ele) { return relationHue(ele.data('relationship_types')); },
+        'target-arrow-color': function(ele) { return relationHue(ele.data('relationship_types')); },
+        'opacity': 1,
+        'z-index': 10,
     }},
     { selector: 'node:selected, node.highlighted', style: {
         'border-color': '#6B4D35', 'border-width': 3,
@@ -212,6 +355,8 @@ function renderGraph(data) {
   });
   cy.on('tap', 'edge', handleEdgeTap);
   cy.on('tap', 'node', handleNodeTap);
+  cy.on('mouseover', 'edge', function(evt) { evt.target.addClass('hovered'); });
+  cy.on('mouseout',  'edge', function(evt) { evt.target.removeClass('hovered'); });
 }
 
 var detailPanel = document.getElementById('detail-panel');

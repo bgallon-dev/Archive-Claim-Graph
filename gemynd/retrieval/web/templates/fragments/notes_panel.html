@@ -19,8 +19,27 @@
   <form hx-post="/document/{{ doc_id }}/notes"
         hx-target="#notes-panel-{{ doc_id }}" hx-swap="outerHTML"
         hx-encoding="application/x-www-form-urlencoded">
-    <textarea name="note_text" rows="3" maxlength="2000"
+    <textarea name="note_text" id="note-textarea-{{ doc_id }}" rows="3" maxlength="2000"
       placeholder="Add an archivist note for this document...">{% if current %}{{ current.note_text }}{% endif %}</textarea>
+    <div class="note-counter" id="note-counter-{{ doc_id }}" aria-live="polite">
+      <span class="note-counter-current">0</span> / 2000
+    </div>
     <button type="submit">Save note</button>
   </form>
+  <script>
+  (function() {
+    var ta = document.getElementById('note-textarea-{{ doc_id }}');
+    var counter = document.getElementById('note-counter-{{ doc_id }}');
+    if (!ta || !counter) return;
+    var currentEl = counter.querySelector('.note-counter-current');
+    function update() {
+      var n = ta.value.length;
+      currentEl.textContent = n;
+      if (n >= 1800) counter.classList.add('note-counter-warn');
+      else counter.classList.remove('note-counter-warn');
+    }
+    ta.addEventListener('input', update);
+    update();
+  })();
+  </script>
 </div>

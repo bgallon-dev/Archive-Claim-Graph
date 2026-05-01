@@ -1,5 +1,14 @@
-<tr id="doc-{{ doc.doc_id }}"{% if doc.deleted_at %} style="opacity:0.5"{% endif %}>
-  <td>{{ doc.title or doc.doc_id }}</td>
+<tr id="doc-{{ doc.doc_id }}">
+  <td>
+    {% if doc.deleted_at %}
+      <span style="text-decoration:line-through;color:var(--text-tertiary)">{{ doc.title or doc.doc_id }}</span>
+    {% else %}
+      {{ doc.title or doc.doc_id }}
+    {% endif %}
+  </td>
+  <td>
+    <span class="badge badge-outline">{{ doc.institution_id or "—" }}</span>
+  </td>
   <td>
     {% if doc.access_level == 'public' %}<span class="badge badge-outline">public</span>
     {% elif doc.access_level == 'restricted' %}<span class="badge badge-amber">restricted</span>
@@ -9,7 +18,7 @@
     {% endif %}
   </td>
   <td>
-    {% if doc.deleted_at %}Deleted
+    {% if doc.deleted_at %}<span class="badge badge-red">Deleted</span>
     {% else %}Active
     {% endif %}
   </td>

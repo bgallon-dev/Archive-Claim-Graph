@@ -129,6 +129,56 @@ def _resolved(entity_id: str = "person_abc", confidence: float = 1.0,
     )
 
 
+class TestCrossCorpusOverlapDetection:
+    """Layer 0 must flag queries asking for entities present in two corpora.
+
+    The flag drives the CROSS_CORPUS_OVERLAP cascade entry in
+    `_select_retrieval_plan`.  False positives are costly (they spend the
+    cascade's first attempt on an empty result set), so the patterns require
+    BOTH a join verb ("appear in both", "also appear", etc.) AND two distinct
+    corpus references via doc_type/series aliases."""
+
+    def test_canonical_failing_query_fires(self):
+        intent = classify_query(
+            "Which individuals named in Spokane newspaper coverage of labor "
+            "disputes also appear as patentees in GLO records for the "
+            "surrounding region?"
+        )
+        assert intent.cross_corpus_overlap is True
+
+    def test_overlap_between_phrasing_fires(self):
+        intent = classify_query(
+            "Show me the overlap between Spokane Press articles and BLM GLO records."
+        )
+        assert intent.cross_corpus_overlap is True
+
+    def test_who_appears_in_both_phrasing_fires(self):
+        intent = classify_query(
+            "Who appears in both the newspaper articles and the land patents?"
+        )
+        assert intent.cross_corpus_overlap is True
+
+    def test_single_corpus_with_both_does_not_fire(self):
+        """A query mentioning 'both' but only one corpus reference must NOT
+        fire — this is the in-both-years false-positive case."""
+        intent = classify_query(
+            "What did the Spokane Press say about labor in both 1908 and 1909?"
+        )
+        assert intent.cross_corpus_overlap is False
+
+    def test_two_corpora_without_join_verb_does_not_fire(self):
+        """Just naming two corpora is not enough; the query must explicitly
+        ask for entities appearing across them."""
+        intent = classify_query(
+            "Tell me about Spokane Press articles and BLM GLO records."
+        )
+        assert intent.cross_corpus_overlap is False
+
+    def test_unrelated_query_does_not_fire(self):
+        intent = classify_query("describe wetland conditions in 1950")
+        assert intent.cross_corpus_overlap is False
+
+
 class TestDetectTier1Intent:
     def test_how_many_with_single_high_confidence_entity_fires(self):
         ctx = EntityContext(resolved=[_resolved()])

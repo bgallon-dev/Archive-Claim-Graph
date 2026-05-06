@@ -355,6 +355,76 @@ class TestTemporalFilter:
 
 
 # ---------------------------------------------------------------------------
+# Family / alternate caps for canvas-friendly trimming
+# ---------------------------------------------------------------------------
+
+
+class TestRenderCaps:
+    def test_family_cap_truncates_to_top_n(self):
+        # Three 2-hop paths with fully disjoint intermediates → three
+        # separate families (no pair shares any node). family_cap=2 keeps
+        # the top two by weight; collapse preserves caller-supplied order.
+        rows = [
+            _make_2_hop_row("a1", "A1", "Person", "a2", "A2", "Place"),
+            _make_2_hop_row("b1", "B1", "Person", "b2", "B2", "Place"),
+            _make_2_hop_row("c1", "C1", "Person", "c2", "C2", "Place"),
+        ]
+        stub = StubExecutor({
+            CO_ASSERTING_CLAIMS_QUERY: [],
+            PATHS_1_HOP_QUERY: [],
+            PATHS_2_HOP_QUERY: rows,
+        })
+        result = find_paths(
+            stub.run,
+            from_id="ent_a", to_id="ent_b",
+            institution_ids=["x"], permitted_levels=["public"],
+            family_cap=2,
+        )
+        assert len(result.paths) == 2
+
+    def test_family_cap_none_means_no_truncation(self):
+        rows = [
+            _make_2_hop_row("a1", "A1", "Person", "a2", "A2", "Place"),
+            _make_2_hop_row("b1", "B1", "Person", "b2", "B2", "Place"),
+            _make_2_hop_row("c1", "C1", "Person", "c2", "C2", "Place"),
+        ]
+        stub = StubExecutor({
+            CO_ASSERTING_CLAIMS_QUERY: [],
+            PATHS_1_HOP_QUERY: [],
+            PATHS_2_HOP_QUERY: rows,
+        })
+        result = find_paths(
+            stub.run,
+            from_id="ent_a", to_id="ent_b",
+            institution_ids=["x"], permitted_levels=["public"],
+        )
+        assert len(result.paths) == 3
+
+    def test_alternate_cap_truncates_per_family(self):
+        # Three 2-hop paths sharing intermediate i_shared collapse into one
+        # family (primary + 2 alternates differ by one node). alternate_cap=1
+        # keeps just the first alternate.
+        rows = [
+            _make_2_hop_row("i_shared", "Shared", "Person", "alt_a", "A", "Place"),
+            _make_2_hop_row("i_shared", "Shared", "Person", "alt_b", "B", "Place"),
+            _make_2_hop_row("i_shared", "Shared", "Person", "alt_c", "C", "Place"),
+        ]
+        stub = StubExecutor({
+            CO_ASSERTING_CLAIMS_QUERY: [],
+            PATHS_1_HOP_QUERY: [],
+            PATHS_2_HOP_QUERY: rows,
+        })
+        result = find_paths(
+            stub.run,
+            from_id="ent_a", to_id="ent_b",
+            institution_ids=["x"], permitted_levels=["public"],
+            alternate_cap=1,
+        )
+        assert len(result.paths) == 1
+        assert len(result.paths[0].alternates) == 1
+
+
+# ---------------------------------------------------------------------------
 # JSON serialization
 # ---------------------------------------------------------------------------
 
@@ -374,6 +444,7 @@ class TestJsonSerialization:
         assert len(d["co_assertions"]) == 1
         assert d["co_assertions"][0]["claim_id"] == "c1"
         assert d["paths"] == []
+        assert d["direct_count"] == 1
 
     def test_disconnected_result_includes_neighbors(self):
         from gemynd.retrieval.web.path_finder import FallbackNeighbor, PathResult

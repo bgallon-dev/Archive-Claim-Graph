@@ -4,7 +4,18 @@ from types import SimpleNamespace
 
 from jinja2 import ChoiceLoader, Environment, FileSystemLoader
 
-from gemynd.retrieval.web.app import _corpus_labels_for_composite
+from gemynd.retrieval.web.app import _build_source_links, _corpus_labels_for_composite
+
+# Mirrors the spokane_newspaper.source_links block in data/corpus_registry.yaml.
+# Kept inline so the test breaks loudly if the template form drifts from what
+# we assert here (rather than silently following the YAML wherever it goes).
+_SPOKANE_LINK_CONFIGS = [
+    {
+        "label": "View on Library of Congress",
+        "template": "https://www.loc.gov/item/{lccn}/{date_start}/ed-{edition}/",
+        "requires": ["lccn", "date_start", "edition"],
+    },
+]
 
 
 def _env() -> Environment:
@@ -56,6 +67,31 @@ def test_documents_list_fragment_renders_with_corpus_labels() -> None:
 
     assert "Turnbull National Wildlife Refuge" in html
     assert "Annual Report" in html
+
+
+def test_build_source_links_emits_canonical_loc_url() -> None:
+    # edition arrives zero-stripped from source_parser so the template
+    # renders the LoC canonical form (ed-1, not ed-01).
+    doc = {
+        "doc_id": "doc-1",
+        "lccn": "sn88085947",
+        "date_start": "1909-11-10",
+        "edition": "1",
+    }
+    links = _build_source_links(doc, _SPOKANE_LINK_CONFIGS)
+    assert len(links) == 1
+    assert links[0]["url"] == "https://www.loc.gov/item/sn88085947/1909-11-10/ed-1/"
+    assert links[0]["label"] == "View on Library of Congress"
+
+
+def test_build_source_links_emits_nothing_when_required_field_missing() -> None:
+    doc = {
+        "doc_id": "doc-1",
+        "lccn": None,
+        "date_start": "1909-11-10",
+        "edition": "1",
+    }
+    assert _build_source_links(doc, _SPOKANE_LINK_CONFIGS) == []
 
 
 def test_documents_list_fragment_falls_back_without_corpus_labels() -> None:

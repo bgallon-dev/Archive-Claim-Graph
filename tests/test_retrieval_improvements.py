@@ -499,11 +499,20 @@ class TestSynthesisPromptBehavior:
         engine._system_prompt = _build_system_prompt(_DEFAULT_SYNTHESIS_CONTEXT)
         return engine
 
-    def _valid_response(self, answer: str = "Test answer.") -> str:
+    def _valid_response(self, answer: str = "Test answer.",
+                        claim_ids: list[str] | None = None,
+                        structure: str = "thematic") -> str:
+        cids = claim_ids if claim_ids is not None else ["c-001"]
+        sentences = [
+            {"text": s.strip() + ".",
+             "supporting_claim_ids": cids, "is_inferred": False}
+            for s in answer.split(".") if s.strip()
+        ]
         return json.dumps({
-            "answer": answer,
+            "organizing_structure": structure,
+            "section_outline": [],
+            "answer_sentences": sentences,
             "confidence_assessment": "Evidence is adequate.",
-            "supporting_claim_ids": ["c-001"],
             "caveats": [],
         })
 
@@ -552,7 +561,9 @@ class TestSynthesisPromptBehavior:
 
     def test_temporal_answer_parsed_correctly(self):
         engine = self._make_engine(self._valid_response(
-            "In 1942, mallard populations increased. In 1943, numbers declined."
+            "In 1942, mallard populations increased. In 1943, numbers declined.",
+            claim_ids=["c-001", "c-002"],
+            structure="chronological",
         ))
         blocks = [_make_block(year=1942), _make_block(claim_id="c-002", year=1943)]
         result = engine.synthesise("how did mallards change?", blocks, "context")
@@ -561,7 +572,8 @@ class TestSynthesisPromptBehavior:
 
     def test_comparative_answer_parsed_correctly(self):
         engine = self._make_engine(self._valid_response(
-            "Mallards showed stable populations while teal declined."
+            "Mallards showed stable populations while teal declined.",
+            claim_ids=["c-001", "c-002"],
         ))
         blocks = [_make_block(), _make_block(claim_id="c-002", claim_type="species_presence")]
         result = engine.synthesise("compare mallard and teal", blocks, "context")
@@ -579,9 +591,13 @@ class TestSynthesisPromptBehavior:
 
     def test_low_confidence_claims_flagged_in_caveats(self):
         response = json.dumps({
-            "answer": "Some evidence suggests habitat degradation.",
+            "organizing_structure": "thematic",
+            "section_outline": [],
+            "answer_sentences": [
+                {"text": "Some evidence suggests habitat degradation.",
+                 "supporting_claim_ids": ["c-001"], "is_inferred": False},
+            ],
             "confidence_assessment": "Evidence quality is low.",
-            "supporting_claim_ids": ["c-001"],
             "caveats": ["Claim c-001 has low extraction confidence (0.55)."],
         })
         engine = self._make_engine(response)
@@ -591,9 +607,13 @@ class TestSynthesisPromptBehavior:
 
     def test_absent_evidence_stated_explicitly(self):
         response = json.dumps({
-            "answer": "No evidence of fire incidents was found in the provided context.",
+            "organizing_structure": "thematic",
+            "section_outline": [],
+            "answer_sentences": [
+                {"text": "No evidence of fire incidents was found in the provided context.",
+                 "supporting_claim_ids": [], "is_inferred": True},
+            ],
             "confidence_assessment": "No relevant claims retrieved.",
-            "supporting_claim_ids": [],
             "caveats": ["No fire incident claims in retrieved context."],
         })
         engine = self._make_engine(response)
@@ -704,10 +724,17 @@ class TestEndToEndRetrievalPath:
         )
 
         engine = SynthesisEngine.__new__(SynthesisEngine)
+        cited = [r["c"]["claim_id"] for r in rows[:3]]
+        sentences = [
+            {"text": s.strip() + ".",
+             "supporting_claim_ids": cited or [], "is_inferred": not cited}
+            for s in synthesis_answer.split(".") if s.strip()
+        ]
         response_text = json.dumps({
-            "answer": synthesis_answer,
+            "organizing_structure": "thematic",
+            "section_outline": [],
+            "answer_sentences": sentences,
             "confidence_assessment": "Adequate evidence.",
-            "supporting_claim_ids": [r["c"]["claim_id"] for r in rows[:3]],
             "caveats": [],
         })
         engine._client = _stream_mock_client(response_text)

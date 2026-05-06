@@ -236,6 +236,9 @@ RETURN d.doc_id AS doc_id,
        d.date_end AS date_end,
        d.report_year AS report_year,
        d.institution_id AS institution_id,
+       d.lccn AS lccn,
+       d.edition AS edition,
+       d.loc_sequence AS loc_sequence,
        claim_count
 ORDER BY claim_count DESC
 LIMIT 50
@@ -337,6 +340,9 @@ RETURN d.doc_id AS doc_id,
        d.date_end AS date_end,
        d.report_year AS report_year,
        d.institution_id AS institution_id,
+       d.lccn AS lccn,
+       d.edition AS edition,
+       d.loc_sequence AS loc_sequence,
        claim_count
 ORDER BY d.date_start ASC, d.title ASC
 LIMIT 50
@@ -573,6 +579,98 @@ RETURN d, pg, sec, para, c, obs, sp, y, measurements, traversal_rel_type,
 ORDER BY size(matched_entity_ids) DESC, c.extraction_confidence DESC
 """
 
+# Cross-corpus entity overlap — split into two parallel queries (NEWSPAPER + PATENT
+# sides) that share the same row shape and are run together as a single cascade
+# attempt.  Together they answer "find Persons who appear in both $corpus_a (e.g.
+# Spokane Press as a newspaper-mention via cross_corpus_ner REFERS_TO/POSSIBLY_REFERS_TO
+# edges) and $corpus_b (e.g. turnbull-composite GLO records as the SUBJECT_OF_CLAIM
+# of a land_grant Claim) and surface bridging claims from each side."
+#
+# Schema constraints (from gemynd/ingest/enrichment/cross_corpus_ner.py):
+#   • Newspaper Mention nodes link to Person via REFERS_TO / POSSIBLY_REFERS_TO.
+#   • Mentions are attached to Paragraphs via (Paragraph)-[:CONTAINS_MENTION]->(Mention).
+#   • Land patent claims link to Person via (Claim {claim_type:'land_grant'})-[:SUBJECT_OF_CLAIM]->(Person).
+#   • Patent paragraphs do NOT have HAS_PARAGRAPH back to Document — the patent
+#     side OPTIONAL MATCHes the chain so missing sec/pg/para fall through cleanly.
+CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY = """
+MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
+WHERE d.institution_id = $corpus_a
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (d)-[:HAS_PAGE]->(pg:Page)-[:HAS_SECTION]->(sec:Section)
+       -[:HAS_PARAGRAPH]->(para:Paragraph)-[:HAS_CLAIM]->(c:Claim {run_id: lr.run_id})
+WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
+  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
+  AND EXISTS {
+    MATCH (para)-[:CONTAINS_MENTION]->(:Mention)
+          -[:REFERS_TO|POSSIBLY_REFERS_TO]->(p:Person)
+    WHERE EXISTS {
+      MATCH (cb:Claim {claim_type: 'land_grant'})-[:SUBJECT_OF_CLAIM]->(p)
+      MATCH (db:Document)-[:PROCESSED_BY]->(:ExtractionRun {run_id: cb.run_id})
+      WHERE db.institution_id = $corpus_b
+        AND db.access_level IN $permitted_levels
+        AND db.deleted_at IS NULL
+        AND (db.quarantine_status IS NULL OR db.quarantine_status = 'active')
+        AND (cb.quarantine_status IS NULL OR cb.quarantine_status = 'active')
+    }
+  }
+WITH d, pg, sec, para, c
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       'CROSS_CORPUS_MENTION' AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+"""
+
+CROSS_CORPUS_OVERLAP_PATENT_QUERY = """
+MATCH (c:Claim {claim_type: 'land_grant'})-[:SUBJECT_OF_CLAIM]->(p:Person)
+MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun {run_id: c.run_id})
+WHERE d.institution_id = $corpus_b
+  AND d.access_level IN $permitted_levels
+  AND d.deleted_at IS NULL
+  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND EXISTS {
+    MATCH (da:Document)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
+          -[:HAS_PARAGRAPH]->(:Paragraph)-[:CONTAINS_MENTION]->(:Mention)
+          -[:REFERS_TO|POSSIBLY_REFERS_TO]->(p)
+    WHERE da.institution_id = $corpus_a
+      AND da.access_level IN $permitted_levels
+      AND da.deleted_at IS NULL
+      AND (da.quarantine_status IS NULL OR da.quarantine_status = 'active')
+  }
+WITH d, c
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+OPTIONAL MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+WITH d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       'SUBJECT_OF_CLAIM' AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+"""
+
 CLAIM_TYPE_SCOPED_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE d.institution_id IN $institution_ids
@@ -802,7 +900,7 @@ MATCH (d:Document)
 WHERE d.institution_id IN $institution_ids
 RETURN d.doc_id AS doc_id, d.title AS title, d.access_level AS access_level,
        d.institution_id AS institution_id,
-       d.deleted_at AS deleted_at, d.deleted_by AS deleted_by
+       d.deleted_at AS deleted_at, properties(d).deleted_by AS deleted_by
 ORDER BY d.institution_id, d.title
 """
 
@@ -847,6 +945,9 @@ RETURN d.doc_id AS doc_id,
        effective_year AS effective_year,
        d.institution_id AS institution_id,
        d.archive_ref AS archive_ref,
+       d.lccn AS lccn,
+       d.edition AS edition,
+       d.loc_sequence AS loc_sequence,
        d.access_level AS access_level,
        d.deleted_at AS deleted_at,
        size(claims) AS claim_count,
@@ -956,9 +1057,12 @@ RETURN d.doc_id AS doc_id,
        d.report_year AS report_year,
        d.institution_id AS institution_id,
        d.archive_ref AS archive_ref,
+       d.lccn AS lccn,
+       d.edition AS edition,
+       d.loc_sequence AS loc_sequence,
        d.access_level AS access_level,
        d.deleted_at AS deleted_at,
-       d.deleted_by AS deleted_by
+       properties(d).deleted_by AS deleted_by
 """
 
 # ---------------------------------------------------------------------------
@@ -1505,6 +1609,15 @@ MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[r1]
 WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
   AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND (
+    ($year_min IS NULL AND $year_max IS NULL)
+    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
+    OR EXISTS {
+      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
+      WHERE ($year_min IS NULL OR yr.year >= $year_min)
+        AND ($year_max IS NULL OR yr.year <= $year_max)
+    }
+  )
 WITH c, e1, d
 MATCH (c)-[r2]->(e2:Entity)
 WHERE e2 <> e1

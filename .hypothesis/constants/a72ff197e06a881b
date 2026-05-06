@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\retrieval\web\path_finder.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.95, 'Path', 'alternates', 'claim_id', 'claim_type', 'co_assertions', 'co_occurrence_count', 'confidence', 'direct_count', 'disconnected', 'doc_date_start', 'doc_id', 'doc_report_year', 'doc_title', 'e1', 'e1_claim_id', 'e1_conf', 'e1_doc_date', 'e1_doc_id', 'e1_doc_title', 'e1_from_rel', 'e1_sentence', 'e1_to_rel', 'e2', 'e2_claim_id', 'e2_conf', 'e2_doc_date', 'e2_doc_id', 'e2_doc_title', 'e2_from_rel', 'e2_sentence', 'e2_to_rel', 'e3', 'edges', 'entity_id', 'entity_type', 'fallback_neighbors', 'from', 'from_id', 'from_relation', 'i1_id', 'i1_name', 'i1_type', 'i2_id', 'i2_name', 'i2_type', 'institution_id', 'institution_ids', 'intermediates', 'name', 'paths', 'permitted_levels', 'sentence', 'to', 'to_id', 'to_relation', 'weight', 'year_max', 'year_min']

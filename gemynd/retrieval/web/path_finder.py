@@ -480,6 +480,8 @@ def find_paths(
     corpus_total_claims: int = 0,
     k: int = 3,
     include_paths_when_co_asserted: bool = False,
+    family_cap: int | None = None,
+    alternate_cap: int | None = None,
 ) -> PathResult:
     """Cascade entry point. Returns :class:`PathResult` with whichever
     layer of the cascade fired, or ``disconnected=True`` with fallback
@@ -490,6 +492,11 @@ def find_paths(
     researchers who want to see indirect connections alongside direct
     ones. Default False (the cascade short-circuits on co-assertions)
     because the direct case is the dominant one.
+
+    *family_cap* and *alternate_cap* trim the rendered output for visual
+    clients. When None (the default) no trimming occurs — preserves
+    backward compatibility with existing tests and JSON consumers that
+    expect every family the cascade found.
     """
     co = find_co_assertions(
         run,
@@ -511,6 +518,12 @@ def find_paths(
             degree=degree, corpus_total_claims=corpus_total_claims,
             k=k,
         )
+
+    if family_cap is not None:
+        paths = paths[:family_cap]
+    if alternate_cap is not None:
+        for p in paths:
+            p.alternates = p.alternates[:alternate_cap]
 
     if co or paths:
         return PathResult(co_assertions=co, paths=paths)
@@ -584,6 +597,7 @@ def path_result_to_dict(result: PathResult) -> dict[str, Any]:
 
     return {
         "co_assertions": [_co(c) for c in result.co_assertions],
+        "direct_count": len(result.co_assertions),
         "paths": [_path(p) for p in result.paths],
         "disconnected": result.disconnected,
         "fallback_neighbors": (

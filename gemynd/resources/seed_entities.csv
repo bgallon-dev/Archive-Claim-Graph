@@ -18,6 +18,9 @@ Species,green-wing teal,taxon_group,bird
 Species,coot,taxon_group,bird
 Species,Canada goose,taxon_group,bird
 Species,Chinese pheasant,taxon_group,bird
+Species,Chinese pheasant,alias,ring-necked pheasant
+Species,American wigeon,taxon_group,bird
+Species,American wigeon,alias,American widgeon
 Species,Valley quail,taxon_group,bird
 Species,Hungarian partridge,taxon_group,bird
 Species,ruffed grouse,taxon_group,bird

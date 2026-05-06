@@ -33,6 +33,10 @@ _MAX_PARA_CHARS: int = 600  # split chunks larger than this at sentence boundari
 _YYYYMM_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)\d{2}(?!\d)")
 _YEAR_ONLY_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)(?!\d)")
 
+# LoC bulk-batch image sequence: trailing 4 digits in the source filename stem.
+# E.g. "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042" -> "0042".
+_LOC_SEQ_RE = re.compile(r"_(\d{4})$")
+
 
 def _canonicalize_source_path(raw: str) -> str:
     """Resolve *raw* to an absolute path and verify it is within the CWD.
@@ -48,6 +52,38 @@ def _canonicalize_source_path(raw: str) -> str:
             f"source_file path escapes working directory: {raw!r}"
         )
     return str(resolved)
+
+
+def _strip_leading_zeros(value: str | None) -> str | None:
+    """Drop leading zeros from a numeric string, preserving "0".
+
+    LoC canonical URLs use unpadded numeric tokens (``ed-1`` not ``ed-01``,
+    ``?sp=42`` not ``?sp=0042``); the source metadata stores them padded.
+    Non-numeric input is returned unchanged.
+    """
+    if not value:
+        return value
+    try:
+        return str(int(value))
+    except ValueError:
+        return value
+
+
+def _extract_loc_sequence(source_file: str | None) -> str | None:
+    """Return the LoC bulk-batch image sequence from a source filename.
+
+    Used as ``?sp=`` in canonical ``loc.gov/resource/`` URLs. The trailing
+    4-digit token is zero-stripped on the way out (``"_0042"`` -> ``"42"``)
+    so it slots into the URL template without a separate transform step.
+    Returns ``None`` when the filename doesn't end in 4 digits; callers must
+    tolerate ``None`` (downstream link rendering silently skips templates
+    whose required fields are missing).
+    """
+    if not source_file:
+        return None
+    stem = Path(source_file).stem
+    match = _LOC_SEQ_RE.search(stem)
+    return _strip_leading_zeros(match.group(1)) if match else None
 
 
 def _infer_year_from_filename(source_file: str) -> int | None:
@@ -168,6 +204,9 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
         report_year=report_year,
         source_file=resolved_source,
         archive_ref=metadata.get("archive_ref"),
+        lccn=metadata.get("lccn"),
+        edition=_strip_leading_zeros(metadata.get("edition")),
+        loc_sequence=_extract_loc_sequence(resolved_source),
         raw_ocr_text=raw_ocr_text,
         clean_text=clean_text,
         language=language,

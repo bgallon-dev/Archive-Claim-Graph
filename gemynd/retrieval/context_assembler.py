@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import collections
 import logging
+import os
 import re
 import time
 
@@ -21,6 +22,8 @@ from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
     CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY,
     COUNT_CLAIMS_FOR_ENTITY_QUERY,
+    CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY,
+    CROSS_CORPUS_OVERLAP_PATENT_QUERY,
     DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
     FREQUENCY_RANKING_FOR_TYPE_QUERY,
@@ -43,16 +46,36 @@ from .models import (
     RetrievalPath,
     RetrievalPlanAttempt,
     RetrievalPlanTrace,
+    SidecarCell,
+    StructuralView,
     Tier1Intent,
     Tier1Result,
 )
 
 _log = logging.getLogger(__name__)
 
-# Default context window budgets.
-_BUDGET_CONVERSATIONAL = 60
+# Default context window budgets.  Sized so the Cypher templates'
+# `LIMIT budget*3` over-fetch (used for confidence-sort headroom) stays
+# tractable for Neo4j — values much above 1000 push LIMIT past 3000 and
+# routinely defunct the Bolt connection on entity-anchored traversals.
+# The char-budget below provides the true context-window protection;
+# this constant is mostly belt-and-suspenders against pathological cases.
+_BUDGET_CONVERSATIONAL = 1000
 
-_BUDGET_HYBRID = 4
+_BUDGET_HYBRID = 1000
+
+# Hard ceiling on the serialised context_text size (in characters). Blocks
+# beyond this budget are dropped after count-cap stratification, in confidence-
+# descending order so the most-trusted claims survive truncation. Keep this
+# conservative by default because large archival contexts make synthesis slow
+# and brittle; operators can raise it deliberately for larger-context models.
+_CONTEXT_CHAR_BUDGET = int(os.environ.get("SYNTHESIS_CONTEXT_CHAR_BUDGET", "250000"))
+
+# Maximum rows any single retrieval Cypher should materialize before Python
+# ranking/stratification. Larger context budgets are still honored up to the
+# rows Neo4j can safely return, but broad anchor queries must not request
+# thousands of provenance rows with optional expansions in one transaction.
+_MAX_CYPHER_FETCH_LIMIT = 250
 
 # Minimum rows an attempt must produce to count as "satisfying" the query.
 # Falling below this threshold triggers the next relaxation step.
@@ -108,6 +131,33 @@ _FULLTEXT_STOPWORDS: frozenset[str] = frozenset({
 })
 
 
+def _bounded_query_limit(budget: int, multiplier: int = 1) -> int:
+    requested = max(1, int(budget) * int(multiplier))
+    return min(requested, _MAX_CYPHER_FETCH_LIMIT)
+
+
+def _is_neo4j_resource_error(exc: Exception) -> bool:
+    """Return True for transient Neo4j resource exhaustion errors."""
+    text = " ".join(
+        str(part)
+        for part in (
+            type(exc).__name__,
+            getattr(exc, "code", ""),
+            getattr(exc, "neo4j_code", ""),
+            str(exc),
+        )
+        if part
+    )
+    markers = (
+        "OutOfMemoryError",
+        "TransientError",
+        "resource exhaustion",
+        "failed to allocate",
+        "not enough memory",
+    )
+    return any(marker in text for marker in markers)
+
+
 def _extract_fulltext_terms(text: str, max_terms: int = 5) -> str:
     """Extract 3–5 content-bearing terms and OR-join them as a Lucene query.
 
@@ -154,6 +204,43 @@ def _infer_claim_types(
     return list(matched) if matched else None
 
 
+def _enumerate_cross_corpus_pairs(
+    institution_ids: list[str],
+    doc_types: list[str] | None,
+    series: list[str] | None,
+) -> list[tuple[str, str]]:
+    """Return ordered (corpus_a, corpus_b) pairs for the cross-corpus overlap
+    cascade.  corpus_a is the newspaper (mention) side; corpus_b is the patent
+    (land_grant subject) side.
+
+    All ordered pairs (a, b) with a ≠ b are returned.  The Cypher templates
+    self-filter — a wrong-direction query (e.g. corpus_a points at the patent
+    corpus) finds no CONTAINS_MENTION→Mention→Person bridge and returns zero
+    rows, so the cascade naturally moves to the next attempt.  This avoids
+    coupling cascade ordering to ad-hoc institution_id naming.
+
+    `doc_types` and `series` are accepted for symmetry with the rest of
+    `_select_retrieval_plan`'s parameter shape; they're not yet used to bias
+    pair ordering because the available alias maps don't carry institution_id
+    bindings.  Future work: extend `corpus_registry.yaml` with a corpus→
+    doc_type/series back-map and prefer the ordered pair whose corpus_a carries
+    a newspaper hint.
+    """
+    if len(institution_ids) < 2:
+        return []
+    pairs: list[tuple[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    for a in institution_ids:
+        for b in institution_ids:
+            if a == b:
+                continue
+            if (a, b) in seen:
+                continue
+            seen.add((a, b))
+            pairs.append((a, b))
+    return pairs
+
+
 def _select_retrieval_plan(
     query_text: str,
     entity_context: "EntityContext",
@@ -168,6 +255,7 @@ def _select_retrieval_plan(
     anchor_document_plans: dict[str, str] | None = None,
     doc_types: list[str] | None = None,
     series: list[str] | None = None,
+    cross_corpus_overlap: bool = False,
 ) -> list[PlanAttempt]:
     """Return an ordered list of relaxation attempts matching the query shape.
 
@@ -214,7 +302,7 @@ def _select_retrieval_plan(
                         "year_min": ymin,
                         "year_max": ymax,
                         "claim_types": ctypes,
-                        "limit": budget * 3,
+                        "limit": _bounded_query_limit(budget, 3),
                         **_access_params,
                     },
                 ))
@@ -224,7 +312,7 @@ def _select_retrieval_plan(
             "year_min": ymin,
             "year_max": ymax,
             "claim_types": ctypes,
-            "limit": budget * 3,
+            "limit": _bounded_query_limit(budget, 3),
             **_access_params,
         })]
 
@@ -233,7 +321,7 @@ def _select_retrieval_plan(
     ) -> list[tuple[str, dict]]:
         queries: list[tuple[str, dict]] = [(ENTITY_ANCHORED_CLAIMS_QUERY, {
             "entity_id": resolved_ids[0], "year_min": ymin,
-            "year_max": ymax, "limit": budget * 3,
+            "year_max": ymax, "limit": _bounded_query_limit(budget, 3),
             **_access_params,
         })]
         if anchor_document_plans:
@@ -255,7 +343,7 @@ def _select_retrieval_plan(
                         "year_min": ymin,
                         "year_max": ymax,
                         "claim_types": None,
-                        "limit": budget * 3,
+                        "limit": _bounded_query_limit(budget, 3),
                         **_access_params,
                     }))
         return queries
@@ -263,11 +351,37 @@ def _select_retrieval_plan(
     def _fulltext_query(text: str) -> list[tuple[str, dict]]:
         return [(FULLTEXT_CLAIMS_QUERY, {
             "search_text": _extract_fulltext_terms(text),
-            "limit": budget * 2,
+            "limit": _bounded_query_limit(budget, 2),
             **_access_params,
         })]
 
     attempts: list[PlanAttempt] = []
+
+    # Cross-corpus entity overlap takes precedence when the classifier flagged
+    # the query as asking for entities present in two corpora.  Requires the
+    # deployment to span at least two institution_ids; otherwise there's
+    # nothing to overlap and we fall through to the standard cascade.
+    if cross_corpus_overlap and len(_ids) >= 2:
+        for corpus_a, corpus_b in _enumerate_cross_corpus_pairs(_ids, doc_types, series):
+            overlap_params_a = {
+                "corpus_a": corpus_a, "corpus_b": corpus_b,
+                "claim_types": inferred_claim_types,
+                "year_min": year_min, "year_max": year_max,
+                "limit": _bounded_query_limit(budget, 2),
+                "permitted_levels": _permitted,
+            }
+            overlap_params_b = {
+                "corpus_a": corpus_a, "corpus_b": corpus_b,
+                "limit": _bounded_query_limit(budget, 2),
+                "permitted_levels": _permitted,
+            }
+            attempts.append((
+                f"cross_corpus_overlap:{corpus_a}+{corpus_b}",
+                [
+                    (CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY, overlap_params_a),
+                    (CROSS_CORPUS_OVERLAP_PATENT_QUERY, overlap_params_b),
+                ],
+            ))
 
     # When a doc_type scope is active (from NL detection or explicit API param),
     # try a pure browse of documents of that type FIRST.  If no documents with
@@ -280,7 +394,7 @@ def _select_retrieval_plan(
             "claim_types": inferred_claim_types,
             "year_min": year_min,
             "year_max": year_max,
-            "limit": budget * 3,
+            "limit": _bounded_query_limit(budget, 3),
             **_access_params,
         })]))
         # Relax claim_type and year constraints before giving up on doc_type scope.
@@ -290,7 +404,7 @@ def _select_retrieval_plan(
                 "claim_types": None,
                 "year_min": year_min,
                 "year_max": year_max,
-                "limit": budget * 3,
+                "limit": _bounded_query_limit(budget, 3),
                 **_access_params,
             })]))
         if year_min is not None or year_max is not None:
@@ -299,7 +413,7 @@ def _select_retrieval_plan(
                 "claim_types": None,
                 "year_min": None,
                 "year_max": None,
-                "limit": budget * 3,
+                "limit": _bounded_query_limit(budget, 3),
                 **_access_params,
             })]))
 
@@ -310,7 +424,7 @@ def _select_retrieval_plan(
             "claim_types": inferred_claim_types,
             "year_min": year_min,
             "year_max": year_max,
-            "limit": budget * 3,
+            "limit": _bounded_query_limit(budget, 3),
             **_access_params,
         })]))
         if inferred_claim_types:
@@ -319,7 +433,7 @@ def _select_retrieval_plan(
                 "claim_types": None,
                 "year_min": year_min,
                 "year_max": year_max,
-                "limit": budget * 3,
+                "limit": _bounded_query_limit(budget, 3),
                 **_access_params,
             })]))
         if year_min is not None or year_max is not None:
@@ -328,7 +442,7 @@ def _select_retrieval_plan(
                 "claim_types": None,
                 "year_min": None,
                 "year_max": None,
-                "limit": budget * 3,
+                "limit": _bounded_query_limit(budget, 3),
                 **_access_params,
             })]))
 
@@ -349,19 +463,19 @@ def _select_retrieval_plan(
         # --- Primary: multi-entity comparative ---
         attempts.append(("multi_entity", [(MULTI_ENTITY_CLAIMS_QUERY, {
             "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
-            "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+            "year_min": year_min, "year_max": year_max, "limit": _bounded_query_limit(budget, 2),
             **_access_params,
         })]))
         if has_years:
             attempts.append(("multi_entity:drop_years", [(MULTI_ENTITY_CLAIMS_QUERY, {
                 "entity_ids": resolved_ids, "claim_types": inferred_claim_types,
-                "year_min": None, "year_max": None, "limit": budget * 2,
+                "year_min": None, "year_max": None, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
         if inferred_claim_types:
             attempts.append(("multi_entity:drop_claim_type", [(MULTI_ENTITY_CLAIMS_QUERY, {
                 "entity_ids": resolved_ids, "claim_types": None,
-                "year_min": None, "year_max": None, "limit": budget * 2,
+                "year_min": None, "year_max": None, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
         # Degrade to single-entity scans, one per resolved id.
@@ -369,7 +483,7 @@ def _select_retrieval_plan(
         for rid in resolved_ids:
             degraded.append((ENTITY_ANCHORED_CLAIMS_QUERY, {
                 "entity_id": rid, "year_min": None, "year_max": None,
-                "limit": budget * 2, **_access_params,
+                "limit": _bounded_query_limit(budget, 2), **_access_params,
             }))
         attempts.append(("multi_entity:degrade_single", degraded))
     elif has_entities and has_claim_types:
@@ -387,26 +501,26 @@ def _select_retrieval_plan(
             combined = resolved_ids + maybe_ids
             attempts.append(("entity_anchored:include_maybe", [(MULTI_ENTITY_CLAIMS_QUERY, {
                 "entity_ids": combined, "claim_types": inferred_claim_types,
-                "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+                "year_min": year_min, "year_max": year_max, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
         # Fall through to claim-type-scoped: the keyword signal is the only
         # thing left once the entity anchor is exhausted.
         attempts.append(("entity_anchored:drop_entity_anchor", [(CLAIM_TYPE_SCOPED_QUERY, {
             "claim_types": inferred_claim_types, "entity_ids": None,
-            "year_min": None, "year_max": None, "limit": budget * 2,
+            "year_min": None, "year_max": None, "limit": _bounded_query_limit(budget, 2),
             **_access_params,
         })]))
     elif has_claim_types and not has_entities:
         attempts.append(("claim_type_scoped", [(CLAIM_TYPE_SCOPED_QUERY, {
             "claim_types": inferred_claim_types, "entity_ids": None,
-            "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+            "year_min": year_min, "year_max": year_max, "limit": _bounded_query_limit(budget, 2),
             **_access_params,
         })]))
         if has_years:
             attempts.append(("claim_type_scoped:drop_years", [(CLAIM_TYPE_SCOPED_QUERY, {
                 "claim_types": inferred_claim_types, "entity_ids": None,
-                "year_min": None, "year_max": None, "limit": budget * 2,
+                "year_min": None, "year_max": None, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
         attempts.append(("claim_type_scoped:fulltext", _fulltext_query(query_text)))
@@ -421,7 +535,7 @@ def _select_retrieval_plan(
             combined = resolved_ids + maybe_ids
             attempts.append(("entity_only:include_maybe", [(MULTI_ENTITY_CLAIMS_QUERY, {
                 "entity_ids": combined, "claim_types": None,
-                "year_min": year_min, "year_max": year_max, "limit": budget * 2,
+                "year_min": year_min, "year_max": year_max, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
     else:
@@ -435,7 +549,7 @@ def _select_retrieval_plan(
         if tokens:
             or_text = " OR ".join(_sanitize_fulltext(t) for t in tokens[:8])
             attempts.append(("fulltext:token_or", [(FULLTEXT_CLAIMS_QUERY, {
-                "search_text": or_text, "limit": budget * 2,
+                "search_text": or_text, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
 
@@ -660,6 +774,43 @@ def _stratified_budget_cap(
     return selected
 
 
+def _estimate_block_chars(block: ProvenanceBlock) -> int:
+    """Cheap upper-bound estimate of how many chars *block* will serialise to.
+
+    Slightly over-estimates so the cumulative-sum trim in
+    :func:`_apply_context_char_budget` undershoots rather than blows the
+    Anthropic input budget.
+    """
+    overhead = 320  # DOCUMENT/CONFIDENCE/PAGE/PARAGRAPH/CLAIM scaffolding
+    return (
+        overhead
+        + len(block.doc_title or "")
+        + len(block.source_sentence or "")
+        + (60 if block.traversal_rel_types else 0)
+        + sum(len(str(m.get("name", ""))) + 30 for m in (block.measurements or []))
+    )
+
+
+def _apply_context_char_budget(
+    blocks: list[ProvenanceBlock],
+    char_budget: int = _CONTEXT_CHAR_BUDGET,
+) -> list[ProvenanceBlock]:
+    """Drop blocks (in iteration order) once cumulative serialised size would
+    exceed *char_budget*.  Caller is responsible for sorting *blocks* before
+    calling — we trim from the tail so confidence-descending input keeps the
+    highest-confidence claims.
+    """
+    out: list[ProvenanceBlock] = []
+    cum = 0
+    for b in blocks:
+        cost = _estimate_block_chars(b)
+        if cum + cost > char_budget:
+            break
+        out.append(b)
+        cum += cost
+    return out
+
+
 def _build_retrieval_summary(
     candidates: list[ProvenanceBlock],
     selected: list[ProvenanceBlock],
@@ -690,6 +841,235 @@ def _build_retrieval_summary(
     return (
         f"[RETRIEVAL SUMMARY: {len(selected)} of {len(candidates)} candidate claims"
         f" — {breakdown}]"
+    )
+
+
+# Cypher: given a set of claim_ids, return the top-N entities that participate
+# (directly or via observation/event nodes) in those claims, excluding the
+# query's resolved anchors.  Permitted-levels filter mirrors the rest of the
+# retrieval layer — sensitivity-gated content must never leak via this path.
+_TOP_CO_OCCURRING_ENTITIES_QUERY = """
+MATCH (c:Claim)-[*1..2]-(e:Entity)
+WHERE c.claim_id IN $claim_ids
+  AND NOT e.entity_id IN $exclude_entity_ids
+  AND ($institution_ids IS NULL OR c.institution_id IN $institution_ids)
+  AND ($permitted_levels IS NULL OR c.access_level IN $permitted_levels)
+RETURN e.entity_id AS entity_id,
+       coalesce(e.name, e.entity_id) AS name,
+       [label IN labels(e) WHERE label <> 'Entity'][0] AS entity_type,
+       count(DISTINCT c) AS n
+ORDER BY n DESC, name ASC
+LIMIT $limit
+"""
+
+
+def _compute_top_co_occurring_entities(
+    executor: Neo4jQueryExecutor,
+    claim_ids: list[str],
+    exclude_entity_ids: frozenset[str],
+    institution_ids: list[str] | None,
+    permitted_levels: list[str] | None,
+    limit: int = 5,
+) -> list[dict]:
+    """Return up to *limit* entities most frequently co-occurring with the given claims.
+
+    Runs a single targeted Cypher query against the executor.  Used by the
+    structural sidecar to populate its "top entities" cell with graph-truth
+    co-occurrence rather than a sentence-string approximation.
+
+    Returns ``[]`` on any executor failure — the sidecar gracefully omits the
+    cell rather than failing the response.  The exception is logged but never
+    raised into the request path.
+    """
+    if not claim_ids:
+        return []
+    try:
+        rows = executor.run(
+            _TOP_CO_OCCURRING_ENTITIES_QUERY,
+            {
+                "claim_ids": list(claim_ids),
+                "exclude_entity_ids": list(exclude_entity_ids),
+                "institution_ids": institution_ids,
+                "permitted_levels": permitted_levels,
+                "limit": int(limit),
+            },
+        )
+    except Exception:
+        _log.exception("top co-occurring entities query failed; sidecar cell will be empty")
+        return []
+
+    out: list[dict] = []
+    for row in rows or []:
+        name = row.get("name")
+        eid = row.get("entity_id")
+        if not name or not eid:
+            continue
+        out.append(
+            {
+                "name": name,
+                "entity_id": eid,
+                "entity_type": row.get("entity_type") or "",
+                "n": int(row.get("n") or 0),
+            }
+        )
+    return out
+
+
+# Confidence buckets — must stay aligned with web/app.py:_conf_tier_class
+# so the sidecar's distribution numbers match the per-claim badges in the
+# sources table.  high ≥ 0.85, medium ≥ 0.70, low otherwise.
+_CONFIDENCE_HIGH_CUTOFF = 0.85
+_CONFIDENCE_MEDIUM_CUTOFF = 0.70
+
+
+def _derive_structural_view(
+    blocks: list[ProvenanceBlock],
+    entity_context: EntityContext,
+    top_co_entities: list[dict],
+    quarantined_count: int,
+    ocr_dropped: int,
+    threshold: int = 5,
+) -> StructuralView | None:
+    """Return a StructuralView summarising the retrieved claim set, or None.
+
+    Returns None when ``len(blocks) < threshold`` — below that, the strip
+    degenerates into single-cell "1 doc, 1 year" noise that adds visual
+    cost without information.
+
+    The caller is responsible for the (graph-truth) ``top_co_entities`` lookup;
+    this function is otherwise pure on its inputs.  ``quarantined_count`` and
+    ``ocr_dropped`` are surfaced as their own cells so users see them at the
+    answer level rather than buried in a coverage footer.
+    """
+    if len(blocks) < threshold:
+        return None
+
+    # Anchor for natural-language templates.  When no entity resolved, anchor-
+    # bound cells fall back to template=None and render as static.
+    anchor_name: str | None = None
+    if entity_context.resolved:
+        anchor_name = entity_context.resolved[0].surface_form or None
+
+    def _anchor_template(template_with_anchor: str) -> str | None:
+        if not anchor_name:
+            return None
+        return template_with_anchor.format(anchor=anchor_name)
+
+    # ── counts ─────────────────────────────────────────────────────────────
+    n_claims = len(blocks)
+    n_docs = len({b.doc_title for b in blocks if b.doc_title})
+    n_paragraphs = len({b.paragraph_id for b in blocks if b.paragraph_id})
+
+    claim_count = SidecarCell(
+        label="claims",
+        value=n_claims,
+        template=_anchor_template("How many claims mention {anchor}?"),
+        tier1_op="count_claims_for_entity" if anchor_name else None,
+    )
+    document_count = SidecarCell(
+        label="documents",
+        value=n_docs,
+        template=_anchor_template("List documents about {anchor}"),
+        tier1_op="list_documents_for_entity" if anchor_name else None,
+    )
+    paragraph_count = SidecarCell(label="paragraphs", value=n_paragraphs)
+
+    # ── year range / decade buckets ────────────────────────────────────────
+    years = [y for y in (_block_year(b) for b in blocks) if y is not None]
+    if years:
+        year_label = f"{min(years)}–{max(years)}"
+    else:
+        year_label = "no dates"
+    year_range = SidecarCell(
+        label="years",
+        value=year_label,
+        template=_anchor_template("What years was {anchor} documented?") if years else None,
+        tier1_op="year_range_for_entity" if (anchor_name and years) else None,
+    )
+    decade_counter: collections.Counter = collections.Counter((y // 10) * 10 for y in years)
+    year_buckets = [
+        {"decade": int(decade), "n": int(count)}
+        for decade, count in sorted(decade_counter.items())
+    ]
+
+    # ── top co-occurring entities (graph-truth, computed by caller) ────────
+    top_entities: list[dict] = []
+    for ent in top_co_entities[:5]:
+        name = ent.get("name")
+        if not name:
+            continue
+        top_entities.append(
+            {
+                "name": name,
+                "entity_id": ent.get("entity_id"),
+                "entity_type": ent.get("entity_type") or "",
+                "n": ent.get("n", 0),
+                "template": f"Who appears with {name}?",
+                "tier1_op": "co_occurring_entities_for_entity",
+            }
+        )
+
+    # ── top claim_types (the doc_type analogue — closest typed dimension) ──
+    claim_type_counter = collections.Counter(b.claim_type for b in blocks if b.claim_type)
+    top_claim_types = [
+        {
+            "name": ct,
+            "n": int(n),
+            "template": f"Most common entities of type {ct}",
+            "tier1_op": "frequency_ranking_for_type",
+        }
+        for ct, n in claim_type_counter.most_common(5)
+    ]
+
+    # ── top series (drops corpora that don't use named series) ─────────────
+    series_counter = collections.Counter(b.series for b in blocks if b.series)
+    top_series = [
+        {
+            "name": s,
+            "n": int(n),
+            "template": f"List documents in series {s}",
+        }
+        for s, n in series_counter.most_common(3)
+    ]
+
+    # ── confidence distribution ────────────────────────────────────────────
+    conf_dist = {"high": 0, "medium": 0, "low": 0}
+    for b in blocks:
+        c = b.extraction_confidence
+        if c >= _CONFIDENCE_HIGH_CUTOFF:
+            conf_dist["high"] += 1
+        elif c >= _CONFIDENCE_MEDIUM_CUTOFF:
+            conf_dist["medium"] += 1
+        else:
+            conf_dist["low"] += 1
+
+    # ── epistemic distribution ─────────────────────────────────────────────
+    epistemic_dist = dict(collections.Counter(b.epistemic_status for b in blocks if b.epistemic_status))
+
+    # ── quarantine + OCR-drop cells (frontend hides when value == 0) ───────
+    quarantined_cell = SidecarCell(
+        label="under sensitivity review",
+        value=int(quarantined_count),
+        template="Show quarantined claims for this query" if quarantined_count > 0 else None,
+    )
+    ocr_dropped_cell = SidecarCell(
+        label="OCR-corrupted (excluded)",
+        value=int(ocr_dropped),
+    )
+
+    return StructuralView(
+        claim_count=claim_count,
+        document_count=document_count,
+        paragraph_count=paragraph_count,
+        year_range=year_range,
+        year_buckets=year_buckets,
+        top_entities=top_entities,
+        top_claim_types=top_claim_types,
+        top_series=top_series,
+        confidence_dist=conf_dist,
+        epistemic_dist=epistemic_dist,
+        quarantined=quarantined_cell,
+        ocr_dropped=ocr_dropped_cell,
     )
 
 
@@ -789,6 +1169,7 @@ def _serialise_block(
         f"  CONFIDENCE_TIER: {confidence_tier} ({block.extraction_confidence:.2f})",
         f"  PAGE: {block.page_number if block.page_number is not None else '?'}",
         f"    PARAGRAPH: {block.paragraph_id}",
+        f"      CLAIM_ID: {block.claim_id}",
         (
             f"      CLAIM [{block.claim_type}, "
             f"epistemic={block.epistemic_status}]:"
@@ -964,12 +1345,14 @@ class ProvenanceContextAssembler:
             anchor_document_plans=self._anchor_document_plans,
             doc_types=effective_doc_types,
             series=effective_series,
+            cross_corpus_overlap=bool(getattr(intent, "cross_corpus_overlap", False)),
         )
 
         rows: list[dict] = []
         claim_rel_types: dict[str, list[str]] = {}
         seen_claim_ids: set[str] = set()
         last_template: str = FULLTEXT_CLAIMS_QUERY
+        resource_exhausted = False
 
         resolved_ids_for_trace = list(
             dict.fromkeys(e.entity_id for e in entity_context.resolved)
@@ -984,8 +1367,22 @@ class ProvenanceContextAssembler:
             attempt_rows: list[dict] = []
             attempt_seen: set[str] = set()
             attempt_rel_types: dict[str, list[str]] = {}
+            _t_rung = time.perf_counter()
             for template, params in queries:
-                raw = self._executor.run(template, params)
+                try:
+                    raw = self._executor.run(template, params)
+                except Exception as exc:
+                    if _is_neo4j_resource_error(exc):
+                        resource_exhausted = True
+                        _log.warning(
+                            "retrieval query skipped after Neo4j resource error: label=%s template=%s limit=%s error=%s",
+                            label,
+                            self._template_names.get(template, "unknown"),
+                            params.get("limit"),
+                            exc,
+                        )
+                        continue
+                    raise
                 for r in raw:
                     c = r.get("c") or {}
                     cid = c.get("claim_id")
@@ -1005,6 +1402,7 @@ class ProvenanceContextAssembler:
                     self._template_names.get(t, "unknown") for t, _ in queries
                 ],
                 row_count=len(attempt_rows),
+                duration_ms=(time.perf_counter() - _t_rung) * 1000,
             ))
 
             if len(attempt_rows) >= _MIN_RESULTS_THRESHOLD:
@@ -1036,6 +1434,7 @@ class ProvenanceContextAssembler:
         # not be papered over with an LLM call.
         if (
             not rows
+            and not resource_exhausted
             and self._llm_cypher_generator is not None
             and (intent is None or intent.classifier_confidence < _LLM_FALLBACK_CONFIDENCE_CEILING)
         ):
@@ -1064,7 +1463,7 @@ class ProvenanceContextAssembler:
                     "claim_types": inferred_claim_types,
                     "year_min": year_min,
                     "year_max": year_max,
-                    "limit": budget * 2,
+                    "limit": _bounded_query_limit(budget, 2),
                     "search_text": _sanitize_fulltext(query_text),
                 }
                 try:
@@ -1085,6 +1484,7 @@ class ProvenanceContextAssembler:
                     label="llm_cypher",
                     template_names=["LLM_CYPHER"],
                     row_count=len(attempt_rows),
+                    duration_ms=(time.perf_counter() - _t0_llm) * 1000,
                 ))
                 if attempt_rows:
                     rows = attempt_rows
@@ -1097,6 +1497,7 @@ class ProvenanceContextAssembler:
                     label="llm_cypher:declined",
                     template_names=["LLM_CYPHER"],
                     row_count=0,
+                    duration_ms=(time.perf_counter() - _t0_llm) * 1000,
                 ))
 
         # Post-filter by claim_type when entity-anchored path over-fetches (Case 3).
@@ -1138,6 +1539,11 @@ class ProvenanceContextAssembler:
         self._last_ocr_dropped = self._last_candidate_count - len(blocks_raw)
         blocks_raw.sort(key=lambda b: b.extraction_confidence, reverse=True)
         blocks = _stratified_budget_cap(blocks_raw, budget)
+        # Hard ceiling on serialised context size, enforced after the count
+        # cap so confidence-descending order is preserved.  Without this an
+        # uncapped retrieval (10K blocks) blows the 1M-token Anthropic input
+        # limit on dense corpora.
+        blocks = _apply_context_char_budget(blocks)
         self._last_context_count = len(blocks)
 
         # Batch-lookup archivist notes for documents present in context.

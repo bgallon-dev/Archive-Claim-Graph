@@ -87,6 +87,14 @@ class LogRecord:
     # is unavailable; never raises if a stage is missing.  Persisted as
     # JSON in the retrieval_event.timing_json column.
     timing_ms: dict[str, Any] = field(default_factory=dict)
+    # Server-detected mismatch between the model's declared organizing
+    # structure and the data (e.g., tight temporal cluster picked thematic).
+    # Persisted in the conversation table for reviewer audit even when the
+    # warning is also rendered inline to the user.  None when no divergence
+    # detected; otherwise a serialisable dict carrying declared_structure,
+    # detected_signal, and the user-facing message.
+    divergence_detected: bool = False
+    divergence_detail: dict[str, Any] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -107,7 +115,9 @@ CREATE TABLE IF NOT EXISTS conversation (
     turn_number           INTEGER NOT NULL DEFAULT 1,
     request_id            TEXT,
     user_id               TEXT,
-    response_json         TEXT
+    response_json         TEXT,
+    divergence_detected   INTEGER NOT NULL DEFAULT 0,
+    divergence_detail     TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_conversation_user_session
@@ -147,6 +157,10 @@ def _init_db(conn: sqlite3.Connection) -> None:
         ("user_id", "ALTER TABLE conversation ADD COLUMN user_id TEXT"),
         ("response_json", "ALTER TABLE conversation ADD COLUMN response_json TEXT"),
         ("timing_json", "ALTER TABLE retrieval_event ADD COLUMN timing_json TEXT"),
+        ("divergence_detected",
+         "ALTER TABLE conversation ADD COLUMN divergence_detected INTEGER NOT NULL DEFAULT 0"),
+        ("divergence_detail",
+         "ALTER TABLE conversation ADD COLUMN divergence_detail TEXT"),
     ):
         try:
             conn.execute(ddl)
@@ -165,8 +179,9 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
         """INSERT OR IGNORE INTO conversation
            (conversation_id, query_text, bucket, classifier_confidence,
             year_min, year_max, retrieval_path, created_at,
-            session_id, turn_number, request_id, user_id, response_json)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            session_id, turn_number, request_id, user_id, response_json,
+            divergence_detected, divergence_detail)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             record.conversation_id,
             record.query_text,
@@ -181,6 +196,8 @@ def _write_record(conn: sqlite3.Connection, record: LogRecord) -> None:
             record.request_id,
             record.user_id,
             record.response_json,
+            1 if record.divergence_detected else 0,
+            json.dumps(record.divergence_detail) if record.divergence_detail else None,
         ),
     )
     conn.execute(

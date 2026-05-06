@@ -213,6 +213,48 @@ def _extract_doc_type_hints(text: str) -> list[str]:
     return list(dict.fromkeys(matched.values()))
 
 
+# Cross-corpus overlap detection — fires when the query asks for entities
+# appearing in both of two named corpora.  Triggers the CROSS_CORPUS_OVERLAP
+# cascade entry, which uses cross_corpus_ner REFERS_TO/POSSIBLY_REFERS_TO edges
+# to find Persons mentioned in one corpus AND subjects of land_grant claims in
+# another.  Patterns must combine an "in both" / "also appear" intent with at
+# least one corpus reference (doc_type or series alias).  Pure "X and Y" without
+# a join verb stays in the normal cascade.
+_CROSS_CORPUS_OVERLAP_PATTERNS: tuple[re.Pattern[str], ...] = (
+    # "individuals/people/persons/names ... also appear / appear in both"
+    re.compile(
+        r"\b(individuals?|people|persons?|names?|figures?)\b.{0,80}?"
+        r"\b(also\s+appear|appear\s+in\s+both|named\s+in\s+both|"
+        r"appear\s+as|listed\s+in\s+both|mentioned\s+in\s+both|"
+        r"shared\s+between|common\s+to\s+both)\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+    # "who appears in both X and Y" / "which names show up in both"
+    re.compile(
+        r"\b(who|which)\b.{0,50}?\b(appears?|shows?\s+up|named|listed|mentioned)\b"
+        r".{0,50}?\bin\s+both\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+    # "overlap between X and Y" / "intersection of X and Y"
+    re.compile(
+        r"\b(overlap|intersection|crossover)\b.{0,30}?\bbetween\b",
+        re.IGNORECASE | re.DOTALL,
+    ),
+)
+
+
+def _detect_cross_corpus_overlap(text: str, corpora_hits: int) -> bool:
+    """Return True when the query phrasing asks for entities appearing across
+    two corpora AND at least two distinct corpus references are present.
+
+    The corpora-count gate prevents false positives on phrasings like "people
+    who appear in both photographs and writings" where "both" is generic.
+    """
+    if corpora_hits < 2:
+        return False
+    return any(p.search(text) for p in _CROSS_CORPUS_OVERLAP_PATTERNS)
+
+
 _EXTRACTION_STOPWORDS: frozenset[str] = frozenset({
     "what", "when", "where", "which", "while", "were", "have", "been",
     "that", "this", "these", "those", "their", "there", "then", "than",
@@ -320,6 +362,14 @@ def classify_query(
         entities.append(candidate.lower())
         seen_normalized.add(norm)
 
+    doc_type_hints = _extract_doc_type_hints(text)
+    series_hints = _extract_series_hints(text)
+    # Cross-corpus overlap requires at least two distinct corpus references in
+    # the query (combined doc_type + series hints, deduped).  A single corpus
+    # plus generic "both" wording (e.g. "in both 1908 and 1909") must not fire.
+    corpora_hits = len({*doc_type_hints, *series_hints})
+    cross_corpus_overlap = _detect_cross_corpus_overlap(text, corpora_hits)
+
     return QueryIntent(
         bucket=bucket,
         classifier_confidence=confidence,
@@ -327,8 +377,9 @@ def classify_query(
         year_min=year_min,
         year_max=year_max,
         claim_types=[],
-        doc_type_hints=_extract_doc_type_hints(text),
-        series_hints=_extract_series_hints(text),
+        doc_type_hints=doc_type_hints,
+        series_hints=series_hints,
+        cross_corpus_overlap=cross_corpus_overlap,
     )
 
 

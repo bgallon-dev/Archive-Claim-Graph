@@ -1,4 +1,4 @@
-<div class="path-edge-panel" id="path-edge-panel-inner">
+<div class="path-edge-panel" id="explore-edge-panel-inner">
   <header class="path-edge-panel-head">
     <p class="path-edge-panel-title">
       Claims linking <strong>{{ from_name }}</strong> &amp; <strong>{{ to_name }}</strong>
@@ -9,7 +9,7 @@
       {% endif %}
     </p>
     <button type="button" class="path-edge-panel-close" aria-label="Close"
-            onclick="document.getElementById('path-edge-panel').innerHTML = ''">×</button>
+            onclick="document.getElementById('explore-panel').innerHTML = ''">×</button>
   </header>
 
   {% if claims %}
@@ -42,7 +42,7 @@
   <p class="empty-state" style="margin:0.5rem 0;">
     No active claims directly link these two entities
     {% if year_min or year_max %}within the selected year window{% endif %}.
-    The path-finder may have used a longer connection.
+    A multi-hop connection may still exist between them.
   </p>
   {% endif %}
 </div>

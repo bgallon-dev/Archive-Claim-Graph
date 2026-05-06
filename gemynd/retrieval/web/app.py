@@ -83,6 +83,8 @@ from gemynd.core.graph.cypher import (
 )
 from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy
 from ..context_assembler import (
+    _compute_top_co_occurring_entities,
+    _derive_structural_view,
     _infer_claim_types,
     _is_ocr_garbage_title,
     _scrub_doc_list_titles,
@@ -98,6 +100,21 @@ from ..synthesis import SynthesisEngine
 # Accepts both hash-based IDs (person_a1b2c3d4) and metadata-supplied readable
 # IDs (patent_person_robert_mill). Constrained to lowercase alphanumeric + underscore.
 _ENTITY_ID_RE = re.compile(r'^[a-z][a-z0-9_]{3,79}$')
+
+
+def _parse_year(v: str | None) -> int | None:
+    """Coerce a query-string year to int, returning None on missing or unparseable input.
+
+    Used by the explore/paths routes; tolerates whitespace and empty strings without
+    raising so callers can pass `Query(None)` values straight through.
+    """
+    if not v:
+        return None
+    try:
+        return int(v.strip())
+    except (ValueError, AttributeError):
+        return None
+
 
 def _citation_label(b: "ProvenanceBlock") -> str:  # type: ignore[name-defined]
     """Build a human-readable citation from structured block fields.
@@ -244,6 +261,28 @@ class QueryResponse(BaseModel):
     # the graph without LLM synthesis. UI renders structured fields (count, items)
     # rather than parsing answer prose. None for normal synthesis-path responses.
     tier_1_result: dict[str, Any] | None = None
+    # Compact strip of structurally-derived facts about the synthesis-path
+    # retrieved claim set; None for tier-1, analytical-only, or thin (<5 block)
+    # responses. Cells carry natural-language Tier 1 templates that the chat UI
+    # injects into the input box on click (see chat.html renderStructuralSidecar).
+    structural_view: dict[str, Any] | None = None
+    # Sentence-level decomposition of the answer with per-sentence claim_ids
+    # and is_inferred flags.  Renderer walks this to build inline citation
+    # pills and inferred markers.  Empty list when synthesis hard-failed and
+    # the response was assembled from the fallback path.
+    answer_sentences: list[dict[str, Any]] = Field(default_factory=list)
+    # Closed enum the model picks before drafting; one of
+    # "chronological"|"causal"|"thematic"|"mixed".  None when synthesis fell back.
+    organizing_structure: str | None = None
+    section_outline: list[dict[str, Any]] = Field(default_factory=list)
+    # Deterministic preamble built server-side from retrieval state — not
+    # the model.  Distinguishes "didn't search" from "searched and found
+    # nothing" from "found and ranked lower" for every corpus.
+    retrieval_provenance: dict[str, Any] | None = None
+    # Server-detected mismatch between the model's structural choice and
+    # the data (e.g., tight temporal cluster picked thematic).  None when
+    # no divergence detected.
+    structure_divergence: dict[str, Any] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -1701,6 +1740,15 @@ def create_app(
         if _plan_trace and _plan_trace.selected_label:
             # Store as a JSON string field so SQL `json_extract` works.
             _stage_timings["selected_rung"] = _plan_trace.selected_label  # type: ignore[assignment]
+        # Per-rung wall-clock so analytics can attribute slow assemble_ms to a
+        # specific cascade attempt vs. fall-through across many rungs.  Each
+        # entry is the rung label, ms spent inside it (sum of its sub-templates),
+        # and rows it produced.  Order preserved = attempt order.
+        if _plan_trace and _plan_trace.attempts:
+            _stage_timings["rung_timings"] = [  # type: ignore[assignment]
+                {"label": a.label, "ms": round(a.duration_ms, 1), "rows": a.row_count}
+                for a in _plan_trace.attempts
+            ]
 
         # Build coverage stats before synthesis.
         corpus = state["corpus_stats"]
@@ -1715,6 +1763,43 @@ def create_app(
             plan_trace=assembler._last_plan_trace,
         )
 
+        # Quarantine count + structural sidecar — hoisted above synthesis so
+        # both survive a synthesis exception (the user gets retrieval shape and
+        # quarantine transparency even when the LLM times out).
+        quarantined_claims_count = 0
+        try:
+            _q_executor: Neo4jQueryExecutor = state["executor"]
+            _qrows = _q_executor.run(
+                COUNT_QUARANTINED_CLAIMS_QUERY,
+                {
+                    "institution_ids": user.permitted_institution_ids,
+                    "permitted_levels": user.permitted_levels,
+                },
+            )
+            quarantined_claims_count = int((_qrows[0].get("quarantined_count") or 0) if _qrows else 0)
+        except Exception:
+            pass
+
+        # Graph-truth co-occurrence: degrades to [] on any executor failure
+        # (the helper logs and swallows). Sidecar still renders without it.
+        _exclude_ids = frozenset(
+            e.entity_id for e in (entity_ctx.resolved + entity_ctx.maybe_resolved)
+        )
+        _top_co_entities = _compute_top_co_occurring_entities(
+            executor=state["executor"],
+            claim_ids=[b.claim_id for b in blocks],
+            exclude_entity_ids=_exclude_ids,
+            institution_ids=user.permitted_institution_ids,
+            permitted_levels=user.permitted_levels,
+        )
+        structural_view = _derive_structural_view(
+            blocks=blocks,
+            entity_context=entity_ctx,
+            top_co_entities=_top_co_entities,
+            quarantined_count=quarantined_claims_count,
+            ocr_dropped=assembler._last_ocr_dropped,
+        )
+
         # Layer 3: synthesis.
         synthesis_available = True
         _t0 = time.perf_counter()
@@ -1725,14 +1810,20 @@ def create_app(
                 context_text=context_text,
                 analytical_result=analytical_result,
                 conversation_history=[t.model_dump() for t in req.conversation_history],
+                # Tells the deterministic provenance builder which corpora the
+                # retrieval pass actually queried, so a corpus that was searched
+                # but contributed nothing reads as "deprioritized: no matches"
+                # instead of vanishing from the preamble entirely.
+                searched_institution_ids=list(user.permitted_institution_ids or []),
             )
         except Exception as exc:
-            # API unavailable, rate-limited, or response unparseable.
+            # API unavailable, rate-limited, or response unverifiable.
             # Return retrieved provenance blocks with a fallback answer so the
             # archivist can read source sentences directly without a 500 error.
             # Log with traceback so operators can diagnose the underlying cause —
             # the bare-except previously swallowed authentication failures, model
             # name typos, network errors, and JSON parse failures indistinguishably.
+            from gemynd.retrieval.synthesis import SynthesisSchemaError
             _log.exception(
                 "synthesis failed (%s: %s); returning fallback response with %d retrieved blocks",
                 type(exc).__name__,
@@ -1740,17 +1831,36 @@ def create_app(
                 len(blocks),
             )
             synthesis_available = False
-            result = SynthesisResult(
-                answer=(
+            if isinstance(exc, SynthesisSchemaError):
+                # Schema gate hard-fail: the model produced text we can't verify.
+                # Surface a distinct typed message so the user knows to rephrase
+                # rather than thinking the API itself is down.
+                fallback_answer = (
+                    "Synthesizer produced an unverifiable response — please retry "
+                    "or rephrase your question. Retrieved source sentences are "
+                    "available below for direct review."
+                )
+                fallback_caveats = [
+                    "The synthesizer's response failed schema validation twice in a row "
+                    "and was not shipped. Retrieval provenance is intact below.",
+                ]
+                fallback_caveats.extend(
+                    f"Validation error: {e}" for e in exc.validation_errors[:5]
+                )
+            else:
+                fallback_answer = (
                     "AI synthesis is currently unavailable. "
                     "Retrieved source sentences are provided via supporting_claim_ids for direct review."
-                ),
-                confidence_assessment="",
-                supporting_claim_ids=[b.claim_id for b in blocks],
-                caveats=[
+                )
+                fallback_caveats = [
                     "AI synthesis was unavailable at query time. Source provenance blocks were retrieved successfully.",
                     f"Synthesis error: {type(exc).__name__}: {exc}",
-                ],
+                ]
+            result = SynthesisResult(
+                answer=fallback_answer,
+                confidence_assessment="",
+                supporting_claim_ids=[b.claim_id for b in blocks],
+                caveats=fallback_caveats,
             )
         # Capture synthesis wall-clock on both success and failure paths so the
         # timing data distinguishes "API was slow" from "API errored fast".
@@ -1759,21 +1869,6 @@ def create_app(
         # Stamp the retrieval path the assembler chose for this query so the
         # UI can flag llm_cypher answers as lower-trust.
         result.retrieval_path = assembler._last_retrieval_path
-
-        # Count quarantined claims for this institution to include in response.
-        quarantined_claims_count = 0
-        try:
-            _executor: Neo4jQueryExecutor = state["executor"]
-            _qrows = _executor.run(
-                COUNT_QUARANTINED_CLAIMS_QUERY,
-                {
-                    "institution_ids": user.permitted_institution_ids,
-                    "permitted_levels": user.permitted_levels,
-                },
-            )
-            quarantined_claims_count = int((_qrows[0].get("quarantined_count") or 0) if _qrows else 0)
-        except Exception:
-            pass
 
         final_caveats = list(result.caveats)
         if quarantined_claims_count > 0:
@@ -1818,6 +1913,20 @@ def create_app(
             quarantined_claims_count=quarantined_claims_count,
             supporting_claims_detail=claims_detail,
             user_can_annotate=user.role in ("admin", "archivist"),
+            structural_view=(
+                dataclasses.asdict(structural_view) if structural_view else None
+            ),
+            answer_sentences=[dataclasses.asdict(s) for s in result.answer_sentences],
+            organizing_structure=result.organizing_structure,
+            section_outline=[dataclasses.asdict(s) for s in result.section_outline],
+            retrieval_provenance=(
+                dataclasses.asdict(result.retrieval_provenance)
+                if result.retrieval_provenance else None
+            ),
+            structure_divergence=(
+                dataclasses.asdict(result.structure_divergence)
+                if result.structure_divergence else None
+            ),
         )
 
         # Fire-and-forget log write.  Deferred until after the QueryResponse is
@@ -1865,6 +1974,11 @@ def create_app(
                     for b in blocks
                 ],
                 timing_ms=_stage_timings,
+                divergence_detected=result.structure_divergence is not None,
+                divergence_detail=(
+                    dataclasses.asdict(result.structure_divergence)
+                    if result.structure_divergence else None
+                ),
             ))
 
         return response
@@ -1965,11 +2079,16 @@ def create_app(
         return _templates.TemplateResponse("gaps.html", {"request": request, "active_page": "gaps", **_user_ctx(user), **ctx})
 
     # ------------------------------------------------------------------
-    # GET /map  — relationship mapping explorer
+    # GET /map  — legacy single-anchor explorer; redirects to the merged
+    # /explore page. The legacy URL had no query params so the redirect
+    # carries nothing; safe.
     # ------------------------------------------------------------------
-    @app.get("/map", response_class=HTMLResponse, include_in_schema=False)
-    def relationship_map(request: Request, user: UserContext = Depends(require_user)):
-        return _templates.TemplateResponse("map.html", {"request": request, "active_page": "map", **_user_ctx(user)})
+    @app.get("/map", include_in_schema=False)
+    def relationship_map_redirect(request: Request, user: UserContext = Depends(require_user)):
+        from fastapi.responses import RedirectResponse
+        qs = request.url.query
+        target = "/explore" + (("?" + qs) if qs else "")
+        return RedirectResponse(url=target, status_code=301)
 
     # ------------------------------------------------------------------
     # GET /api/entities/search  — entity autocomplete
@@ -1999,6 +2118,8 @@ def create_app(
     def entity_neighborhood(
         entity_id: str,
         limit: int = Query(15, le=30),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
         user: UserContext = Depends(require_user_scoped),
     ) -> dict[str, Any]:
         if not _ENTITY_ID_RE.match(entity_id):
@@ -2007,6 +2128,8 @@ def create_app(
         params = {
             "institution_ids": user.permitted_institution_ids,
             "permitted_levels": user.permitted_levels,
+            "year_min": _parse_year(year_min),
+            "year_max": _parse_year(year_max),
         }
 
         center_rows = executor.run(ENTITY_DETAIL_QUERY, {**params, "entity_id": entity_id}) or [{}]
@@ -2049,118 +2172,53 @@ def create_app(
         return {"nodes": nodes, "edges": edges, "center": center}
 
     # ------------------------------------------------------------------
-    # GET /paths           — Mode 1 page shell
-    # GET /paths/results   — HTMX fragment: cascade-rendered HTML
+    # GET /explore — unified entity-graph explorer.
+    #
+    # 0 anchors → empty state. 1 anchor → neighborhood (Cytoscape cose).
+    # 2 anchors → paths (constrained left/right columns). One renderer,
+    # one shared evidence side-panel, year filter active in both modes.
     # ------------------------------------------------------------------
-    @app.get("/paths", response_class=HTMLResponse, include_in_schema=False)
-    def paths_page(
+    @app.get("/explore", response_class=HTMLResponse, include_in_schema=False)
+    def explore_page(
         request: Request,
-        user: UserContext = Depends(require_user_scoped),
+        from_id: str | None = Query(None, alias="from"),
+        to_id: str | None = Query(None, alias="to"),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
+        user: UserContext = Depends(require_user),
     ):
         bounds = state.get("classifier_year_bounds") or (None, None)
-        return _templates.TemplateResponse("paths.html", {
+        return _templates.TemplateResponse("explore.html", {
             "request": request,
-            "active_page": "paths",
+            "active_page": "explore",
             "corpus_year_min": bounds[0],
             "corpus_year_max": bounds[1],
-            **_user_ctx(user),
-        })
-
-    @app.get("/paths/results", response_class=HTMLResponse, include_in_schema=False)
-    def paths_results(
-        request: Request,
-        from_id: str = Query(..., alias="from"),
-        to_id: str = Query(..., alias="to"),
-        year_min: str | None = Query(None),
-        year_max: str | None = Query(None),
-        max_hops: int = Query(2, ge=1, le=2),
-        include_paths: bool = Query(False),
-        user: UserContext = Depends(require_user_scoped),
-    ):
-        if not _ENTITY_ID_RE.match(from_id):
-            raise HTTPException(status_code=400, detail="Invalid from entity_id")
-        if not _ENTITY_ID_RE.match(to_id):
-            raise HTTPException(status_code=400, detail="Invalid to entity_id")
-        if from_id == to_id:
-            return _templates.TemplateResponse(
-                "fragments/path_results.html",
-                {"request": request, "error": "Pick two different entities.",
-                 **_user_ctx(user)},
-            )
-        from gemynd.retrieval.web.path_finder import find_paths, path_result_to_dict
-
-        def _parse_year(v: str | None) -> int | None:
-            if not v:
-                return None
-            try:
-                return int(v.strip())
-            except (ValueError, AttributeError):
-                return None
-
-        executor: Neo4jQueryExecutor = state["executor"]
-        try:
-            result = find_paths(
-                executor.run,
-                from_id=from_id, to_id=to_id,
-                institution_ids=user.permitted_institution_ids,
-                permitted_levels=user.permitted_levels,
-                year_min=_parse_year(year_min), year_max=_parse_year(year_max),
-                max_hops=max_hops,
-                degree=state.get("entity_degree", {}),
-                corpus_total_claims=int(state.get("total_active_claims", 0)),
-                include_paths_when_co_asserted=include_paths,
-            )
-        except Exception as exc:
-            # Most likely a Neo4j TransientError when the join cardinality
-            # exceeds the configured transaction memory budget. Surface as a
-            # graceful in-page message rather than a 500 — this happens for
-            # extreme hub-to-hub queries where even the Cypher-level hub
-            # exclusion can't fully bound the search.
-            from neo4j.exceptions import TransientError
-            if isinstance(exc, TransientError):
-                _log.warning("Path query exhausted Neo4j memory: %s", exc)
-                return _templates.TemplateResponse(
-                    "fragments/path_results.html",
-                    {"request": request,
-                     "error": ("This path search exceeded the database's "
-                               "memory budget. Try narrowing the year range, "
-                               "or pick more specific endpoints."),
-                     **_user_ctx(user)},
-                )
-            raise
-        # Fetch endpoint metadata for display (names, types).
-        head_rows = executor.run(
-            "MATCH (e {entity_id: $entity_id}) "
-            "RETURN e.entity_id AS entity_id, e.name AS name, "
-            "       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type",
-            {"entity_id": from_id},
-        )
-        from_meta = head_rows[0] if head_rows else {"entity_id": from_id, "name": from_id, "entity_type": ""}
-        head_rows = executor.run(
-            "MATCH (e {entity_id: $entity_id}) "
-            "RETURN e.entity_id AS entity_id, e.name AS name, "
-            "       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type",
-            {"entity_id": to_id},
-        )
-        to_meta = head_rows[0] if head_rows else {"entity_id": to_id, "name": to_id, "entity_type": ""}
-
-        return _templates.TemplateResponse("fragments/path_results.html", {
-            "request": request,
-            "from_meta": from_meta,
-            "to_meta": to_meta,
-            "result": path_result_to_dict(result),
-            "year_min": _parse_year(year_min),
-            "year_max": _parse_year(year_max),
-            "include_paths": include_paths,
-            "error": None,
+            "prefill_from": from_id or "",
+            "prefill_to": to_id or "",
+            "prefill_year_min": _parse_year(year_min) or "",
+            "prefill_year_max": _parse_year(year_max) or "",
             **_user_ctx(user),
         })
 
     # ------------------------------------------------------------------
-    # GET /paths/edge  — HTMX side-panel: all claims linking two entities
+    # GET /paths — legacy two-anchor page; redirects to the merged
+    # /explore page. The query-string param names (from, to, year_min,
+    # year_max) already match /explore so prefill round-trips cleanly.
     # ------------------------------------------------------------------
-    @app.get("/paths/edge", response_class=HTMLResponse, include_in_schema=False)
-    def paths_edge_panel(
+    @app.get("/paths", include_in_schema=False)
+    def paths_page_redirect(request: Request, user: UserContext = Depends(require_user_scoped)):
+        from fastapi.responses import RedirectResponse
+        qs = request.url.query
+        target = "/explore" + (("?" + qs) if qs else "")
+        return RedirectResponse(url=target, status_code=301)
+
+    # ------------------------------------------------------------------
+    # GET /explore/edge  — HTMX side-panel: all claims linking two entities.
+    # Lives at /explore/edge after the map/paths merge; /paths/edge is a
+    # 301 alias just below.
+    # ------------------------------------------------------------------
+    @app.get("/explore/edge", response_class=HTMLResponse, include_in_schema=False)
+    def explore_edge_panel(
         request: Request,
         from_id: str = Query(..., alias="from"),
         to_id: str = Query(..., alias="to"),
@@ -2172,14 +2230,6 @@ def create_app(
             raise HTTPException(status_code=400, detail="Invalid from entity_id")
         if not _ENTITY_ID_RE.match(to_id):
             raise HTTPException(status_code=400, detail="Invalid to entity_id")
-
-        def _parse_year(v: str | None) -> int | None:
-            if not v:
-                return None
-            try:
-                return int(v.strip())
-            except (ValueError, AttributeError):
-                return None
 
         from gemynd.core.graph.cypher import CO_ASSERTING_CLAIMS_QUERY
         executor: Neo4jQueryExecutor = state["executor"]
@@ -2190,20 +2240,17 @@ def create_app(
             "year_min": _parse_year(year_min),
             "year_max": _parse_year(year_max),
         })
-        # Endpoint name lookup for the panel title.
         head_rows = executor.run(
-            "MATCH (e {entity_id: $entity_id}) "
-            "RETURN e.name AS name",
+            "MATCH (e {entity_id: $entity_id}) RETURN e.name AS name",
             {"entity_id": from_id},
         )
         from_name = (head_rows[0]["name"] if head_rows else from_id) or from_id
         head_rows = executor.run(
-            "MATCH (e {entity_id: $entity_id}) "
-            "RETURN e.name AS name",
+            "MATCH (e {entity_id: $entity_id}) RETURN e.name AS name",
             {"entity_id": to_id},
         )
         to_name = (head_rows[0]["name"] if head_rows else to_id) or to_id
-        return _templates.TemplateResponse("fragments/path_edge_panel.html", {
+        return _templates.TemplateResponse("fragments/explore_edge_panel.html", {
             "request": request,
             "from_id": from_id, "to_id": to_id,
             "from_name": from_name, "to_name": to_name,
@@ -2212,6 +2259,13 @@ def create_app(
             "year_max": _parse_year(year_max),
             **_user_ctx(user),
         })
+
+    @app.get("/paths/edge", include_in_schema=False)
+    def paths_edge_redirect(request: Request):
+        from fastapi.responses import RedirectResponse
+        qs = request.url.query
+        target = "/explore/edge" + (("?" + qs) if qs else "")
+        return RedirectResponse(url=target, status_code=301)
 
     # ------------------------------------------------------------------
     # GET /api/path  — Mode 1: cascade-shaped path-finding between two entities
@@ -2247,6 +2301,73 @@ def create_app(
         )
         return {
             "endpoints": {"from": from_id, "to": to_id},
+            **path_result_to_dict(result),
+        }
+
+    # ------------------------------------------------------------------
+    # GET /api/explore/paths — JSON for the unified explore-mode 2-anchor view.
+    #
+    # Differs from /api/path in three ways: it caps families/alternates for
+    # canvas readability, surfaces endpoint metadata (name + type) so the
+    # client can label nodes without a second round-trip, and translates
+    # Neo4j TransientError into an in-payload error string instead of 500.
+    # ------------------------------------------------------------------
+    @app.get("/api/explore/paths")
+    def api_explore_paths(
+        from_id: str = Query(..., alias="from"),
+        to_id: str = Query(..., alias="to"),
+        year_min: str | None = Query(None),
+        year_max: str | None = Query(None),
+        max_hops: int = Query(2, ge=1, le=2),
+        include_paths: bool = Query(False),
+        family_cap: int = Query(3, ge=1, le=10),
+        alternate_cap: int = Query(2, ge=0, le=5),
+        user: UserContext = Depends(require_user_scoped),
+    ) -> dict[str, Any]:
+        if not _ENTITY_ID_RE.match(from_id):
+            raise HTTPException(status_code=400, detail="Invalid from entity_id")
+        if not _ENTITY_ID_RE.match(to_id):
+            raise HTTPException(status_code=400, detail="Invalid to entity_id")
+        if from_id == to_id:
+            return {"error": "Pick two different entities."}
+        from gemynd.retrieval.web.path_finder import find_paths, path_result_to_dict
+        from neo4j.exceptions import TransientError
+        executor: Neo4jQueryExecutor = state["executor"]
+        try:
+            result = find_paths(
+                executor.run,
+                from_id=from_id, to_id=to_id,
+                institution_ids=user.permitted_institution_ids,
+                permitted_levels=user.permitted_levels,
+                year_min=_parse_year(year_min), year_max=_parse_year(year_max),
+                max_hops=max_hops,
+                degree=state.get("entity_degree", {}),
+                corpus_total_claims=int(state.get("total_active_claims", 0)),
+                include_paths_when_co_asserted=include_paths,
+                family_cap=family_cap,
+                alternate_cap=alternate_cap,
+            )
+        except TransientError as exc:
+            _log.warning("Path query exhausted Neo4j memory: %s", exc)
+            return {"error": (
+                "This path search exceeded the database's memory budget. "
+                "Try narrowing the year range, or pick more specific endpoints."
+            )}
+        # Endpoint metadata so the client can label nodes without a second call.
+        meta_query = (
+            "MATCH (e {entity_id: $entity_id}) "
+            "RETURN e.entity_id AS entity_id, e.name AS name, "
+            "       [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type"
+        )
+        from_rows = executor.run(meta_query, {"entity_id": from_id}) or []
+        to_rows = executor.run(meta_query, {"entity_id": to_id}) or []
+        from_meta = from_rows[0] if from_rows else {"entity_id": from_id, "name": from_id, "entity_type": ""}
+        to_meta = to_rows[0] if to_rows else {"entity_id": to_id, "name": to_id, "entity_type": ""}
+
+        return {
+            "from_meta": from_meta,
+            "to_meta": to_meta,
+            "error": None,
             **path_result_to_dict(result),
         }
 

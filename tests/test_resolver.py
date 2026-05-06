@@ -1,7 +1,7 @@
 import pytest
 
 from gemynd.core.ids import make_entity_id
-from gemynd.core.models import MentionRecord
+from gemynd.core.models import EntityRecord, MentionRecord
 from gemynd.core.resolver import (
     DictionaryFuzzyResolver,
     default_seed_entities,
@@ -169,3 +169,37 @@ def test_new_seeds_do_not_cross_contaminate_existing_seeds() -> None:
             assert match_score < 0.85, (
                 f"Seeds {a.name!r} and {b.name!r} are too similar (match_score={match_score:.4f})"
             )
+
+
+def test_seed_form_shadows_graph_candidate_of_different_type() -> None:
+    """A graph-resident entity with the same normalized_form as a seed must not
+    compete with that seed, even when its entity_type differs.
+
+    Regression: Organization-typed graph entities (e.g. "WASHINGTON STATE")
+    were shadowing seeded Place entities with the same normalized form,
+    fragmenting ~10K claims onto duplicate nodes.
+    """
+    seed = EntityRecord(
+        entity_id=make_entity_id("Place", "washington state"),
+        entity_type="Place",
+        name="Washington State",
+        normalized_form="washington state",
+    )
+    graph_dupe = EntityRecord(
+        entity_id="organization_legacy_id_from_graph",
+        entity_type="Organization",
+        name="WASHINGTON STATE",
+        normalized_form="washington state",
+    )
+
+    resolver = DictionaryFuzzyResolver(
+        seed_entities=[seed],
+        supplementary_candidates=[graph_dupe],
+    )
+
+    _, resolutions = resolver.resolve([_mention("m_ws", "washington state")])
+    assert resolutions, "mention produced no resolution"
+    rec = resolutions[0]
+    assert rec.entity_id == seed.entity_id, (
+        f"resolved to {rec.entity_id!r} (expected the seeded Place entity)"
+    )

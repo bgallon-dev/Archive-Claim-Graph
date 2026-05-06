@@ -1,0 +1,1311 @@
+{% extends "retrieval_stats_base.html" %}
+{% block title %}Explore - Gemynd{% endblock %}
+
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.29.2/cytoscape.min.js"
+        integrity="sha512-yi5TwB0WBpzqlJXNLURNMtpFXJt4yxJhkOG8yqkVQYWhfMkAoDF93rZ/KjfoN1gADGr5uKXvr5/Bw6CC03YWpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+/* ---- Anchor row (reuses paths-picker classes from the legacy paths page) ---- */
+.explore-anchor-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  align-items: end;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 0.75rem;
+}
+.paths-picker { position: relative; min-width: 0; }
+.paths-picker > label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+.paths-picker-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  color: var(--text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.paths-picker-input:focus { border-color: var(--bark-400); }
+.paths-picker-chip {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px 8px 12px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  background: var(--bark-50);
+  font-size: 13px;
+}
+.paths-picker.committed .paths-picker-input { display: none; }
+.paths-picker.committed .paths-picker-chip { display: flex; }
+.paths-picker-chip-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text-primary);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.paths-picker-chip-type {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: lowercase;
+}
+.paths-picker-chip-clear {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+  padding: 0 4px;
+}
+.paths-picker-chip-clear:hover { color: var(--accent-red-text); }
+.paths-picker-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(26, 20, 16, 0.08);
+  z-index: 50;
+  max-height: 260px;
+  overflow-y: auto;
+  display: none;
+}
+.paths-picker-dropdown.open { display: block; }
+.paths-picker-result {
+  padding: 7px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+.paths-picker-result:last-child { border-bottom: none; }
+.paths-picker-result:hover,
+.paths-picker-result.active { background: var(--bark-50); }
+.paths-picker-result-name { flex: 1; color: var(--text-primary); }
+.paths-picker-result-type {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: lowercase;
+}
+.paths-picker-empty {
+  padding: 7px 12px;
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ---- Options row (year filter + indirect toggle) ---- */
+.explore-options {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.explore-options input[type="number"] {
+  width: 80px;
+  padding: 4px 6px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 12px;
+}
+.explore-options label { display: inline-flex; align-items: center; gap: 4px; }
+.explore-options .indirect-toggle.hidden { display: none; }
+
+/* ---- Status bar above canvas ---- */
+#status-bar { font-size: 12px; color: var(--text-secondary); margin-bottom: 0.5rem; min-height: 1.2em; }
+#status-bar .status-relations { color: var(--text-tertiary); }
+#status-bar .status-bullet { color: var(--text-tertiary); margin: 0 0.4rem; }
+#status-bar .disconnected-banner {
+  background: var(--accent-amber-bg);
+  border: 1px solid var(--accent-amber-border);
+  color: var(--accent-amber-text);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-md);
+  font-size: 12px;
+}
+
+/* ---- Canvas + side panel ---- */
+.explore-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1rem;
+}
+@media(max-width:700px) { .explore-layout { grid-template-columns: 1fr; } }
+#cy {
+  width: 100%; height: 560px;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+}
+#cy.empty {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-tertiary); font-size: 13px;
+  padding: 2rem; text-align: center;
+}
+.explore-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.detail-panel {
+  background: var(--white);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  min-height: 4rem;
+}
+.detail-panel h3 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 0.5rem;
+  color: var(--text-primary);
+}
+.detail-placeholder { color: var(--text-tertiary); font-size: 12px; }
+.rel-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 0.5rem; }
+.rel-tag {
+  font-family: 'DM Mono', var(--font-body);
+  font-size: 11px;
+  color: var(--bark-700);
+  background: var(--bark-50);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.detail-panel blockquote {
+  margin: 0 0 0.4rem;
+  padding: 0.4rem 0.6rem;
+  border-left: 2px solid var(--bark-300);
+  background: var(--bark-50);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+}
+.detail-panel .claim-ids {
+  font-size: 10.5px; color: var(--text-tertiary);
+  margin-top: 0.4rem;
+}
+
+/* ---- Legend ---- */
+.legend {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 4px 12px; font-size: 11px; color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+.legend-item { display: inline-flex; align-items: center; gap: 4px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.legend-dot--ring { box-sizing: border-box; width: 12px; height: 12px; }
+.legend-sep { color: var(--text-tertiary); margin: 0 0.2rem; }
+
+.autocomplete-group-header {
+  position: sticky; top: 0;
+  background: var(--bark-50); color: var(--text-tertiary);
+  font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 4px 12px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* ---- Edge-panel fragment styles ---- */
+.coassert-list { display: flex; flex-direction: column; gap: 8px; }
+.coassert-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.95rem;
+}
+.coassert-sentence {
+  font-family: var(--font-display);
+  font-size: 14px;
+  color: var(--text-primary);
+  margin: 0 0 0.4rem;
+  line-height: 1.5;
+}
+.coassert-meta {
+  display: flex; gap: 8px; align-items: center;
+  font-size: 12px; color: var(--text-secondary); flex-wrap: wrap;
+}
+.coassert-rels {
+  font-family: 'DM Mono', var(--font-body);
+  font-size: 11px;
+  color: var(--bark-700);
+  background: var(--bark-50);
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+.path-edge-panel {
+  background: var(--white);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+}
+.path-edge-panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.path-edge-panel-title {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+}
+.path-edge-panel-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 0 4px;
+}
+.path-edge-panel-close:hover { color: var(--text-primary); }
+.path-edge-panel-actions { margin-top: 0.6rem; font-size: 12px; }
+.path-edge-panel-actions a { color: var(--bark-700); text-decoration: none; }
+.path-edge-panel-actions a:hover { text-decoration: underline; }
+
+/* ---- Neighbor context popover (1-anchor mode) ---- */
+#neighbor-popover {
+  position: fixed;
+  background: var(--white);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 14px rgba(26, 20, 16, 0.18);
+  padding: 4px;
+  display: none;
+  z-index: 200;
+  min-width: 180px;
+}
+#neighbor-popover.open { display: block; }
+#neighbor-popover button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 7px 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+#neighbor-popover button:hover { background: var(--bark-50); }
+#neighbor-popover .popover-name {
+  font-family: var(--font-display);
+  font-size: 12px;
+  color: var(--text-tertiary);
+  padding: 4px 10px 6px;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 2px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<p class="page-title">Explore connections</p>
+<p class="page-sub">
+  Pick one entity to see its neighborhood, or two entities to see how they connect.
+</p>
+
+<div class="explore-anchor-row">
+  {% with slot="from", label_text="Anchor" %}
+  {% include "fragments/path_picker.html" %}
+  {% endwith %}
+
+  {% with slot="to", label_text="Compare to (optional)" %}
+  {% include "fragments/path_picker.html" %}
+  {% endwith %}
+</div>
+
+<div class="explore-options">
+  {% if corpus_year_min and corpus_year_max %}
+  <label>
+    Years
+    <input type="number" id="year-min" min="{{ corpus_year_min }}" max="{{ corpus_year_max }}"
+           placeholder="{{ corpus_year_min }}" value="{{ prefill_year_min }}">
+    <span>–</span>
+    <input type="number" id="year-max" min="{{ corpus_year_min }}" max="{{ corpus_year_max }}"
+           placeholder="{{ corpus_year_max }}" value="{{ prefill_year_max }}">
+  </label>
+  {% endif %}
+  <label class="indirect-toggle hidden" id="indirect-toggle-wrap">
+    <input type="checkbox" id="include-paths">
+    Show indirect paths even when direct claims exist
+  </label>
+</div>
+
+<div class="legend" id="legend"></div>
+<div id="status-bar"></div>
+
+<div class="explore-layout">
+  <div id="cy" class="empty">
+    Search for an entity above to begin. Add a second entity to see the paths between them.
+  </div>
+  <div class="explore-side">
+    <div class="detail-panel" id="detail-panel">
+      <h3>Details</h3>
+      <div class="detail-placeholder" id="detail-content">
+        Click a node or edge in the canvas to see details. Server-fetched claim
+        evidence appears below.
+      </div>
+    </div>
+    <div id="explore-panel"></div>
+  </div>
+</div>
+
+<div id="neighbor-popover" role="menu" aria-hidden="true"></div>
+
+<script id="explore-prefill" type="application/json">
+{
+  "from": {{ prefill_from | tojson }},
+  "to": {{ prefill_to | tojson }},
+  "year_min": {{ prefill_year_min | tojson }},
+  "year_max": {{ prefill_year_max | tojson }}
+}
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+'use strict';
+
+// ============================================================================
+// Constants — entity colors, edge palette, render tunables.
+// ============================================================================
+
+var ENTITY_COLORS = {
+  'Species':      '#2A5C1A',
+  'Person':       '#1A3A5C',
+  'Organization': '#5A3E6B',
+  'Place':        '#5A3E2B',
+  'Refuge':       '#5A3E2B',
+  'Habitat':      '#1A5C5C',
+  'Activity':     '#6B4D0A',
+  'SurveyMethod': '#2A5C4A',
+  'Event':        '#8B2150',
+};
+var DEFAULT_COLOR = '#8B7355';
+function entityColor(et) { return ENTITY_COLORS[et] || DEFAULT_COLOR; }
+
+// Three canonical relation families get distinct hover hues; others fall to gold.
+// Edges stay uniformly bark at rest; the palette only kicks in on hover/select
+// so the network reads as ground until the user interrogates a connection.
+var RELATION_PALETTE = {
+  'LOCATION_FOCUS': '#2A5C1A',
+  'OCCURRED_AT':    '#2A5C1A',
+  'OCCURRED_DURING': '#5A3E6B',
+  'SUBJECT_OF_CLAIM': '#1A3A5C',
+  'TOPIC_OF_CLAIM':   '#1A3A5C',
+  'SPECIES_FOCUS': '#6B4D0A',
+};
+var RELATION_DEFAULT_HUE = '#6B4D35';
+function relationHue(types) {
+  if (!types || !types.length) return RELATION_DEFAULT_HUE;
+  for (var i = 0; i < types.length; i++) {
+    if (RELATION_PALETTE[types[i]]) return RELATION_PALETTE[types[i]];
+  }
+  return RELATION_DEFAULT_HUE;
+}
+
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+// ============================================================================
+// Legend — same encoding as the legacy /map page.
+// ============================================================================
+
+(function buildLegend() {
+  var legendEl = document.getElementById('legend');
+  Object.keys(ENTITY_COLORS).forEach(function (et) {
+    if (et === 'Refuge') return;   // visually identical to Place
+    legendEl.innerHTML += '<span class="legend-item">'
+      + '<span class="legend-dot" style="background:' + ENTITY_COLORS[et] + '"></span>'
+      + esc(et) + '</span>';
+  });
+  var BORDER_LEGEND = [
+    { label: 'Single-corpus', border: '#fff',    width: 1 },
+    { label: 'Cross-corpus',  border: '#6B4D35', width: 3 },
+  ];
+  legendEl.innerHTML += '<span class="legend-sep" aria-hidden="true">·</span>';
+  BORDER_LEGEND.forEach(function (b) {
+    legendEl.innerHTML += '<span class="legend-item">'
+      + '<span class="legend-dot legend-dot--ring" style="background:' + DEFAULT_COLOR
+      + ';border:' + b.width + 'px solid ' + b.border + '"></span>'
+      + esc(b.label) + '</span>';
+  });
+})();
+
+// ============================================================================
+// State — the single source of truth. setState() re-renders the canvas.
+// ============================================================================
+
+var state = {
+  anchors: [null, null],   // [{entity_id, name, entity_type}, ...]
+  yearMin: '',
+  yearMax: '',
+  includePaths: false,
+};
+
+function mode() {
+  if (state.anchors[0] && state.anchors[1]) return 'paths';
+  if (state.anchors[0]) return 'neighborhood';
+  return 'empty';
+}
+
+function setState(patch) {
+  Object.assign(state, patch);
+  syncDom();
+  render();
+}
+
+function syncDom() {
+  var toggle = document.getElementById('indirect-toggle-wrap');
+  if (toggle) toggle.classList.toggle('hidden', mode() !== 'paths');
+}
+
+// ============================================================================
+// Picker — shared autocomplete for the two anchor slots.
+// ============================================================================
+
+function initPicker(picker, slotIndex) {
+  var input = picker.querySelector('.paths-picker-input');
+  var dropdown = picker.querySelector('.paths-picker-dropdown');
+  var hidden = picker.querySelector('input[type="hidden"]');
+  var chip = picker.querySelector('.paths-picker-chip');
+  var chipName = picker.querySelector('.paths-picker-chip-name');
+  var chipType = picker.querySelector('.paths-picker-chip-type');
+  var clearBtn = picker.querySelector('.paths-picker-chip-clear');
+
+  var lastFetch = 0;
+  var debounceTimer = null;
+
+  function closeDropdown() { dropdown.classList.remove('open'); }
+  function openDropdown() { if (dropdown.children.length > 0) dropdown.classList.add('open'); }
+
+  function commit(entity) {
+    hidden.value = entity.entity_id;
+    chipName.textContent = entity.name || entity.entity_id;
+    chipType.textContent = entity.entity_type || '';
+    picker.classList.add('committed');
+    closeDropdown();
+    var next = state.anchors.slice();
+    next[slotIndex] = entity;
+    setState({ anchors: next });
+  }
+  function clearCommit() {
+    hidden.value = '';
+    picker.classList.remove('committed');
+    input.value = '';
+    input.focus();
+    var next = state.anchors.slice();
+    next[slotIndex] = null;
+    setState({ anchors: next });
+  }
+  picker._commitEntity = commit;
+  picker._clear = clearCommit;
+
+  function renderResults(rows) {
+    dropdown.innerHTML = '';
+    if (!rows || rows.length === 0) {
+      var empty = document.createElement('div');
+      empty.className = 'paths-picker-empty';
+      empty.textContent = 'No matching entities.';
+      dropdown.appendChild(empty);
+    } else {
+      rows.forEach(function (r) {
+        var div = document.createElement('div');
+        div.className = 'paths-picker-result';
+        div.innerHTML = '<span class="paths-picker-result-name"></span>' +
+                        '<span class="paths-picker-result-type"></span>';
+        div.querySelector('.paths-picker-result-name').textContent = r.name || r.entity_id;
+        div.querySelector('.paths-picker-result-type').textContent = r.entity_type || '';
+        div.addEventListener('mousedown', function (e) {
+          // mousedown beats blur so the dropdown click doesn't get killed by
+          // the input losing focus first.
+          e.preventDefault();
+          commit(r);
+        });
+        dropdown.appendChild(div);
+      });
+    }
+    openDropdown();
+  }
+
+  async function fetchSuggestions(q) {
+    if (!q || q.trim().length < 2) {
+      dropdown.innerHTML = '';
+      closeDropdown();
+      return;
+    }
+    var myFetchId = ++lastFetch;
+    try {
+      var resp = await fetch('/api/entities/search?q=' + encodeURIComponent(q.trim()) + '&limit=10', {
+        credentials: 'same-origin',
+      });
+      if (!resp.ok || myFetchId !== lastFetch) return;
+      var rows = await resp.json();
+      if (myFetchId !== lastFetch) return;
+      renderResults(rows);
+    } catch (err) { /* swallow — autocomplete shouldn't block the form */ }
+  }
+
+  input.addEventListener('input', function () {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function () { fetchSuggestions(input.value); }, 200);
+  });
+  input.addEventListener('focus', function () {
+    if (input.value.trim().length >= 2 && dropdown.children.length > 0) openDropdown();
+  });
+  input.addEventListener('blur', function () { setTimeout(closeDropdown, 120); });
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { closeDropdown(); input.blur(); }
+  });
+  clearBtn.addEventListener('click', function (e) { e.preventDefault(); clearCommit(); });
+}
+
+var pickers = document.querySelectorAll('.paths-picker');
+pickers.forEach(function (p, i) { initPicker(p, i); });
+function pickerForSlot(i) { return pickers[i]; }
+
+// ============================================================================
+// Year + indirect-toggle wiring.
+// ============================================================================
+
+(function () {
+  var ymin = document.getElementById('year-min');
+  var ymax = document.getElementById('year-max');
+  var inc = document.getElementById('include-paths');
+  function pushYears() {
+    setState({
+      yearMin: ymin ? ymin.value : '',
+      yearMax: ymax ? ymax.value : '',
+    });
+  }
+  if (ymin) ymin.addEventListener('change', pushYears);
+  if (ymax) ymax.addEventListener('change', pushYears);
+  if (inc) inc.addEventListener('change', function () {
+    setState({ includePaths: inc.checked });
+  });
+})();
+
+// ============================================================================
+// API — JSON fetches for both modes. Year params go through every call so
+// the filter is honored in 1-anchor and 2-anchor modes alike.
+// ============================================================================
+
+function yearQs() {
+  var p = [];
+  if (state.yearMin) p.push('year_min=' + encodeURIComponent(state.yearMin));
+  if (state.yearMax) p.push('year_max=' + encodeURIComponent(state.yearMax));
+  return p.join('&');
+}
+
+async function fetchNeighborhood(entityId) {
+  var qs = yearQs();
+  var url = '/api/entity/' + encodeURIComponent(entityId) + '/neighborhood?limit=15'
+    + (qs ? '&' + qs : '');
+  var res = await fetch(url, { credentials: 'same-origin' });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return await res.json();
+}
+
+async function fetchPaths(fromId, toId) {
+  var qs = yearQs();
+  var url = '/api/explore/paths?from=' + encodeURIComponent(fromId)
+    + '&to=' + encodeURIComponent(toId)
+    + '&include_paths=' + (state.includePaths ? 'true' : 'false')
+    + (qs ? '&' + qs : '');
+  var res = await fetch(url, { credentials: 'same-origin' });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  return await res.json();
+}
+
+// ============================================================================
+// Cytoscape — single canvas, two layout modes.
+// ============================================================================
+
+var cy = null;
+var statusBar = document.getElementById('status-bar');
+var detailPanel = document.getElementById('detail-panel');
+var detailContent = document.getElementById('detail-content');
+var detailTitle = detailPanel.querySelector('h3');
+
+function destroyCy() { if (cy) { cy.destroy(); cy = null; } }
+
+function showEmpty(msg) {
+  destroyCy();
+  var cyEl = document.getElementById('cy');
+  cyEl.classList.add('empty');
+  cyEl.textContent = msg;
+  statusBar.textContent = '';
+}
+
+function nodeBorderColor(insts, isCenter, isAnchor) {
+  if (isCenter || isAnchor) return '#A89272';
+  if (!insts || insts.length === 0) return '#fff';
+  if (insts.length > 1) return '#6B4D35';
+  if (insts[0] === 'spokane_newspaper') return '#2E5D8F';
+  return '#fff';
+}
+
+function commonStyles() {
+  return [
+    { selector: 'node', style: {
+        'label': 'data(label)',
+        'background-color': function (ele) { return entityColor(ele.data('entity_type')); },
+        'border-width': function (ele) {
+          if (ele.data('is_anchor')) return 3;
+          var insts = ele.data('institution_ids') || [];
+          return insts.length > 1 ? 3 : 1;
+        },
+        'border-color': function (ele) {
+          return nodeBorderColor(
+            ele.data('institution_ids') || [],
+            ele.data('is_center'),
+            ele.data('is_anchor'));
+        },
+        'width': function (ele) { return ele.data('is_anchor') ? 60 : 36; },
+        'height': function (ele) { return ele.data('is_anchor') ? 60 : 36; },
+        'font-size': function (ele) { return ele.data('is_anchor') ? 15 : 11; },
+        'font-weight': function (ele) { return ele.data('is_anchor') ? 500 : 400; },
+        'text-valign': 'bottom',
+        'text-margin-y': 4,
+        'text-max-width': 90,
+        'text-wrap': 'wrap',
+        'color': '#1A1410',
+        'text-background-color': 'rgba(255,255,255,0.85)',
+        'text-background-opacity': 1,
+        'text-background-padding': 2,
+    }},
+    { selector: 'edge', style: {
+        'width': function (ele) {
+          // Log-scale heavy-tailed weights so a co-occurrence count of 50 doesn't
+          // look 6x thicker than 8.
+          var w = ele.data('weight') || 1;
+          return Math.max(1, Math.min(8, Math.log2(w + 1) * 2));
+        },
+        'line-color': '#C4A882',
+        'target-arrow-color': '#C4A882',
+        'target-arrow-shape': 'triangle',
+        'curve-style': 'bezier',
+        'opacity': 0.8,
+        'label': 'data(edge_label)',
+        'font-size': 10,
+        'color': '#6B6054',
+        'text-background-color': 'rgba(255,255,255,0.9)',
+        'text-background-opacity': 1,
+        'text-background-padding': 2,
+        'text-rotation': 'autorotate',
+    }},
+    { selector: 'edge.direct-claim', style: {
+        // Direct co-assertions are visually emphatic so they read as "here's
+        // the simple answer" before the eye drifts to indirect families.
+        'line-color': '#5A3E2B',
+        'target-arrow-color': '#5A3E2B',
+        'width': 6,
+        'opacity': 1,
+    }},
+    { selector: 'edge:selected, edge.highlighted, edge.hovered', style: {
+        'line-color': function (ele) { return relationHue(ele.data('relationship_types')); },
+        'target-arrow-color': function (ele) { return relationHue(ele.data('relationship_types')); },
+        'opacity': 1,
+        'z-index': 10,
+    }},
+    { selector: 'node:selected, node.highlighted', style: {
+        'border-color': '#6B4D35', 'border-width': 3,
+    }},
+  ];
+}
+
+// ----------------------------------------------------------------------------
+// Mode 1: 1-anchor neighborhood. Cose layout, ego graph.
+// ----------------------------------------------------------------------------
+
+function renderNeighborhood(data) {
+  destroyCy();
+  var cyEl = document.getElementById('cy');
+  cyEl.classList.remove('empty');
+  cyEl.textContent = '';
+
+  var nodes = [{ data: {
+    id: data.center.entity_id,
+    label: data.center.name,
+    entity_type: data.center.entity_type || '',
+    claim_count: data.center.claim_count || 0,
+    institution_ids: [],
+    is_anchor: true,
+    is_center: true,
+  }}];
+  var edges = [];
+  (data.neighbors || []).forEach(function (n) {
+    nodes.push({ data: {
+      id: n.entity_id, label: n.name,
+      entity_type: n.entity_type || '',
+      claim_count: 0,
+      institution_ids: n.institution_ids || [],
+      is_anchor: false,
+    }});
+    edges.push({ data: {
+      id: data.center.entity_id + '__' + n.entity_id,
+      source: data.center.entity_id, target: n.entity_id,
+      weight: n.co_occurrence_count,
+      relationship_types: n.relationship_types || [],
+      sample_sentences: n.sample_sentences || [],
+      sample_claim_ids: n.sample_claim_ids || [],
+      institution_ids: n.institution_ids || [],
+      source_label: data.center.name,
+      target_label: n.name,
+      from_id: data.center.entity_id,
+      to_id: n.entity_id,
+      edge_kind: 'neighborhood',
+    }});
+  });
+
+  cy = cytoscape({
+    container: cyEl,
+    elements: nodes.concat(edges),
+    style: commonStyles(),
+    layout: { name: 'cose', animate: false, padding: 40, nodeRepulsion: 8000,
+              idealEdgeLength: 120, gravity: 0.3 },
+  });
+  bindCanvasEvents();
+  showCenterDetail(data.center);
+  statusBar.innerHTML = neighborhoodStatusBar(data);
+}
+
+function neighborhoodStatusBar(data) {
+  var neighbors = data.neighbors || [];
+  var crossCount = 0;
+  var perInstitution = {};
+  neighbors.forEach(function (n) {
+    var insts = n.institution_ids || [];
+    if (insts.length > 1) crossCount += 1;
+    else if (insts.length === 1) {
+      var label = humanizeInstitution(insts[0]);
+      perInstitution[label] = (perInstitution[label] || 0) + 1;
+    }
+  });
+  var parts = [];
+  if (crossCount > 0) parts.push(crossCount + ' cross-corpus');
+  Object.keys(perInstitution).sort().forEach(function (l) {
+    parts.push(perInstitution[l] + ' ' + l + '-only');
+  });
+  var relCounts = {};
+  neighbors.forEach(function (n) {
+    var w = (n.co_occurrence_count != null) ? n.co_occurrence_count : 1;
+    (n.relationship_types || []).forEach(function (r) {
+      relCounts[r] = (relCounts[r] || 0) + w;
+    });
+  });
+  var topRels = Object.keys(relCounts)
+    .sort(function (a, b) { return relCounts[b] - relCounts[a]; })
+    .slice(0, 3);
+
+  var html = esc(data.center.name) + ' — '
+    + neighbors.length + ' neighbor' + (neighbors.length === 1 ? '' : 's');
+  if (parts.length) html += ' (' + parts.map(esc).join(', ') + ')';
+  if (topRels.length) {
+    html += '<span class="status-bullet">·</span><span class="status-relations">top relations: '
+      + topRels.map(esc).join(', ') + '</span>';
+  }
+  return html;
+}
+
+function humanizeInstitution(instId) {
+  if (!instId) return '';
+  var head = String(instId).split('_')[0];
+  if (!head) return instId;
+  return head.charAt(0).toUpperCase() + head.slice(1);
+}
+
+// ----------------------------------------------------------------------------
+// Mode 2: 2-anchor paths. Constrained left/right column layout (preset).
+// ----------------------------------------------------------------------------
+
+function renderPaths(data) {
+  destroyCy();
+  var cyEl = document.getElementById('cy');
+  cyEl.classList.remove('empty');
+  cyEl.textContent = '';
+
+  if (data.error) {
+    showEmpty(data.error);
+    statusBar.textContent = '';
+    return;
+  }
+
+  // Disconnected → show two ego graphs side-by-side. No cross-cluster edges.
+  // This preserves the "use absence as an affordance" framing the legacy
+  // paths page had with its fallback list.
+  if (data.disconnected) {
+    return renderDisconnected(data);
+  }
+
+  // Connected — build nodes+edges with x-positions.
+  var W = cyEl.clientWidth || 800;
+  var H = 540;
+  var leftX = 80;
+  var rightX = W - 80;
+  var midY = H / 2;
+
+  var nodes = [
+    anchorNode(data.from_meta, leftX, midY),
+    anchorNode(data.to_meta, rightX, midY),
+  ];
+  var edges = [];
+
+  // Direct co-assertion edge (when present) — always visible, single bold edge.
+  if ((data.direct_count || 0) > 0) {
+    edges.push({ data: {
+      id: 'direct__' + data.from_meta.entity_id + '__' + data.to_meta.entity_id,
+      source: data.from_meta.entity_id,
+      target: data.to_meta.entity_id,
+      weight: 8,
+      from_id: data.from_meta.entity_id,
+      to_id: data.to_meta.entity_id,
+      edge_kind: 'direct',
+      edge_label: data.direct_count + ' direct claim' + (data.direct_count === 1 ? '' : 's'),
+      relationship_types: [],
+    }, classes: 'direct-claim' });
+  }
+
+  // Indirect family edges — distribute lanes vertically around midY.
+  var families = data.paths || [];
+  var laneCount = families.length;
+  var laneStep = laneCount > 1 ? 110 : 0;
+  var firstLaneY = midY - ((laneCount - 1) / 2) * laneStep;
+
+  families.forEach(function (fam, famIdx) {
+    var laneY = firstLaneY + famIdx * laneStep;
+    var hopCount = (fam.intermediates || []).length;
+    var step = (rightX - leftX) / (hopCount + 1);
+    // Place intermediates along the lane.
+    (fam.intermediates || []).forEach(function (n, i) {
+      var x = leftX + (i + 1) * step;
+      nodes.push({ data: {
+        id: n.entity_id, label: n.name,
+        entity_type: n.entity_type || '',
+        claim_count: 0,
+        institution_ids: [],
+        is_anchor: false,
+      }, position: { x: x, y: laneY }, locked: true });
+    });
+    // Edges along the lane: anchor → i1 → i2 → anchor.
+    var weightForFam = Math.max(1, Math.round((fam.weight || 1) * 2));
+    var altLabel = (fam.alternates && fam.alternates.length)
+      ? '+' + fam.alternates.length + ' alt' : '';
+    (fam.edges || []).forEach(function (e, eIdx) {
+      var src = (eIdx === 0)
+        ? data.from_meta.entity_id
+        : fam.intermediates[eIdx - 1].entity_id;
+      var tgt = (eIdx === hopCount)
+        ? data.to_meta.entity_id
+        : fam.intermediates[eIdx].entity_id;
+      edges.push({ data: {
+        id: 'fam' + famIdx + '_e' + eIdx + '_' + src + '__' + tgt,
+        source: src, target: tgt,
+        weight: weightForFam,
+        from_id: src, to_id: tgt,
+        edge_kind: 'family',
+        family_idx: famIdx,
+        confidence: e.confidence,
+        relationship_types: [e.from_relation, e.to_relation].filter(Boolean),
+        sample_sentences: e.sentence ? [e.sentence] : [],
+        sample_claim_ids: e.claim_id ? [e.claim_id] : [],
+        // Stamp the alts badge on the edge that leaves the from-anchor so
+        // each lane is annotated exactly once at its entry point.
+        edge_label: (eIdx === 0 && altLabel) ? altLabel : '',
+        alternates: fam.alternates || [],
+      }});
+    });
+  });
+
+  cy = cytoscape({
+    container: cyEl,
+    elements: nodes.concat(edges),
+    style: commonStyles(),
+    layout: { name: 'preset' },
+    userZoomingEnabled: true,
+    userPanningEnabled: true,
+  });
+  bindCanvasEvents();
+  showPathsAnchorDetail(data);
+  statusBar.innerHTML = pathsStatusBar(data);
+}
+
+function anchorNode(meta, x, y) {
+  return {
+    data: {
+      id: meta.entity_id, label: meta.name,
+      entity_type: meta.entity_type || '',
+      claim_count: 0,
+      institution_ids: [],
+      is_anchor: true,
+    },
+    position: { x: x, y: y }, locked: true,
+  };
+}
+
+function renderDisconnected(data) {
+  var cyEl = document.getElementById('cy');
+  var W = cyEl.clientWidth || 800;
+  var H = 540;
+  // Push anchors out toward the canvas edges so the fallback neighbors,
+  // which now fan inward, have the whole middle band to live in.
+  var leftX = W * 0.10;
+  var rightX = W * 0.90;
+  var midY = H / 2;
+
+  var nodes = [
+    anchorNode(data.from_meta, leftX, midY),
+    anchorNode(data.to_meta,   rightX, midY),
+  ];
+  var edges = [];
+  var fb = data.fallback_neighbors || { from: [], to: [] };
+
+  function placeFallback(side, anchorMeta, anchorX) {
+    var rows = (fb[side] || []).slice(0, 6);
+    var radius = 160;
+    rows.forEach(function (n, i) {
+      var theta = (i / Math.max(rows.length - 1, 1)) * Math.PI - Math.PI / 2;
+      // Fan toward the centre between the two anchors so each anchor's
+      // connections live in the gap between the two searched entities,
+      // rather than in unused outer canvas space.
+      var x = anchorX + Math.cos(theta) * radius * (side === 'from' ? +1 : -1);
+      var y = midY + Math.sin(theta) * radius;
+      nodes.push({ data: {
+        id: n.entity_id, label: n.name,
+        entity_type: n.entity_type || '',
+        institution_ids: [],
+        claim_count: 0,
+        is_anchor: false,
+      }, position: { x: x, y: y }, locked: true });
+      edges.push({ data: {
+        id: 'fb_' + side + '_' + n.entity_id,
+        source: anchorMeta.entity_id, target: n.entity_id,
+        weight: n.co_occurrence_count,
+        relationship_types: [],
+        from_id: anchorMeta.entity_id, to_id: n.entity_id,
+        edge_kind: 'fallback',
+        edge_label: '',
+      }});
+    });
+  }
+  placeFallback('from', data.from_meta, leftX);
+  placeFallback('to',   data.to_meta,   rightX);
+
+  cy = cytoscape({
+    container: cyEl,
+    elements: nodes.concat(edges),
+    style: commonStyles(),
+    layout: { name: 'preset' },
+  });
+  bindCanvasEvents();
+  showPathsAnchorDetail(data);
+
+  var banner = '<div class="disconnected-banner">No connecting path within 2 hops between '
+    + '<strong>' + esc(data.from_meta.name) + '</strong> and '
+    + '<strong>' + esc(data.to_meta.name) + '</strong>'
+    + (state.yearMin || state.yearMax
+        ? ' in the year window ' + esc(state.yearMin || '…') + '–' + esc(state.yearMax || '…')
+        : '')
+    + '. Showing each anchor’s strongest neighbors instead.</div>';
+  statusBar.innerHTML = banner;
+}
+
+function pathsStatusBar(data) {
+  var direct = data.direct_count || 0;
+  var fams = (data.paths || []).length;
+  var altCount = (data.paths || []).reduce(function (acc, p) {
+    return acc + ((p.alternates || []).length);
+  }, 0);
+  var bits = [];
+  if (direct > 0) bits.push(direct + ' direct claim' + (direct === 1 ? '' : 's'));
+  if (fams > 0) {
+    bits.push(fams + ' indirect path-famil' + (fams === 1 ? 'y' : 'ies'));
+    if (altCount > 0) bits.push(altCount + ' alternate' + (altCount === 1 ? '' : 's'));
+  }
+  if (!bits.length) {
+    return '<em>' + esc(data.from_meta.name) + '</em> ↔ <em>' + esc(data.to_meta.name) + '</em>: no paths.';
+  }
+  return '<em>' + esc(data.from_meta.name) + '</em> ↔ <em>' + esc(data.to_meta.name) + '</em>'
+    + ' — ' + bits.join(' · ');
+}
+
+// ============================================================================
+// Canvas event bindings (shared between modes).
+// ============================================================================
+
+function bindCanvasEvents() {
+  cy.on('tap', 'edge', handleEdgeTap);
+  cy.on('tap', 'node', handleNodeTap);
+  cy.on('mouseover', 'edge', function (evt) { evt.target.addClass('hovered'); });
+  cy.on('mouseout',  'edge', function (evt) { evt.target.removeClass('hovered'); });
+}
+
+function handleEdgeTap(evt) {
+  cy.elements().removeClass('highlighted');
+  evt.target.addClass('highlighted');
+  var d = evt.target.data();
+
+  // Update the inline detail header so the user can see what they clicked
+  // before the server-fetched panel arrives.
+  detailTitle.textContent = (d.source_label || d.from_id) + ' ↔ ' + (d.target_label || d.to_id);
+  var sentences = (d.sample_sentences || []).map(function (s) {
+    return '<blockquote>' + esc(s) + '</blockquote>';
+  }).join('');
+  var relTags = (d.relationship_types || []).filter(Boolean).map(function (r) {
+    return '<span class="rel-tag">' + esc(r) + '</span>';
+  }).join('');
+  var altsHtml = '';
+  if (d.alternates && d.alternates.length) {
+    altsHtml = '<details style="margin-top:0.4rem;font-size:11px;color:var(--text-tertiary);">'
+      + '<summary style="cursor:pointer;">' + d.alternates.length + ' alternate path'
+      + (d.alternates.length === 1 ? '' : 's') + '</summary><ul style="margin:0.3rem 0 0 1rem;">'
+      + d.alternates.map(function (alt) {
+          var via = (alt.intermediates || []).map(function (n) { return esc(n.name); }).join(' → ');
+          return '<li>via ' + via + ' <span style="color:var(--text-tertiary);">(w '
+            + (alt.weight || 0).toFixed(1) + ')</span></li>';
+        }).join('')
+      + '</ul></details>';
+  }
+  detailContent.innerHTML =
+    (d.weight != null ? '<p style="font-size:12px;margin-bottom:0.5rem">'
+      + '<strong>Co-occurrences:</strong> ' + esc(d.weight) + ' claim(s)</p>' : '')
+    + (relTags ? '<div class="rel-tags">' + relTags + '</div>' : '')
+    + (sentences || '<p class="detail-placeholder">Loading source claims…</p>')
+    + altsHtml;
+
+  if (d.from_id && d.to_id && d.from_id !== d.to_id) {
+    var qs = yearQs();
+    var url = '/explore/edge?from=' + encodeURIComponent(d.from_id)
+      + '&to=' + encodeURIComponent(d.to_id) + (qs ? '&' + qs : '');
+    if (window.htmx) {
+      window.htmx.ajax('GET', url, { target: '#explore-panel', swap: 'innerHTML' });
+    }
+  }
+}
+
+function handleNodeTap(evt) {
+  hidePopover();
+  var d = evt.target.data();
+  if (d.is_anchor) {
+    showAnchorDetail(d);
+    return;
+  }
+  // 1-anchor mode: clicking a neighbor opens the recenter / pin popover.
+  if (mode() === 'neighborhood') {
+    showNeighborPopover(evt, d);
+    return;
+  }
+  // 2-anchor mode: clicking an intermediate just shows its name in the panel.
+  showAnchorDetail(d);
+}
+
+function showAnchorDetail(d) {
+  detailTitle.textContent = d.label;
+  detailContent.innerHTML =
+    '<p style="font-size:13px"><strong>Type:</strong> ' + esc(d.entity_type || '—')
+    + (d.claim_count ? '<br><strong>Claims:</strong> ' + esc(d.claim_count) : '')
+    + '</p>';
+}
+
+function showCenterDetail(center) {
+  detailTitle.textContent = center.name;
+  detailContent.innerHTML =
+    '<p style="font-size:13px;margin-bottom:0.5rem">'
+    + '<strong>Type:</strong> ' + esc(center.entity_type || '—') + '<br>'
+    + '<strong>Claims:</strong> ' + esc(center.claim_count || 0) + '</p>'
+    + '<p class="detail-placeholder">Click an edge to see connection evidence, '
+    + 'or a neighbor to recenter or pin as a second anchor.</p>';
+}
+
+function showPathsAnchorDetail(data) {
+  detailTitle.textContent = data.from_meta.name + ' ↔ ' + data.to_meta.name;
+  detailContent.innerHTML =
+    '<p class="detail-placeholder">Click an edge in the canvas to see the supporting claims.</p>';
+}
+
+// ============================================================================
+// Neighbor popover — the cross-mode affordance the legacy tools lacked.
+// Lets a neighbor become the second anchor without leaving the page.
+// ============================================================================
+
+var popover = document.getElementById('neighbor-popover');
+
+function showNeighborPopover(evt, d) {
+  var pos = evt.renderedPosition || evt.position;
+  var canvasRect = document.getElementById('cy').getBoundingClientRect();
+  var x = canvasRect.left + (pos ? pos.x : 100) + 10;
+  var y = canvasRect.top + (pos ? pos.y : 100) + 10;
+  popover.innerHTML = '<div class="popover-name">' + esc(d.label) + '</div>'
+    + '<button data-action="recenter">Recenter on this entity</button>'
+    + '<button data-action="pin">Pin as second anchor</button>';
+  popover.style.left = x + 'px';
+  popover.style.top = y + 'px';
+  popover.classList.add('open');
+  popover.setAttribute('aria-hidden', 'false');
+  popover._target = d;
+}
+function hidePopover() {
+  popover.classList.remove('open');
+  popover.setAttribute('aria-hidden', 'true');
+  popover._target = null;
+}
+popover.addEventListener('click', function (evt) {
+  var btn = evt.target.closest('button[data-action]');
+  if (!btn) return;
+  var d = popover._target;
+  if (!d) return;
+  var entity = { entity_id: d.id, name: d.label, entity_type: d.entity_type };
+  if (btn.dataset.action === 'recenter') {
+    pickerForSlot(0)._commitEntity(entity);
+  } else if (btn.dataset.action === 'pin') {
+    pickerForSlot(1)._commitEntity(entity);
+  }
+  hidePopover();
+});
+document.addEventListener('click', function (evt) {
+  if (!popover.contains(evt.target) && !evt.target.closest('#cy')) hidePopover();
+});
+
+// ============================================================================
+// Top-level render — dispatches based on derived mode.
+// ============================================================================
+
+async function render() {
+  var m = mode();
+  if (m === 'empty') {
+    showEmpty('Search for an entity above to begin. Add a second entity to see the paths between them.');
+    document.getElementById('explore-panel').innerHTML = '';
+    showInitialDetail();
+    return;
+  }
+  statusBar.textContent = 'Loading…';
+  try {
+    if (m === 'neighborhood') {
+      var data = await fetchNeighborhood(state.anchors[0].entity_id);
+      // Refresh the chip name in case the user prefilled by ID — the API
+      // is the authoritative source.
+      if (data.center && data.center.name) {
+        state.anchors[0].name = data.center.name;
+        state.anchors[0].entity_type = data.center.entity_type;
+        var picker = pickerForSlot(0);
+        picker.querySelector('.paths-picker-chip-name').textContent = data.center.name;
+        picker.querySelector('.paths-picker-chip-type').textContent = data.center.entity_type || '';
+      }
+      // Adapt the 1-anchor JSON to the shape renderNeighborhood expects.
+      // The /api/entity/{id}/neighborhood route returns nodes/edges/center —
+      // unpack into renderNeighborhood's flatter ego shape.
+      var neighbors = (data.nodes || [])
+        .filter(function (n) { return !n.data.is_center; })
+        .map(function (n) {
+          var matchingEdge = (data.edges || []).find(function (e) {
+            return e.data.target === n.data.id;
+          }) || { data: {} };
+          return {
+            entity_id: n.data.id,
+            name: n.data.label,
+            entity_type: n.data.entity_type || '',
+            institution_ids: n.data.institution_ids || [],
+            co_occurrence_count: matchingEdge.data.weight || 1,
+            relationship_types: matchingEdge.data.relationship_types || [],
+            sample_sentences: matchingEdge.data.sample_sentences || [],
+            sample_claim_ids: matchingEdge.data.sample_claim_ids || [],
+          };
+        });
+      renderNeighborhood({ center: data.center, neighbors: neighbors });
+    } else {
+      var paths = await fetchPaths(state.anchors[0].entity_id, state.anchors[1].entity_id);
+      // Same backfill on names/types for both anchors.
+      ['from_meta', 'to_meta'].forEach(function (k, i) {
+        var meta = paths[k];
+        if (meta && meta.name && state.anchors[i]) {
+          state.anchors[i].name = meta.name;
+          state.anchors[i].entity_type = meta.entity_type || '';
+          var picker = pickerForSlot(i);
+          picker.querySelector('.paths-picker-chip-name').textContent = meta.name;
+          picker.querySelector('.paths-picker-chip-type').textContent = meta.entity_type || '';
+        }
+      });
+      renderPaths(paths);
+    }
+  } catch (err) {
+    showEmpty('Failed to load: ' + err.message);
+  }
+}
+
+function showInitialDetail() {
+  detailTitle.textContent = 'Details';
+  detailContent.innerHTML = '<p class="detail-placeholder">Pick an entity above to begin. '
+    + 'Click a node or edge in the canvas to see details. Server-fetched claim '
+    + 'evidence appears below.</p>';
+}
+
+// ============================================================================
+// Bootstrap — read prefill, hydrate state, render once.
+// ============================================================================
+
+(function bootstrap() {
+  var raw = document.getElementById('explore-prefill');
+  if (!raw) { render(); return; }
+  var prefill;
+  try { prefill = JSON.parse(raw.textContent); } catch (e) { prefill = {}; }
+  state.yearMin = prefill.year_min || '';
+  state.yearMax = prefill.year_max || '';
+  // Pre-fill anchors with placeholder names; render() refreshes them from the API.
+  if (prefill.from) {
+    state.anchors[0] = { entity_id: prefill.from, name: prefill.from, entity_type: '' };
+    var p0 = pickerForSlot(0);
+    p0.classList.add('committed');
+    p0.querySelector('input[type="hidden"]').value = prefill.from;
+    p0.querySelector('.paths-picker-chip-name').textContent = prefill.from;
+  }
+  if (prefill.to) {
+    state.anchors[1] = { entity_id: prefill.to, name: prefill.to, entity_type: '' };
+    var p1 = pickerForSlot(1);
+    p1.classList.add('committed');
+    p1.querySelector('input[type="hidden"]').value = prefill.to;
+    p1.querySelector('.paths-picker-chip-name').textContent = prefill.to;
+  }
+  syncDom();
+  render();
+})();
+
+})();
+</script>
+{% endblock %}

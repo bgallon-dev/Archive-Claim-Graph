@@ -20,6 +20,12 @@ class QueryIntent:
     doc_type_hints: list[str] = field(default_factory=list)
     # Document series inferred from query vocabulary (e.g. "BLM GLO Records").
     series_hints: list[str] = field(default_factory=list)
+    # True when the query asks for entities (persons, places) appearing in BOTH
+    # of two named corpora — e.g. "individuals named in Spokane newspaper coverage
+    # who also appear as patentees in GLO records".  When set, the retrieval
+    # cascade routes through CROSS_CORPUS_OVERLAP_*_QUERY before falling back to
+    # the standard entity / fulltext modes.
+    cross_corpus_overlap: bool = False
 
 
 @dataclass
@@ -169,6 +175,7 @@ class RetrievalPlanAttempt:
     label: str
     template_names: list[str]
     row_count: int
+    duration_ms: float = 0.0
 
 
 @dataclass
@@ -194,7 +201,126 @@ class RetrievalStats:
     plan_trace: RetrievalPlanTrace | None = None
 
 
+@dataclass
+class SidecarCell:
+    """One clickable (or static) cell in the structural sidecar."""
+
+    label: str
+    value: int | str
+    # Natural-language Tier 1 phrasing injected into the chat input on click.
+    # None for static (display-only) cells.
+    template: str | None = None
+    # Advisory hint for telemetry; the client does not dispatch on this.
+    tier1_op: str | None = None
+
+
+@dataclass
+class StructuralView:
+    """Compact, structurally-derived view of a synthesis-path retrieval.
+
+    Computed from `ProvenanceBlock` blocks plus one targeted co-occurrence
+    Cypher and the institution-scoped quarantine count.  Rendered as a
+    horizontal strip between the answer prose and the confidence strip.
+    None when fewer than 5 blocks were retrieved (the strip degenerates to
+    redundant info below that threshold).
+    """
+
+    claim_count: SidecarCell
+    document_count: SidecarCell
+    paragraph_count: SidecarCell
+    year_range: SidecarCell
+    # Decade buckets sorted ascending; each entry: {"decade": int, "n": int}.
+    year_buckets: list[dict[str, int]] = field(default_factory=list)
+    # Each entry: {name, entity_id, entity_type, n, template, tier1_op}.
+    top_entities: list[dict[str, Any]] = field(default_factory=list)
+    # Each entry: {name, n, template, tier1_op}.
+    top_claim_types: list[dict[str, Any]] = field(default_factory=list)
+    # Each entry: {name, n, template} (no Tier 1 op binding).
+    top_series: list[dict[str, Any]] = field(default_factory=list)
+    # Counts bucketed against thresholds [0.85, 0.70].
+    confidence_dist: dict[str, int] = field(default_factory=dict)
+    # Counter over ProvenanceBlock.epistemic_status values.
+    epistemic_dist: dict[str, int] = field(default_factory=dict)
+    # Cells frontend renders only when value > 0.
+    quarantined: SidecarCell | None = None
+    ocr_dropped: SidecarCell | None = None
+
+
 RetrievalPath = Literal["rule_based", "llm_cypher", "fulltext_fallback", "empty"]
+
+# Closed enum for the synthesizer's declared organizing principle.  Stored as
+# a literal so the schema gate can reject malformed values rather than letting
+# free-form structure labels through.
+OrganizingStructure = Literal["chronological", "causal", "thematic", "mixed"]
+
+
+@dataclass
+class AnswerSentence:
+    """One sentence of synthesis output, paired with its supporting evidence.
+
+    The schema gate guarantees `is_inferred=True` OR `len(supporting_claim_ids) >= 1`
+    for every sentence — a synthesis answer cannot smuggle uncited assertions
+    past the validator.
+    """
+
+    text: str
+    supporting_claim_ids: list[str] = field(default_factory=list)
+    is_inferred: bool = False
+
+
+@dataclass
+class SectionOutline:
+    """One section of the synthesis answer, when the model chooses to use sections."""
+
+    heading: str
+    claim_ids: list[str] = field(default_factory=list)
+
+
+@dataclass
+class CorpusContribution:
+    """Per-corpus block count and year range, populated by the deterministic
+    provenance builder from the actual retrieved blocks (not the model)."""
+
+    institution_id: str
+    block_count: int
+    year_min: int | None = None
+    year_max: int | None = None
+
+
+@dataclass
+class CorpusDeprioritization:
+    """Why a searched corpus didn't contribute to the synthesis context."""
+
+    institution_id: str
+    reason: str  # e.g. "no matches", "below tier threshold", "budget cap"
+    candidate_count: int = 0  # blocks the corpus offered before drop, when known
+
+
+@dataclass
+class RetrievalProvenance:
+    """Deterministic preamble describing what the retrieval pass actually did.
+
+    Built server-side from `permitted_institution_ids` + the assembled
+    provenance blocks; the synthesis model never participates in writing it.
+    Lets a reader distinguish "we found nothing in GLO" from "we found GLO
+    material but ranked CCP higher" from "GLO was not searched."
+    """
+
+    searched: list[str] = field(default_factory=list)
+    contributed: list[CorpusContribution] = field(default_factory=list)
+    deprioritized: list[CorpusDeprioritization] = field(default_factory=list)
+
+
+@dataclass
+class DivergenceWarning:
+    """Server-detected mismatch between the model's declared organizing
+    structure and a structural signal in the retrieved blocks (e.g., a tight
+    temporal cluster but the model picked thematic).  Surfaced inline to the
+    user *and* logged for reviewer audit."""
+
+    declared_structure: OrganizingStructure
+    detected_signal: str  # e.g. "tight_temporal_cluster", "monotonic_dated_sequence"
+    message: str  # one-line user-facing explanation
 
 
 @dataclass
@@ -216,3 +342,16 @@ class SynthesisResult:
     # Which retrieval path produced the provenance context. UI flags
     # llm_cypher answers as "lower trust" for archivist reviewers.
     retrieval_path: RetrievalPath = "rule_based"
+    # Sentence-level decomposition of the answer.  Each entry is gated by the
+    # schema validator: every sentence is either cited or marked inferred.
+    # Empty when synthesis fell back to the legacy prose path (e.g. a model
+    # that declined to follow the structured schema after one retry).
+    answer_sentences: list[AnswerSentence] = field(default_factory=list)
+    # Closed enum the model picks before drafting; None when synthesis fell back.
+    organizing_structure: OrganizingStructure | None = None
+    section_outline: list[SectionOutline] = field(default_factory=list)
+    # Server-built; the model never writes this.
+    retrieval_provenance: RetrievalProvenance | None = None
+    # Server-detected mismatch between the model's structural choice and the
+    # data; None when no divergence was detected.
+    structure_divergence: DivergenceWarning | None = None

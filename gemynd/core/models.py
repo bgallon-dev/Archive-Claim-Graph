@@ -47,6 +47,9 @@ class DocumentRecord(_BaseRecord):
     report_year: int | None = None
     source_file: str | None = None
     archive_ref: str | None = None
+    lccn: str | None = None             # Library of Congress Control Number (newspaper titles)
+    edition: str | None = None          # newspaper edition designator, e.g. "01"
+    loc_sequence: str | None = None     # LoC bulk-batch image sequence, used as ?sp= in canonical loc.gov URLs
     raw_ocr_text: str = ""
     clean_text: str = ""
     language: str = "en"

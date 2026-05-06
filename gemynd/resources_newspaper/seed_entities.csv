@@ -86,6 +86,8 @@ Place,Hangman Creek,alias,Latah Creek
 Place,Cheney Normal School,place_type,institution
 Place,Cheney Normal School,alias,State Normal School
 Place,Monroe Street Bridge,place_type,bridge
+Place,Monroe Street Bridge,alias,Monroe St. Bridge
+Place,Monroe Street Bridge,alias,Monroe Bridge
 Place,Riverside Avenue,place_type,street
 Place,Spokane Indian Reservation,place_type,reservation
 Place,Spokane Indian Reservation,alias,Spokane Reservation
@@ -97,3 +99,12 @@ Place,Sullivan Mine,place_type,mine
 Event,Spokane Free Speech Fight,event_type,labor_action
 Event,Spokane Free Speech Fight,alias,Free Speech Fight
 Event,Interstate Fair,event_type,agricultural_exposition
+Place,United States,place_type,country
+Place,United States,alias,U.S.
+Place,United States,alias,U. S.
+Place,Tacoma,place_type,city
+Place,Sprague,place_type,city
+Place,Colorado,place_type,state
+Place,New York,place_type,state
+Place,Montana,place_type,state
+Place,Oregon,place_type,state

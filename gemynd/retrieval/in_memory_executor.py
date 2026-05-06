@@ -211,6 +211,9 @@ class InMemoryQueryExecutor:
                 "date_end": d.get("date_end"),
                 "report_year": d.get("report_year"),
                 "institution_id": d.get("institution_id"),
+                "lccn": d.get("lccn"),
+                "edition": d.get("edition"),
+                "loc_sequence": d.get("loc_sequence"),
                 "claim_count": len(claim_ids),
             })
         rows.sort(key=lambda r: r["claim_count"], reverse=True)
@@ -243,6 +246,9 @@ class InMemoryQueryExecutor:
                 "date_end": d.get("date_end"),
                 "report_year": d.get("report_year"),
                 "institution_id": d.get("institution_id"),
+                "lccn": d.get("lccn"),
+                "edition": d.get("edition"),
+                "loc_sequence": d.get("loc_sequence"),
                 "claim_count": len(claim_ids),
             })
         rows.sort(key=lambda r: (r.get("date_start") or "", r.get("title") or ""))

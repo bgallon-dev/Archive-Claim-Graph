@@ -59,6 +59,75 @@
     border-bottom: 1px solid var(--border-light);
   }
   .confidence-strip:empty { display: none; border: none; padding: 0; margin: 0; }
+
+  /* ---- Retrieval provenance preamble (server-built, never model-emitted) ---- */
+  .retrieval-provenance {
+    display: flex; flex-wrap: wrap; gap: 4px 12px;
+    padding: 6px 10px; margin: 0 0 0.5rem;
+    background: var(--bark-50);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  .retrieval-provenance .prov-label {
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 10.5px;
+    margin-right: 4px;
+  }
+  .retrieval-provenance .prov-corpus { color: var(--text-primary); }
+  .retrieval-provenance .prov-meta { color: var(--text-tertiary); margin-left: 4px; }
+  .retrieval-provenance .prov-deprio { color: var(--accent-amber-text); }
+
+  /* ---- Structure divergence amber banner ---- */
+  .structure-divergence {
+    background: var(--accent-amber-bg);
+    border: 1px solid var(--accent-amber-border);
+    color: var(--accent-amber-text);
+    padding: 8px 12px;
+    margin: 0 0 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* ---- Sentence-level answer rendering (citation pills + inferred markers) ---- */
+  .answer-sentence { display: inline; }
+  .answer-sentence + .answer-sentence::before { content: " "; }
+  .answer-sentence.answer-inferred {
+    border-bottom: 1px dashed var(--bark-300);
+    padding-bottom: 1px;
+  }
+  .answer-inferred-tag {
+    font-family: 'DM Mono', var(--font-body, sans-serif);
+    font-size: 10px;
+    color: var(--text-tertiary);
+    background: var(--bark-50);
+    border: 1px solid var(--border-light);
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-left: 3px;
+    vertical-align: 1px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .citation-pill {
+    display: inline-block;
+    font-family: 'DM Mono', var(--font-body, sans-serif);
+    font-size: 10px;
+    color: var(--bark-700);
+    background: var(--bark-50);
+    border: 1px solid var(--border-light);
+    border-radius: 3px;
+    padding: 0 5px;
+    margin-left: 3px;
+    vertical-align: 1px;
+    cursor: pointer;
+  }
+  .citation-pill:hover { background: var(--bark-100); }
   .provenance-footer { margin-top: 0.9rem; font-size: 12px; color: var(--text-tertiary); }
   .provenance-footer:empty { display: none; }
   .provenance-footer .coverage { border-top: none; padding-top: 0; }
@@ -120,6 +189,47 @@
 
   /* ---- Retry countdown (429) ---- */
   .retry-countdown { font-variant-numeric: tabular-nums; font-weight: 500; }
+
+  /* ---- Structural sidecar: clickable orientation strip under the answer ---- */
+  .structural-sidecar {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin: 6px 0 10px;
+  }
+  .structural-sidecar:empty { display: none; }
+  .sidecar-cell {
+    display: inline-flex; flex-direction: column; align-items: center;
+    padding: 4px 10px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm, 6px);
+    background: var(--bark-50, #fafafa);
+    font-size: 12px; line-height: 1.2;
+    color: var(--text-secondary);
+    cursor: pointer; font-family: inherit;
+  }
+  .sidecar-cell:hover  { background: var(--bark-100, #f0eee9); border-color: var(--border-medium); }
+  .sidecar-cell:focus-visible { outline: 2px solid var(--bark-600, #6b5e4a); outline-offset: 1px; }
+  .sidecar-cell-static { cursor: default; opacity: 0.85; }
+  .sidecar-cell-static:hover { background: var(--bark-50, #fafafa); border-color: var(--border-light); }
+  .sidecar-value { font-weight: 600; color: var(--text-primary); }
+  .sidecar-label { color: var(--text-tertiary); font-size: 11px; }
+  .sidecar-cell-quarantine { border-color: var(--accent-amber-text, #b07a2c); }
+  .sidecar-cell-quarantine .sidecar-value { color: var(--accent-amber-text, #b07a2c); }
+
+  /* ---- Source rows: clickable to open the document modal ---- */
+  .sources-table tr.src-row-clickable { cursor: pointer; transition: background-color 120ms; }
+  .sources-table tr.src-row-clickable:hover  { background: var(--bark-50, #faf6ee); }
+  .sources-table tr.src-row-clickable:focus-visible {
+    outline: 2px solid var(--bark-600, #6b5e4a); outline-offset: -2px;
+  }
+
+  /* ---- Claim highlight inside the document modal's OCR text ---- */
+  #document-modal mark.claim-highlight {
+    background: var(--accent-amber-bg, #fff3c4);
+    color: inherit;
+    padding: 1px 2px;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px var(--accent-amber-text, #b07a2c);
+  }
 </style>
 <div class="chat-layout">
   <aside id="conv-sidebar" aria-label="Past conversations">
@@ -171,6 +281,8 @@
   <script id="welcome-data" type="application/json">{{ composite_members | tojson }}</script>
   </div>
 </div>
+
+<div id="document-modal"></div>
 {% endblock %}
 
 {% block scripts %}
@@ -415,19 +527,149 @@ function buildSourcePreview(claim) {
     + '</div>';
 }
 
+// Structural sidecar: a strip of clickable cells summarising the retrieved
+// claim set's shape (counts, year range, top entities, etc.).  Clicking a
+// cell with data-template injects a canonical Tier 1 phrasing into the input
+// box (handled by a delegated listener attached to #chat at script init).
+function renderStructuralSidecar(sv) {
+  if (!sv) return '';
+  function cell(value, label, opts) {
+    opts = opts || {};
+    var cls = 'sidecar-cell';
+    if (opts.extraClass) cls += ' ' + opts.extraClass;
+    if (opts.template) {
+      return '<button type="button" class="' + cls + '" data-template="' + esc(opts.template) + '">'
+        + '<span class="sidecar-value">' + esc(String(value)) + '</span>'
+        + '<span class="sidecar-label">' + esc(label) + '</span>'
+        + '</button>';
+    }
+    return '<span class="' + cls + ' sidecar-cell-static">'
+      + '<span class="sidecar-value">' + esc(String(value)) + '</span>'
+      + '<span class="sidecar-label">' + esc(label) + '</span>'
+      + '</span>';
+  }
+  var parts = [];
+  if (sv.claim_count) parts.push(cell(sv.claim_count.value, sv.claim_count.label, {template: sv.claim_count.template}));
+  if (sv.document_count) parts.push(cell(sv.document_count.value, sv.document_count.label, {template: sv.document_count.template}));
+  if (sv.paragraph_count) parts.push(cell(sv.paragraph_count.value, sv.paragraph_count.label, {template: sv.paragraph_count.template}));
+  if (sv.year_range) parts.push(cell(sv.year_range.value, sv.year_range.label, {template: sv.year_range.template}));
+  // Top entities (graph-truth co-occurrence): one cell per entity.
+  if (sv.top_entities && sv.top_entities.length > 0) {
+    sv.top_entities.slice(0, 3).forEach(function(e) {
+      parts.push(cell(e.n + ' × ' + e.name, 'co-occurs', {template: e.template}));
+    });
+  }
+  // (Top claim types intentionally omitted from the sidecar — the sources
+  // table's Type column already surfaces the same information without
+  // pushing the strip to a second row.  Backend still emits them in case
+  // a future view wants to use them.)
+  // Top series: only when a corpus uses named series.
+  if (sv.top_series && sv.top_series.length > 0) {
+    sv.top_series.slice(0, 2).forEach(function(s) {
+      parts.push(cell(s.n, s.name + ' (series)', {template: s.template}));
+    });
+  }
+  // Quarantined and OCR-dropped: shown only when value > 0.
+  if (sv.quarantined && sv.quarantined.value > 0) {
+    parts.push(cell(sv.quarantined.value, sv.quarantined.label, {template: sv.quarantined.template, extraClass: 'sidecar-cell-quarantine'}));
+  }
+  if (sv.ocr_dropped && sv.ocr_dropped.value > 0) {
+    parts.push(cell(sv.ocr_dropped.value, sv.ocr_dropped.label, {template: sv.ocr_dropped.template}));
+  }
+  if (parts.length === 0) return '';
+  return '<div class="structural-sidecar" role="group" aria-label="Retrieval shape">' + parts.join('') + '</div>';
+}
+
+function renderRetrievalProvenance(prov) {
+  // Server-built preamble.  Renders three colour-coded groups so a reader
+  // can distinguish "didn't search" from "searched and found nothing" from
+  // "found and ranked lower" without reading the body.
+  if (!prov) return '';
+  var parts = [];
+  if (prov.searched && prov.searched.length) {
+    parts.push('<span><span class="prov-label">Searched</span>'
+      + prov.searched.map(esc).join(', ') + '</span>');
+  }
+  if (prov.contributed && prov.contributed.length) {
+    var contrib = prov.contributed.map(function (c) {
+      var meta = '';
+      if (c.year_min != null && c.year_max != null) {
+        meta = ' <span class="prov-meta">'
+          + (c.year_min === c.year_max ? c.year_min : c.year_min + '–' + c.year_max)
+          + '</span>';
+      }
+      return '<span class="prov-corpus">' + esc(c.institution_id)
+        + ' (' + c.block_count + ')' + meta + '</span>';
+    }).join(', ');
+    parts.push('<span><span class="prov-label">Contributed</span>' + contrib + '</span>');
+  }
+  if (prov.deprioritized && prov.deprioritized.length) {
+    var deprio = prov.deprioritized.map(function (d) {
+      return '<span class="prov-deprio">' + esc(d.institution_id)
+        + ' <span class="prov-meta">(' + esc(d.reason) + ')</span></span>';
+    }).join(', ');
+    parts.push('<span><span class="prov-label">Deprioritized</span>' + deprio + '</span>');
+  }
+  if (!parts.length) return '';
+  return '<div class="retrieval-provenance" role="status">' + parts.join('') + '</div>';
+}
+
+function renderStructureDivergence(div) {
+  if (!div) return '';
+  return '<div class="structure-divergence" role="status">'
+    + esc(div.message) + '</div>';
+}
+
+function renderAnswerSentences(sentences, answer) {
+  // When the structured answer_sentences list is present, walk it to build
+  // inline citation pills and inferred markers.  Falls back to the flat
+  // `answer` string when sentences are empty (legacy / fallback path).
+  if (!sentences || !sentences.length) {
+    return '<p class="answer">' + esc(answer) + '</p>';
+  }
+  var parts = sentences.map(function (s) {
+    var text = esc(s.text || '');
+    var pills = '';
+    if (s.supporting_claim_ids && s.supporting_claim_ids.length) {
+      pills = s.supporting_claim_ids.map(function (cid) {
+        return '<span class="citation-pill" title="' + esc(cid) + '">'
+          + esc(cid.slice(0, 8)) + '</span>';
+      }).join('');
+    }
+    var inferred = s.is_inferred
+      ? '<span class="answer-inferred-tag" title="Author-marked inference / synthesis bridge">inferred</span>'
+      : '';
+    var cls = s.is_inferred ? 'answer-sentence answer-inferred' : 'answer-sentence';
+    return '<span class="' + cls + '">' + text + pills + inferred + '</span>';
+  });
+  return '<p class="answer">' + parts.join(' ') + '</p>';
+}
+
 function formatResponse(data) {
+  // ---- Retrieval provenance preamble + divergence note (server-built) ----
+  var html = '';
+  html += renderRetrievalProvenance(data.retrieval_provenance);
+  html += renderStructureDivergence(data.structure_divergence);
+
   // ---- Answer header (tier-1 structured-first, prose, year-range badge) ----
   var headerInner = '';
   var t1 = data.tier_1_result || null;
   var tableFirst = !!(t1 && TIER1_TABLE_FIRST[t1.operation]);
+  var answerProse = renderAnswerSentences(data.answer_sentences, data.answer);
   if (tableFirst) {
     headerInner += renderTier1Body(t1);
+    // Subtitle position uses the flat answer for compactness.
     headerInner += '<p class="answer answer-subtitle">' + esc(data.answer) + '</p>';
   } else {
-    headerInner += '<p class="answer">' + esc(data.answer) + '</p>';
+    headerInner += answerProse;
     if (t1) headerInner += renderTier1Body(t1);
   }
-  var html = '<div class="answer-header">' + headerInner + '</div>';
+  html += '<div class="answer-header">' + headerInner + '</div>';
+
+  // ---- Structural sidecar (synthesis-path only; null for tier-1 / thin) ----
+  if (data.structural_view) {
+    html += renderStructuralSidecar(data.structural_view);
+  }
 
   // ---- Confidence strip (badge + ambiguity + caveat anchor) ----
   var stripParts = [];
@@ -437,10 +679,6 @@ function formatResponse(data) {
     stripParts.push('<span class="badge badge-amber">\u26a0 '
       + data.ambiguous_entities.length + ' ambiguous: '
       + data.ambiguous_entities.map(esc).join(', ') + '</span>');
-  }
-  if (data.caveats && data.caveats.length > 0) {
-    stripParts.push('<a href="#caveats-block" class="badge badge-outline">'
-      + data.caveats.length + ' caveat' + (data.caveats.length === 1 ? '' : 's') + ' \u2193</a>');
   }
   if (stripParts.length > 0) {
     html += '<div class="confidence-strip">' + stripParts.join('') + '</div>';
@@ -452,7 +690,9 @@ function formatResponse(data) {
   }
   if (data.caveats && data.caveats.length > 0) {
     var items = data.caveats.map(function(c) { return '<li>' + esc(c) + '</li>'; }).join('');
-    html += '<div class="caveats" id="caveats-block"><strong>Caveats:</strong><ul>' + items + '</ul></div>';
+    var caveatLabel = data.caveats.length + ' caveat' + (data.caveats.length === 1 ? '' : 's');
+    html += '<details class="caveats" id="caveats-block"><summary>'
+      + caveatLabel + '</summary><ul>' + items + '</ul></details>';
   }
 
   // ---- Provenance footer (sources preview + details, notes, coverage) ----
@@ -469,7 +709,24 @@ function formatResponse(data) {
       var docLabel = c.doc_title ? esc(c.doc_title) : (c.doc_id ? esc(c.doc_id) : '');
       var titleAttr = (c.doc_title_raw && c.doc_title_raw !== c.doc_title) ? ' title="' + esc(c.doc_title_raw) + '"' : '';
       var source = docLabel ? '<span class="src-doc"' + titleAttr + '>' + docLabel + '</span>' : '';
-      return '<tr>'
+      // Click anywhere in the row to open the document modal (same pattern as
+      // the documents.html doc cards).  HTMX picks up these attributes when
+      // the bubble's innerHTML is set in sendMessage().  data-highlight is
+      // read by the htmx:afterSwap listener to wrap the matching span in <mark>.
+      var rowAttrs = '';
+      if (c.doc_id) {
+        var did = esc(c.doc_id);
+        var highlightAttr = c.source_sentence
+          ? ' data-highlight="' + esc(c.source_sentence) + '"'
+          : '';
+        rowAttrs = ' class="src-row-clickable"'
+          + ' hx-get="/document/' + did + '/modal"'
+          + ' hx-target="#document-modal"'
+          + ' hx-swap="innerHTML"'
+          + highlightAttr
+          + ' role="button" tabindex="0"';
+      }
+      return '<tr' + rowAttrs + '>'
         + '<td class="src-text">' + sentence + '</td>'
         + '<td class="src-meta">' + source + '</td>'
         + '<td class="src-meta">' + ct + ' ' + epis + '</td>'
@@ -513,16 +770,36 @@ function formatResponse(data) {
   }
 
   if (data.retrieval_stats) {
+    // Sidecar covers the in-context claim/paragraph/doc/OCR counts; this row
+    // keeps only the corpus-coverage ratio (a different question: how much of
+    // the corpus did we touch).  When the sidecar is suppressed (thin retrievals
+    // or tier-1), fall back to the full coverage line so the numbers don't
+    // disappear entirely.  Each segment is gated on >0 so missing/unpopulated
+    // corpus_stats fields don't render as "0 paragraphs".
     var s = data.retrieval_stats;
-    var coverageText = s.claims_in_context + ' claims ('
-      + s.paragraphs_in_context + ' paragraphs, '
-      + s.documents_in_context + ' docs) of \u2248'
-      + s.corpus_total_paragraphs + ' paragraphs / '
-      + s.corpus_total_documents + ' docs in corpus';
-    if (s.ocr_dropped > 0) {
-      coverageText += ' \u2014 ' + s.ocr_dropped + ' OCR-corrupted claims excluded';
+    function fmtCorpusTotals(prefix) {
+      var parts = [];
+      if (s.corpus_total_paragraphs > 0) parts.push('\u2248' + s.corpus_total_paragraphs + ' paragraphs');
+      if (s.corpus_total_documents > 0) parts.push((parts.length ? '' : '\u2248') + s.corpus_total_documents + ' docs');
+      if (parts.length === 0) return '';
+      return prefix + parts.join(' / ') + ' in corpus';
     }
-    footerParts.push('<div class="coverage">' + coverageText + '</div>');
+    var coverageText = '';
+    if (data.structural_view) {
+      coverageText = fmtCorpusTotals('Touched ');
+    } else {
+      var inContext = s.claims_in_context + ' claims ('
+        + s.paragraphs_in_context + ' paragraphs, '
+        + s.documents_in_context + ' docs)';
+      var corpus = fmtCorpusTotals(' of ');
+      coverageText = inContext + (corpus ? corpus.replace(' in corpus', ' in corpus') : '');
+      if (s.ocr_dropped > 0) {
+        coverageText += ' \u2014 ' + s.ocr_dropped + ' OCR-corrupted claims excluded';
+      }
+    }
+    if (coverageText) {
+      footerParts.push('<div class="coverage">' + coverageText + '</div>');
+    }
   }
 
   if (footerParts.length > 0) {
@@ -698,6 +975,10 @@ function appendBubble(role, htmlContent) {
   wrap.appendChild(bubble);
   chat.appendChild(wrap);
   chat.scrollTop = chat.scrollHeight;
+  // Register hx-* attributes on dynamically-injected content.  The default
+  // mutation observer is unreliable for innerHTML-replaced subtrees, so we
+  // process explicitly.
+  if (window.htmx) window.htmx.process(bubble);
   return wrap;
 }
 
@@ -731,7 +1012,7 @@ async function sendMessage() {
   var loadingStages = [
     { at: 0,    text: 'Resolving entities' },
     { at: 2500, text: 'Retrieving claims' },
-    { at: 8000, text: 'Synthesizing answer' },
+    { at: 8000, text: 'Synthesizing answer', isSynth: true },
   ];
   var loadingStart = Date.now();
   var loadingTimer = setInterval(function() {
@@ -743,7 +1024,21 @@ async function sendMessage() {
     var stageEl = loadingWrap.querySelector('.loading-stage');
     var elapsedEl = loadingWrap.querySelector('.loading-elapsed');
     if (stageEl && stage) stageEl.textContent = stage.text;
-    if (elapsedEl) elapsedEl.textContent = ' (' + Math.floor(elapsed / 1000) + 's)';
+    if (elapsedEl) {
+      var label;
+      if (stage && stage.isSynth) {
+        // Synthesis timer: 1s..60s, then "1m 1s", "1m 2s", ...
+        var synthSec = Math.floor((elapsed - stage.at) / 1000) + 1;
+        if (synthSec <= 60) {
+          label = synthSec + 's';
+        } else {
+          label = Math.floor(synthSec / 60) + 'm ' + (synthSec % 60) + 's';
+        }
+      } else {
+        label = Math.floor(elapsed / 1000) + 's';
+      }
+      elapsedEl.textContent = ' (' + label + ')';
+    }
   }, 500);
 
   try {
@@ -782,6 +1077,7 @@ async function sendMessage() {
       var data = await resp.json();
       bubble.className = 'bubble';
       bubble.innerHTML = formatResponse(data);
+      if (window.htmx) window.htmx.process(bubble);
       conversationHistory.push({role: 'user', content: text});
       conversationHistory.push({role: 'assistant', content: data.answer});
       if (conversationHistory.length > HISTORY_LIMIT) {
@@ -813,6 +1109,60 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   ta.addEventListener('input', function() { autoResize(ta); });
+
+  // Structural-sidecar click-to-inject: clicking a cell with data-template
+  // populates the input box (no auto-submit, so the user can edit first).
+  document.getElementById('chat-area').addEventListener('click', function(e) {
+    var cell = e.target.closest('.sidecar-cell[data-template]');
+    if (!cell) return;
+    var tmpl = cell.getAttribute('data-template');
+    if (!tmpl) return;
+    ta.value = tmpl;
+    autoResize(ta);
+    ta.focus();
+    ta.scrollIntoView({behavior: 'smooth', block: 'center'});
+  });
+
+  // Source-row keyboard activation: htmx handles the click itself; this only
+  // forwards Enter / Space presses on the focused <tr role="button"> to a click.
+  document.getElementById('chat-area').addEventListener('keydown', function(e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var row = e.target.closest('tr.src-row-clickable');
+    if (!row) return;
+    e.preventDefault();
+    row.click();
+  });
+
+  // Escape closes the document modal (mirrors documents.html behaviour).
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    var modal = document.getElementById('document-modal');
+    if (modal && modal.innerHTML.trim() !== '') {
+      modal.innerHTML = '';
+    }
+  });
+
+  // Two-stage flow: capture data-highlight on row click, consume it in
+  // htmx:afterSwap once the modal content has rendered.  htmx's afterSwap
+  // detail.elt is the swap target, not the originating row, so we can't
+  // read data-highlight from it directly.
+  var pendingHighlight = null;
+  document.getElementById('chat-area').addEventListener('click', function(e) {
+    var row = e.target.closest('tr.src-row-clickable[data-highlight]');
+    if (!row) return;
+    pendingHighlight = row.getAttribute('data-highlight');
+  }, true);  // capture phase so we run before htmx fires the request
+
+  document.body.addEventListener('htmx:afterSwap', function(evt) {
+    var modal = document.getElementById('document-modal');
+    // Tab clicks inside the modal also fire afterSwap; only act when the
+    // modal subtree contains the OCR text element.
+    if (!modal || !modal.querySelector('.source-modal-text')) return;
+    if (!pendingHighlight) return;
+    var needle = pendingHighlight;
+    pendingHighlight = null;  // consume; tab switches won't re-highlight
+    highlightClaimInModal(needle);
+  });
 
   document.getElementById('settings-toggle').addEventListener('click', function() {
     document.getElementById('settings-panel').classList.toggle('open');
@@ -860,5 +1210,56 @@ document.addEventListener('DOMContentLoaded', function() {
   // Populate the past-conversations sidebar on first paint.
   refreshConvSidebar();
 });
+
+function highlightClaimInModal(needle) {
+  var el = document.querySelector('#document-modal .source-modal-text');
+  if (!el) return;
+  var needleNorm = (needle || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  if (needleNorm.length < 8) return;  // too short → false-positive risk
+  var text = el.textContent;
+  var norm = _normalizeForMatch(text);
+  var idx = norm.text.indexOf(needleNorm);
+  if (idx < 0) return;  // no match even after whitespace normalization
+  var startOrig = norm.map[idx];
+  var endOrig = norm.map[idx + needleNorm.length - 1] + 1;
+  var before = text.slice(0, startOrig);
+  var match = text.slice(startOrig, endOrig);
+  var after = text.slice(endOrig);
+  var mark = document.createElement('mark');
+  mark.className = 'claim-highlight';
+  mark.textContent = match;
+  el.textContent = '';
+  el.appendChild(document.createTextNode(before));
+  el.appendChild(mark);
+  el.appendChild(document.createTextNode(after));
+  requestAnimationFrame(function() {
+    mark.scrollIntoView({behavior: 'smooth', block: 'center'});
+  });
+}
+
+// Returns {text, map} where map[i] is the index in the original string
+// corresponding to the i-th character of `text` (lowercase, whitespace
+// collapsed to single space).  Lets us find a fuzzy match in normalized
+// space and translate the bounds back to the raw OCR string.
+function _normalizeForMatch(text) {
+  var out = '';
+  var map = [];
+  var lastWasSpace = true;
+  for (var i = 0; i < text.length; i++) {
+    var c = text.charAt(i);
+    if (/\s/.test(c)) {
+      if (!lastWasSpace) {
+        out += ' ';
+        map.push(i);
+        lastWasSpace = true;
+      }
+    } else {
+      out += c.toLowerCase();
+      map.push(i);
+      lastWasSpace = false;
+    }
+  }
+  return {text: out, map: map};
+}
 </script>
 {% endblock %}

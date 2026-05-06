@@ -14,7 +14,10 @@ import pytest
 
 from gemynd.retrieval.context_assembler import (
     ProvenanceContextAssembler,
+    _bounded_query_limit,
     _build_retrieval_summary,
+    _compute_top_co_occurring_entities,
+    _derive_structural_view,
     _display_doc_title,
     _infer_claim_types,
     _is_ocr_garbage_title,
@@ -235,12 +238,29 @@ class TestSerialiseBlock:
         assert "CONFIDENCE_TIER: HIGH (0.85)" in text
         assert "PAGE: 3" in text
         assert "PARAGRAPH: para-001" in text
+        assert "CLAIM_ID: c-001" in text
         assert "CLAIM [POPULATION_TREND" in text
         assert "epistemic=observed" in text
         assert "Mallard numbers increased." in text
         # Confidence no longer appears inline in the CLAIM bracket
         claim_bracket = text.split("CLAIM [")[1].split("]")[0]
         assert "confidence=" not in claim_bracket
+
+    def test_claim_id_rendered_matches_block_field(self):
+        """Regression: synthesis validator compares model citations against
+        block.claim_id; the rendered context must surface the same id verbatim
+        so the model can copy it. Pre-fix the only id-shaped token in the
+        rendered text was paragraph_id, so the model cited that and validation
+        rejected every citation."""
+        block = _make_block(
+            paragraph_id="doc_db3544e3b57e69d9:paragraph:00004:p0001",
+            claim_id="run_abc123:claim:001:def456",
+        )
+        text = _serialise_block(block)
+        assert "CLAIM_ID: run_abc123:claim:001:def456" in text
+        # And the CLAIM_ID line must precede the CLAIM line so the model
+        # associates them when reading top-to-bottom.
+        assert text.index("CLAIM_ID:") < text.index("CLAIM [")
 
     def test_retrieved_via_present_when_traversal_types_set(self):
         block = _make_block(traversal_rel_types=["SUBJECT_OF"])
@@ -294,6 +314,9 @@ class TestSerialiseBlock:
 # ---------------------------------------------------------------------------
 
 class TestBudgetCap:
+    def test_cypher_fetch_limit_is_capped_for_large_context_budget(self):
+        assert _bounded_query_limit(1000, 3) == 250
+
     def test_conversational_budget_respected(self):
         mock_executor = MagicMock()
         # Return 20 identical rows (above default budget of 10).
@@ -340,6 +363,22 @@ class TestBudgetCap:
         blocks, _ = assembler.assemble("query", entity_ctx)
         assert blocks[0].claim_id == "high"
         assert blocks[-1].claim_id == "low"
+
+    def test_neo4j_resource_error_degrades_to_empty_context(self):
+        mock_executor = MagicMock()
+        mock_executor.run.side_effect = RuntimeError(
+            "Neo.TransientError.General.OutOfMemoryError: failed to allocate"
+        )
+        assembler = ProvenanceContextAssembler(executor=mock_executor)
+        entity_ctx = EntityContext(
+            resolved=[ResolvedEntity("mallard", "sp-mallard", "Species", 0.95, "REFERS_TO")]
+        )
+
+        blocks, context_text = assembler.assemble("tell me about mallard", entity_ctx)
+
+        assert blocks == []
+        assert context_text == ""
+        assert assembler._last_retrieval_path == "empty"
 
 
 # ---------------------------------------------------------------------------
@@ -503,6 +542,97 @@ class TestSelectRetrievalStrategy:
         # Fulltext now extracts content-bearing terms joined with OR.
         assert "refuge" in params["search_text"].lower()
         assert " OR " in params["search_text"]
+
+
+class TestCrossCorpusOverlapCascade:
+    """`_select_retrieval_plan` must route cross-corpus overlap queries through
+    CROSS_CORPUS_OVERLAP_*_QUERY before falling back to standard cascade modes."""
+
+    def _make_entity_ctx(self, n: int = 0) -> EntityContext:
+        resolved = [
+            ResolvedEntity(f"entity-{i}", f"id-{i}", "Person", 0.9, "REFERS_TO")
+            for i in range(n)
+        ]
+        return EntityContext(resolved=resolved)
+
+    def test_overlap_attempt_appears_first_when_signal_set(self):
+        from gemynd.core.graph.cypher import (
+            CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY,
+            CROSS_CORPUS_OVERLAP_PATENT_QUERY,
+        )
+        plan = _select_retrieval_plan(
+            "individuals named in newspaper coverage who appear in both records",
+            self._make_entity_ctx(0),
+            year_min=None, year_max=None, budget=20,
+            institution_ids=["spokane_newspaper", "turnbull"],
+            cross_corpus_overlap=True,
+        )
+        assert plan, "expected at least one cascade attempt"
+        label, queries = plan[0]
+        assert label.startswith("cross_corpus_overlap:")
+        templates = {q[0] for q in queries}
+        assert CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY in templates
+        assert CROSS_CORPUS_OVERLAP_PATENT_QUERY in templates
+
+    def test_overlap_skipped_when_signal_unset(self):
+        """Without the cross_corpus_overlap flag, the cascade must not include
+        overlap attempts even when two institution_ids are configured."""
+        from gemynd.core.graph.cypher import (
+            CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY,
+            CROSS_CORPUS_OVERLAP_PATENT_QUERY,
+        )
+        plan = _select_retrieval_plan(
+            "describe wetlands",
+            self._make_entity_ctx(0),
+            year_min=None, year_max=None, budget=20,
+            institution_ids=["spokane_newspaper", "turnbull"],
+            cross_corpus_overlap=False,
+        )
+        all_templates: set[str] = set()
+        for _label, queries in plan:
+            for tpl, _params in queries:
+                all_templates.add(tpl)
+        assert CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY not in all_templates
+        assert CROSS_CORPUS_OVERLAP_PATENT_QUERY not in all_templates
+
+    def test_overlap_skipped_when_single_corpus(self):
+        """Cross-corpus overlap requires ≥2 institution_ids; single-corpus
+        deployments must fall through to the standard cascade."""
+        from gemynd.core.graph.cypher import (
+            CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY,
+        )
+        plan = _select_retrieval_plan(
+            "individuals appearing in both records",
+            self._make_entity_ctx(0),
+            year_min=None, year_max=None, budget=20,
+            institution_ids=["spokane_newspaper"],
+            cross_corpus_overlap=True,
+        )
+        all_templates = {q[0] for _, qs in plan for q in qs}
+        assert CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY not in all_templates
+
+    def test_overlap_params_carry_corpus_pair_and_claim_types(self):
+        """The overlap newspaper-side query must receive both corpus_a/b plus
+        any claim_type filter inferred from the query vocabulary (e.g. labor)."""
+        from gemynd.core.graph.cypher import CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY
+        plan = _select_retrieval_plan(
+            "labor disputes individuals in both newspaper and patents",
+            self._make_entity_ctx(0),
+            year_min=None, year_max=None, budget=20,
+            institution_ids=["spokane_newspaper", "turnbull"],
+            cross_corpus_overlap=True,
+        )
+        _label, queries = plan[0]
+        newspaper_q = next(
+            (q for q in queries if q[0] == CROSS_CORPUS_OVERLAP_NEWSPAPER_QUERY),
+            None,
+        )
+        assert newspaper_q is not None
+        _, params = newspaper_q
+        assert params["corpus_a"] == "spokane_newspaper"
+        assert params["corpus_b"] == "turnbull"
+        # Permitted-levels must be threaded through so access control still applies.
+        assert "permitted_levels" in params
 
 
 class TestDuplicateEntityIdDedup:
@@ -926,3 +1056,250 @@ class TestScrubDocListTitles:
         original_title = rows[0]["title"]
         _scrub_doc_list_titles(rows)
         assert rows[0]["title"] == original_title  # input untouched
+
+
+# ---------------------------------------------------------------------------
+# _derive_structural_view
+# ---------------------------------------------------------------------------
+
+def _make_resolved_entity(
+    surface_form: str = "Turnbull",
+    entity_id: str = "ent-001",
+    entity_type: str = "Refuge",
+) -> ResolvedEntity:
+    return ResolvedEntity(
+        surface_form=surface_form,
+        entity_id=entity_id,
+        entity_type=entity_type,
+        resolution_confidence=0.95,
+        resolution_relation="REFERS_TO",
+    )
+
+
+class TestDeriveStructuralView:
+    def test_returns_none_below_threshold(self):
+        blocks = [_make_block(claim_id=f"c-{i}", paragraph_id=f"p-{i}") for i in range(4)]
+        ctx = EntityContext(resolved=[_make_resolved_entity()])
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=[],
+            quarantined_count=0,
+            ocr_dropped=0,
+        )
+        assert sv is None
+
+    def test_basic_shape_with_ten_blocks(self):
+        blocks = [
+            _make_block(
+                claim_id=f"c-{i}",
+                paragraph_id=f"p-{i % 4}",
+                doc_title=f"Doc {i % 3}",
+                year=1900 + i,
+                claim_type=("OBSERVATION" if i % 2 == 0 else "EVENT"),
+                extraction_confidence=(0.95 if i < 3 else 0.75 if i < 7 else 0.5),
+                series=("Series A" if i < 6 else "Series B"),
+                epistemic_status=("asserted" if i < 8 else "uncertain"),
+            )
+            for i in range(10)
+        ]
+        ctx = EntityContext(resolved=[_make_resolved_entity()])
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=[],
+            quarantined_count=0,
+            ocr_dropped=0,
+        )
+        assert sv is not None
+        assert sv.claim_count.value == 10
+        assert sv.claim_count.template == "How many claims mention Turnbull?"
+        assert sv.claim_count.tier1_op == "count_claims_for_entity"
+        assert sv.document_count.value == 3
+        assert sv.paragraph_count.value == 4
+        assert sv.year_range.value == "1900–1909"
+        # Confidence dist: 3 high (0.95), 4 medium (0.75), 3 low (0.5).
+        assert sv.confidence_dist == {"high": 3, "medium": 4, "low": 3}
+        # Year buckets all in the 1900 decade.
+        assert sv.year_buckets == [{"decade": 1900, "n": 10}]
+        # claim_types: 5 each.
+        ct_names = [ct["name"] for ct in sv.top_claim_types]
+        assert set(ct_names) == {"OBSERVATION", "EVENT"}
+        # series: A (6) ranks before B (4).
+        assert [s["name"] for s in sv.top_series] == ["Series A", "Series B"]
+        # Epistemic counter.
+        assert sv.epistemic_dist == {"asserted": 8, "uncertain": 2}
+
+    def test_single_doc_single_year_degrades_gracefully(self):
+        blocks = [
+            _make_block(
+                claim_id=f"c-{i}",
+                paragraph_id=f"p-{i}",
+                doc_title="Same Doc",
+                year=1942,
+            )
+            for i in range(6)
+        ]
+        ctx = EntityContext(resolved=[_make_resolved_entity()])
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=[],
+            quarantined_count=0,
+            ocr_dropped=0,
+        )
+        assert sv is not None
+        assert sv.document_count.value == 1
+        assert sv.year_range.value == "1942–1942"
+        assert sv.year_buckets == [{"decade": 1940, "n": 6}]
+
+    def test_no_resolved_entity_drops_anchor_templates(self):
+        blocks = [_make_block(claim_id=f"c-{i}", paragraph_id=f"p-{i}") for i in range(5)]
+        ctx = EntityContext(resolved=[])
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=[],
+            quarantined_count=0,
+            ocr_dropped=0,
+        )
+        assert sv is not None
+        # Anchor-bound cells: template is None, not the unfilled "{anchor}".
+        assert sv.claim_count.template is None
+        assert sv.document_count.template is None
+        assert sv.year_range.template is None
+        assert sv.claim_count.tier1_op is None
+
+    def test_omits_empty_optional_cells(self):
+        blocks = [
+            _make_block(claim_id=f"c-{i}", paragraph_id=f"p-{i}", series=None)
+            for i in range(5)
+        ]
+        ctx = EntityContext(resolved=[_make_resolved_entity()])
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=[],
+            quarantined_count=0,
+            ocr_dropped=0,
+        )
+        assert sv is not None
+        assert sv.top_series == []
+        # Quarantined cell present with value=0; frontend gates the render.
+        assert sv.quarantined is not None
+        assert sv.quarantined.value == 0
+        # value=0 → no template (clicking would be meaningless).
+        assert sv.quarantined.template is None
+
+    def test_top_co_entities_passthrough_with_templates_added(self):
+        blocks = [_make_block(claim_id=f"c-{i}", paragraph_id=f"p-{i}") for i in range(5)]
+        ctx = EntityContext(resolved=[_make_resolved_entity()])
+        co = [
+            {"name": "J.P. Graves", "entity_id": "ent-graves", "entity_type": "Person", "n": 4},
+            {"name": "Spokane Press", "entity_id": "ent-press", "entity_type": "Organization", "n": 3},
+        ]
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=co,
+            quarantined_count=0,
+            ocr_dropped=0,
+        )
+        assert sv is not None
+        assert len(sv.top_entities) == 2
+        assert sv.top_entities[0]["name"] == "J.P. Graves"
+        assert sv.top_entities[0]["template"] == "Who appears with J.P. Graves?"
+        assert sv.top_entities[0]["tier1_op"] == "co_occurring_entities_for_entity"
+        assert sv.top_entities[1]["template"] == "Who appears with Spokane Press?"
+
+    def test_quarantined_and_ocr_dropped_passthrough(self):
+        blocks = [_make_block(claim_id=f"c-{i}", paragraph_id=f"p-{i}") for i in range(5)]
+        ctx = EntityContext(resolved=[_make_resolved_entity()])
+        sv = _derive_structural_view(
+            blocks=blocks,
+            entity_context=ctx,
+            top_co_entities=[],
+            quarantined_count=3,
+            ocr_dropped=7,
+        )
+        assert sv is not None
+        assert sv.quarantined is not None
+        assert sv.quarantined.value == 3
+        assert sv.quarantined.template == "Show quarantined claims for this query"
+        assert sv.ocr_dropped is not None
+        assert sv.ocr_dropped.value == 7
+
+
+class TestComputeTopCoOccurringEntities:
+    def test_happy_path_returns_normalised_rows(self):
+        executor = MagicMock()
+        executor.run.return_value = [
+            {"entity_id": "ent-graves", "name": "J.P. Graves", "entity_type": "Person", "n": 4},
+            {"entity_id": "ent-press", "name": "Spokane Press", "entity_type": "Organization", "n": 3},
+        ]
+        out = _compute_top_co_occurring_entities(
+            executor=executor,
+            claim_ids=["c-1", "c-2"],
+            exclude_entity_ids=frozenset(["ent-anchor"]),
+            institution_ids=["turnbull"],
+            permitted_levels=["public"],
+            limit=5,
+        )
+        assert len(out) == 2
+        assert out[0] == {
+            "name": "J.P. Graves",
+            "entity_id": "ent-graves",
+            "entity_type": "Person",
+            "n": 4,
+        }
+        # Verify Cypher params shape — caller relies on these keys.
+        executor.run.assert_called_once()
+        query, params = executor.run.call_args[0]
+        assert "e.entity_type" not in query
+        assert "e.canonical_name" not in query
+        assert "e.surface_form" not in query
+        assert "[label IN labels(e) WHERE label <> 'Entity'][0] AS entity_type" in query
+        assert params["claim_ids"] == ["c-1", "c-2"]
+        assert params["exclude_entity_ids"] == ["ent-anchor"]
+        assert params["limit"] == 5
+
+    def test_empty_claim_ids_short_circuits(self):
+        executor = MagicMock()
+        out = _compute_top_co_occurring_entities(
+            executor=executor,
+            claim_ids=[],
+            exclude_entity_ids=frozenset(),
+            institution_ids=None,
+            permitted_levels=None,
+        )
+        assert out == []
+        executor.run.assert_not_called()
+
+    def test_executor_failure_returns_empty(self):
+        executor = MagicMock()
+        executor.run.side_effect = RuntimeError("neo4j unreachable")
+        out = _compute_top_co_occurring_entities(
+            executor=executor,
+            claim_ids=["c-1"],
+            exclude_entity_ids=frozenset(),
+            institution_ids=None,
+            permitted_levels=None,
+        )
+        assert out == []  # graceful degradation, never raises
+
+    def test_drops_rows_with_missing_name_or_id(self):
+        executor = MagicMock()
+        executor.run.return_value = [
+            {"entity_id": "ent-1", "name": "Valid", "entity_type": "Person", "n": 2},
+            {"entity_id": "ent-2", "name": None, "entity_type": "Person", "n": 1},
+            {"entity_id": None, "name": "No ID", "entity_type": "Person", "n": 1},
+        ]
+        out = _compute_top_co_occurring_entities(
+            executor=executor,
+            claim_ids=["c-1"],
+            exclude_entity_ids=frozenset(),
+            institution_ids=None,
+            permitted_levels=None,
+        )
+        assert len(out) == 1
+        assert out[0]["name"] == "Valid"

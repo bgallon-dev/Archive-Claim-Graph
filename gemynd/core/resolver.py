@@ -116,12 +116,15 @@ class DictionaryFuzzyResolver:
         else:
             self._seed_entities = list(seed_entities) if seed_entities is not None else default_seed_entities()
         if supplementary_candidates:
-            # Seed vocabulary wins: skip graph candidates whose (type, form) already
-            # appear in the seed list so the seed entity_id is always preferred.
-            seed_keys = {(e.entity_type, e.normalized_form) for e in self._seed_entities}
+            # Seed vocabulary wins: skip graph candidates whose normalized_form
+            # appears in the seed list, regardless of entity_type. Keying on
+            # (type, form) let a graph-resident Organization shadow a seeded
+            # Place sharing the same form (e.g. WASHINGTON STATE Org vs.
+            # Washington State Place), fragmenting the canonical entity.
+            seed_forms = {e.normalized_form for e in self._seed_entities}
             extras = [
                 e for e in supplementary_candidates
-                if (e.entity_type, e.normalized_form) not in seed_keys
+                if e.normalized_form not in seed_forms
             ]
             self._seed_entities = self._seed_entities + extras
 

@@ -1,6 +1,11 @@
 from pathlib import Path
 
-from gemynd.ingest.source_parser import _infer_year_from_filename, parse_source_file, parse_source_payload
+from gemynd.ingest.source_parser import (
+    _extract_loc_sequence,
+    _infer_year_from_filename,
+    parse_source_file,
+    parse_source_payload,
+)
 
 
 def test_parse_source_sections_and_paragraphs(fixtures_dir: Path) -> None:
@@ -56,6 +61,68 @@ def test_metadata_year_takes_priority_over_filename() -> None:
     }
     bundle = parse_source_payload(payload, source_file="TBL_1938a_report.json")
     assert bundle.document.report_year == 1999
+
+
+def test_extract_loc_sequence_trailing_digits() -> None:
+    # LoC canonical URL form is ``?sp=42`` not ``?sp=0042`` — the helper
+    # zero-strips so the URL template can use ``{loc_sequence}`` directly.
+    fname = "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042"
+    assert _extract_loc_sequence(fname) == "42"
+
+
+def test_extract_loc_sequence_with_extension() -> None:
+    fname = "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042.json"
+    assert _extract_loc_sequence(fname) == "42"
+
+
+def test_extract_loc_sequence_preserves_zero() -> None:
+    # Edge case: a sequence of all zeros should normalize to "0", not "".
+    fname = "anything_0000"
+    assert _extract_loc_sequence(fname) == "0"
+
+
+def test_extract_loc_sequence_non_conforming_returns_none() -> None:
+    assert _extract_loc_sequence("TBL_1938a_NarrativeReport") is None
+    assert _extract_loc_sequence("trailing_three_999") is None
+    assert _extract_loc_sequence("trailing_five_99999") is None
+
+
+def test_extract_loc_sequence_empty_input() -> None:
+    assert _extract_loc_sequence(None) is None
+    assert _extract_loc_sequence("") is None
+
+
+def test_newspaper_metadata_populates_lccn_edition_sequence() -> None:
+    payload = {
+        "metadata": {
+            "title": "Allow Free Speech Under Proper Regulations.",
+            "doc_type": "newspaper_article",
+            "date_start": "1909-11-10",
+            "lccn": "sn88085947",
+            "edition": "01",
+        },
+        "pages": [{"page_number": 1, "raw_ocr_text": "Body."}],
+    }
+    bundle = parse_source_payload(
+        payload,
+        source_file="1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042.json",
+    )
+    assert bundle.document.lccn == "sn88085947"
+    # edition and loc_sequence are stored zero-stripped for direct use in
+    # the canonical loc.gov URL form (ed-1, ?sp=42 — not ed-01, ?sp=0042).
+    assert bundle.document.edition == "1"
+    assert bundle.document.loc_sequence == "42"
+
+
+def test_lccn_edition_default_to_none_when_metadata_missing() -> None:
+    payload = {
+        "metadata": {"title": "Generic Report", "report_year": 1938},
+        "pages": [{"page_number": 1, "raw_ocr_text": "Body."}],
+    }
+    bundle = parse_source_payload(payload, source_file="TBL_1938_report.json")
+    assert bundle.document.lccn is None
+    assert bundle.document.edition is None
+    assert bundle.document.loc_sequence is None
 
 
 def test_structure_uses_raw_ocr_text_in_runtime_schema() -> None:

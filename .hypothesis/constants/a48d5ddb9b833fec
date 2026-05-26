@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\core\access_control.py
+# hypothesis_version: 6.151.9
+
+['access_level', 'active', 'deleted_at', 'institution_id', 'quarantine_status']

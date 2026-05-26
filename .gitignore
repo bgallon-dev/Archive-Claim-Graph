@@ -17,3 +17,6 @@ C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\.hypothesis\constan
 out_land_patent/
 matches.csv
 out_turnbull/
+run_kettle_eval_all.py
+label_cases.py
+pytestdebug.log

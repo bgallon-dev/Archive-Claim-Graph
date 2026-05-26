@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\kettle_eval\cases.py
+# hypothesis_version: 6.151.9
+
+[4000, 'certainty', 'claim_date', 'claim_extraction', 'claim_id', 'claim_type', 'detection_confidence', 'end_offset', 'entity_id', 'entity_resolution', 'evidence_end', 'evidence_start', 'extract.claim', 'extract.mention', 'link.claim_entity', 'match_score', 'mention', 'mention_id', 'normalized_form', 'ocr_confidence', 'ocr_suspect', 'page_number', 'page_ocr', 'parse.page', 'relation', 'relation_type', 'resolve.entity', 'start_offset', 'surface_form', 'unknown']

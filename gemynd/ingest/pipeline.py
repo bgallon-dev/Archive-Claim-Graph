@@ -154,12 +154,14 @@ def load_graph(
     entity_labels = config.entity_labels
     writer: GraphWriter
     if backend == "neo4j":
-        uri = neo4j_uri or os.environ.get("NEO4J_URI")
-        user = neo4j_user or os.environ.get("NEO4J_USER")
-        password = neo4j_password or os.environ.get("NEO4J_PASSWORD")
-        database = os.environ.get("NEO4J_DATABASE", neo4j_database)
-        trust_mode = neo4j_trust_mode or os.environ.get("NEO4J_TRUST", "system")
-        ca_cert_path = neo4j_ca_cert or os.environ.get("NEO4J_CA_CERT")
+        from gemynd.shared.settings import Settings
+        _settings = Settings.from_env()
+        uri = neo4j_uri or _settings.neo4j_uri or None
+        user = neo4j_user or _settings.neo4j_user or None
+        password = neo4j_password or _settings.neo4j_password or None
+        database = _settings.neo4j_database if os.environ.get("NEO4J_DATABASE") else neo4j_database
+        trust_mode = neo4j_trust_mode or _settings.neo4j_trust
+        ca_cert_path = neo4j_ca_cert or _settings.neo4j_ca_cert
         if not uri or not user or not password:
             raise ValueError("Neo4j backend requires URI/user/password via args or environment variables.")
         writer = Neo4jGraphWriter(
@@ -471,6 +473,9 @@ def run_e2e(
     neo4j_ca_cert: str | None = None,
     review_out_dir: str | Path | None = None,
     review_db_path: str | Path | None = None,
+    kettle_eval_db_path: str | Path | None = None,
+    fail_on_kettle_eval: bool = False,
+    kettle_eval_corpus_id: str | None = None,
     resources_dir: Path | None = None,
     graph_resolve: bool = False,
     no_llm: bool = False,
@@ -586,6 +591,16 @@ def run_e2e(
         from gemynd.review.store import ReviewStore
         review_store = ReviewStore(review_db_path)
 
+    kettle_eval_store = None
+    if kettle_eval_db_path is not None:
+        try:
+            from kettle_eval.store import KettleEvalStore
+            kettle_eval_store = KettleEvalStore(kettle_eval_db_path)
+        except Exception:
+            _log.exception("kettle_eval store init failed")
+            if fail_on_kettle_eval:
+                raise
+
     # Rolling counter of entity_id → cumulative REFERS_TO resolution count across
     # all documents processed so far in this run (document-level frequency prior).
     document_entity_counts: Counter[str] = Counter()
@@ -644,6 +659,27 @@ def run_e2e(
                 semantic_bundle_path=str(Path(doc_summary["semantic_output"]).resolve()),
             )
             doc_summary["review_detect"] = review_result
+
+        if kettle_eval_store is not None:
+            try:
+                from kettle_eval.cases import cases_from_bundle
+                from kettle_eval.risk_features import compute_features
+                from kettle_eval.selector import score_cases
+
+                cases = cases_from_bundle(
+                    structure, semantic,
+                    corpus_id=kettle_eval_corpus_id or _run_config.institution_id or "",
+                )
+                compute_features(cases, structure, semantic)
+                # Pass the store so persisted adaptive weights (if any) are
+                # applied. Falls back to defaults on empty/fresh DBs.
+                score_cases(cases, store=kettle_eval_store)
+                written = kettle_eval_store.save_cases(cases)
+                doc_summary["kettle_eval"] = {"cases_written": written}
+            except Exception:
+                _log.exception("kettle_eval pass failed for doc %s", doc_summary.get("doc_id"))
+                if fail_on_kettle_eval:
+                    raise
 
     try:
         if effective_workers <= 1:
@@ -713,6 +749,11 @@ def run_e2e(
     finally:
         if review_store is not None:
             review_store.close()
+        if kettle_eval_store is not None:
+            try:
+                kettle_eval_store.close()
+            except Exception:
+                _log.debug("kettle_eval store close failed", exc_info=True)
 
     # Restore deterministic output order for the final result.
     doc_summaries.sort(key=lambda d: d["input"])

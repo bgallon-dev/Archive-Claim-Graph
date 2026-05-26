@@ -9,6 +9,8 @@ from typing import Protocol
 
 from gemynd.core.resolver import default_seed_entities
 from gemynd.shared.resource_loader import load_negative_entities, load_ocr_corrections
+from gemynd.shared.text_utils import normalize_for_match
+from ..span_utils import resolve_overlapping_spans
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -186,7 +188,7 @@ class RuleBasedMentionExtractor:
 
     def extract(self, paragraph_text: str) -> list[MentionDraft]:
         spans = self._detect(paragraph_text)
-        spans = self._overlap_resolve_spans(spans)
+        spans = resolve_overlapping_spans(spans)
         return sorted(
             (self._classify(paragraph_text, span) for span in spans),
             key=lambda d: d.start_offset,
@@ -247,7 +249,7 @@ class RuleBasedMentionExtractor:
                 continue
             if surface.lower() in self._negative_forms:
                 continue
-            normalized_surface = self._normalize(surface)
+            normalized_surface = normalize_for_match(surface)
             fuzzy_hit: str | None = None
             if len(words) == 1 and self._is_sentence_initial(paragraph_text, match.start()):
                 if normalized_surface not in self._known_ocr_errors:
@@ -301,7 +303,7 @@ class RuleBasedMentionExtractor:
 
         return MentionDraft(
             surface_form=surface,
-            normalized_form=self._normalize(surface),
+            normalized_form=normalize_for_match(surface),
             start_offset=span.start_offset,
             end_offset=span.end_offset,
             detection_confidence=confidence,
@@ -312,47 +314,6 @@ class RuleBasedMentionExtractor:
             matched_patterns=list(span.matched_patterns),
             fallback_used=span.fallback_used,
         )
-
-    # ── Span-level overlap resolution ─────────────────────────────────────────
-
-    @staticmethod
-    def _overlap_resolve_spans(spans: list[CandidateSpan]) -> list[CandidateSpan]:
-        """Greedy longest-match-first overlap resolution over CandidateSpan objects.
-
-        Same algorithm as _overlap_resolve but operates before classification
-        so only positional fields and base confidence are available.
-        """
-        sorted_spans = sorted(
-            spans,
-            key=lambda s: (s.start_offset, -(s.end_offset - s.start_offset)),
-        )
-        accepted: list[CandidateSpan] = []
-
-        def _overlaps(a: CandidateSpan, b: CandidateSpan) -> bool:
-            return not (a.end_offset <= b.start_offset or a.start_offset >= b.end_offset)
-
-        for candidate in sorted_spans:
-            conflict_idx: int | None = None
-            for i, existing in enumerate(accepted):
-                if _overlaps(candidate, existing):
-                    conflict_idx = i
-                    break
-
-            if conflict_idx is None:
-                accepted.append(candidate)
-                continue
-
-            existing = accepted[conflict_idx]
-            cand_len = candidate.end_offset - candidate.start_offset
-            exist_len = existing.end_offset - existing.start_offset
-
-            if cand_len > exist_len and candidate.detection_confidence >= 0.60:
-                accepted[conflict_idx] = candidate
-            elif cand_len == exist_len and candidate.detection_confidence > existing.detection_confidence:
-                accepted[conflict_idx] = candidate
-            # else: existing wins, discard candidate
-
-        return sorted(accepted, key=lambda s: s.start_offset)
 
     def _scan_terms(self, paragraph_text: str) -> list[tuple[str, int, int]]:
         matches: list[tuple[str, int, int]] = []
@@ -368,10 +329,6 @@ class RuleBasedMentionExtractor:
         return matches
 
     @staticmethod
-    def _normalize(text: str) -> str:
-        return re.sub(r"\s+", " ", text.strip().lower())
-
-    @staticmethod
     def _is_sentence_initial(paragraph_text: str, match_start: int) -> bool:
         prefix = paragraph_text[:match_start].rstrip()
         return not prefix or bool(re.search(r"[.!?]$", prefix))
@@ -382,70 +339,6 @@ class RuleBasedMentionExtractor:
             known_ocr_errors=self._known_ocr_errors,
             lexicon_hints=self._lexicon_hints,
         )
-
-    @staticmethod
-    def _exact_dedupe(mentions: list[MentionDraft]) -> list[MentionDraft]:
-        """Legacy exact-position deduplication — kept for regression testing."""
-        best: dict[tuple[int, int], MentionDraft] = {}
-        for mention in mentions:
-            key = (mention.start_offset, mention.end_offset)
-            existing = best.get(key)
-            if existing is None or mention.detection_confidence > existing.detection_confidence:
-                best[key] = mention
-        return sorted(best.values(), key=lambda mention: mention.start_offset)
-
-    @staticmethod
-    def _overlap_resolve(mentions: list[MentionDraft]) -> list[MentionDraft]:
-        """Greedy longest-match-first overlap resolution.
-
-        Replaces _exact_dedupe.  Two spans overlap when they share at least one
-        character position.  Adjacent spans (end == start) do NOT overlap.
-        When a conflict is detected the longer span wins if its confidence is
-        >= 0.60; otherwise the already-accepted (shorter) span is kept.
-        Exact-duplicate positions (same start AND end) are resolved by keeping
-        the higher-confidence draft — the same behaviour as _exact_dedupe.
-        """
-        # Sort: start ascending, then longer spans first so the greedy sweep
-        # naturally prefers the longer option when starts coincide.
-        sorted_mentions = sorted(
-            mentions,
-            key=lambda m: (m.start_offset, -(m.end_offset - m.start_offset)),
-        )
-
-        accepted: list[MentionDraft] = []
-
-        def _overlaps(a: MentionDraft, b: MentionDraft) -> bool:
-            return not (a.end_offset <= b.start_offset or a.start_offset >= b.end_offset)
-
-        for candidate in sorted_mentions:
-            conflict_idx: int | None = None
-            for i, existing in enumerate(accepted):
-                if _overlaps(candidate, existing):
-                    conflict_idx = i
-                    break
-
-            if conflict_idx is None:
-                accepted.append(candidate)
-                continue
-
-            existing = accepted[conflict_idx]
-            cand_len = candidate.end_offset - candidate.start_offset
-            exist_len = existing.end_offset - existing.start_offset
-
-            if cand_len > exist_len and candidate.detection_confidence >= 0.60:
-                existing.decision_trace.append("overlap_resolved:replaced_by_longer")
-                accepted[conflict_idx] = candidate
-                candidate.decision_trace.append("overlap_resolved:kept_longer")
-            elif cand_len == exist_len and candidate.detection_confidence > existing.detection_confidence:
-                # exact-duplicate position: keep higher confidence (legacy _dedupe behaviour)
-                existing.decision_trace.append("overlap_resolved:replaced_by_higher_conf")
-                accepted[conflict_idx] = candidate
-                candidate.decision_trace.append("overlap_resolved:kept_higher_conf")
-            else:
-                existing.decision_trace.append("overlap_resolved:kept_existing")
-
-        return sorted(accepted, key=lambda m: m.start_offset)
-
 
 # ── GLiNER optional dependency ─────────────────────────────────────────────────
 

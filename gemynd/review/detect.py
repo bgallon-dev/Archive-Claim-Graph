@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from gemynd.core.models import SemanticBundle, StructureBundle
-from .detectors import ocr_entity, junk_mention, builder_repair, sensitivity_monitor
+from .detectors import DETECTOR_MODULES
 from .ids import (
     SNAPSHOT_SCHEMA_VERSION,
     file_sha256,
@@ -143,10 +143,8 @@ def run_detection(
 
     # Run detectors
     all_detector_proposals: list[DetectorProposal] = []
-    all_detector_proposals.extend(ocr_entity.detect(structure, semantic, snapshot_id))
-    all_detector_proposals.extend(junk_mention.detect(structure, semantic, snapshot_id))
-    all_detector_proposals.extend(builder_repair.detect(structure, semantic, snapshot_id))
-    all_detector_proposals.extend(sensitivity_monitor.detect(structure, semantic, snapshot_id))
+    for module in DETECTOR_MODULES:
+        all_detector_proposals.extend(module.detect(structure, semantic, snapshot_id))
 
     # Validate
     valid_proposals, rejected = _validate_and_filter(all_detector_proposals, snapshot_id)

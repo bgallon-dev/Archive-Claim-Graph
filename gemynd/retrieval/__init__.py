@@ -33,15 +33,8 @@ class RetrievalService:
 
     def _get_executor(self):
         if self._executor is None:
-            from gemynd.retrieval.executor import Neo4jQueryExecutor
-            self._executor = Neo4jQueryExecutor(
-                uri=self._settings.neo4j_uri,
-                user=self._settings.neo4j_user,
-                password=self._settings.neo4j_password,
-                database=self._settings.neo4j_database,
-                trust_mode=self._settings.neo4j_trust,
-                ca_cert_path=self._settings.neo4j_ca_cert,
-            )
+            from gemynd.shared.neo4j_helpers import build_neo4j_executor
+            self._executor = build_neo4j_executor(self._settings)
         return self._executor
 
     def query(self, text: str, *, user_context=None) -> SynthesisResult:

@@ -22,6 +22,7 @@ from gemynd.core.models import (
     SectionRecord,
     StructureBundle,
 )
+from gemynd.shared.text_utils import normalize_for_match
 
 _SECTION_NUMBER_RE = re.compile(r"^\s*(\d{1,2})[\.\)]\s+(.+?)\s*$")
 _SECTION_LETTER_RE = re.compile(r"^\s*([A-Z])[\.\)]\s+(.+?)\s*$")
@@ -107,10 +108,6 @@ def normalize_text(text: str) -> str:
     lines = [line.strip() for line in text.replace("\r\n", "\n").split("\n")]
     compact = "\n".join(line for line in lines if line)
     return re.sub(r"[ \t]+", " ", compact).strip()
-
-
-def normalize_heading(heading: str) -> str:
-    return re.sub(r"\s+", " ", heading.strip().lower())
 
 
 def detect_heading(line: str) -> tuple[int | None, str | None, str] | None:
@@ -245,7 +242,7 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
             if not heading_match:
                 continue
             section_number, section_letter, heading = heading_match
-            normalized_heading = normalize_heading(heading)
+            normalized_heading = normalize_for_match(heading)
             if normalized_heading != current_section_heading:
                 section_index += 1
                 current_section_id = make_section_id(doc_id, section_index, heading)
@@ -276,7 +273,7 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
                     heading=fallback_heading,
                     section_number=section_index,
                     section_letter=None,
-                    normalized_heading=normalize_heading(fallback_heading),
+                    normalized_heading=normalize_for_match(fallback_heading),
                     page_start=page_number,
                     page_end=page_number,
                 )
@@ -332,7 +329,7 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
                 heading=fallback_heading,
                 section_number=1,
                 section_letter=None,
-                normalized_heading=normalize_heading(fallback_heading),
+                normalized_heading=normalize_for_match(fallback_heading),
                 page_start=start_page,
                 page_end=end_page,
             )

@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\kettle_eval\risk_features.py
+# hypothesis_version: 6.151.9
+
+[0.0, 0.65, 0.85, 1.0, 2.0, '?', '__name__', 'broken_segmentation', 'builder_repair_score', 'causal_language', 'certainty', 'claim_date', 'claim_extraction', 'claim_id', 'detection_confidence', 'entity_resolution', 'evidence_end', 'evidence_start', 'high_char_noise', 'junk_mention_score', 'kettle_eval', 'low_ocr_confidence', 'low_quality_scan', 'match_score', 'mention', 'missing_page_anchor', 'missing_source_span', 'ocr_confidence', 'ocr_entity_score', 'ocr_suspect', 'page_ocr', 'pnw_forum', 'relation', 'sensitivity_monitor', 'strong_verbs', 'surface_form', 'uncertain', 'uncertain_date', 'uncertain_extraction', 'uncertain_mention', 'uncertain_resolution']

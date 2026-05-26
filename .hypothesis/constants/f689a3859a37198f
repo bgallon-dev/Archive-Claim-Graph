@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\gemynd\ingest\land_patent_builder.py
+# hypothesis_version: 6.151.9
+
+[1.0, '.', 'OCCURRED_AT', 'Parcel', 'Person', 'RESOLVED_TO', 'SUBJECT_OF_CLAIM', 'aliquot', 'certain', 'county', 'date_start', 'entity_id', 'grantee', 'grantees', 'json_metadata', 'land_grant', 'mention_id', 'meridian', 'name', 'name_raw', 'ner_model', 'parcels', 'person_display', 'person_entity_id', 'person_norm', 'range', 'relation_model', 'role', 'section_number', 'source', 'source:json_metadata', 'state', 'township']

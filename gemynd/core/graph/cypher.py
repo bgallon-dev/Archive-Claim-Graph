@@ -150,6 +150,45 @@ ORDER BY d.doc_id, r.run_timestamp, c.claim_id
 """
 
 # ---------------------------------------------------------------------------
+# Access-control WHERE fragments
+# These are the canonical predicates applied by every retrieval query.
+# Templates using the standard alias (`d` for Document, `c` for Claim) embed
+# the {_DOC_ACCESS} and {_CLAIM_ACTIVE} tokens; _finalize() expands them at
+# module-load time. For non-default aliases, call access_control_where()
+# directly and concatenate.
+# ---------------------------------------------------------------------------
+
+def access_control_where(alias: str = "d", *, kind: str = "doc") -> str:
+    """Return the standard access-control predicate body for *alias*.
+
+    ``kind="doc"`` produces the 4-clause Document filter (institution_id,
+    access_level, deleted_at, quarantine_status). ``kind="claim"`` produces
+    the single Claim active-status predicate. The returned string does NOT
+    include a leading WHERE/AND keyword — the caller emits that plus its
+    own indentation.
+    """
+    if kind == "doc":
+        return (
+            f"{alias}.institution_id IN $institution_ids\n"
+            f"  AND {alias}.access_level IN $permitted_levels\n"
+            f"  AND {alias}.deleted_at IS NULL\n"
+            f"  AND ({alias}.quarantine_status IS NULL OR {alias}.quarantine_status = 'active')"
+        )
+    if kind == "claim":
+        return f"({alias}.quarantine_status IS NULL OR {alias}.quarantine_status = 'active')"
+    raise ValueError(f"unknown access_control_where kind: {kind!r}")
+
+
+_DOC_ACCESS = access_control_where("d", kind="doc")
+_CLAIM_ACTIVE = access_control_where("c", kind="claim")
+
+
+def _finalize(template: str) -> str:
+    """Expand {_DOC_ACCESS} and {_CLAIM_ACTIVE} tokens in a Cypher template."""
+    return template.replace("{_DOC_ACCESS}", _DOC_ACCESS).replace("{_CLAIM_ACTIVE}", _CLAIM_ACTIVE)
+
+
+# ---------------------------------------------------------------------------
 # Retrieval-layer query templates
 # All queries anchor to the latest ExtractionRun per Document to guarantee
 # freshness after re-extraction runs.
@@ -157,15 +196,12 @@ ORDER BY d.doc_id, r.run_timestamp, c.claim_id
 
 PROVENANCE_CHAIN_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (sec:Section)-[:HAS_PARAGRAPH]->(para:Paragraph)-[:HAS_CLAIM]->(c:Claim {run_id: lr.run_id})
 WHERE c.claim_id = $claim_id
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 MATCH (pg:Page)-[:HAS_SECTION]->(sec)
 OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(om:Measurement)
@@ -182,13 +218,10 @@ RETURN d, pg, sec, para, c, obs, sp, y,
 COUNT_CLAIMS_FOR_ENTITY_QUERY = """
 MATCH (e {entity_id: $entity_id})
 MATCH (c:Claim)-[]->(e)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 RETURN count(DISTINCT c) AS n
 """
 
@@ -199,13 +232,10 @@ RETURN count(DISTINCT c) AS n
 YEAR_RANGE_FOR_ENTITY_QUERY = """
 MATCH (e {entity_id: $entity_id})
 MATCH (c:Claim)-[]->(e)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 OPTIONAL MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(y:Year)
 WITH d, c, coalesce(y.year, d.report_year) AS effective_year
 WITH effective_year, count(DISTINCT c) AS claim_count
@@ -221,13 +251,10 @@ RETURN min(effective_year) AS earliest_year,
 LIST_DOCUMENTS_FOR_ENTITY_QUERY = """
 MATCH (e {entity_id: $entity_id})
 MATCH (c:Claim)-[]->(e)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, count(DISTINCT c) AS claim_count
 RETURN d.doc_id AS doc_id,
        d.title AS title,
@@ -251,13 +278,10 @@ LIMIT 50
 LOCATIONS_FOR_ENTITY_QUERY = """
 MATCH (e {entity_id: $entity_id})
 MATCH (c:Claim)-[]->(e)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 MATCH (c)-[:OCCURRED_AT]->(p)
 WHERE p:Place OR p:Refuge
 RETURN p.entity_id AS place_id,
@@ -276,13 +300,10 @@ LIMIT 25
 CO_OCCURRING_ENTITIES_FOR_ENTITY_QUERY = """
 MATCH (anchor {entity_id: $entity_id})
 MATCH (c:Claim)-[]->(anchor)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 MATCH (c)-[r2]->(other)
 WHERE other.entity_id IS NOT NULL
   AND other.entity_id <> $entity_id
@@ -303,13 +324,10 @@ FREQUENCY_RANKING_FOR_TYPE_QUERY = """
 MATCH (e:Entity)
 WHERE $entity_label IN labels(e)
 MATCH (c:Claim)-[]->(e)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 RETURN e.entity_id AS entity_id,
        e.name AS name,
        [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type,
@@ -324,10 +342,7 @@ LIMIT $limit
 # year roster.  Ranked by date_start ascending, capped at 50.
 LIST_DOCUMENTS_FOR_YEAR_QUERY = """
 MATCH (d:Document)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
   AND d.report_year = $target_year
 OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
               -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
@@ -351,14 +366,11 @@ LIMIT 50
 
 ENTITY_ANCHORED_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity {entity_id: $entity_id})
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
     OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
@@ -392,12 +404,9 @@ FULLTEXT_CLAIMS_QUERY = """
 CALL db.index.fulltext.queryNodes('claim_normalized_sentence', $search_text)
 YIELD node AS c, score
 WITH c, score
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (d:Document)-[:PROCESSED_BY]->(lr:ExtractionRun {run_id: c.run_id})
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH c, d, score
 ORDER BY score DESC
 LIMIT $limit
@@ -414,17 +423,14 @@ ORDER BY score DESC
 
 TEMPORAL_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
 WHERE ($year_min IS NULL OR y.year >= $year_min)
   AND ($year_max IS NULL OR y.year <= $year_max)
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 WITH d, c, obs, y
 ORDER BY c.extraction_confidence DESC
 LIMIT $limit
@@ -459,16 +465,13 @@ def build_temporal_with_anchor_query(anchor_label: str, anchor_relation: str) ->
         raise ValueError(f"invalid anchor_relation for Cypher: {anchor_relation!r}")
     return f"""
 MATCH (d:Document)-[:{anchor_relation}]->(ref:{anchor_label} {{entity_id: $anchor_id}})
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
 MATCH (c:Claim {{run_id: lr.run_id}})-[:SUPPORTS]->(obs_f:Observation)-[:IN_YEAR]->(y_f:Year)
 WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND ($year_min IS NULL OR y_f.year >= $year_min)
   AND ($year_max IS NULL OR y_f.year <= $year_max)
 WITH DISTINCT d, c, y_f
@@ -506,16 +509,13 @@ def build_document_anchor_query(anchor_label: str, anchor_relation: str) -> str:
         raise ValueError(f"invalid anchor_relation for Cypher: {anchor_relation!r}")
     return f"""
 MATCH (d:Document)-[:{anchor_relation}]->(ref:{anchor_label} {{entity_id: $anchor_id}})
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
 MATCH (c:Claim {{run_id: lr.run_id}})
 WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
     OR NOT EXISTS {{ (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }}
@@ -543,16 +543,13 @@ ORDER BY c.extraction_confidence DESC
 
 MULTI_ENTITY_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity)
 WHERE e.entity_id IN $entity_ids
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
     OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
@@ -603,7 +600,7 @@ MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (d)-[:HAS_PAGE]->(pg:Page)-[:HAS_SECTION]->(sec:Section)
        -[:HAS_PARAGRAPH]->(para:Paragraph)-[:HAS_CLAIM]->(c:Claim {run_id: lr.run_id})
 WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
     OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
@@ -646,7 +643,7 @@ WHERE d.institution_id = $corpus_b
   AND d.access_level IN $permitted_levels
   AND d.deleted_at IS NULL
   AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND EXISTS {
     MATCH (da:Document)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
           -[:HAS_PARAGRAPH]->(:Paragraph)-[:CONTAINS_MENTION]->(:Mention)
@@ -673,15 +670,12 @@ ORDER BY c.extraction_confidence DESC
 
 CLAIM_TYPE_SCOPED_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})
 WHERE c.claim_type IN $claim_types
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND ($entity_ids IS NULL OR EXISTS {
     MATCH (c)-[]->(e:Entity) WHERE e.entity_id IN $entity_ids
   })
@@ -711,15 +705,12 @@ ORDER BY c.extraction_confidence DESC
 
 DOC_TYPE_BROWSE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
   AND d.doc_type IN $doc_types
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
@@ -747,15 +738,12 @@ ORDER BY c.extraction_confidence DESC
 
 SERIES_BROWSE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
   AND d.series IN $series
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
@@ -799,10 +787,7 @@ def build_role_trend_query(role_label: str, role_relation: str) -> str:
         raise ValueError(f"invalid role_relation for Cypher: {role_relation!r}")
     return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
 MATCH (c:Claim {{run_id: lr.run_id}})-[:SUPPORTS]->(obs:Observation)-[:{role_relation}]->(sp:{role_label} {{entity_id: $species_id}})
@@ -810,7 +795,7 @@ OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 WHERE ($year_min IS NULL OR y.year >= $year_min)
   AND ($year_max IS NULL OR y.year <= $year_max)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 RETURN sp.name AS species, y.year AS year,
        count(obs) AS observation_count,
        avg(c.extraction_confidence) AS avg_confidence,
@@ -853,10 +838,7 @@ def build_scope_condition_query(scope_label: str, scope_relation: str) -> str:
         raise ValueError(f"invalid scope_relation for Cypher: {scope_relation!r}")
     return f"""
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE d.institution_id IN $institution_ids
-  AND d.access_level IN $permitted_levels
-  AND d.deleted_at IS NULL
-  AND (d.quarantine_status IS NULL OR d.quarantine_status = 'active')
+WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {{run_timestamp: latest_ts}})
 MATCH (c:Claim {{run_id: lr.run_id}})-[:SUPPORTS]->(obs:Observation)-[:{scope_relation}]->(h:{scope_label} {{entity_id: $habitat_id}})
@@ -865,7 +847,7 @@ OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 WHERE ($year_min IS NULL OR y.year >= $year_min)
   AND ($year_max IS NULL OR y.year <= $year_max)
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 RETURN h.name AS habitat, y.year AS year, sp.name AS species,
        count(obs) AS observation_count,
        avg(c.extraction_confidence) AS avg_confidence,
@@ -1084,7 +1066,7 @@ MATCH (a {entity_id: $from_id})
 MATCH (b {entity_id: $to_id})
 MATCH (c:Claim)-[r1]->(a)
 MATCH (c)-[r2]->(b)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
 WHERE d.institution_id IN $institution_ids
@@ -1344,7 +1326,7 @@ RETURN count(c) AS quarantined_count
 
 SENSITIVITY_SCAN_BATCH_QUERY = """
 MATCH (c:Claim)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
   AND ($institution_id IS NULL OR EXISTS {
       MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c)
       WHERE d.institution_id = $institution_id
@@ -1387,7 +1369,7 @@ MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
 WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 RETURN c.claim_type AS claim_type,
        count(c) AS count,
        avg(c.extraction_confidence) AS avg_confidence
@@ -1399,7 +1381,7 @@ MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
 WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 RETURN d.institution_id AS institution_id,
        c.claim_type AS claim_type,
        count(c) AS count
@@ -1430,7 +1412,7 @@ MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
 WHERE d.institution_id IN $institution_ids
   AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 RETURN
   count(c) AS total_claims,
   avg(c.extraction_confidence) AS avg_confidence,
@@ -1451,7 +1433,7 @@ WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.report_year IS NOT NULL
 OPTIONAL MATCH (d)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 RETURN d.report_year AS year, count(DISTINCT d) AS doc_count, count(c) AS claim_count
 ORDER BY year
 """
@@ -1465,7 +1447,7 @@ WHERE d.institution_id IN $institution_ids
   AND d.access_level IN $permitted_levels
   AND d.report_year IS NOT NULL
 OPTIONAL MATCH (d)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)
-WHERE (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+WHERE {_CLAIM_ACTIVE}
 RETURN d.institution_id AS institution_id,
        d.report_year AS year,
        count(DISTINCT d) AS doc_count,
@@ -1507,7 +1489,7 @@ def build_gap_entity_depth_query(
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)
 WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND type(rel) IN [{rel_list}]
   AND ({label_filter})
 WITH e, count(c) AS primary_claim_count,
@@ -1550,7 +1532,7 @@ def build_gap_geographic_coverage_query(
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e:Entity)
 WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND type(rel) IN [{rel_list}]
   AND ({label_filter})
 WITH e, count(c) AS geo_claim_count,
@@ -1598,7 +1580,7 @@ MATCH (e:Entity {entity_id: $entity_id})
 OPTIONAL MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[rel]->(e)
 WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
 RETURN e.entity_id AS entity_id, e.name AS name,
        [x IN labels(e) WHERE x <> 'Entity'][0] AS entity_type,
        count(DISTINCT c) AS claim_count
@@ -1608,7 +1590,7 @@ ENTITY_NEIGHBORHOOD_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(:ExtractionRun)-[:PRODUCED]->(c:Claim)-[r1]->(e1:Entity {entity_id: $entity_id})
 WHERE d.institution_id IN $institution_ids AND d.deleted_at IS NULL
   AND d.access_level IN $permitted_levels
-  AND (c.quarantine_status IS NULL OR c.quarantine_status = 'active')
+  AND {_CLAIM_ACTIVE}
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
     OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
@@ -1638,3 +1620,19 @@ RETURN e2.entity_id AS entity_id, e2.name AS name,
        co_occurrence_count, relationship_types, sample_claim_ids, sample_sentences,
        institution_ids
 """
+
+
+# Expand {_DOC_ACCESS} and {_CLAIM_ACTIVE} tokens in every canonical-pattern
+# query template at module-load time. Templates without tokens pass through
+# unchanged. Done here once so individual templates stay readable as plain
+# triple-quoted strings; the expanded text is byte-identical to the previous
+# inlined predicates.
+for _qname in list(globals()):
+    _qval = globals().get(_qname)
+    if (
+        _qname.endswith("_QUERY")
+        and isinstance(_qval, str)
+        and ("{_DOC_ACCESS}" in _qval or "{_CLAIM_ACTIVE}" in _qval)
+    ):
+        globals()[_qname] = _finalize(_qval)
+del _qname, _qval

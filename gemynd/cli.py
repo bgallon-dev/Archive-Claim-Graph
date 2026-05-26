@@ -107,6 +107,17 @@ def build_parser() -> argparse.ArgumentParser:
     e2e_parser.add_argument("--out-dir", required=True, help="Output directory for structure/semantic bundles.")
     e2e_parser.add_argument("--review-out-dir", default=None, help="Optional directory to write spelling review queue JSON files.")
     e2e_parser.add_argument("--review-db", default=None, help="Optional path to review SQLite database for anti-pattern detection.")
+    e2e_parser.add_argument(
+        "--kettle-eval-db",
+        default=None,
+        help="Optional path to kettle_eval SQLite database. Emits ranked EvaluationCase rows per doc.",
+    )
+    e2e_parser.add_argument(
+        "--fail-on-kettle-eval",
+        action="store_true",
+        default=False,
+        help="Treat kettle_eval errors as fatal. By default the eval pass is non-fatal.",
+    )
     e2e_parser.add_argument("--backend", choices=["memory", "neo4j"], default="memory")
     e2e_parser.add_argument("--workers", type=int, default=1,
                             help="Number of parallel worker processes for extraction (default: 1). Use 0 to auto-detect CPU count.")
@@ -530,6 +541,8 @@ def main(argv: list[str] | None = None) -> int:
             neo4j_ca_cert=args.neo4j_ca_cert,
             review_out_dir=args.review_out_dir,
             review_db_path=args.review_db,
+            kettle_eval_db_path=args.kettle_eval_db,
+            fail_on_kettle_eval=args.fail_on_kettle_eval,
             resources_dir=Path(args.domain_dir) if args.domain_dir else None,
             graph_resolve=args.graph_resolve,
             no_llm=args.no_llm,

@@ -34,6 +34,7 @@
   #conv-list .conv-title {
     flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     background: none; border: 0; text-align: left; padding: 0; font: inherit; color: inherit; cursor: pointer;
+    text-decoration: none;
   }
   #conv-list .conv-meta { color: #888; font-size: 11px; margin-left: 4px; }
   #conv-list .conv-delete {
@@ -275,7 +276,7 @@
     </div>
     <div style="max-width:700px;margin:6px auto 0;display:flex;gap:8px">
       <button id="settings-toggle" class="btn-sm btn-ghost">Settings</button>
-      <button id="new-conv-btn" class="btn-sm btn-ghost">New conversation</button>
+      <a id="new-conv-btn" class="btn-sm btn-ghost" href="/" style="text-decoration:none">New conversation</a>
     </div>
   </div>
   <script id="welcome-data" type="application/json">{{ composite_members | tojson }}</script>
@@ -620,7 +621,7 @@ function renderStructureDivergence(div) {
     + esc(div.message) + '</div>';
 }
 
-function renderAnswerSentences(sentences, answer) {
+function renderAnswerSentences(sentences, answer, claimDetailMap) {
   // When the structured answer_sentences list is present, walk it to build
   // inline citation pills and inferred markers.  Falls back to the flat
   // `answer` string when sentences are empty (legacy / fallback path).
@@ -632,6 +633,20 @@ function renderAnswerSentences(sentences, answer) {
     var pills = '';
     if (s.supporting_claim_ids && s.supporting_claim_ids.length) {
       pills = s.supporting_claim_ids.map(function (cid) {
+        var detail = claimDetailMap ? claimDetailMap[cid] : null;
+        if (detail && detail.doc_id) {
+          var did = esc(detail.doc_id);
+          var hl = detail.source_sentence
+            ? ' data-highlight="' + esc(detail.source_sentence) + '"'
+            : '';
+          return '<span class="citation-pill claim-link" title="' + esc(cid) + '"'
+            + ' hx-get="/document/' + did + '/modal"'
+            + ' hx-target="#document-modal"'
+            + ' hx-swap="innerHTML"'
+            + hl
+            + ' role="button" tabindex="0">'
+            + esc(cid.slice(0, 8)) + '</span>';
+        }
         return '<span class="citation-pill" title="' + esc(cid) + '">'
           + esc(cid.slice(0, 8)) + '</span>';
       }).join('');
@@ -655,7 +670,13 @@ function formatResponse(data) {
   var headerInner = '';
   var t1 = data.tier_1_result || null;
   var tableFirst = !!(t1 && TIER1_TABLE_FIRST[t1.operation]);
-  var answerProse = renderAnswerSentences(data.answer_sentences, data.answer);
+  var claimDetailMap = {};
+  if (data.supporting_claims_detail) {
+    data.supporting_claims_detail.forEach(function(c) {
+      if (c.claim_id) claimDetailMap[c.claim_id] = c;
+    });
+  }
+  var answerProse = renderAnswerSentences(data.answer_sentences, data.answer, claimDetailMap);
   if (tableFirst) {
     headerInner += renderTier1Body(t1);
     // Subtitle position uses the flat answer for compactness.
@@ -863,12 +884,19 @@ async function refreshConvSidebar() {
       li.dataset.sessionId = c.session_id;
       if (c.session_id === activeLoadedSessionId) li.classList.add('active');
 
-      var titleBtn = document.createElement('button');
+      var titleBtn = document.createElement('a');
       titleBtn.className = 'conv-title';
-      titleBtn.type = 'button';
+      titleBtn.href = '/?conversation_id=' + encodeURIComponent(c.session_id);
       titleBtn.textContent = c.title || '(untitled)';
       titleBtn.title = (c.title || '') + '  \u2014  ' + c.turn_count + ' turns';
-      titleBtn.addEventListener('click', function() { loadConversation(c.session_id); });
+      titleBtn.addEventListener('click', function(ev) {
+        // Plain left-click loads in-place (no full page reload).  Modifier
+        // clicks (ctrl/cmd/shift/middle) fall through to the browser so it
+        // can open the URL in a new tab / window as the user expects.
+        if (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button === 1) return;
+        ev.preventDefault();
+        loadConversation(c.session_id);
+      });
       li.appendChild(titleBtn);
 
       var meta = document.createElement('span');
@@ -1148,9 +1176,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // read data-highlight from it directly.
   var pendingHighlight = null;
   document.getElementById('chat-area').addEventListener('click', function(e) {
-    var row = e.target.closest('tr.src-row-clickable[data-highlight]');
-    if (!row) return;
-    pendingHighlight = row.getAttribute('data-highlight');
+    var trigger = e.target.closest('tr.src-row-clickable[data-highlight], span.citation-pill.claim-link[data-highlight]');
+    if (!trigger) return;
+    pendingHighlight = trigger.getAttribute('data-highlight');
   }, true);  // capture phase so we run before htmx fires the request
 
   document.body.addEventListener('htmx:afterSwap', function(evt) {
@@ -1168,7 +1196,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('settings-panel').classList.toggle('open');
   });
 
-  document.getElementById('new-conv-btn').addEventListener('click', function() {
+  document.getElementById('new-conv-btn').addEventListener('click', function(ev) {
+    // Plain left-click resets in-place; modifier clicks fall through so the
+    // browser opens "/" in a new tab (which loads a fresh session naturally).
+    if (ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button === 1) return;
+    ev.preventDefault();
     conversationHistory = [];
     currentSessionId = generateSessionId();
     activeLoadedSessionId = null;
@@ -1187,6 +1219,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var _params = new URLSearchParams(window.location.search);
   var _urlQ = _params.get('q');
+  var _urlConvId = _params.get('conversation_id');
+  // Cached-conversation deep link: /?conversation_id=sess_xxx with no ?q=
+  // replays the cached turns so right-click → "Open in new tab" on a sidebar
+  // entry lands the user inside that conversation, not on a fresh welcome.
+  if (!_urlQ && _urlConvId && /^[a-zA-Z0-9_-]{1,128}$/.test(_urlConvId)) {
+    loadConversation(_urlConvId);
+  }
   if (_urlQ) {
     var _bucket = _params.get('bucket') || '';
     var _mode = (_bucket === 'conversational' || _bucket === 'analytical') ? _bucket : 'auto';

@@ -1027,22 +1027,24 @@ def create_app(
     setup_logging()
     _log = logging.getLogger(__name__)
 
-    # Resolve connection parameters from env if not provided explicitly.
-    uri = neo4j_uri or os.environ.get("NEO4J_URI", "")
-    user = neo4j_user or os.environ.get("NEO4J_USER", "")
-    password = neo4j_password or os.environ.get("NEO4J_PASSWORD", "")
-    database = neo4j_database or os.environ.get("NEO4J_DATABASE", "neo4j")
-    trust = neo4j_trust or os.environ.get("NEO4J_TRUST", "system")
-    ca_cert = neo4j_ca_cert or os.environ.get("NEO4J_CA_CERT")
-    api_key = anthropic_api_key or os.environ.get("Anthropic_API_Key") or os.environ.get("ANTHROPIC_API_KEY")
+    # Resolve connection parameters from Settings, with explicit kwargs winning.
+    from gemynd.shared.settings import Settings as _Settings
+    _env_settings = _Settings.from_env()
+    uri = neo4j_uri or _env_settings.neo4j_uri
+    user = neo4j_user or _env_settings.neo4j_user
+    password = neo4j_password or _env_settings.neo4j_password
+    database = neo4j_database or _env_settings.neo4j_database
+    trust = neo4j_trust or _env_settings.neo4j_trust
+    ca_cert = neo4j_ca_cert or _env_settings.neo4j_ca_cert
+    api_key = anthropic_api_key or _env_settings.anthropic_api_key
 
     # Shared pipeline components (initialised at startup, closed at shutdown).
     state: dict[str, Any] = {}
 
     from gemynd.shared.rate_limit import TokenBucketLimiter
     _query_limiter = TokenBucketLimiter(
-        max_calls=int(os.environ.get("QUERY_RATE_LIMIT_MAX", "20")),
-        period_seconds=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
+        max_calls=_env_settings.query_rate_limit_max,
+        period_seconds=_env_settings.query_rate_limit_period,
     )
 
     def _try_init(factory: Any) -> Any:
@@ -1311,7 +1313,7 @@ def create_app(
             api_key=api_key,
             max_tokens=max_tokens,
             synthesis_context=synthesis_ctx,
-            timeout=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
+            timeout=_env_settings.synthesis_timeout_seconds,
             token_logger=_token_logger,
         )
 
@@ -1363,7 +1365,7 @@ def create_app(
 
     from gemynd.auth.setup import is_setup_needed
 
-    users_db_path = os.environ.get("USERS_DB", "data/users.db")
+    users_db_path = _env_settings.users_db
     app.include_router(create_auth_router(users_db_path), prefix="/auth")
 
     @app.exception_handler(NeedsLoginException)
@@ -1404,7 +1406,10 @@ def create_app(
     # by GemyndCSRFMiddleware itself.  Falls back to JWT_SECRET_KEY if
     # CSRF_SECRET_KEY is unset so dev environments don't break — both are
     # private HMAC secrets and can be rotated independently in production.
-    _csrf_secret = os.environ.get("CSRF_SECRET_KEY") or os.environ.get("JWT_SECRET_KEY", "")
+    _csrf_secret = _env_settings.csrf_secret_key or _env_settings.jwt_secret_key
+    # COOKIE_SECURE defaults to True here (production-safe); Settings.cookie_secure
+    # defaults to False for tests, so we read the env var directly to preserve
+    # the historical "secure unless explicitly disabled" web-app default.
     _cookie_secure = os.environ.get("COOKIE_SECURE", "true").lower() != "false"
     app.add_middleware(
         GemyndCSRFMiddleware,

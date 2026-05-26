@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\kettle_eval\models.py
+# hypothesis_version: 6.151.9
+
+[0.0, 'claim_extraction', 'entity_resolution', 'mention', 'page_ocr', 'relation', 'unreviewed']

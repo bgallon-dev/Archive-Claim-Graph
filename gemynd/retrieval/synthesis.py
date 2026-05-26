@@ -125,7 +125,9 @@ try:
 except Exception:  # pragma: no cover - optional dependency
     _anthropic_pkg = None  # type: ignore[assignment]
 
-MODEL = os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6")
+from gemynd.shared.settings import Settings as _Settings
+
+MODEL = _Settings.from_env().synthesis_model
 
 _DEFAULT_SYNTHESIS_CONTEXT = "historical archival documents"
 
@@ -469,14 +471,13 @@ class SynthesisEngine:
             raise RuntimeError(
                 "anthropic package is not installed. Install with: pip install -e .[retrieval]"
             )
-        resolved_key = api_key or os.environ.get("Anthropic_API_Key") or os.environ.get("ANTHROPIC_API_KEY")
-        self._timeout = timeout if timeout is not None else float(
-            os.environ.get("SYNTHESIS_TIMEOUT", "60")
-        )
+        _settings = _Settings.from_env()
+        resolved_key = api_key or _settings.anthropic_api_key
+        self._timeout = timeout if timeout is not None else _settings.synthesis_timeout_seconds
         _raw_client = _anthropic_pkg.Anthropic(
             api_key=resolved_key,
             timeout=self._timeout,
-            max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
+            max_retries=_settings.synthesis_max_retries,
         )
         if token_logger is not None:
             from gemynd.shared.token_tracker import MeteredAnthropicClient

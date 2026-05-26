@@ -24,9 +24,7 @@ be registered on the application:
 """
 from __future__ import annotations
 
-import json
 import logging
-import os
 import time
 
 from fastapi import Cookie, Depends, HTTPException, Request, status
@@ -52,8 +50,8 @@ _store: UserStore | None = None
 def _get_store() -> UserStore:
     global _store
     if _store is None:
-        db_path = os.environ.get("USERS_DB", "data/users.db")
-        _store = UserStore(db_path)
+        from gemynd.shared.settings import Settings
+        _store = UserStore(Settings.from_env().users_db)
     return _store
 
 
@@ -63,13 +61,8 @@ def _get_store() -> UserStore:
 
 def _load_token_store() -> dict[str, dict]:
     """Load the legacy GRAPHRAG_API_TOKENS env-var token store."""
-    raw = os.environ.get("GRAPHRAG_API_TOKENS", "")
-    if not raw:
-        return {}
-    try:
-        return json.loads(raw)
-    except Exception:
-        return {}
+    from gemynd.shared.settings import Settings
+    return dict(Settings.from_env().graphrag_api_tokens)
 
 
 # ---------------------------------------------------------------------------

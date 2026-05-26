@@ -14,6 +14,7 @@ from gemynd.core.models import (
     SemanticBundle,
     StructureBundle,
 )
+from gemynd.shared.text_utils import normalize_for_match
 
 from .phases import build_extraction_run
 
@@ -21,13 +22,9 @@ from .phases import build_extraction_run
 _PARCEL_PROPERTY_KEYS = ("township", "range", "section_number", "aliquot", "county", "meridian", "state")
 
 
-def _normalize(value: str) -> str:
-    return " ".join(value.strip().lower().split())
-
-
 def _grantee_entity(grantee: dict[str, Any]) -> EntityRecord:
     display = str(grantee.get("person_display") or grantee.get("name_raw") or "").strip()
-    normalized = str(grantee.get("person_norm") or _normalize(display))
+    normalized = str(grantee.get("person_norm") or normalize_for_match(display))
     entity_id = grantee.get("person_entity_id") or make_entity_id("Person", normalized)
     return EntityRecord(
         entity_id=entity_id,
@@ -40,7 +37,7 @@ def _grantee_entity(grantee: dict[str, Any]) -> EntityRecord:
 
 def _parcel_entity(parcel: dict[str, Any], metadata: dict[str, Any]) -> EntityRecord:
     name = str(parcel.get("name") or "").strip()
-    normalized = _normalize(name)
+    normalized = normalize_for_match(name)
     entity_id = parcel.get("entity_id") or make_entity_id("Parcel", normalized)
     properties: dict[str, Any] = {"source": "json_metadata"}
     for key in _PARCEL_PROPERTY_KEYS:
@@ -170,7 +167,7 @@ def build_land_patent_semantic(
                 f"{grantee_entity.name} was granted parcel {parcel_entity.name}"
                 + (f" on {date_start}." if date_start else ".")
             )
-            normalized_sentence = _normalize(sentence)
+            normalized_sentence = normalize_for_match(sentence)
             claim_id = make_claim_id(run_id, paragraph_id, claim_index, normalized_sentence)
             claims.append(ClaimRecord(
                 claim_id=claim_id,

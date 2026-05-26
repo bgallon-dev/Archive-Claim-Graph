@@ -1,0 +1,4 @@
+# file: C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\kettle_eval\store.py
+# hypothesis_version: 6.151.9
+
+['case_family_id', 'case_id', 'case_type', 'config_hash', 'corpus_id', 'created_at', 'document_id', 'extraction_run_id', 'input_text', 'model_name', 'model_output_json', 'n', 'object_id', 'page_id', 'payload_json', 'pipeline_stage', 'priority_score', 'prompt_hash', 'review_status', 'risk_features_json', 'source_span_id', 'unreviewed', 'updated_at', '{}']

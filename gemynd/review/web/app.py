@@ -980,7 +980,10 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
     async def _no_store(request: Request, call_next):
         return await authenticated_no_store(request, call_next)
 
-    _csrf_secret = _os.environ.get("CSRF_SECRET_KEY") or _os.environ.get("JWT_SECRET_KEY", "")
+    from gemynd.shared.settings import Settings as _CsrfSettings
+    _csrf_settings = _CsrfSettings.from_env()
+    _csrf_secret = _csrf_settings.csrf_secret_key or _csrf_settings.jwt_secret_key
+    # COOKIE_SECURE defaults to True here (production-safe); see retrieval/web/app.py for rationale.
     _cookie_secure = _os.environ.get("COOKIE_SECURE", "true").lower() != "false"
     app.add_middleware(
         GemyndCSRFMiddleware,

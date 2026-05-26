@@ -1,0 +1,31 @@
+{% extends "gemynd_base.html" %}
+{% block title %}{{ doc.title or doc.doc_id }} - Gemynd{% endblock %}
+
+{% set active_page = 'documents' %}
+{% block sidebar_nav %}{% include "fragments/sidebar_nav.html" %}{% endblock %}
+
+{% block main %}
+<div id="document-modal"
+     data-initial-highlight="{{ highlight | e }}">
+  {% include "fragments/document_modal.html" %}
+</div>
+
+{% include "fragments/highlight_script.html" %}
+
+<script>
+(function () {
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    var modal = document.getElementById('document-modal');
+    if (modal && modal.innerHTML.trim() !== '') modal.innerHTML = '';
+  });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var holder = document.getElementById('document-modal');
+    if (!holder) return;
+    var needle = holder.getAttribute('data-initial-highlight');
+    if (needle) highlightClaimInModal(needle);
+  });
+})();
+</script>
+{% endblock %}

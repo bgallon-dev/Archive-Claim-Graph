@@ -95,7 +95,8 @@ class ResetPasswordRequest(BaseModel):
 def create_auth_router(users_db_path: str = "") -> APIRouter:
     """Return a configured APIRouter.  Mount at prefix ``/auth``."""
     router = APIRouter(tags=["auth"])
-    db_path = users_db_path or os.environ.get("USERS_DB", "data/users.db")
+    from gemynd.shared.settings import Settings
+    db_path = users_db_path or Settings.from_env().users_db
     store = UserStore(db_path)
 
     # ------------------------------------------------------------------

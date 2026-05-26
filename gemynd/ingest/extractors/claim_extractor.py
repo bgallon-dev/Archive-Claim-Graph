@@ -20,6 +20,7 @@ from gemynd.shared.resource_loader import (
     load_claim_role_policy,
     load_entity_type_rules,
 )
+from gemynd.shared.text_utils import normalize_for_match
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
@@ -75,15 +76,6 @@ class ClaimDraft:
 class ClaimExtractor(Protocol):
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
         ...
-
-
-def _normalize_sentence(text: str) -> str:
-    lowered = text.strip().lower()
-    return re.sub(r"\s+", " ", lowered)
-
-
-def _normalize_link_form(text: str) -> str:
-    return re.sub(r"\s+", " ", text.strip().lower())
 
 
 _ABBREVS = {
@@ -281,7 +273,7 @@ class RuleBasedClaimExtractor:
             )
             if not claim_type:
                 continue
-            normalized = _normalize_sentence(sentence)
+            normalized = normalize_for_match(sentence)
             epistemic_status = "uncertain" if self._uncertain_tokens.search(sentence) else "certain"
             score_norm = min(
                 (best_score - self._TYPE_SCORE_THRESHOLD) / (self._SCORE_CEILING - self._TYPE_SCORE_THRESHOLD),
@@ -408,7 +400,7 @@ class RuleBasedClaimExtractor:
     ) -> ClaimLinkDraft:
         return ClaimLinkDraft(
             surface_form=surface_form,
-            normalized_form=_normalize_link_form(surface_form),
+            normalized_form=normalize_for_match(surface_form),
             relation_type=relation_type,
             start_offset=start_offset,
             end_offset=end_offset,
@@ -463,7 +455,7 @@ class LLMClaimExtractor:
             raw = str(row.get("source_sentence", "") or row.get("raw_sentence", "")).strip()
             if not raw:
                 continue
-            normalized = str(row.get("normalized_sentence", "")).strip() or _normalize_sentence(raw)
+            normalized = str(row.get("normalized_sentence", "")).strip() or normalize_for_match(raw)
             drafts.append(
                 ClaimDraft(
                     claim_type=str(row.get("claim_type", "management_action")),
@@ -494,7 +486,7 @@ class LLMClaimExtractor:
                 continue
             relation_type = validate_claim_link_relation(str(row.get("relation_type", "")))
             raw = str(row.get("surface_form", "") or row.get("text", "")).strip()
-            normalized = str(row.get("normalized_form", "")).strip() or _normalize_link_form(raw)
+            normalized = str(row.get("normalized_form", "")).strip() or normalize_for_match(raw)
             if not relation_type or not raw:
                 continue
             claim_links.append(

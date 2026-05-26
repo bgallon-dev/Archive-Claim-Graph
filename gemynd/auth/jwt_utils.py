@@ -8,16 +8,17 @@ Reads configuration from environment variables:
 """
 from __future__ import annotations
 
-import os
 from datetime import datetime, timedelta, timezone
 
 from jose import JWTError, jwt
+
+from gemynd.shared.settings import Settings
 
 ALGORITHM = "HS256"
 
 
 def _get_secret() -> str:
-    secret = os.environ.get("JWT_SECRET_KEY", "")
+    secret = Settings.from_env().jwt_secret_key
     if not secret:
         raise RuntimeError(
             "JWT_SECRET_KEY is not set. Generate with:\n"
@@ -31,7 +32,7 @@ def _get_secret() -> str:
 
 def _expire_hours() -> int:
     try:
-        return int(os.environ.get("JWT_EXPIRE_HOURS", "24"))
+        return Settings.from_env().jwt_expire_hours
     except ValueError:
         return 24
 

@@ -18,11 +18,17 @@ class Settings:
     # LLM
     anthropic_api_key: str = ""
     synthesis_model: str = "claude-sonnet-4-6"
+    synthesis_timeout_seconds: float = 60.0
+    synthesis_max_retries: int = 0
     # Auth
     jwt_secret_key: str = ""
     jwt_expire_hours: int = 24
     users_db: str = "data/users.db"
     cookie_secure: bool = False
+    csrf_secret_key: str = ""
+    # Rate limiting
+    query_rate_limit_max: int = 20
+    query_rate_limit_period: float = 60.0
     # Persistence
     conv_log_db: str = "data/conversation_log.db"
     write_audit_db: str = "data/write_audit.db"
@@ -56,10 +62,15 @@ class Settings:
                 or os.environ.get("Anthropic_API_Key", "")
             ),
             synthesis_model=os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6"),
+            synthesis_timeout_seconds=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
+            synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
             jwt_secret_key=os.environ.get("JWT_SECRET_KEY", ""),
             jwt_expire_hours=int(os.environ.get("JWT_EXPIRE_HOURS", "24")),
             users_db=os.environ.get("USERS_DB", "data/users.db"),
             cookie_secure=os.environ.get("COOKIE_SECURE", "false").lower() == "true",
+            csrf_secret_key=os.environ.get("CSRF_SECRET_KEY", ""),
+            query_rate_limit_max=int(os.environ.get("QUERY_RATE_LIMIT_MAX", "20")),
+            query_rate_limit_period=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
             conv_log_db=os.environ.get("CONV_LOG_DB", "data/conversation_log.db"),
             write_audit_db=os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db"),
             review_db=os.environ.get("REVIEW_DB", "data/review.db"),

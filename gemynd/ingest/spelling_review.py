@@ -13,6 +13,7 @@ from gemynd.shared.resource_loader import (
     load_seed_entity_rows,
     load_spelling_reference_terms,
 )
+from gemynd.shared.text_utils import normalize_for_match
 
 _TOKEN_RE = re.compile(r"[A-Za-z][A-Za-z0-9'-]*")
 _MONTHS = frozenset({
@@ -36,10 +37,6 @@ _SEED_REFERENCE_TERMS = frozenset(
     for token in _TOKEN_RE.findall(str(row.get("name", "")).lower())
 )
 _SEVERITY_RANK = {"low": 0, "medium": 1, "high": 2}
-
-
-def _normalize_token(token: str) -> str:
-    return re.sub(r"\s+", " ", token.strip().lower())
 
 
 def _claim_span_start_end(evidence_start: int | None, evidence_end: int | None, paragraph_text: str) -> tuple[int, int]:
@@ -94,7 +91,7 @@ def _suggest_correction(token: str) -> tuple[str, float]:
 
 
 def _token_is_ignorable(token: str) -> bool:
-    normalized = _normalize_token(token)
+    normalized = normalize_for_match(token)
     if len(normalized) < 4:
         return True
     if normalized in _STOPWORDS or normalized in _MONTHS:
@@ -180,7 +177,7 @@ def _mention_flags_by_token(mentions: list[MentionRecord]) -> dict[str, set[str]
             if not token_flags:
                 continue
             token_flags.add("mention_ocr_suspect")
-            flags_by_token[_normalize_token(token)].update(token_flags)
+            flags_by_token[normalize_for_match(token)].update(token_flags)
     return flags_by_token
 
 
@@ -209,7 +206,7 @@ def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBu
         )
 
         for token in _iter_tokens(claim.source_sentence):
-            normalized = _normalize_token(token)
+            normalized = normalize_for_match(token)
             if not normalized:
                 continue
 

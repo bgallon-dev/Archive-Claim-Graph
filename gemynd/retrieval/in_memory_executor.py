@@ -787,11 +787,12 @@ class InMemoryQueryExecutor:
     def _valid_docs(
         self, institution_ids: list[str], permitted_levels: list[str]
     ) -> list[str]:
-        result: list[str] = []
-        for doc_id, props in self._w.node_store.get("Document", {}).items():
-            if self._doc_is_valid(props, institution_ids, permitted_levels):
-                result.append(doc_id)
-        return result
+        from gemynd.core.access_control import doc_is_valid
+        return [
+            doc_id
+            for doc_id, props in self._w.node_store.get("Document", {}).items()
+            if doc_is_valid(props, institution_ids, permitted_levels)
+        ]
 
     def _doc_is_valid(
         self,
@@ -799,16 +800,8 @@ class InMemoryQueryExecutor:
         institution_ids: list[str],
         permitted_levels: list[str],
     ) -> bool:
-        if props.get("deleted_at") is not None:
-            return False
-        if institution_ids and props.get("institution_id") not in institution_ids:
-            return False
-        if props.get("access_level") not in permitted_levels:
-            return False
-        qs = props.get("quarantine_status")
-        if qs is not None and qs != "active":
-            return False
-        return True
+        from gemynd.core.access_control import doc_is_valid
+        return doc_is_valid(props, institution_ids, permitted_levels)
 
     # ── run / claim helpers ─────────────────────────────────────────────────
 

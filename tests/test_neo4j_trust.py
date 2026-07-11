@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import gemynd.ingest.graph.writer as writer_mod
+import gemynd.ingest.graph.neo4j_writer as writer_mod
 from tests.conftest import TEST_ENTITY_LABELS
 
 

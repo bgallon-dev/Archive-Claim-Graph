@@ -31,7 +31,7 @@ sys.path.insert(0, str(_REPO_ROOT))
 
 from gemynd.shared.env import load_dotenv
 from gemynd.shared.settings import Settings
-from gemynd.ingest.graph.writer import _build_driver_kwargs
+from gemynd.ingest.graph import build_driver_kwargs as _build_driver_kwargs
 
 try:
     from neo4j import GraphDatabase

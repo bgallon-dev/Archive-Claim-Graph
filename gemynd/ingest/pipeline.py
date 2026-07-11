@@ -14,7 +14,7 @@ from .extractors import HybridClaimExtractor, RuleBasedMeasurementExtractor, Rul
 from .extractors.claim_extractor import ClaimExtractor
 from .extractors.measurement_extractor import MeasurementExtractor
 from .extractors.mention_extractor import MentionExtractor, ResolutionContext
-from .graph.writer import GraphWriter, InMemoryGraphWriter, Neo4jGraphWriter
+from .graph import GraphWriter, InMemoryGraphWriter, Neo4jGraphWriter
 from gemynd.shared.io_utils import load_json, load_semantic_bundle, load_structure_bundle, save_json, save_semantic_bundle, save_structure_bundle
 from gemynd.core.models import (
     ClaimEntityLinkRecord,

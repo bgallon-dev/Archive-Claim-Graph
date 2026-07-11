@@ -10,10 +10,11 @@ input/
 out/
 csv_out
 plan/
+plans/
 .claude/
 RUNBOOK.md
 data/
-C:\Users\octot\OneDrive\Desktop\Graphrag\Archive-Claim-Graph\.hypothesis\constants
+.hypothesis/
 out_land_patent/
 matches.csv
 out_turnbull/

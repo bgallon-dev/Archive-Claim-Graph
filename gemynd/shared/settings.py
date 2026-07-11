@@ -20,6 +20,11 @@ class Settings:
     synthesis_model: str = "claude-sonnet-4-6"
     synthesis_timeout_seconds: float = 60.0
     synthesis_max_retries: int = 0
+    # Claim-extraction provider switch (EXTRACTION PATH ONLY; synthesis/Cypher stay Anthropic)
+    llm_provider: str = "anthropic"
+    llm_model: str = ""
+    openai_api_key: str = ""
+    openai_base_url: str = "http://localhost:1234/v1"
     # Auth
     jwt_secret_key: str = ""
     jwt_expire_hours: int = 24
@@ -64,6 +69,10 @@ class Settings:
             synthesis_model=os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6"),
             synthesis_timeout_seconds=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
             synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
+            llm_provider=os.environ.get("LLM_PROVIDER", "anthropic"),
+            llm_model=os.environ.get("LLM_MODEL", ""),
+            openai_api_key=os.environ.get("OPENAI_API_KEY", ""),
+            openai_base_url=os.environ.get("OPENAI_BASE_URL", "http://localhost:1234/v1"),
             jwt_secret_key=os.environ.get("JWT_SECRET_KEY", ""),
             jwt_expire_hours=int(os.environ.get("JWT_EXPIRE_HOURS", "24")),
             users_db=os.environ.get("USERS_DB", "data/users.db"),

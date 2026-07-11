@@ -104,15 +104,15 @@ def test_percentage_excluded_from_count() -> None:
 
 
 def test_classify_number_directly() -> None:
-    classify = RuleBasedMeasurementExtractor._classify_number
+    extractor = RuleBasedMeasurementExtractor()
     generic = re.compile(r"\b(\d+(?:\.\d+)?)\b")
 
     sentence = "In 1938 about 500 geese were observed on page 7."
     matches = list(generic.finditer(sentence))
     # matches: 1938, 500, 7
-    assert classify(1938.0, matches[0], sentence) == "year_candidate"
-    assert classify(500.0, matches[1], sentence) == "count_candidate"
-    assert classify(7.0, matches[2], sentence) == "page_table_candidate"
+    assert extractor._classify_number(1938.0, matches[0], sentence) == "year_candidate"
+    assert extractor._classify_number(500.0, matches[1], sentence) == "count_candidate"
+    assert extractor._classify_number(7.0, matches[2], sentence) == "page_table_candidate"
 
 
 # ── Change 1: local noun attachment ──────────────────────────────────────────
@@ -149,11 +149,11 @@ def test_date_unit_excluded() -> None:
 
 def test_immediate_species_high_confidence() -> None:
     """Number immediately followed by species noun should be count_candidate."""
-    classify = RuleBasedMeasurementExtractor._classify_number
+    extractor = RuleBasedMeasurementExtractor()
     generic = re.compile(r"\b(\d+(?:\.\d+)?)\b")
     sentence = "We observed 45 mallards on the pond."
     matches = list(generic.finditer(sentence))
-    assert classify(45.0, matches[0], sentence) == "count_candidate"
+    assert extractor._classify_number(45.0, matches[0], sentence) == "count_candidate"
 
 
 # ── Change 2: target_surface and target_entity_type_hint ─────────────────────

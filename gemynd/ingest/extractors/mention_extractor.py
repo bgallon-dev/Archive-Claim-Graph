@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import difflib
-import functools
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -11,29 +10,16 @@ from gemynd.core.resolver import default_seed_entities
 from gemynd.shared.resource_loader import load_negative_entities, load_ocr_corrections
 from gemynd.shared.text_utils import normalize_for_match
 from ..span_utils import resolve_overlapping_spans
+from ._draft_audit import tag_hybrid_trace
+from ._resources import (
+    default_lexicon_hints,
+    default_negative_entities,
+    default_ocr_corrections,
+)
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
-
-
-@functools.cache
-def _default_ocr_corrections() -> frozenset[str]:
-    return load_ocr_corrections()
-
-
-@functools.cache
-def _default_negative_forms() -> frozenset[str]:
-    return load_negative_entities()
-
-
-@functools.cache
-def _default_lexicon_hints() -> tuple[dict[str, list[str]], list[str]]:
-    """Return (hints_dict, sorted_terms) from default seed entities."""
-    hints: dict[str, list[str]] = {}
-    for entity in default_seed_entities():
-        hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
-    return hints, sorted(hints, key=len, reverse=True)
 
 
 @dataclass(slots=True)
@@ -106,8 +92,8 @@ def get_ocr_flags(
     lexicon_hints: dict[str, list[str]] | None = None,
 ) -> list[str]:
     normalized = re.sub(r"\s+", " ", surface.strip().lower())
-    known_errors = known_ocr_errors if known_ocr_errors is not None else _default_ocr_corrections()
-    hints = lexicon_hints if lexicon_hints is not None else _default_lexicon_hints()[0]
+    known_errors = known_ocr_errors if known_ocr_errors is not None else default_ocr_corrections()
+    hints = lexicon_hints if lexicon_hints is not None else default_lexicon_hints()[0]
 
     flags: list[str] = []
     if normalized in known_errors:
@@ -182,9 +168,9 @@ class RuleBasedMentionExtractor:
             self._lexicon_hints = hints
             self._lexicon_terms = sorted(hints, key=len, reverse=True)
         else:
-            self._known_ocr_errors = _default_ocr_corrections()
-            self._negative_forms = _default_negative_forms()
-            self._lexicon_hints, self._lexicon_terms = _default_lexicon_hints()
+            self._known_ocr_errors = default_ocr_corrections()
+            self._negative_forms = default_negative_entities()
+            self._lexicon_hints, self._lexicon_terms = default_lexicon_hints()
 
     def extract(self, paragraph_text: str) -> list[MentionDraft]:
         spans = self._detect(paragraph_text)
@@ -498,17 +484,17 @@ class HybridMentionExtractor:
                 if not gliner_draft.entity_type_hints:
                     gliner_draft.entity_type_hints = list(rule_draft.entity_type_hints)
                 gliner_draft.detection_source = "hybrid"
-                gliner_draft.decision_trace = list(gliner_draft.decision_trace)
-                gliner_draft.decision_trace.append(
-                    f"hybrid:gliner_won(conf={gliner_conf:.3f}>rule={rule_conf:.3f})"
+                tag_hybrid_trace(
+                    gliner_draft,
+                    f"hybrid:gliner_won(conf={gliner_conf:.3f}>rule={rule_conf:.3f})",
                 )
                 merged[key] = gliner_draft
             else:
                 # Rules win.
                 rule_draft.detection_source = "hybrid"
-                rule_draft.decision_trace = list(rule_draft.decision_trace)
-                rule_draft.decision_trace.append(
-                    f"hybrid:rules_won(conf={rule_conf:.3f}>={gliner_conf:.3f})"
+                tag_hybrid_trace(
+                    rule_draft,
+                    f"hybrid:rules_won(conf={rule_conf:.3f}>={gliner_conf:.3f})",
                 )
 
         for key in merged:

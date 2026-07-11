@@ -3,24 +3,22 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
-from typing import Protocol
+from typing import Protocol, TYPE_CHECKING
+
+from gemynd.shared.resource_loader import load_measurement_species, load_measurement_units
 
 from .claim_extractor import ClaimDraft
-from gemynd.shared.resource_loader import load_measurement_units, load_measurement_species
-from typing import TYPE_CHECKING
+from ._resources import default_measurement_species, default_measurement_units
 
 if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
 
-_LOADED_UNITS: dict[str, tuple[str, str]] = load_measurement_units()
-_LOADED_SPECIES: dict[str, Any] = load_measurement_species()
-_SPECIES_IMMEDIATE_PATTERN = r"^\s*(" + "|".join(_LOADED_SPECIES["immediate_patterns"]) + r")\b"
+
+# Verb list used to build the species-context pattern at instance-construction
+# time. Kept module-level because it's a static literal — has no dependency on
+# loaded resources.
 _SPECIES_CONTEXT_VERBS = (
     r"counted|estimated|population|total|observed|taken|killed|trapped|shot|removed|reported"
-)
-_SPECIES_CONTEXT_PATTERN = (
-    r"\b(" + "|".join(_LOADED_SPECIES["immediate_patterns"]) + r"|" + _SPECIES_CONTEXT_VERBS + r")\b"
 )
 
 
@@ -60,7 +58,6 @@ class RuleBasedMeasurementExtractor:
         (re.compile(r"(\d+(?:\.\d+)?)\s*(cords?|cord)\b", re.IGNORECASE), "wood_killed_cords", "cords"),
         (re.compile(r"(\d+(?:\.\d+)?)\s*(covies?|covy)\b", re.IGNORECASE), "coveys_count", "coveys"),
     ]
-    _individual_context = re.compile(_SPECIES_CONTEXT_PATTERN, re.IGNORECASE)
     _generic_number = re.compile(r"\b(\d+(?:\.\d+)?)\b")
     _page_table_re = re.compile(
         r"\b(pages?|tables?|figures?|fig\.?|sections?|sec\.?|no\.|number|item)\s*$",
@@ -68,7 +65,6 @@ class RuleBasedMeasurementExtractor:
     )
     _percent_re = re.compile(r"^\s*(%|percent)", re.IGNORECASE)
     _acre_right_re = re.compile(r"^\s*acres?\b", re.IGNORECASE)
-    _count_context_re = re.compile(_SPECIES_CONTEXT_PATTERN, re.IGNORECASE)
     _month_re = re.compile(
         r"\b(jan\.?|feb\.?|mar\.?|apr\.?|may|jun\.?|jul\.?|aug\.?|sep\.?|sept\.?|oct\.?|nov\.?|dec\.?|"
         r"january|february|march|april|june|july|august|september|october|november|december)\s*$",
@@ -89,7 +85,6 @@ class RuleBasedMeasurementExtractor:
         r"^\s*(years?|months?|weeks?|decades?|centuries?|century)\b",
         re.IGNORECASE,
     )
-    _immediate_species_re = re.compile(_SPECIES_IMMEDIATE_PATTERN, re.IGNORECASE)
 
     # Range and comparative patterns
     _range_hyphen_re = re.compile(r"\b(\d+(?:\.\d+)?)\s*[-\u2013\u2014]\s*(\d+(?:\.\d+)?)\b")
@@ -110,37 +105,33 @@ class RuleBasedMeasurementExtractor:
         r"^\s*(acres?|inches?|inch|days?|tons?|cords?|covies?)\b", re.IGNORECASE
     )
 
-    # Unit string → (name, unit) used by range extraction to mirror _pattern_specs
-    _UNIT_NAME_MAP: dict[str, tuple[str, str]] = _LOADED_UNITS
-
-    _SPECIES_TYPE_HINTS: dict[str, str] = _LOADED_SPECIES["type_hints"]  # type: ignore[assignment]
-
     def __init__(
         self,
         resources_dir: Path | None = None,
         config: "DomainConfig | None" = None,
     ) -> None:
         if config is not None:
+            units = config.measurement_units
             species = config.measurement_species
-            self._UNIT_NAME_MAP = config.measurement_units
-            self._SPECIES_TYPE_HINTS = species["type_hints"]
-            immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
-            ctx_verbs = _SPECIES_CONTEXT_VERBS
-            ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + ctx_verbs + r")\b"
-            self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
-            self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
-            self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
         elif resources_dir is not None:
             units = load_measurement_units(resources_dir)
             species = load_measurement_species(resources_dir)
-            self._UNIT_NAME_MAP = units
-            self._SPECIES_TYPE_HINTS = species["type_hints"]
-            immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
-            ctx_verbs = _SPECIES_CONTEXT_VERBS
-            ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + ctx_verbs + r")\b"
-            self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
-            self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
-            self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
+        else:
+            # Lazy default load via the shared process-wide cache in _resources.
+            # First instantiation pulls the resources; subsequent instantiations
+            # reuse the cached dicts. The eager module-level _LOADED_UNITS /
+            # _LOADED_SPECIES constants this replaces are gone.
+            units = default_measurement_units()
+            species = default_measurement_species()
+
+        self._UNIT_NAME_MAP = units
+        self._SPECIES_TYPE_HINTS = species["type_hints"]
+
+        immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
+        ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + _SPECIES_CONTEXT_VERBS + r")\b"
+        self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
+        self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
+        self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
 
     def _infer_methodology_note(self, sentence: str, approximate: bool) -> str | None:
         if approximate or self._estimated_re.search(sentence):
@@ -391,20 +382,18 @@ class RuleBasedMeasurementExtractor:
             return "acres"
         return default_name
 
-    @staticmethod
-    def _resolve_target_noun(match_end: int, sentence: str) -> tuple[str | None, str | None]:
+    def _resolve_target_noun(self, match_end: int, sentence: str) -> tuple[str | None, str | None]:
         """Return (surface_text, entity_type_hint) for the species noun immediately right of position."""
         right = sentence[match_end:min(len(sentence), match_end + 25)]
-        m = RuleBasedMeasurementExtractor._immediate_species_re.match(right)
+        m = self._immediate_species_re.match(right)
         if not m:
             return None, None
         surface = m.group(0).strip()
         key = surface.lower().rstrip("s")
-        type_hint = RuleBasedMeasurementExtractor._SPECIES_TYPE_HINTS.get(key, "wildlife")
+        type_hint = self._SPECIES_TYPE_HINTS.get(key, "wildlife")
         return surface, type_hint
 
-    @staticmethod
-    def _classify_number(value: float, match: re.Match[str], sentence: str) -> str:
+    def _classify_number(self, value: float, match: re.Match[str], sentence: str) -> str:
         # Year: 4-digit integer in historical range
         if value == int(value) and 1800 <= value <= 2100:
             return "year_candidate"
@@ -412,38 +401,38 @@ class RuleBasedMeasurementExtractor:
         # Tight local noun attachment (±20 chars) — higher precision than wide context
         left_tight = sentence[max(0, match.start() - 20):match.start()]
         right_tight = sentence[match.end():min(len(sentence), match.end() + 20)]
-        if RuleBasedMeasurementExtractor._serial_ref_re.search(left_tight):
+        if self._serial_ref_re.search(left_tight):
             return "other_numeric"
-        if RuleBasedMeasurementExtractor._date_unit_re.match(right_tight.lstrip()):
+        if self._date_unit_re.match(right_tight.lstrip()):
             return "other_numeric"
-        if RuleBasedMeasurementExtractor._immediate_species_re.match(right_tight.lstrip()):
+        if self._immediate_species_re.match(right_tight.lstrip()):
             return "count_candidate"
 
         left_ctx = sentence[max(0, match.start() - 30):match.start()]
         right_ctx = sentence[match.end():min(len(sentence), match.end() + 30)]
 
         # Page / table / figure / section reference
-        if RuleBasedMeasurementExtractor._page_table_re.search(left_ctx):
+        if self._page_table_re.search(left_ctx):
             return "page_table_candidate"
 
         # Percentage
-        if RuleBasedMeasurementExtractor._percent_re.search(right_ctx):
+        if self._percent_re.search(right_ctx):
             return "percentage_candidate"
 
         # Acreage safety net
-        if RuleBasedMeasurementExtractor._acre_right_re.search(right_ctx):
+        if self._acre_right_re.search(right_ctx):
             return "acreage_candidate"
 
         # Day-of-month inside a date phrase (e.g. "July 3")
         left_narrow = sentence[max(0, match.start() - 15):match.start()]
-        if RuleBasedMeasurementExtractor._month_re.search(left_narrow):
+        if self._month_re.search(left_narrow):
             return "other_numeric"
 
         # Count: species or counting words nearby
         left_wide = sentence[max(0, match.start() - 50):match.start()]
         right_wide = sentence[match.end():min(len(sentence), match.end() + 50)]
         context = f"{left_wide} {right_wide}"
-        if RuleBasedMeasurementExtractor._count_context_re.search(context):
+        if self._count_context_re.search(context):
             return "count_candidate"
 
         return "other_numeric"

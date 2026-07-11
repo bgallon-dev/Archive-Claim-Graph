@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import functools
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -23,18 +22,15 @@ from gemynd.shared.resource_loader import (
 from gemynd.shared.text_utils import normalize_for_match
 from typing import TYPE_CHECKING
 
+from ._draft_audit import tag_hybrid_trace
+from ._resources import (
+    default_claim_role_policy,
+    default_claim_type_patterns,
+    seed_terms_for,
+)
+
 if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
-
-
-@functools.cache
-def _default_type_patterns():
-    return load_claim_type_patterns()
-
-
-@functools.cache
-def _default_role_policy():
-    return load_claim_role_policy()
 
 
 @dataclass(slots=True)
@@ -147,31 +143,6 @@ def _seed_terms(*entity_types: str, seed: list | None = None) -> list[str]:
         key=len,
         reverse=True,
     )
-
-
-@functools.cache
-def _default_species_terms():
-    return _seed_terms("Species")
-
-
-@functools.cache
-def _default_habitat_terms():
-    return _seed_terms("Habitat")
-
-
-@functools.cache
-def _default_method_terms():
-    return _seed_terms("SurveyMethod")
-
-
-@functools.cache
-def _default_location_terms():
-    return _seed_terms("Place", "Refuge")
-
-
-@functools.cache
-def _default_activity_terms():
-    return _seed_terms("Activity")
 SUBJECT_TRIGGER_VERBS = re.compile(
     r"\b(recommended|reported|noted|managed|authorized|requested|directed|approved|announced|said|wrote)\b",
     re.IGNORECASE,
@@ -255,15 +226,15 @@ class RuleBasedClaimExtractor:
             self._location_terms = _seed_terms("Place", "Refuge",       seed=_seed)
             self._activity_terms = _seed_terms("Activity",              seed=_seed)
         else:
-            self._ROLE_POLICY          = _default_role_policy()
-            self._type_scored_patterns = _default_type_patterns()
+            self._ROLE_POLICY          = default_claim_role_policy()
+            self._type_scored_patterns = default_claim_type_patterns()
             self._seed_entities_all    = list(default_seed_entities())
             self._entity_type_rules    = load_entity_type_rules()
-            self._species_terms        = _default_species_terms()
-            self._habitat_terms        = _default_habitat_terms()
-            self._method_terms         = _default_method_terms()
-            self._location_terms       = _default_location_terms()
-            self._activity_terms       = _default_activity_terms()
+            self._species_terms        = list(seed_terms_for("Species"))
+            self._habitat_terms        = list(seed_terms_for("Habitat"))
+            self._method_terms         = list(seed_terms_for("SurveyMethod"))
+            self._location_terms       = list(seed_terms_for("Place", "Refuge"))
+            self._activity_terms       = list(seed_terms_for("Activity"))
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
         claims: list[ClaimDraft] = []
@@ -539,8 +510,8 @@ class HybridClaimExtractor:
         if llm_extractor is not None:
             self._llm = llm_extractor
         else:
-            from gemynd.ingest.extractors.anthropic_claim_adapter import try_create_anthropic_adapter
-            self._llm = LLMClaimExtractor(try_create_anthropic_adapter(config=config, token_logger=token_logger))
+            from gemynd.ingest.extractors.openai_claim_adapter import create_claim_llm_adapter
+            self._llm = LLMClaimExtractor(create_claim_llm_adapter(config=config, token_logger=token_logger))
         self.last_telemetry: HybridTelemetry | None = None
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
@@ -582,9 +553,9 @@ class HybridClaimExtractor:
                     telemetry.label_changed.append(key)
 
                 llm_draft.extraction_source = "hybrid"
-                llm_draft.decision_trace = list(llm_draft.decision_trace)
-                llm_draft.decision_trace.append(
-                    f"hybrid:llm_won(conf={llm_conf:.3f}>rule={rule_conf:.3f})"
+                tag_hybrid_trace(
+                    llm_draft,
+                    f"hybrid:llm_won(conf={llm_conf:.3f}>rule={rule_conf:.3f})",
                 )
                 if inherited:
                     llm_draft.decision_trace.append("hybrid:links_inherited")
@@ -596,9 +567,9 @@ class HybridClaimExtractor:
             else:
                 # Rule wins — annotate the existing rule draft
                 rule_draft.extraction_source = "hybrid"
-                rule_draft.decision_trace = list(rule_draft.decision_trace)
-                rule_draft.decision_trace.append(
-                    f"hybrid:rule_won(conf={rule_conf:.3f}>={llm_conf:.3f})"
+                tag_hybrid_trace(
+                    rule_draft,
+                    f"hybrid:rule_won(conf={rule_conf:.3f}>={llm_conf:.3f})",
                 )
 
         # Sentences only seen by rules (not in LLM output at all)

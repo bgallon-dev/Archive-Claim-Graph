@@ -33,7 +33,7 @@ from gemynd.core.graph.cypher import (
 )
 
 if TYPE_CHECKING:
-    from gemynd.ingest.graph.writer import InMemoryGraphWriter
+    from gemynd.ingest.graph import InMemoryGraphWriter
 
 
 class InMemoryQueryExecutor:

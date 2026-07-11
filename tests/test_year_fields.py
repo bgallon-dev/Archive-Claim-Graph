@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from gemynd.ingest.graph.writer import InMemoryGraphWriter
+from gemynd.ingest.graph import InMemoryGraphWriter
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
 from tests.conftest import TEST_ENTITY_LABELS

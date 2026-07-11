@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from gemynd.ingest.graph.writer import _build_driver_kwargs, _format_connection_error
+from gemynd.ingest.graph import build_driver_kwargs, format_connection_error
 
 try:
     from neo4j import GraphDatabase
@@ -48,7 +48,7 @@ class Neo4jQueryExecutor:
             build_constraint_statements,
         )
 
-        driver_kwargs = _build_driver_kwargs(uri=uri, trust_mode=trust_mode, ca_cert_path=ca_cert_path)
+        driver_kwargs = build_driver_kwargs(uri=uri, trust_mode=trust_mode, ca_cert_path=ca_cert_path)
         self._driver = GraphDatabase.driver(uri, auth=(user, password), **driver_kwargs)
         self._database = database
         self._uri = uri
@@ -69,7 +69,7 @@ class Neo4jQueryExecutor:
         try:
             self._driver.verify_connectivity()
         except Exception as exc:  # pragma: no cover - requires neo4j runtime
-            message = _format_connection_error(uri, exc)
+            message = format_connection_error(uri, exc)
             raise RuntimeError(message) from exc
 
     def run(self, cypher: str, params: dict[str, Any] | None = None) -> list[dict[str, Any]]:

@@ -58,6 +58,43 @@ sudo chmod 600 /opt/gemynd/.env
 > first-run setup and makes every existing account appear to vanish. The
 > systemd unit sets `WorkingDirectory=/opt/gemynd` for exactly this reason.
 
+## 3a. Register the corpus
+
+**The server will not start without this**, and the file is gitignored, so
+every deployment must create it:
+
+```
+RuntimeError: retrieval web app requires at least one registered corpus
+(data/corpus_registry.yaml) or an explicit --domain-dir
+```
+
+```bash
+sudo -u gemynd .venv/bin/gemynd corpus create \
+    --id turnbull \
+    --name "Turnbull National Wildlife Refuge" \
+    --resources-dir gemynd/resources \
+    --description "Refuge narrative reports and survey records."
+sudo -u gemynd .venv/bin/gemynd corpus set-default turnbull
+sudo -u gemynd .venv/bin/gemynd corpus list
+```
+
+The `--id` becomes the **`institution_id`** used to scope every query, so it
+must match the `institution_id` on the documents already in the graph. Check
+before you commit to a value:
+
+```cypher
+MATCH (d:Document) RETURN DISTINCT d.institution_id, count(*)
+```
+
+A corpus registered under an id that matches no documents produces a server
+that starts cleanly and answers every query with nothing.
+
+Register only the corpora the pilot should expose. Registering a second one
+silently widens what testers can query.
+
+`--domain-dir <path>` bypasses the registry for a single-corpus run — useful
+for a smoke test, but the registry is the path to use for a real deployment.
+
 ## 4. Supervisor
 
 ```bash
@@ -138,11 +175,28 @@ is deleted after use.
 journalctl -u gemynd-query -n 50 | grep -i setup
 ```
 
-Create the admin account, then add testers. **Give every tester the
-`researcher` or `readonly` role — never `admin`.** Role assignment is what
-scopes the pilot: `/review`, `/ingest`, `/users`, `/gaps` and the tester
-feedback list are all admin-gated routes inside the same app, so a non-admin
-account simply never sees them.
+Create the admin account, then add testers. Two things to get right:
+
+**Give every tester the `researcher` or `readonly` role — never `admin`.**
+Role assignment is what scopes the pilot: `/review`, `/ingest`, `/users`,
+`/gaps` and the tester feedback list are all admin-gated routes inside the
+same app, so a non-admin account simply never sees them.
+
+**Set each tester's Collection.** A non-admin account is scoped to its
+institution; one with no collection matches no documents and every query
+returns nothing. The create-user form defaults this to the registered corpus
+and the app now refuses to serve an unscoped non-admin with an explanatory
+403 rather than an empty answer — but it is still worth confirming, because
+"the archive looks empty" is the failure mode most likely to be misread as
+"the system doesn't work".
+
+Verify a tester account before handing it over:
+
+```bash
+sqlite3 /opt/gemynd/data/users.db \
+  "SELECT email, role, institution_id FROM user;"
+# institution_id must be non-empty for every non-admin row
+```
 
 ## 8. Verify before handing it to anyone
 
@@ -204,3 +258,15 @@ widening scope:
 - **Single process, no workers.** Fine for a handful of concurrent testers —
   the expensive paths (Neo4j I/O, synthesis) already run in the threadpool.
   Revisit before opening it up more widely.
+- **Documents with an empty `institution_id` are invisible to everyone.**
+  Scoping is `d.institution_id IN $institution_ids`, and no user — admin
+  included — is ever scoped to `''`. Check for orphans before the pilot:
+
+  ```cypher
+  MATCH (d:Document) WHERE d.institution_id IS NULL OR d.institution_id = ''
+  RETURN count(d)
+  ```
+
+  If that count is non-zero, those documents will never appear in any answer,
+  and the archive will look smaller than it is. Backfilling them is a
+  data-repair task, not a deployment one.

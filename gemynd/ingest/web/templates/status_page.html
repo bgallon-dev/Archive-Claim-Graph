@@ -3,9 +3,7 @@
 {% block title %}Job {{ job_id[:8] }}… — Gemynd Ingest{% endblock %}
 
 {% block head %}
-<script src="https://unpkg.com/htmx.org@1.9.12"
-  integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
-  crossorigin="anonymous"></script>
+<script src="/static/vendor/htmx.min.js"></script>
 <style>
 .job-header { margin-bottom: 1.5rem; }
 .job-id { font-family: var(--font-body); font-size: 13px; color: var(--text-secondary); background: var(--bark-50); padding: 2px 8px; border-radius: var(--radius-sm); }

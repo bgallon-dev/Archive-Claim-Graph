@@ -1449,6 +1449,10 @@ def create_app(
     from gemynd.auth.setup import is_setup_needed
 
     users_db_path = _env_settings.users_db
+    # Vendored front-end assets (htmx, Cytoscape, fonts) — never a CDN.
+    from gemynd.shared.static_files import mount_static
+    mount_static(app)
+
     app.include_router(create_auth_router(users_db_path), prefix="/auth")
 
     @app.exception_handler(NeedsLoginException)

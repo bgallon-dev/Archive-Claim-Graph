@@ -272,25 +272,40 @@ LIMIT 50
 """
 
 # Tier 1 — places where claims about a single resolved entity occurred.
-# Returns ranked Place / Refuge nodes by claim count, capped at 25.  Uses the
-# OCCURRED_AT relation (Claim -> Place|Refuge), filtered through the same
-# document access-control structure as the rest of the retrieval layer.
-LOCATIONS_FOR_ENTITY_QUERY = """
-MATCH (e {entity_id: $entity_id})
+# Returns ranked location nodes by claim count, capped at 25, filtered through
+# the same document access-control structure as the rest of the retrieval layer.
+def build_locations_for_entity_query(
+    *,
+    location_relation: str = "OCCURRED_AT",
+    location_labels: tuple[str, ...] = ("Place", "Refuge"),
+) -> str:
+    """Build the Tier-1 "where did claims about X occur" query.
+
+    ``location_relation`` and ``location_labels`` come from the domain's
+    ``claim_location_relation`` + location entity types. The defaults reproduce
+    the historical Turnbull query byte-for-byte. Returns a finalized query
+    (access-control tokens already expanded) ready to execute.
+    """
+    label_pred = " OR ".join(f"p:{lbl}" for lbl in location_labels)
+    return _finalize(f"""
+MATCH (e {{entity_id: $entity_id}})
 MATCH (c:Claim)-[]->(e)
-WHERE {_CLAIM_ACTIVE}
+WHERE {{_CLAIM_ACTIVE}}
 MATCH (c)<-[:HAS_CLAIM]-(:Paragraph)<-[:HAS_PARAGRAPH]-(:Section)
       <-[:HAS_SECTION]-(:Page)<-[:HAS_PAGE]-(d:Document)
-WHERE {_DOC_ACCESS}
-MATCH (c)-[:OCCURRED_AT]->(p)
-WHERE p:Place OR p:Refuge
+WHERE {{_DOC_ACCESS}}
+MATCH (c)-[:{location_relation}]->(p)
+WHERE {label_pred}
 RETURN p.entity_id AS place_id,
        p.name AS place_name,
        [x IN labels(p) WHERE x <> 'Entity'][0] AS place_type,
        count(DISTINCT c) AS claim_count
 ORDER BY claim_count DESC
 LIMIT 25
-"""
+""")
+
+
+LOCATIONS_FOR_ENTITY_QUERY = build_locations_for_entity_query()
 
 # Tier 1 — entities that co-occur in claims with a single resolved entity.
 # Distinct from ENTITY_NEIGHBORHOOD_QUERY (which uses a non-existent

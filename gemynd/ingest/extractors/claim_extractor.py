@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import functools
+import os
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -13,9 +14,11 @@ from gemynd.core.claim_contract import (
     claim_relation_priority,
     validate_claim_link_relation,
 )
+from gemynd.core.claim_validator import is_valid_claim_sentence
 from gemynd.core.entity_type_inference import infer_entity_type
 from gemynd.core.resolver import default_seed_entities
 from gemynd.shared.resource_loader import (
+    TURNBULL_RESOURCES_DIR,
     load_claim_type_patterns,
     load_claim_role_policy,
     load_entity_type_rules,
@@ -27,14 +30,32 @@ if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
 
 
-@functools.cache
-def _default_type_patterns():
-    return load_claim_type_patterns()
+def _collect_seed_terms(seed_types: tuple[str, ...], seed_entities: list) -> list[str]:
+    """Names of seed entities whose type is in *seed_types*, longest-first."""
+    labels = set(seed_types)
+    return sorted(
+        {entity.name for entity in seed_entities if entity.entity_type in labels},
+        key=len,
+        reverse=True,
+    )
 
 
-@functools.cache
-def _default_role_policy():
-    return load_claim_role_policy()
+def _compile_occurrence_re(verbs: tuple[str, ...]) -> "re.Pattern[str] | None":
+    """Occurrence-context regex from a domain's occurrence verbs (or None)."""
+    if not verbs:
+        return None
+    return re.compile(
+        r"\b(" + "|".join(verbs) + r")"
+        r"\s+(?:into|in|at|near|on|within|around|from)\s*$",
+        re.IGNORECASE,
+    )
+
+
+def _compile_subject_re(verbs: tuple[str, ...]) -> "re.Pattern[str] | None":
+    """Subject-trigger regex from a domain's subject verbs (or None)."""
+    if not verbs:
+        return None
+    return re.compile(r"\b(" + "|".join(verbs) + r")\b", re.IGNORECASE)
 
 
 @dataclass(slots=True)
@@ -139,49 +160,10 @@ def _split_sentences(text: str) -> list[tuple[str, int, int]]:
     return spans if spans else [(rejoined, 0, len(rejoined))]
 
 
-def _seed_terms(*entity_types: str, seed: list | None = None) -> list[str]:
-    entities = seed if seed is not None else default_seed_entities()
-    labels = set(entity_types)
-    return sorted(
-        {entity.name for entity in entities if entity.entity_type in labels},
-        key=len,
-        reverse=True,
-    )
-
-
-@functools.cache
-def _default_species_terms():
-    return _seed_terms("Species")
-
-
-@functools.cache
-def _default_habitat_terms():
-    return _seed_terms("Habitat")
-
-
-@functools.cache
-def _default_method_terms():
-    return _seed_terms("SurveyMethod")
-
-
-@functools.cache
-def _default_location_terms():
-    return _seed_terms("Place", "Refuge")
-
-
-@functools.cache
-def _default_activity_terms():
-    return _seed_terms("Activity")
-SUBJECT_TRIGGER_VERBS = re.compile(
-    r"\b(recommended|reported|noted|managed|authorized|requested|directed|approved|announced|said|wrote)\b",
-    re.IGNORECASE,
-)
-_OCCURRENCE_VERB_PREP = re.compile(
-    r"\b(observed|found|seen|collected|taken|trapped|nested|wintered"
-    r"|came|arrived|occurred|burned|happened|departed)"
-    r"\s+(?:into|in|at|near|on|within|around|from)\s*$",
-    re.IGNORECASE,
-)
+# Seed-term lists, claim-link roles, occurrence verbs, and subject-trigger verbs
+# now come from the domain config (built in __init__). The former module-level
+# _seed_terms / _default_*_terms / SUBJECT_TRIGGER_VERBS / _OCCURRENCE_VERB_PREP
+# constants were Turnbull-specific and have been relocated to domain_schema.yaml.
 _TOPIC_VERB = re.compile(
     r"\b(concerns?|regarding|in reference to|conditions? at|management of)\s*$",
     re.IGNORECASE,
@@ -216,8 +198,21 @@ def _dedupe_claim_links(claim_links: list[ClaimLinkDraft]) -> list[ClaimLinkDraf
     return sorted(deduped.values(), key=lambda row: (row.start_offset or -1, row.end_offset or -1, row.normalized_form))
 
 
+def _resolve_rules_fallback(flag: bool | None) -> bool:
+    """Whether the rule extractor proposes unclassified candidates for un-typed
+    (but valid) sentences. Env ``CLAIM_RULES_FALLBACK`` (default off) enables the
+    recall-first mode used when an LLM validates the rule proposals downstream.
+    """
+    if flag is not None:
+        return flag
+    return (os.environ.get("CLAIM_RULES_FALLBACK") or "0").strip().lower() in {"1", "true", "yes", "on"}
+
+
 class RuleBasedClaimExtractor:
     _TYPE_SCORE_THRESHOLD: float = 0.85
+    # Confidence assigned to unclassified fallback candidates — deliberately low:
+    # these are recall-first proposals for an LLM validator to confirm/reject.
+    _UNCLASSIFIED_CONF: float = 0.30
     _TYPE_MARGIN: float = 0.35
     # Confidence calibration constants
     _SCORE_CEILING: float = 2.5   # raw pattern scores at or above this map to score_norm=1.0
@@ -232,38 +227,37 @@ class RuleBasedClaimExtractor:
         self,
         resources_dir: Path | None = None,
         config: "DomainConfig | None" = None,
+        unclassified_fallback: bool | None = None,
     ) -> None:
-        if config is not None:
-            self._ROLE_POLICY = config.claim_role_policy
-            self._type_scored_patterns = config.claim_type_patterns
-            self._seed_entities_all = list(config.seed_entities)
-            self._entity_type_rules = list(config.entity_type_rules)
-            self._species_terms  = _seed_terms("Species",         seed=config.seed_entities)
-            self._habitat_terms  = _seed_terms("Habitat",         seed=config.seed_entities)
-            self._method_terms   = _seed_terms("SurveyMethod",    seed=config.seed_entities)
-            self._location_terms = _seed_terms("Place", "Refuge", seed=config.seed_entities)
-            self._activity_terms = _seed_terms("Activity",        seed=config.seed_entities)
-        elif resources_dir is not None:
-            self._ROLE_POLICY = load_claim_role_policy(resources_dir)
-            self._type_scored_patterns = load_claim_type_patterns(resources_dir)
-            _seed = default_seed_entities(resources_dir)
-            self._seed_entities_all = list(_seed)
-            self._entity_type_rules = load_entity_type_rules(resources_dir)
-            self._species_terms  = _seed_terms("Species",               seed=_seed)
-            self._habitat_terms  = _seed_terms("Habitat",               seed=_seed)
-            self._method_terms   = _seed_terms("SurveyMethod",          seed=_seed)
-            self._location_terms = _seed_terms("Place", "Refuge",       seed=_seed)
-            self._activity_terms = _seed_terms("Activity",              seed=_seed)
-        else:
-            self._ROLE_POLICY          = _default_role_policy()
-            self._type_scored_patterns = _default_type_patterns()
-            self._seed_entities_all    = list(default_seed_entities())
-            self._entity_type_rules    = load_entity_type_rules()
-            self._species_terms        = _default_species_terms()
-            self._habitat_terms        = _default_habitat_terms()
-            self._method_terms         = _default_method_terms()
-            self._location_terms       = _default_location_terms()
-            self._activity_terms       = _default_activity_terms()
+        # The extractor always operates on a DomainConfig. When none is supplied,
+        # load the named resources dir (or the Turnbull corpus explicitly) — never
+        # a silent default. This collapses the former config/resources/bare
+        # branches and removes the module-level Turnbull term caches.
+        if config is None:
+            from gemynd.core.domain_config import load_domain_config
+            config = load_domain_config(
+                resources_dir if resources_dir is not None else TURNBULL_RESOURCES_DIR
+            )
+
+        self._unclassified_fallback = _resolve_rules_fallback(unclassified_fallback)
+        # Validity gate for fallback proposals — same check phases.py applies to
+        # every draft, so an un-typed sentence only becomes a candidate if it
+        # reads as a genuine assertive sentence (drops ads / headings / OCR junk).
+        self._validator_verb_re = config.validator_verb_re
+        self._validator_heading_re = config.validator_heading_re
+        self._ROLE_POLICY = config.claim_role_policy
+        self._type_scored_patterns = config.claim_type_patterns
+        self._seed_entities_all = list(config.seed_entities)
+        self._entity_type_rules = list(config.entity_type_rules)
+        self._claim_location_relation = config.claim_location_relation
+        self._claim_link_roles = config.claim_link_roles
+        # Per-role term lists, keyed by the role's entity_type, gathered once.
+        self._role_terms = {
+            role.entity_type: _collect_seed_terms(role.seed_types, config.seed_entities)
+            for role in self._claim_link_roles
+        }
+        self._occurrence_re = _compile_occurrence_re(config.claim_link_occurrence_verbs)
+        self._subject_re = _compile_subject_re(config.claim_link_subject_verbs)
 
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
         claims: list[ClaimDraft] = []
@@ -272,6 +266,9 @@ class RuleBasedClaimExtractor:
                 self._detect_type_scored(sentence)
             )
             if not claim_type:
+                fb = self._unclassified_draft(sentence, start, end)
+                if fb is not None:
+                    claims.append(fb)
                 continue
             normalized = normalize_for_match(sentence)
             epistemic_status = "uncertain" if self._uncertain_tokens.search(sentence) else "certain"
@@ -318,6 +315,54 @@ class RuleBasedClaimExtractor:
             )
         return claims
 
+    def _unclassified_draft(self, sentence: str, start: int, end: int) -> "ClaimDraft | None":
+        """Recall-first fallback: propose an ``unclassified_assertion`` candidate
+        for a sentence that no claim-type pattern matched but that still reads as a
+        genuine assertive sentence. Off unless ``unclassified_fallback`` is set.
+
+        The proposal is deliberately low-confidence — it is meant for an LLM
+        validator to confirm or reject downstream, not to stand on its own. The
+        validity gate mirrors the ``is_valid_claim_sentence`` post-filter in
+        ``phases.py`` (same verb/heading regexes) so a proposal is never something
+        that filter would immediately drop.
+        """
+        if not self._unclassified_fallback:
+            return None
+        valid, _reason = is_valid_claim_sentence(
+            sentence,
+            verb_re=self._validator_verb_re,
+            heading_re=self._validator_heading_re,
+        )
+        if not valid:
+            return None
+        normalized = normalize_for_match(sentence)
+        epistemic_status = "uncertain" if self._uncertain_tokens.search(sentence) else "certain"
+        claim_links = self._extract_claim_links(sentence, UNCLASSIFIED_TYPE, start)
+        trace = [
+            f"type_pattern:{UNCLASSIFIED_TYPE}",
+            "unclassified_fallback",
+            "needs_llm_validation",
+            f"conf:{self._UNCLASSIFIED_CONF:.4f}",
+            f"epistemic:{epistemic_status}",
+        ]
+        for link in claim_links:
+            trace.append(f"link:{link.entity_type_hint}={link.surface_form}->{link.relation_type}")
+        return ClaimDraft(
+            claim_type=UNCLASSIFIED_TYPE,
+            source_sentence=sentence,
+            normalized_sentence=normalized,
+            epistemic_status=epistemic_status,
+            extraction_confidence=self._UNCLASSIFIED_CONF,
+            evidence_start=start,
+            evidence_end=end,
+            notes="",
+            claim_links=claim_links,
+            extraction_source="rules_unclassified",
+            decision_trace=trace,
+            matched_patterns=[],
+            fallback_used=True,
+        )
+
     def _detect_type_scored(
         self, sentence: str
     ) -> tuple[str | None, float, float, str | None, list[str], bool]:
@@ -359,33 +404,40 @@ class RuleBasedClaimExtractor:
     def _extract_claim_links(self, sentence: str, claim_type: str, sentence_start: int) -> list[ClaimLinkDraft]:
         claim_links: list[ClaimLinkDraft] = []
 
-        for surface, start, end in _find_term_matches(sentence, self._species_terms):
-            relation_type = self._ROLE_POLICY.get((claim_type, "Species"), "SPECIES_FOCUS")
-            claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "Species"))
-
-        for surface, start, end in _find_term_matches(sentence, self._habitat_terms):
-            relation_type = self._ROLE_POLICY.get((claim_type, "Habitat"), "HABITAT_FOCUS")
-            claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "Habitat"))
-
-        for surface, start, end in _find_term_matches(sentence, self._method_terms):
-            relation_type = self._ROLE_POLICY.get((claim_type, "SurveyMethod"), "METHOD_FOCUS")
-            claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "SurveyMethod"))
-
-        _activity_fallback_types = {"predator_control", "management_action", "economic_use", "development_activity", "public_contact"}
-        for surface, start, end in _find_term_matches(sentence, self._activity_terms):
-            relation_type = self._ROLE_POLICY.get((claim_type, "Activity"))
-            if relation_type is None:
-                if claim_type not in _activity_fallback_types:
+        # Roles are iterated in config order, which is significant: cross-role
+        # span collisions are resolved downstream by relation priority with an
+        # offset-stable sort, so order must match the domain's declared order.
+        for role in self._claim_link_roles:
+            terms = self._role_terms.get(role.entity_type, [])
+            for surface, start, end in _find_term_matches(sentence, terms):
+                if role.is_location_role:
+                    relation_type = (
+                        self._claim_location_relation
+                        if self._is_occurrence_location(sentence, start)
+                        else role.default_relation
+                    )
+                    entity_type_hint = role.entity_type
+                    lowered = surface.lower()
+                    for substring, label in role.hint_substring_overrides:
+                        if substring in lowered:
+                            entity_type_hint = label
+                            break
+                else:
+                    relation_type = self._ROLE_POLICY.get(
+                        (claim_type, role.entity_type), role.default_relation
+                    )
+                    if relation_type is None:
+                        if claim_type not in role.fallback_claim_types:
+                            continue
+                        relation_type = role.fallback_relation
+                    entity_type_hint = role.entity_type
+                if relation_type is None:
                     continue
-                relation_type = "MANAGEMENT_TARGET"
-            claim_links.append(self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, "Activity"))
-
-        for surface, start, end in _find_term_matches(sentence, self._location_terms):
-            relation_type = CLAIM_LOCATION_RELATION if self._is_occurrence_location(sentence, start) else "LOCATION_FOCUS"
-            entity_type_hint = "Refuge" if "refuge" in surface.lower() else "Place"
-            claim_links.append(
-                self._make_link(surface, relation_type, sentence_start + start, sentence_start + end, entity_type_hint)
-            )
+                claim_links.append(
+                    self._make_link(
+                        surface, relation_type, sentence_start + start, sentence_start + end, entity_type_hint
+                    )
+                )
 
         claim_links.extend(self._extract_subject_links(sentence, sentence_start))
         return _dedupe_claim_links(claim_links)
@@ -407,13 +459,14 @@ class RuleBasedClaimExtractor:
             entity_type_hint=entity_type_hint,
         )
 
-    @staticmethod
-    def _is_occurrence_location(sentence: str, start_offset: int) -> bool:
+    def _is_occurrence_location(self, sentence: str, start_offset: int) -> bool:
+        if self._occurrence_re is None:
+            return False
         prefix = sentence[:start_offset].lower().rstrip()
-        return bool(_OCCURRENCE_VERB_PREP.search(prefix))
+        return bool(self._occurrence_re.search(prefix))
 
     def _extract_subject_links(self, sentence: str, sentence_start: int) -> list[ClaimLinkDraft]:
-        if not SUBJECT_TRIGGER_VERBS.search(sentence):
+        if self._subject_re is None or not self._subject_re.search(sentence):
             return []
         subject_match = re.match(r"\s*([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z.]+){0,3})", sentence)
         if not subject_match:
@@ -486,7 +539,11 @@ class LLMClaimExtractor:
                 continue
             relation_type = validate_claim_link_relation(str(row.get("relation_type", "")))
             raw = str(row.get("surface_form", "") or row.get("text", "")).strip()
-            normalized = str(row.get("normalized_form", "")).strip() or normalize_for_match(raw)
+            # Always canonically normalize the surface form. The LLM's own
+            # "normalized_form" is inconsistent (e.g. "Spokane, Washington" vs the
+            # entity's canonical "spokane"), which broke every claim-link
+            # resolution path. Derive it the same way mentions/entities do.
+            normalized = normalize_for_match(raw)
             if not relation_type or not raw:
                 continue
             claim_links.append(
@@ -524,6 +581,84 @@ class HybridTelemetry:
         return len(self.overlapping)
 
 
+# LLM-call gating: the LLM is the most expensive stage (a network call per
+# paragraph on a local model). These modes let the LLM act as a *fallback* to the
+# rule extractor instead of always running — trading some recall (incremental
+# claims on already-covered paragraphs) for far fewer calls on bulk local ingest.
+_LLM_GATE_MODES = ("always", "on_miss", "prefilter", "on_miss_prefilter")
+
+
+def _resolve_llm_gate(gate: str | None) -> str:
+    resolved = (gate or os.environ.get("CLAIM_LLM_GATE") or "always").strip().lower()
+    if resolved not in _LLM_GATE_MODES:
+        return "always"
+    return resolved
+
+
+# LLM role: `extractor` (default) runs the LLM to find claims independently and
+# merges with rules. `validator` inverts that — the rules propose candidates
+# (with the unclassified fallback on) and the LLM only confirms/re-types/rejects
+# them in cheap batched calls. Validation is far cheaper than extraction and lets
+# the rules run at high recall while the LLM supplies precision.
+_LLM_ROLES = ("extractor", "validator")
+
+
+def _resolve_llm_role(role: str | None) -> str:
+    resolved = (role or os.environ.get("CLAIM_LLM_ROLE") or "extractor").strip().lower()
+    if resolved not in _LLM_ROLES:
+        return "extractor"
+    return resolved
+
+
+def apply_verdicts(
+    candidates: list["ClaimDraft"],
+    verdicts: list[dict[str, Any]],
+    min_confirmed_conf: float = 0.5,
+) -> list["ClaimDraft"]:
+    """Map validator verdicts onto candidate drafts.
+
+    Rejected candidates (``is_claim`` false) are dropped; confirmed ones are
+    re-typed to the validator's ``claim_type`` (when given), have their
+    confidence raised to the verdict's (floored at *min_confirmed_conf* so a
+    confirmed claim never keeps the 0.30 proposal marker), and are re-tagged
+    ``rules_validated``. Verdicts align to *candidates* by position.
+    """
+    survivors: list[ClaimDraft] = []
+    for draft, verdict in zip(candidates, verdicts):
+        if not verdict.get("is_claim", True):
+            continue
+        new_type = verdict.get("claim_type") or draft.claim_type
+        conf = verdict.get("confidence")
+        new_conf = max(float(conf), min_confirmed_conf) if isinstance(conf, (int, float)) else draft.extraction_confidence
+        draft.claim_type = new_type
+        draft.extraction_confidence = round(min(1.0, new_conf), 4)
+        draft.extraction_source = "rules_validated"
+        draft.decision_trace = list(draft.decision_trace) + [
+            f"llm_validated:confirmed:{new_type}:conf={draft.extraction_confidence:.2f}"
+        ]
+        survivors.append(draft)
+    return survivors
+
+
+def _paragraph_is_low_value(text: str) -> bool:
+    """Heuristic: is this paragraph unlikely to hold any extractable claim?
+
+    Targets OCR garbage / mastheads / tables / headline fragments so a call is
+    not spent on them. Conservative — only skips clear non-prose (claims live in
+    sentences, which this keeps).
+    """
+    alpha = sum(c.isalpha() for c in text)
+    if alpha / max(1, len(text)) < 0.6:  # mostly digits / punctuation
+        return True
+    words = text.split()
+    if len(words) < 6:  # too short to be an assertive sentence
+        return True
+    real_words = sum(1 for w in words if len(w) >= 3 and w.islower())
+    if real_words / max(1, len(words)) < 0.25:  # ALLCAPS / garbled OCR
+        return True
+    return False
+
+
 class HybridClaimExtractor:
     def __init__(
         self,
@@ -532,18 +667,67 @@ class HybridClaimExtractor:
         resources_dir: Path | None = None,
         config: "DomainConfig | None" = None,
         token_logger: Any | None = None,
+        gate: str | None = None,
+        role: str | None = None,
+        validator: Any | None = None,
     ) -> None:
+        self._role = _resolve_llm_role(role)
+        # In validator mode the rules MUST propose unclassified candidates for the
+        # LLM to judge, so force the fallback on (unless a rules extractor was
+        # injected, e.g. in tests).
         self._rules = rules_extractor or RuleBasedClaimExtractor(
-            resources_dir=resources_dir, config=config
+            resources_dir=resources_dir,
+            config=config,
+            unclassified_fallback=True if self._role == "validator" else None,
         )
-        if llm_extractor is not None:
+        self._validator = validator
+        if self._role == "validator":
+            self._llm = None
+            if self._validator is None:
+                from gemynd.ingest.extractors.claim_validator_adapter import try_create_validator
+                self._validator = try_create_validator(config=config)
+        elif llm_extractor is not None:
             self._llm = llm_extractor
         else:
-            from gemynd.ingest.extractors.anthropic_claim_adapter import try_create_anthropic_adapter
-            self._llm = LLMClaimExtractor(try_create_anthropic_adapter(config=config, token_logger=token_logger))
+            from gemynd.ingest.extractors.llm_adapter_factory import try_create_llm_adapter
+            self._llm = LLMClaimExtractor(try_create_llm_adapter(config=config, token_logger=token_logger))
+        # `always` (default) preserves legacy behavior; `on_miss` makes the LLM a
+        # true fallback (skip it when rules already found a claim); `prefilter`
+        # skips low-value paragraphs; `on_miss_prefilter` does both.
+        self._gate = _resolve_llm_gate(gate)
         self.last_telemetry: HybridTelemetry | None = None
 
+    def _validate_extract(self, paragraph_text: str) -> list[ClaimDraft]:
+        """Validator role: rules propose, the LLM confirms/re-types/rejects.
+
+        Pattern-typed rule claims pass through untouched (already typed with real
+        confidence). Only the unclassified fallback candidates are sent to the
+        validator; if no validator is configured the candidates survive as-is
+        (fail-open — never silently drop rule proposals).
+        """
+        drafts = self._rules.extract(paragraph_text)
+        typed = [d for d in drafts if d.extraction_source != "rules_unclassified"]
+        candidates = [d for d in drafts if d.extraction_source == "rules_unclassified"]
+        if not candidates:
+            return typed
+        if self._validator is None:
+            return typed + candidates
+        verdicts = self._validator.validate([c.source_sentence for c in candidates])
+        return typed + apply_verdicts(candidates, verdicts)
+
+    def _should_call_llm(self, paragraph_text: str, rule_hit: bool) -> bool:
+        gate = self._gate
+        if gate == "always":
+            return True
+        if gate in ("on_miss", "on_miss_prefilter") and rule_hit:
+            return False
+        if gate in ("prefilter", "on_miss_prefilter") and _paragraph_is_low_value(paragraph_text):
+            return False
+        return True
+
     def extract(self, paragraph_text: str) -> list[ClaimDraft]:
+        if self._role == "validator":
+            return self._validate_extract(paragraph_text)
         telemetry = HybridTelemetry(
             rule_only=[], llm_only=[], overlapping=[],
             label_changed=[], links_inherited=[], confidence_deltas=[],
@@ -554,7 +738,12 @@ class HybridClaimExtractor:
         for draft in self._rules.extract(paragraph_text):
             merged[draft.normalized_sentence] = draft
 
-        for llm_draft in self._llm.extract(paragraph_text):
+        llm_drafts = (
+            self._llm.extract(paragraph_text)
+            if self._should_call_llm(paragraph_text, bool(merged))
+            else []
+        )
+        for llm_draft in llm_drafts:
             key = llm_draft.normalized_sentence
             llm_seen.add(key)
             rule_draft = merged.get(key)

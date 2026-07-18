@@ -47,6 +47,7 @@ class InMemoryGraphWriter:
         entity_labels: frozenset[str],
         observation_role_edges: dict[str, tuple[str, str]] | None = None,
         event_role_edges: dict[str, tuple[str, str]] | None = None,
+        categorial_label_map: dict[str, str] | None = None,
     ) -> None:
         self._entity_labels = frozenset(entity_labels)
         self._id_constraints = build_id_constraints(self._entity_labels)
@@ -55,6 +56,7 @@ class InMemoryGraphWriter:
         )
         self._observation_role_edges = dict(observation_role_edges or {})
         self._event_role_edges = dict(event_role_edges or {})
+        self._categorial_label_map = dict(categorial_label_map or {})
         self.node_store: dict[str, dict[str, dict[str, Any]]] = defaultdict(dict)
         self.rel_store: dict[tuple[str, str, str, str, str, str | None], dict[str, Any]] = {}
         self.schema_statements_executed: list[str] = []
@@ -141,8 +143,9 @@ class InMemoryGraphWriter:
             self._merge_node(entity.entity_type, "entity_id", entity.entity_id, props)
             if entity.entity_type in self._entity_labels:
                 self._merge_node("Entity", "entity_id", entity.entity_id, props)
-            if entity.entity_type == "Refuge":
-                self._merge_node("Place", "entity_id", entity.entity_id, props)
+            projected_label = self._categorial_label_map.get(entity.entity_type)
+            if projected_label:
+                self._merge_node(projected_label, "entity_id", entity.entity_id, props)
 
         for resolution in semantic.entity_resolutions:
             end_label = self._find_entity_label(resolution.entity_id)
@@ -323,6 +326,7 @@ class Neo4jGraphWriter:
         entity_labels: frozenset[str],
         observation_role_edges: dict[str, tuple[str, str]] | None = None,
         event_role_edges: dict[str, tuple[str, str]] | None = None,
+        categorial_label_map: dict[str, str] | None = None,
     ) -> None:
         if GraphDatabase is None:  # pragma: no cover - optional dependency
             raise RuntimeError("neo4j package is not installed. Install with: pip install -e .[neo4j]")
@@ -337,6 +341,7 @@ class Neo4jGraphWriter:
         )
         self._observation_role_edges = dict(observation_role_edges or {})
         self._event_role_edges = dict(event_role_edges or {})
+        self._categorial_label_map = dict(categorial_label_map or {})
 
         try:
             self._driver.verify_connectivity()
@@ -530,8 +535,14 @@ class Neo4jGraphWriter:
             self._upsert_nodes(label=label, id_key="entity_id", rows=rows)
             if label in self._entity_labels:
                 self._add_labels(source_label=label, id_key="entity_id", new_label="Entity", rows=rows)
-        if "Refuge" in by_label:
-            self._add_labels(source_label="Refuge", id_key="entity_id", new_label="Place", rows=by_label["Refuge"])
+        for source_label, target_label in self._categorial_label_map.items():
+            if source_label in by_label:
+                self._add_labels(
+                    source_label=source_label,
+                    id_key="entity_id",
+                    new_label=target_label,
+                    rows=by_label[source_label],
+                )
 
         for relation_type in ("REFERS_TO", "POSSIBLY_REFERS_TO"):
             rows: list[dict[str, Any]] = []

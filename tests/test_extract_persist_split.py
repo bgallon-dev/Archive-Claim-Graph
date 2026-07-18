@@ -16,6 +16,7 @@ from gemynd.ingest.extraction_result import (
     SensitivityGate,
 )
 from gemynd.ingest.pipeline import extract_document, persist_document
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from gemynd.ingest.sensitivity_gate import (
     DefaultSensitivityGate,
     NullSensitivityGate,
@@ -62,7 +63,7 @@ class _ExplodingGate:
 # ---------------------------------------------------------------------------
 
 def test_extract_document_returns_typed_result(fixtures_dir: Path) -> None:
-    result = extract_document(str(fixtures_dir / "report1.json"))
+    result = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     assert isinstance(result, ExtractionResult)
     assert result.doc_id == result.structure.document.doc_id
     assert result.run_id == result.semantic.extraction_run.run_id
@@ -71,7 +72,7 @@ def test_extract_document_returns_typed_result(fixtures_dir: Path) -> None:
 
 
 def test_extraction_result_is_picklable(fixtures_dir: Path) -> None:
-    result = extract_document(str(fixtures_dir / "report1.json"))
+    result = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     roundtripped = pickle.loads(pickle.dumps(result))
     assert roundtripped.doc_id == result.doc_id
     assert len(roundtripped.semantic.claims) == len(result.semantic.claims)
@@ -82,7 +83,7 @@ def test_extraction_result_is_picklable(fixtures_dir: Path) -> None:
 # ---------------------------------------------------------------------------
 
 def test_persist_document_writes_files(fixtures_dir: Path, tmp_path: Path) -> None:
-    extraction = extract_document(str(fixtures_dir / "report1.json"))
+    extraction = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     persist = persist_document(extraction, str(tmp_path))
     assert isinstance(persist, PersistResult)
     assert Path(persist.structure_output).exists()
@@ -92,7 +93,7 @@ def test_persist_document_writes_files(fixtures_dir: Path, tmp_path: Path) -> No
 
 
 def test_persist_document_runs_custom_gate(fixtures_dir: Path, tmp_path: Path) -> None:
-    extraction = extract_document(str(fixtures_dir / "report1.json"))
+    extraction = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     persist = persist_document(
         extraction, str(tmp_path), sensitivity_gate=_QuarantineOneGate()
     )
@@ -102,7 +103,7 @@ def test_persist_document_runs_custom_gate(fixtures_dir: Path, tmp_path: Path) -
 
 
 def test_null_sensitivity_gate(fixtures_dir: Path, tmp_path: Path) -> None:
-    extraction = extract_document(str(fixtures_dir / "report1.json"))
+    extraction = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     persist = persist_document(
         extraction, str(tmp_path), sensitivity_gate=NullSensitivityGate()
     )
@@ -113,7 +114,7 @@ def test_null_sensitivity_gate(fixtures_dir: Path, tmp_path: Path) -> None:
 def test_persist_document_spelling_review(fixtures_dir: Path, tmp_path: Path) -> None:
     review_dir = tmp_path / "review"
     review_dir.mkdir()
-    extraction = extract_document(str(fixtures_dir / "report1.json"))
+    extraction = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     persist = persist_document(
         extraction,
         str(tmp_path),
@@ -129,7 +130,7 @@ def test_persist_document_spelling_review(fixtures_dir: Path, tmp_path: Path) ->
 # ---------------------------------------------------------------------------
 
 def test_persist_result_to_summary_dict(fixtures_dir: Path, tmp_path: Path) -> None:
-    extraction = extract_document(str(fixtures_dir / "report1.json"))
+    extraction = extract_document(str(fixtures_dir / "report1.json"), domain_dir_str=str(TURNBULL_RESOURCES_DIR))
     persist = persist_document(
         extraction, str(tmp_path), sensitivity_gate=NullSensitivityGate()
     )

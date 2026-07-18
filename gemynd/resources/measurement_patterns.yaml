@@ -1,0 +1,66 @@
+version: "1"
+# Direct measurement scan patterns and naming rules (formerly hardcoded in
+# measurement_extractor.py: _pattern_specs, _unit_right_re, _count_claim_types,
+# _specialize_name, and the money_re naming). Relocated here so each domain
+# carries its own measurement vocabulary instead of inheriting Turnbull's.
+#
+# `match`       : regex alternation for the unit word(s), scanned as
+#                 (number)\s*(<match>)\b for direct measurements (_pattern_specs).
+# `name`/`unit` : measurement name and unit string emitted on a match.
+# `range_right` : optional alternation recognised in range right-context
+#                 (_unit_right_re). Omit to scan a unit directly but NOT treat
+#                 it as a range unit (e.g. farmers). Order within an entry's
+#                 alternation is preserved (e.g. inches? before inch).
+patterns:
+  - match: "days?"
+    name: days_above_threshold
+    unit: days
+    range_right: "days?"
+  - match: "inches?|inch"
+    name: rainfall
+    unit: inches
+    range_right: "inches?|inch"
+  - match: "acres?|acre"
+    name: acres
+    unit: acres
+    range_right: "acres?"
+  - match: "tons?|ton"
+    name: hay_cut
+    unit: tons
+    range_right: "tons?"
+  - match: "farmers?|farmer"
+    name: farmers_count
+    unit: count
+  - match: "cords?|cord"
+    name: wood_killed_cords
+    unit: cords
+    range_right: "cords?"
+  - match: "covies?|covy"
+    name: coveys_count
+    unit: coveys
+    range_right: "covies?"
+
+# Claim types eligible for range/generic count extraction (_count_claim_types).
+count_claim_types:
+  - wildlife_count
+  - predator_control
+  - population_estimate
+  - species_presence
+  - breeding_activity
+
+# Context-dependent renaming of the generic "acres" measurement (_specialize_name).
+# Checked in order: by_claim_type first, then by_sentence_substring; otherwise the
+# base "acres" name is kept.
+acre_specialization:
+  base_name: acres
+  by_claim_type:
+    fire_incident: acres_burned
+    economic_use: land_area
+  by_sentence_substring:
+    cut: land_area
+
+# Monetary measurement naming for the money_re path.
+money:
+  by_claim_type:
+    fire_incident: suppression_cost
+  default: revenue

@@ -7,20 +7,45 @@ from typing import Any
 from typing import Protocol
 
 from .claim_extractor import ClaimDraft
-from gemynd.shared.resource_loader import load_measurement_units, load_measurement_species
+from gemynd.shared.resource_loader import (
+    load_measurement_patterns,
+    load_measurement_units,
+    load_measurement_species,
+)
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
 
+
+def _join_context_verbs(species: dict[str, Any]) -> str:
+    """Join the domain's measurement context verbs into a regex alternation."""
+    return "|".join(str(v) for v in (species.get("context_verbs") or []))
+
+
+def _build_context_pattern(immediate_patterns: list[str], context_verbs: str) -> str:
+    """Build the wide-window species/count context regex source.
+
+    Mirrors the original ``\\b(<immediate>|<verbs>)\\b`` construction but omits
+    the verb alternation entirely when a domain declares no context verbs, so
+    we never emit an empty alternative (``|)``) that would match everywhere.
+    """
+    imm = "|".join(immediate_patterns)
+    if context_verbs:
+        return r"\b(" + imm + r"|" + context_verbs + r")\b"
+    return r"\b(" + imm + r")\b"
+
+
+# Module-level Turnbull defaults (loaded via the no-arg loaders that resolve to
+# the bundled Turnbull corpus). Used only as class-level fallbacks for bare
+# construction in tests; the pipeline always constructs with an explicit config.
 _LOADED_UNITS: dict[str, tuple[str, str]] = load_measurement_units()
 _LOADED_SPECIES: dict[str, Any] = load_measurement_species()
+_LOADED_PATTERNS: dict[str, Any] = load_measurement_patterns()
 _SPECIES_IMMEDIATE_PATTERN = r"^\s*(" + "|".join(_LOADED_SPECIES["immediate_patterns"]) + r")\b"
-_SPECIES_CONTEXT_VERBS = (
-    r"counted|estimated|population|total|observed|taken|killed|trapped|shot|removed|reported"
-)
-_SPECIES_CONTEXT_PATTERN = (
-    r"\b(" + "|".join(_LOADED_SPECIES["immediate_patterns"]) + r"|" + _SPECIES_CONTEXT_VERBS + r")\b"
+_SPECIES_CONTEXT_VERBS = _join_context_verbs(_LOADED_SPECIES)
+_SPECIES_CONTEXT_PATTERN = _build_context_pattern(
+    _LOADED_SPECIES["immediate_patterns"], _SPECIES_CONTEXT_VERBS
 )
 
 
@@ -51,15 +76,13 @@ class MeasurementExtractor(Protocol):
 class RuleBasedMeasurementExtractor:
     _approx_re = re.compile(r"\b(about|around|approx|approximately|estimated)\b", re.IGNORECASE)
     _money_re = re.compile(r"(?:(?:USD|usd)\s*)?\$?\s*(\d+(?:\.\d+)?)\s*(?:dollars?|USD|usd)?")
-    _pattern_specs: list[tuple[re.Pattern[str], str, str | None]] = [
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(days?)\b", re.IGNORECASE), "days_above_threshold", "days"),
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(inches?|inch)\b", re.IGNORECASE), "rainfall", "inches"),
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(acres?|acre)\b", re.IGNORECASE), "acres", "acres"),
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(tons?|ton)\b", re.IGNORECASE), "hay_cut", "tons"),
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(farmers?|farmer)\b", re.IGNORECASE), "farmers_count", "count"),
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(cords?|cord)\b", re.IGNORECASE), "wood_killed_cords", "cords"),
-        (re.compile(r"(\d+(?:\.\d+)?)\s*(covies?|covy)\b", re.IGNORECASE), "coveys_count", "coveys"),
-    ]
+    # Direct-scan patterns and naming rules now come from config
+    # (measurement_patterns.yaml). The class-level defaults below are the
+    # Turnbull set, used only for bare construction in tests.
+    _pattern_specs: list[tuple[re.Pattern[str], str, str | None]] = _LOADED_PATTERNS["pattern_specs"]
+    _count_claim_types: frozenset[str] = _LOADED_PATTERNS["count_claim_types"]
+    _acre_spec: dict[str, Any] = _LOADED_PATTERNS["acre_specialization"]
+    _money_rules: dict[str, Any] = _LOADED_PATTERNS["money"]
     _individual_context = re.compile(_SPECIES_CONTEXT_PATTERN, re.IGNORECASE)
     _generic_number = re.compile(r"\b(\d+(?:\.\d+)?)\b")
     _page_table_re = re.compile(
@@ -106,9 +129,7 @@ class RuleBasedMeasurementExtractor:
         r"not\s+more\s+than|below|fewer\s+than)\s+(\d+(?:\.\d+)?)\b",
         re.IGNORECASE,
     )
-    _unit_right_re = re.compile(
-        r"^\s*(acres?|inches?|inch|days?|tons?|cords?|covies?)\b", re.IGNORECASE
-    )
+    _unit_right_re: re.Pattern[str] | None = _LOADED_PATTERNS["unit_right_re"]
 
     # Unit string → (name, unit) used by range extraction to mirror _pattern_specs
     _UNIT_NAME_MAP: dict[str, tuple[str, str]] = _LOADED_UNITS
@@ -124,20 +145,31 @@ class RuleBasedMeasurementExtractor:
             species = config.measurement_species
             self._UNIT_NAME_MAP = config.measurement_units
             self._SPECIES_TYPE_HINTS = species["type_hints"]
+            self._pattern_specs = config.measurement_pattern_specs
+            self._unit_right_re = config.measurement_unit_right_re
+            self._count_claim_types = config.measurement_count_claim_types
+            self._acre_spec = config.measurement_acre_specialization
+            self._money_rules = config.measurement_money
+            ctx_verbs = _join_context_verbs(species)
             immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
-            ctx_verbs = _SPECIES_CONTEXT_VERBS
-            ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + ctx_verbs + r")\b"
+            ctx_pat = _build_context_pattern(species["immediate_patterns"], ctx_verbs)
             self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
             self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
             self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
         elif resources_dir is not None:
             units = load_measurement_units(resources_dir)
             species = load_measurement_species(resources_dir)
+            patterns = load_measurement_patterns(resources_dir)
             self._UNIT_NAME_MAP = units
             self._SPECIES_TYPE_HINTS = species["type_hints"]
+            self._pattern_specs = patterns["pattern_specs"]
+            self._unit_right_re = patterns["unit_right_re"]
+            self._count_claim_types = patterns["count_claim_types"]
+            self._acre_spec = patterns["acre_specialization"]
+            self._money_rules = patterns["money"]
+            ctx_verbs = _join_context_verbs(species)
             immediate_pat = r"^\s*(" + "|".join(species["immediate_patterns"]) + r")\b"
-            ctx_verbs = _SPECIES_CONTEXT_VERBS
-            ctx_pat = r"\b(" + "|".join(species["immediate_patterns"]) + r"|" + ctx_verbs + r")\b"
+            ctx_pat = _build_context_pattern(species["immediate_patterns"], ctx_verbs)
             self._immediate_species_re = re.compile(immediate_pat, re.IGNORECASE)
             self._individual_context = re.compile(ctx_pat, re.IGNORECASE)
             self._count_context_re = re.compile(ctx_pat, re.IGNORECASE)
@@ -164,17 +196,14 @@ class RuleBasedMeasurementExtractor:
         measurements: list[MeasurementDraft] = []
         consumed: set[int] = set()
 
-        _count_claim_types = {
-            "wildlife_count", "predator_control",
-            "population_estimate", "species_presence", "breeding_activity",
-        }
+        count_claim_types = self._count_claim_types
 
         def _right_context(end: int) -> str:
             return sentence[end:min(len(sentence), end + 25)]
 
         def _classify_range_right(right: str, claim_type: str) -> tuple[str, str | None, str | None, str | None]:
             """Return (name, unit, target_surface, target_entity_type_hint) for right context of a range."""
-            unit_m = self._unit_right_re.match(right)
+            unit_m = self._unit_right_re.match(right) if self._unit_right_re is not None else None
             if unit_m:
                 unit_word = unit_m.group(1).lower()
                 key = unit_word.rstrip("s") if not unit_word.endswith("ies") else unit_word
@@ -184,7 +213,7 @@ class RuleBasedMeasurementExtractor:
                 name, unit = self._UNIT_NAME_MAP.get(unit_word, self._UNIT_NAME_MAP.get(key, ("measurement", unit_word)))
                 name = self._specialize_name(name, claim_type, sentence)
                 return name, unit, None, None
-            if claim_type in _count_claim_types:
+            if claim_type in count_claim_types:
                 species_m = self._immediate_species_re.match(right)
                 if species_m:
                     surface = species_m.group(0).strip()
@@ -330,7 +359,11 @@ class RuleBasedMeasurementExtractor:
             if "$" not in raw_match and "usd" not in raw_match.lower() and "dollar" not in raw_match.lower():
                 continue
             number = float(match.group(1))
-            money_name = "suppression_cost" if claim.claim_type == "fire_incident" else "revenue"
+            money_name = self._money_name(claim.claim_type)
+            if money_name is None:
+                # Domain declares no monetary measurement naming → skip (never
+                # fall back to Turnbull's "revenue"/"suppression_cost").
+                continue
             money_trace = [f"money:{money_name}"]
             if methodology_note:
                 money_trace.append(f"methodology:{methodology_note}")
@@ -347,10 +380,7 @@ class RuleBasedMeasurementExtractor:
                 )
             )
 
-        if not measurements and claim.claim_type in {
-            "wildlife_count", "predator_control",
-            "population_estimate", "species_presence", "breeding_activity",
-        }:
+        if not measurements and claim.claim_type in self._count_claim_types:
             if self._individual_context.search(sentence):
                 for match in self._generic_number.finditer(sentence):
                     if match.start() in consumed_spans:
@@ -380,16 +410,38 @@ class RuleBasedMeasurementExtractor:
 
         return self._dedupe(measurements)
 
-    @staticmethod
-    def _specialize_name(default_name: str, claim_type: str, sentence: str) -> str:
+    def _specialize_name(self, default_name: str, claim_type: str, sentence: str) -> str:
+        """Context-dependent renaming of the base unit (config-driven).
+
+        Reproduces the original acres → acres_burned / land_area logic, but the
+        base name and the claim-type / sentence-substring rules come from the
+        domain's ``acre_specialization`` block. Precedence: claim-type match,
+        then sentence-substring match, otherwise the unspecialised name.
+        """
+        spec = self._acre_spec or {}
+        base = spec.get("base_name", "acres")
+        if default_name != base:
+            return default_name
+        by_claim_type = spec.get("by_claim_type") or {}
+        if claim_type in by_claim_type:
+            return by_claim_type[claim_type]
         lowered = sentence.lower()
-        if default_name == "acres":
-            if claim_type == "fire_incident":
-                return "acres_burned"
-            if "cut" in lowered or claim_type == "economic_use":
-                return "land_area"
-            return "acres"
+        for substring, specialized in (spec.get("by_sentence_substring") or {}).items():
+            if substring in lowered:
+                return specialized
         return default_name
+
+    def _money_name(self, claim_type: str) -> str | None:
+        """Return the monetary measurement name for a claim type, or None.
+
+        ``None`` (domain declares no money naming) signals the caller to skip
+        the monetary measurement rather than emit a domain-specific default.
+        """
+        money = self._money_rules or {}
+        by_claim_type = money.get("by_claim_type") or {}
+        if claim_type in by_claim_type:
+            return by_claim_type[claim_type]
+        return money.get("default")
 
     @staticmethod
     def _resolve_target_noun(match_end: int, sentence: str) -> tuple[str | None, str | None]:

@@ -929,7 +929,8 @@ class TestIntegrationRetrieval:
     def test_multi_entity_template_executes(self, executor):
         from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
         from gemynd.core.resolver import default_seed_entities
-        seeds = default_seed_entities()
+        from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
+        seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
         species = [e for e in seeds if e.entity_type == "Species"][:2]
         if len(species) < 2:
             pytest.skip("Need at least 2 species entities in graph")
@@ -991,7 +992,8 @@ class TestIntegrationRetrieval:
 
     def test_retrieved_via_present_for_entity_anchored_blocks(self, assembler):
         from gemynd.core.resolver import default_seed_entities
-        seeds = default_seed_entities()
+        from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
+        seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
         species = next((e for e in seeds if e.entity_type == "Species"), None)
         if not species:
             pytest.skip("No species entities in seed")

@@ -13,7 +13,12 @@ from .models import (
 
 PATCH_SPEC_SCHEMA_VERSION = "v1"
 
-# Allowed claim-entity relation types for link operations
+# Default allowed claim-entity relation types for link operations. Used only
+# when a caller does not supply the domain's own relation vocabulary (from
+# DomainConfig.claim_entity_relations). Must stay in sync with
+# core/claim_contract.CLAIM_ENTITY_RELATIONS. A non-Turnbull domain passes its
+# own set through ``validate_patch_spec(allowed_relations=...)`` so its
+# add_claim_entity_link proposals are not rejected.
 ALLOWED_CLAIM_ENTITY_RELATIONS: frozenset[str] = frozenset({
     "SPECIES_FOCUS",
     "HABITAT_FOCUS",
@@ -23,6 +28,10 @@ ALLOWED_CLAIM_ENTITY_RELATIONS: frozenset[str] = frozenset({
     "SUBJECT_OF_CLAIM",
     "TOPIC_OF_CLAIM",
 })
+
+# Default claim-to-location relation, overridable per domain via
+# DomainConfig.claim_location_relation.
+_DEFAULT_LOCATION_RELATION: str = "OCCURRED_AT"
 
 ALIAS_MODES: frozenset[str] = frozenset({"preserve_aliases", "none"})
 
@@ -141,7 +150,11 @@ def _validate_relabel_claim_link(spec: dict[str, Any]) -> None:
     _require_enum(spec, "evidence_basis", EVIDENCE_BASIS_VALUES, label)
 
 
-def _validate_add_claim_entity_link(spec: dict[str, Any]) -> None:
+def _validate_add_claim_entity_link(
+    spec: dict[str, Any],
+    *,
+    allowed_relations: frozenset[str] | None = None,
+) -> None:
     label = "add_claim_entity_link"
     required = {
         "schema_version", "proposal_type", "claim_id", "entity_id",
@@ -151,11 +164,16 @@ def _validate_add_claim_entity_link(spec: dict[str, Any]) -> None:
     _reject_unknown_keys(spec, required, label)
     _require_type(spec, "claim_id", str, label)
     _require_type(spec, "entity_id", str, label)
-    _require_enum(spec, "relation_type", ALLOWED_CLAIM_ENTITY_RELATIONS, label)
+    _allowed = allowed_relations if allowed_relations is not None else ALLOWED_CLAIM_ENTITY_RELATIONS
+    _require_enum(spec, "relation_type", _allowed, label)
     _require_enum(spec, "evidence_basis", EVIDENCE_BASIS_VALUES, label)
 
 
-def _validate_add_claim_location_link(spec: dict[str, Any]) -> None:
+def _validate_add_claim_location_link(
+    spec: dict[str, Any],
+    *,
+    location_relation: str | None = None,
+) -> None:
     label = "add_claim_location_link"
     required = {
         "schema_version", "proposal_type", "claim_id", "entity_id",
@@ -165,8 +183,9 @@ def _validate_add_claim_location_link(spec: dict[str, Any]) -> None:
     _reject_unknown_keys(spec, required, label)
     _require_type(spec, "claim_id", str, label)
     _require_type(spec, "entity_id", str, label)
-    if spec.get("relation_type") != "OCCURRED_AT":
-        raise PatchSpecValidationError(f"{label}: relation_type must be 'OCCURRED_AT'")
+    _loc = location_relation if location_relation is not None else _DEFAULT_LOCATION_RELATION
+    if spec.get("relation_type") != _loc:
+        raise PatchSpecValidationError(f"{label}: relation_type must be {_loc!r}")
     _require_enum(spec, "evidence_basis", EVIDENCE_BASIS_VALUES, label)
 
 
@@ -229,8 +248,18 @@ _VALIDATORS: dict[str, Any] = {
 }
 
 
-def validate_patch_spec(spec: dict[str, Any]) -> None:
+def validate_patch_spec(
+    spec: dict[str, Any],
+    *,
+    allowed_relations: frozenset[str] | None = None,
+    location_relation: str | None = None,
+) -> None:
     """Validate a typed patch spec against its schema.
+
+    When *allowed_relations* / *location_relation* are provided (from
+    DomainConfig), they replace the module-level Turnbull defaults for the two
+    link validators, so a domain's own relation vocabulary is accepted rather
+    than rejected. Omitting them preserves the historical (Turnbull) behaviour.
 
     Raises PatchSpecValidationError on any schema violation.
     """
@@ -250,9 +279,16 @@ def validate_patch_spec(spec: dict[str, Any]) -> None:
             f"Unknown proposal_type {proposal_type!r}; allowed: {sorted(PROPOSAL_TYPES)}"
         )
 
-    validator = _VALIDATORS.get(proposal_type)
-    if validator:
-        validator(spec)
+    # The two link validators take the domain-overridable vocabulary; the rest
+    # have no domain-specific vocabulary and are dispatched via the registry.
+    if proposal_type == "add_claim_entity_link":
+        _validate_add_claim_entity_link(spec, allowed_relations=allowed_relations)
+    elif proposal_type == "add_claim_location_link":
+        _validate_add_claim_location_link(spec, location_relation=location_relation)
+    else:
+        validator = _VALIDATORS.get(proposal_type)
+        if validator:
+            validator(spec)
 
 
 def make_patch_spec(proposal_type: str, **kwargs: Any) -> dict[str, Any]:

@@ -8,7 +8,11 @@ from pathlib import Path
 from typing import Protocol
 
 from gemynd.core.resolver import default_seed_entities
-from gemynd.shared.resource_loader import load_negative_entities, load_ocr_corrections
+from gemynd.shared.resource_loader import (
+    TURNBULL_RESOURCES_DIR,
+    load_negative_entities,
+    load_ocr_corrections,
+)
 from gemynd.shared.text_utils import normalize_for_match
 from ..span_utils import resolve_overlapping_spans
 from typing import TYPE_CHECKING
@@ -17,23 +21,24 @@ if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
 
 
+# ``get_ocr_flags`` is also called (with no vocabulary args) by the spelling-
+# review queue and the junk-mention review detector, which are not yet
+# domain-threaded. Those callers fall back to the Turnbull reference vocabulary
+# *explicitly* via the cached helpers below — a visible, documented coupling,
+# not a silent no-arg loader default. (Threading domain config through the
+# spelling/review layer is a separate follow-up.) The mention extractor itself
+# no longer uses these: it always constructs from a DomainConfig (see __init__).
 @functools.cache
-def _default_ocr_corrections() -> frozenset[str]:
-    return load_ocr_corrections()
+def _turnbull_ocr_corrections() -> frozenset[str]:
+    return load_ocr_corrections(TURNBULL_RESOURCES_DIR)
 
 
 @functools.cache
-def _default_negative_forms() -> frozenset[str]:
-    return load_negative_entities()
-
-
-@functools.cache
-def _default_lexicon_hints() -> tuple[dict[str, list[str]], list[str]]:
-    """Return (hints_dict, sorted_terms) from default seed entities."""
+def _turnbull_lexicon_hints() -> dict[str, list[str]]:
     hints: dict[str, list[str]] = {}
-    for entity in default_seed_entities():
+    for entity in default_seed_entities(TURNBULL_RESOURCES_DIR):
         hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
-    return hints, sorted(hints, key=len, reverse=True)
+    return hints
 
 
 @dataclass(slots=True)
@@ -105,9 +110,9 @@ def get_ocr_flags(
     known_ocr_errors: frozenset[str] | None = None,
     lexicon_hints: dict[str, list[str]] | None = None,
 ) -> list[str]:
-    normalized = re.sub(r"\s+", " ", surface.strip().lower())
-    known_errors = known_ocr_errors if known_ocr_errors is not None else _default_ocr_corrections()
-    hints = lexicon_hints if lexicon_hints is not None else _default_lexicon_hints()[0]
+    normalized = normalize_for_match(surface)
+    known_errors = known_ocr_errors if known_ocr_errors is not None else _turnbull_ocr_corrections()
+    hints = lexicon_hints if lexicon_hints is not None else _turnbull_lexicon_hints()
 
     flags: list[str] = []
     if normalized in known_errors:
@@ -164,27 +169,22 @@ class RuleBasedMentionExtractor:
         resources_dir: Path | None = None,
         config: "DomainConfig | None" = None,
     ) -> None:
-        if config is not None:
-            self._known_ocr_errors = config.ocr_corrections
-            self._negative_forms = config.negative_lexicon
-            hints: dict[str, list[str]] = {}
-            for entity in config.seed_entities:
-                hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
-            self._lexicon_hints = hints
-            self._lexicon_terms = sorted(hints, key=len, reverse=True)
-        elif resources_dir is not None:
-            self._known_ocr_errors = load_ocr_corrections(resources_dir)
-            self._negative_forms = load_negative_entities(resources_dir)
-            seed = default_seed_entities(resources_dir)
-            hints = {}
-            for entity in seed:
-                hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
-            self._lexicon_hints = hints
-            self._lexicon_terms = sorted(hints, key=len, reverse=True)
-        else:
-            self._known_ocr_errors = _default_ocr_corrections()
-            self._negative_forms = _default_negative_forms()
-            self._lexicon_hints, self._lexicon_terms = _default_lexicon_hints()
+        # Always operate on a DomainConfig. When none is supplied, load the named
+        # resources dir (or the Turnbull corpus explicitly) — never a silent
+        # default. This collapses the former config/resources/bare branches and
+        # removes the silent module-level Turnbull lexicon caches.
+        if config is None:
+            from gemynd.core.domain_config import load_domain_config
+            config = load_domain_config(
+                resources_dir if resources_dir is not None else TURNBULL_RESOURCES_DIR
+            )
+        self._known_ocr_errors = config.ocr_corrections
+        self._negative_forms = config.negative_lexicon
+        hints: dict[str, list[str]] = {}
+        for entity in config.seed_entities:
+            hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
+        self._lexicon_hints = hints
+        self._lexicon_terms = sorted(hints, key=len, reverse=True)
 
     def extract(self, paragraph_text: str) -> list[MentionDraft]:
         spans = self._detect(paragraph_text)
@@ -340,13 +340,22 @@ class RuleBasedMentionExtractor:
             lexicon_hints=self._lexicon_hints,
         )
 
-# ── GLiNER optional dependency ─────────────────────────────────────────────────
+# ── GLiNER optional dependency (imported LAZILY) ───────────────────────────────
+# Importing gliner pulls in transformers/torch (~2GB per process). The rule-based
+# ingest path never uses GLiNER, so importing it at module load forced every
+# ingest worker to load torch and OOM'd memory-constrained hosts. Check
+# availability without importing (find_spec), and import GLiNER only when a
+# GLiNERMentionAdapter is actually built.
+import importlib.util as _importlib_util
 
-try:
-    from gliner import GLiNER as _GLiNER  # type: ignore[import-untyped]
-    _GLINER_AVAILABLE = True
-except ImportError:
-    _GLINER_AVAILABLE = False
+
+def _gliner_available() -> bool:
+    return _importlib_util.find_spec("gliner") is not None
+
+
+def _import_gliner():
+    from gliner import GLiNER  # type: ignore[import-untyped]
+    return GLiNER
 
 
 # ── Hybrid mention extractor ───────────────────────────────────────────────────
@@ -387,7 +396,7 @@ class GLiNERMentionAdapter:
         entity_labels: list[str],
         threshold: float = 0.40,
     ) -> None:
-        if not _GLINER_AVAILABLE:
+        if not _gliner_available():
             raise ImportError(
                 "GLiNER is not installed. Install it with: pip install gliner"
             )
@@ -402,12 +411,12 @@ class GLiNERMentionAdapter:
         resources_dir: Path | None = None,
         threshold: float = 0.40,
     ) -> GLiNERMentionAdapter:
-        if not _GLINER_AVAILABLE:
+        if not _gliner_available():
             raise ImportError(
                 "GLiNER is not installed. Install it with: pip install gliner"
             )
-        model = _GLiNER.from_pretrained(model_name)  # type: ignore[name-defined]
-        seed = default_seed_entities(resources_dir)
+        model = _import_gliner().from_pretrained(model_name)
+        seed = default_seed_entities(resources_dir or TURNBULL_RESOURCES_DIR)
         labels = sorted({e.entity_type for e in seed})
         return cls(model, labels, threshold)
 
@@ -422,7 +431,7 @@ class GLiNERMentionAdapter:
             label: str = ent["label"]
             drafts.append(MentionDraft(
                 surface_form=surface,
-                normalized_form=re.sub(r"\s+", " ", surface.strip().lower()),
+                normalized_form=normalize_for_match(surface),
                 start_offset=int(ent["start"]),
                 end_offset=int(ent["end"]),
                 detection_confidence=round(score, 4),

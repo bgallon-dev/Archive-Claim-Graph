@@ -21,7 +21,9 @@ def build_neo4j_executor(
         user=settings.neo4j_user,
         password=settings.neo4j_password,
         database=settings.neo4j_database,
-        trust_mode=settings.neo4j_trust,
+        # Match the ` or "system"` fallback the other construction sites apply,
+        # so an empty NEO4J_TRUST does not diverge by call site.
+        trust_mode=settings.neo4j_trust or "system",
         ca_cert_path=settings.neo4j_ca_cert,
         entity_labels=entity_labels,
     )

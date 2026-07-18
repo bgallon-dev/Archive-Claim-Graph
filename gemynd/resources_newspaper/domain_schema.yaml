@@ -33,3 +33,18 @@ entity_labels:
 # Legacy claim type renames (old extractor output -> current canonical type).
 # Empty for now — this is a fresh domain with no legacy data.
 legacy_renames: {}
+
+# Entity discovery / minting. The newspaper corpus has no exhaustive gazetteer
+# of every person, place, and organization it mentions — most named entities a
+# claim references (e.g. a railroad president, a mining camp, a local union)
+# are absent from seed_entities.csv. Without minting, those claim links are
+# dropped as NO_RESOLVED_MENTION; with it enabled, the referenced surface is
+# turned into a first-class entity so the claim attaches to it.
+#   - default_entity_type: type assigned when there is no hint and inference
+#     yields nothing (most unhinted proper nouns in news copy are people).
+#   - location_entity_type: type for OCCURRED_AT location links.
+entity_minting:
+  enabled: true
+  min_surface_length: 4
+  default_entity_type: Person
+  location_entity_type: Place

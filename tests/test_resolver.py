@@ -8,6 +8,7 @@ from gemynd.core.resolver import (
     normalize_name,
     similarity_score,
 )
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 
 
 def test_resolver_threshold_policy() -> None:
@@ -76,7 +77,7 @@ def _mention(mention_id: str, normalized_form: str) -> MentionRecord:
 # ── SurveyMethod entity properties (via default_seed_entities) ────────────────
 
 def test_survey_method_entity_id_is_stable() -> None:
-    seeds = default_seed_entities()
+    seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
     rec = next(e for e in seeds if e.entity_type == "SurveyMethod" and e.name == "aerial survey")
     expected_id = make_entity_id("SurveyMethod", normalize_name("aerial survey"))
     assert rec.entity_id == expected_id
@@ -85,7 +86,7 @@ def test_survey_method_entity_id_is_stable() -> None:
 
 
 def test_survey_method_normalized_form() -> None:
-    seeds = default_seed_entities()
+    seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
     rec = next(e for e in seeds if e.entity_type == "SurveyMethod" and e.name == "water count")
     assert rec.normalized_form == "water count"
 
@@ -99,20 +100,20 @@ def test_default_seeds_contain_all_17_survey_methods() -> None:
         "water count", "brood survey", "live trapping", "breeding survey",
         "population census", "harvest count", "pellet survey", "track count",
     }
-    seeds = default_seed_entities()
+    seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
     names = {e.normalized_form for e in seeds if e.entity_type == "SurveyMethod"}
     assert names == expected
 
 
 def test_survey_method_seeds_have_no_duplicate_entity_ids() -> None:
-    seeds = default_seed_entities()
+    seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
     ids = [e.entity_id for e in seeds if e.entity_type == "SurveyMethod"]
     assert len(ids) == len(set(ids))
 
 
 def test_survey_method_seeds_method_class_values() -> None:
     allowed = {"remote", "direct", "capture", "harvest", "indirect"}
-    seeds = default_seed_entities()
+    seeds = default_seed_entities(TURNBULL_RESOURCES_DIR)
     for e in seeds:
         if e.entity_type == "SurveyMethod":
             assert e.properties.get("method_class") in allowed, (
@@ -160,7 +161,7 @@ def test_aerial_transect_does_not_resolve_refers_to() -> None:
 
 
 def test_new_seeds_do_not_cross_contaminate_existing_seeds() -> None:
-    seeds = [e for e in default_seed_entities() if e.entity_type == "SurveyMethod"]
+    seeds = [e for e in default_seed_entities(TURNBULL_RESOURCES_DIR) if e.entity_type == "SurveyMethod"]
     for i, a in enumerate(seeds):
         for j, b in enumerate(seeds):
             if i >= j:

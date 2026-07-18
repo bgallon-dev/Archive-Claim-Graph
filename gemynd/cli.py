@@ -12,7 +12,7 @@ from gemynd.shared.io_utils import load_semantic_bundle, load_structure_bundle, 
 from gemynd.shared.settings import Settings
 
 from gemynd.core.domain_config import load_domain_config
-from gemynd.ingest.pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, resolve_mentions_targeted, run_e2e
+from gemynd.ingest.pipeline import build_spelling_review_queue, extract_semantic, load_graph, parse_source, quality_report, resolve_mentions_targeted, run_e2e, run_e2e_jsonl
 
 
 def _write_review_output(path: str | Path, rows: list[dict]) -> None:
@@ -314,6 +314,7 @@ def build_parser() -> argparse.ArgumentParser:
         default=None,
         help="Collection title for EAD XML (default: '<institution-id> Collection').",
     )
+    _add_domain_args(corpus_export_parser)
     _add_neo4j_args(corpus_export_parser)
 
     # -- Corpus management commands -------------------------------------------
@@ -401,7 +402,10 @@ def main(argv: list[str] | None = None) -> int:
                 file=sys.stderr,
             )
             return 1
-        structure = parse_source(args.input)
+        _ingest_profile = (
+            load_domain_config(Path(args.domain_dir)).source_profile if args.domain_dir else None
+        )
+        structure = parse_source(args.input, source_profile=_ingest_profile)
         structure.document.access_level = access_level
         structure.document.institution_id = args.institution_id
         structure.document.donor_restricted = args.donor_restricted
@@ -517,20 +521,23 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if args.command == "run-e2e":
-        resolved_inputs: list[str] = []
+        # Split inputs into loose per-document .json files and one-per-title
+        # .jsonl bundles. Directories are searched for both.
+        json_inputs: list[str] = []
+        jsonl_inputs: list[str] = []
         for item in args.inputs:
             p = Path(item)
             if p.is_dir():
-                found = sorted(p.rglob("*.json"))
-                if not found:
-                    print(f"[warn] No JSON files found in directory: {p}")
-                resolved_inputs.extend(str(f) for f in found)
+                json_inputs.extend(str(f) for f in sorted(p.rglob("*.json")))
+                jsonl_inputs.extend(str(f) for f in sorted(p.rglob("*.jsonl")))
+            elif p.suffix.lower() == ".jsonl":
+                jsonl_inputs.append(item)
             else:
-                resolved_inputs.append(item)
+                json_inputs.append(item)
+        if not json_inputs and not jsonl_inputs:
+            print(f"[warn] No .json or .jsonl inputs found in: {args.inputs}")
         workers = args.workers if args.workers != 0 else (os.cpu_count() or 1)
-        summary = run_e2e(
-            resolved_inputs,
-            args.out_dir,
+        _common = dict(
             workers=workers,
             backend=args.backend,
             neo4j_uri=args.neo4j_uri,
@@ -547,14 +554,21 @@ def main(argv: list[str] | None = None) -> int:
             graph_resolve=args.graph_resolve,
             no_llm=args.no_llm,
         )
-        printable_summary = {k: v for k, v in summary.items() if k != "writer"}
-        print(json.dumps(printable_summary, indent=2))
+        combined: dict[str, Any] = {}
+        if json_inputs:
+            summary = run_e2e(json_inputs, args.out_dir, **_common)
+            combined["loose_json"] = {k: v for k, v in summary.items() if k != "writer"}
+        if jsonl_inputs:
+            combined["jsonl"] = run_e2e_jsonl(jsonl_inputs, args.out_dir, **_common)
+        print(json.dumps(combined, indent=2))
         return 0
 
     if args.command == "quality-report":
         structure = load_structure_bundle(args.structure)
         semantic = load_semantic_bundle(args.semantic)
-        report = quality_report(structure, semantic)
+        _qr_domain = getattr(args, "domain_dir", None)
+        _qr_config = load_domain_config(Path(_qr_domain)) if _qr_domain else None
+        report = quality_report(structure, semantic, config=_qr_config)
         if args.output:
             save_json(args.output, report)
         print(json.dumps(report, indent=2))
@@ -563,7 +577,9 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "spelling-review-report":
         structure = load_structure_bundle(args.structure)
         semantic = load_semantic_bundle(args.semantic)
-        report = build_spelling_review_queue(structure, semantic)
+        _sr_domain = getattr(args, "domain_dir", None)
+        _sr_config = load_domain_config(Path(_sr_domain)) if _sr_domain else None
+        report = build_spelling_review_queue(structure, semantic, _sr_config)
         if args.output:
             _write_review_output(args.output, report)
         print(json.dumps(report, indent=2))
@@ -696,13 +712,14 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "validate-domain":
         resources_dir = Path(args.domain_dir) if args.domain_dir else None
+        _vd_config = load_domain_config(resources_dir)
         aggregate_claims = 0
         aggregate_unclassified = 0
         per_document = []
         for sample_path in args.samples:
-            structure = parse_source(sample_path)
-            semantic = extract_semantic(structure, resources_dir=resources_dir)
-            metrics = quality_report(structure, semantic)
+            structure = parse_source(sample_path, source_profile=_vd_config.source_profile)
+            semantic = extract_semantic(structure, resources_dir=resources_dir, config=_vd_config)
+            metrics = quality_report(structure, semantic, config=_vd_config)
             aggregate_claims += metrics.get("claim_count", 0)
             aggregate_unclassified += metrics.get("unclassified_claim_count", 0)
             per_document.append({"file": sample_path, "doc_id": structure.document.doc_id, **metrics})
@@ -713,7 +730,7 @@ def main(argv: list[str] | None = None) -> int:
 
         # Onboarding validation: cross-resource consistency + retrieval readiness.
         from gemynd.core.domain_config import _validate_config
-        _cfg = load_domain_config(resources_dir)
+        _cfg = _vd_config
         config_issues = _validate_config(_cfg, resources_dir)
 
         retrieval_warnings: list[str] = list(config_issues)
@@ -865,11 +882,16 @@ def main(argv: list[str] | None = None) -> int:
                 print("[error] --bundles-dir is required for --format ead-xml.", file=sys.stderr)
                 return 2
             output_path = Path(output_arg if output_arg != "export_out" else "export_out/finding_aid.xml")
+            _ead_domain = getattr(args, "domain_dir", None)
+            _ead_tag_map = (
+                load_domain_config(Path(_ead_domain)).ead_tag_map if _ead_domain else None
+            )
             count = render_ead_xml(
                 Path(args.bundles_dir),
                 output_path,
                 institution_id=args.institution_id,
                 collection_title=args.collection_title,
+                ead_tag_map=_ead_tag_map,
             )
             print(json.dumps({"status": "ok", "format": "ead-xml", "output": str(output_path), "components": count}, indent=2))
 

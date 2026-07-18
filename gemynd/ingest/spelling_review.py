@@ -1,19 +1,20 @@
 from __future__ import annotations
 
 import difflib
+import functools
 import re
 from collections import defaultdict
-from typing import Any
+from dataclasses import dataclass
+from typing import Any, TYPE_CHECKING
 
 from .extractors.mention_extractor import get_ocr_flags
 from gemynd.core.ids import stable_hash
 from gemynd.core.models import MentionRecord, SemanticBundle, StructureBundle
-from gemynd.shared.resource_loader import (
-    load_ocr_correction_map,
-    load_seed_entity_rows,
-    load_spelling_reference_terms,
-)
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from gemynd.shared.text_utils import normalize_for_match
+
+if TYPE_CHECKING:
+    from gemynd.core.domain_config import DomainConfig
 
 _TOKEN_RE = re.compile(r"[A-Za-z][A-Za-z0-9'-]*")
 _MONTHS = frozenset({
@@ -28,15 +29,55 @@ _STOPWORDS = frozenset({
     "not", "have", "had", "has", "been", "being", "their", "there", "which",
     "while", "where", "when", "also", "than", "then",
 })
-_OCR_CORRECTION_MAP = load_ocr_correction_map()
-_OCR_CORRECTIONS = frozenset(_OCR_CORRECTION_MAP)
-_DOMAIN_REFERENCE_TERMS = load_spelling_reference_terms()
-_SEED_REFERENCE_TERMS = frozenset(
-    token.lower()
-    for row in load_seed_entity_rows()
-    for token in _TOKEN_RE.findall(str(row.get("name", "")).lower())
-)
 _SEVERITY_RANK = {"low": 0, "medium": 1, "high": 2}
+
+
+@dataclass(frozen=True)
+class _SpellingVocab:
+    """Domain reference vocabulary for the spelling-review queue.
+
+    All Turnbull-specific spelling vocabulary used to live in module-level
+    constants loaded via no-arg loaders. It now comes from the domain config
+    so a non-ecological corpus is judged against its own vocabulary, not
+    Turnbull's.
+    """
+
+    ocr_correction_map: dict[str, str]
+    ocr_corrections: frozenset[str]
+    domain_reference_terms: frozenset[str]
+    seed_reference_terms: frozenset[str]
+    lexicon_hints: dict[str, list[str]]
+
+
+def _vocab_from_config(config: "DomainConfig") -> _SpellingVocab:
+    lexicon_hints: dict[str, list[str]] = {}
+    for entity in config.seed_entities:
+        lexicon_hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
+    seed_reference_terms = frozenset(
+        token.lower()
+        for entity in config.seed_entities
+        for token in _TOKEN_RE.findall(entity.name.lower())
+    )
+    return _SpellingVocab(
+        ocr_correction_map=config.ocr_correction_map,
+        ocr_corrections=frozenset(config.ocr_correction_map),
+        domain_reference_terms=config.spelling_reference_terms,
+        seed_reference_terms=seed_reference_terms,
+        lexicon_hints=lexicon_hints,
+    )
+
+
+@functools.cache
+def _turnbull_vocab() -> _SpellingVocab:
+    """Explicit Turnbull-reference vocabulary for callers without a config.
+
+    Built from the bundled Turnbull corpus via the config builder so it is
+    identical to ``_vocab_from_config(turnbull_config)`` — a visible, named
+    fallback, not a silent no-arg default.
+    """
+    from gemynd.core.domain_config import load_domain_config
+
+    return _vocab_from_config(load_domain_config(TURNBULL_RESOURCES_DIR))
 
 
 def _claim_span_start_end(evidence_start: int | None, evidence_end: int | None, paragraph_text: str) -> tuple[int, int]:
@@ -74,16 +115,16 @@ def _best_match(
     return best_term, best_ratio
 
 
-def _suggest_correction(token: str) -> tuple[str, float]:
-    exact = _OCR_CORRECTION_MAP.get(token)
+def _suggest_correction(token: str, vocab: _SpellingVocab) -> tuple[str, float]:
+    exact = vocab.ocr_correction_map.get(token)
     if exact:
         return exact, 1.0
 
-    seed_match, seed_ratio = _best_match(token, _SEED_REFERENCE_TERMS, threshold=0.84)
+    seed_match, seed_ratio = _best_match(token, vocab.seed_reference_terms, threshold=0.84)
     if seed_match:
         return seed_match, seed_ratio
 
-    domain_match, domain_ratio = _best_match(token, _DOMAIN_REFERENCE_TERMS, threshold=0.90)
+    domain_match, domain_ratio = _best_match(token, vocab.domain_reference_terms, threshold=0.90)
     if domain_match:
         return domain_match, domain_ratio
 
@@ -99,8 +140,8 @@ def _token_is_ignorable(token: str) -> bool:
     return False
 
 
-def _is_known_domain_term(token: str) -> bool:
-    if token in _DOMAIN_REFERENCE_TERMS:
+def _is_known_domain_term(token: str, vocab: _SpellingVocab) -> bool:
+    if token in vocab.domain_reference_terms:
         return True
     candidates = {token}
     if token.endswith("s") and len(token) > 4:
@@ -109,7 +150,7 @@ def _is_known_domain_term(token: str) -> bool:
         candidates.add(token[:-2])
     if token.endswith("ies") and len(token) > 5:
         candidates.add(f"{token[:-3]}y")
-    return any(candidate in _DOMAIN_REFERENCE_TERMS for candidate in candidates)
+    return any(candidate in vocab.domain_reference_terms for candidate in candidates)
 
 
 def _issue_severity(flags: set[str], suggestion: str) -> str:
@@ -167,13 +208,15 @@ def _issue_row(
     }
 
 
-def _mention_flags_by_token(mentions: list[MentionRecord]) -> dict[str, set[str]]:
+def _mention_flags_by_token(mentions: list[MentionRecord], vocab: _SpellingVocab) -> dict[str, set[str]]:
     flags_by_token: dict[str, set[str]] = defaultdict(set)
     for mention in mentions:
         if not mention.ocr_suspect:
             continue
         for token in _iter_tokens(mention.surface_form):
-            token_flags = set(get_ocr_flags(token))
+            token_flags = set(get_ocr_flags(
+                token, known_ocr_errors=vocab.ocr_corrections, lexicon_hints=vocab.lexicon_hints,
+            ))
             if not token_flags:
                 continue
             token_flags.add("mention_ocr_suspect")
@@ -181,7 +224,16 @@ def _mention_flags_by_token(mentions: list[MentionRecord]) -> dict[str, set[str]
     return flags_by_token
 
 
-def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBundle) -> list[dict[str, Any]]:
+def build_spelling_review_queue(
+    structure: StructureBundle,
+    semantic: SemanticBundle,
+    config: "DomainConfig | None" = None,
+) -> list[dict[str, Any]]:
+    # Domain vocabulary drives every "known term" / OCR-suspect judgement.
+    # Without a config (CLI on saved bundles, tests), fall back to the explicit
+    # Turnbull reference vocabulary — never a silent no-arg load.
+    vocab = _vocab_from_config(config) if config is not None else _turnbull_vocab()
+
     paragraph_by_id = {paragraph.paragraph_id: paragraph for paragraph in structure.paragraphs}
     page_by_id = {page.page_id: page for page in structure.pages}
     mentions_by_paragraph: dict[str, list[MentionRecord]] = defaultdict(list)
@@ -202,7 +254,8 @@ def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBu
                 mention
                 for mention in mentions_by_paragraph.get(claim.paragraph_id, [])
                 if mention.start_offset >= span_start and mention.end_offset <= span_end
-            ]
+            ],
+            vocab,
         )
 
         for token in _iter_tokens(claim.source_sentence):
@@ -210,23 +263,25 @@ def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBu
             if not normalized:
                 continue
 
-            flags = set(get_ocr_flags(token))
+            flags = set(get_ocr_flags(
+                token, known_ocr_errors=vocab.ocr_corrections, lexicon_hints=vocab.lexicon_hints,
+            ))
             flags.update(mention_flags.get(normalized, set()))
-            suggested_correction, _ = _suggest_correction(normalized)
+            suggested_correction, _ = _suggest_correction(normalized, vocab)
             if flags and flags.issubset({"rn_m_confusion", "mention_ocr_suspect"}) and not suggested_correction:
                 continue
             has_hard_ocr_signal = "ocr_suspect_list" in flags or "digit_in_token" in flags
-            if _is_known_domain_term(normalized) and normalized not in _OCR_CORRECTIONS and not has_hard_ocr_signal:
+            if _is_known_domain_term(normalized, vocab) and normalized not in vocab.ocr_corrections and not has_hard_ocr_signal:
                 continue
 
             if not flags:
-                if _token_is_ignorable(token) or _is_known_domain_term(normalized):
+                if _token_is_ignorable(token) or _is_known_domain_term(normalized, vocab):
                     continue
                 if not suggested_correction:
                     continue
                 flags.add(f"spellcheck_candidate:{suggested_correction}")
 
-            elif _is_known_domain_term(normalized) and normalized not in _OCR_CORRECTIONS and not has_hard_ocr_signal:
+            elif _is_known_domain_term(normalized, vocab) and normalized not in vocab.ocr_corrections and not has_hard_ocr_signal:
                 continue
 
             key = (claim.claim_id, normalized)

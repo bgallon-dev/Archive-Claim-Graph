@@ -8,6 +8,7 @@ from __future__ import annotations
 import pytest
 
 from gemynd.core.domain_config import load_domain_config
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from gemynd.core.models import (
     ClaimEntityLinkRecord,
     ClaimLocationLinkRecord,
@@ -39,7 +40,7 @@ from gemynd.ingest.phases import (
 # ---------------------------------------------------------------------------
 
 def _config():
-    return load_domain_config()
+    return load_domain_config(TURNBULL_RESOURCES_DIR)
 
 
 def _doc(

@@ -56,6 +56,76 @@ class RoleResolver:
     entity_type: str | None = None
 
 
+@dataclass(frozen=True, slots=True)
+class ClaimLinkRole:
+    """One rule-based claim-link role (e.g. Species, Habitat, Location).
+
+    Drives the config-driven loop in ``RuleBasedClaimExtractor`` that replaced
+    the hardcoded per-entity-type blocks. Role order in the domain's
+    ``claim_link_roles`` block is **significant** — cross-role span collisions
+    are deduplicated by relation priority with an offset-stable sort, so the
+    order must match the legacy block order to preserve output.
+
+    - ``entity_type``    : the entity-type hint emitted, and the ``ROLE_POLICY``
+                           lookup key ``(claim_type, entity_type)``.
+    - ``seed_types``     : seed entity types whose names are scanned as terms.
+    - ``default_relation``: relation when ``ROLE_POLICY`` has no entry; for a
+                           location role this is the non-occurrence relation.
+    - ``fallback_relation`` / ``fallback_claim_types``: when ``default_relation``
+                           is ``None``, emit ``fallback_relation`` only for the
+                           listed claim types (else the match is skipped).
+    - ``is_location_role``: location roles use ``claim_location_relation`` when
+                           the term sits in occurrence context, else
+                           ``default_relation`` — they do not consult ROLE_POLICY.
+    - ``hint_substring_overrides``: ordered ``(substring, label)`` pairs; the
+                           first substring found in the matched surface overrides
+                           the emitted entity-type hint (reproduces the legacy
+                           ``"Refuge" if "refuge" in surface else "Place"``).
+    """
+
+    entity_type: str
+    seed_types: tuple[str, ...]
+    default_relation: str | None
+    fallback_relation: str | None = None
+    fallback_claim_types: frozenset[str] = frozenset()
+    is_location_role: bool = False
+    hint_substring_overrides: tuple[tuple[str, str], ...] = ()
+
+
+def _build_claim_link_roles(
+    schema: dict[str, Any],
+) -> tuple[tuple[ClaimLinkRole, ...], tuple[str, ...], tuple[str, ...]]:
+    """Parse the ``claim_link_roles`` block from ``domain_schema.yaml``.
+
+    Returns ``(roles, occurrence_verbs, subject_trigger_verbs)``. A domain
+    without the block gets empty tuples — no rule-based claim links and no
+    occurrence/subject verb detection (never Turnbull's role taxonomy).
+    """
+    block = schema.get("claim_link_roles") or {}
+    roles: list[ClaimLinkRole] = []
+    for r in block.get("roles") or []:
+        entity_type = str(r["entity_type"])
+        seed_types = tuple(str(t) for t in (r.get("seed_types") or [entity_type]))
+        default_relation = r.get("default_relation")
+        fallback_relation = r.get("fallback_relation")
+        roles.append(
+            ClaimLinkRole(
+                entity_type=entity_type,
+                seed_types=seed_types,
+                default_relation=(str(default_relation) if default_relation is not None else None),
+                fallback_relation=(str(fallback_relation) if fallback_relation is not None else None),
+                fallback_claim_types=frozenset(str(c) for c in (r.get("fallback_claim_types") or [])),
+                is_location_role=bool(r.get("is_location_role", False)),
+                hint_substring_overrides=tuple(
+                    (str(k).lower(), str(v)) for k, v in (r.get("hint_substring_overrides") or {}).items()
+                ),
+            )
+        )
+    occurrence_verbs = tuple(str(v) for v in (block.get("occurrence_verbs") or []))
+    subject_verbs = tuple(str(v) for v in (block.get("subject_trigger_verbs") or []))
+    return tuple(roles), occurrence_verbs, subject_verbs
+
+
 @dataclass(slots=True)
 class DomainConfig:
     """All domain resources bundled into one place.
@@ -135,6 +205,101 @@ class DomainConfig:
     # construction sites.
     synthesis_context_label: str | None = None
     welcome_topic_hints: list[str] = field(default_factory=list)
+
+    # Measurement scan patterns / naming rules (relocated from hardcoded
+    # constants in measurement_extractor.py). All default to empty so a domain
+    # without ``measurement_patterns.yaml`` gets no direct-scan patterns and
+    # identity naming — never Turnbull's measurement vocabulary.
+    measurement_pattern_specs: list[tuple[re.Pattern[str], str, str | None]] = field(default_factory=list)
+    measurement_unit_right_re: re.Pattern[str] | None = None
+    measurement_count_claim_types: frozenset[str] = frozenset()
+    measurement_acre_specialization: dict[str, Any] = field(default_factory=dict)
+    measurement_money: dict[str, Any] = field(default_factory=dict)
+
+    # Rule-based claim-link roles (relocated from the hardcoded per-entity-type
+    # blocks in claim_extractor.py). Empty for a domain that declares no
+    # ``claim_link_roles`` block — its rule-based claim-link layer is then a
+    # no-op rather than inheriting Turnbull's Species/Habitat/Location taxonomy.
+    claim_link_roles: tuple[ClaimLinkRole, ...] = ()
+    claim_link_occurrence_verbs: tuple[str, ...] = ()
+    claim_link_subject_verbs: tuple[str, ...] = ()
+
+    # Source-parser profile (relocated from hardcoded defaults in
+    # source_parser.py). Keys: ``default_doc_type`` (used when a document's
+    # payload has no doc_type), ``untitled_title`` (title fallback), and
+    # ``filename_inference`` (list of named rules, e.g. ``loc_sequence``).
+    # Empty dict → neutral parsing (doc_type "document", no filename inference),
+    # never Turnbull's "narrative_report" / LoC heuristics.
+    source_profile: dict[str, Any] = field(default_factory=dict)
+
+    # Categorial label projection: domain entity_type -> shared categorial label
+    # the graph writer also stamps on the node (e.g. {"Refuge": "Place"}).
+    # Replaces the hardcoded Refuge->Place coercion in the writer. Empty for a
+    # domain with no such projections.
+    categorial_label_map: dict[str, str] = field(default_factory=dict)
+
+    # Entity discovery / minting. When a claim references a proper-noun entity
+    # (person, place, organization) absent from the seed gazetteer, the resolver
+    # drops the link as NO_RESOLVED_MENTION because there is no entity to attach
+    # to. With minting enabled, such surfaces are turned into freshly-minted
+    # entities so the claim links survive. Off by default (empty dict) so a
+    # domain with a comprehensive seed gazetteer — Turnbull — never mints, and
+    # its output stays byte-identical. Keys (all optional):
+    #   ``enabled`` (bool), ``min_surface_length`` (int, default 4),
+    #   ``default_entity_type`` (str, default "Person"),
+    #   ``location_entity_type`` (str, default "Place").
+    entity_minting: dict[str, Any] = field(default_factory=dict)
+
+    # Domain-aware reference vocabulary for the spelling-review queue (seed
+    # names + measurement words + claim-type pattern terms). Lets the spelling
+    # reviewer judge "known domain term" against the domain's own vocabulary
+    # instead of Turnbull's. Empty frozenset when unavailable.
+    spelling_reference_terms: frozenset[str] = frozenset()
+
+    # Review builder-repair detector policy: which claim types expect a focus
+    # relation / a location link / are method-overtrigger candidates, and the
+    # entity types that satisfy them. Parsed verbatim from the ``builder_repair``
+    # block in ``domain_schema.yaml``. Empty dict → the detector proposes no
+    # focus/location/method repairs for this domain (it does NOT fall back to
+    # Turnbull's wildlife policy; that fallback exists only when no config at
+    # all is passed to the detector). Keys (all optional): ``focus_relation``,
+    # ``focus_candidate_entity_types``, ``focus_expecting_types``,
+    # ``location_candidate_entity_types``, ``location_expecting_types``,
+    # ``method_relation``, ``method_overtrigger_types``.
+    builder_repair: dict[str, Any] = field(default_factory=dict)
+
+    # Review junk-mention detector: domain-specific header regexes appended to
+    # the universal structural set (page numbers, bare digits). Parsed from the
+    # ``junk_mention`` block in ``domain_schema.yaml``. Empty → only the
+    # structural headers apply, never Turnbull's institutional headers ("refuge
+    # manager", "fish and wildlife service", …), which move to Turnbull's config.
+    junk_mention_filters: dict[str, Any] = field(default_factory=dict)
+
+    # Query-intent classifier surface-form maps (from ``query_intent.yaml``).
+    # ``doc_type_aliases``: user phrase → d.doc_type; ``series_aliases``: phrase
+    # → d.series; ``tier1_type_keywords``: word → entity label for the
+    # frequency-ranking fast path. All empty by default; a domain declaring none
+    # leaves the classifier on its module-level defaults (retrieval unions these
+    # across all registered corpora). Lets a new corpus own its query vocabulary
+    # instead of inheriting the hardcoded BLM/GLO/Spokane grab-bag.
+    doc_type_aliases: dict[str, str] = field(default_factory=dict)
+    series_aliases: dict[str, str] = field(default_factory=dict)
+    tier1_type_keywords: dict[str, str] = field(default_factory=dict)
+
+    # Synthesis-prompt RETRIEVED_VIA semantics: relation label (or "A / B"
+    # group) → one-line meaning for the LLM. Parsed from the ``relation_semantics``
+    # block in ``domain_schema.yaml``. Empty → the synthesis prompt keeps its
+    # default wildlife/civic block; a domain declaring its own relations here
+    # replaces that block so the prompt never describes SPECIES_FOCUS etc. to a
+    # non-wildlife corpus.
+    relation_semantics: dict[str, str] = field(default_factory=dict)
+
+    # EAD 2002 export: entity_type → EAD access-point element (persname,
+    # corpname, geogname, subject, …). Parsed from the ``ead_tag_map`` block in
+    # ``domain_schema.yaml``; overlaid on the module default in the exporter.
+    # Empty → the default map applies (a foreign entity type falls back to
+    # "subject").
+    ead_tag_map: dict[str, str] = field(default_factory=dict)
 
     @property
     def extraction_stopwords(self) -> frozenset[str]:
@@ -452,10 +617,23 @@ def load_all_registered_corpora(
 def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
     """Load every domain resource file and return a validated :class:`DomainConfig`.
 
+    A run MUST name its domain. Passing ``None`` raises rather than silently
+    loading the bundled Turnbull corpus — the silent-domain fallback is the
+    exact "semiotic substitution" this engine is meant to avoid. Callers that
+    genuinely want Turnbull pass
+    :data:`gemynd.shared.resource_loader.TURNBULL_RESOURCES_DIR` explicitly.
+
     All imports are deferred to avoid circular-import issues at module load
     time.  The function is safe to call multiple times; caching at call-site
     is left to the caller.
     """
+    if resources_dir is None:
+        raise ValueError(
+            "load_domain_config requires an explicit resources_dir; the silent "
+            "Turnbull default has been removed. Pass a domain resources directory "
+            "(e.g. resource_loader.TURNBULL_RESOURCES_DIR for the Turnbull corpus)."
+        )
+
     from gemynd.core.resolver import default_seed_entities
     from gemynd.shared.resource_loader import (
         load_claim_relation_compatibility,
@@ -466,12 +644,15 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         load_domain_profile,
         load_domain_schema,
         load_entity_type_rules,
+        load_measurement_patterns,
         load_measurement_species,
         load_measurement_units,
         load_negative_entities,
         load_ocr_correction_map,
         load_ocr_corrections,
         load_query_intent,
+        load_query_intent_maps,
+        load_spelling_reference_terms,
         load_validator_verbs,
     )
 
@@ -534,6 +715,10 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
     observation_role_edges = _parse_edge_map(roles_block.get("observation_edges"))
     event_role_edges = _parse_edge_map(roles_block.get("event_edges"))
 
+    claim_link_roles, claim_link_occurrence_verbs, claim_link_subject_verbs = (
+        _build_claim_link_roles(schema)
+    )
+
     # Derive allowed_claim_types from patterns + registry + unclassified sentinel.
     from gemynd.core.claim_contract import UNCLASSIFIED_TYPE
     pattern_types = {ct for ct, _, _ in claim_type_patterns}
@@ -577,6 +762,9 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
             _log.warning("heading_detection regex is invalid; using default")
             validator_heading_re = None
 
+    meas_patterns = load_measurement_patterns(resources_dir)
+    qi_maps = load_query_intent_maps(resources_dir)
+
     config = DomainConfig(
         seed_entities=default_seed_entities(resources_dir),
         claim_type_patterns=claim_type_patterns,
@@ -613,6 +801,31 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         observation_role_edges=observation_role_edges,
         event_role_edges=event_role_edges,
         entity_type_rules=load_entity_type_rules(resources_dir),
+        measurement_pattern_specs=meas_patterns["pattern_specs"],
+        measurement_unit_right_re=meas_patterns["unit_right_re"],
+        measurement_count_claim_types=meas_patterns["count_claim_types"],
+        measurement_acre_specialization=meas_patterns["acre_specialization"],
+        measurement_money=meas_patterns["money"],
+        claim_link_roles=claim_link_roles,
+        claim_link_occurrence_verbs=claim_link_occurrence_verbs,
+        claim_link_subject_verbs=claim_link_subject_verbs,
+        source_profile=profile.get("source_profile") or {},
+        categorial_label_map={
+            str(k): str(v) for k, v in (schema.get("categorial_label_map") or {}).items()
+        },
+        entity_minting=dict(schema.get("entity_minting") or {}),
+        spelling_reference_terms=load_spelling_reference_terms(resources_dir),
+        builder_repair=dict(schema.get("builder_repair") or {}),
+        junk_mention_filters=dict(schema.get("junk_mention") or {}),
+        doc_type_aliases=qi_maps["doc_type_aliases"],
+        series_aliases=qi_maps["series_aliases"],
+        tier1_type_keywords=qi_maps["tier1_type_keywords"],
+        relation_semantics={
+            str(k): str(v) for k, v in (schema.get("relation_semantics") or {}).items()
+        },
+        ead_tag_map={
+            str(k): str(v) for k, v in (schema.get("ead_tag_map") or {}).items()
+        },
     )
     _validate_config(config, resources_dir)
     return config

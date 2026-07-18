@@ -222,15 +222,20 @@ class TestGatewayGraphConsistency:
             "entity-anchored queries will silently return nothing (Bug A)"
         )
 
-    def test_mallard_extraction_gap_documented(self, full_pipeline):
-        """Documents the known gap: 'mallards' resolves via gateway but is absent from writer.
-
-        This test records — rather than fixes — the gap so that if it is ever closed by
-        an improved mention extractor, the suite signals the positive regression.
+    @pytest.mark.xfail(
+        reason="known mention-extraction gap: 'mallards' resolves via the gateway but "
+        "is not yet emitted by the mention extractor, so it is absent from the writer. "
+        "This asserts the DESIRED consistency; it flips to XPASS (a positive signal) "
+        "once the extractor covers mallard — at which point drop the xfail marker.",
+        strict=False,
+    )
+    def test_mallard_gateway_writer_consistency(self, full_pipeline):
+        """Desired invariant: an entity that resolves via the gateway is also present in
+        the writer, so entity-anchored queries can find it. Currently xfail for 'mallards'.
         """
         ctx = full_pipeline.gateway.resolve(["mallards"])
         if not ctx.resolved:
-            pytest.skip("gateway did not resolve 'mallards' — skip gap check")
+            pytest.skip("gateway did not resolve 'mallards' — skip consistency check")
         resolved_ids = {re_obj.entity_id for re_obj in ctx.resolved}
         in_writer = {
             eid
@@ -238,12 +243,9 @@ class TestGatewayGraphConsistency:
             for eid in full_pipeline.writer.node_store.get(label, {})
         }
         gap_ids = resolved_ids - in_writer
-        # Currently expected to be non-empty (known gap); will become empty once fixed.
-        # If this assertion fails, the mention extractor now covers mallard — remove gap.
-        assert gap_ids, (
-            "Mallard extraction gap appears to be CLOSED: 'mallards' now resolves to an "
-            "entity_id that is also present in the writer.  Remove this gap-documentation "
-            "test and add a positive consistency test instead."
+        assert not gap_ids, (
+            f"'mallards' resolves to {gap_ids}, absent from the writer — "
+            "gateway/writer inconsistency (mention-extraction gap)."
         )
 
 
@@ -265,18 +267,10 @@ class TestYearLinking:
             f"Year 1938 missing from writer.node_store['Year']; found: {sorted(years)}"
         )
 
-    def test_temporal_query_1938_returns_nonzero_blocks(self, full_pipeline):
-        """A temporal query bounded to 1938 must return at least one block."""
-        blocks, _ = full_pipeline.assembler.assemble(
-            "wildlife activity in 1938",
-            EntityContext(),
-            year_min=1938,
-            year_max=1938,
-        )
-        assert blocks, (
-            "Temporal query year_min=year_max=1938 returned no blocks — "
-            "either ABOUT_REFUGE is missing (Bug C) or Year nodes are unlinked (Bug B)"
-        )
+    # NOTE: the plain "temporal 1938 returns non-zero blocks" assertion lived here but
+    # was an exact duplicate of TestRefugeLinking.test_no_entity_context_assembler_uses_
+    # refuge_anchor (same assemble() call + `assert blocks`); kept there for its
+    # anchor-path documentation value. This class retains the distinct year-value check.
 
     def test_blocks_carry_correct_year_value(self, full_pipeline):
         """Every block with a non-None year must carry the year that was queried."""

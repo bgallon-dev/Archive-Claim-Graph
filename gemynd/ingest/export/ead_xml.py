@@ -20,7 +20,12 @@ _log = logging.getLogger(__name__)
 # Documents with these access levels are excluded from EAD exports.
 _SKIP_LEVELS = {"restricted", "indigenous_restricted"}
 
-# EAD access-point element name by entity type.
+# Default EAD access-point element name by entity type. The Person/Organization/
+# Place mappings are standard across archival domains; the wildlife types
+# (Refuge/Species/Habitat/…) are inert for a corpus that has no such entities.
+# A domain overrides/extends this via its ``ead_tag_map`` (domain_schema.yaml)
+# so its own entity types (e.g. City → geogname, Company → corpname) map to the
+# right EAD element instead of falling back to the generic "subject".
 _EAD_TAG: dict[str, str] = {
     "Organization": "corpname",
     "Person": "persname",
@@ -57,14 +62,21 @@ def render_ead_xml(
     institution_id: str = "",
     collection_title: str | None = None,
     glob_pattern: str = "*.semantic.json",
+    ead_tag_map: dict[str, str] | None = None,
 ) -> int:
     """Write an EAD 2002 XML finding aid from bundle files.
 
     Returns the count of document ``<c>`` components written.
     Documents with *restricted* or *indigenous_restricted* access level are
     skipped (a warning is logged per skipped document).
+
+    *ead_tag_map* (from the domain's ``ead_tag_map``) overlays the default
+    entity_type → EAD element mapping so a domain's own entity types resolve to
+    the correct access-point element.
     """
     from gemynd.shared.io_utils import load_semantic_bundle, load_structure_bundle
+
+    tag_map = {**_EAD_TAG, **(ead_tag_map or {})}
 
     semantic_paths = sorted(bundles_dir.glob(glob_pattern))
     if not semantic_paths:
@@ -187,7 +199,7 @@ def render_ead_xml(
         seen_access: set[tuple[str, str]] = set()
         access_points: list[tuple[str, str]] = []  # (tag, name)
         for entity in d["entities"]:
-            tag = _EAD_TAG.get(entity.entity_type, "subject")
+            tag = tag_map.get(entity.entity_type, "subject")
             key = (tag, entity.name)
             if key not in seen_access:
                 seen_access.add(key)

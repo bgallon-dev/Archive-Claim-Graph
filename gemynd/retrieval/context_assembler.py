@@ -6,8 +6,9 @@ Retrieval cascade:
   2. Fulltext keyword fallback (FULLTEXT_CLAIMS_QUERY) when entity resolution
      returned no REFERS_TO matches.
 
-Each retrieved row is mapped to a ProvenanceBlock, ranked by
-extraction_confidence, and budget-capped.  Blocks are then serialised into
+Each retrieved row is mapped to a ProvenanceBlock, ordered by the configured
+ContextRanker (graph proximity / KGR temporal rerank / legacy confidence —
+see context_ranker.py), and budget-capped.  Blocks are then serialised into
 the structured text format expected by the synthesis engine.
 """
 from __future__ import annotations
@@ -38,6 +39,7 @@ from gemynd.core.graph.cypher import (
     build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
+from .context_ranker import ConfidenceRanker, ContextRanker
 from .executor import Neo4jQueryExecutor
 from .models import (
     EntityContext,
@@ -751,7 +753,7 @@ def _stratified_budget_cap(
     Falls back to pure temporal diversification when only one corpus is
     significant (including single-corpus deployments).
 
-    Assumes *blocks* is already sorted by extraction_confidence descending.
+    Assumes *blocks* is already ranked best-first by the context ranker.
     """
     by_corpus: dict[str, list[ProvenanceBlock]] = {}
     for b in blocks:
@@ -1221,8 +1223,18 @@ class ProvenanceContextAssembler:
         institution_ids: list[str] | None = None,
         anchors: dict[str, tuple[str | None, str | None, str | None]] | None = None,
         llm_cypher_generator: object | None = None,
+        context_ranker: "ContextRanker | None" = None,
+        locations_query: str | None = None,
     ) -> None:
         self._executor = executor
+        # Tier-1 "where did claims about X occur" query. Defaults to the module
+        # constant (OCCURRED_AT → Place|Refuge); app construction passes a
+        # config-built query so a domain's own location relation/labels apply.
+        self._locations_query = locations_query or LOCATIONS_FOR_ENTITY_QUERY
+        # Candidate ordering strategy applied before the count/char caps.
+        # Defaults to the legacy confidence sort; app construction passes
+        # build_context_ranker() output (proximity / KGR-temporal).
+        self._context_ranker: ContextRanker = context_ranker or ConfidenceRanker()
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
         self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
@@ -1309,7 +1321,8 @@ class ProvenanceContextAssembler:
         Returns
         -------
         blocks:
-            Ordered list of ProvenanceBlock (ranked by confidence, capped).
+            Ordered list of ProvenanceBlock (best-first per the configured
+            context ranker, capped).
         context_text:
             Serialised string ready for injection into the synthesis prompt.
         """
@@ -1537,10 +1550,15 @@ class ProvenanceContextAssembler:
                 blocks_raw.append(block)
 
         self._last_ocr_dropped = self._last_candidate_count - len(blocks_raw)
-        blocks_raw.sort(key=lambda b: b.extraction_confidence, reverse=True)
+        blocks_raw = self._context_ranker.rank(
+            blocks_raw,
+            entity_context=entity_context,
+            year_min=year_min,
+            year_max=year_max,
+        )
         blocks = _stratified_budget_cap(blocks_raw, budget)
         # Hard ceiling on serialised context size, enforced after the count
-        # cap so confidence-descending order is preserved.  Without this an
+        # cap so the ranker's best-first order is preserved.  Without this an
         # uncapped retrieval (10K blocks) blows the 1M-token Anthropic input
         # limit on dense corpora.
         blocks = _apply_context_char_budget(blocks)
@@ -1695,7 +1713,7 @@ class ProvenanceContextAssembler:
 
         if intent.operation == "locations_for_entity":
             rows = self._executor.run(
-                LOCATIONS_FOR_ENTITY_QUERY,
+                self._locations_query,
                 {
                     "entity_id": intent.entity_id,
                     "institution_ids": effective_ids,

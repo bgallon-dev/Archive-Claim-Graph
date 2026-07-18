@@ -183,31 +183,37 @@ _SERIES_ALIASES: dict[str, str] = {
 }
 
 
-def _extract_series_hints(text: str) -> list[str]:
+def _extract_series_hints(text: str, aliases: dict[str, str] | None = None) -> list[str]:
     """Return canonical series strings detected in *text* via alias matching.
 
-    Longest-match first, same strategy as _extract_doc_type_hints.
+    Longest-match first, same strategy as _extract_doc_type_hints. *aliases*
+    (from the domain's ``query_intent.yaml``) replaces the module default when
+    supplied.
     """
+    alias_map = aliases if aliases is not None else _SERIES_ALIASES
     lowered = text.lower()
     matched: dict[str, str] = {}
-    for phrase in sorted(_SERIES_ALIASES, key=len, reverse=True):
+    for phrase in sorted(alias_map, key=len, reverse=True):
         if phrase in lowered:
-            canonical = _SERIES_ALIASES[phrase]
+            canonical = alias_map[phrase]
             if canonical not in matched.values():
                 matched[phrase] = canonical
     return list(dict.fromkeys(matched.values()))
 
 
-def _extract_doc_type_hints(text: str) -> list[str]:
+def _extract_doc_type_hints(text: str, aliases: dict[str, str] | None = None) -> list[str]:
     """Return canonical doc_type values detected in *text* via alias matching.
 
     Checks multi-word phrases first (longest match wins) to avoid partial hits.
+    *aliases* (from the domain's ``query_intent.yaml``) replaces the module
+    default when supplied.
     """
+    alias_map = aliases if aliases is not None else _DOC_TYPE_ALIASES
     lowered = text.lower()
     matched: dict[str, str] = {}
-    for phrase in sorted(_DOC_TYPE_ALIASES, key=len, reverse=True):
+    for phrase in sorted(alias_map, key=len, reverse=True):
         if phrase in lowered:
-            canonical = _DOC_TYPE_ALIASES[phrase]
+            canonical = alias_map[phrase]
             if canonical not in matched.values():
                 matched[phrase] = canonical
     return list(dict.fromkeys(matched.values()))
@@ -278,6 +284,8 @@ def classify_query(
     *,
     year_bounds: tuple[int, int] | None = None,
     seed_vocab: frozenset[str] | None = None,
+    doc_type_aliases: dict[str, str] | None = None,
+    series_aliases: dict[str, str] | None = None,
 ) -> QueryIntent:
     """Classify *text* into analytical / conversational / hybrid.
 
@@ -289,6 +297,10 @@ def classify_query(
         Caller-supplied year bounds that override any years detected in *text*.
     entity_hints:
         Caller-supplied surface forms to supplement automatic entity detection.
+    doc_type_aliases / series_aliases:
+        Domain surface-form maps (from ``query_intent.yaml``). When supplied
+        they replace the module-level defaults so a corpus recognises its own
+        document-type / series vocabulary instead of the hardcoded grab-bag.
     """
     lowered = text.lower()
 
@@ -362,8 +374,8 @@ def classify_query(
         entities.append(candidate.lower())
         seen_normalized.add(norm)
 
-    doc_type_hints = _extract_doc_type_hints(text)
-    series_hints = _extract_series_hints(text)
+    doc_type_hints = _extract_doc_type_hints(text, doc_type_aliases)
+    series_hints = _extract_series_hints(text, series_aliases)
     # Cross-corpus overlap requires at least two distinct corpus references in
     # the query (combined doc_type + series hints, deduped).  A single corpus
     # plus generic "both" wording (e.g. "in both 1908 and 1909") must not fire.
@@ -517,6 +529,7 @@ def detect_tier1_intent(
     *,
     year_min: int | None = None,
     year_max: int | None = None,
+    type_keywords: dict[str, str] | None = None,
 ) -> "Tier1Intent | None":
     """Return a Tier1Intent when the query matches a structural-lookup pattern
     AND its required filters resolve cleanly.  Returns ``None`` otherwise —
@@ -532,7 +545,7 @@ def detect_tier1_intent(
         return None
     # Frequency-ranking is checked separately because it requires keyword
     # extraction (entity-type word from a closed vocabulary, optional limit N).
-    freq_intent = _detect_frequency_ranking(query_text)
+    freq_intent = _detect_frequency_ranking(query_text, type_keywords)
     if freq_intent is not None:
         return freq_intent
     for operation, regex, requirement in _TIER1_PATTERNS:
@@ -565,16 +578,24 @@ def detect_tier1_intent(
     return None
 
 
-def _detect_frequency_ranking(query_text: str) -> "Tier1Intent | None":
+def _detect_frequency_ranking(
+    query_text: str,
+    type_keywords: dict[str, str] | None = None,
+) -> "Tier1Intent | None":
     """Match top-N / most-X / which-X-appear-most patterns and resolve the
     type keyword to a graph entity label.  Returns None when the query
     doesn't match or the type word isn't in the closed vocabulary.
+
+    *type_keywords* (from the domain's ``query_intent.yaml``) replaces the
+    module default when supplied, so a corpus routes only its own entity-type
+    words (e.g. a newspaper corpus never short-circuits "top 10 refuges").
     """
+    keyword_map = type_keywords if type_keywords is not None else _TIER1_TYPE_KEYWORDS
     m = _TIER1_FREQ_RE.match(query_text)
     if m is None:
         return None
     type_word = (m.group("type1") or m.group("type2") or m.group("type3") or "").lower()
-    label = _TIER1_TYPE_KEYWORDS.get(type_word)
+    label = keyword_map.get(type_word)
     if label is None:
         return None  # type word not in closed vocab → fall through to synthesis
     n_capture = m.group("n")

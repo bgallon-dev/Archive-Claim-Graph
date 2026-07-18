@@ -13,7 +13,11 @@ from typing import Any
 
 import yaml
 
-_DEFAULT_RESOURCES_DIR: Path = Path(__file__).parent.parent / "resources"
+# The bundled ecological "Turnbull" corpus. Exposed as a named constant so
+# callers that genuinely want this corpus opt in *visibly* — there is no
+# silent default. ``load_domain_config(None)`` / ``default_seed_entities(None)``
+# raise; anything wanting Turnbull passes this explicitly.
+TURNBULL_RESOURCES_DIR: Path = Path(__file__).parent.parent / "resources"
 
 
 def _safe_compile(pattern: str, flags: int = 0) -> re.Pattern:
@@ -29,7 +33,7 @@ def _safe_compile(pattern: str, flags: int = 0) -> re.Pattern:
 
 
 def _dir(resources_dir: Path | None) -> Path:
-    return resources_dir if resources_dir is not None else _DEFAULT_RESOURCES_DIR
+    return resources_dir if resources_dir is not None else TURNBULL_RESOURCES_DIR
 
 
 def _active_profile(resources_dir: Path | None) -> dict[str, Any]:
@@ -117,6 +121,75 @@ def load_measurement_species(
     path = _resource_path("measurement_species", resources_dir)
     with path.open(encoding="utf-8") as fh:
         return yaml.safe_load(fh)
+
+
+# ── Measurement scan patterns / naming rules ──────────────────────────────────
+
+def load_measurement_patterns(
+    resources_dir: Path | None = None,
+) -> dict[str, Any]:
+    """Return the measurement scan patterns and naming rules for a domain.
+
+    Keys in the returned dict:
+    - ``pattern_specs``: ``[(compiled (number)(unit) pattern, name, unit), ...]``
+      in file order (drives the direct-scan ``_pattern_specs``).
+    - ``unit_right_re``: compiled ``^\\s*(<alt>)\\b`` over the ``range_right``
+      fragments, or ``None`` (drives ``_unit_right_re``).
+    - ``count_claim_types``: ``frozenset[str]`` of count-eligible claim types.
+    - ``acre_specialization``: dict with ``base_name``, ``by_claim_type``,
+      ``by_sentence_substring``.
+    - ``money``: dict with ``by_claim_type`` and ``default``.
+
+    A domain that ships no ``measurement_patterns.yaml`` gets empty patterns and
+    identity naming — never Turnbull's measurement vocabulary.
+    """
+    empty: dict[str, Any] = {
+        "pattern_specs": [],
+        "unit_right_re": None,
+        "count_claim_types": frozenset(),
+        "acre_specialization": {},
+        "money": {},
+    }
+    path = _resource_path("measurement_patterns", resources_dir)
+    if not path.exists():
+        return empty
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+
+    pattern_specs: list[tuple[re.Pattern[str], str, str | None]] = []
+    right_alts: list[str] = []
+    for entry in data.get("patterns") or []:
+        match_frag = str(entry["match"])
+        compiled = _safe_compile(rf"(\d+(?:\.\d+)?)\s*({match_frag})\b", re.IGNORECASE)
+        unit = entry.get("unit")
+        pattern_specs.append((compiled, str(entry["name"]), str(unit) if unit is not None else None))
+        rr = entry.get("range_right")
+        if rr:
+            right_alts.append(str(rr))
+
+    unit_right_re = (
+        _safe_compile(r"^\s*(" + "|".join(right_alts) + r")\b", re.IGNORECASE)
+        if right_alts
+        else None
+    )
+    acre = data.get("acre_specialization") or {}
+    money = data.get("money") or {}
+    return {
+        "pattern_specs": pattern_specs,
+        "unit_right_re": unit_right_re,
+        "count_claim_types": frozenset(str(c) for c in (data.get("count_claim_types") or [])),
+        "acre_specialization": {
+            "base_name": str(acre.get("base_name", "acres")),
+            "by_claim_type": {str(k): str(v) for k, v in (acre.get("by_claim_type") or {}).items()},
+            "by_sentence_substring": {
+                str(k).lower(): str(v) for k, v in (acre.get("by_sentence_substring") or {}).items()
+            },
+        },
+        "money": {
+            "by_claim_type": {str(k): str(v) for k, v in (money.get("by_claim_type") or {}).items()},
+            "default": (str(money["default"]) if money.get("default") is not None else None),
+        },
+    }
 
 
 # ── OCR corrections ───────────────────────────────────────────────────────────
@@ -305,6 +378,35 @@ def load_query_intent(
         data: dict[str, Any] = yaml.safe_load(fh) or {}
     raw = data.get("intent_to_claim_types") or {}
     return {str(k): [str(v) for v in vs] for k, vs in raw.items()}
+
+
+def load_query_intent_maps(
+    resources_dir: Path | None = None,
+) -> dict[str, dict[str, str]]:
+    """Return the classifier's domain-specific surface-form maps from
+    ``query_intent.yaml``: ``doc_type_aliases`` (phrase → doc_type),
+    ``series_aliases`` (phrase → series), and ``tier1_type_keywords``
+    (word → entity label). All keys are lowercased to match the classifier's
+    lowercased query text. Missing blocks yield empty dicts, so a domain that
+    declares none contributes nothing (the classifier then falls back to its
+    module-level defaults).
+    """
+    empty = {"doc_type_aliases": {}, "series_aliases": {}, "tier1_type_keywords": {}}
+    path = _resource_path("query_intent", resources_dir)
+    if not path.exists():
+        return empty
+    with path.open(encoding="utf-8") as fh:
+        data: dict[str, Any] = yaml.safe_load(fh) or {}
+
+    def _str_map(key: str) -> dict[str, str]:
+        raw = data.get(key) or {}
+        return {str(k).lower(): str(v) for k, v in raw.items()}
+
+    return {
+        "doc_type_aliases": _str_map("doc_type_aliases"),
+        "series_aliases": _str_map("series_aliases"),
+        "tier1_type_keywords": _str_map("tier1_type_keywords"),
+    }
 
 
 # ── Corpus registry ──────────────────────────────────────────────────────────

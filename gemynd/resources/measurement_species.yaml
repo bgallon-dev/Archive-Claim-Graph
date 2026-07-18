@@ -9,6 +9,23 @@ version: "1"
 # immediate_patterns: regex fragments joined with | to build _immediate_species_re.
 #   This regex matches species nouns immediately right of a number.
 #   Also used to build _individual_context (wide window species check).
+#
+# context_verbs: counting/observation verbs joined into the context regex
+#   (_individual_context / _count_context_re) alongside immediate_patterns.
+#   Relocated from the hardcoded _SPECIES_CONTEXT_VERBS constant.
+
+context_verbs:
+  - counted
+  - estimated
+  - population
+  - total
+  - observed
+  - taken
+  - killed
+  - trapped
+  - shot
+  - removed
+  - reported
 
 type_hints:
   mallard: waterfowl

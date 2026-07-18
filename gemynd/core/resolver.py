@@ -10,7 +10,11 @@ from typing import TYPE_CHECKING, Iterable, Protocol
 
 from gemynd.core.ids import make_entity_id
 from gemynd.core.models import EntityRecord, EntityResolutionRecord, MentionRecord
-from gemynd.shared.resource_loader import load_claim_relation_compatibility, load_seed_entity_rows
+from gemynd.shared.resource_loader import (
+    TURNBULL_RESOURCES_DIR,
+    load_claim_relation_compatibility,
+    load_seed_entity_rows,
+)
 
 if TYPE_CHECKING:
     from gemynd.ingest.extractors.mention_extractor import ResolutionContext
@@ -59,9 +63,21 @@ class EntityResolver(Protocol):
 def default_seed_entities(resources_dir: Path | None = None) -> list[EntityRecord]:
     """Build EntityRecord list from seed_entities.csv.
 
+    A domain MUST be named: passing ``None`` raises rather than silently
+    loading the bundled Turnbull seeds. Seeds are the single most
+    domain-defining artifact, so a silent default here is the most
+    fundamental leak. Callers that genuinely want Turnbull pass
+    :data:`gemynd.shared.resource_loader.TURNBULL_RESOURCES_DIR` explicitly.
+
     The CSV uses a long format: one row per (entity, property) pair.
     Rows sharing the same (entity_type, name) are merged into one EntityRecord.
     """
+    if resources_dir is None:
+        raise ValueError(
+            "default_seed_entities requires an explicit resources_dir; the silent "
+            "Turnbull default has been removed. Pass TURNBULL_RESOURCES_DIR for the "
+            "Turnbull corpus, or the domain's resources directory."
+        )
     rows = load_seed_entity_rows(resources_dir)
 
     # Preserve insertion order; group properties by (entity_type, name).
@@ -113,8 +129,13 @@ class DictionaryFuzzyResolver:
         self._policy = policy or ResolutionPolicy()
         if config is not None and seed_entities is None:
             self._seed_entities = list(config.seed_entities)
+        elif seed_entities is not None:
+            self._seed_entities = list(seed_entities)
         else:
-            self._seed_entities = list(seed_entities) if seed_entities is not None else default_seed_entities()
+            # No vocabulary supplied. Fall back to the Turnbull corpus *visibly*
+            # (the production retrieval layer threads a DomainConfig; this branch
+            # serves single-corpus/test construction). Never a silent None.
+            self._seed_entities = default_seed_entities(TURNBULL_RESOURCES_DIR)
         if supplementary_candidates:
             # Seed vocabulary wins: skip graph candidates whose normalized_form
             # appears in the seed list, regardless of entity_type. Keying on
@@ -349,7 +370,11 @@ def similarity_score(left: str, right: str) -> float:
     if left == right:
         return 1.0
     ratio = difflib.SequenceMatcher(a=left, b=right).ratio()
-    if left in right or right in left:
+    # Substring containment is only a meaningful signal for non-trivial tokens.
+    # Short OCR fragments ("of", "com", "as") otherwise substring-match long
+    # entity names ("...workers of the world", "...company") and falsely resolve
+    # at 0.88. Require both sides to be >= 4 chars for the containment boost.
+    if (left in right or right in left) and min(len(left), len(right)) >= 4:
         ratio = max(ratio, 0.88)
     left_tokens = set(left.split())
     right_tokens = set(right.split())

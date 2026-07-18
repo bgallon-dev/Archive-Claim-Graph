@@ -12,6 +12,7 @@ import logging
 
 from gemynd.core.models import MentionRecord
 from gemynd.core.resolver import DictionaryFuzzyResolver, ResolutionPolicy, default_seed_entities, normalize_name
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from gemynd.ingest.extractors.mention_extractor import ResolutionContext
 from .executor import Neo4jQueryExecutor
 from .models import EntityContext, ResolvedEntity
@@ -46,7 +47,9 @@ class EntityResolutionGateway:
         executor: Neo4jQueryExecutor | None = None,
     ) -> None:
         self._resolver = resolver or DictionaryFuzzyResolver(
-            seed_entities=default_seed_entities(),
+            # Visible single-corpus fallback; multi-corpus deployments pass an
+            # explicit resolver built from the composite config.
+            seed_entities=default_seed_entities(TURNBULL_RESOURCES_DIR),
             policy=policy or ResolutionPolicy(),
         )
         self._executor = executor

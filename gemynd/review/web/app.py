@@ -887,7 +887,7 @@ def _priority_card(proposal: Any, evidence: dict) -> str:  # type: ignore[type-a
         f'<button hx-post="/proposals/{pid_esc}/defer" '
         f'hx-target="#{card_id}" hx-swap="delete" '
         f'class="btn-sm btn-defer" style="margin-left:4px"'
-        f'{"" if actionable and proposal.status == \"queued\" else \" disabled"}>Defer</button>'
+        f'{"" if actionable and proposal.status == "queued" else " disabled"}>Defer</button>'
     )
 
     return (

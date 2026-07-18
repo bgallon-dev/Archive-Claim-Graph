@@ -6,6 +6,7 @@ from pathlib import Path
 from gemynd.cli import main as cli_main
 from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
 from gemynd.ingest.pipeline import build_spelling_review_queue, extract_semantic, parse_source, run_e2e
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 
 
 def _build_queue(
@@ -23,7 +24,7 @@ def _build_queue(
         page["image_ref"] = image_ref
 
     structure = parse_source({"metadata": metadata, "pages": [page]})
-    semantic = extract_semantic(structure)
+    semantic = extract_semantic(structure, resources_dir=TURNBULL_RESOURCES_DIR)
     return structure, semantic, build_spelling_review_queue(structure, semantic)
 
 
@@ -108,6 +109,7 @@ def test_run_e2e_can_write_review_queue_outputs(fixtures_dir: Path, tmp_path: Pa
         out_dir,
         backend="memory",
         review_out_dir=review_dir,
+        resources_dir=TURNBULL_RESOURCES_DIR,
     )
 
     assert summary["documents_processed"] == 1

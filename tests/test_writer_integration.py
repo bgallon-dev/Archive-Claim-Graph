@@ -3,7 +3,9 @@ from pathlib import Path
 from gemynd.ingest.graph.writer import InMemoryGraphWriter
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from tests.conftest import (
+    TEST_CATEGORIAL_LABEL_MAP,
     TEST_ENTITY_LABELS,
     TEST_EVENT_ROLE_EDGES,
     TEST_OBSERVATION_ROLE_EDGES,
@@ -18,6 +20,7 @@ def _make_writer() -> InMemoryGraphWriter:
         entity_labels=TEST_ENTITY_LABELS,
         observation_role_edges=TEST_OBSERVATION_ROLE_EDGES,
         event_role_edges=TEST_EVENT_ROLE_EDGES,
+        categorial_label_map=TEST_CATEGORIAL_LABEL_MAP,
     )
 
 
@@ -55,10 +58,12 @@ def test_inmemory_upsert_idempotent_and_historical(fixtures_dir: Path) -> None:
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic_run_1 = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_test_1", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
     semantic_run_2 = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_test_2", "run_timestamp": "2026-03-10T01:00:00+00:00"},
     )
 
@@ -84,6 +89,7 @@ def test_observation_and_year_nodes_created(fixtures_dir: Path) -> None:
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_obs_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -130,6 +136,7 @@ def test_group_a_redundant_fk_properties_not_stored_on_nodes(fixtures_dir: Path)
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_group_a", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -169,6 +176,7 @@ def test_group_a_edges_replace_removed_fk_properties(fixtures_dir: Path) -> None
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_group_a_edges", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -260,6 +268,7 @@ def test_entity_resolution_edges_store_match_score_not_score(fixtures_dir: Path)
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_match_score", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -285,6 +294,7 @@ def test_domain_entities_also_stored_under_entity_label(fixtures_dir: Path) -> N
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_label_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -304,6 +314,7 @@ def test_located_in_refuge_edge_emitted(fixtures_dir: Path) -> None:
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_refuge_test", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 

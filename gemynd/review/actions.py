@@ -142,10 +142,20 @@ def edit_proposal(
     reviewer: str,
     edited_patch_spec: dict[str, Any],
     reviewer_note: str = "",
+    *,
+    allowed_relations: frozenset[str] | None = None,
+    location_relation: str | None = None,
 ) -> tuple[ProposalRevision, CorrectionEvent]:
     """Create an edited revision with bounded edits.
 
     The edit may not change proposal_type or issue_class.
+
+    *allowed_relations* / *location_relation* (from the deployment's
+    DomainConfig) let the edit be validated against the domain's own relation
+    vocabulary; without them the Turnbull defaults apply. NOTE: the review web
+    layer does not yet load a DomainConfig, so it currently passes neither — a
+    non-Turnbull deployment that lets archivists edit link relations should
+    thread its config here (follow-up).
     """
     proposal = store.get_proposal(proposal_id)
     if not proposal:
@@ -154,7 +164,11 @@ def edit_proposal(
 
     # Validate the edited patch spec
     try:
-        validate_patch_spec(edited_patch_spec)
+        validate_patch_spec(
+            edited_patch_spec,
+            allowed_relations=allowed_relations,
+            location_relation=location_relation,
+        )
     except PatchSpecValidationError as e:
         raise ReviewActionError(f"Invalid edited patch_spec: {e}") from e
 

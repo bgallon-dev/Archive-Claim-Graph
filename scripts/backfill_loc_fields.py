@@ -5,7 +5,8 @@ migration (canonical ``loc.gov/resource/`` form). Documents ingested before
 that change have NULL values, so the LoC source-link buttons in the
 retrieval UI do not render. The Neo4j-side hash check in
 ``gemynd/ingest/pipeline.py`` skips re-ingestion of unchanged inputs, so
-re-running ``ingest_newspapers.py`` will not populate them.
+re-running the newspaper ingest driver (``scripts/ingest_tutorstructure.py``)
+will not populate them.
 
 This script reads the input JSONs and the source-file naming convention,
 then SETs the three fields on the existing nodes via a batched UNWIND.
@@ -26,14 +27,11 @@ import sys
 from pathlib import Path
 from typing import Any, Iterable
 
+from gemynd.shared.env import load_dotenv  # noqa: E402
+
 _REPO_ROOT = Path(__file__).resolve().parent.parent
-_ENV_PATH = _REPO_ROOT / ".env"
-if _ENV_PATH.exists():
-    for _line in _ENV_PATH.read_text(encoding="utf-8").splitlines():
-        _line = _line.strip()
-        if _line and not _line.startswith("#") and "=" in _line:
-            _k, _, _v = _line.partition("=")
-            os.environ.setdefault(_k.strip(), _v.strip())
+# Load repo-root .env if present; does not override existing env vars.
+load_dotenv(_REPO_ROOT / ".env")
 
 from gemynd.ingest.source_parser import _extract_loc_sequence, _strip_leading_zeros  # noqa: E402
 from gemynd.retrieval.executor import Neo4jQueryExecutor  # noqa: E402

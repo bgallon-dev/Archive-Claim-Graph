@@ -3,6 +3,7 @@ from pathlib import Path
 from gemynd.ingest.checkpoint import CHECKPOINT_FILENAME
 from gemynd.shared.io_utils import load_semantic_bundle
 from gemynd.ingest.pipeline import run_e2e
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 
 
 def test_e2e_parallel(fixtures_dir: Path, tmp_path: Path) -> None:
@@ -11,7 +12,7 @@ def test_e2e_parallel(fixtures_dir: Path, tmp_path: Path) -> None:
         fixtures_dir / "report2.json",
         fixtures_dir / "report3.json",
     ]
-    summary = run_e2e([str(path) for path in inputs], tmp_path, backend="memory", workers=2)
+    summary = run_e2e([str(path) for path in inputs], tmp_path, backend="memory", workers=2, resources_dir=TURNBULL_RESOURCES_DIR)
     assert summary["documents_processed"] == 3
     for output in summary["outputs"]:
         gates = output["quality"]["quality_gates"]
@@ -27,7 +28,7 @@ def test_e2e_on_three_reports(fixtures_dir: Path, tmp_path: Path) -> None:
         fixtures_dir / "report2.json",
         fixtures_dir / "report3.json",
     ]
-    summary = run_e2e([str(path) for path in inputs], tmp_path, backend="memory")
+    summary = run_e2e([str(path) for path in inputs], tmp_path, backend="memory", resources_dir=TURNBULL_RESOURCES_DIR)
     assert summary["documents_processed"] == 3
 
     for output in summary["outputs"]:
@@ -106,10 +107,10 @@ def test_e2e_on_three_reports(fixtures_dir: Path, tmp_path: Path) -> None:
 def test_e2e_single_worker_checkpoint_resume(fixtures_dir: Path, tmp_path: Path) -> None:
     """Single-worker interleaved path skips extraction for checkpointed docs."""
     inputs = [str(fixtures_dir / "report1.json")]
-    summary1 = run_e2e(inputs, tmp_path, backend="memory")
+    summary1 = run_e2e(inputs, tmp_path, backend="memory", resources_dir=TURNBULL_RESOURCES_DIR)
     assert summary1["documents_processed"] == 1
     assert (tmp_path / CHECKPOINT_FILENAME).exists()
 
     # Re-run: checkpoint exists → doc fully skipped (no re-extraction).
-    summary2 = run_e2e(inputs, tmp_path, backend="memory")
+    summary2 = run_e2e(inputs, tmp_path, backend="memory", resources_dir=TURNBULL_RESOURCES_DIR)
     assert summary2["documents_processed"] == 0

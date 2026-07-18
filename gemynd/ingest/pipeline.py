@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import logging
-import os
 import re
 import sys
 from collections import Counter, defaultdict
@@ -48,14 +47,17 @@ _log = logging.getLogger(__name__)
 CLAUSE_MARKERS = (",", ";", " and ", " or ")
 
 
-def parse_source(input_path: str | Path | dict[str, Any]) -> StructureBundle:
+def parse_source(
+    input_path: str | Path | dict[str, Any],
+    source_profile: dict[str, Any] | None = None,
+) -> StructureBundle:
     if isinstance(input_path, dict):
-        return parse_source_payload(input_path, source_file=None)
+        return parse_source_payload(input_path, source_file=None, source_profile=source_profile)
     path = Path(input_path)
     if path.suffix.lower() == ".json":
-        return parse_source_file(path)
+        return parse_source_file(path, source_profile=source_profile)
     payload = load_json(path)
-    return parse_source_payload(payload, source_file=str(path))
+    return parse_source_payload(payload, source_file=str(path), source_profile=source_profile)
 
 
 def _is_short_simple_sentence(sentence: str) -> bool:
@@ -73,6 +75,7 @@ def extract_semantic(
     resolver: EntityResolver | None = None,
     run_overrides: dict[str, str] | None = None,
     resources_dir: Path | None = None,
+    config: DomainConfig | None = None,
     no_llm: bool = False,
     token_logger: Any | None = None,
 ) -> SemanticBundle:
@@ -92,7 +95,7 @@ def extract_semantic(
         resolve_entities,
     )
 
-    _config = load_domain_config(resources_dir)
+    _config = config if config is not None else load_domain_config(resources_dir)
 
     # Set institution_id from domain config if not already set on the document.
     if not structure.document.institution_id and _config.institution_id:
@@ -159,7 +162,13 @@ def load_graph(
         uri = neo4j_uri or _settings.neo4j_uri or None
         user = neo4j_user or _settings.neo4j_user or None
         password = neo4j_password or _settings.neo4j_password or None
-        database = _settings.neo4j_database if os.environ.get("NEO4J_DATABASE") else neo4j_database
+        # The explicit neo4j_database argument is authoritative — callers (CLI,
+        # run_e2e) resolve NEO4J_DATABASE into it before calling. The writer MUST
+        # use the same value the pre-flight duplicate check and persist path use
+        # (both read neo4j_database directly); consulting the env here instead
+        # let the env override an explicit target, so the dedup check and the
+        # writer could point at different databases. Keep this consistent.
+        database = neo4j_database
         trust_mode = neo4j_trust_mode or _settings.neo4j_trust
         ca_cert_path = neo4j_ca_cert or _settings.neo4j_ca_cert
         if not uri or not user or not password:
@@ -174,12 +183,14 @@ def load_graph(
             entity_labels=entity_labels,
             observation_role_edges=config.observation_role_edges,
             event_role_edges=config.event_role_edges,
+            categorial_label_map=config.categorial_label_map,
         )
     else:
         writer = InMemoryGraphWriter(
             entity_labels=entity_labels,
             observation_role_edges=config.observation_role_edges,
             event_role_edges=config.event_role_edges,
+            categorial_label_map=config.categorial_label_map,
         )
 
     writer.create_schema()
@@ -188,7 +199,12 @@ def load_graph(
     return writer
 
 
-def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict[str, Any]:
+def quality_report(
+    structure: StructureBundle,
+    semantic: SemanticBundle,
+    *,
+    config: DomainConfig | None = None,
+) -> dict[str, Any]:
     paragraph_ids = {paragraph.paragraph_id for paragraph in structure.paragraphs}
     claim_ids = {claim.claim_id for claim in semantic.claims}
 
@@ -219,10 +235,25 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
     mention_count = max(1, len(semantic.mentions))
 
     observation_count = len(semantic.observations)
-    obs_with_species = sum(1 for obs in semantic.observations if "species" in obs.role_entities)
     obs_with_year = sum(1 for obs in semantic.observations if obs.year_id)
     obs_with_evidence = sum(1 for obs in semantic.observations if obs.claim_id in claim_ids)
     safe_obs_count = max(1, observation_count)
+
+    # Per-role observation coverage over the domain's declared observation roles
+    # (replaces the hardcoded "species" metric). With no config, fall back to the
+    # legacy single "species" role for callers that don't thread config.
+    if config is not None:
+        _role_names = sorted(config.role_resolution.keys()) or sorted(config.observation_role_edges.keys())
+    else:
+        _role_names = ["species"]
+    observations_with_role_pct = {
+        role: (
+            sum(1 for obs in semantic.observations if role in obs.role_entities) / safe_obs_count
+            if observation_count
+            else 0.0
+        )
+        for role in _role_names
+    }
     unclassified_claim_count = sum(1 for c in semantic.claims if c.claim_type == "unclassified_assertion")
     claim_entity_link_count = len(semantic.claim_entity_links)
     typed_claim_links = [link for link in semantic.claim_entity_links if link.relation_type in CLAIM_ENTITY_RELATIONS]
@@ -268,7 +299,7 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
         "claims_with_evidence_pct": claims_with_evidence / claim_count,
         "measurements_linked_pct": measurement_with_claim / measurement_count,
         "mention_offset_valid_pct": mention_valid_offsets / mention_count,
-        "observations_with_species_pct": obs_with_species / safe_obs_count if observation_count else 0.0,
+        "observations_with_role_pct": observations_with_role_pct,
         "observations_with_year_pct": obs_with_year / safe_obs_count if observation_count else 0.0,
         "unclassified_claim_count": unclassified_claim_count,
         "claims_with_many_typed_links": claims_with_many_typed_links,
@@ -279,6 +310,10 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
         "duplicate_id_violations": duplicate_counts,
         "manual_review_precision_target": 0.85,
     }
+    # Back-compat alias: keep the legacy key only when a "species" role exists.
+    if "species" in observations_with_role_pct:
+        metrics["observations_with_species_pct"] = observations_with_role_pct["species"]
+
     metrics["quality_gates"] = {
         "claims_have_evidence": metrics["claims_with_evidence_pct"] >= 1.0,
         "measurements_linked": metrics["measurements_linked_pct"] >= 1.0,
@@ -289,8 +324,12 @@ def quality_report(structure: StructureBundle, semantic: SemanticBundle) -> dict
     return metrics
 
 
-def build_spelling_review_queue(structure: StructureBundle, semantic: SemanticBundle) -> list[dict[str, Any]]:
-    return _build_spelling_review_queue(structure, semantic)
+def build_spelling_review_queue(
+    structure: StructureBundle,
+    semantic: SemanticBundle,
+    config: DomainConfig | None = None,
+) -> list[dict[str, Any]]:
+    return _build_spelling_review_queue(structure, semantic, config)
 
 
 def _make_doc_run_id(input_path: str, now: datetime) -> str:
@@ -362,7 +401,11 @@ def extract_document(
     pickle-safe so it can be submitted to :class:`ProcessPoolExecutor`.
     """
     resources_dir = Path(domain_dir_str) if domain_dir_str else None
-    structure = parse_source(input_item)
+    # Load the domain config once (raises if no domain named — fail-loud) and
+    # reuse it for both source parsing (source_profile) and extraction (config),
+    # avoiding a second load inside extract_semantic.
+    _config = load_domain_config(resources_dir)
+    structure = parse_source(input_item, source_profile=_config.source_profile)
     if structure.document.doc_type == "land_patent":
         semantic = build_land_patent_semantic(
             structure,
@@ -380,6 +423,7 @@ def extract_document(
             structure,
             resolver=resolver,
             resources_dir=resources_dir,
+            config=_config,
             run_overrides={"run_id": run_id} if run_id else None,
             no_llm=no_llm,
         )
@@ -397,6 +441,7 @@ def persist_document(
     out_dir: str,
     review_out_dir: str | None = None,
     sensitivity_gate: SensitivityGate | None = None,
+    config: DomainConfig | None = None,
 ) -> PersistResult:
     """Effectful persistence: sensitivity gate, file I/O, quality report.
 
@@ -414,12 +459,12 @@ def persist_document(
     save_structure_bundle(structure_path, result.structure)
     save_semantic_bundle(semantic_path, semantic)
 
-    metrics = quality_report(result.structure, semantic)
+    metrics = quality_report(result.structure, semantic, config=config)
 
     spelling_review_output: str | None = None
     spelling_review_issue_count = 0
     if review_out_dir is not None:
-        review_rows = build_spelling_review_queue(result.structure, semantic)
+        review_rows = build_spelling_review_queue(result.structure, semantic, config)
         review_path = Path(review_out_dir) / f"{stem}.spelling_review.json"
         save_json(review_path, review_rows)
         spelling_review_output = str(review_path)
@@ -455,7 +500,8 @@ def _process_single_document(
     result = extract_document(
         input_item, domain_dir_str, run_id, supplementary_entity_rows, no_llm,
     )
-    persist = persist_document(result, out_dir, review_out_dir)
+    _cfg = load_domain_config(Path(domain_dir_str)) if domain_dir_str else None
+    persist = persist_document(result, out_dir, review_out_dir, config=_cfg)
     return persist.to_summary_dict()
 
 
@@ -657,6 +703,7 @@ def run_e2e(
                 structure, semantic, review_store,
                 structure_bundle_path=str(Path(doc_summary["structure_output"]).resolve()),
                 semantic_bundle_path=str(Path(doc_summary["semantic_output"]).resolve()),
+                config=_run_config,
             )
             doc_summary["review_detect"] = review_result
 
@@ -704,7 +751,7 @@ def run_e2e(
                     _supp, no_llm=no_llm,
                 )
                 persist = persist_document(
-                    extraction, str(output_dir), review_output_dir_str,
+                    extraction, str(output_dir), review_output_dir_str, config=_run_config,
                 )
                 summary = persist.to_summary_dict()
                 _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
@@ -768,6 +815,83 @@ def run_e2e(
     if backend == "memory" and writer is not None:
         result["writer"] = writer
     return result
+
+
+def run_e2e_jsonl(
+    jsonl_inputs: list[str | Path],
+    out_dir: str | Path,
+    *,
+    staging_root: str | Path | None = None,
+    keep_staging: bool = False,
+    skip_bad_lines: bool = True,
+    **run_e2e_kwargs: Any,
+) -> dict[str, Any]:
+    """Ingest one-JSONL-per-title bundles by staging each title to loose ``.json``
+    files and running the standard per-file pipeline on them.
+
+    Each line is one issue payload (``{metadata, pages}``). Titles are processed
+    one at a time — staged into ``<out_dir>/.jsonl_staging/<title>/``, run
+    through :func:`run_e2e`, then the staging dir is removed (unless
+    *keep_staging*) — so peak disk/inode use is bounded to a single title
+    regardless of corpus size. Every :func:`run_e2e` keyword argument (backend,
+    ``neo4j_*``, ``resources_dir``, ``no_llm``, ``review_*``, …) passes through.
+
+    Resume-safe: staged filenames are deterministic (``<title>__NNNNNN.json``),
+    so a re-run re-stages identical names and run_e2e's checkpoint skips
+    completed docs. With ``backend="neo4j"`` every title writes to the same
+    graph; with ``backend="memory"`` each title gets an independent writer
+    (bundle files are written to *out_dir* either way).
+    """
+    import shutil
+    from .jsonl_source import stage_jsonl
+
+    output_dir = Path(out_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    staging_base = Path(staging_root) if staging_root is not None else output_dir / ".jsonl_staging"
+
+    per_title: list[dict[str, Any]] = []
+    total_docs = total_processed = total_already = total_skipped_lines = 0
+
+    for jp in jsonl_inputs:
+        jpath = Path(jp)
+        title_stage = staging_base / jpath.stem
+        staged, errors = stage_jsonl(jpath, title_stage, skip_bad_lines=skip_bad_lines)
+        total_skipped_lines += len(errors)
+        if not staged:
+            _log.warning("run_e2e_jsonl: %s produced no documents", jpath.name)
+            per_title.append({"title": jpath.name, "documents": 0, "skipped_lines": len(errors)})
+            if not keep_staging:
+                shutil.rmtree(title_stage, ignore_errors=True)
+            continue
+        summary = run_e2e([str(p) for p in staged], out_dir, **run_e2e_kwargs)
+        total_docs += len(staged)
+        total_processed += int(summary.get("documents_processed", 0))
+        total_already += int(summary.get("already_ingested", 0))
+        per_title.append({
+            "title": jpath.name,
+            "documents": len(staged),
+            "documents_processed": summary.get("documents_processed", 0),
+            "already_ingested": summary.get("already_ingested", 0),
+            "skipped_lines": len(errors),
+        })
+        if not keep_staging:
+            shutil.rmtree(title_stage, ignore_errors=True)
+
+    if not keep_staging:
+        try:
+            staging_base.rmdir()  # remove only if now empty
+        except OSError:
+            pass
+
+    return {
+        "mode": "jsonl",
+        "titles": len(jsonl_inputs),
+        "documents_staged": total_docs,
+        "documents_processed": total_processed,
+        "already_ingested": total_already,
+        "lines_skipped": total_skipped_lines,
+        "per_title": per_title,
+    }
 
 
 def _rebuild_resolution_contexts(semantic: SemanticBundle) -> dict[str, ResolutionContext]:

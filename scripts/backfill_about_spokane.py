@@ -10,15 +10,13 @@ documents; this script is idempotent (MERGE) so it is safe to re-run.
 import os
 from pathlib import Path
 
+from gemynd.shared.env import load_dotenv
+
+# Load .env from the usual candidate locations (repo root first); does not
+# override existing env vars, so layering multiple candidates is safe.
 _here = Path(__file__).resolve().parent
-for candidate in (_here / ".env", _here.parent / ".env", _here.parent.parent / ".env"):
-    if candidate.exists():
-        for line in candidate.read_text().splitlines():
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, _, v = line.partition("=")
-                os.environ.setdefault(k.strip(), v.strip())
-        break
+for _candidate in (_here.parent / ".env", _here / ".env", _here.parent.parent / ".env"):
+    load_dotenv(_candidate)
 
 from gemynd.retrieval.executor import Neo4jQueryExecutor
 

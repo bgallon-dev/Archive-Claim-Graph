@@ -1,0 +1,1139 @@
+{
+  "claim_concept_links": [
+    {
+      "claim_id": "run_golden:claim:003:c9120c4a174b1866",
+      "concept_id": "concept_precipitation_pattern",
+      "confidence": 0.85,
+      "matched_rule": "\\b(rain(?:fall)?|precip(?:itation)?|snow(?:fall)?|inch(?:es)"
+    },
+    {
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "concept_id": "concept_drought_condition",
+      "confidence": 0.88,
+      "matched_rule": "\\b(drought|dried? up|dry(?:ing)?|no rain|lack of water|water"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "concept_id": "concept_nesting_success",
+      "confidence": 0.85,
+      "matched_rule": "\\b(nest(?:ed|ing|s)?|hatch(?:ed|ing)?|fledg(?:ed|ing|ling)?|"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "concept_id": "concept_breeding_success",
+      "confidence": 0.85,
+      "matched_rule": "\\b(reared to maturity|breeding success|successful(?:ly)? bre"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "concept_id": "concept_seasonal_condition",
+      "confidence": 0.75,
+      "matched_rule": "\\b(spring|summer|fall|winter|autumn|seasonal|annual|migratio"
+    }
+  ],
+  "claim_entity_links": [
+    {
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "entity_id": "place_1ff32dc0dccd52b7",
+      "relation_type": "LOCATION_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "entity_id": "place_0fc3bf926c11ba80",
+      "relation_type": "LOCATION_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "entity_id": "activity_e964957490e2782d",
+      "relation_type": "MANAGEMENT_TARGET"
+    },
+    {
+      "claim_id": "run_golden:claim:006:cce57ba22d26cd07",
+      "entity_id": "activity_e964957490e2782d",
+      "relation_type": "MANAGEMENT_TARGET"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "entity_id": "species_648e6b34cf434d5b",
+      "relation_type": "SPECIES_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "entity_id": "species_4b8eb16927269257",
+      "relation_type": "SPECIES_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:007:ceeb42f24a0400fb",
+      "entity_id": "activity_e9c01bbf13d2f587",
+      "relation_type": "MANAGEMENT_TARGET"
+    },
+    {
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "entity_id": "activity_a35a3fa2ee9fbe54",
+      "relation_type": "MANAGEMENT_TARGET"
+    }
+  ],
+  "claim_link_diagnostics": [
+    {
+      "candidate_count": 0,
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "detail": "No resolved mention matched the claim link within the claim evidence span.",
+      "diagnostic_code": "NO_RESOLVED_MENTION",
+      "entity_type_hint": "Habitat",
+      "normalized_form": "pothole",
+      "relation_type": "HABITAT_FOCUS",
+      "surface_form": "Pothole"
+    },
+    {
+      "candidate_count": 0,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "detail": "No resolved mention matched the claim link within the claim evidence span.",
+      "diagnostic_code": "NO_RESOLVED_MENTION",
+      "entity_type_hint": "Place",
+      "normalized_form": "turnbull",
+      "relation_type": "OCCURRED_AT",
+      "surface_form": "Turnbull"
+    }
+  ],
+  "claim_location_links": [],
+  "claim_period_links": [
+    {
+      "claim_id": "run_golden:claim:003:c9120c4a174b1866",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:006:cce57ba22d26cd07",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:007:ceeb42f24a0400fb",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "OCCURRED_DURING"
+    }
+  ],
+  "claims": [
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:003:c9120c4a174b1866",
+      "claim_type": "weather_observation",
+      "epistemic_status": "certain",
+      "evidence_end": 90,
+      "evidence_start": 61,
+      "extraction_confidence": 0.7687,
+      "normalized_sentence": "only .55 inches of rain fell.",
+      "notes": "",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Only .55 inches of rain fell."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "claim_type": "weather_observation",
+      "epistemic_status": "certain",
+      "evidence_end": 172,
+      "evidence_start": 91,
+      "extraction_confidence": 0.7207,
+      "normalized_sentence": "all water places dried up during august except highbridge pothole and pine creek.",
+      "notes": "secondary:habitat_condition",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "All water places dried up during August except Highbridge Pothole and Pine Creek."
+    },
+    {
+      "claim_date": "1938-07-16",
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "claim_type": "fire_incident",
+      "epistemic_status": "uncertain",
+      "evidence_end": 103,
+      "evidence_start": 0,
+      "extraction_confidence": 0.84,
+      "normalized_sentence": "a fire on july 16 burned 100 acres and killed about 100 cords of wood, with suppression cost of $52.50.",
+      "notes": "",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "A fire on July 16 burned 100 acres and killed about 100 cords of wood, with suppression cost of $52.50."
+    },
+    {
+      "claim_date": "1938-09-04",
+      "claim_id": "run_golden:claim:006:cce57ba22d26cd07",
+      "claim_type": "fire_incident",
+      "epistemic_status": "certain",
+      "evidence_end": 175,
+      "evidence_start": 104,
+      "extraction_confidence": 0.92,
+      "normalized_sentence": "another fire on sept. 4 burned 80 acres with suppression cost of $7.00.",
+      "notes": "",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Another fire on Sept. 4 burned 80 acres with suppression cost of $7.00."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "claim_type": "breeding_activity",
+      "epistemic_status": "uncertain",
+      "evidence_end": 232,
+      "evidence_start": 3,
+      "extraction_confidence": 0.84,
+      "normalized_sentence": "wildlife approximately 900 mallards were reared to maturity and 100 green-wing teal were reared. 500 coot were reared and about 3000 mallards came into the refuge during hunting season. 700 canada geese came into turnbull refuge.",
+      "notes": "",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Wildlife Approximately 900 mallards were reared to maturity and 100 green-wing teal were reared. 500 coot were reared and about 3000 mallards came into the refuge during hunting season. 700 Canada geese came into Turnbull Refuge."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:007:ceeb42f24a0400fb",
+      "claim_type": "economic_use",
+      "epistemic_status": "certain",
+      "evidence_end": 46,
+      "evidence_start": 3,
+      "extraction_confidence": 0.7561,
+      "normalized_sentence": "economic uses no grazing allowed this year.",
+      "notes": "",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00004:p0002",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Economic uses No grazing allowed this year."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "claim_type": "economic_use",
+      "epistemic_status": "certain",
+      "evidence_end": 137,
+      "evidence_start": 47,
+      "extraction_confidence": 0.92,
+      "normalized_sentence": "haying by 6 farmers under permits produced 173.5 tons on 175 acres and revenue of $347.00.",
+      "notes": "",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00004:p0002",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Haying by 6 farmers under permits produced 173.5 tons on 175 acres and revenue of $347.00."
+    }
+  ],
+  "document_anchor_links": [
+    {
+      "anchor_entity_id": "refuge_16ba48a60b3fcc4d",
+      "doc_id": "doc_5cfd6a46044909da",
+      "relation_type": "ABOUT_REFUGE"
+    }
+  ],
+  "document_period_links": [
+    {
+      "doc_id": "doc_5cfd6a46044909da",
+      "period_id": "period_9eb382c7c003b8e5",
+      "relation_type": "COVERS_PERIOD"
+    }
+  ],
+  "document_signed_by_links": [],
+  "document_year_links": [
+    {
+      "doc_id": "doc_5cfd6a46044909da",
+      "relation_type": "COVERS_YEAR",
+      "year_id": "year_1938"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "place_1ff32dc0dccd52b7",
+      "entity_type": "Place",
+      "name": "Highbridge Pothole",
+      "normalized_form": "highbridge pothole",
+      "properties": {
+        "place_type": "pond"
+      }
+    },
+    {
+      "entity_id": "place_0fc3bf926c11ba80",
+      "entity_type": "Place",
+      "name": "Pine Creek",
+      "normalized_form": "pine creek",
+      "properties": {
+        "place_type": "creek"
+      }
+    },
+    {
+      "entity_id": "activity_e964957490e2782d",
+      "entity_type": "Activity",
+      "name": "suppression",
+      "normalized_form": "suppression",
+      "properties": {
+        "activity_type": "suppression"
+      }
+    },
+    {
+      "entity_id": "species_648e6b34cf434d5b",
+      "entity_type": "Species",
+      "name": "green-wing teal",
+      "normalized_form": "green-wing teal",
+      "properties": {
+        "taxon_group": "bird"
+      }
+    },
+    {
+      "entity_id": "species_4b8eb16927269257",
+      "entity_type": "Species",
+      "name": "coot",
+      "normalized_form": "coot",
+      "properties": {
+        "taxon_group": "bird"
+      }
+    },
+    {
+      "entity_id": "species_32fa926df8bff671",
+      "entity_type": "Species",
+      "name": "Canada goose",
+      "normalized_form": "canada goose",
+      "properties": {
+        "taxon_group": "bird"
+      }
+    },
+    {
+      "entity_id": "refuge_16ba48a60b3fcc4d",
+      "entity_type": "Refuge",
+      "name": "Turnbull",
+      "normalized_form": "turnbull",
+      "properties": {
+        "refuge_id": "turnbull_refuge"
+      }
+    },
+    {
+      "entity_id": "activity_e9c01bbf13d2f587",
+      "entity_type": "Activity",
+      "name": "grazing",
+      "normalized_form": "grazing",
+      "properties": {
+        "activity_type": "grazing"
+      }
+    },
+    {
+      "entity_id": "activity_a35a3fa2ee9fbe54",
+      "entity_type": "Activity",
+      "name": "haying",
+      "normalized_form": "haying",
+      "properties": {
+        "activity_type": "haying"
+      }
+    },
+    {
+      "entity_id": "period_9eb382c7c003b8e5",
+      "entity_type": "Period",
+      "name": "1938-07-16 to 1938-10-31",
+      "normalized_form": "1938-07-16 to 1938-10-31",
+      "properties": {
+        "end_date": "1938-10-31",
+        "period_id": "period_9eb382c7c003b8e5",
+        "period_type": "publication_period",
+        "source_title": "Narrative Report -- Turnbull Refuge -- July 16 to Oct. 31, 1938",
+        "start_date": "1938-07-16"
+      }
+    }
+  ],
+  "entity_hierarchy_links": [
+    {
+      "child_entity_id": "place_1ff32dc0dccd52b7",
+      "parent_entity_id": "refuge_16ba48a60b3fcc4d",
+      "relation_type": "LOCATED_IN_REFUGE"
+    },
+    {
+      "child_entity_id": "place_0fc3bf926c11ba80",
+      "parent_entity_id": "refuge_16ba48a60b3fcc4d",
+      "relation_type": "LOCATED_IN_REFUGE"
+    }
+  ],
+  "entity_resolution_confirmations": [],
+  "entity_resolutions": [
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "place_1ff32dc0dccd52b7",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:ce17f3e9f6cebb46",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "place_0fc3bf926c11ba80",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:9aef00eb25791c38",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_e964957490e2782d",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:89b2d854cc6574ed",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_e964957490e2782d",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:dea77da2ae0ea34b",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "species_648e6b34cf434d5b",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:be9a973c156e616e",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "species_4b8eb16927269257",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:0818b8fd6bb3c4eb",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "species_32fa926df8bff671",
+      "match_score": 0.93,
+      "mention_id": "run_golden:mention:d9aa7479e0b06661",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "refuge_16ba48a60b3fcc4d",
+      "match_score": 0.88,
+      "mention_id": "run_golden:mention:3ef3470313a14bf8",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_e9c01bbf13d2f587",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:de87f727fc082d8a",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_a35a3fa2ee9fbe54",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:179cc7105aed6760",
+      "relation_type": "REFERS_TO"
+    }
+  ],
+  "event_measurement_links": [
+    {
+      "event_id": "run_golden:event:003:1673c651b3619646",
+      "measurement_id": "run_golden:measurement:003:0c8bfe9a58cb53ab"
+    },
+    {
+      "event_id": "run_golden:event:003:1673c651b3619646",
+      "measurement_id": "run_golden:measurement:005:931ebb2b5496ed3f"
+    },
+    {
+      "event_id": "run_golden:event:003:1673c651b3619646",
+      "measurement_id": "run_golden:measurement:007:a47e85ce8c7fe5ee"
+    },
+    {
+      "event_id": "run_golden:event:004:1f39dc0a8c107ba1",
+      "measurement_id": "run_golden:measurement:006:8297c033d58fa5bf"
+    },
+    {
+      "event_id": "run_golden:event:004:1f39dc0a8c107ba1",
+      "measurement_id": "run_golden:measurement:008:5d47d3661615bce9"
+    },
+    {
+      "event_id": "run_golden:event:007:281eb31956745efe",
+      "measurement_id": "run_golden:measurement:013:7d670001356551d4"
+    },
+    {
+      "event_id": "run_golden:event:007:281eb31956745efe",
+      "measurement_id": "run_golden:measurement:015:e5003cfc41dcac95"
+    },
+    {
+      "event_id": "run_golden:event:007:281eb31956745efe",
+      "measurement_id": "run_golden:measurement:017:3fba2f538d7ff5f2"
+    },
+    {
+      "event_id": "run_golden:event:007:281eb31956745efe",
+      "measurement_id": "run_golden:measurement:019:64fdab7e740cec15"
+    }
+  ],
+  "event_observation_links": [
+    {
+      "event_id": "run_golden:event:001:bf582e64de937d4a",
+      "observation_id": "run_golden:observation:001:bc93155f5f9e4380"
+    },
+    {
+      "event_id": "run_golden:event:002:fd3475038c0ba575",
+      "observation_id": "run_golden:observation:002:2793249cc29b3055"
+    },
+    {
+      "event_id": "run_golden:event:005:77913245c573f7ce",
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5"
+    }
+  ],
+  "events": [
+    {
+      "claim_id": "run_golden:claim:003:c9120c4a174b1866",
+      "confidence": 0.7687,
+      "event_id": "run_golden:event:001:bf582e64de937d4a",
+      "event_type": "WeatherEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "weather_observation",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "confidence": 0.7207,
+      "event_id": "run_golden:event:002:fd3475038c0ba575",
+      "event_type": "WeatherEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "weather_observation",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "confidence": 0.84,
+      "event_id": "run_golden:event:003:1673c651b3619646",
+      "event_type": "FireEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_e964957490e2782d"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "fire_incident",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "claim_date"
+    },
+    {
+      "claim_id": "run_golden:claim:006:cce57ba22d26cd07",
+      "confidence": 0.92,
+      "event_id": "run_golden:event:004:1f39dc0a8c107ba1",
+      "event_type": "FireEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_e964957490e2782d"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "fire_incident",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "claim_date"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "confidence": 0.84,
+      "event_id": "run_golden:event:005:77913245c573f7ce",
+      "event_type": "BreedingEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "species_648e6b34cf434d5b"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "breeding_activity",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:007:ceeb42f24a0400fb",
+      "confidence": 0.7561,
+      "event_id": "run_golden:event:006:766a4418016b5c7a",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00004:p0002",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_e9c01bbf13d2f587"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "economic_use",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "confidence": 0.92,
+      "event_id": "run_golden:event:007:281eb31956745efe",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00004:p0002",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_a35a3fa2ee9fbe54"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "economic_use",
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    }
+  ],
+  "extraction_run": {
+    "claim_type_schema_version": "v2",
+    "config_fingerprint": "556d11043083ddf0",
+    "ner_model": "rules",
+    "normalizer_version": "v1",
+    "ocr_engine": "golden",
+    "ocr_version": "golden",
+    "relation_model": "rules",
+    "run_id": "run_golden",
+    "run_timestamp": "2020-01-01T00:00:00+00:00"
+  },
+  "measurements": [
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:003:c9120c4a174b1866",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:002:f7f80a7619ce69f6",
+      "methodology_note": null,
+      "name": "rainfall",
+      "numeric_value": 55.0,
+      "qualifier": null,
+      "raw_value": "55 inches",
+      "run_id": "run_golden",
+      "unit": "inches",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "lower_bound": null,
+      "measurement_date": "1938-07-16",
+      "measurement_id": "run_golden:measurement:003:0c8bfe9a58cb53ab",
+      "methodology_note": "estimated",
+      "name": "acres_burned",
+      "numeric_value": 100.0,
+      "qualifier": null,
+      "raw_value": "100 acres",
+      "run_id": "run_golden",
+      "unit": "acres",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "lower_bound": null,
+      "measurement_date": "1938-07-16",
+      "measurement_id": "run_golden:measurement:005:931ebb2b5496ed3f",
+      "methodology_note": "estimated",
+      "name": "wood_killed_cords",
+      "numeric_value": 100.0,
+      "qualifier": null,
+      "raw_value": "100 cords",
+      "run_id": "run_golden",
+      "unit": "cords",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:004:ccc42abef9b9d677",
+      "lower_bound": null,
+      "measurement_date": "1938-07-16",
+      "measurement_id": "run_golden:measurement:007:a47e85ce8c7fe5ee",
+      "methodology_note": "estimated",
+      "name": "suppression_cost",
+      "numeric_value": 52.5,
+      "qualifier": null,
+      "raw_value": "$52.50",
+      "run_id": "run_golden",
+      "unit": "USD",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:006:cce57ba22d26cd07",
+      "lower_bound": null,
+      "measurement_date": "1938-09-04",
+      "measurement_id": "run_golden:measurement:006:8297c033d58fa5bf",
+      "methodology_note": null,
+      "name": "acres_burned",
+      "numeric_value": 80.0,
+      "qualifier": null,
+      "raw_value": "80 acres",
+      "run_id": "run_golden",
+      "unit": "acres",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:006:cce57ba22d26cd07",
+      "lower_bound": null,
+      "measurement_date": "1938-09-04",
+      "measurement_id": "run_golden:measurement:008:5d47d3661615bce9",
+      "methodology_note": null,
+      "name": "suppression_cost",
+      "numeric_value": 7.0,
+      "qualifier": null,
+      "raw_value": "$7.00",
+      "run_id": "run_golden",
+      "unit": "USD",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:008:e8d99cb5e9bb66a9",
+      "methodology_note": "estimated",
+      "name": "individual_count",
+      "numeric_value": 900.0,
+      "qualifier": null,
+      "raw_value": "900",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:010:ff58384b87c66c72",
+      "methodology_note": "estimated",
+      "name": "individual_count",
+      "numeric_value": 100.0,
+      "qualifier": null,
+      "raw_value": "100",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:012:6bc11ed61e9306c4",
+      "methodology_note": "estimated",
+      "name": "individual_count",
+      "numeric_value": 500.0,
+      "qualifier": null,
+      "raw_value": "500",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:014:42a884bbcb6d1f51",
+      "methodology_note": "estimated",
+      "name": "individual_count",
+      "numeric_value": 3000.0,
+      "qualifier": null,
+      "raw_value": "3000",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    },
+    {
+      "approximate": true,
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:016:8c46445c676c3686",
+      "methodology_note": "estimated",
+      "name": "individual_count",
+      "numeric_value": 700.0,
+      "qualifier": null,
+      "raw_value": "700",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:013:7d670001356551d4",
+      "methodology_note": null,
+      "name": "land_area",
+      "numeric_value": 175.0,
+      "qualifier": null,
+      "raw_value": "175 acres",
+      "run_id": "run_golden",
+      "unit": "acres",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:015:e5003cfc41dcac95",
+      "methodology_note": null,
+      "name": "hay_cut",
+      "numeric_value": 173.5,
+      "qualifier": null,
+      "raw_value": "173.5 tons",
+      "run_id": "run_golden",
+      "unit": "tons",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:017:3fba2f538d7ff5f2",
+      "methodology_note": null,
+      "name": "farmers_count",
+      "numeric_value": 6.0,
+      "qualifier": null,
+      "raw_value": "6 farmers",
+      "run_id": "run_golden",
+      "unit": "count",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:009:dd23a278dded285c",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:019:64fdab7e740cec15",
+      "methodology_note": null,
+      "name": "revenue",
+      "numeric_value": 347.0,
+      "qualifier": null,
+      "raw_value": "$347.00",
+      "run_id": "run_golden",
+      "unit": "USD",
+      "upper_bound": null
+    }
+  ],
+  "mentions": [
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 130,
+      "mention_id": "run_golden:mention:493c76cdf01c59d3",
+      "normalized_form": "august",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 124,
+      "surface_form": "August"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 156,
+      "mention_id": "run_golden:mention:ce17f3e9f6cebb46",
+      "normalized_form": "highbridge pothole",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 138,
+      "surface_form": "Highbridge Pothole"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 171,
+      "mention_id": "run_golden:mention:9aef00eb25791c38",
+      "normalized_form": "pine creek",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 161,
+      "surface_form": "Pine Creek"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 14,
+      "mention_id": "run_golden:mention:113a32c391acb64b",
+      "normalized_form": "july",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 10,
+      "surface_form": "July"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 87,
+      "mention_id": "run_golden:mention:89b2d854cc6574ed",
+      "normalized_form": "suppression",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 76,
+      "surface_form": "suppression"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 124,
+      "mention_id": "run_golden:mention:96215efb7b1cd7dd",
+      "normalized_form": "sept",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 120,
+      "surface_form": "Sept"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 160,
+      "mention_id": "run_golden:mention:dea77da2ae0ea34b",
+      "normalized_form": "suppression",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 149,
+      "surface_form": "suppression"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 25,
+      "mention_id": "run_golden:mention:418ccbfa2671d4c8",
+      "normalized_form": "approximately",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 12,
+      "surface_form": "Approximately"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 86,
+      "mention_id": "run_golden:mention:be9a973c156e616e",
+      "normalized_form": "green-wing teal",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 71,
+      "surface_form": "green-wing teal"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 108,
+      "mention_id": "run_golden:mention:0818b8fd6bb3c4eb",
+      "normalized_form": "coot",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 104,
+      "surface_form": "coot"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 199,
+      "mention_id": "run_golden:mention:d9aa7479e0b06661",
+      "normalized_form": "canada",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 193,
+      "surface_form": "Canada"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 231,
+      "mention_id": "run_golden:mention:3ef3470313a14bf8",
+      "normalized_form": "turnbull refuge",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 216,
+      "surface_form": "Turnbull Refuge"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 27,
+      "mention_id": "run_golden:mention:de87f727fc082d8a",
+      "normalized_form": "grazing",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00004:p0002",
+      "run_id": "run_golden",
+      "start_offset": 20,
+      "surface_form": "grazing"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 53,
+      "mention_id": "run_golden:mention:179cc7105aed6760",
+      "normalized_form": "haying",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00004:p0002",
+      "run_id": "run_golden",
+      "start_offset": 47,
+      "surface_form": "Haying"
+    }
+  ],
+  "observation_measurement_links": [
+    {
+      "measurement_id": "run_golden:measurement:002:f7f80a7619ce69f6",
+      "observation_id": "run_golden:observation:001:bc93155f5f9e4380"
+    },
+    {
+      "measurement_id": "run_golden:measurement:008:e8d99cb5e9bb66a9",
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5"
+    },
+    {
+      "measurement_id": "run_golden:measurement:010:ff58384b87c66c72",
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5"
+    },
+    {
+      "measurement_id": "run_golden:measurement:012:6bc11ed61e9306c4",
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5"
+    },
+    {
+      "measurement_id": "run_golden:measurement:014:42a884bbcb6d1f51",
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5"
+    },
+    {
+      "measurement_id": "run_golden:measurement:016:8c46445c676c3686",
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5"
+    }
+  ],
+  "observations": [
+    {
+      "claim_id": "run_golden:claim:003:c9120c4a174b1866",
+      "confidence": 0.7687,
+      "is_estimate": false,
+      "observation_id": "run_golden:observation:001:bc93155f5f9e4380",
+      "observation_type": "weather_record",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "weather_observation",
+      "value_text": null,
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:005:378a70627ea78a68",
+      "confidence": 0.7207,
+      "is_estimate": false,
+      "observation_id": "run_golden:observation:002:2793249cc29b3055",
+      "observation_type": "weather_record",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00001:p0001",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "weather_observation",
+      "value_text": null,
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:006:dd53e3c3452a813f",
+      "confidence": 0.84,
+      "is_estimate": true,
+      "observation_id": "run_golden:observation:003:0011fa719e5a73e5",
+      "observation_type": "nesting_record",
+      "paragraph_id": "doc_5cfd6a46044909da:paragraph:00003:p0002",
+      "period_id": "period_9eb382c7c003b8e5",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "species_648e6b34cf434d5b"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "breeding_activity",
+      "value_text": null,
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_source": "document_primary_year"
+    }
+  ],
+  "person_affiliation_links": [],
+  "years": [
+    {
+      "year": 1938,
+      "year_id": "year_1938",
+      "year_label": "1938"
+    }
+  ]
+}

@@ -49,7 +49,15 @@ class RetrievalService:
         intent = classify_query(text)
         gateway = EntityResolutionGateway()
         entity_ctx = gateway.resolve(intent.entities)
-        assembler = ProvenanceContextAssembler(executor)
+        from gemynd.retrieval.context_ranker import build_context_ranker
+        assembler = ProvenanceContextAssembler(
+            executor,
+            context_ranker=build_context_ranker(
+                executor,
+                mode=self._settings.context_ranker,
+                kgr_root=self._settings.kgr_root,
+            ),
+        )
         blocks = assembler.assemble(intent, entity_ctx)
         engine = SynthesisEngine(
             api_key=self._settings.anthropic_api_key,
@@ -67,7 +75,15 @@ class RetrievalService:
         intent = classify_query(text)
         gateway = EntityResolutionGateway()
         entity_ctx = gateway.resolve(intent.entities)
-        assembler = ProvenanceContextAssembler(executor)
+        from gemynd.retrieval.context_ranker import build_context_ranker
+        assembler = ProvenanceContextAssembler(
+            executor,
+            context_ranker=build_context_ranker(
+                executor,
+                mode=self._settings.context_ranker,
+                kgr_root=self._settings.kgr_root,
+            ),
+        )
         return assembler.assemble(intent, entity_ctx)
 
     def close(self) -> None:

@@ -3,14 +3,10 @@ to the canonical Turnbull Refuge entity, then verify coverage."""
 import os
 from pathlib import Path
 
-# Load .env if present
-env_path = Path(__file__).parent / ".env"
-if env_path.exists():
-    for line in env_path.read_text().splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, _, v = line.partition("=")
-            os.environ.setdefault(k.strip(), v.strip())
+from gemynd.shared.env import load_dotenv
+
+# Load repo-root .env if present; does not override existing env vars.
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 from gemynd.retrieval.executor import Neo4jQueryExecutor
 

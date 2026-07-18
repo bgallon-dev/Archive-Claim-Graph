@@ -4,9 +4,12 @@ from __future__ import annotations
 import json
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, TYPE_CHECKING
 
 from gemynd.core.models import SemanticBundle, StructureBundle
+
+if TYPE_CHECKING:
+    from gemynd.core.domain_config import DomainConfig
 from .detectors import DETECTOR_MODULES
 from .ids import (
     SNAPSHOT_SCHEMA_VERSION,
@@ -71,13 +74,24 @@ def _now_iso() -> str:
 def _validate_and_filter(
     detector_proposals: list[DetectorProposal],
     snapshot_id: str,
+    config: "DomainConfig | None" = None,
 ) -> tuple[list[DetectorProposal], list[dict[str, Any]]]:
-    """Validate each proposal's patch_spec. Return (valid, rejected_info)."""
+    """Validate each proposal's patch_spec. Return (valid, rejected_info).
+
+    When *config* is supplied, the domain's own relation vocabulary is used for
+    link validation so domain-specific relations are not rejected as unknown.
+    """
+    allowed_relations = config.claim_entity_relations if config is not None else None
+    location_relation = config.claim_location_relation if config is not None else None
     valid: list[DetectorProposal] = []
     rejected: list[dict[str, Any]] = []
     for dp in detector_proposals:
         try:
-            validate_patch_spec(dp.patch_spec)
+            validate_patch_spec(
+                dp.patch_spec,
+                allowed_relations=allowed_relations,
+                location_relation=location_relation,
+            )
             valid.append(dp)
         except PatchSpecValidationError as e:
             rejected.append({
@@ -107,6 +121,7 @@ def run_detection(
     store: ReviewStore,
     structure_bundle_path: str,
     semantic_bundle_path: str,
+    config: "DomainConfig | None" = None,
 ) -> dict[str, Any]:
     """Run all three v1 detectors, validate proposals, and upsert into the store.
 
@@ -144,10 +159,10 @@ def run_detection(
     # Run detectors
     all_detector_proposals: list[DetectorProposal] = []
     for module in DETECTOR_MODULES:
-        all_detector_proposals.extend(module.detect(structure, semantic, snapshot_id))
+        all_detector_proposals.extend(module.detect(structure, semantic, snapshot_id, config=config))
 
     # Validate
-    valid_proposals, rejected = _validate_and_filter(all_detector_proposals, snapshot_id)
+    valid_proposals, rejected = _validate_and_filter(all_detector_proposals, snapshot_id, config)
 
     # Upsert proposals
     upserted = 0

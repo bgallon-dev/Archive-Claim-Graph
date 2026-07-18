@@ -29,6 +29,7 @@ import pytest
 
 from gemynd.core.models import ClaimRecord
 from gemynd.ingest.pipeline import _process_single_document
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from gemynd.retrieval.context_assembler import _sanitize_claim_text
 from gemynd.review.detectors.sensitivity_monitor import (
     LIVING_PERSON_YEAR_THRESHOLD,
@@ -152,6 +153,7 @@ class TestSensitivityGateExceptionHandling:
                 str(_FIXTURES / "report1.json"),
                 str(tmp_path),
                 None,
+                str(TURNBULL_RESOURCES_DIR),
             )
         semantic = load_semantic_bundle(result["semantic_output"])
         assert semantic.claims, "report1.json must contain at least one extractable claim"
@@ -170,6 +172,7 @@ class TestSensitivityGateExceptionHandling:
                 str(_FIXTURES / "report1.json"),
                 str(tmp_path),
                 None,
+                str(TURNBULL_RESOURCES_DIR),
             )
         semantic = load_semantic_bundle(result["semantic_output"])
         wrong_reason = [
@@ -235,7 +238,7 @@ class TestAutoQuarantineThreshold:
 
         with patch(_SENSITIVITY_DETECT, side_effect=_stub):
             result = _process_single_document(
-                str(_FIXTURES / "report1.json"), str(tmp_path), None
+                str(_FIXTURES / "report1.json"), str(tmp_path), None, str(TURNBULL_RESOURCES_DIR)
             )
         semantic = load_semantic_bundle(result["semantic_output"])
         quarantined = [c for c in semantic.claims if c.quarantine_status == "quarantined"]
@@ -250,7 +253,7 @@ class TestAutoQuarantineThreshold:
 
         with patch(_SENSITIVITY_DETECT, side_effect=_stub):
             result = _process_single_document(
-                str(_FIXTURES / "report1.json"), str(tmp_path), None
+                str(_FIXTURES / "report1.json"), str(tmp_path), None, str(TURNBULL_RESOURCES_DIR)
             )
         semantic = load_semantic_bundle(result["semantic_output"])
         quarantined = [c for c in semantic.claims if c.quarantine_status == "quarantined"]

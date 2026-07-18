@@ -1111,6 +1111,21 @@ def create_app(
             if _year_lo is not None and _year_hi is not None
             else None
         )
+
+        # Classifier surface-form maps, unioned across every registered corpus so
+        # the whole-graph retrieval view recognises each corpus's own doc_type /
+        # series / entity-type vocabulary. Empty union (no corpus declares any)
+        # → None → the classifier keeps its module-level defaults.
+        def _union_str_map(dicts: "list[dict[str, str]]") -> "dict[str, str] | None":
+            merged: dict[str, str] = {}
+            for d in dicts:
+                for k, v in (d or {}).items():
+                    merged.setdefault(k, v)
+            return merged or None
+
+        state["classifier_doc_type_aliases"] = _union_str_map([m.doc_type_aliases for m in _members])
+        state["classifier_series_aliases"] = _union_str_map([m.series_aliases for m in _members])
+        state["classifier_tier1_keywords"] = _union_str_map([m.tier1_type_keywords for m in _members])
         state["analytical_dispatch"] = _composite.analytical_queries
 
         # --- Neo4j executor ---
@@ -1234,16 +1249,24 @@ def create_app(
         )
         # --- Optional text-to-Cypher LLM fallback ---
         # Built only when (a) the composite domain opts in via
-        # `enable_llm_cypher` and (b) an Anthropic API key is configured.
+        # `enable_llm_cypher` and (b) a query-time LLM is configured — an
+        # Anthropic API key, or an OpenAI-compatible server via
+        # SYNTHESIS_LLM_BASE_URL / SYNTHESIS_LLM_PROVIDER.
         # Schema and cache are shared with the validator inside the generator.
+        from gemynd.shared.openai_compat import (
+            create_query_llm_client,
+            query_llm_provider,
+        )
+
+        _query_provider = query_llm_provider(_env_settings)
+        _query_llm_configured = _query_provider != "anthropic" or bool(api_key)
         _llm_cypher_generator: Any = None
-        if _composite.enable_llm_cypher and api_key:
+        if _composite.enable_llm_cypher and _query_llm_configured:
             try:
                 from gemynd.retrieval.cypher_validator import CypherSchema
                 from gemynd.retrieval.cypher_cache import SqliteCypherCache
                 from gemynd.retrieval.llm_cypher import LLMCypherGenerator
                 from gemynd.shared.token_tracker import MeteredAnthropicClient
-                import anthropic as _anthropic_pkg
 
                 _anchor_rels: set[str] = set()
                 for _m in _composite.members:
@@ -1254,23 +1277,52 @@ def create_app(
                     domain_edges=frozenset(_composite.claim_entity_relation_precedence),
                     anchor_relations=frozenset(_anchor_rels),
                 )
-                _raw_anthropic = _anthropic_pkg.Anthropic(api_key=api_key)
+                # The CLI-supplied key may differ from the env settings' key.
+                from dataclasses import replace as _dc_replace
+                _raw_llm, _cypher_model = create_query_llm_client(
+                    _dc_replace(_env_settings, anthropic_api_key=api_key or ""))
                 _llm_client = MeteredAnthropicClient(
-                    client=_raw_anthropic,
+                    client=_raw_llm,
                     logger=_token_logger,
                     caller="llm_cypher",
                     institution_id=_composite.institution_ids[0] if _composite.institution_ids else "",
                 )
+                _cypher_kwargs: dict[str, Any] = {}
+                if _query_provider != "anthropic":
+                    _cypher_kwargs["model"] = _cypher_model
                 _llm_cypher_generator = LLMCypherGenerator(
                     client=_llm_client,
                     domain_config=_composite,
                     schema=_llm_schema,
                     cache=SqliteCypherCache(db_mgr.get_connection("conv_log")),
+                    **_cypher_kwargs,
                 )
-                _log.info("LLM-Cypher fallback enabled")
+                _log.info("LLM-Cypher fallback enabled (provider=%s)", _query_provider)
             except Exception:
                 _log.warning("LLM-Cypher fallback disabled (init failed)", exc_info=True)
                 _llm_cypher_generator = None
+
+        from gemynd.retrieval.context_ranker import build_context_ranker
+
+        # Config-driven Tier-1 location query: the location relation from the
+        # default member plus the union of location entity types across every
+        # registered corpus. For a Place/Refuge + OCCURRED_AT deployment this is
+        # byte-identical to the module default. (Assumes members share a location
+        # relation; if they diverge, the default member's is used.)
+        from gemynd.core.graph.cypher import build_locations_for_entity_query
+        _loc_labels = sorted({
+            lbl
+            for m in _members
+            for lbl in m.relation_to_entity_type_hints.get(m.claim_location_relation, ())
+        })
+        _locations_query = (
+            build_locations_for_entity_query(
+                location_relation=_domain_config.claim_location_relation,
+                location_labels=tuple(_loc_labels),
+            )
+            if _loc_labels
+            else None
+        )
 
         state["assembler"] = ProvenanceContextAssembler(
             executor,
@@ -1282,6 +1334,12 @@ def create_app(
                 for inst_id in _composite.institution_ids
             },
             llm_cypher_generator=_llm_cypher_generator,
+            context_ranker=build_context_ranker(
+                executor,
+                mode=_env_settings.context_ranker,
+                kgr_root=_env_settings.kgr_root,
+            ),
+            locations_query=_locations_query,
         )
         # Build the gateway with a resolver whose vocabulary spans EVERY
         # registered corpus. Without this, ``EntityResolutionGateway()`` would
@@ -1296,9 +1354,17 @@ def create_app(
             executor=executor,
         )
         synthesis_ctx = _composite.synthesis_context()
-        # Surface key-loading state at startup so a missing/short key is visible
-        # before the first query rather than buried in a per-request exception.
-        if api_key:
+        # Surface provider/key state at startup so a missing/short key is
+        # visible before the first query rather than buried in a per-request
+        # exception.
+        if _query_provider != "anthropic":
+            _log.info(
+                "synthesis: OpenAI-compatible provider %r (base_url=%s, model=%s)",
+                _query_provider,
+                _env_settings.synthesis_llm_base_url,
+                _env_settings.synthesis_llm_model or "local-model",
+            )
+        elif api_key:
             _log.info(
                 "synthesis: Anthropic API key loaded (length=%d, prefix=%s...)",
                 len(api_key),
@@ -1307,14 +1373,24 @@ def create_app(
         else:
             _log.warning(
                 "synthesis: no Anthropic API key found (checked Anthropic_API_Key, "
-                "ANTHROPIC_API_KEY env vars and CLI param). All synthesis calls will fail."
+                "ANTHROPIC_API_KEY env vars and CLI param) and no "
+                "SYNTHESIS_LLM_BASE_URL configured. All synthesis calls will fail."
             )
+        # RETRIEVED_VIA prompt semantics, unioned across every registered corpus
+        # so the LLM sees each corpus's relation vocabulary. Empty (no corpus
+        # declares any) → the synthesis prompt keeps its default block.
+        _relation_semantics: dict[str, str] = {}
+        for m in _members:
+            for rel, meaning in m.relation_semantics.items():
+                _relation_semantics.setdefault(rel, meaning)
+
         state["synthesis"] = SynthesisEngine(
             api_key=api_key,
             max_tokens=max_tokens,
             synthesis_context=synthesis_ctx,
             timeout=_env_settings.synthesis_timeout_seconds,
             token_logger=_token_logger,
+            relation_semantics=_relation_semantics or None,
         )
 
         yield
@@ -1534,6 +1610,8 @@ def create_app(
             extra_stopwords=_dc.extraction_stopwords if _dc else None,
             year_bounds=_year_bounds,
             seed_vocab=_seed_vocab,
+            doc_type_aliases=state.get("classifier_doc_type_aliases"),
+            series_aliases=state.get("classifier_series_aliases"),
         )
         if req.mode != "auto":
             # Caller overrides bucket.
@@ -1572,6 +1650,7 @@ def create_app(
             entity_ctx,
             year_min=intent.year_min,
             year_max=intent.year_max,
+            type_keywords=state.get("classifier_tier1_keywords"),
         )
         if tier_1_intent is not None and req.mode != "analytical":
             _t0 = time.perf_counter()
@@ -2431,17 +2510,7 @@ def create_app(
         empty inputs as ``year_min=`` (which would 422 if typed as int). Empty
         and unparseable values collapse to None.
         """
-        def _parse_year(v: str | None) -> int | None:
-            if v is None:
-                return None
-            stripped = v.strip()
-            if not stripped:
-                return None
-            try:
-                return int(stripped)
-            except ValueError:
-                return None
-
+        # Uses the module-level _parse_year (identical coercion for str|None).
         valid_status = status if status in ("active", "deleted", "all") else "active"
         return {
             "search": (q or "").strip() or None,

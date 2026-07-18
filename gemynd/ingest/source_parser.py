@@ -171,10 +171,19 @@ def normalize_paragraph_sizes(
     return _merge_small_chunks(split, min_chars)
 
 
-def parse_source_payload(payload: dict[str, Any], source_file: str | None = None) -> StructureBundle:
+def parse_source_payload(
+    payload: dict[str, Any],
+    source_file: str | None = None,
+    source_profile: dict[str, Any] | None = None,
+) -> StructureBundle:
+    profile = source_profile or {}
+    default_doc_type = profile.get("default_doc_type", "document")
+    untitled_title = profile.get("untitled_title", "Untitled Document")
+    loc_inference = "loc_sequence" in (profile.get("filename_inference") or [])
+
     metadata = payload.get("metadata", {})
     page_payloads = sorted(payload.get("pages", []), key=lambda row: int(row.get("page_number", 0)))
-    title = metadata.get("title") or metadata.get("doc_title") or "Untitled Narrative Report"
+    title = metadata.get("title") or metadata.get("doc_title") or untitled_title
     date_start = metadata.get("date_start")
     date_end = metadata.get("date_end")
     report_year = metadata.get("report_year")
@@ -194,7 +203,7 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
     document = DocumentRecord(
         doc_id=doc_id,
         title=title,
-        doc_type=metadata.get("doc_type", "narrative_report"),
+        doc_type=metadata.get("doc_type") or default_doc_type,
         series=metadata.get("series"),
         date_start=date_start,
         date_end=date_end,
@@ -202,8 +211,8 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
         source_file=resolved_source,
         archive_ref=metadata.get("archive_ref"),
         lccn=metadata.get("lccn"),
-        edition=_strip_leading_zeros(metadata.get("edition")),
-        loc_sequence=_extract_loc_sequence(resolved_source),
+        edition=_strip_leading_zeros(metadata.get("edition")) if loc_inference else metadata.get("edition"),
+        loc_sequence=_extract_loc_sequence(resolved_source) if loc_inference else None,
         raw_ocr_text=raw_ocr_text,
         clean_text=clean_text,
         language=language,
@@ -347,7 +356,10 @@ def parse_source_payload(payload: dict[str, Any], source_file: str | None = None
     )
 
 
-def parse_source_file(path: str | Path) -> StructureBundle:
+def parse_source_file(
+    path: str | Path,
+    source_profile: dict[str, Any] | None = None,
+) -> StructureBundle:
     source_path = Path(path)
     payload = json.loads(source_path.read_text(encoding="utf-8"))
-    return parse_source_payload(payload, source_file=str(source_path))
+    return parse_source_payload(payload, source_file=str(source_path), source_profile=source_profile)

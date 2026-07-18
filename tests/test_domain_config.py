@@ -18,10 +18,7 @@ from gemynd.core.domain_config import (
 )
 from gemynd.core.models import ClaimRecord
 from gemynd.ingest.derivation_context import _get_spec, build_derivation_contexts
-from gemynd.ingest.extractors.claim_extractor import (
-    RuleBasedClaimExtractor,
-    _default_type_patterns,
-)
+from gemynd.ingest.extractors.claim_extractor import RuleBasedClaimExtractor
 
 _RESOURCES_DIR = Path(__file__).parent.parent / "gemynd" / "resources"
 
@@ -180,12 +177,15 @@ def test_extractor_with_config_uses_config_patterns() -> None:
 
 
 # ---------------------------------------------------------------------------
-# 4A-6: Extractor without config uses module-level defaults
+# 4A-6: Extractor without config loads the Turnbull corpus explicitly
 # ---------------------------------------------------------------------------
 
-def test_extractor_without_config_uses_module_defaults() -> None:
+def test_extractor_without_config_uses_turnbull_defaults() -> None:
     extractor = RuleBasedClaimExtractor()
-    assert extractor._type_scored_patterns is _default_type_patterns()
+    expected_types = {ct for ct, _, _ in load_domain_config(_RESOURCES_DIR).claim_type_patterns}
+    got_types = {ct for ct, _, _ in extractor._type_scored_patterns}
+    assert got_types  # non-empty
+    assert got_types == expected_types
 
 
 # ---------------------------------------------------------------------------

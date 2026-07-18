@@ -6,6 +6,7 @@ from gemynd.ingest.extractors.claim_extractor import ClaimDraft, ClaimLinkDraft
 from gemynd.ingest.extractors.mention_extractor import MentionDraft
 from gemynd.core.models import EntityRecord, EntityResolutionRecord
 from gemynd.ingest.pipeline import extract_semantic, parse_source, quality_report
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 
 
 class StaticClaimExtractor:
@@ -499,6 +500,7 @@ def test_claim_link_resolution(case) -> None:
 
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         claim_extractor=StaticClaimExtractor([
             ClaimDraft(
                 claim_type=case["claim_type"],

@@ -1,15 +1,23 @@
 from pathlib import Path
 
+from gemynd.core.domain_config import load_domain_config
 from gemynd.ingest.source_parser import (
     _extract_loc_sequence,
     _infer_year_from_filename,
     parse_source_file,
     parse_source_payload,
 )
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
+
+# Turnbull source profile (default_doc_type=narrative_report, loc_sequence on).
+_TURNBULL_PROFILE = load_domain_config(TURNBULL_RESOURCES_DIR).source_profile
+# Minimal profile that enables the LoC filename heuristics (edition zero-strip,
+# trailing-sequence) for the newspaper-style metadata test.
+_LOC_PROFILE = {"filename_inference": ["loc_sequence"]}
 
 
 def test_parse_source_sections_and_paragraphs(fixtures_dir: Path) -> None:
-    bundle = parse_source_file(fixtures_dir / "report1.json")
+    bundle = parse_source_file(fixtures_dir / "report1.json", source_profile=_TURNBULL_PROFILE)
 
     assert bundle.document.doc_type == "narrative_report"
     assert bundle.document.report_year == 1938
@@ -106,6 +114,7 @@ def test_newspaper_metadata_populates_lccn_edition_sequence() -> None:
     bundle = parse_source_payload(
         payload,
         source_file="1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042.json",
+        source_profile=_LOC_PROFILE,
     )
     assert bundle.document.lccn == "sn88085947"
     # edition and loc_sequence are stored zero-stripped for direct use in

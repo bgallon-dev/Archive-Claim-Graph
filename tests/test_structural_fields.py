@@ -7,6 +7,7 @@ from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
 from gemynd.core.models import EntityRecord
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from tests.conftest import TEST_ENTITY_LABELS
 
 
@@ -32,6 +33,7 @@ def test_entity_type_not_persisted_on_graph_nodes(fixtures_dir: Path) -> None:
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_group_f", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -49,6 +51,7 @@ def test_cli_memory_load_graph_reports_counts_not_nodes_or_relationships(fixture
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_cli_group_f", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 
@@ -66,6 +69,8 @@ def test_cli_memory_load_graph_reports_counts_not_nodes_or_relationships(fixture
             str(semantic_path),
             "--backend",
             "memory",
+            "--domain-dir",
+            str(TURNBULL_RESOURCES_DIR),
         ]
     )
 

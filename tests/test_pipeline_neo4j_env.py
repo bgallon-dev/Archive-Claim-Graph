@@ -5,6 +5,7 @@ from pathlib import Path
 from gemynd.core.domain_config import load_domain_config
 from gemynd.ingest.pipeline import extract_semantic, load_graph
 from gemynd.ingest.source_parser import parse_source_file
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 
 
 class _DummyNeo4jWriter:
@@ -34,9 +35,42 @@ def test_load_graph_reads_neo4j_trust_env(monkeypatch, fixtures_dir: Path) -> No
     monkeypatch.setattr("gemynd.ingest.pipeline.Neo4jGraphWriter", _DummyNeo4jWriter)
 
     structure = parse_source_file(fixtures_dir / "report1.json")
-    semantic = extract_semantic(structure, run_overrides={"run_id": "run_env", "run_timestamp": "2026-03-10T00:00:00+00:00"})
+    semantic = extract_semantic(structure, resources_dir=TURNBULL_RESOURCES_DIR, run_overrides={"run_id": "run_env", "run_timestamp": "2026-03-10T00:00:00+00:00"})
 
-    load_graph(structure, semantic, config=load_domain_config(), backend="neo4j")
+    load_graph(structure, semantic, config=load_domain_config(TURNBULL_RESOURCES_DIR), backend="neo4j")
     assert _DummyNeo4jWriter.captured["uri"] == "bolt://localhost:7687"
     assert _DummyNeo4jWriter.captured["trust_mode"] == "custom"
     assert _DummyNeo4jWriter.captured["ca_cert_path"] == "C:/tmp/ca.crt"
+
+
+def test_explicit_neo4j_database_wins_over_env(monkeypatch, fixtures_dir: Path) -> None:
+    """An explicit neo4j_database argument must beat the NEO4J_DATABASE env.
+
+    Regression: the writer previously let NEO4J_DATABASE override the explicit
+    argument, so the pre-flight duplicate check (which reads the argument) and
+    the writer could target different databases — e.g. dedup against a scratch
+    DB while writing into production.
+    """
+    monkeypatch.setenv("NEO4J_URI", "bolt://localhost:7687")
+    monkeypatch.setenv("NEO4J_USER", "neo4j")
+    monkeypatch.setenv("NEO4J_PASSWORD", "pw")
+    monkeypatch.setenv("NEO4J_DATABASE", "production")  # env points at prod
+
+    monkeypatch.setattr("gemynd.ingest.pipeline.Neo4jGraphWriter", _DummyNeo4jWriter)
+
+    structure = parse_source_file(fixtures_dir / "report1.json")
+    semantic = extract_semantic(
+        structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
+        run_overrides={"run_id": "run_db", "run_timestamp": "2026-03-10T00:00:00+00:00"},
+    )
+
+    load_graph(
+        structure,
+        semantic,
+        config=load_domain_config(TURNBULL_RESOURCES_DIR),
+        backend="neo4j",
+        neo4j_database="scratch_target",  # explicit argument
+    )
+    # The explicit argument wins; the env value is ignored.
+    assert _DummyNeo4jWriter.captured["database"] == "scratch_target"

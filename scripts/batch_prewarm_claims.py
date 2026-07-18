@@ -4,8 +4,14 @@ Enumerates every paragraph that the sync ingest pipeline would send to the
 Anthropic claim-extraction API, submits them as chunked Message Batches,
 and writes each response directly into ``data/claim_cache.db`` using the
 same cache key formula as the sync path.  After this script finishes, a
-subsequent ``python scripts/ingest_newspapers.py --full`` run sees ~100%
+subsequent full ingest run (``scripts/ingest_tutorstructure.py``) sees ~100%
 cache hits and its LLM path becomes free local SQLite lookups.
+
+STATUS (2026-07-08 audit): the corpus paths below are still hardcoded to the
+old ``<Gemynd>/Newspapers`` layout, which no longer exists — this tool will
+``SystemExit`` until ``NEWSPAPERS_ROOT`` / ``DOMAIN_DIR`` are retargeted to the
+live corpus (or made CLI args). Kept because it is real Batches-API
+infrastructure, not a throwaway one-off.
 
 The tool is strictly additive — it does not modify the ingest pipeline,
 ``HybridClaimExtractor``, or any runtime configuration.  Safe to abort
@@ -26,7 +32,6 @@ the pre-warm after any domain-resource edit.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import os
@@ -180,14 +185,15 @@ def phase1_load_fingerprint() -> tuple[str, str, str, int]:
 
     from gemynd.core.domain_config import load_domain_config
     from gemynd.ingest.extractors.anthropic_claim_adapter import _build_system_prompt
+    from gemynd.ingest.extractors.claim_cache import system_prompt_hash
 
     _log.info("Loading domain config from %s", DOMAIN_DIR)
     config = load_domain_config(DOMAIN_DIR)
 
     system_prompt = _build_system_prompt(config)
-    # Must match anthropic_claim_adapter.try_create_anthropic_adapter which
-    # truncates the prompt hash to 16 chars before feeding it into cache keys.
-    prompt_hash = hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()[:16]
+    # Single source of truth shared with the runtime adapters, so pre-warmed
+    # entries land under the exact keys the sync path later looks up.
+    prompt_hash = system_prompt_hash(system_prompt)
     model = _resolve_model()
     min_length = _resolve_min_length()
 

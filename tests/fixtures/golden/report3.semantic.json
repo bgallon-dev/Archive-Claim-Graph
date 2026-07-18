@@ -1,0 +1,607 @@
+{
+  "claim_concept_links": [
+    {
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "concept_id": "concept_survey_result",
+      "confidence": 0.78,
+      "matched_rule": "\\b(survey(?:ed|ing)?|census|count(?:ed|ing)?|observed|record"
+    }
+  ],
+  "claim_entity_links": [
+    {
+      "claim_id": "run_golden:claim:002:72c095faa24c2f9b",
+      "entity_id": "activity_0659e59949976e99",
+      "relation_type": "MANAGEMENT_TARGET"
+    },
+    {
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "entity_id": "species_17a9b743af26c65c",
+      "relation_type": "SPECIES_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "entity_id": "species_2375bab68f43332e",
+      "relation_type": "SPECIES_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:004:f91e1ecf81f9922b",
+      "entity_id": "place_6ae82a6b5bbfdf76",
+      "relation_type": "LOCATION_FOCUS"
+    }
+  ],
+  "claim_link_diagnostics": [
+    {
+      "candidate_count": 0,
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "detail": "No resolved mention matched the claim link within the claim evidence span.",
+      "diagnostic_code": "NO_RESOLVED_MENTION",
+      "entity_type_hint": "Person",
+      "normalized_form": "wildlife only",
+      "relation_type": "SUBJECT_OF_CLAIM",
+      "surface_form": "Wildlife Only"
+    },
+    {
+      "candidate_count": 1,
+      "claim_id": "run_golden:claim:004:f91e1ecf81f9922b",
+      "detail": "Relation 'MANAGEMENT_TARGET' is forbidden for claim type 'public_contact'. Link dropped.",
+      "diagnostic_code": "RELATION_COMPATIBILITY_FORBIDDEN",
+      "entity_type_hint": "Activity",
+      "normalized_form": "public relations",
+      "relation_type": "MANAGEMENT_TARGET",
+      "surface_form": "Public Relations"
+    },
+    {
+      "candidate_count": 0,
+      "claim_id": "run_golden:claim:004:f91e1ecf81f9922b",
+      "detail": "Relation 'LOCATION_FOCUS' is weak for claim type 'public_contact'; confidence penalised by 0.1.",
+      "diagnostic_code": "RELATION_COMPATIBILITY_WEAK",
+      "entity_type_hint": "Place",
+      "normalized_form": "cheney",
+      "relation_type": "LOCATION_FOCUS",
+      "surface_form": "Cheney"
+    }
+  ],
+  "claim_location_links": [],
+  "claim_period_links": [
+    {
+      "claim_id": "run_golden:claim:002:72c095faa24c2f9b",
+      "period_id": "period_320c18f889a264a1",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "period_id": "period_320c18f889a264a1",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:004:f91e1ecf81f9922b",
+      "period_id": "period_320c18f889a264a1",
+      "relation_type": "OCCURRED_DURING"
+    }
+  ],
+  "claims": [
+    {
+      "claim_date": "1940-08-02",
+      "claim_id": "run_golden:claim:002:72c095faa24c2f9b",
+      "claim_type": "fire_incident",
+      "epistemic_status": "certain",
+      "evidence_end": 192,
+      "evidence_start": 120,
+      "extraction_confidence": 0.92,
+      "normalized_sentence": "lightening caused minor fire on aug. 2 burning 12 acres with cost $5.00.",
+      "notes": "",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Lightening caused minor fire on Aug. 2 burning 12 acres with cost $5.00."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "claim_type": "population_estimate",
+      "epistemic_status": "uncertain",
+      "evidence_end": 99,
+      "evidence_start": 3,
+      "extraction_confidence": 0.7518,
+      "normalized_sentence": "wildlife only two covies of hungarian partridge were seen and 5 white-tailed deer were reported.",
+      "notes": "",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00002:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Wildlife Only two covies of Hungarian partridge were seen and 5 white-tailed deer were reported."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:004:f91e1ecf81f9922b",
+      "claim_type": "public_contact",
+      "epistemic_status": "certain",
+      "evidence_end": 92,
+      "evidence_start": 3,
+      "extraction_confidence": 0.8074,
+      "normalized_sentence": "public relations contacts were maintained with business men of cheney and nearby farmers.",
+      "notes": "",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00003:p0002",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Public Relations Contacts were maintained with business men of Cheney and nearby farmers."
+    }
+  ],
+  "document_anchor_links": [],
+  "document_period_links": [
+    {
+      "doc_id": "doc_f048ff7938d2d422",
+      "period_id": "period_320c18f889a264a1",
+      "relation_type": "COVERS_PERIOD"
+    }
+  ],
+  "document_signed_by_links": [],
+  "document_year_links": [
+    {
+      "doc_id": "doc_f048ff7938d2d422",
+      "relation_type": "COVERS_YEAR",
+      "year_id": "year_1940"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "person_a8e449f7f069cec2",
+      "entity_type": "Person",
+      "name": "Hunter Engman",
+      "normalized_form": "hunter engman",
+      "properties": {
+        "role": "governor"
+      }
+    },
+    {
+      "entity_id": "activity_0659e59949976e99",
+      "entity_type": "Activity",
+      "name": "burning",
+      "normalized_form": "burning",
+      "properties": {
+        "activity_type": "habitat_management"
+      }
+    },
+    {
+      "entity_id": "species_17a9b743af26c65c",
+      "entity_type": "Species",
+      "name": "Hungarian partridge",
+      "normalized_form": "hungarian partridge",
+      "properties": {
+        "taxon_group": "bird"
+      }
+    },
+    {
+      "entity_id": "species_2375bab68f43332e",
+      "entity_type": "Species",
+      "name": "white-tailed deer",
+      "normalized_form": "white-tailed deer",
+      "properties": {
+        "taxon_group": "mammal"
+      }
+    },
+    {
+      "entity_id": "activity_b413dbcf1ee9bb23",
+      "entity_type": "Activity",
+      "name": "public relations",
+      "normalized_form": "public relations",
+      "properties": {
+        "activity_type": "public_relations"
+      }
+    },
+    {
+      "entity_id": "place_6ae82a6b5bbfdf76",
+      "entity_type": "Place",
+      "name": "Cheney",
+      "normalized_form": "cheney",
+      "properties": {
+        "place_type": "city"
+      }
+    },
+    {
+      "entity_id": "refuge_16ba48a60b3fcc4d",
+      "entity_type": "Refuge",
+      "name": "Turnbull",
+      "normalized_form": "turnbull",
+      "properties": {
+        "refuge_id": "turnbull_refuge"
+      }
+    },
+    {
+      "entity_id": "organization_27ee78c2f0befe42",
+      "entity_type": "Organization",
+      "name": "Spokane County Sportsmens Assn",
+      "normalized_form": "spokane county sportsmens assn",
+      "properties": {
+        "org_type": "association"
+      }
+    },
+    {
+      "entity_id": "period_320c18f889a264a1",
+      "entity_type": "Period",
+      "name": "1940-07-01 to 1940-10-31",
+      "normalized_form": "1940-07-01 to 1940-10-31",
+      "properties": {
+        "end_date": "1940-10-31",
+        "period_id": "period_320c18f889a264a1",
+        "period_type": "publication_period",
+        "source_title": "Narrative Report -- Tumbull Refuge -- 1940 field season",
+        "start_date": "1940-07-01"
+      }
+    }
+  ],
+  "entity_hierarchy_links": [],
+  "entity_resolution_confirmations": [],
+  "entity_resolutions": [
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "person_a8e449f7f069cec2",
+      "match_score": 0.9031,
+      "mention_id": "run_golden:mention:4aaf2556715851d4",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_0659e59949976e99",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:a6f1983b5aee8ff4",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "species_17a9b743af26c65c",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:3091b0b26841c675",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "species_2375bab68f43332e",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:5dbf6aba01a4ef86",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_b413dbcf1ee9bb23",
+      "match_score": 0.98,
+      "mention_id": "run_golden:mention:6e5e509d8aaebd03",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "place_6ae82a6b5bbfdf76",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:37d96e5dfc927842",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "refuge_16ba48a60b3fcc4d",
+      "match_score": 0.83,
+      "mention_id": "run_golden:mention:225bc1f3f0e2aca3",
+      "relation_type": "POSSIBLY_REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "organization_27ee78c2f0befe42",
+      "match_score": 0.98,
+      "mention_id": "run_golden:mention:8e136125b1f031f4",
+      "relation_type": "POSSIBLY_REFERS_TO"
+    }
+  ],
+  "event_measurement_links": [
+    {
+      "event_id": "run_golden:event:001:4fe6d1aff813ad3a",
+      "measurement_id": "run_golden:measurement:002:1c11135c1159bc23"
+    },
+    {
+      "event_id": "run_golden:event:001:4fe6d1aff813ad3a",
+      "measurement_id": "run_golden:measurement:004:248f2c095a9f9fd8"
+    }
+  ],
+  "event_observation_links": [
+    {
+      "event_id": "run_golden:event:002:e42a2fe8ab3bb766",
+      "observation_id": "run_golden:observation:001:3253b8147933fe50"
+    }
+  ],
+  "events": [
+    {
+      "claim_id": "run_golden:claim:002:72c095faa24c2f9b",
+      "confidence": 0.92,
+      "event_id": "run_golden:event:001:4fe6d1aff813ad3a",
+      "event_type": "FireEvent",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "period_id": "period_320c18f889a264a1",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_0659e59949976e99"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "fire_incident",
+      "year": 1940,
+      "year_id": "year_1940",
+      "year_source": "claim_date"
+    },
+    {
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "confidence": 0.7518,
+      "event_id": "run_golden:event:002:e42a2fe8ab3bb766",
+      "event_type": "SurveyEvent",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00002:p0001",
+      "period_id": "period_320c18f889a264a1",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "species_17a9b743af26c65c"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "population_estimate",
+      "year": 1940,
+      "year_id": "year_1940",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:004:f91e1ecf81f9922b",
+      "confidence": 0.8074,
+      "event_id": "run_golden:event:003:67a1075ccb127a7e",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00003:p0002",
+      "period_id": "period_320c18f889a264a1",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "public_contact",
+      "year": 1940,
+      "year_id": "year_1940",
+      "year_source": "document_primary_year"
+    }
+  ],
+  "extraction_run": {
+    "claim_type_schema_version": "v2",
+    "config_fingerprint": "556d11043083ddf0",
+    "ner_model": "rules",
+    "normalizer_version": "v1",
+    "ocr_engine": "golden",
+    "ocr_version": "golden",
+    "relation_model": "rules",
+    "run_id": "run_golden",
+    "run_timestamp": "2020-01-01T00:00:00+00:00"
+  },
+  "measurements": [
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:002:72c095faa24c2f9b",
+      "lower_bound": null,
+      "measurement_date": "1940-08-02",
+      "measurement_id": "run_golden:measurement:002:1c11135c1159bc23",
+      "methodology_note": null,
+      "name": "acres_burned",
+      "numeric_value": 12.0,
+      "qualifier": null,
+      "raw_value": "12 acres",
+      "run_id": "run_golden",
+      "unit": "acres",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:002:72c095faa24c2f9b",
+      "lower_bound": null,
+      "measurement_date": "1940-08-02",
+      "measurement_id": "run_golden:measurement:004:248f2c095a9f9fd8",
+      "methodology_note": null,
+      "name": "suppression_cost",
+      "numeric_value": 5.0,
+      "qualifier": null,
+      "raw_value": "$5.00",
+      "run_id": "run_golden",
+      "unit": "USD",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:004:9cd41e6876712c48",
+      "methodology_note": "reported",
+      "name": "individual_count",
+      "numeric_value": 5.0,
+      "qualifier": null,
+      "raw_value": "5",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    }
+  ],
+  "mentions": [
+    {
+      "detection_confidence": 0.79,
+      "end_offset": 18,
+      "mention_id": "run_golden:mention:225bc1f3f0e2aca3",
+      "normalized_form": "tumbull",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 11,
+      "surface_form": "Tumbull"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 79,
+      "mention_id": "run_golden:mention:8e136125b1f031f4",
+      "normalized_form": "spokane county sportsmens assn",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 49,
+      "surface_form": "Spokane County Sportsmens Assn"
+    },
+    {
+      "detection_confidence": 0.79,
+      "end_offset": 99,
+      "mention_id": "run_golden:mention:4aaf2556715851d4",
+      "normalized_form": "hunter emgman",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 86,
+      "surface_form": "Hunter Emgman"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 130,
+      "mention_id": "run_golden:mention:c539a92c599f29e0",
+      "normalized_form": "lightening",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 120,
+      "surface_form": "Lightening"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 155,
+      "mention_id": "run_golden:mention:14f1a14b36bb5ca9",
+      "normalized_form": "aug",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 152,
+      "surface_form": "Aug"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 166,
+      "mention_id": "run_golden:mention:a6f1983b5aee8ff4",
+      "normalized_form": "burning",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 159,
+      "surface_form": "burning"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 16,
+      "mention_id": "run_golden:mention:eef5f99235662242",
+      "normalized_form": "only",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 12,
+      "surface_form": "Only"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 50,
+      "mention_id": "run_golden:mention:3091b0b26841c675",
+      "normalized_form": "hungarian partridge",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 31,
+      "surface_form": "Hungarian partridge"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 84,
+      "mention_id": "run_golden:mention:5dbf6aba01a4ef86",
+      "normalized_form": "white-tailed deer",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 67,
+      "surface_form": "white-tailed deer"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 19,
+      "mention_id": "run_golden:mention:6e5e509d8aaebd03",
+      "normalized_form": "public relations",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 3,
+      "surface_form": "Public Relations"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 28,
+      "mention_id": "run_golden:mention:d971a6b1e41cd998",
+      "normalized_form": "contacts",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 20,
+      "surface_form": "Contacts"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 72,
+      "mention_id": "run_golden:mention:37d96e5dfc927842",
+      "normalized_form": "cheney",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 66,
+      "surface_form": "Cheney"
+    }
+  ],
+  "observation_measurement_links": [
+    {
+      "measurement_id": "run_golden:measurement:004:9cd41e6876712c48",
+      "observation_id": "run_golden:observation:001:3253b8147933fe50"
+    }
+  ],
+  "observations": [
+    {
+      "claim_id": "run_golden:claim:003:7fc7308ee6185dff",
+      "confidence": 0.7518,
+      "is_estimate": true,
+      "observation_id": "run_golden:observation:001:3253b8147933fe50",
+      "observation_type": "population_count",
+      "paragraph_id": "doc_f048ff7938d2d422:paragraph:00002:p0001",
+      "period_id": "period_320c18f889a264a1",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "species_17a9b743af26c65c"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "population_estimate",
+      "value_text": null,
+      "year": 1940,
+      "year_id": "year_1940",
+      "year_source": "document_primary_year"
+    }
+  ],
+  "person_affiliation_links": [],
+  "years": [
+    {
+      "year": 1940,
+      "year_id": "year_1940",
+      "year_label": "1940"
+    }
+  ]
+}

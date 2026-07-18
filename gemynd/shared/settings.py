@@ -18,8 +18,24 @@ class Settings:
     # LLM
     anthropic_api_key: str = ""
     synthesis_model: str = "claude-sonnet-4-6"
+    # Context ordering: "auto" | "proximity" | "kgr" | "confidence"
+    # (see retrieval/context_ranker.py). kgr_root points at a
+    # kettle-graph-reasoner checkout to enable the temporal reranker.
+    context_ranker: str = "auto"
+    kgr_root: str = ""
     synthesis_timeout_seconds: float = 60.0
     synthesis_max_retries: int = 0
+    # Query-time LLM provider seam (synthesis + LLM-Cypher). Explicit
+    # provider wins; else a set base_url selects the OpenAI-compatible
+    # path (vLLM / Ollama / LM Studio / llama.cpp); else Anthropic.
+    # See shared/openai_compat.py.
+    synthesis_llm_provider: str = ""
+    synthesis_llm_base_url: str = ""
+    synthesis_llm_model: str = ""
+    synthesis_llm_api_key: str = ""
+    # JSON dict merged into OpenAI-compatible request bodies, e.g.
+    # '{"reasoning_effort": "low"}' to curb a reasoning model's thinking.
+    synthesis_llm_extra_body: str = ""
     # Auth
     jwt_secret_key: str = ""
     jwt_expire_hours: int = 24
@@ -52,7 +68,9 @@ class Settings:
             tokens = {}
         return cls(
             neo4j_uri=os.environ.get("NEO4J_URI", ""),
-            neo4j_user=os.environ.get("NEO4J_USER", ""),
+            # Accept NEO4J_USERNAME as an alias for NEO4J_USER — the neo4j
+            # tooling/driver docs use USERNAME, so .env files commonly set that.
+            neo4j_user=(os.environ.get("NEO4J_USER") or os.environ.get("NEO4J_USERNAME") or ""),
             neo4j_password=os.environ.get("NEO4J_PASSWORD", ""),
             neo4j_database=os.environ.get("NEO4J_DATABASE", "neo4j"),
             neo4j_trust=os.environ.get("NEO4J_TRUST", "system"),
@@ -62,6 +80,13 @@ class Settings:
                 or os.environ.get("Anthropic_API_Key", "")
             ),
             synthesis_model=os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6"),
+            context_ranker=os.environ.get("CONTEXT_RANKER", "auto"),
+            kgr_root=os.environ.get("KGR_ROOT", ""),
+            synthesis_llm_provider=os.environ.get("SYNTHESIS_LLM_PROVIDER", ""),
+            synthesis_llm_base_url=os.environ.get("SYNTHESIS_LLM_BASE_URL", ""),
+            synthesis_llm_model=os.environ.get("SYNTHESIS_LLM_MODEL", ""),
+            synthesis_llm_api_key=os.environ.get("SYNTHESIS_LLM_API_KEY", ""),
+            synthesis_llm_extra_body=os.environ.get("SYNTHESIS_LLM_EXTRA_BODY", ""),
             synthesis_timeout_seconds=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
             synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
             jwt_secret_key=os.environ.get("JWT_SECRET_KEY", ""),

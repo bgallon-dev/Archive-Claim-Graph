@@ -23,10 +23,12 @@ _FENCE_RE = re.compile(r"^```(?:json)?\s*\n?(.*?)\n?\s*```$", re.DOTALL)
 def _build_system_prompt(config: "DomainConfig | None" = None) -> str:
     """Build the claim extraction system prompt from domain config.
 
-    When *config* is provided, claim types, entity types, and domain context
-    are derived dynamically so the adapter works for any domain — not just
-    Turnbull.  When *config* is ``None``, the prompt uses the contract-level
-    defaults from ``claim_contract.py``.
+    When *config* is provided (the pipeline always provides it), claim types,
+    entity types, relation types, hints, and domain context are derived
+    entirely from the domain config so the adapter works for any domain — and,
+    critically, the relation vocabulary and entity-type hints come from the
+    domain (not Turnbull's). When *config* is ``None``, the prompt falls back to
+    the minimal contract-level defaults in ``claim_contract.py``.
     """
     from gemynd.core.claim_contract import (
         ALLOWED_CLAIM_TYPES,
@@ -50,11 +52,20 @@ def _build_system_prompt(config: "DomainConfig | None" = None) -> str:
             entity_type_set |= types
         entity_types = sorted(entity_type_set)
 
-    # --- relation types + hints ---
-    relation_types = sorted(EXTRACTOR_CLAIM_LINK_RELATIONS)
+    # --- relation types + hints (config-derived when available) ---
+    # Previously these always came from the module-level Turnbull constants, so
+    # even a non-Turnbull config leaked SPECIES_FOCUS/HABITAT_FOCUS into the
+    # prompt. Now the domain's own relations and hints are used when config is
+    # present.
+    if config is not None:
+        relation_types = sorted(config.extractor_claim_link_relations)
+        rel_hints = config.relation_to_entity_type_hints
+    else:
+        relation_types = sorted(EXTRACTOR_CLAIM_LINK_RELATIONS)
+        rel_hints = RELATION_TO_ENTITY_TYPE_HINTS
     hint_lines: list[str] = []
     for rel in relation_types:
-        hints = RELATION_TO_ENTITY_TYPE_HINTS.get(rel)
+        hints = rel_hints.get(rel)
         if hints:
             hint_lines.append(f"    - {rel} → entity types: {', '.join(sorted(hints))}")
         else:
@@ -219,15 +230,13 @@ def try_create_anthropic_adapter(
         return NullLLMAdapter()
 
     if not disable_cache:
-        import hashlib as _hl
         from gemynd.ingest.extractors.claim_cache import (
             CachedClaimAdapter,
             DEFAULT_CACHE_PATH,
+            system_prompt_hash,
         )
 
-        prompt_hash = _hl.sha256(
-            adapter._system_prompt.encode("utf-8")
-        ).hexdigest()[:16]
+        prompt_hash = system_prompt_hash(adapter._system_prompt)
         resolved_path = cache_path or os.environ.get("CLAIM_CACHE_PATH") or str(DEFAULT_CACHE_PATH)
         adapter = CachedClaimAdapter(
             inner=adapter,

@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS user (
     email           TEXT NOT NULL UNIQUE,
     hashed_password TEXT NOT NULL,
     role            TEXT NOT NULL CHECK(role IN ('admin','archivist','readonly')),
-    institution_id  TEXT NOT NULL DEFAULT 'turnbull',
+    institution_id  TEXT NOT NULL DEFAULT '',
     created_at      TEXT NOT NULL,
     is_active       INTEGER NOT NULL DEFAULT 1,
     token_version   INTEGER NOT NULL DEFAULT 0

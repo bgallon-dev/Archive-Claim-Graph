@@ -1,0 +1,874 @@
+{
+  "claim_concept_links": [
+    {
+      "claim_id": "run_golden:claim:004:fb6ba56f02bae98b",
+      "concept_id": "concept_infrastructure_rehabilitation",
+      "confidence": 0.85,
+      "matched_rule": "\\b(construct(?:ed|ion)|repair(?:ed|ing)?|built|building|dike"
+    }
+  ],
+  "claim_entity_links": [
+    {
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "entity_id": "place_6ae82a6b5bbfdf76",
+      "relation_type": "LOCATION_FOCUS"
+    },
+    {
+      "claim_id": "run_golden:claim:004:598a9211878b730c",
+      "entity_id": "activity_35fcae02f5a760c5",
+      "relation_type": "MANAGEMENT_TARGET"
+    },
+    {
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "entity_id": "activity_a35a3fa2ee9fbe54",
+      "relation_type": "MANAGEMENT_TARGET"
+    },
+    {
+      "claim_id": "run_golden:claim:007:17cf86da00a048be",
+      "entity_id": "activity_e9c01bbf13d2f587",
+      "relation_type": "MANAGEMENT_TARGET"
+    }
+  ],
+  "claim_link_diagnostics": [
+    {
+      "candidate_count": 1,
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "detail": "Relation 'MANAGEMENT_TARGET' is forbidden for claim type 'public_contact'. Link dropped.",
+      "diagnostic_code": "RELATION_COMPATIBILITY_FORBIDDEN",
+      "entity_type_hint": "Activity",
+      "normalized_form": "public relations",
+      "relation_type": "MANAGEMENT_TARGET",
+      "surface_form": "Public Relations"
+    },
+    {
+      "candidate_count": 0,
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "detail": "Relation 'LOCATION_FOCUS' is weak for claim type 'public_contact'; confidence penalised by 0.1.",
+      "diagnostic_code": "RELATION_COMPATIBILITY_WEAK",
+      "entity_type_hint": "Place",
+      "normalized_form": "cheney",
+      "relation_type": "LOCATION_FOCUS",
+      "surface_form": "Cheney"
+    },
+    {
+      "candidate_count": 0,
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "detail": "Relation 'LOCATION_FOCUS' is weak for claim type 'public_contact'; confidence penalised by 0.1.",
+      "diagnostic_code": "RELATION_COMPATIBILITY_WEAK",
+      "entity_type_hint": "Place",
+      "normalized_form": "spokane",
+      "relation_type": "LOCATION_FOCUS",
+      "surface_form": "Spokane"
+    }
+  ],
+  "claim_location_links": [],
+  "claim_period_links": [
+    {
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "period_id": "period_3d365329a0fc5465",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:004:fb6ba56f02bae98b",
+      "period_id": "period_3d365329a0fc5465",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:004:598a9211878b730c",
+      "period_id": "period_3d365329a0fc5465",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "period_id": "period_3d365329a0fc5465",
+      "relation_type": "OCCURRED_DURING"
+    },
+    {
+      "claim_id": "run_golden:claim:007:17cf86da00a048be",
+      "period_id": "period_3d365329a0fc5465",
+      "relation_type": "OCCURRED_DURING"
+    }
+  ],
+  "claims": [
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "claim_type": "public_contact",
+      "epistemic_status": "certain",
+      "evidence_end": 127,
+      "evidence_start": 3,
+      "extraction_confidence": 0.7200000000000001,
+      "normalized_sentence": "public relations meetings were held with farmers near cheney and contacts with spokane bird club and state sport council. 2.",
+      "notes": "",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Public Relations Meetings were held with farmers near Cheney and contacts with Spokane Bird Club and State Sport Council. 2."
+    },
+    {
+      "claim_date": "1939-10-28",
+      "claim_id": "run_golden:claim:004:fb6ba56f02bae98b",
+      "claim_type": "development_activity",
+      "epistemic_status": "certain",
+      "evidence_end": 178,
+      "evidence_start": 128,
+      "extraction_confidence": 0.92,
+      "normalized_sentence": "refuge development wpa project started on oct. 28.",
+      "notes": "",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Refuge Development WPA project started on Oct. 28."
+    },
+    {
+      "claim_date": "1939-07-03",
+      "claim_id": "run_golden:claim:004:598a9211878b730c",
+      "claim_type": "predator_control",
+      "epistemic_status": "certain",
+      "evidence_end": 89,
+      "evidence_start": 0,
+      "extraction_confidence": 0.92,
+      "normalized_sentence": "predator control continued: coyotes taken monthly july 3, aug 5, sept 2, oct 1, total 11.",
+      "notes": "",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Predator control continued: coyotes taken monthly July 3, Aug 5, Sept 2, Oct 1, total 11."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "claim_type": "economic_use",
+      "epistemic_status": "certain",
+      "evidence_end": 92,
+      "evidence_start": 3,
+      "extraction_confidence": 0.92,
+      "normalized_sentence": "economic uses haying by 4 farmers produced 120 tons on 140 acres with revenue of $280.00.",
+      "notes": "",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00003:p0002",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "Economic uses Haying by 4 farmers produced 120 tons on 140 acres with revenue of $280.00."
+    },
+    {
+      "claim_date": null,
+      "claim_id": "run_golden:claim:007:17cf86da00a048be",
+      "claim_type": "economic_use",
+      "epistemic_status": "certain",
+      "evidence_end": 116,
+      "evidence_start": 93,
+      "extraction_confidence": 0.7561,
+      "normalized_sentence": "no grazing was allowed.",
+      "notes": "",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00003:p0002",
+      "quarantine_reason": null,
+      "quarantine_status": "active",
+      "quarantine_timestamp": null,
+      "review_status": "unreviewed",
+      "run_id": "run_golden",
+      "source_sentence": "No grazing was allowed."
+    }
+  ],
+  "document_anchor_links": [
+    {
+      "anchor_entity_id": "refuge_16ba48a60b3fcc4d",
+      "doc_id": "doc_bf3b5da8d0b99b07",
+      "relation_type": "ABOUT_REFUGE"
+    }
+  ],
+  "document_period_links": [
+    {
+      "doc_id": "doc_bf3b5da8d0b99b07",
+      "period_id": "period_3d365329a0fc5465",
+      "relation_type": "COVERS_PERIOD"
+    }
+  ],
+  "document_signed_by_links": [],
+  "document_year_links": [
+    {
+      "doc_id": "doc_bf3b5da8d0b99b07",
+      "relation_type": "COVERS_YEAR",
+      "year_id": "year_1939"
+    }
+  ],
+  "entities": [
+    {
+      "entity_id": "activity_b413dbcf1ee9bb23",
+      "entity_type": "Activity",
+      "name": "public relations",
+      "normalized_form": "public relations",
+      "properties": {
+        "activity_type": "public_relations"
+      }
+    },
+    {
+      "entity_id": "place_6ae82a6b5bbfdf76",
+      "entity_type": "Place",
+      "name": "Cheney",
+      "normalized_form": "cheney",
+      "properties": {
+        "place_type": "city"
+      }
+    },
+    {
+      "entity_id": "organization_6c48b6930edb4632",
+      "entity_type": "Organization",
+      "name": "Spokane Bird Club",
+      "normalized_form": "spokane bird club",
+      "properties": {
+        "org_type": "club"
+      }
+    },
+    {
+      "entity_id": "organization_ca84cd87b03e8f80",
+      "entity_type": "Organization",
+      "name": "State Sport Council",
+      "normalized_form": "state sport council",
+      "properties": {
+        "org_type": "council"
+      }
+    },
+    {
+      "entity_id": "organization_66acf02b9ca5dca4",
+      "entity_type": "Organization",
+      "name": "WPA",
+      "normalized_form": "wpa",
+      "properties": {
+        "org_type": "government"
+      }
+    },
+    {
+      "entity_id": "activity_36451aed60d25024",
+      "entity_type": "Activity",
+      "name": "planting",
+      "normalized_form": "planting",
+      "properties": {
+        "activity_type": "planting"
+      }
+    },
+    {
+      "entity_id": "place_0fc3bf926c11ba80",
+      "entity_type": "Place",
+      "name": "Pine Creek",
+      "normalized_form": "pine creek",
+      "properties": {
+        "place_type": "creek"
+      }
+    },
+    {
+      "entity_id": "place_d201f8b9cec56595",
+      "entity_type": "Place",
+      "name": "Ice Lake",
+      "normalized_form": "ice lake",
+      "properties": {
+        "place_type": "lake"
+      }
+    },
+    {
+      "entity_id": "activity_35fcae02f5a760c5",
+      "entity_type": "Activity",
+      "name": "predator control",
+      "normalized_form": "predator control",
+      "properties": {
+        "activity_type": "predator_control"
+      }
+    },
+    {
+      "entity_id": "activity_a35a3fa2ee9fbe54",
+      "entity_type": "Activity",
+      "name": "haying",
+      "normalized_form": "haying",
+      "properties": {
+        "activity_type": "haying"
+      }
+    },
+    {
+      "entity_id": "activity_e9c01bbf13d2f587",
+      "entity_type": "Activity",
+      "name": "grazing",
+      "normalized_form": "grazing",
+      "properties": {
+        "activity_type": "grazing"
+      }
+    },
+    {
+      "entity_id": "refuge_16ba48a60b3fcc4d",
+      "entity_type": "Refuge",
+      "name": "Turnbull",
+      "normalized_form": "turnbull",
+      "properties": {
+        "name": "Turnbull",
+        "refuge_id": "turnbull_refuge"
+      }
+    },
+    {
+      "entity_id": "period_3d365329a0fc5465",
+      "entity_type": "Period",
+      "name": "1939-06-01 to 1939-10-31",
+      "normalized_form": "1939-06-01 to 1939-10-31",
+      "properties": {
+        "end_date": "1939-10-31",
+        "period_id": "period_3d365329a0fc5465",
+        "period_type": "publication_period",
+        "source_title": "Narrative Report -- Turnbull Refuge -- Summer 1939",
+        "start_date": "1939-06-01"
+      }
+    }
+  ],
+  "entity_hierarchy_links": [
+    {
+      "child_entity_id": "place_6ae82a6b5bbfdf76",
+      "parent_entity_id": "refuge_16ba48a60b3fcc4d",
+      "relation_type": "LOCATED_IN_REFUGE"
+    },
+    {
+      "child_entity_id": "place_0fc3bf926c11ba80",
+      "parent_entity_id": "refuge_16ba48a60b3fcc4d",
+      "relation_type": "LOCATED_IN_REFUGE"
+    },
+    {
+      "child_entity_id": "place_d201f8b9cec56595",
+      "parent_entity_id": "refuge_16ba48a60b3fcc4d",
+      "relation_type": "LOCATED_IN_REFUGE"
+    }
+  ],
+  "entity_resolution_confirmations": [],
+  "entity_resolutions": [
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_b413dbcf1ee9bb23",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:d3212acee57573a2",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "place_6ae82a6b5bbfdf76",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:9c9b8f5733606793",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "organization_6c48b6930edb4632",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:479a202482795ecc",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "organization_ca84cd87b03e8f80",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:3157b09444077a81",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "organization_66acf02b9ca5dca4",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:cee41a00bb4e5131",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_36451aed60d25024",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:a1b3daba57cbc446",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "place_0fc3bf926c11ba80",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:9cfa026bea52c1a2",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "place_d201f8b9cec56595",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:c9c3ae7129524c43",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_35fcae02f5a760c5",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:25a88f1b1a183f7e",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_a35a3fa2ee9fbe54",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:f61e23b7c8d754b7",
+      "relation_type": "REFERS_TO"
+    },
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "activity_e9c01bbf13d2f587",
+      "match_score": 1.0,
+      "mention_id": "run_golden:mention:9ca6e273418661e4",
+      "relation_type": "REFERS_TO"
+    }
+  ],
+  "event_measurement_links": [
+    {
+      "event_id": "run_golden:event:004:fc89663398114e91",
+      "measurement_id": "run_golden:measurement:003:3fa9eee20aea9562"
+    },
+    {
+      "event_id": "run_golden:event:004:fc89663398114e91",
+      "measurement_id": "run_golden:measurement:005:f03777ce33bba4cc"
+    },
+    {
+      "event_id": "run_golden:event:004:fc89663398114e91",
+      "measurement_id": "run_golden:measurement:007:74380e267c6090ec"
+    },
+    {
+      "event_id": "run_golden:event:004:fc89663398114e91",
+      "measurement_id": "run_golden:measurement:009:d8862f6450166cd5"
+    }
+  ],
+  "event_observation_links": [
+    {
+      "event_id": "run_golden:event:003:8278b9b1f24abb11",
+      "observation_id": "run_golden:observation:001:b958d1f9a775c86b"
+    }
+  ],
+  "events": [
+    {
+      "claim_id": "run_golden:claim:002:acc3ed7272aa2ac6",
+      "confidence": 0.7200000000000001,
+      "event_id": "run_golden:event:001:bb2c5bddcc197929",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "period_id": "period_3d365329a0fc5465",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "public_contact",
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:004:fb6ba56f02bae98b",
+      "confidence": 0.92,
+      "event_id": "run_golden:event:002:eec88a5e1fcdabde",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "period_id": "period_3d365329a0fc5465",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {},
+      "run_id": "run_golden",
+      "source_claim_type": "development_activity",
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_source": "claim_date"
+    },
+    {
+      "claim_id": "run_golden:claim:004:598a9211878b730c",
+      "confidence": 0.92,
+      "event_id": "run_golden:event:003:8278b9b1f24abb11",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "period_id": "period_3d365329a0fc5465",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_35fcae02f5a760c5"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "predator_control",
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_source": "claim_date"
+    },
+    {
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "confidence": 0.92,
+      "event_id": "run_golden:event:004:fc89663398114e91",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00003:p0002",
+      "period_id": "period_3d365329a0fc5465",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_a35a3fa2ee9fbe54"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "economic_use",
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_source": "document_primary_year"
+    },
+    {
+      "claim_id": "run_golden:claim:007:17cf86da00a048be",
+      "confidence": 0.7561,
+      "event_id": "run_golden:event:005:f2706b52b39fff02",
+      "event_type": "ManagementEvent",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00003:p0002",
+      "period_id": "period_3d365329a0fc5465",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_e9c01bbf13d2f587"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "economic_use",
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_source": "document_primary_year"
+    }
+  ],
+  "extraction_run": {
+    "claim_type_schema_version": "v2",
+    "config_fingerprint": "556d11043083ddf0",
+    "ner_model": "rules",
+    "normalizer_version": "v1",
+    "ocr_engine": "golden",
+    "ocr_version": "golden",
+    "relation_model": "rules",
+    "run_id": "run_golden",
+    "run_timestamp": "2020-01-01T00:00:00+00:00"
+  },
+  "measurements": [
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:004:598a9211878b730c",
+      "lower_bound": null,
+      "measurement_date": "1939-07-03",
+      "measurement_id": "run_golden:measurement:002:c4466c8083ad754d",
+      "methodology_note": null,
+      "name": "individual_count",
+      "numeric_value": 11.0,
+      "qualifier": null,
+      "raw_value": "11",
+      "run_id": "run_golden",
+      "unit": "individuals",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:003:3fa9eee20aea9562",
+      "methodology_note": null,
+      "name": "land_area",
+      "numeric_value": 140.0,
+      "qualifier": null,
+      "raw_value": "140 acres",
+      "run_id": "run_golden",
+      "unit": "acres",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:005:f03777ce33bba4cc",
+      "methodology_note": null,
+      "name": "hay_cut",
+      "numeric_value": 120.0,
+      "qualifier": null,
+      "raw_value": "120 tons",
+      "run_id": "run_golden",
+      "unit": "tons",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:007:74380e267c6090ec",
+      "methodology_note": null,
+      "name": "farmers_count",
+      "numeric_value": 4.0,
+      "qualifier": null,
+      "raw_value": "4 farmers",
+      "run_id": "run_golden",
+      "unit": "count",
+      "upper_bound": null
+    },
+    {
+      "approximate": false,
+      "claim_id": "run_golden:claim:005:032820377745df67",
+      "lower_bound": null,
+      "measurement_date": null,
+      "measurement_id": "run_golden:measurement:009:d8862f6450166cd5",
+      "methodology_note": null,
+      "name": "revenue",
+      "numeric_value": 280.0,
+      "qualifier": null,
+      "raw_value": "$280.00",
+      "run_id": "run_golden",
+      "unit": "USD",
+      "upper_bound": null
+    }
+  ],
+  "mentions": [
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 19,
+      "mention_id": "run_golden:mention:d3212acee57573a2",
+      "normalized_form": "public relations",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 3,
+      "surface_form": "Public Relations"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 28,
+      "mention_id": "run_golden:mention:f057733417c41e37",
+      "normalized_form": "meetings",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 20,
+      "surface_form": "Meetings"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 63,
+      "mention_id": "run_golden:mention:9c9b8f5733606793",
+      "normalized_form": "cheney",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 57,
+      "surface_form": "Cheney"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 99,
+      "mention_id": "run_golden:mention:479a202482795ecc",
+      "normalized_form": "spokane bird club",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 82,
+      "surface_form": "Spokane Bird Club"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 123,
+      "mention_id": "run_golden:mention:3157b09444077a81",
+      "normalized_form": "state sport council",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 104,
+      "surface_form": "State Sport Council"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 146,
+      "mention_id": "run_golden:mention:01828bb152f2e8d8",
+      "normalized_form": "refuge development",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 128,
+      "surface_form": "Refuge Development"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 150,
+      "mention_id": "run_golden:mention:cee41a00bb4e5131",
+      "normalized_form": "wpa",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 147,
+      "surface_form": "WPA"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 173,
+      "mention_id": "run_golden:mention:3c42092cbb97e673",
+      "normalized_form": "oct",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 170,
+      "surface_form": "Oct"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 200,
+      "mention_id": "run_golden:mention:a1b3daba57cbc446",
+      "normalized_form": "planting",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 192,
+      "surface_form": "planting"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 229,
+      "mention_id": "run_golden:mention:9cfa026bea52c1a2",
+      "normalized_form": "pine creek",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 219,
+      "surface_form": "Pine Creek"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 242,
+      "mention_id": "run_golden:mention:c9c3ae7129524c43",
+      "normalized_form": "ice lake",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00001:p0001",
+      "run_id": "run_golden",
+      "start_offset": 234,
+      "surface_form": "Ice Lake"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 16,
+      "mention_id": "run_golden:mention:25a88f1b1a183f7e",
+      "normalized_form": "predator control",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 0,
+      "surface_form": "Predator control"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 54,
+      "mention_id": "run_golden:mention:22afd1fa52b93edb",
+      "normalized_form": "july",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 50,
+      "surface_form": "July"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 61,
+      "mention_id": "run_golden:mention:122e2ed99e9b2d72",
+      "normalized_form": "aug",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 58,
+      "surface_form": "Aug"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 69,
+      "mention_id": "run_golden:mention:5427f04319f0bc44",
+      "normalized_form": "sept",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 65,
+      "surface_form": "Sept"
+    },
+    {
+      "detection_confidence": 0.74,
+      "end_offset": 76,
+      "mention_id": "run_golden:mention:e5c16dbf2b5354b3",
+      "normalized_form": "oct",
+      "ocr_suspect": false,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "run_id": "run_golden",
+      "start_offset": 73,
+      "surface_form": "Oct"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 23,
+      "mention_id": "run_golden:mention:f61e23b7c8d754b7",
+      "normalized_form": "haying",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 17,
+      "surface_form": "Haying"
+    },
+    {
+      "detection_confidence": 0.9700000000000001,
+      "end_offset": 103,
+      "mention_id": "run_golden:mention:9ca6e273418661e4",
+      "normalized_form": "grazing",
+      "ocr_suspect": true,
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00003:p0002",
+      "run_id": "run_golden",
+      "start_offset": 96,
+      "surface_form": "grazing"
+    }
+  ],
+  "observation_measurement_links": [
+    {
+      "measurement_id": "run_golden:measurement:002:c4466c8083ad754d",
+      "observation_id": "run_golden:observation:001:b958d1f9a775c86b"
+    }
+  ],
+  "observations": [
+    {
+      "claim_id": "run_golden:claim:004:598a9211878b730c",
+      "confidence": 0.92,
+      "is_estimate": false,
+      "observation_id": "run_golden:observation:001:b958d1f9a775c86b",
+      "observation_type": "predator_record",
+      "paragraph_id": "doc_bf3b5da8d0b99b07:paragraph:00002:p0001",
+      "period_id": "period_3d365329a0fc5465",
+      "place_id": null,
+      "review_status": "unreviewed",
+      "role_entities": {
+        "species": "activity_35fcae02f5a760c5"
+      },
+      "run_id": "run_golden",
+      "source_claim_type": "predator_control",
+      "value_text": null,
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_source": "claim_date"
+    }
+  ],
+  "person_affiliation_links": [],
+  "years": [
+    {
+      "year": 1939,
+      "year_id": "year_1939",
+      "year_label": "1939"
+    }
+  ]
+}

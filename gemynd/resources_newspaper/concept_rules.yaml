@@ -18,7 +18,10 @@ rules:
     confidence: 0.88
 
   - concept_id: concept_strike_action
-    claim_types: [labor_action, mining_activity, worker_condition]
+    # Word-sense gate: "strike" is polysemous (lightning/gold strike). Restrict to
+    # labor_action so non-labor senses (mining ore strikes -> concept_mining_labor)
+    # don't false-fire.
+    claim_types: [labor_action]
     regex: '\b(strike|walkout|lockout|picket|boycott|scab|strikebreaker)\b'
     confidence: 0.85
 
@@ -52,23 +55,25 @@ rules:
   # ── Agriculture and land economy concepts ────────────────────────────
 
   - concept_id: concept_crop_condition
-    claim_types: [agricultural_condition, depression_relief, turnbull_prehistory]
+    claim_types: [agricultural_condition, depression_relief]
     regex: '\b(crop\s+(?:report|failure|condition|prospect|yield)|harvest|wheat\s+(?:crop|price|market))\b'
     confidence: 0.85
 
   - concept_id: concept_drought_distress
-    claim_types: [agricultural_condition, depression_relief, turnbull_prehistory]
+    claim_types: [agricultural_condition, depression_relief]
     regex: '\b(drought|dust storm|dry(?:ing)?|no rain|crop failure|erosion|soil\s+(?:conservation|loss)|blowing soil)\b'
     confidence: 0.88
 
   - concept_id: concept_land_policy
-    claim_types: [land_policy_action, agricultural_condition, indigenous_policy, turnbull_prehistory]
+    claim_types: [land_policy_action, agricultural_condition, indigenous_policy]
     regex: '\b(homestead|desert land act|carey act|land office|land entry|final proof|land patent|timber culture|reclamation)\b'
     confidence: 0.85
 
   - concept_id: concept_irrigation_development
-    claim_types: [land_policy_action, agricultural_condition, civic_development]
-    regex: '\b(irrigation|canal|reservoir|water right|dam|reclamation|irrigation district)\b'
+    # Drop bare "canal" (matched "Panama canal"); irrigation canals still match via
+    # "irrigation". Scope off civic_development to reduce cross-domain false fires.
+    claim_types: [land_policy_action, agricultural_condition]
+    regex: '\b(irrigation|irrigation canal|reservoir|water right|dam|reclamation|irrigation district)\b'
     confidence: 0.85
 
   # ── Indigenous dispossession concepts ────────────────────────────────
@@ -79,8 +84,10 @@ rules:
     confidence: 0.88
 
   - concept_id: concept_tribal_sovereignty
-    claim_types: [indigenous_policy, legal_notice, public_meeting]
-    regex: '\b(treaty|tribal\s+(?:council|government|authority)|chief|reservation|indian\s+(?:agent|agency|school))\b'
+    # Require an indigenous sense for "treaty" (was catching "reciprocity treaty",
+    # horse "private treaty") and scope to indigenous_policy only.
+    claim_types: [indigenous_policy]
+    regex: '\b((?:indian|tribal)\s+treaty|treaty\s+(?:with\s+)?(?:indians?|tribes?)|tribal\s+(?:council|government|authority)|chief|reservation|indian\s+(?:agent|agency|school))\b'
     confidence: 0.82
 
   # ── Mining concepts ──────────────────────────────────────────────────
@@ -115,7 +122,7 @@ rules:
   # ── Depression era concepts ──────────────────────────────────────────
 
   - concept_id: concept_federal_relief
-    claim_types: [depression_relief, civic_development, turnbull_prehistory]
+    claim_types: [depression_relief, civic_development]
     regex: '\b(new deal|c\.?\s*c\.?\s*c\.?|w\.?\s*p\.?\s*a\.?|works progress|civilian conservation|work relief|public works|federal\s+(?:relief|aid))\b'
     confidence: 0.88
 

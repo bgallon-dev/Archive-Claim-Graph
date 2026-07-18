@@ -13,10 +13,11 @@ Defaults:
 """
 
 import argparse
-import csv
 import json
 import sys
 from pathlib import Path
+
+from gemynd.shared.io_utils import save_rows_csv
 
 
 def flatten(obj: dict, prefix: str = "", sep: str = ".") -> dict:
@@ -33,24 +34,6 @@ def flatten(obj: dict, prefix: str = "", sep: str = ".") -> dict:
     return result
 
 
-def write_csv(rows: list[dict], path: Path) -> None:
-    if not rows:
-        path.write_text("")
-        return
-    # Collect all keys across all rows so sparse rows still get columns
-    fieldnames: list[str] = []
-    seen: set[str] = set()
-    for row in rows:
-        for k in row:
-            if k not in seen:
-                fieldnames.append(k)
-                seen.add(k)
-    with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
-        writer.writeheader()
-        writer.writerows(rows)
-
-
 def process_file(json_path: Path, out_dir: Path) -> None:
     with json_path.open(encoding="utf-8") as f:
         data = json.load(f)
@@ -62,7 +45,7 @@ def process_file(json_path: Path, out_dir: Path) -> None:
     if isinstance(data, list):
         # Top-level list: write a single CSV
         rows = [flatten(item) if isinstance(item, dict) else {"value": item} for item in data]
-        write_csv(rows, subfolder / "data.csv")
+        save_rows_csv(subfolder / "data.csv", rows)
         print(f"  -> {subfolder / 'data.csv'}  ({len(rows)} rows)")
         return
 
@@ -74,11 +57,11 @@ def process_file(json_path: Path, out_dir: Path) -> None:
         csv_path = subfolder / f"{key}.csv"
         if isinstance(value, list):
             rows = [flatten(item) if isinstance(item, dict) else {"value": item} for item in value]
-            write_csv(rows, csv_path)
+            save_rows_csv(csv_path, rows)
             print(f"  -> {csv_path}  ({len(rows)} rows)")
         elif isinstance(value, dict):
             rows = [flatten(value)]
-            write_csv(rows, csv_path)
+            save_rows_csv(csv_path, rows)
             print(f"  -> {csv_path}  (1 row)")
         else:
             # Scalar — write as a single-cell CSV

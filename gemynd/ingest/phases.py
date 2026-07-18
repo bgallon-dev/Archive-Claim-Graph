@@ -20,6 +20,7 @@ from gemynd.core.claim_contract import (
     validate_claim_type,
 )
 from gemynd.core.claim_validator import is_valid_claim_sentence
+from gemynd.core.entity_type_inference import infer_entity_type
 from gemynd.core.ids import (
     make_claim_id,
     make_entity_id,
@@ -304,6 +305,40 @@ def _resolve_claim_link(
                     sentence_match[1], claim_type, claim_link.relation_type
                 ), None
 
+        # Fallback (c): document-level match by the LINK's normalized surface
+        # form. The proposed link names an entity that resolved/exists elsewhere
+        # in the document but not inside this claim's evidence span — the bulk of
+        # NO_RESOLVED_MENTION drops (SUBJECT_OF_CLAIM / TOPIC_OF_CLAIM /
+        # OCCURRED_AT). Grounding order: (1) a resolved mention anywhere in this
+        # paragraph whose surface equals the link's surface; (2) any document
+        # entity whose name equals it. Relation/type compatibility is still
+        # enforced by _narrow_link_candidates.
+        doc_candidates: list[tuple[MentionRecord | None, EntityRecord]] = []
+        for mention in paragraph_mentions:
+            if mention.normalized_form != claim_link.normalized_form:
+                continue
+            resolution = resolutions_by_mention.get(mention.mention_id)
+            if not resolution:
+                continue
+            entity = entity_lookup.get(resolution.entity_id)
+            if entity is None:
+                continue
+            if entity.entity_type == "SurveyMethod" and resolution.relation_type != "REFERS_TO":
+                continue
+            doc_candidates.append((mention, entity))
+        if not doc_candidates:
+            for entity in entity_lookup.values():
+                if entity.entity_type == "SurveyMethod":
+                    continue
+                if entity.normalized_form == claim_link.normalized_form:
+                    doc_candidates.append((None, entity))
+        if doc_candidates:
+            doc_match, _doc_diag = _narrow_link_candidates(doc_candidates, claim_link, claim_type)
+            if doc_match:
+                return _apply_compatibility_penalty(
+                    doc_match[1], claim_type, claim_link.relation_type
+                ), None
+
     diagnostic = normalized_diagnostic or exact_diagnostic
     if diagnostic:
         diagnostic.claim_id = claim.claim_id
@@ -494,10 +529,84 @@ def create_domain_anchor(state: ExtractionState) -> None:
     )
 
 
+_MINT_VOWELS = frozenset("aeiou")
+
+
+def _mint_entity_for_link(
+    claim_link: ClaimLinkDraft,
+    state: ExtractionState,
+    minting_cfg: dict[str, Any],
+) -> EntityRecord | None:
+    """Entity discovery: mint an entity from an unresolved claim-link surface.
+
+    Fires only for ``NO_RESOLVED_MENTION`` drops, where the claim references a
+    proper-noun entity (person, place, organization) that exists nowhere in the
+    bundle because it was never in the seed gazetteer and no mention minted it.
+    Such surfaces are the dominant cause of dropped links on a fresh corpus.
+    Gated by ``config.entity_minting`` so a domain with a comprehensive
+    gazetteer (Turnbull) never mints and stays byte-identical.
+
+    Returns the minted (or already-minted, deduplicated) entity, or ``None``
+    when the surface fails the proper-noun / junk gate.
+    """
+    relation = claim_link.relation_type
+    is_location = relation == CLAIM_LOCATION_RELATION
+    if not is_location and relation not in CLAIM_ENTITY_RELATIONS:
+        return None
+
+    surface = (claim_link.surface_form or "").strip()
+    normalized = claim_link.normalized_form
+    if len(normalized) < int(minting_cfg.get("min_surface_length", 4)):
+        return None
+    # Proper-noun signal: at least one capitalized token in the raw surface.
+    # Drops topical/common lowercase phrases ("road", "sleeping-cars").
+    if not any(token[:1].isupper() for token in surface.split()):
+        return None
+    # OCR-junk floor: must contain a vowel (mirrors the resolver's junk gate)
+    # and at least one alphabetic character.
+    if not any(ch in _MINT_VOWELS for ch in normalized) or not any(ch.isalpha() for ch in normalized):
+        return None
+    if normalized in state.config.extraction_stopwords:
+        return None
+
+    entity_type = claim_link.entity_type_hint
+    if not entity_type:
+        if is_location:
+            entity_type = str(minting_cfg.get("location_entity_type", "Place"))
+        else:
+            entity_type = infer_entity_type(
+                surface or normalized,
+                seed_entities=list(state.config.seed_entities),
+                rules=state.config.entity_type_rules,
+                default=str(minting_cfg.get("default_entity_type", "Person")),
+            )
+    # Never mint a type the relation forbids — keeps the same type/relation
+    # contract that _narrow_link_candidates enforces for resolved mentions.
+    if not entity_type_allowed_for_relation(relation, entity_type):
+        return None
+
+    entity_id = make_entity_id(entity_type, normalized)
+    existing = state.entity_lookup.get(entity_id)
+    if existing is not None:
+        return existing
+    minted = EntityRecord(
+        entity_id=entity_id,
+        entity_type=entity_type,
+        name=surface or normalized,
+        normalized_form=normalized,
+        properties={"discovery_source": "claim_link_minting"},
+    )
+    state.register_entity(minted)
+    return minted
+
+
 def resolve_claim_links(state: ExtractionState) -> None:
     """Phase 5: resolve claim links to entities with deduplication."""
     seen_claim_entity: set[tuple[str, str, str]] = set()
     seen_claim_location: set[tuple[str, str]] = set()
+
+    minting_cfg = state.config.entity_minting if isinstance(state.config.entity_minting, dict) else {}
+    minting_enabled = bool(minting_cfg.get("enabled", False))
 
     for paragraph_id, paragraph_claims in state.claims_by_paragraph.items():
         paragraph_mentions = state.mentions_by_paragraph.get(paragraph_id, [])
@@ -512,6 +621,16 @@ def resolve_claim_links(state: ExtractionState) -> None:
                     state.entity_lookup,
                     paragraph_text,
                 )
+                if (
+                    entity is None
+                    and diagnostic is not None
+                    and minting_enabled
+                    and diagnostic.diagnostic_code == "NO_RESOLVED_MENTION"
+                    and get_relation_compatibility(claim.claim_type, claim_link.relation_type) != "forbidden"
+                ):
+                    minted = _mint_entity_for_link(claim_link, state, minting_cfg)
+                    if minted is not None:
+                        entity, diagnostic = minted, None
                 if diagnostic:
                     state.claim_link_diagnostics.append(diagnostic)
                     continue
@@ -686,21 +805,9 @@ def assign_concepts_phase(state: ExtractionState) -> None:
     Derives the allowed concept ID set from ``config.concept_rules`` so that
     new domains automatically use their own concept vocabulary.
     """
-    if state.config.concept_rules:
-        allowed_concept_ids = {rule[0] for rule in state.config.concept_rules}
-    else:
-        # Fallback for configs without concept_rules
-        allowed_concept_ids = {
-            "concept_nesting_success", "concept_breeding_success",
-            "concept_population_decline", "concept_drought_condition",
-            "concept_flood_condition", "concept_temperature_extremes",
-            "concept_precipitation_pattern", "concept_habitat_degradation",
-            "concept_water_level_change", "concept_habitat_condition",
-            "concept_ecological_restoration", "concept_infrastructure_rehabilitation",
-            "concept_habitat_restoration", "concept_population_count",
-            "concept_survey_result", "concept_breeding_activity",
-            "concept_seasonal_condition",
-        }
+    # Allowed concept IDs come solely from the domain's concept_rules. A domain
+    # with no concept rules assigns no concepts — never the ecological vocabulary.
+    allowed_concept_ids = {rule[0] for rule in state.config.concept_rules}
 
     for claim in state.claims:
         for assignment in assign_concepts(claim, config=state.config):

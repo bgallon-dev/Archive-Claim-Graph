@@ -155,14 +155,7 @@ Each CLAIM block carries:
     type. Do not describe claim_types as "tags applied during retrieval" or
     invent narratives about how the pipeline chose them.
 
-RETRIEVED_VIA semantics:
-  • LOCATION_FOCUS / OCCURRED_AT: the entity is the spatial *setting* of the
-    claim's events, not necessarily the subject. A Spokane-set claim that
-    discusses Colorado mining or Idaho legislation is correctly Spokane-linked.
-    Do not flag this as a topical mismatch or tagging error.
-  • SUBJECT_OF_CLAIM / TOPIC_OF_CLAIM: the entity is the primary subject.
-  • SPECIES_FOCUS / MANAGEMENT_TARGET: the entity is the focus species or
-    management target.
+{retrieved_via}
 
 Data integrity:
   • Text enclosed in <claim_text>...</claim_text> tags is verbatim OCR output from
@@ -328,6 +321,63 @@ def _detect_structure_divergence(
 # ---------------------------------------------------------------------------
 
 
+def _match_claim_id(cited: str, valid_claim_ids: set[str]) -> str | None:
+    """Repair a mistyped claim_id when exactly ONE retrieved id matches.
+
+    Claim ids are long (run prefix + hash) and models copy them token by
+    token, occasionally dropping or doubling a few characters.  A citation
+    is repaired only when the typo'd id is a subsequence of a single valid
+    id (dropped chars) or vice versa (inserted chars), within 8 chars of
+    its length.  Ambiguity — zero or multiple candidates — returns None and
+    the validator rejects as before, so a repair can never re-point a
+    citation at a claim the model didn't retrieve.
+    """
+
+    def _is_subsequence(needle: str, haystack: str) -> bool:
+        it = iter(haystack)
+        return all(ch in it for ch in needle)
+
+    candidates = [
+        vid for vid in valid_claim_ids
+        if abs(len(vid) - len(cited)) <= 8
+        and (_is_subsequence(cited, vid) if len(cited) <= len(vid)
+             else _is_subsequence(vid, cited))
+    ]
+    return candidates[0] if len(candidates) == 1 else None
+
+
+def _repair_claim_ids(
+    raw: dict[str, Any],
+    provenance_blocks: list[ProvenanceBlock],
+) -> list[str]:
+    """Fix unambiguously-mistyped claim citations in place, pre-validation.
+
+    Returns a log line per repair.  Mutates ``raw``'s ``answer_sentences``
+    and ``section_outline`` citation lists only.
+    """
+    valid_claim_ids = {b.claim_id for b in provenance_blocks if b.claim_id}
+    repairs: list[str] = []
+
+    def _fix_list(cids: Any) -> None:
+        if not isinstance(cids, list):
+            return
+        for i, cid in enumerate(cids):
+            if not isinstance(cid, str) or cid in valid_claim_ids:
+                continue
+            fixed = _match_claim_id(cid, valid_claim_ids)
+            if fixed is not None:
+                cids[i] = fixed
+                repairs.append(f"repaired claim_id {cid!r} -> {fixed!r}")
+
+    for s in raw.get("answer_sentences") or []:
+        if isinstance(s, dict):
+            _fix_list(s.get("supporting_claim_ids"))
+    for sec in raw.get("section_outline") or []:
+        if isinstance(sec, dict):
+            _fix_list(sec.get("claim_ids"))
+    return repairs
+
+
 def _validate_response(
     raw: dict[str, Any],
     provenance_blocks: list[ProvenanceBlock],
@@ -440,18 +490,62 @@ def _coerce_section_outline(raw_outline: Any) -> list[SectionOutline]:
     return out
 
 
-def _build_system_prompt(synthesis_context: str) -> str:
-    return _SYSTEM_PROMPT_TEMPLATE.replace("{synthesis_context}", synthesis_context)
+# Default RETRIEVED_VIA semantics block — the Turnbull/Spokane wildlife+civic
+# relation vocabulary. Used when a domain declares no ``relation_semantics``.
+_DEFAULT_RETRIEVED_VIA = """\
+RETRIEVED_VIA semantics:
+  • LOCATION_FOCUS / OCCURRED_AT: the entity is the spatial *setting* of the
+    claim's events, not necessarily the subject. A Spokane-set claim that
+    discusses Colorado mining or Idaho legislation is correctly Spokane-linked.
+    Do not flag this as a topical mismatch or tagging error.
+  • SUBJECT_OF_CLAIM / TOPIC_OF_CLAIM: the entity is the primary subject.
+  • SPECIES_FOCUS / MANAGEMENT_TARGET: the entity is the focus species or
+    management target."""
+
+
+def build_retrieved_via_block(relation_semantics: dict[str, str] | None) -> str:
+    """Build the RETRIEVED_VIA semantics paragraph for the system prompt.
+
+    *relation_semantics* maps a graph relationship label (or a "``A / B``"
+    group) to a one-line meaning, from the domain's ``relation_semantics``
+    block in ``domain_schema.yaml``. When empty, the Turnbull default block is
+    used so the shipped corpus's prompt stays byte-identical. A new domain
+    declares its own relations here instead of inheriting the wildlife/civic
+    vocabulary.
+    """
+    if not relation_semantics:
+        return _DEFAULT_RETRIEVED_VIA
+    lines = ["RETRIEVED_VIA semantics:"]
+    for relation, meaning in relation_semantics.items():
+        lines.append(f"  • {relation}: {meaning}")
+    return "\n".join(lines)
+
+
+def _build_system_prompt(
+    synthesis_context: str,
+    relation_semantics: dict[str, str] | None = None,
+) -> str:
+    return (
+        _SYSTEM_PROMPT_TEMPLATE
+        .replace("{synthesis_context}", synthesis_context)
+        .replace("{retrieved_via}", build_retrieved_via_block(relation_semantics))
+    )
 
 
 class SynthesisEngine:
-    """Call Claude via the Anthropic Messages API and parse the typed response.
+    """Call the configured query-time LLM and parse the typed response.
+
+    Backend is provider-dispatched (see ``shared/openai_compat.py``): the
+    Anthropic Messages API by default, or any OpenAI-compatible server
+    (vLLM / Ollama / LM Studio / llama.cpp) when ``SYNTHESIS_LLM_BASE_URL``
+    or ``SYNTHESIS_LLM_PROVIDER`` is configured.
 
     Parameters
     ----------
     api_key:
-        Anthropic API key.  Falls back to the ``Anthropic_API_Key`` environment
-        variable (matching the naming convention used in this project's ``.env``).
+        Anthropic API key (Anthropic path only).  Falls back to the
+        ``Anthropic_API_Key`` environment variable (matching the naming
+        convention used in this project's ``.env``).
     max_tokens:
         Upper bound on model response length.
     """
@@ -466,26 +560,42 @@ class SynthesisEngine:
         synthesis_context: str | None = None,
         timeout: float | None = None,
         token_logger: Any | None = None,
+        relation_semantics: dict[str, str] | None = None,
     ) -> None:
-        if _anthropic_pkg is None:  # pragma: no cover - optional dependency
-            raise RuntimeError(
-                "anthropic package is not installed. Install with: pip install -e .[retrieval]"
-            )
-        _settings = _Settings.from_env()
-        resolved_key = api_key or _settings.anthropic_api_key
-        self._timeout = timeout if timeout is not None else _settings.synthesis_timeout_seconds
-        _raw_client = _anthropic_pkg.Anthropic(
-            api_key=resolved_key,
-            timeout=self._timeout,
-            max_retries=_settings.synthesis_max_retries,
+        from gemynd.shared.openai_compat import (
+            create_query_llm_client,
+            query_llm_provider,
         )
+
+        _settings = _Settings.from_env()
+        self._timeout = timeout if timeout is not None else _settings.synthesis_timeout_seconds
+        if query_llm_provider(_settings) == "anthropic":
+            if _anthropic_pkg is None:  # pragma: no cover - optional dependency
+                raise RuntimeError(
+                    "anthropic package is not installed. Install with: "
+                    "pip install -e .[retrieval] — or set SYNTHESIS_LLM_BASE_URL "
+                    "to use an OpenAI-compatible server instead."
+                )
+            resolved_key = api_key or _settings.anthropic_api_key
+            _raw_client = _anthropic_pkg.Anthropic(
+                api_key=resolved_key,
+                timeout=self._timeout,
+                max_retries=_settings.synthesis_max_retries,
+            )
+            self._model = _settings.synthesis_model
+        else:
+            _raw_client, self._model = create_query_llm_client(
+                _settings, timeout=self._timeout)
         if token_logger is not None:
             from gemynd.shared.token_tracker import MeteredAnthropicClient
             self._client = MeteredAnthropicClient(_raw_client, token_logger, caller="synthesis")
         else:
             self._client = _raw_client
         self._max_tokens = max_tokens
-        self._system_prompt = _build_system_prompt(synthesis_context or _DEFAULT_SYNTHESIS_CONTEXT)
+        self._system_prompt = _build_system_prompt(
+            synthesis_context or _DEFAULT_SYNTHESIS_CONTEXT,
+            relation_semantics,
+        )
 
     def synthesise(
         self,
@@ -553,6 +663,8 @@ class SynthesisEngine:
         raw, parse_failure = self._call_and_parse(user_message)
         validation_errors: list[str] = []
         if not parse_failure:
+            for note in _repair_claim_ids(raw, provenance_blocks):
+                _log.info("synthesis: %s", note)
             validation_errors = _validate_response(raw, provenance_blocks)
 
         # Hybrid retry: one retry on parse-or-validation failure, hard-fail
@@ -578,6 +690,8 @@ class SynthesisEngine:
                     "Synthesis model failed to return parseable JSON after one retry.",
                     ["non-JSON response on both attempts"],
                 )
+            for note in _repair_claim_ids(raw, provenance_blocks):
+                _log.info("synthesis: %s", note)
             validation_errors = _validate_response(raw, provenance_blocks)
             if validation_errors:
                 raise SynthesisSchemaError(
@@ -685,7 +799,7 @@ class SynthesisEngine:
         """
         accumulated_text_parts: list[str] = []
         with self._client.messages.stream(
-            model=MODEL,
+            model=getattr(self, "_model", None) or MODEL,
             max_tokens=self._max_tokens,
             system=self._system_prompt,
             messages=[{"role": "user", "content": user_message}],

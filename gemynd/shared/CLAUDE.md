@@ -27,7 +27,12 @@ Cross-cutting infrastructure: configuration, database management, file I/O, logg
 
 ## Token tracking (`token_tracker.py`)
 
-- `MeteredAnthropicClient` wraps the Anthropic SDK. Daemon-thread writer pattern (same as conversation logger — never blocks the calling thread).
+- `MeteredAnthropicClient` wraps any Messages-shaped client — the Anthropic SDK or `openai_compat.OpenAICompatibleMessagesClient`. Daemon-thread writer pattern (same as conversation logger — never blocks the calling thread).
+
+## Query-time LLM seam (`openai_compat.py`)
+
+- `OpenAICompatibleMessagesClient` mimics the Anthropic Messages surface (`messages.create` / `messages.stream` with `text_stream` + `get_final_message`) over any `/v1/chat/completions` server, so synthesis, LLM-Cypher, and metering work unchanged.
+- Provider dispatch mirrors `ingest/extractors/llm_adapter_factory.py`: explicit `SYNTHESIS_LLM_PROVIDER` wins; else a set `SYNTHESIS_LLM_BASE_URL` selects OpenAI-compatible; else Anthropic. Configure via `Settings.synthesis_llm_*`.
 - Pricing loaded from `token_pricing.yaml` with env var overrides (`TOKEN_PRICE_<MODEL_KEY>_INPUT/OUTPUT`).
 
 ## Logging (`logging_config.py`)

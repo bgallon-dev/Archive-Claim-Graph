@@ -22,6 +22,12 @@ claim_entity_relations:
 claim_location_relation: OCCURRED_AT
 claim_location_entity_types: [Place, Refuge]
 
+# Categorial label projection: a domain entity_type also gets stamped with a
+# shared categorial label by the graph writer (replaces the hardcoded
+# Refuge -> Place coercion). Wildlife refuges are a kind of place.
+categorial_label_map:
+  Refuge: Place
+
 # All entity types that get their own Neo4j label (subtypes of :Entity).
 entity_labels:
   - Refuge
@@ -68,3 +74,79 @@ derivation_roles:
     refuge:        [Refuge,       OCCURRED_AT]
     habitat:       [Habitat,      IN_HABITAT]
     survey_method: [SurveyMethod, USED_METHOD]
+
+# Rule-based claim-link roles — formerly the hardcoded per-entity-type blocks in
+# RuleBasedClaimExtractor._extract_claim_links. ORDER IS SIGNIFICANT: it must
+# match the legacy block order (Species, Habitat, SurveyMethod, Activity,
+# Location) so cross-role span de-duplication resolves identically.
+claim_link_roles:
+  roles:
+    - entity_type: Species
+      seed_types: [Species]
+      default_relation: SPECIES_FOCUS
+    - entity_type: Habitat
+      seed_types: [Habitat]
+      default_relation: HABITAT_FOCUS
+    - entity_type: SurveyMethod
+      seed_types: [SurveyMethod]
+      default_relation: METHOD_FOCUS
+    - entity_type: Activity
+      seed_types: [Activity]
+      default_relation: null   # no fixed default — consult ROLE_POLICY, else fallback
+      fallback_relation: MANAGEMENT_TARGET
+      fallback_claim_types: [predator_control, management_action, economic_use, development_activity, public_contact]
+    - entity_type: Place
+      seed_types: [Place, Refuge]
+      default_relation: LOCATION_FOCUS    # non-occurrence relation
+      is_location_role: true              # occurrence context → claim_location_relation
+      hint_substring_overrides:
+        refuge: Refuge                    # reproduces "Refuge if 'refuge' in surface else Place"
+  # Verbs that, when followed by a locative preposition at clause end, mark a
+  # location term as the occurrence site (claim_location_relation) vs LOCATION_FOCUS.
+  occurrence_verbs: [observed, found, seen, collected, taken, trapped, nested, wintered, came, arrived, occurred, burned, happened, departed]
+  # Verbs that trigger subject-of-claim extraction at sentence start.
+  subject_trigger_verbs: [recommended, reported, noted, managed, authorized, requested, directed, approved, announced, said, wrote]
+
+# Review builder-repair detector policy (was hardcoded in
+# review/detectors/builder_repair.py). Which claim types expect a focus
+# relation / a location link / are method-overtrigger candidates, and the
+# entity types that can satisfy each. A domain that omits this block gets no
+# builder-repair proposals. The location relation reuses claim_location_relation.
+builder_repair:
+  focus_relation: SPECIES_FOCUS
+  focus_candidate_entity_types: [Species]
+  focus_expecting_types:
+    - population_estimate
+    - species_presence
+    - species_absence
+    - breeding_activity
+    - migration_timing
+    - predator_control
+  location_candidate_entity_types: [Place, Refuge]
+  location_expecting_types:
+    - population_estimate
+    - species_presence
+    - species_absence
+    - breeding_activity
+    - fire_incident
+    - habitat_condition
+    - management_action
+    - predator_control
+  method_relation: METHOD_FOCUS
+  method_overtrigger_types:
+    - fire_incident
+    - public_contact
+    - economic_use
+    - development_activity
+
+# Review junk-mention detector: domain-specific header regexes (federal-agency
+# report boilerplate) appended to the universal structural header set
+# (page numbers, bare digits). Compiled case-insensitively.
+junk_mention:
+  header_patterns:
+    - 'united\s+states\s+department'
+    - 'fish\s+and\s+wildlife\s+service'
+    - 'bureau\s+of\s+(?:sport\s+)?fisheries'
+    - 'department\s+of\s+(?:the\s+)?interior'
+    - 'annual\s+narrative\s+report'
+    - 'refuge\s+manager'

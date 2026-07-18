@@ -111,6 +111,7 @@ def detect(
     structure: StructureBundle,
     semantic: SemanticBundle,
     snapshot_id: str,
+    config: "DomainConfig | None" = None,  # uniform detector interface; unused here
 ) -> list[DetectorProposal]:
     """Run the OCR/entity cleanup detector.
 

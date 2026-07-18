@@ -5,23 +5,38 @@ tokens, and clear OCR garbage mentions.
 """
 from __future__ import annotations
 
+import logging
 import re
 from collections import defaultdict
-from typing import Any
+from functools import lru_cache
+from typing import Any, TYPE_CHECKING
 
 from ...ingest.extractors.mention_extractor import get_ocr_flags
 from ...core.models import MentionRecord, ParagraphRecord, SemanticBundle, StructureBundle
 from ..models import DetectorProposal, ProposalTarget
 from ..patch_spec import make_patch_spec
 
+if TYPE_CHECKING:
+    from ...core.domain_config import DomainConfig
+
+_log = logging.getLogger(__name__)
+
 DETECTOR_NAME = "junk_mention_detector"
 DETECTOR_VERSION = "v1"
 
-# Patterns for header/footer lines
-_HEADER_PATTERNS = [
+# Universal structural header/footer patterns — page numbers and bare digits.
+# These apply to every domain regardless of config.
+_STRUCTURAL_HEADER_PATTERNS = [
     re.compile(r"^page\s+\d+", re.IGNORECASE),
     re.compile(r"^\d+\s*$"),
     re.compile(r"^-\s*\d+\s*-$"),
+]
+
+# Turnbull federal-agency report headers. Applied only on the ``config is None``
+# fallback path; for a real run these come from the domain's ``junk_mention``
+# block (Turnbull declares exactly these). A domain that declares none gets only
+# the structural patterns above — never these institutional strings.
+_TURNBULL_HEADER_PATTERNS = [
     re.compile(r"united\s+states\s+department", re.IGNORECASE),
     re.compile(r"fish\s+and\s+wildlife\s+service", re.IGNORECASE),
     re.compile(r"bureau\s+of\s+(?:sport\s+)?fisheries", re.IGNORECASE),
@@ -29,6 +44,22 @@ _HEADER_PATTERNS = [
     re.compile(r"annual\s+narrative\s+report", re.IGNORECASE),
     re.compile(r"refuge\s+manager", re.IGNORECASE),
 ]
+
+# Full list used when no config is supplied (byte-identical to legacy behaviour).
+_HEADER_PATTERNS = _STRUCTURAL_HEADER_PATTERNS + _TURNBULL_HEADER_PATTERNS
+
+
+@lru_cache(maxsize=16)
+def _compile_domain_header_patterns(raw_patterns: tuple[str, ...]) -> tuple[re.Pattern, ...]:
+    """Compile domain-supplied header regexes (case-insensitive), skipping any
+    that are invalid rather than crashing the whole detector run."""
+    compiled: list[re.Pattern] = []
+    for raw in raw_patterns:
+        try:
+            compiled.append(re.compile(raw, re.IGNORECASE))
+        except re.error:
+            _log.warning("junk_mention header pattern is invalid regex; skipping: %r", raw)
+    return tuple(compiled)
 
 # Boilerplate phrases
 _BOILERPLATE_PATTERNS = [
@@ -56,7 +87,11 @@ _GARBAGE_RE = re.compile(r"^[^a-zA-Z]*$")
 _MOSTLY_DIGITS_RE = re.compile(r"^\d{2,}[a-zA-Z]{0,2}$")
 
 
-def _is_header_paragraph(paragraph: ParagraphRecord, page_paragraphs: list[ParagraphRecord]) -> bool:
+def _is_header_paragraph(
+    paragraph: ParagraphRecord,
+    page_paragraphs: list[ParagraphRecord],
+    header_patterns: "tuple[re.Pattern, ...] | list[re.Pattern]" = _HEADER_PATTERNS,
+) -> bool:
     """Check if paragraph is in the first or last position on a page (likely header/footer)."""
     if not page_paragraphs:
         return False
@@ -65,7 +100,7 @@ def _is_header_paragraph(paragraph: ParagraphRecord, page_paragraphs: list[Parag
         return True
     sorted_paras = sorted(page_paragraphs, key=lambda p: p.paragraph_index)
     if paragraph.paragraph_id in (sorted_paras[0].paragraph_id, sorted_paras[-1].paragraph_id):
-        return any(pat.search(text) for pat in _HEADER_PATTERNS)
+        return any(pat.search(text) for pat in header_patterns)
     return False
 
 
@@ -83,7 +118,11 @@ def _is_short_generic_mention(mention: MentionRecord) -> bool:
     return False
 
 
-def _is_ocr_garbage_mention(mention: MentionRecord) -> bool:
+def _is_ocr_garbage_mention(
+    mention: MentionRecord,
+    known_ocr_errors: frozenset[str] | None = None,
+    lexicon_hints: dict[str, list[str]] | None = None,
+) -> bool:
     text = mention.surface_form.strip()
     if not text:
         return True
@@ -95,7 +134,7 @@ def _is_ocr_garbage_mention(mention: MentionRecord) -> bool:
     alpha = sum(1 for c in text if c.isalpha())
     if len(text) > 2 and alpha / len(text) < 0.4:
         return True
-    flags = get_ocr_flags(text)
+    flags = get_ocr_flags(text, known_ocr_errors=known_ocr_errors, lexicon_hints=lexicon_hints)
     if "ocr_suspect_list" in flags and len(text) <= 4:
         return True
     return False
@@ -105,8 +144,31 @@ def detect(
     structure: StructureBundle,
     semantic: SemanticBundle,
     snapshot_id: str,
+    config: "DomainConfig | None" = None,
 ) -> list[DetectorProposal]:
-    """Run the junk mention suppression detector."""
+    """Run the junk mention suppression detector.
+
+    When *config* is provided, the OCR-suspect check uses the domain's OCR
+    correction set and seed lexicon rather than Turnbull's. Without a config,
+    ``get_ocr_flags`` falls back to the explicit Turnbull reference vocabulary.
+    """
+    known_ocr_errors: frozenset[str] | None = None
+    lexicon_hints: dict[str, list[str]] | None = None
+    if config is not None:
+        known_ocr_errors = config.ocr_corrections
+        lexicon_hints = {}
+        for entity in config.seed_entities:
+            lexicon_hints.setdefault(entity.name.lower(), []).append(entity.entity_type)
+
+    # Header patterns: structural (universal) + domain-specific from config.
+    # No config → full legacy list (structural + Turnbull institutional).
+    if config is not None:
+        header_patterns: tuple[re.Pattern, ...] = tuple(_STRUCTURAL_HEADER_PATTERNS) + _compile_domain_header_patterns(
+            tuple(config.junk_mention_filters.get("header_patterns") or ())
+        )
+    else:
+        header_patterns = tuple(_HEADER_PATTERNS)
+
     paragraphs_by_id = {p.paragraph_id: p for p in structure.paragraphs}
     pages_by_id = {p.page_id: p for p in structure.pages}
     paragraphs_by_page: dict[str, list[ParagraphRecord]] = defaultdict(list)
@@ -141,7 +203,7 @@ def detect(
         }
 
         page_paras = paragraphs_by_page.get(paragraph.page_id, [])
-        if _is_header_paragraph(paragraph, page_paras):
+        if _is_header_paragraph(paragraph, page_paras, header_patterns):
             suppress_groups["header_contamination"].append(
                 (mention, "header_contamination", evidence_context)
             )
@@ -149,7 +211,7 @@ def detect(
             suppress_groups["boilerplate_contamination"].append(
                 (mention, "boilerplate_contamination", evidence_context)
             )
-        elif _is_ocr_garbage_mention(mention):
+        elif _is_ocr_garbage_mention(mention, known_ocr_errors, lexicon_hints):
             suppress_groups["ocr_garbage"].append(
                 (mention, "ocr_garbage", evidence_context)
             )

@@ -9,7 +9,8 @@ or `exclude_claim_from_derivation` proposals for:
 from __future__ import annotations
 
 from collections import defaultdict
-from typing import Any
+from dataclasses import dataclass
+from typing import Any, TYPE_CHECKING
 
 from ...core.claim_contract import get_relation_compatibility
 from ...core.models import (
@@ -24,6 +25,9 @@ from ...core.models import (
 from ..ids import make_claim_entity_link_target_id, make_claim_location_link_target_id
 from ..models import DetectorProposal, ProposalTarget
 from ..patch_spec import make_patch_spec
+
+if TYPE_CHECKING:
+    from ...core.domain_config import DomainConfig
 
 DETECTOR_NAME = "builder_repair_detector"
 DETECTOR_VERSION = "v1"
@@ -48,6 +52,59 @@ _METHOD_OVERTRIGGER_TYPES = frozenset({
 })
 
 
+@dataclass(frozen=True)
+class _BuilderRepairPolicy:
+    """Which claim types expect which relations, and which entity types can
+    satisfy them. Turnbull's wildlife values live in ``_DEFAULT_POLICY`` (used
+    only when no ``config`` is supplied, e.g. bare unit-test construction). For
+    a real run the policy comes from the domain's own ``builder_repair`` block
+    in ``domain_schema.yaml`` — a domain that declares none gets empty sets and
+    emits no builder-repair proposals, rather than inheriting Turnbull's."""
+
+    focus_relation: str
+    focus_candidate_types: frozenset[str]
+    focus_expecting_types: frozenset[str]
+    location_relation: str
+    location_candidate_types: frozenset[str]
+    location_expecting_types: frozenset[str]
+    method_relation: str
+    method_overtrigger_types: frozenset[str]
+
+
+# Turnbull defaults — applied only on the ``config is None`` path so that
+# callers/tests that construct the detector bare stay byte-identical.
+_DEFAULT_POLICY = _BuilderRepairPolicy(
+    focus_relation="SPECIES_FOCUS",
+    focus_candidate_types=frozenset({"Species"}),
+    focus_expecting_types=_SPECIES_EXPECTING_TYPES,
+    location_relation="OCCURRED_AT",
+    location_candidate_types=frozenset({"Place", "Refuge"}),
+    location_expecting_types=_LOCATION_EXPECTING_TYPES,
+    method_relation="METHOD_FOCUS",
+    method_overtrigger_types=_METHOD_OVERTRIGGER_TYPES,
+)
+
+
+def _policy_from_config(config: "DomainConfig") -> _BuilderRepairPolicy:
+    """Build the effective policy from a domain's ``builder_repair`` block.
+
+    An absent/empty block yields empty expecting/candidate sets so the domain
+    emits no builder-repair proposals — never Turnbull's wildlife policy. The
+    location relation reuses the domain's ``claim_location_relation``.
+    """
+    br = getattr(config, "builder_repair", None) or {}
+    return _BuilderRepairPolicy(
+        focus_relation=str(br.get("focus_relation") or ""),
+        focus_candidate_types=frozenset(br.get("focus_candidate_entity_types") or ()),
+        focus_expecting_types=frozenset(br.get("focus_expecting_types") or ()),
+        location_relation=config.claim_location_relation,
+        location_candidate_types=frozenset(br.get("location_candidate_entity_types") or ()),
+        location_expecting_types=frozenset(br.get("location_expecting_types") or ()),
+        method_relation=str(br.get("method_relation") or ""),
+        method_overtrigger_types=frozenset(br.get("method_overtrigger_types") or ()),
+    )
+
+
 def _claim_has_relation(
     claim_id: str,
     relation_type: str,
@@ -70,14 +127,17 @@ def _find_species_candidates(
     claim: ClaimRecord,
     entities: dict[str, EntityRecord],
     diagnostics_by_claim: dict[str, list[ClaimLinkDiagnosticRecord]],
+    policy: _BuilderRepairPolicy,
 ) -> list[EntityRecord]:
-    """Find species entities that were candidates but not linked."""
+    """Find focus-relation entities that were candidates but not linked."""
     candidates: list[EntityRecord] = []
     for diag in diagnostics_by_claim.get(claim.claim_id, []):
-        if diag.entity_type_hint == "Species" or diag.relation_type == "SPECIES_FOCUS":
-            # Look for species entities that match
+        if diag.entity_type_hint in policy.focus_candidate_types or (
+            policy.focus_relation and diag.relation_type == policy.focus_relation
+        ):
+            # Look for candidate-type entities that match
             for entity in entities.values():
-                if entity.entity_type == "Species" and entity.entity_id not in [
+                if entity.entity_type in policy.focus_candidate_types and entity.entity_id not in [
                     e.entity_id for e in candidates
                 ]:
                     candidates.append(entity)
@@ -88,11 +148,12 @@ def _find_location_candidates(
     claim: ClaimRecord,
     entities: dict[str, EntityRecord],
     diagnostics_by_claim: dict[str, list[ClaimLinkDiagnosticRecord]],
+    policy: _BuilderRepairPolicy,
 ) -> list[EntityRecord]:
-    """Find place/refuge entities that could serve as location context."""
+    """Find location-candidate entities that could serve as location context."""
     candidates: list[EntityRecord] = []
     for entity in entities.values():
-        if entity.entity_type in ("Place", "Refuge") and entity.entity_id not in [
+        if entity.entity_type in policy.location_candidate_types and entity.entity_id not in [
             e.entity_id for e in candidates
         ]:
             candidates.append(entity)
@@ -103,8 +164,17 @@ def detect(
     structure: StructureBundle,
     semantic: SemanticBundle,
     snapshot_id: str,
+    config: "DomainConfig | None" = None,
 ) -> list[DetectorProposal]:
-    """Run the builder repair detector."""
+    """Run the builder repair detector.
+
+    When *config* is provided, which claim types expect which relations (and the
+    entity types that satisfy them) come from the domain's ``builder_repair``
+    block. Without a config the Turnbull wildlife defaults apply so bare
+    construction stays byte-identical.
+    """
+    policy = _DEFAULT_POLICY if config is None else _policy_from_config(config)
+
     entity_lookup = {e.entity_id: e for e in semantic.entities}
     paragraphs_by_id = {p.paragraph_id: p for p in structure.paragraphs}
     diagnostics_by_claim: dict[str, list[ClaimLinkDiagnosticRecord]] = defaultdict(list)
@@ -123,16 +193,17 @@ def detect(
 
         # --- Missing species focus ---
         if (
-            claim.claim_type in _SPECIES_EXPECTING_TYPES
-            and not _claim_has_relation(claim.claim_id, "SPECIES_FOCUS", semantic.claim_entity_links)
+            policy.focus_relation
+            and claim.claim_type in policy.focus_expecting_types
+            and not _claim_has_relation(claim.claim_id, policy.focus_relation, semantic.claim_entity_links)
         ):
-            # Check if there's a species entity available in the bundle
-            species_candidates = _find_species_candidates(claim, entity_lookup, diagnostics_by_claim)
+            # Check if there's a focus-relation entity available in the bundle
+            species_candidates = _find_species_candidates(claim, entity_lookup, diagnostics_by_claim, policy)
             if species_candidates:
-                # Propose adding the most likely species link
+                # Propose adding the most likely focus link
                 best_species = species_candidates[0]
                 target_id = make_claim_entity_link_target_id(
-                    claim.claim_id, "SPECIES_FOCUS", best_species.entity_id,
+                    claim.claim_id, policy.focus_relation, best_species.entity_id,
                 )
                 targets = [
                     ProposalTarget(
@@ -161,7 +232,7 @@ def detect(
                     "add_claim_entity_link",
                     claim_id=claim.claim_id,
                     entity_id=best_species.entity_id,
-                    relation_type="SPECIES_FOCUS",
+                    relation_type=policy.focus_relation,
                     evidence_basis="claim_link_diagnostic",
                 )
                 para = paragraphs_by_id.get(claim.paragraph_id)
@@ -194,10 +265,10 @@ def detect(
 
         # --- Missing event location ---
         if (
-            claim.claim_type in _LOCATION_EXPECTING_TYPES
+            claim.claim_type in policy.location_expecting_types
             and not _claim_has_location(claim.claim_id, semantic.claim_location_links)
         ):
-            location_candidates = _find_location_candidates(claim, entity_lookup, diagnostics_by_claim)
+            location_candidates = _find_location_candidates(claim, entity_lookup, diagnostics_by_claim, policy)
             if location_candidates:
                 best_location = location_candidates[0]
                 target_id = make_claim_location_link_target_id(
@@ -230,7 +301,7 @@ def detect(
                     "add_claim_location_link",
                     claim_id=claim.claim_id,
                     entity_id=best_location.entity_id,
-                    relation_type="OCCURRED_AT",
+                    relation_type=policy.location_relation,
                     evidence_basis="document_context",
                 )
                 para = paragraphs_by_id.get(claim.paragraph_id)
@@ -263,10 +334,10 @@ def detect(
         # --- Method overtrigger ---
         method_links = [
             link for link in claim_links
-            if link.relation_type == "METHOD_FOCUS"
+            if policy.method_relation and link.relation_type == policy.method_relation
         ]
-        if method_links and claim.claim_type in _METHOD_OVERTRIGGER_TYPES:
-            compatibility = get_relation_compatibility(claim.claim_type, "METHOD_FOCUS")
+        if method_links and claim.claim_type in policy.method_overtrigger_types:
+            compatibility = get_relation_compatibility(claim.claim_type, policy.method_relation)
             if compatibility in ("weak", "forbidden"):
                 for method_link in method_links:
                     method_entity = entity_lookup.get(method_link.entity_id)

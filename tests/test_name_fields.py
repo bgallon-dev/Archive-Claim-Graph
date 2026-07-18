@@ -3,6 +3,7 @@ from pathlib import Path
 from gemynd.core.models import EntityRecord, MentionRecord
 from gemynd.ingest.pipeline import extract_semantic
 from gemynd.ingest.source_parser import parse_source_file
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 
 
 def test_mention_and_entity_load_legacy_normalized_name_alias() -> None:
@@ -37,6 +38,7 @@ def test_period_entity_uses_source_title_not_label(fixtures_dir: Path) -> None:
     structure = parse_source_file(fixtures_dir / "report1.json")
     semantic = extract_semantic(
         structure,
+        resources_dir=TURNBULL_RESOURCES_DIR,
         run_overrides={"run_id": "run_name_fields", "run_timestamp": "2026-03-10T00:00:00+00:00"},
     )
 

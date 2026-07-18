@@ -26,6 +26,17 @@ CREATE TABLE IF NOT EXISTS claim_cache (
 """
 
 
+def system_prompt_hash(system_prompt: str) -> str:
+    """Canonical system-prompt fingerprint used in claim-cache keys.
+
+    Single source of truth: the runtime adapters and the batch pre-warm script
+    MUST derive the fingerprint through this function so that pre-warmed cache
+    entries land under the same keys the runtime later looks up. Changing the
+    hash algorithm or truncation length here changes it everywhere at once.
+    """
+    return hashlib.sha256(system_prompt.encode("utf-8")).hexdigest()[:16]
+
+
 def _cache_key(model: str, system_prompt_hash: str, paragraph_text: str) -> str:
     """Deterministic key from model + prompt fingerprint + paragraph content."""
     normalized = paragraph_text.strip()

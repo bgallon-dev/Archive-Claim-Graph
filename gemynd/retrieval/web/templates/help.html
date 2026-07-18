@@ -1,0 +1,172 @@
+{% extends "retrieval_stats_base.html" %}
+{% block title %}Help - Gemynd{% endblock %}
+{% block content %}
+<p class="page-title">Reading an answer</p>
+<p class="page-sub">What this system does, what the labels mean, and what to check before you trust it</p>
+
+<div class="help-body">
+
+  <section class="help-section">
+    <h2 class="help-h2">What this system is</h2>
+    <p>
+      Gemynd answers questions from an archive by finding individual
+      <strong>claims</strong> in the source documents and assembling an answer from
+      them. It is not a search engine and it is not a chatbot with general
+      knowledge — it only knows what has been extracted from this collection.
+    </p>
+    <p>
+      That has a practical consequence: <strong>if the archive doesn't say it, the
+      system can't answer it</strong>, and a thin answer usually means thin
+      evidence rather than a failed search. The answer tells you which of those
+      it was — see "When there's nothing to find" below.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">What a claim is</h2>
+    <p>
+      A claim is a single factual statement pulled from one sentence of one
+      document, kept with a pointer back to that exact sentence. Everything the
+      system tells you is built from claims, and every claim can be traced to
+      its source.
+    </p>
+    <p>
+      This is the part worth checking. <strong>Click any citation pill in an
+      answer</strong> to open the source document, scrolled to the sentence the
+      claim came from and highlighted in the original text — including its
+      original spelling and any OCR errors. If a claim looks wrong, the source
+      will usually tell you why in a few seconds.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">Epistemic status: how the source stated it</h2>
+    <p>
+      This label describes <em>the original author's</em> confidence, not the
+      system's. It is taken from how the sentence was written.
+    </p>
+    <dl class="help-dl">
+      <dt>observed</dt>
+      <dd>The author recorded it as something directly seen, counted, or measured.</dd>
+      <dt>estimated</dt>
+      <dd>The author gave a figure but signalled it was approximate ("about 3,000").</dd>
+      <dt>reported</dt>
+      <dd>The author was relaying someone else's account, not their own observation.</dd>
+      <dt>uncertain</dt>
+      <dd>The author hedged — "possibly", "appeared to be", "may have".</dd>
+    </dl>
+    <p class="help-note">
+      An "uncertain" claim is not a low-quality claim. It is an accurate record
+      of a source that was itself uncertain, and for many research questions
+      that hedging is the finding.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">Confidence: how sure the extraction is</h2>
+    <p>
+      Confidence is a different axis, and it is the one most often misread. It
+      measures <strong>how reliably the system converted a sentence into a
+      structured claim</strong> — not whether the underlying fact is true, and
+      not how important it is.
+    </p>
+    <p>
+      A low-confidence claim usually means the sentence was hard to parse:
+      damaged OCR, an unusual phrasing, an ambiguous reference. It does not mean
+      the archive is unreliable. Treat low confidence as <em>"check this one
+      against the source"</em>, not as <em>"this is probably false"</em>.
+    </p>
+    <p class="help-note">
+      A high-confidence claim can still be wrong, if the document itself was
+      wrong. The system faithfully records what the archive says, including
+      where the archive is mistaken. Verification is still your job — the
+      citations exist to make it quick.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">Claim type</h2>
+    <p>
+      Each claim is sorted into a category defined by this collection's
+      configuration. The categories are how the system narrows a search, so a
+      query using this collection's own vocabulary will generally retrieve more
+      than a paraphrase. If a claim looks mis-categorised, that's worth
+      reporting — it affects what future queries find.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">Inferred sentences</h2>
+    <p>
+      Sentences the model wrote to connect the evidence — rather than lifting
+      from a source — are marked as inferred. They carry no citation because
+      nothing in the archive states them directly. They can be useful summary,
+      but they are the model's reasoning, not the record. Weigh them accordingly.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">When there's nothing to find</h2>
+    <p>
+      An answer distinguishes between three very different situations, and the
+      difference matters for research:
+    </p>
+    <ul class="help-ul">
+      <li><strong>Didn't search</strong> — the query didn't trigger that line of retrieval at all.</li>
+      <li><strong>Searched, found nothing</strong> — the archive appears not to contain it.</li>
+      <li><strong>Found, ranked lower</strong> — evidence exists but didn't make the cut for this answer.</li>
+    </ul>
+    <p>
+      Only the second is evidence of absence, and even then only within this
+      collection. When results were trimmed to fit, the answer says what was
+      dropped — including claims lost to unreadable OCR.
+    </p>
+  </section>
+
+  <section class="help-section">
+    <h2 class="help-h2">If something looks wrong</h2>
+    <p>
+      Please report it. Wrong answers, missing sources, confusing labels, and
+      slow pages are all useful — during a pilot, a problem you don't report is
+      a problem nobody can fix. Use <strong>Report a problem</strong> at the
+      bottom of the sidebar; it records the page you were on along with your note.
+    </p>
+  </section>
+
+</div>
+
+<style>
+.help-body { max-width: 68ch; }
+.help-section { margin-bottom: 2rem; }
+.help-h2 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem;
+}
+.help-body p { margin: 0 0 0.75rem; line-height: 1.65; color: var(--text-primary); }
+.help-note {
+  border-left: 2px solid var(--border-medium);
+  padding-left: 0.85rem;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+.help-dl { margin: 0.5rem 0 0.75rem; }
+.help-dl dt {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--text-primary);
+  margin-top: 0.6rem;
+}
+.help-dl dd {
+  margin: 0.15rem 0 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.help-ul { margin: 0 0 0.75rem 1.1rem; }
+.help-ul li { margin-bottom: 0.35rem; line-height: 1.6; }
+</style>
+{% endblock %}

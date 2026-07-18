@@ -1,0 +1,41 @@
+{# "Report a problem" control. Rendered in the sidebar footer area of every
+   authenticated page so a tester can report friction where it happens rather
+   than reconstructing it in an email afterwards.
+
+   Posts to /feedback via htmx; the CSRF header comes from the body-level
+   hx-headers in gemynd_base.html. The dialog is plain <details> so it needs
+   no JavaScript beyond htmx itself — which matters because htmx is now
+   self-hosted and this must degrade sanely if anything about it changes. #}
+<details class="feedback-widget">
+  <summary class="feedback-trigger">
+    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+         width="15" height="15" aria-hidden="true"><path
+         d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    <span class="feedback-trigger-label">Report a problem</span>
+  </summary>
+  <form class="feedback-form"
+        hx-post="/feedback"
+        hx-target="#feedback-result"
+        hx-swap="innerHTML">
+    <label class="feedback-label" for="feedback-category">What kind of problem?</label>
+    <select class="feedback-select" id="feedback-category" name="category">
+      <option value="wrong_answer">The answer looks wrong</option>
+      <option value="missing_source">A source or citation is missing</option>
+      <option value="confusing">Something is confusing or unclear</option>
+      <option value="slow">It was too slow</option>
+      <option value="error">I got an error</option>
+      <option value="other" selected>Something else</option>
+    </select>
+
+    <label class="feedback-label" for="feedback-message">What happened?</label>
+    <textarea class="feedback-textarea" id="feedback-message" name="message"
+              rows="4" required
+              placeholder="What you expected, and what you got instead."></textarea>
+
+    {# Captured for us so the tester doesn't have to describe where they were. #}
+    <input type="hidden" name="page_path" value="{{ request.url.path if request else '' }}">
+
+    <button type="submit" class="feedback-submit">Send report</button>
+    <div id="feedback-result" aria-live="polite"></div>
+  </form>
+</details>

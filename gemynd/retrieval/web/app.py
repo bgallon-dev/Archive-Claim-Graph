@@ -1228,6 +1228,13 @@ def create_app(
         from .write_audit_log import WriteAuditLogger
         state["write_audit"] = WriteAuditLogger(_settings.write_audit_db, skip_init=True)
 
+        from gemynd.retrieval.feedback_store import FeedbackStore
+        state["feedback_store"] = _try_init(
+            lambda: FeedbackStore(
+                _settings.feedback_db, conn=db_mgr.get_connection("feedback")
+            )
+        )
+
         # Daemon writers: own their thread connections, skip schema init.
         _token_pricing = load_pricing()
         _token_logger = TokenUsageLogger(
@@ -2840,6 +2847,79 @@ def create_app(
         saved = store.get_saved_searches(created_by=user.identity)
         ctx = _build_history_context(rows, total, saved, q, bucket, limit, offset)
         return _templates.TemplateResponse("history.html", {"request": request, "active_page": "history", **_user_ctx(user), **ctx})
+
+    # ------------------------------------------------------------------
+    # Help + tester feedback
+    # ------------------------------------------------------------------
+
+    @app.get("/help", response_class=HTMLResponse, include_in_schema=False)
+    def help_page(request: Request, user: UserContext = Depends(require_user)):
+        """Plain-language guide to reading an answer. Any logged-in user."""
+        return _templates.TemplateResponse(
+            "help.html",
+            {"request": request, "active_page": "help", **_user_ctx(user)},
+        )
+
+    @app.post("/feedback", include_in_schema=False)
+    def submit_feedback(  # sync on purpose — see get_notes_panel
+        message: str = Form(...),
+        category: str = Form("other"),
+        page_path: str = Form(""),
+        query_text: str = Form(""),
+        user: UserContext = Depends(require_user),
+    ):
+        """Record a tester's problem report.
+
+        Returns a small HTML fragment for htmx to swap in place of the form.
+        A failure here must never look like a lost report *or* interrupt the
+        tester, so the store being unavailable is surfaced honestly rather
+        than silently swallowed.
+        """
+        text = message.strip()
+        if not text:
+            return HTMLResponse(
+                "<p class='feedback-result feedback-result-error'>"
+                "Please describe what went wrong before sending.</p>",
+                status_code=400,
+            )
+        store = state.get("feedback_store")
+        if store is None:
+            _log.error("Feedback submitted but no feedback store is configured: %r", text[:200])
+            return HTMLResponse(
+                "<p class='feedback-result feedback-result-error'>"
+                "Couldn't save that — feedback storage isn't configured. "
+                "Please pass it to the team directly.</p>",
+                status_code=503,
+            )
+        store.add(
+            text,
+            category=category,
+            user_id=user.identity,
+            user_email=user.email,
+            user_role=user.role,
+            page_path=page_path.strip()[:500] or None,
+            query_text=query_text.strip() or None,
+        )
+        return HTMLResponse(
+            "<p class='feedback-result feedback-result-ok'>"
+            "Thanks — that's been recorded.</p>"
+        )
+
+    @app.get("/feedback", response_class=HTMLResponse, include_in_schema=False)
+    def list_feedback(request: Request, user: UserContext = Depends(require_admin)):
+        """Admin view of submitted reports."""
+        store = state.get("feedback_store")
+        rows = store.list_recent(limit=200) if store is not None else []
+        return _templates.TemplateResponse(
+            "feedback_list.html",
+            {
+                "request": request,
+                "active_page": "feedback",
+                "rows": rows,
+                "store_available": store is not None,
+                **_user_ctx(user),
+            },
+        )
 
     @app.post("/history/saved", include_in_schema=False)
     def save_query(  # sync on purpose — see get_notes_panel

@@ -287,6 +287,85 @@ body {
 }
 .sidebar-logout:hover { background: var(--bark-700); color: var(--text-inverse); }
 .sidebar-logout:focus-visible { outline: 2px solid var(--bark-300); outline-offset: 1px; }
+/* ---- Report a problem ---------------------------------------------- */
+.feedback-widget { flex-shrink: 0; }
+.feedback-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--bark-300);
+  font-size: 13px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  list-style: none;
+  user-select: none;
+}
+.feedback-trigger::-webkit-details-marker { display: none; }
+.feedback-trigger:hover { background: rgba(90, 62, 43, 0.45); }
+.feedback-trigger svg { flex-shrink: 0; }
+.sidebar.collapsed .feedback-trigger {
+  padding: 8px;
+  justify-content: center;
+  width: 36px; height: 36px;
+}
+.sidebar.collapsed .feedback-trigger-label { opacity: 0; width: 0; overflow: hidden; }
+/* The panel would be clipped by the collapsed rail, so float it out. */
+.feedback-form {
+  background: var(--bark-900);
+  border: 1px solid var(--bark-700);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sidebar.collapsed .feedback-form {
+  position: absolute;
+  left: calc(var(--sidebar-collapsed) - 4px);
+  bottom: 64px;
+  width: 260px;
+  z-index: 40;
+}
+.feedback-label {
+  font-size: 11px;
+  color: var(--bark-400);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.feedback-select,
+.feedback-textarea {
+  width: 100%;
+  background: var(--bark-800);
+  border: 1px solid var(--bark-700);
+  border-radius: var(--radius-sm);
+  color: var(--text-inverse);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 6px 8px;
+}
+.feedback-textarea { resize: vertical; min-height: 64px; }
+.feedback-select:focus-visible,
+.feedback-textarea:focus-visible { outline: 2px solid var(--bark-500); outline-offset: 0; }
+.feedback-submit {
+  background: var(--bark-700);
+  color: var(--text-inverse);
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.feedback-submit:hover { background: var(--bark-600); }
+.feedback-result { font-size: 12px; line-height: 1.5; margin: 0; }
+.feedback-result-ok { color: var(--bark-200); }
+.feedback-result-error { color: #F0C4BC; }
+
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -1577,6 +1656,14 @@ code { font-size: 12px; }
     {% block sidebar_nav %}{% endblock %}
 
     <div style="flex:1"></div>
+
+    {# Help + feedback sit above the user block: reachable from every page,
+       but visually separated from navigation. #}
+    <a class="nav-item{% if active_page == 'help' %} active{% endif %}" href="/help">
+      <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span class="nav-label">Help</span>
+    </a>
+    {% include "fragments/feedback_widget.html" %}
 
     <div class="sidebar-footer">
       <div class="sidebar-avatar">{{ user_initials | default('U', true) }}</div>

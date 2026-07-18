@@ -42,6 +42,7 @@ class DatabaseManager:
             ("conv_log", s.conv_log_db),
             ("token_usage", s.token_usage_db),
             ("write_audit", s.write_audit_db),
+            ("feedback", s.feedback_db),
         ]:
             self._paths[name] = Path(path_str)
         if s.annotation_db:
@@ -237,6 +238,12 @@ def _migrate_token_usage(conn: sqlite3.Connection) -> None:
     conn.executescript(_SCHEMA_SQL)
 
 
+def _migrate_feedback(conn: sqlite3.Connection) -> None:
+    from gemynd.retrieval.feedback_store import _SCHEMA_SQL
+
+    conn.executescript(_SCHEMA_SQL)
+
+
 def _migrate_write_audit(conn: sqlite3.Connection) -> None:
     from gemynd.retrieval.web.write_audit_log import (
         _CREATE_INDEX,
@@ -257,4 +264,5 @@ _MIGRATIONS: list[tuple[str, callable]] = [
     ("conv_log", _migrate_conv_log),
     ("token_usage", _migrate_token_usage),
     ("write_audit", _migrate_write_audit),
+    ("feedback", _migrate_feedback),
 ]

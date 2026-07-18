@@ -11,6 +11,8 @@ import logging
 import os
 import re
 import time
+from logging.handlers import RotatingFileHandler
+from pathlib import Path
 
 
 # Matches the canonical 3-part JWT shape (eyJ-prefixed base64url segments
@@ -41,7 +43,7 @@ class JWTRedactionFilter(logging.Filter):
         return True
 
 
-def setup_logging(level: str | None = None) -> None:
+def setup_logging(level: str | None = None, log_file: str | None = None) -> None:
     """Configure the root logger with a structured formatter.
 
     Parameters
@@ -49,6 +51,17 @@ def setup_logging(level: str | None = None) -> None:
     level:
         Override log level string (e.g. "DEBUG", "INFO").  Falls back to the
         LOG_LEVEL environment variable, then to "INFO".
+    log_file:
+        Path to a rotating log file.  Falls back to the LOG_FILE environment
+        variable; when neither is set, logs go to stderr only.
+
+    Notes
+    -----
+    Set ``LOG_FILE`` in any deployment you expect to debug after the fact.
+    Stderr dies with the terminal, so without it a report of "it broke on
+    Tuesday" has no forensics behind it at all.  Rotation is capped
+    (``LOG_MAX_BYTES`` x ``LOG_BACKUP_COUNT``, default 5 x 10 MB) so logs
+    can't fill the disk.
     """
     resolved_level = (level or os.environ.get("LOG_LEVEL", "INFO")).upper()
     numeric_level = getattr(logging, resolved_level, logging.INFO)
@@ -59,12 +72,34 @@ def setup_logging(level: str | None = None) -> None:
     )
     formatter.converter = time.gmtime  # UTC timestamps
 
-    handler = logging.StreamHandler()
-    handler.setFormatter(formatter)
-    handler.addFilter(JWTRedactionFilter())
+    handlers: list[logging.Handler] = [logging.StreamHandler()]
+
+    resolved_file = log_file or os.environ.get("LOG_FILE")
+    if resolved_file:
+        try:
+            path = Path(resolved_file)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            handlers.append(
+                RotatingFileHandler(
+                    str(path),
+                    maxBytes=int(os.environ.get("LOG_MAX_BYTES", 10 * 1024 * 1024)),
+                    backupCount=int(os.environ.get("LOG_BACKUP_COUNT", 5)),
+                    encoding="utf-8",
+                )
+            )
+        except OSError:
+            # An unwritable log path must not prevent the server from starting;
+            # stderr logging still applies and the failure is reported there.
+            logging.getLogger(__name__).warning(
+                "Could not open log file %r — continuing with stderr only",
+                resolved_file, exc_info=True,
+            )
 
     root = logging.getLogger()
     if root.handlers:
         root.handlers.clear()
-    root.addHandler(handler)
+    for handler in handlers:
+        handler.setFormatter(formatter)
+        handler.addFilter(JWTRedactionFilter())
+        root.addHandler(handler)
     root.setLevel(numeric_level)

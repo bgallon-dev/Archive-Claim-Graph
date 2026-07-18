@@ -1,0 +1,65 @@
+# systemd unit for the Gemynd query server (the tester-facing app).
+#
+# Install:
+#   sudo cp deploy/gemynd-query.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now gemynd-query
+#
+# This unit is the difference between "a crash ends the pilot" and "a crash
+# costs five seconds". Without a supervisor there is no restart-on-failure and
+# no start-on-boot: the first unhandled error or machine reboot is a permanent
+# outage that nobody notices until a tester emails.
+
+[Unit]
+Description=Gemynd retrieval query server
+Documentation=file:///opt/gemynd/docs/DEPLOYMENT.md
+# Neo4j is a soft dependency on purpose. The app now starts degraded and
+# reconnects on its own, so ordering is a nicety rather than a requirement —
+# do not make this Requires=, or a Neo4j restart takes the app down with it.
+After=network-online.target neo4j.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=gemynd
+Group=gemynd
+WorkingDirectory=/opt/gemynd
+
+# EVERY path in the app is resolved relative to the working directory —
+# .env, data/*.db, out/. Starting from the wrong cwd silently creates a NEW
+# empty users.db, which re-triggers first-run setup and makes every existing
+# account vanish. WorkingDirectory above is load-bearing, not cosmetic.
+EnvironmentFile=/opt/gemynd/.env
+
+ExecStart=/opt/gemynd/.venv/bin/gemynd query-serve \
+    --host 127.0.0.1 \
+    --port 8788
+
+# Bind to loopback and let the reverse proxy terminate TLS (see deploy/nginx).
+# Never bind 0.0.0.0 without TLS in front: session cookies are JWTs and would
+# cross the institutional network in cleartext.
+
+Restart=always
+RestartSec=5s
+# Give up only if it's failing continuously — 5 restarts in 5 minutes means
+# something is genuinely broken and the logs should be read, not looped over.
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+# Logs go to both the journal (stderr) and LOG_FILE if set in .env.
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=gemynd-query
+
+# Hardening. The app needs to write only data/, out/, and its log directory.
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/gemynd/data /opt/gemynd/out /var/log/gemynd
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

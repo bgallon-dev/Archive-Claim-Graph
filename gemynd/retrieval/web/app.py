@@ -185,6 +185,16 @@ def _build_source_links(
     return out
 
 
+class Neo4jUnavailable(RuntimeError):
+    """Raised when no Neo4j connection can be established for a request.
+
+    Distinct from a query error: this means the graph database itself is
+    unreachable, which is a server-side condition the user can only wait out.
+    Mapped to a 503 (not a 500) so uptime checks and users can tell the
+    difference between "the database is down" and "this request was broken".
+    """
+
+
 # ---------------------------------------------------------------------------
 # Request / response models
 # ---------------------------------------------------------------------------
@@ -1055,6 +1065,89 @@ def create_app(
             _log.warning("Store unavailable", exc_info=True)
             return None
 
+    class _ExecutorProxy:
+        """Stable handle that always forwards to the *current* executor.
+
+        Pipeline components (query builder, assembler, gateway, ranker) are
+        built once during startup. If they captured a concrete executor they
+        would hold a dead — or ``None`` — connection forever, and a later
+        reconnect would silently not reach them: /health would report
+        "connected" while every query still failed. Holding this proxy instead
+        means reconnection is a single assignment to ``state["executor"]``.
+
+        Raises :class:`Neo4jUnavailable` (mapped to a 503 by an exception
+        handler) rather than an opaque AttributeError on None. That covers
+        calls made deep inside components, which a route-level guard cannot.
+        """
+
+        def _target(self) -> Neo4jQueryExecutor:
+            executor = state.get("executor")
+            if executor is None and not _connect_executor():
+                raise Neo4jUnavailable(
+                    "No Neo4j connection available: " + str(state.get("neo4j_error", "unknown"))
+                )
+            return state["executor"]
+
+        def run(self, cypher: str, params: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+            try:
+                return self._target().run(cypher, params)
+            except Neo4jUnavailable:
+                raise
+            except Exception:
+                # Drop a connection that has gone bad so the next call
+                # reconnects rather than reusing a dead driver.
+                state["executor"] = None
+                raise
+
+        def ensure_schema(self) -> None:
+            self._target().ensure_schema()
+
+        def close(self) -> None:
+            executor = state.get("executor")
+            if executor is not None:
+                executor.close()
+
+    _executor_proxy = _ExecutorProxy()
+
+    def _connect_executor() -> bool:
+        """(Re)connect the Neo4j executor. Return True once usable.
+
+        Called at startup and again from /health, so an instance that booted
+        while Neo4j was down recovers on its own the next time health is
+        polled — no restart, no operator intervention.
+        """
+        params = state.get("_neo4j_params")
+        if params is None:
+            return False
+        try:
+            executor = Neo4jQueryExecutor(**params)
+            executor.ensure_schema()
+            corpus_rows = executor.run(
+                CORPUS_STATS_QUERY,
+                {"institution_ids": state.get("_institution_ids") or []},
+            )
+            if corpus_rows:
+                state["corpus_stats"] = corpus_rows[0]
+            state["executor"] = executor
+            state.pop("neo4j_error", None)
+            _log.info("Neo4j executor connected (%s)", params.get("uri"))
+            return True
+        except Exception as exc:
+            state["executor"] = None
+            state["neo4j_error"] = f"{type(exc).__name__}: {exc}"
+            _log.error("Neo4j connection failed: %s", exc, exc_info=True)
+            return False
+
+    def _require_executor() -> Any:
+        """Return the executor proxy for a request path.
+
+        Never raises here — the proxy reconnects on demand and raises
+        :class:`Neo4jUnavailable` at call time, which the exception handler
+        turns into a 503. That way the first request after Neo4j comes back is
+        the one that heals the app.
+        """
+        return _executor_proxy
+
     @asynccontextmanager
     async def lifespan(app: FastAPI):  # type: ignore[misc]
         # --- Domain config: load every registered corpus from the
@@ -1129,22 +1222,30 @@ def create_app(
         state["analytical_dispatch"] = _composite.analytical_queries
 
         # --- Neo4j executor ---
-        executor = Neo4jQueryExecutor(
-            uri=uri,
-            user=user,
-            password=password,
-            database=database,
-            trust_mode=trust,
-            ca_cert_path=ca_cert,
-            entity_labels=_composite.entity_labels,
-        )
-        executor.ensure_schema()
-        state["executor"] = executor
-
-        corpus_rows = executor.run(
-            CORPUS_STATS_QUERY, {"institution_ids": _composite.institution_ids}
-        )
-        state["corpus_stats"] = corpus_rows[0] if corpus_rows else {"total_paragraphs": 0, "total_documents": 0}
+        # Connection parameters are kept so _connect_executor() can retry later:
+        # Neo4j being down at boot must not be fatal. Previously this ran
+        # unguarded in the lifespan, so a database that was merely slow to come
+        # up aborted ASGI startup and the process exited — under a supervisor
+        # that is a crash-loop, and without one the pilot is simply over.
+        state["_neo4j_params"] = {
+            "uri": uri,
+            "user": user,
+            "password": password,
+            "database": database,
+            "trust_mode": trust,
+            "ca_cert_path": ca_cert,
+            "entity_labels": _composite.entity_labels,
+        }
+        state["_institution_ids"] = _composite.institution_ids
+        state["corpus_stats"] = {"total_paragraphs": 0, "total_documents": 0}
+        if _connect_executor():
+            executor = state["executor"]
+        else:
+            _log.error(
+                "Starting WITHOUT a Neo4j connection — queries will return 503 "
+                "until it becomes reachable. /health reports the current state."
+            )
+            executor = None
 
         # --- Path-finder caches (Mode 1) ---
         # Per-entity claim count, used for inverse-frequency path weighting and
@@ -1251,7 +1352,7 @@ def create_app(
 
         # --- Pipeline components ---
         state["query_builder"] = CypherQueryBuilder(
-            executor,
+            _executor_proxy,
             institution_ids=_composite.institution_ids,
         )
         # --- Optional text-to-Cypher LLM fallback ---
@@ -1332,7 +1433,7 @@ def create_app(
         )
 
         state["assembler"] = ProvenanceContextAssembler(
-            executor,
+            _executor_proxy,
             annotation_store=_annotation_store,
             query_intent_map=_composite.query_intent_to_claim_types,
             institution_ids=_composite.institution_ids,
@@ -1342,7 +1443,7 @@ def create_app(
             },
             llm_cypher_generator=_llm_cypher_generator,
             context_ranker=build_context_ranker(
-                executor,
+                _executor_proxy,
                 mode=_env_settings.context_ranker,
                 kgr_root=_env_settings.kgr_root,
             ),
@@ -1358,7 +1459,7 @@ def create_app(
                 config=_composite,
                 policy=ResolutionPolicy(),
             ),
-            executor=executor,
+            executor=_executor_proxy,
         )
         synthesis_ctx = _composite.synthesis_context()
         # Surface provider/key state at startup so a missing/short key is
@@ -1401,7 +1502,11 @@ def create_app(
         )
 
         yield
-        executor.close()
+        # state["executor"], not the local: a reconnect after a degraded start
+        # replaces it, and it may still be None if Neo4j never came back.
+        _live_executor = state.get("executor")
+        if _live_executor is not None:
+            _live_executor.close()
         db_mgr.close_all()
 
     # docs_url/redoc_url are disabled: FastAPI's built-in docs routes carry no
@@ -1468,6 +1573,26 @@ def create_app(
 
     from fastapi import HTTPException as _HTTPException
     from fastapi.responses import JSONResponse as _JSONResponse
+
+    @app.exception_handler(Neo4jUnavailable)
+    async def _neo4j_unavailable_handler(request: Request, exc: Neo4jUnavailable) -> _JSONResponse:
+        """503, not 500 — the request was fine, the database is not.
+
+        The detail is deliberately generic: this response can reach an
+        unauthenticated caller and must not leak connection internals. The
+        cause is logged server-side by _connect_executor().
+        """
+        _log.error("Neo4j unavailable serving %s %s", request.method, request.url.path)
+        return _JSONResponse(
+            status_code=503,
+            content={
+                "detail": (
+                    "The graph database is currently unavailable. This is a "
+                    "server-side problem, not a problem with your query — "
+                    "please try again shortly."
+                )
+            },
+        )
 
     @app.exception_handler(Exception)
     async def _internal_error_handler(request: Request, exc: Exception) -> _JSONResponse:
@@ -1541,14 +1666,23 @@ def create_app(
         ts = datetime.now(timezone.utc).isoformat()
         executor = state.get("executor")
         if executor is None:
-            return _JSONResponse(
-                status_code=503,
-                content={"status": "starting", "neo4j": "not_ready", "timestamp": ts},
-            )
+            # Retry here rather than only reporting: a supervisor or uptime
+            # check polling /health is what recovers an instance that started
+            # while Neo4j was down. Details stay in the log — this endpoint is
+            # unauthenticated and must not leak connection internals.
+            if not _connect_executor():
+                return _JSONResponse(
+                    status_code=503,
+                    content={"status": "degraded", "neo4j": "unavailable", "timestamp": ts},
+                )
+            executor = state["executor"]
         try:
             executor.run("RETURN 1 AS ok", {})
             neo4j_status = "connected"
         except Exception:
+            # A connection that has gone stale should not stay stale: drop it
+            # so the next poll reconnects instead of failing forever.
+            state["executor"] = None
             neo4j_status = "unavailable"
         neo4j_ok = neo4j_status == "connected"
         return _JSONResponse(
@@ -1870,7 +2004,7 @@ def create_app(
         # quarantine transparency even when the LLM times out).
         quarantined_claims_count = 0
         try:
-            _q_executor: Neo4jQueryExecutor = state["executor"]
+            _q_executor: Neo4jQueryExecutor = _require_executor()
             _qrows = _q_executor.run(
                 COUNT_QUARANTINED_CLAIMS_QUERY,
                 {
@@ -1888,7 +2022,7 @@ def create_app(
             e.entity_id for e in (entity_ctx.resolved + entity_ctx.maybe_resolved)
         )
         _top_co_entities = _compute_top_co_occurring_entities(
-            executor=state["executor"],
+            executor=_require_executor(),
             claim_ids=[b.claim_id for b in blocks],
             exclude_entity_ids=_exclude_ids,
             institution_ids=user.permitted_institution_ids,
@@ -2132,7 +2266,7 @@ def create_app(
     # ------------------------------------------------------------------
     @app.get("/stats", response_class=HTMLResponse, include_in_schema=False)
     def collection_stats(request: Request, user: UserContext = Depends(require_user_scoped)):
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         params = {
             "institution_ids": user.permitted_institution_ids,
             "permitted_levels": user.permitted_levels,
@@ -2151,7 +2285,7 @@ def create_app(
     # ------------------------------------------------------------------
     @app.get("/gaps", response_class=HTMLResponse, include_in_schema=False)
     def collection_gaps(request: Request, user: UserContext = Depends(require_admin_scoped)):
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         params = {
             "institution_ids": user.permitted_institution_ids,
             "permitted_levels": user.permitted_levels,
@@ -2203,7 +2337,7 @@ def create_app(
     ) -> list[dict]:
         if not q.strip():
             return []
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         return executor.run(
             ENTITY_SEARCH_QUERY,
             {
@@ -2226,7 +2360,7 @@ def create_app(
     ) -> dict[str, Any]:
         if not _ENTITY_ID_RE.match(entity_id):
             raise HTTPException(status_code=400, detail="Invalid entity_id format")
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         params = {
             "institution_ids": user.permitted_institution_ids,
             "permitted_levels": user.permitted_levels,
@@ -2334,7 +2468,7 @@ def create_app(
             raise HTTPException(status_code=400, detail="Invalid to entity_id")
 
         from gemynd.core.graph.cypher import CO_ASSERTING_CLAIMS_QUERY
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         rows = executor.run(CO_ASSERTING_CLAIMS_QUERY, {
             "from_id": from_id, "to_id": to_id,
             "institution_ids": user.permitted_institution_ids,
@@ -2389,7 +2523,7 @@ def create_app(
         if from_id == to_id:
             raise HTTPException(status_code=400, detail="from and to must be different entities")
         from gemynd.retrieval.web.path_finder import find_paths, path_result_to_dict
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         result = find_paths(
             executor.run,
             from_id=from_id, to_id=to_id,
@@ -2434,7 +2568,7 @@ def create_app(
             return {"error": "Pick two different entities."}
         from gemynd.retrieval.web.path_finder import find_paths, path_result_to_dict
         from neo4j.exceptions import TransientError
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         try:
             result = find_paths(
                 executor.run,
@@ -2482,7 +2616,7 @@ def create_app(
 
     def _list_documents_json(user: UserContext = Depends(require_admin_scoped)) -> dict[str, Any]:
         """JSON list for /v1/documents API."""
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         rows = executor.run(
             LIST_DOCUMENTS_QUERY,
             {"institution_ids": user.permitted_institution_ids},
@@ -2546,7 +2680,7 @@ def create_app(
         page: int,
     ) -> dict[str, Any]:
         """Run the paginated query + count and assemble the row-fragment context."""
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         offset = max(0, (page - 1) * _DOCS_PAGE_SIZE)
         params = {
             "institution_ids": user.permitted_institution_ids,
@@ -2588,7 +2722,7 @@ def create_app(
         page: int = Query(1, ge=1),
         user: UserContext = Depends(require_user_scoped),
     ):
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         facets = executor.run(
             DOCUMENT_FACETS_QUERY,
             {"institution_ids": user.permitted_institution_ids},
@@ -2638,7 +2772,7 @@ def create_app(
         paragraphs in graph order when those are empty (some ingestion paths
         persist OCR only at paragraph granularity).
         """
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         rows = executor.run(
             GET_DOCUMENT_SOURCE_TEXT_QUERY,
             {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
@@ -2673,7 +2807,7 @@ def create_app(
         view: str = "clean",
     ) -> HTMLResponse:
         """Render the unified per-document modal with the requested tab active."""
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         header_rows = executor.run(
             GET_DOCUMENT_HEADER_QUERY,
             {"doc_id": doc_id, "institution_ids": user.permitted_institution_ids},
@@ -3100,7 +3234,7 @@ def create_app(
                 status_code=400,
                 detail="Set ?confirm=true to acknowledge this soft-deletion. The document can be restored.",
             )
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         deleted_at = datetime.now(timezone.utc).isoformat()
         deleted_by = user.identity
         rows = executor.run(SOFT_DELETE_DOCUMENT_QUERY, {
@@ -3136,7 +3270,7 @@ def create_app(
         request: Request,
         user: UserContext = Depends(require_admin_scoped),
     ) -> dict[str, Any]:
-        executor: Neo4jQueryExecutor = state["executor"]
+        executor: Neo4jQueryExecutor = _require_executor()
         rows = executor.run(RESTORE_DOCUMENT_QUERY, {
             "doc_id": doc_id,
             "institution_ids": user.permitted_institution_ids,

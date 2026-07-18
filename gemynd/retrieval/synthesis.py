@@ -139,12 +139,16 @@ Each CLAIM block carries:
   • CONFIDENCE_TIER (HIGH/MEDIUM/LOW) and a numeric confidence score.
   • RETRIEVED_VIA: the graph relationship type used to find this claim.
   • epistemic: the original document's stated certainty (observed > estimated > inferred).
-  • CLAIM_ID: the verbatim identifier you must use when citing this claim in
-    `supporting_claim_ids` and `section_outline[*].claim_ids`. Copy it
-    character-for-character from the CLAIM_ID line. Do NOT substitute the
-    PARAGRAPH value, the document title, or any other identifier — those will
-    fail schema validation. Do NOT fabricate claim_ids; only cite ids that
-    appear verbatim in a CLAIM_ID line in your context.
+  • CITE: a short handle for this claim, e.g. "C7". PREFER THIS when citing in
+    `supporting_claim_ids` and `section_outline[*].claim_ids` — it is short
+    enough to reproduce exactly, and the server expands it to the full id.
+    Write it exactly as shown ("C7"), not "7", "[7]" or "claim 7".
+  • CLAIM_ID: the full identifier, accepted as an alternative to CITE. If you
+    use it, copy it character-for-character from the CLAIM_ID line — the whole
+    string including the ":claim:NNN:..." suffix. A run prefix alone identifies
+    a document, not a claim, and will fail validation. Do NOT substitute the
+    PARAGRAPH value, the document title, or any other identifier. Do NOT
+    fabricate ids; cite only claims present in your context.
   • The bracketed annotation `[<claim_type>, epistemic=...]` on each CLAIM line
     records a *claim_type* assigned by the extraction pipeline (a property on
     the Claim node, e.g. "civic_development", "turnbull_prehistory",
@@ -209,10 +213,11 @@ Respond with valid JSON only — no markdown fences, no prose outside the JSON o
 {
   "organizing_structure": "chronological" | "causal" | "thematic" | "mixed",
   "section_outline": [
-    {"heading": "<section name>", "claim_ids": ["<claim_id>", ...]}
+    {"heading": "<section name>", "claim_ids": ["C3", "C7", ...]}
   ],
   "answer_sentences": [
-    {"text": "<one sentence>", "supporting_claim_ids": ["<claim_id>", ...], "is_inferred": false},
+    {"text": "<one sentence>", "supporting_claim_ids": ["C3"], "is_inferred": false},
+    {"text": "<one sentence citing two claims>", "supporting_claim_ids": ["C1", "C9"], "is_inferred": false},
     {"text": "<one sentence>", "supporting_claim_ids": [], "is_inferred": true},
     ...
   ],
@@ -346,6 +351,66 @@ def _match_claim_id(cited: str, valid_claim_ids: set[str]) -> str | None:
     return candidates[0] if len(candidates) == 1 else None
 
 
+_CITE_TOKEN_RE = _re.compile(r"^\s*[\[\(]?\s*[cC]?\s*(\d{1,3})\s*[\]\)]?\s*$")
+
+
+def _resolve_citation_tokens(
+    raw: dict[str, Any],
+    provenance_blocks: list[ProvenanceBlock],
+) -> list[str]:
+    """Translate short ``C<N>`` citation handles into real claim ids, in place.
+
+    Claim ids are ~55 characters of opaque run prefix plus hash. Small local
+    models truncate them to the run prefix — and because several claims share
+    one run, that truncation is ambiguous and cannot be safely repaired (see
+    :func:`_match_claim_id`, which correctly declines). Measured on
+    gemma-4-e4b: every citation in every answer was truncated this way, which
+    failed validation and made synthesis unusable despite the prose and the
+    reasoning being correct.
+
+    So the context also offers each block a short handle (``C1``, ``C2``, …)
+    and this resolves them back. Unlike id repair this involves no guessing:
+    the handle is positional over the same ordered block list the context was
+    built from, so the mapping is exact.
+
+    Tolerant of the shapes models actually emit — ``C3``, ``c3``, ``[3]``,
+    ``3``. Anything else is left untouched for the validator to judge, so a
+    real claim id still passes straight through and a fabricated citation is
+    still rejected.
+    """
+    from gemynd.retrieval.context_assembler import cite_token_for_index
+
+    by_token = {
+        cite_token_for_index(i).lower(): b.claim_id
+        for i, b in enumerate(provenance_blocks)
+        if b.claim_id
+    }
+    valid_claim_ids = {b.claim_id for b in provenance_blocks if b.claim_id}
+    resolved: list[str] = []
+
+    def _fix_list(cids: Any) -> None:
+        if not isinstance(cids, list):
+            return
+        for i, cid in enumerate(cids):
+            if not isinstance(cid, str) or cid in valid_claim_ids:
+                continue
+            match = _CITE_TOKEN_RE.match(cid)
+            if not match:
+                continue
+            target = by_token.get(f"c{match.group(1)}")
+            if target is not None:
+                cids[i] = target
+                resolved.append(f"resolved citation handle {cid!r} -> {target!r}")
+
+    for s in raw.get("answer_sentences") or []:
+        if isinstance(s, dict):
+            _fix_list(s.get("supporting_claim_ids"))
+    for sec in raw.get("section_outline") or []:
+        if isinstance(sec, dict):
+            _fix_list(sec.get("claim_ids"))
+    return resolved
+
+
 def _repair_claim_ids(
     raw: dict[str, Any],
     provenance_blocks: list[ProvenanceBlock],
@@ -452,6 +517,25 @@ def _validate_response(
     return errors
 
 
+# Citation-shaped parentheticals the model sometimes appends to sentence text:
+# "(C8)", "(C1, C9)", or a full "(run_...:claim:016:...)". The UI renders
+# citations as separate pills from `supporting_claim_ids`, so leaving these in
+# the prose shows the reader a raw identifier twice over. Deliberately narrow —
+# it only matches parentheses whose entire content is citation tokens, so
+# ordinary parenthetical prose is never touched.
+_INLINE_CITATION_RE = _re.compile(
+    r"\s*[\(\[]\s*(?:C\d{1,3}|run_[A-Za-z0-9_]+(?::[A-Za-z0-9_]+)*)"
+    r"(?:\s*[,;]\s*(?:C\d{1,3}|run_[A-Za-z0-9_]+(?::[A-Za-z0-9_]+)*))*\s*[\)\]]"
+)
+
+
+def _strip_inline_citations(text: str) -> str:
+    """Remove citation-shaped parentheticals from a sentence's display text."""
+    cleaned = _INLINE_CITATION_RE.sub("", text)
+    # Re-attach terminal punctuation if the marker sat before it ("... (C8).").
+    return _re.sub(r"\s+([.,;:!?])", r"\1", cleaned).strip()
+
+
 def _coerce_answer_sentences(raw_sentences: Any) -> list[AnswerSentence]:
     """Convert validated `answer_sentences` JSON into AnswerSentence
     dataclasses.  Caller has already run `_validate_response`, so this is
@@ -463,7 +547,7 @@ def _coerce_answer_sentences(raw_sentences: Any) -> list[AnswerSentence]:
         if not isinstance(s, dict):
             continue
         out.append(AnswerSentence(
-            text=str(s.get("text", "")),
+            text=_strip_inline_citations(str(s.get("text", ""))),
             supporting_claim_ids=[
                 c for c in (s.get("supporting_claim_ids") or [])
                 if isinstance(c, str)
@@ -663,6 +747,11 @@ class SynthesisEngine:
         raw, parse_failure = self._call_and_parse(user_message)
         validation_errors: list[str] = []
         if not parse_failure:
+            # Handles first: a C<N> handle is an exact positional lookup,
+            # whereas id repair is fuzzy. Resolving first means repair only
+            # ever sees genuinely mistyped ids.
+            for note in _resolve_citation_tokens(raw, provenance_blocks):
+                _log.info("synthesis: %s", note)
             for note in _repair_claim_ids(raw, provenance_blocks):
                 _log.info("synthesis: %s", note)
             validation_errors = _validate_response(raw, provenance_blocks)
@@ -690,6 +779,11 @@ class SynthesisEngine:
                     "Synthesis model failed to return parseable JSON after one retry.",
                     ["non-JSON response on both attempts"],
                 )
+            # Handles first: a C<N> handle is an exact positional lookup,
+            # whereas id repair is fuzzy. Resolving first means repair only
+            # ever sees genuinely mistyped ids.
+            for note in _resolve_citation_tokens(raw, provenance_blocks):
+                _log.info("synthesis: %s", note)
             for note in _repair_claim_ids(raw, provenance_blocks):
                 _log.info("synthesis: %s", note)
             validation_errors = _validate_response(raw, provenance_blocks)

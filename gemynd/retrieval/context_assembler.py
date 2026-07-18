@@ -1138,12 +1138,33 @@ def _display_doc_title(block: ProvenanceBlock) -> str:
     return "[document title unavailable]"
 
 
+def cite_token_for_index(index: int) -> str:
+    """Short citation handle for the block at *index* (0-based) -> ``C1``, ``C2``…
+
+    Single source of truth for the mapping. ``synthesis._resolve_citation_tokens``
+    rebuilds it from the same ordered block list to translate a model's
+    citations back to claim ids; if this format changes, that resolver follows
+    automatically because it calls this function rather than reimplementing it.
+    """
+    return f"C{index + 1}"
+
+
 def _serialise_block(
     block: ProvenanceBlock,
     query_intent_signal: str = "",
     archivist_note: "dict | None" = None,
+    cite_token: str | None = None,
 ) -> str:
-    """Render a ProvenanceBlock to the structured text format."""
+    """Render a ProvenanceBlock to the structured text format.
+
+    *cite_token* is a short stable handle (``C1``, ``C2``, …) the model may
+    cite instead of transcribing the full CLAIM_ID. Claim ids are ~55
+    characters of opaque run-prefix plus hash; small local models reliably
+    truncate them to the run prefix, which is ambiguous (several claims share
+    one run) and therefore unrepairable. A two-token handle removes that
+    failure mode entirely and cuts output tokens per citation. Raw CLAIM_ID
+    citation still works — the resolver in synthesis.py accepts both.
+    """
     date_range = ""
     if block.doc_date_start or block.doc_date_end:
         date_range = f", {block.doc_date_start or '?'}–{block.doc_date_end or '?'}"
@@ -1171,6 +1192,10 @@ def _serialise_block(
         f"  CONFIDENCE_TIER: {confidence_tier} ({block.extraction_confidence:.2f})",
         f"  PAGE: {block.page_number if block.page_number is not None else '?'}",
         f"    PARAGRAPH: {block.paragraph_id}",
+        *(
+            [f"      CITE: {cite_token}   (short handle for CLAIM_ID below)"]
+            if cite_token else []
+        ),
         f"      CLAIM_ID: {block.claim_id}",
         (
             f"      CLAIM [{block.claim_type}, "
@@ -1579,9 +1604,16 @@ class ProvenanceContextAssembler:
             if _doc_ids:
                 _notes = self._annotation_store.get_notes_for_docs(_doc_ids)
 
+        # cite_token is positional over `blocks`, and `blocks` is what we
+        # return — synthesis rebuilds the same C<N> -> claim_id mapping from
+        # that list, so the two stay aligned by construction.
         context_text = "\n\n".join(
-            _serialise_block(b, archivist_note=_notes.get(b.doc_id) if b.doc_id else None)
-            for b in blocks
+            _serialise_block(
+                b,
+                archivist_note=_notes.get(b.doc_id) if b.doc_id else None,
+                cite_token=cite_token_for_index(i),
+            )
+            for i, b in enumerate(blocks)
         )
         summary = _build_retrieval_summary(blocks_raw, blocks)
         if summary:

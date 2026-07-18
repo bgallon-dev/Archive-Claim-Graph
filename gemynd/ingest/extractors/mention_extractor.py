@@ -5,17 +5,17 @@ import functools
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Protocol
+from typing import Protocol, TYPE_CHECKING
 
 from gemynd.core.resolver import default_seed_entities
-from gemynd.shared.resource_loader import (
-    TURNBULL_RESOURCES_DIR,
-    load_negative_entities,
-    load_ocr_corrections,
-)
+from gemynd.shared.resource_loader import TURNBULL_RESOURCES_DIR
 from gemynd.shared.text_utils import normalize_for_match
 from ..span_utils import resolve_overlapping_spans
-from typing import TYPE_CHECKING
+from ._draft_audit import tag_hybrid_trace
+# Explicit-dir calls into the shared process-wide resource cache: the caller
+# names the corpus (never a silent no-arg default), but repeat loads still hit
+# the same cached instance the rest of the extractor family uses.
+from ._resources import default_ocr_corrections
 
 if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
@@ -28,9 +28,8 @@ if TYPE_CHECKING:
 # not a silent no-arg loader default. (Threading domain config through the
 # spelling/review layer is a separate follow-up.) The mention extractor itself
 # no longer uses these: it always constructs from a DomainConfig (see __init__).
-@functools.cache
 def _turnbull_ocr_corrections() -> frozenset[str]:
-    return load_ocr_corrections(TURNBULL_RESOURCES_DIR)
+    return default_ocr_corrections(TURNBULL_RESOURCES_DIR)
 
 
 @functools.cache
@@ -507,17 +506,17 @@ class HybridMentionExtractor:
                 if not gliner_draft.entity_type_hints:
                     gliner_draft.entity_type_hints = list(rule_draft.entity_type_hints)
                 gliner_draft.detection_source = "hybrid"
-                gliner_draft.decision_trace = list(gliner_draft.decision_trace)
-                gliner_draft.decision_trace.append(
-                    f"hybrid:gliner_won(conf={gliner_conf:.3f}>rule={rule_conf:.3f})"
+                tag_hybrid_trace(
+                    gliner_draft,
+                    f"hybrid:gliner_won(conf={gliner_conf:.3f}>rule={rule_conf:.3f})",
                 )
                 merged[key] = gliner_draft
             else:
                 # Rules win.
                 rule_draft.detection_source = "hybrid"
-                rule_draft.decision_trace = list(rule_draft.decision_trace)
-                rule_draft.decision_trace.append(
-                    f"hybrid:rules_won(conf={rule_conf:.3f}>={gliner_conf:.3f})"
+                tag_hybrid_trace(
+                    rule_draft,
+                    f"hybrid:rules_won(conf={rule_conf:.3f}>={gliner_conf:.3f})",
                 )
 
         for key in merged:

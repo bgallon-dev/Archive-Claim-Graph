@@ -182,6 +182,9 @@ def test_extractor_with_config_uses_config_patterns() -> None:
 
 def test_extractor_without_config_uses_turnbull_defaults() -> None:
     extractor = RuleBasedClaimExtractor()
+    # Bare construction loads the Turnbull corpus *explicitly* via
+    # load_domain_config, so this is a content check, not an identity check
+    # against the shared _resources cache.
     expected_types = {ct for ct, _, _ in load_domain_config(_RESOURCES_DIR).claim_type_patterns}
     got_types = {ct for ct, _, _ in extractor._type_scored_patterns}
     assert got_types  # non-empty

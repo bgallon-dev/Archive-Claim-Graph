@@ -241,6 +241,87 @@ class TestDerivationContextBasics:
         assert events[0].role_entities["species"] == "sp1"
         assert len(event_obs_links) == 1
 
+    def test_role_entities_defensively_copied_into_observation_and_event(self):
+        """Each builder must return a fresh role_entities dict so mutating one record
+        cannot pollute the shared DerivationContext or the sibling record. Pins the
+        ``dict(ctx.role_entities)`` projection at observation_builder.py:61 and
+        event_builder.py:62 — Stage 1's builder kernel must preserve this."""
+        species = _entity("sp1", "Species", "mallard")
+        ctx_list = _build(
+            claims=[_claim("c1", "population_estimate")],
+            entity_links=[ClaimEntityLinkRecord(claim_id="c1", entity_id="sp1", relation_type="SPECIES_FOCUS")],
+            entity_lookup={"sp1": species},
+        )
+        ctx = ctx_list[0]
+        assert ctx.role_entities == {"species": "sp1"}
+
+        observations, _, _, _ = build_observations(ctx_list, "run_1")
+        events, _, _, _ = build_events(ctx_list, "run_1")
+        obs = observations[0]
+        evt = events[0]
+
+        assert obs.role_entities is not ctx.role_entities
+        assert evt.role_entities is not ctx.role_entities
+        assert obs.role_entities is not evt.role_entities
+
+        obs.role_entities["species"] = "MUTATED"
+        obs.role_entities["injected"] = "x"
+        assert ctx.role_entities == {"species": "sp1"}
+        assert evt.role_entities == {"species": "sp1"}
+
+    def test_event_measurement_links_emitted_for_event_only_claim(self):
+        """A fire_incident claim with an attached measurement must emit exactly one
+        EventMeasurementLinkRecord with the correct (event_id, measurement_id) pair."""
+        m = _measurement("m1", "c1")
+        ctx_list = _build(
+            claims=[_claim("c1", "fire_incident")],
+            measurements=[m],
+        )
+        assert ctx_list[0].measurement_owner == "event"
+        build_observations(ctx_list, "run_1")  # no-op for fire_incident (observation_type=None)
+        events, _, event_meas_links, _ = build_events(ctx_list, "run_1")
+        assert len(events) == 1
+        assert len(event_meas_links) == 1
+        assert event_meas_links[0].event_id == events[0].event_id
+        assert event_meas_links[0].measurement_id == "m1"
+
+    def test_no_event_measurement_links_for_observation_owned_claim(self):
+        """A population_estimate claim (measurement_owner='observation') with a
+        measurement must NOT emit any EventMeasurementLinkRecord — that link belongs
+        to the observation side. Guards the symmetric branch in event_builder."""
+        m = _measurement("m1", "c1")
+        species = _entity("sp1", "Species", "mallard")
+        ctx_list = _build(
+            claims=[_claim("c1", "population_estimate")],
+            measurements=[m],
+            entity_links=[ClaimEntityLinkRecord(claim_id="c1", entity_id="sp1", relation_type="SPECIES_FOCUS")],
+            entity_lookup={"sp1": species},
+        )
+        assert ctx_list[0].measurement_owner == "observation"
+        build_observations(ctx_list, "run_1")
+        _, _, event_meas_links, _ = build_events(ctx_list, "run_1")
+        assert event_meas_links == []
+
+    def test_measurement_owner_none_emits_no_links(self):
+        """An unclassified_assertion claim with an attached measurement
+        (measurement_owner='none') must produce NO observation, NO event, and
+        therefore zero ObservationMeasurementLinkRecord and zero
+        EventMeasurementLinkRecord — even though the measurement is still attached
+        to the DerivationContext."""
+        m = _measurement("m1", "c1")
+        ctx_list = _build(
+            claims=[_claim("c1", "unclassified_assertion")],
+            measurements=[m],
+        )
+        assert ctx_list[0].measurement_owner == "none"
+        assert ctx_list[0].measurement_ids == ["m1"]
+        obs, _, obs_meas_links, _ = build_observations(ctx_list, "run_1")
+        events, _, event_meas_links, _ = build_events(ctx_list, "run_1")
+        assert obs == []
+        assert events == []
+        assert obs_meas_links == []
+        assert event_meas_links == []
+
 
 # ===========================================================================
 # 3B — Registry override

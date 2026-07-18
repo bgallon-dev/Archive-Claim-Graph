@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from gemynd.cli import main
-from gemynd.ingest.graph.writer import InMemoryGraphWriter
+from gemynd.ingest.graph import InMemoryGraphWriter
 from gemynd.shared.io_utils import save_semantic_bundle, save_structure_bundle
 from gemynd.core.models import EntityRecord
 from gemynd.ingest.pipeline import extract_semantic

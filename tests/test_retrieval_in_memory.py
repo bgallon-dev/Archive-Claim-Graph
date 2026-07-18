@@ -627,7 +627,7 @@ def _build_two_corpus_writer(
     ingestion pipeline, so the test isolates the per-corpus retrieval behaviour from
     extraction/derivation logic.
     """
-    from gemynd.ingest.graph.writer import InMemoryGraphWriter
+    from gemynd.ingest.graph import InMemoryGraphWriter
 
     writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
 
@@ -952,7 +952,7 @@ class TestTier1ListDocumentsForYear:
     """
 
     def _build_year_writer(self):
-        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        from gemynd.ingest.graph import InMemoryGraphWriter
         writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
         for doc_id, year, title in [
             ("doc_1909_a", 1909, "January Report"),
@@ -1056,7 +1056,7 @@ class TestTier1YearRangeForEntity:
     def test_returns_year_range_from_doc_report_year(self):
         """When documents have report_year set, that's the fallback when
         observations lack IN_YEAR edges."""
-        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        from gemynd.ingest.graph import InMemoryGraphWriter
         from gemynd.retrieval.context_assembler import ProvenanceContextAssembler
         from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
         from gemynd.retrieval.models import Tier1Intent
@@ -1129,7 +1129,7 @@ class TestTier1LocationsForEntity:
     def _build_writer_with_places(self):
         """Build a writer where two claims about an anchor entity also link
         OCCURRED_AT to two different Place nodes (Spokane and Cheney)."""
-        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        from gemynd.ingest.graph import InMemoryGraphWriter
         writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
 
         writer.node_store["Person"]["person_x"] = {"entity_id": "person_x", "name": "X"}
@@ -1216,7 +1216,7 @@ class TestTier1CoOccurringEntities:
     def _build_writer_with_co_occurrence(self):
         """A writer where the anchor person co-occurs with two other entities
         (one species, one place) across multiple claims."""
-        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        from gemynd.ingest.graph import InMemoryGraphWriter
         writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
 
         writer.node_store["Person"]["person_anchor"] = {"entity_id": "person_anchor", "name": "Anchor"}
@@ -1285,7 +1285,7 @@ class TestTier1FrequencyRanking:
     """Validates FREQUENCY_RANKING_FOR_TYPE_QUERY end-to-end."""
 
     def _build_writer_with_persons(self):
-        from gemynd.ingest.graph.writer import InMemoryGraphWriter
+        from gemynd.ingest.graph import InMemoryGraphWriter
         writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
 
         for pid, name in [("p_a", "Alice"), ("p_b", "Bob"), ("p_c", "Carol")]:

@@ -48,6 +48,7 @@ from gemynd.core.models import (
     MentionRecord,
     YearRecord,
 )
+from gemynd.ingest.builders import union_years
 from gemynd.ingest.concept_assigner import assign_concepts
 from gemynd.ingest.derivation_context import build_derivation_contexts
 from gemynd.ingest.event_builder import build_events
@@ -270,14 +271,14 @@ def _resolve_claim_link(
     ]
     exact_match, exact_diagnostic = _narrow_link_candidates(exact_candidates, claim_link, claim_type)
     if exact_match:
-        return _apply_compatibility_penalty(exact_match[1], claim_type, claim_link.relation_type), None
+        return exact_match[1], None
 
     normalized_candidates = [
         row for row in resolved_in_span if row[0].normalized_form == claim_link.normalized_form
     ]
     normalized_match, normalized_diagnostic = _narrow_link_candidates(normalized_candidates, claim_link, claim_type)
     if normalized_match:
-        return _apply_compatibility_penalty(normalized_match[1], claim_type, claim_link.relation_type), None
+        return normalized_match[1], None
 
     if not exact_match and not normalized_match and not normalized_diagnostic and not exact_diagnostic:
         sentence_normalized = claim.normalized_sentence or ""
@@ -301,9 +302,7 @@ def _resolve_claim_link(
                 sentence_candidates, claim_link, claim_type
             )
             if sentence_match:
-                return _apply_compatibility_penalty(
-                    sentence_match[1], claim_type, claim_link.relation_type
-                ), None
+                return sentence_match[1], None
 
         # Fallback (c): document-level match by the LINK's normalized surface
         # form. The proposed link names an entity that resolved/exists elsewhere
@@ -349,15 +348,6 @@ def _resolve_claim_link(
         "NO_RESOLVED_MENTION",
         detail="No resolved mention matched the claim link within the claim evidence span.",
     )
-
-
-def _apply_compatibility_penalty(
-    entity: EntityRecord,
-    claim_type: str,
-    relation_type: str,
-) -> EntityRecord:
-    """No-op: compatibility penalty is applied at the claim level downstream."""
-    return entity
 
 
 # ── Phase functions ───────────────────────────────────────────────────────
@@ -746,12 +736,7 @@ def build_events_phase(state: ExtractionState) -> None:
     state.events = events
     state.event_obs_links = event_obs_links
     state.event_meas_links = event_meas_links
-
-    existing_year_ids = {y.year_id for y in state.years}
-    for yr in event_years:
-        if yr.year_id not in existing_year_ids:
-            state.years.append(yr)
-            existing_year_ids.add(yr.year_id)
+    state.years = union_years(state.years, event_years)
 
 
 def create_year_entities(state: ExtractionState) -> None:

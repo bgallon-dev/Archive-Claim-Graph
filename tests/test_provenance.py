@@ -13,7 +13,11 @@ from gemynd.ingest.extractors.measurement_extractor import (
     MeasurementDraft,
     RuleBasedMeasurementExtractor,
 )
-from gemynd.ingest.extractors.mention_extractor import RuleBasedMentionExtractor
+from gemynd.ingest.extractors.mention_extractor import (
+    HybridMentionExtractor,
+    MentionDraft,
+    RuleBasedMentionExtractor,
+)
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -377,3 +381,100 @@ def test_mention_proper_noun_trace_starts_with_stage() -> None:
     if proper_m is not None:
         assert "stage:proper_noun" in proper_m.decision_trace
         assert "titlecase_span" in proper_m.matched_patterns
+
+
+# ── HybridMentionExtractor provenance and telemetry ───────────────────────────
+
+def _make_hybrid_mention(
+    rule_conf: float = 0.70,
+    gliner_conf: float = 0.85,
+    rule_has_ocr_flags: bool = True,
+    gliner_has_ocr_flags: bool = False,
+    rule_has_hints: bool = True,
+    gliner_has_hints: bool = False,
+) -> HybridMentionExtractor:
+    """Mirror the claim-side _make_hybrid pattern: two stub extractors that emit
+    one MentionDraft each for the same span, so the merger overlaps them and the
+    tiebreak branch in mention_extractor.py:470-519 fires."""
+
+    class _FixedRules:
+        def extract(self, _: str) -> list[MentionDraft]:
+            return [MentionDraft(
+                surface_form="Mallards",
+                normalized_form="mallards",
+                start_offset=0,
+                end_offset=8,
+                detection_confidence=rule_conf,
+                ocr_flags=["suspect_char"] if rule_has_ocr_flags else [],
+                entity_type_hints=["species"] if rule_has_hints else [],
+                detection_source="seed_lexicon",
+                decision_trace=["stage:seed_lexicon"],
+                matched_patterns=["seed_lexicon:mallards"],
+                fallback_used=False,
+            )]
+
+    class _FixedGliner:
+        def extract(self, _: str) -> list[MentionDraft]:
+            return [MentionDraft(
+                surface_form="Mallards",
+                normalized_form="mallards",
+                start_offset=0,
+                end_offset=8,
+                detection_confidence=gliner_conf,
+                ocr_flags=["x"] if gliner_has_ocr_flags else [],
+                entity_type_hints=["y"] if gliner_has_hints else [],
+                detection_source="gliner",
+                decision_trace=["stage:gliner"],
+                matched_patterns=["gliner_model"],
+                fallback_used=False,
+            )]
+
+    return HybridMentionExtractor(rules_extractor=_FixedRules(), gliner_extractor=_FixedGliner())
+
+
+def test_hybrid_mention_overlap_gliner_wins_sets_hybrid_source() -> None:
+    mentions = _make_hybrid_mention(rule_conf=0.70, gliner_conf=0.85).extract("Mallards")
+    assert mentions[0].detection_source == "hybrid"
+    assert any("hybrid:gliner_won" in e for e in mentions[0].decision_trace)
+
+
+def test_hybrid_mention_overlap_rules_win_sets_hybrid_source() -> None:
+    mentions = _make_hybrid_mention(rule_conf=0.90, gliner_conf=0.70).extract("Mallards")
+    assert mentions[0].detection_source == "hybrid"
+    assert any("hybrid:rules_won" in e for e in mentions[0].decision_trace)
+
+
+def test_hybrid_mention_gliner_wins_inherits_ocr_flags_from_rules() -> None:
+    """When GLiNER wins and its ocr_flags is empty, it inherits the rule's flags.
+    Pins the inheritance branch at mention_extractor.py:496-497."""
+    mentions = _make_hybrid_mention(
+        rule_conf=0.70, gliner_conf=0.85,
+        rule_has_ocr_flags=True, gliner_has_ocr_flags=False,
+    ).extract("Mallards")
+    assert mentions[0].ocr_flags == ["suspect_char"]
+
+
+def test_hybrid_mention_gliner_wins_inherits_entity_type_hints_from_rules() -> None:
+    """When GLiNER wins and its entity_type_hints is empty, it inherits the
+    rule's hints. Pins the inheritance branch at mention_extractor.py:498-499."""
+    mentions = _make_hybrid_mention(
+        rule_conf=0.70, gliner_conf=0.85,
+        rule_has_hints=True, gliner_has_hints=False,
+    ).extract("Mallards")
+    assert mentions[0].entity_type_hints == ["species"]
+
+
+def test_hybrid_mention_telemetry_overlap_and_confidence_deltas() -> None:
+    """Telemetry must record exactly one overlapping span and one confidence
+    delta with the correct (rule_conf, gliner_conf) tuple."""
+    extractor = _make_hybrid_mention(rule_conf=0.70, gliner_conf=0.85)
+    extractor.extract("Mallards")
+    assert extractor.last_telemetry is not None
+    assert len(extractor.last_telemetry.overlapping) == 1
+    assert len(extractor.last_telemetry.confidence_deltas) == 1
+    _, rule_c, gliner_c = extractor.last_telemetry.confidence_deltas[0]
+    assert rule_c == 0.70
+    assert gliner_c == 0.85
+    # rules_only and gliner_only must be empty when the only span overlaps.
+    assert extractor.last_telemetry.rules_only == []
+    assert extractor.last_telemetry.gliner_only == []

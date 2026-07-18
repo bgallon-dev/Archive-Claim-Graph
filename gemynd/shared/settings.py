@@ -24,7 +24,10 @@ class Settings:
     context_ranker: str = "auto"
     kgr_root: str = ""
     synthesis_timeout_seconds: float = 60.0
-    synthesis_max_retries: int = 0
+    # Retries on the interactive path: a bare 429/529 from the provider
+    # would otherwise fail a user's query outright. The SDK's exponential
+    # backoff is free; 0 disables it.
+    synthesis_max_retries: int = 2
     # Query-time LLM provider seam (synthesis + LLM-Cypher). Explicit
     # provider wins; else a set base_url selects the OpenAI-compatible
     # path (vLLM / Ollama / LM Studio / llama.cpp); else Anthropic.
@@ -36,6 +39,12 @@ class Settings:
     # JSON dict merged into OpenAI-compatible request bodies, e.g.
     # '{"reasoning_effort": "low"}' to curb a reasoning model's thinking.
     synthesis_llm_extra_body: str = ""
+    # Claim-extraction provider switch (EXTRACTION PATH ONLY; synthesis/Cypher
+    # use the synthesis_llm_* seam above).
+    llm_provider: str = "anthropic"
+    llm_model: str = ""
+    openai_api_key: str = ""
+    openai_base_url: str = "http://localhost:1234/v1"
     # Auth
     jwt_secret_key: str = ""
     jwt_expire_hours: int = 24
@@ -88,7 +97,11 @@ class Settings:
             synthesis_llm_api_key=os.environ.get("SYNTHESIS_LLM_API_KEY", ""),
             synthesis_llm_extra_body=os.environ.get("SYNTHESIS_LLM_EXTRA_BODY", ""),
             synthesis_timeout_seconds=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
-            synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
+            synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "2")),
+            llm_provider=os.environ.get("LLM_PROVIDER", "anthropic"),
+            llm_model=os.environ.get("LLM_MODEL", ""),
+            openai_api_key=os.environ.get("OPENAI_API_KEY", ""),
+            openai_base_url=os.environ.get("OPENAI_BASE_URL", "http://localhost:1234/v1"),
             jwt_secret_key=os.environ.get("JWT_SECRET_KEY", ""),
             jwt_expire_hours=int(os.environ.get("JWT_EXPIRE_HOURS", "24")),
             users_db=os.environ.get("USERS_DB", "data/users.db"),

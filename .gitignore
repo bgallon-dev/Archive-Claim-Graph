@@ -10,6 +10,7 @@ input/
 out/
 csv_out
 plan/
+plans/
 .claude/
 RUNBOOK.md
 data/

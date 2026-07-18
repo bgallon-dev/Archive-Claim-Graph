@@ -23,10 +23,14 @@ from gemynd.core.models import (
     StructureBundle,
     YearRecord,
 )
+from gemynd.core.ids import make_year_id
+from gemynd.ingest.derivation_context import DerivationContext
 from gemynd.ingest.extraction_state import ExtractionState
 from gemynd.ingest.phases import (
     assign_concepts_phase,
+    build_events_phase,
     build_extraction_run,
+    build_observations_phase,
     create_domain_anchor,
     create_period_entity,
     create_entity_hierarchy_links,
@@ -346,3 +350,86 @@ class TestAssignConceptsPhase:
         state = _state()
         assign_concepts_phase(state)
         assert state.claim_concept_links == []
+
+
+# ---------------------------------------------------------------------------
+# build_observations_phase + build_events_phase — year_map dedup + union
+# ---------------------------------------------------------------------------
+
+def _direct_ctx(
+    claim_id: str,
+    year: int,
+    observation_type: str | None,
+    event_type: str | None,
+) -> DerivationContext:
+    """Construct a DerivationContext directly with a specific (year, obs_type,
+    event_type) combination. Bypasses the registry so tests can hand-pick the
+    obs-only / event-only / both combos needed to exercise year_map dedup and
+    the cross-phase union step at phases.py:631-635."""
+    claim = _claim(claim_id=claim_id, claim_type="population_estimate" if observation_type else "fire_incident")
+    if observation_type:
+        owner = "observation"
+    elif event_type:
+        owner = "event"
+    else:
+        owner = "none"
+    return DerivationContext(
+        claim=claim,
+        role_entities={},
+        place_id=None,
+        period_id=None,
+        observation_type=observation_type,
+        event_type=event_type,
+        year=year,
+        year_source="claim_date",
+        year_id=make_year_id(year),
+        measurement_owner=owner,
+        measurement_ids=[],
+        missing_required_entities=[],
+        observation_id=None,
+    )
+
+
+class TestYearUnion:
+    """Lock in the three current year-dedup copies (observation_builder.py:32-50,
+    event_builder.py:35-51, phases.py:631-635) so the Stage 1 refactor's
+    union_years helper produces byte-identical output. Asserts list ordering,
+    not just set membership."""
+
+    def test_observation_year_map_dedups_two_claims_same_year(self):
+        """Two observation-eligible contexts sharing year_1942 → exactly one
+        YearRecord. Guards the dedup inside observation_builder's year_map."""
+        state = _state()
+        state.derivation_contexts = [
+            _direct_ctx("c1", 1942, "population_count", "SurveyEvent"),
+            _direct_ctx("c2", 1942, "population_count", "SurveyEvent"),
+        ]
+        build_observations_phase(state)
+        assert len(state.years) == 1
+        assert state.years[0].year_id == make_year_id(1942)
+
+    def test_event_only_year_union_appended_after_observation_years(self):
+        """Observation in 1942, event-only fire in 1943 → state.years contains
+        BOTH year_ids in order [obs-first, event-only-appended]. Pins both the
+        event-only branch (phases.py:634) and list ordering."""
+        state = _state()
+        state.derivation_contexts = [
+            _direct_ctx("c1", 1942, "population_count", None),    # obs only
+            _direct_ctx("c2", 1943, None, "FireEvent"),           # event only, distinct year
+        ]
+        build_observations_phase(state)
+        build_events_phase(state)
+        year_ids = [y.year_id for y in state.years]
+        assert year_ids == [make_year_id(1942), make_year_id(1943)]
+
+    def test_event_year_matching_observation_year_not_duplicated(self):
+        """Both obs and event claims yielding year_1942 → union step skips the
+        duplicate. Guards the existing_year_ids gate at phases.py:633."""
+        state = _state()
+        state.derivation_contexts = [
+            _direct_ctx("c1", 1942, "population_count", None),
+            _direct_ctx("c2", 1942, None, "FireEvent"),
+        ]
+        build_observations_phase(state)
+        build_events_phase(state)
+        assert [y.year_id for y in state.years] == [make_year_id(1942)]

@@ -98,22 +98,44 @@
   /* ---- Sentence-level answer rendering (citation pills + inferred markers) ---- */
   .answer-sentence { display: inline; }
   .answer-sentence + .answer-sentence::before { content: " "; }
-  .answer-sentence.answer-inferred {
-    border-bottom: 1px dashed var(--bark-300);
-    padding-bottom: 1px;
+
+  /* Inferred (non-authenticated) runs are pulled OUT of the cited prose into
+     their own amber band with a labeled divider rule, so model-synthesis
+     bridges read as visibly distinct from authenticated evidence rather than
+     blending inline where they were easy to miss. */
+  .answer-inferred-block {
+    margin: 0.65rem 0;
+    padding: 8px 12px 10px;
+    background: var(--accent-amber-bg);
+    border: 1px solid var(--accent-amber-border);
+    border-left: 3px solid var(--accent-amber-text);
+    border-radius: var(--radius-sm);
   }
-  .answer-inferred-tag {
+  .answer-inferred-divider {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+  .answer-inferred-divider::after {
+    content: "";
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--accent-amber-border);
+  }
+  .answer-inferred-label {
     font-family: 'DM Mono', var(--font-body, sans-serif);
     font-size: 10px;
-    color: var(--text-tertiary);
-    background: var(--bark-50);
-    border: 1px solid var(--border-light);
-    border-radius: 3px;
-    padding: 0 4px;
-    margin-left: 3px;
-    vertical-align: 1px;
+    font-weight: 600;
+    color: var(--accent-amber-text);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  .answer-inferred-body {
+    margin: 0;
+    font-style: italic;
+    color: var(--accent-amber-text);
   }
   .citation-pill {
     display: inline-block;
@@ -621,6 +643,33 @@ function renderStructureDivergence(div) {
     + esc(div.message) + '</div>';
 }
 
+function renderSentenceInner(s, claimDetailMap) {
+  // Build a single sentence's inner HTML: escaped text + inline citation pills.
+  var text = esc(s.text || '');
+  var pills = '';
+  if (s.supporting_claim_ids && s.supporting_claim_ids.length) {
+    pills = s.supporting_claim_ids.map(function (cid) {
+      var detail = claimDetailMap ? claimDetailMap[cid] : null;
+      if (detail && detail.doc_id) {
+        var did = esc(detail.doc_id);
+        var hl = detail.source_sentence
+          ? ' data-highlight="' + esc(detail.source_sentence) + '"'
+          : '';
+        return '<span class="citation-pill claim-link" title="' + esc(cid) + '"'
+          + ' hx-get="/document/' + did + '/modal"'
+          + ' hx-target="#document-modal"'
+          + ' hx-swap="innerHTML"'
+          + hl
+          + ' role="button" tabindex="0">'
+          + esc(cid.slice(0, 8)) + '</span>';
+      }
+      return '<span class="citation-pill" title="' + esc(cid) + '">'
+        + esc(cid.slice(0, 8)) + '</span>';
+    }).join('');
+  }
+  return '<span class="answer-sentence">' + text + pills + '</span>';
+}
+
 function renderAnswerSentences(sentences, answer, claimDetailMap) {
   // When the structured answer_sentences list is present, walk it to build
   // inline citation pills and inferred markers.  Falls back to the flat
@@ -628,36 +677,37 @@ function renderAnswerSentences(sentences, answer, claimDetailMap) {
   if (!sentences || !sentences.length) {
     return '<p class="answer">' + esc(answer) + '</p>';
   }
-  var parts = sentences.map(function (s) {
-    var text = esc(s.text || '');
-    var pills = '';
-    if (s.supporting_claim_ids && s.supporting_claim_ids.length) {
-      pills = s.supporting_claim_ids.map(function (cid) {
-        var detail = claimDetailMap ? claimDetailMap[cid] : null;
-        if (detail && detail.doc_id) {
-          var did = esc(detail.doc_id);
-          var hl = detail.source_sentence
-            ? ' data-highlight="' + esc(detail.source_sentence) + '"'
-            : '';
-          return '<span class="citation-pill claim-link" title="' + esc(cid) + '"'
-            + ' hx-get="/document/' + did + '/modal"'
-            + ' hx-target="#document-modal"'
-            + ' hx-swap="innerHTML"'
-            + hl
-            + ' role="button" tabindex="0">'
-            + esc(cid.slice(0, 8)) + '</span>';
-        }
-        return '<span class="citation-pill" title="' + esc(cid) + '">'
-          + esc(cid.slice(0, 8)) + '</span>';
-      }).join('');
+  // Group consecutive sentences into runs by inferred/cited status.  Cited runs
+  // render as normal inline prose; inferred runs are lifted into a distinct
+  // amber band under a labeled divider so they can't be visually mistaken for
+  // authenticated evidence.
+  var html = '';
+  var i = 0;
+  while (i < sentences.length) {
+    var inferredRun = !!sentences[i].is_inferred;
+    var run = [];
+    while (i < sentences.length && (!!sentences[i].is_inferred) === inferredRun) {
+      run.push(sentences[i]);
+      i++;
     }
-    var inferred = s.is_inferred
-      ? '<span class="answer-inferred-tag" title="Author-marked inference / synthesis bridge">inferred</span>'
-      : '';
-    var cls = s.is_inferred ? 'answer-sentence answer-inferred' : 'answer-sentence';
-    return '<span class="' + cls + '">' + text + pills + inferred + '</span>';
-  });
-  return '<p class="answer">' + parts.join(' ') + '</p>';
+    var inner = run.map(function (s) {
+      return renderSentenceInner(s, claimDetailMap);
+    }).join(' ');
+    if (inferredRun) {
+      html += '<div class="answer-inferred-block" role="note"'
+        + ' aria-label="Inferred: model synthesis, not directly cited">'
+        + '<div class="answer-inferred-divider">'
+        + '<span class="answer-inferred-label"'
+        + ' title="Author-marked inference / synthesis bridge — not directly cited evidence">'
+        + 'inferred — model synthesis</span>'
+        + '</div>'
+        + '<p class="answer answer-inferred-body">' + inner + '</p>'
+        + '</div>';
+    } else {
+      html += '<p class="answer">' + inner + '</p>';
+    }
+  }
+  return html;
 }
 
 function formatResponse(data) {

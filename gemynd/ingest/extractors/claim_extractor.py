@@ -26,6 +26,13 @@ from gemynd.shared.resource_loader import (
 from gemynd.shared.text_utils import normalize_for_match
 from typing import TYPE_CHECKING
 
+from ._draft_audit import tag_hybrid_trace
+from ._resources import (
+    default_claim_role_policy,
+    default_claim_type_patterns,
+    seed_terms_for,
+)
+
 if TYPE_CHECKING:
     from gemynd.core.domain_config import DomainConfig
 
@@ -771,9 +778,9 @@ class HybridClaimExtractor:
                     telemetry.label_changed.append(key)
 
                 llm_draft.extraction_source = "hybrid"
-                llm_draft.decision_trace = list(llm_draft.decision_trace)
-                llm_draft.decision_trace.append(
-                    f"hybrid:llm_won(conf={llm_conf:.3f}>rule={rule_conf:.3f})"
+                tag_hybrid_trace(
+                    llm_draft,
+                    f"hybrid:llm_won(conf={llm_conf:.3f}>rule={rule_conf:.3f})",
                 )
                 if inherited:
                     llm_draft.decision_trace.append("hybrid:links_inherited")
@@ -785,9 +792,9 @@ class HybridClaimExtractor:
             else:
                 # Rule wins — annotate the existing rule draft
                 rule_draft.extraction_source = "hybrid"
-                rule_draft.decision_trace = list(rule_draft.decision_trace)
-                rule_draft.decision_trace.append(
-                    f"hybrid:rule_won(conf={rule_conf:.3f}>={llm_conf:.3f})"
+                tag_hybrid_trace(
+                    rule_draft,
+                    f"hybrid:rule_won(conf={rule_conf:.3f}>={llm_conf:.3f})",
                 )
 
         # Sentences only seen by rules (not in LLM output at all)

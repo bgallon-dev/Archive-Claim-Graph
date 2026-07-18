@@ -1303,3 +1303,74 @@ class TestComputeTopCoOccurringEntities:
         )
         assert len(out) == 1
         assert out[0]["name"] == "Valid"
+
+
+# ---------------------------------------------------------------------------
+# Query-intent map: an empty domain map must NOT fall back to Turnbull's
+# ---------------------------------------------------------------------------
+
+class TestQueryIntentMapFallback:
+    """A domain that declares no intent keywords must retrieve unscoped.
+
+    Regression: the constructor used ``query_intent_map or _FALLBACK_INTENT_MAP``,
+    so a legitimately-empty map fell through to the bundled wildlife-refuge
+    vocabulary. Another institution's "population" query was then scoped to
+    claim types (species_presence, ...) their corpus does not contain —
+    silently, with no error and no user-visible signal.
+    """
+
+    def test_empty_map_stays_empty(self):
+        assembler = ProvenanceContextAssembler(
+            executor=MagicMock(), query_intent_map={}
+        )
+        assert assembler._query_intent_map == {}
+
+    def test_empty_map_does_not_infer_wildlife_claim_types(self):
+        assembler = ProvenanceContextAssembler(
+            executor=MagicMock(), query_intent_map={}
+        )
+        # "population" is a _FALLBACK_INTENT_MAP key; with an empty domain map
+        # it must contribute no claim-type scoping at all (None = no signal).
+        assert _infer_claim_types("population trends", assembler._query_intent_map) is None
+
+    def test_domain_map_is_used_verbatim(self):
+        domain_map = {"strike": ["labor_action"], "wage": ["economic_use"]}
+        assembler = ProvenanceContextAssembler(
+            executor=MagicMock(), query_intent_map=domain_map
+        )
+        assert assembler._query_intent_map == domain_map
+        assert _infer_claim_types("strike", domain_map) == ["labor_action"]
+        # A Turnbull keyword absent from this domain's map scopes nothing.
+        assert _infer_claim_types("predator", domain_map) is None
+
+    def test_omitted_map_still_falls_back(self):
+        """Bare construction (tests, legacy callers) keeps the old default."""
+        from gemynd.retrieval.context_assembler import _FALLBACK_INTENT_MAP
+
+        assembler = ProvenanceContextAssembler(executor=MagicMock())
+        assert assembler._query_intent_map == _FALLBACK_INTENT_MAP
+
+
+class TestBaseTemplateQueryIntent:
+    """The bootstrap template must be loadable by the real loader."""
+
+    def test_base_template_key_is_readable(self):
+        """Regression: the template wrote `intents:`, the loader reads
+        `intent_to_claim_types:` — so every bootstrapped domain silently
+        produced an empty map regardless of what the operator put in it."""
+        from pathlib import Path
+
+        import yaml
+
+        from gemynd.shared.resource_loader import load_query_intent
+
+        template = (
+            Path(__file__).parent.parent
+            / "gemynd" / "resources" / "_base_template" / "query_intent.yaml"
+        )
+        data = yaml.safe_load(template.read_text(encoding="utf-8"))
+        assert "intent_to_claim_types" in data, (
+            "base template must use the key load_query_intent() actually reads"
+        )
+        # And the loader agrees, reading the template's directory directly.
+        assert load_query_intent(template.parent) == {}

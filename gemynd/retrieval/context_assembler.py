@@ -1237,7 +1237,15 @@ class ProvenanceContextAssembler:
         self._context_ranker: ContextRanker = context_ranker or ConfidenceRanker()
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
-        self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
+        # `is not None`, NOT `or`: a domain that declares no intent keywords
+        # loads as an empty dict, and an empty dict must stay empty. With `or`
+        # it fell through to the Turnbull wildlife map below, silently scoping
+        # another institution's queries to claim types their corpus does not
+        # contain ("population" -> species_presence) with no error. The
+        # fallback now applies only when a caller passes nothing at all.
+        self._query_intent_map = (
+            query_intent_map if query_intent_map is not None else _FALLBACK_INTENT_MAP
+        )
         self._institution_ids = list(institution_ids) if institution_ids else []
         # Optional text-to-Cypher fallback. None disables the path entirely.
         self._llm_cypher_generator = llm_cypher_generator

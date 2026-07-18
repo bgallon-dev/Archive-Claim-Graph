@@ -1397,10 +1397,17 @@ def create_app(
         executor.close()
         db_mgr.close_all()
 
+    # docs_url/redoc_url are disabled: FastAPI's built-in docs routes carry no
+    # auth dependency and the setup guard doesn't cover them, so /docs and
+    # /openapi.json enumerated the whole API surface pre-login. The title is
+    # domain-neutral because it renders wherever the corpus isn't Turnbull's.
     app = FastAPI(
-        title="Turnbull GraphRAG Retrieval API",
-        description="Natural-language query interface over the Turnbull refuge archive graph.",
+        title="Gemynd Retrieval API",
+        description="Natural-language query interface over an archival claim graph.",
         lifespan=lifespan,
+        docs_url=None,
+        redoc_url=None,
+        openapi_url=None,
     )
 
     # Auth router (login/logout/me/user management at /auth/...)
@@ -2741,7 +2748,10 @@ def create_app(
     # POST /document/{doc_id}/notes       — save/update a document note
     # ------------------------------------------------------------------
     @app.get("/document/{doc_id}/notes-panel")
-    async def get_notes_panel(
+    # Plain `def`, not `async def`: the body is blocking SQLite with no awaits,
+    # so declaring it async ran it on the event loop and stalled every other
+    # request. FastAPI runs sync handlers in the threadpool instead.
+    def get_notes_panel(
         doc_id: str,
         request: Request,
         user: UserContext = Depends(require_archivist_or_admin),
@@ -2762,7 +2772,10 @@ def create_app(
         )
 
     @app.post("/document/{doc_id}/notes")
-    async def post_document_note(
+    # Sync on purpose — see get_notes_panel. This one *writes* against a WAL
+    # lock with busy_timeout=5000, so on the event loop a contended write could
+    # freeze the whole server for five seconds.
+    def post_document_note(
         doc_id: str,
         request: Request,
         note_text: str = Form(...),
@@ -2825,7 +2838,7 @@ def create_app(
         return _templates.TemplateResponse("history.html", {"request": request, "active_page": "history", **_user_ctx(user), **ctx})
 
     @app.post("/history/saved", include_in_schema=False)
-    async def save_query(
+    def save_query(  # sync on purpose — see get_notes_panel
         query_text: str = Form(...),
         label: str = Form(""),
         bucket: str = Form(""),
@@ -2859,7 +2872,7 @@ def create_app(
         return _RedirectResponse(url="/history", status_code=303)
 
     @app.post("/history/saved/{saved_id}/delete", include_in_schema=False)
-    async def delete_saved_query(
+    def delete_saved_query(  # sync on purpose — see get_notes_panel
         saved_id: str,
         user: UserContext = Depends(require_user),
     ):

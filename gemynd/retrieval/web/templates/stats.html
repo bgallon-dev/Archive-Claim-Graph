@@ -101,5 +101,7 @@
 <p style="margin-top:0.5rem;font-size:12px;color:var(--text-secondary)">{{ confidence_qualifier }}</p>
 <p style="margin-top:0.25rem;font-size:12px;color:var(--text-secondary)">Average: {{ conf_avg_str }} | Epistemic 'uncertain' flags: {{ uncertain_epistemic }}</p>
 
+{% if is_admin %}
 <p style="margin-top:1.5rem"><a href="/gaps" class="action-link" style="font-size:13px">View gap analysis &rarr;</a></p>
+{% endif %}
 {% endblock %}

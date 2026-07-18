@@ -70,7 +70,13 @@ def create_app(
 
     store = IngestStore(db_path)
 
-    app = FastAPI(title="GraphRAG Ingest UI")
+    # Docs routes disabled: they carry no auth dependency (see retrieval/web/app.py).
+    app = FastAPI(
+        title="Gemynd Ingest UI",
+        docs_url=None,
+        redoc_url=None,
+        openapi_url=None,
+    )
     app.include_router(create_auth_router(users_db_path), prefix="/auth")
 
     @app.exception_handler(NeedsLoginException)

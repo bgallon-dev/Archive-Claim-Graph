@@ -1,2 +1,16 @@
 version: "1"
-intents: {}
+
+# Maps query vocabulary keywords to claim_type lists for retrieval scoping.
+# Read by shared/resource_loader.load_query_intent() — the key MUST be
+# `intent_to_claim_types`; any other key silently yields an empty map.
+#
+# An empty map is a valid, meaningful configuration: it means "do not scope
+# retrieval by keyword", and context_assembler honours it rather than
+# substituting another domain's vocabulary. Populate it with your own corpus's
+# terms as you learn which queries need scoping.
+#
+# Example (from the Turnbull wildlife-refuge corpus — replace, don't extend):
+#   intent_to_claim_types:
+#     predator: [predator_control, management_action]
+#     habitat:  [habitat_condition, weather_observation]
+intent_to_claim_types: {}

@@ -945,7 +945,13 @@ def create_app(db_path: str, users_db_path: str = "data/users.db") -> Any:
     from gemynd.auth.router import create_auth_router
     from gemynd.auth.setup import is_setup_needed
 
-    app = FastAPI(title="GraphRAG Review UI")
+    # Docs routes disabled: they carry no auth dependency (see retrieval/web/app.py).
+    app = FastAPI(
+        title="Gemynd Review UI",
+        docs_url=None,
+        redoc_url=None,
+        openapi_url=None,
+    )
     app.include_router(create_auth_router(users_db_path), prefix="/auth")
 
     @app.exception_handler(NeedsLoginException)

@@ -991,6 +991,23 @@ def _apply_composite_scope(
     ``UserContext`` so there is no cross-request mutation hazard.
     """
     if admin_only and user.role != "admin":
+        # Fail loudly rather than silently returning nothing. A non-admin with
+        # no permitted institution queries with `institution_id IN []`, which
+        # matches nothing in Cypher: every query succeeds and returns zero
+        # results, so the account looks like an empty archive rather than a
+        # misconfigured account. This is a setup error, and saying so is the
+        # difference between a five-minute fix and a tester concluding the
+        # system doesn't work.
+        if not user.permitted_institution_ids:
+            raise HTTPException(
+                status_code=403,
+                detail=(
+                    "Your account is not assigned to a collection, so no documents "
+                    "are visible to it. This is an account setup problem, not an "
+                    "empty archive — please ask an administrator to set your "
+                    "institution."
+                ),
+            )
         return user
     if composite is not None:
         user.permitted_institution_ids = list(composite.institution_ids)
@@ -4272,11 +4289,14 @@ def create_app(
         if user_store is None:
             raise HTTPException(status_code=503, detail="User store not configured.")
         users = user_store.list_users()
+        registered = list(getattr(state.get("composite_config"), "institution_ids", []) or [])
         return _templates.TemplateResponse("admin_users.html", {
             "request": request,
             "active_page": "users",
             **_user_ctx(user),
             "users": users,
+            "registered_institutions": registered,
+            "corpus_labels": _corpus_labels_for_composite(state.get("composite_config")),
         })
 
     @app.post("/users", response_class=HTMLResponse, include_in_schema=False)
@@ -4285,13 +4305,37 @@ def create_app(
         email: str = Form(...),
         password: str = Form(...),
         role: str = Form("readonly"),
+        institution_id: str = Form(""),
         user: UserContext = Depends(require_admin),
     ):
         user_store = state.get("user_store")
         if user_store is None:
             raise HTTPException(status_code=503, detail="User store not configured.")
+        # A non-admin's queries are scoped to their institution via
+        # `d.institution_id IN $institution_ids`. An empty institution yields an
+        # EMPTY list, and `x IN []` matches nothing in Cypher — so a tester
+        # created without one can log in successfully and then see zero results
+        # for every query, with no error explaining why. This route previously
+        # never passed institution_id at all, so every account it created was
+        # born in that state. Default to the registered corpus instead.
+        resolved_institution = institution_id.strip()
+        if not resolved_institution and role != "admin":
+            registered = list(getattr(state.get("composite_config"), "institution_ids", []) or [])
+            if len(registered) == 1:
+                resolved_institution = registered[0]
+            elif registered:
+                raise HTTPException(
+                    status_code=400,
+                    detail=(
+                        "This deployment has multiple corpora registered "
+                        f"({', '.join(registered)}). Choose which one this user "
+                        "belongs to — leaving it blank would give them access to none."
+                    ),
+                )
         try:
-            new_user = user_store.create_user(email.strip().lower(), password, role)
+            new_user = user_store.create_user(
+                email.strip().lower(), password, role, resolved_institution
+            )
         except ValueError:
             raise HTTPException(status_code=400, detail="Could not create user. Check email and role.")
         if request.headers.get("HX-Request") == "true":

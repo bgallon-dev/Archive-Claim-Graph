@@ -29,6 +29,22 @@
         <option value="admin">admin</option>
       </select>
     </div>
+    {# Non-admin queries are scoped by institution. Leaving this unset makes
+       every query return zero results with no error, so the field is shown
+       explicitly rather than defaulted invisibly. #}
+    <div>
+      <label style="font-size:12px;color:var(--text-secondary);display:block;margin-bottom:4px">Collection</label>
+      <select name="institution_id" class="form-input" style="width:100%">
+        {% for inst in registered_institutions %}
+        <option value="{{ inst }}">{{ corpus_labels.get(inst, inst) }}</option>
+        {% endfor %}
+        <option value="">(admin only — all collections)</option>
+      </select>
+      <p style="font-size:11px;color:var(--text-tertiary);margin:4px 0 0">
+        Non-admin accounts see only their collection. An account with no
+        collection sees nothing at all.
+      </p>
+    </div>
     <div style="margin-top:0.25rem">
       <button type="submit" class="upload-btn">Create</button>
     </div>

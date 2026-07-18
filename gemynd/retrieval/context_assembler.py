@@ -1138,6 +1138,24 @@ def _display_doc_title(block: ProvenanceBlock) -> str:
     return "[document title unavailable]"
 
 
+# A numeral with non-numeric characters embedded between digits — "3(X)0",
+# "1O5", "2,0O0". Excludes the separators that legitimately appear inside
+# numbers (. , : / -) so "3.5", "1,000", "1938-39" and "10:30" never match.
+_CORRUPT_NUMERAL_RE = re.compile(r"\b\d+[^\d\s.,:/\-]{1,3}\d+\b")
+
+
+def detect_corrupt_numerals(sentence: str) -> list[str]:
+    """Return numeral-like tokens in *sentence* that look OCR-damaged.
+
+    Surfacing this per-claim beats a general prompt rule about OCR: the model
+    is told about the specific token at the point it reads it. Measured on
+    gemma-4-e4b, a general instruction was ignored and "3(X)0 mallards" was
+    reported as a third population estimate distinct from the 3,000 recorded
+    elsewhere — a discrepancy that does not exist in the archive.
+    """
+    return _CORRUPT_NUMERAL_RE.findall(sentence or "")
+
+
 def cite_token_for_index(index: int) -> str:
     """Short citation handle for the block at *index* (0-based) -> ``C1``, ``C2``…
 

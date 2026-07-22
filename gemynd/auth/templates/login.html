@@ -43,7 +43,11 @@
       to   { opacity: 1; transform: translateY(0); }
     }
     .login-card {
-      width: 360px;
+      /* Was a fixed 360px, which overflows a 360px-wide Android with no
+         breathing room. This is the first screen every visitor sees. */
+      width: 100%;
+      max-width: 360px;
+      padding: 0 16px;
       text-align: center;
       animation: loginFadeIn 0.5s ease;
     }
@@ -79,7 +83,9 @@
       border-radius: var(--radius-md);
       padding: 11px 14px;
       font-family: var(--font-body);
-      font-size: 14px;
+      /* 16px, not 14px: iOS Safari zooms the whole page when a focused input
+         is under 16px, which throws the visitor into a zoomed-in login form. */
+      font-size: 16px;
       margin-bottom: 10px;
       background: var(--white);
       color: var(--text-primary);

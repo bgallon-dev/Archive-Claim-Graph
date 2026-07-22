@@ -54,6 +54,10 @@ class Settings:
     # Rate limiting
     query_rate_limit_max: int = 20
     query_rate_limit_period: float = 60.0
+    # Demo/kiosk: widen corpus breadth for non-admin roles WITHOUT widening the
+    # sensitivity tier. Off by default — see `demo_all_corpora` in
+    # retrieval/web/app.py:require_user_scoped.
+    demo_all_corpora: bool = False
     # Persistence
     conv_log_db: str = "data/conversation_log.db"
     write_audit_db: str = "data/write_audit.db"
@@ -110,6 +114,7 @@ class Settings:
             csrf_secret_key=os.environ.get("CSRF_SECRET_KEY", ""),
             query_rate_limit_max=int(os.environ.get("QUERY_RATE_LIMIT_MAX", "20")),
             query_rate_limit_period=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
+            demo_all_corpora=os.environ.get("DEMO_ALL_CORPORA", "false").lower() == "true",
             conv_log_db=os.environ.get("CONV_LOG_DB", "data/conversation_log.db"),
             write_audit_db=os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db"),
             review_db=os.environ.get("REVIEW_DB", "data/review.db"),

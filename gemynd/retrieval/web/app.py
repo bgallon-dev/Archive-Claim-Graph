@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import dataclasses
 import hashlib as _hashlib
+import json
 import logging
 import os
 import re
@@ -424,6 +425,95 @@ def _build_temporal_timeline(temporal_rows: list[dict]) -> dict:
 
 
 _RESTRICTED_ACCESS_LEVELS = frozenset({"restricted", "indigenous_restricted", "staff_only"})
+
+
+class _AnswerStreamExtractor:
+    """Yield finished answer sentences from the synthesis JSON as it streams.
+
+    The model does not emit a flat ``answer`` string — it emits
+    ``{"answer_sentences": [{"text": "...", "supporting_claim_ids": [...]}, ...]}``
+    and the flat answer is joined from those afterwards. So this scans for each
+    sentence's ``"text"`` value.
+
+    Whole sentences only, never partial ones. ``_redact_pii()`` normally runs
+    over the model output before anything reaches a client
+    (``retrieval/CLAUDE.md``); emitting half-formed text would stream an email
+    address or phone number past that gate one character at a time. The caller
+    redacts each completed sentence before sending it.
+    """
+
+    _ESCAPES = {'"': '"', "\\": "\\", "/": "/", "b": "\b",
+                "f": "\f", "n": "\n", "r": "\r", "t": "\t"}
+
+    def __init__(self) -> None:
+        self.reset()
+
+    def reset(self) -> None:
+        self._raw = ""
+        self._pos: int | None = None   # scan cursor inside answer_sentences
+
+    def feed(self, chunk: str) -> list[str]:
+        """Consume a raw chunk; return any sentences completed by it."""
+        self._raw += chunk
+
+        if self._pos is None:
+            key = self._raw.find('"answer_sentences"')
+            if key == -1:
+                return []
+            bracket = self._raw.find("[", key)
+            if bracket == -1:
+                return []
+            self._pos = bracket + 1
+
+        out: list[str] = []
+        while True:
+            # Scanning for `"text"` needs no array-end detection: the keys that
+            # follow (confidence_assessment, caveats) never contain it, and an
+            # occurrence inside a string value would be escaped as \"text\",
+            # which does not match this literal.
+            key = self._raw.find('"text"', self._pos)
+            if key == -1:
+                break
+            colon = self._raw.find(":", key + 6)
+            if colon == -1:
+                break
+            quote = self._raw.find('"', colon + 1)
+            if quote == -1:
+                break
+            text, end = self._decode_string(quote + 1)
+            if end is None:
+                break  # sentence still arriving - wait for the closing quote
+            out.append(text)
+            self._pos = end
+        return out
+
+    def _decode_string(self, start: int) -> tuple[str, int | None]:
+        """Decode a JSON string body from *start*; (text, index_after_quote)."""
+        buf: list[str] = []
+        i, raw, n = start, self._raw, len(self._raw)
+        while i < n:
+            ch = raw[i]
+            if ch == "\\":
+                if i + 1 >= n:
+                    return "", None
+                nxt = raw[i + 1]
+                if nxt == "u":
+                    if i + 6 > n:
+                        return "", None
+                    try:
+                        buf.append(chr(int(raw[i + 2:i + 6], 16)))
+                    except ValueError:
+                        buf.append(raw[i:i + 6])
+                    i += 6
+                    continue
+                buf.append(self._ESCAPES.get(nxt, nxt))
+                i += 2
+                continue
+            if ch == '"':
+                return "".join(buf), i + 1
+            buf.append(ch)
+            i += 1
+        return "", None
 
 
 def _safe_log_claim_id(claim_id: str, access_level: str) -> str:
@@ -1561,12 +1651,27 @@ def create_app(
             "is_admin": user.role in ("admin", "indigenous_admin"),
         }
 
+    _demo_all_corpora = _env_settings.demo_all_corpora
+    if _demo_all_corpora:
+        _log.warning(
+            "DEMO_ALL_CORPORA=true: every authenticated role reads across all "
+            "registered corpora. Access-level filtering is UNAFFECTED — "
+            "permitted_levels stays role-derived, so a readonly account still "
+            "sees only 'public' claims. Do not enable for multi-tenant use."
+        )
+
     def require_user_scoped(user: UserContext = Depends(require_user)) -> UserContext:
-        """Expand ``permitted_institution_ids`` to every registered corpus for
-        admin callers. Non-admin roles remain pinned to their home
-        institution for tenant isolation.
+        """Expand ``permitted_institution_ids`` to every registered corpus.
+
+        Normally admin-only, to keep tenants isolated. With
+        ``DEMO_ALL_CORPORA=true`` every role reads across all corpora — this
+        widens *corpus breadth* only. The sensitivity tier is a separate axis
+        (``permitted_levels``, derived from the role) and is never touched
+        here, so a readonly demo account still sees only ``public`` claims.
         """
-        return _apply_composite_scope(user, state.get("composite_config"), admin_only=True)
+        return _apply_composite_scope(
+            user, state.get("composite_config"), admin_only=not _demo_all_corpora
+        )
 
     def require_admin_scoped(user: UserContext = Depends(require_admin)) -> UserContext:
         """Admin-gated counterpart of :func:`require_user_scoped`; callers are
@@ -2235,6 +2340,89 @@ def create_app(
             ))
 
         return response
+
+    # ------------------------------------------------------------------
+    # POST /query/stream  — same answer, surfaced as it is generated
+    # ------------------------------------------------------------------
+    @app.post("/query/stream", include_in_schema=False)
+    def query_stream(
+        req: QueryRequest,
+        request: Request,
+        user: UserContext = Depends(require_user_scoped),
+    ):
+        """Server-sent-events wrapper around :func:`query`.
+
+        Retrieval still has to finish before the model writes a word, so this
+        does not make a query faster — it makes the ~55s synthesis visible
+        instead of hidden behind a spinner.
+
+        Deliberately reuses ``query()`` verbatim rather than reimplementing the
+        pipeline, so validation, retries, PII redaction, access filtering and
+        conversation logging cannot drift between the two endpoints. The only
+        addition is a thread-local sink (see ``synthesis.set_stream_sink``)
+        that forwards model chunks to this generator.
+        """
+        import queue as _queue
+        import threading as _threading
+        from fastapi.responses import StreamingResponse
+        from gemynd.retrieval.synthesis import _redact_pii, set_stream_sink
+
+        events: "_queue.Queue[tuple[str, Any]]" = _queue.Queue()
+
+        def _sink(kind: str, text: str) -> None:
+            events.put((kind, text))
+
+        def _worker() -> None:
+            # Installed on THIS thread; query() runs synthesis inline here.
+            set_stream_sink(_sink)
+            try:
+                events.put(("done", query(req, request, user)))
+            except _HTTPException as exc:
+                events.put(("error", {"status": exc.status_code, "detail": exc.detail}))
+            except Exception as exc:  # noqa: BLE001 - surfaced to the client below
+                _log.exception("query/stream failed")
+                events.put(("error", {"status": 500, "detail": str(exc)}))
+            finally:
+                set_stream_sink(None)
+                events.put(("__end__", None))
+
+        _threading.Thread(target=_worker, daemon=True).start()
+
+        def _sse(event: str, data: Any) -> str:
+            return f"event: {event}\ndata: {json.dumps(data, default=str)}\n\n"
+
+        def _generate():
+            extractor = _AnswerStreamExtractor()
+            # Flush something immediately so the browser opens the stream
+            # instead of waiting on the first byte through any buffering hop.
+            yield ": open\n\n"
+            while True:
+                kind, payload = events.get()
+                if kind == "__end__":
+                    break
+                if kind == "reset":
+                    extractor.reset()
+                    yield _sse("reset", {})
+                elif kind == "delta":
+                    for sentence in extractor.feed(payload):
+                        # Same redaction the non-streaming path applies before
+                        # the answer reaches a client. Never stream unredacted.
+                        yield _sse("delta", {"text": _redact_pii(sentence)})
+                elif kind == "done":
+                    yield _sse("done", json.loads(payload.model_dump_json()))
+                elif kind == "error":
+                    yield _sse("error", payload)
+
+        return StreamingResponse(
+            _generate(),
+            media_type="text/event-stream",
+            headers={
+                "Cache-Control": "no-store",
+                # nginx and friends buffer text/event-stream by default, which
+                # would defeat the entire point.
+                "X-Accel-Buffering": "no",
+            },
+        )
 
     # ------------------------------------------------------------------
     # POST /query/provenance

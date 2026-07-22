@@ -1533,10 +1533,158 @@ code { font-size: 12px; }
   max-width: 100%;
   overflow-x: auto;
 }
+
+/* ================================================================
+   MOBILE / TABLET
+   ----------------------------------------------------------------
+   The desktop shell puts fixed-width sidebars BESIDE the content:
+   228px of nav, plus a 260px conversation list on the chat page.
+   That is 488px of chrome before a single word of content, so on a
+   ~390px phone the app is unusable even though the viewport meta is
+   correct. Below 820px the nav becomes an off-canvas drawer behind a
+   hamburger, and the conversation list is hidden entirely.
+   ================================================================ */
+.mobile-topbar { display: none; }
+.sidebar-backdrop { display: none; }
+
+@media (max-width: 820px) {
+  /* 100vh is measured against the *largest* viewport on mobile Safari,
+     so the chat input ends up underneath the address bar. dvh tracks the
+     visible area. The 100vh rule above remains the fallback. */
+  .app-shell { height: 100dvh; }
+
+  .mobile-topbar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 52px;
+    padding: 0 10px;
+    background: var(--bark-800);
+    color: var(--text-inverse);
+    z-index: 1100;
+  }
+  .mobile-topbar-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .mobile-topbar-spacer { flex: 1; }
+  .mobile-nav-btn {
+    width: 40px; height: 40px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--bark-200);
+    cursor: pointer;
+  }
+  .mobile-nav-btn:active { background: var(--bark-700); }
+
+  /* Nav becomes a drawer sliding in from the left. */
+  .sidebar {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    width: 270px;
+    z-index: 1200;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    padding: 1rem;
+  }
+  .sidebar.mobile-open { transform: translateX(0); }
+  /* The desktop collapse control has no meaning once it is a drawer. */
+  .sidebar-toggle { display: none; }
+  /* If the user left the sidebar collapsed on desktop, that state would
+     otherwise carry into the drawer and render it as unlabelled icons. */
+  .sidebar.collapsed {
+    width: 270px;
+    padding: 1rem;
+    align-items: stretch;
+  }
+  .sidebar.collapsed .brand-label,
+  .sidebar.collapsed .brand-title { display: block; }
+  .sidebar.collapsed .brand-glyph { display: none; }
+  .sidebar.collapsed .nav-item {
+    width: auto; height: auto;
+    padding: 11px 12px;
+    justify-content: flex-start;
+    border-radius: var(--radius-sm);
+  }
+  .sidebar.collapsed .nav-label { opacity: 1; width: auto; }
+  .sidebar.collapsed .nav-section-label {
+    opacity: 1; width: auto; padding: 16px 16px 4px;
+  }
+  .sidebar.collapsed .sidebar-user-info { display: block; }
+  .sidebar.collapsed .sidebar-footer { padding: 12px 12px 0; justify-content: flex-start; }
+
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1150;
+    background: rgba(26, 20, 16, 0.5);
+  }
+  .sidebar-backdrop.show { display: block; }
+
+  /* Finger-sized tap targets. */
+  .nav-item { padding: 11px 12px; font-size: 14px; }
+
+  .main-content { padding-top: 52px; }
+  .page { padding: 1rem 1rem 1.5rem; }
+  .chat-scroll { padding: 1rem 0.9rem; }
+  .chat-input-bar { padding: 0.6rem 0.9rem; }
+  .chat-send { padding: 10px 16px; }
+  /* iOS zooms the entire page when focusing an input below 16px. */
+  .chat-input, .g-input,
+  .settings-group input[type="text"],
+  .settings-group input[type="number"],
+  .filter-bar input[type=text],
+  .filter-bar select { font-size: 16px; }
+
+  /* NOTE: the chat page's own mobile rules (hiding #conv-sidebar and stacking
+     .chat-layout) intentionally live in chat.html, NOT here. Both selectors are
+     re-declared in that template's <style>, which renders after this one; at
+     equal specificity the later rule wins, so a mobile override placed here is
+     silently dead. Do not "tidy" them back into this file. */
+
+  /* Multi-column blocks collapse to a single column. */
+  .two-col,
+  .source-compare,
+  .stats-row-3,
+  .review-stats { grid-template-columns: 1fr; }
+  .msg { max-width: 100%; }
+
+  .settings-panel { padding: 0.75rem 0.9rem; }
+  .settings-group input[type="text"] { width: 100%; }
+  .settings-row { gap: 0.75rem; }
+
+  /* A 2rem inset wastes most of a phone screen. */
+  .source-modal-backdrop { padding: 0.5rem; }
+  .source-modal { max-height: calc(100dvh - 1rem); }
+  .source-modal-body { padding: 0.85rem 0.9rem 1rem; }
+  .source-modal-head { padding: 0.85rem 0.9rem 0.6rem; }
+}
 </style>
 </head>
 <body hx-headers='{"x-csrftoken": "{{ request.cookies.get("csrftoken", "") }}"}'>
 <div class="app-shell">
+
+  <!-- MOBILE TOP BAR (hidden >820px; the only way to reach the nav on a phone) -->
+  <div class="mobile-topbar">
+    <button class="mobile-nav-btn" id="mobile-nav-btn" type="button"
+            aria-label="Open navigation menu" aria-expanded="false" aria-controls="sidebar">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"/>
+      </svg>
+    </button>
+    <span class="mobile-topbar-title">{% block mobile_title %}Gemynd{% endblock %}</span>
+    <span class="mobile-topbar-spacer"></span>
+    {# Page-specific top-bar actions, e.g. the chat page's conversations drawer #}
+    {% block mobile_actions %}{% endblock %}
+  </div>
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
   <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
@@ -1581,6 +1729,35 @@ code { font-size: 12px; }
   </div>
 </div>
 
+<script>
+/* Off-canvas nav drawer (mobile only; on desktop these elements are
+   display:none and the listeners simply never fire). */
+(function () {
+  var btn = document.getElementById('mobile-nav-btn');
+  var sidebar = document.getElementById('sidebar');
+  var backdrop = document.getElementById('sidebar-backdrop');
+  if (!btn || !sidebar || !backdrop) return;
+
+  function setOpen(open) {
+    sidebar.classList.toggle('mobile-open', open);
+    backdrop.classList.toggle('show', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  btn.addEventListener('click', function () {
+    setOpen(!sidebar.classList.contains('mobile-open'));
+  });
+  backdrop.addEventListener('click', function () { setOpen(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setOpen(false);
+  });
+  /* Close after picking a destination - otherwise the drawer stays open on
+     top of the page the visitor just navigated to. */
+  sidebar.addEventListener('click', function (e) {
+    if (e.target.closest && e.target.closest('.nav-item')) setOpen(false);
+  });
+})();
+</script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

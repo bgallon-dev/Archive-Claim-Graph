@@ -10,6 +10,16 @@
 {% include "fragments/sidebar_nav.html" %}
 {% endblock %}
 
+{% block mobile_actions %}
+<button class="mobile-nav-btn" id="conv-toggle-btn" type="button"
+        aria-label="Past conversations" aria-expanded="false" aria-controls="conv-sidebar">
+  <svg width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7"
+       stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/>
+  </svg>
+</button>
+{% endblock %}
+
 {% block main %}
 <style>
   .chat-layout { display: flex; flex-direction: row; align-items: stretch; flex: 1; min-height: 0; }
@@ -253,7 +263,65 @@
     border-radius: 2px;
     box-shadow: 0 0 0 1px var(--accent-amber-text, #b07a2c);
   }
+
+  /* Answer text while it is still being streamed in. */
+  .answer-streaming::after {
+    content: '';
+    display: inline-block;
+    width: 7px; height: 1em;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    background: var(--bark-400);
+    animation: answerCaret 1s steps(2) infinite;
+  }
+  @keyframes answerCaret { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+  /* ---- Mobile ----------------------------------------------------------
+     These MUST live here, not in gemynd_base.html. The base stylesheet is in
+     <head>, but this block renders later in the document, and `#conv-sidebar`
+     / `.chat-layout` are re-declared above with equal specificity - so a
+     mobile rule placed in the base is silently overridden by the desktop
+     rule here, and the 260px conversation column keeps its width on a phone.
+     Same cascade position as the rules being overridden = these win.
+     -------------------------------------------------------------------- */
+  @media (max-width: 820px) {
+    .chat-layout { flex-direction: column; }
+
+    /* Past conversations was eating two thirds of a phone screen as a fixed
+       260px column, but hiding it outright removed the only way to reach an
+       older conversation. So: off-canvas drawer, opened from the top bar. */
+    #conv-sidebar {
+      position: fixed;
+      top: 52px;              /* below the mobile top bar */
+      bottom: 0;
+      right: 0;
+      width: min(320px, 85vw);
+      z-index: 1200;
+      border-right: none;
+      border-left: 1px solid var(--border-medium);
+      transform: translateX(100%);
+      transition: transform 0.25s ease;
+      box-shadow: -6px 0 18px rgba(26, 20, 16, 0.18);
+    }
+    #conv-sidebar.conv-open { transform: translateX(0); }
+    /* Roomier rows - these are tap targets, not mouse targets. */
+    #conv-list li { padding: 12px 12px; }
+
+    .conv-backdrop {
+      display: none;
+      position: fixed;
+      inset: 52px 0 0 0;
+      z-index: 1150;
+      background: rgba(26, 20, 16, 0.5);
+    }
+    .conv-backdrop.show { display: block; }
+  }
+  /* Desktop keeps the always-visible column; the drawer chrome must not leak. */
+  @media (min-width: 821px) {
+    .conv-backdrop { display: none; }
+  }
 </style>
+<div class="conv-backdrop" id="conv-backdrop"></div>
 <div class="chat-layout">
   <aside id="conv-sidebar" aria-label="Past conversations">
     <h3>Past conversations</h3>
@@ -273,6 +341,14 @@
       <div class="settings-group">
         <label>Entity hints (comma-separated)</label>
         <input type="text" id="entity-hints" placeholder="mallard, pintail">
+      </div>
+      <div class="settings-group">
+        <label>Answers</label>
+        <div class="radio-row">
+          <label title="Show each sentence as the model writes it, instead of waiting for the whole answer">
+            <input type="checkbox" id="stream-toggle"> Stream as written
+          </label>
+        </div>
       </div>
     </div>
   </div>
@@ -972,6 +1048,229 @@ async function refreshConvSidebar() {
   }
 }
 
+// ---- Refresh recovery ---------------------------------------------------
+// /query is a synchronous FastAPI handler, so it runs in a threadpool and a
+// client disconnect cannot cancel it: refreshing mid-answer does NOT kill the
+// work. The answer still lands in the conversation log ~100s later. But the
+// page does not poll, so without this the visitor reloads, sees an empty chat,
+// and reasonably concludes it died. Remember the in-flight question and pick
+// it back up after a reload.
+var PENDING_KEY = 'gemynd_pending_query';
+var PENDING_MAX_AGE_MS = 15 * 60 * 1000;
+
+function markPending(sessionId, text) {
+  try {
+    localStorage.setItem(PENDING_KEY, JSON.stringify(
+      {sessionId: sessionId, text: text, startedAt: Date.now()}));
+  } catch (e) { /* private mode / quota - recovery is best-effort */ }
+}
+function clearPending() {
+  try { localStorage.removeItem(PENDING_KEY); } catch (e) {}
+}
+function readPending() {
+  try {
+    var raw = localStorage.getItem(PENDING_KEY);
+    if (!raw) return null;
+    var p = JSON.parse(raw);
+    if (!p || !p.sessionId) return null;
+    // Stale marker from a previous visitor / a genuinely lost answer.
+    if (Date.now() - (p.startedAt || 0) > PENDING_MAX_AGE_MS) { clearPending(); return null; }
+    return p;
+  } catch (e) { return null; }
+}
+
+async function resumePendingQuery() {
+  var p = readPending();
+  if (!p) return;
+  currentSessionId = p.sessionId;
+  appendBubble('user', esc(p.text));
+  var wrap = appendBubble('assistant loading',
+    '<span class="loading-stage">Still working on this — your refresh did not cancel it</span>'
+    + '<span class="loading-elapsed"></span>');
+  var started = p.startedAt || Date.now();
+  var timer = setInterval(function () {
+    var el = wrap.querySelector('.loading-elapsed');
+    if (el) el.textContent = ' (' + Math.floor((Date.now() - started) / 1000) + 's)';
+  }, 1000);
+
+  while (Date.now() < started + PENDING_MAX_AGE_MS) {
+    await new Promise(function (r) { setTimeout(r, 5000); });
+    var landed = false;
+    try {
+      // 404 until the turn is written, which is expected - keep waiting.
+      var resp = await fetch('/api/conversations/' + encodeURIComponent(p.sessionId));
+      if (resp.ok) {
+        var data = await resp.json();
+        landed = (data.turns || []).length > 0;
+      }
+    } catch (e) { /* transient - keep waiting */ }
+    if (landed) {
+      clearInterval(timer);
+      clearPending();
+      await loadConversation(p.sessionId);
+      refreshConvSidebar();
+      return;
+    }
+  }
+  clearInterval(timer);
+  clearPending();
+  var bubble = wrap.querySelector('.bubble');
+  bubble.className = 'bubble error';
+  bubble.innerHTML = 'That answer never arrived. Please ask again.';
+}
+
+document.addEventListener('DOMContentLoaded', function () { resumePendingQuery(); });
+
+// ---- Live answer streaming (opt-in) -------------------------------------
+// Retrieval still has to finish first, so this does not make a query faster -
+// it replaces ~60s of blank spinner with sentences appearing from ~20s.
+// OFF by default. Turn on with ?stream=1 (sticky), off with ?stream=0.
+var STREAM_KEY = 'gemynd_stream';
+(function () {
+  var m = /[?&]stream=([01])/.exec(location.search);
+  if (m) { try { localStorage.setItem(STREAM_KEY, m[1]); } catch (e) {} }
+})();
+// Default ON. It was opt-in while unproven; the server path is now verified and
+// every failure mode falls back to /query, so the worst case is the old
+// behaviour. Opt-in also had a silent failure of its own: the only way to turn
+// it on was a URL parameter that the login redirect discards.
+function streamingEnabled() {
+  try {
+    var v = localStorage.getItem(STREAM_KEY);
+    return v === null ? true : v === '1';
+  } catch (e) { return true; }
+}
+function setStreaming(on) {
+  try { localStorage.setItem(STREAM_KEY, on ? '1' : '0'); } catch (e) {}
+}
+// The URL-parameter form is unreliable on its own: opening /?stream=1 while
+// logged out redirects to /auth/login?next=/ and the query string is dropped,
+// so the flag silently never gets set. The checkbox in the settings panel is
+// the dependable control.
+document.addEventListener('DOMContentLoaded', function () {
+  var box = document.getElementById('stream-toggle');
+  if (!box) return;
+  box.checked = streamingEnabled();
+  box.addEventListener('change', function () { setStreaming(box.checked); });
+});
+
+// Returns the final response object, or null to fall back to /query.
+async function sendViaStream(bodyJson, loadingWrap, loadingTimer) {
+  // Diagnostics: a silent fallback is indistinguishable from "streaming is
+  // broken". Inspect window.__gemyndStream in the console to see what happened.
+  window.__gemyndStream = {attempted: true, at: new Date().toISOString()};
+  var resp = await fetch('/query/stream', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', 'x-csrftoken': _csrfToken()},
+    body: bodyJson,
+  });
+  window.__gemyndStream.status = resp.status;
+  window.__gemyndStream.hasBody = !!resp.body;
+  if (!resp.ok || !resp.body) {
+    window.__gemyndStream.result = !resp.ok
+      ? 'fell back: HTTP ' + resp.status
+      : 'fell back: this browser cannot read a streaming response body';
+    console.warn('[gemynd] streaming unavailable -', window.__gemyndStream.result);
+    return null;
+  }
+  window.__gemyndStream.firstDeltaMs = null;
+  var _t0 = Date.now();
+
+  // The stream opens immediately, but the first sentence is ~20-25s away:
+  // retrieval has to finish, then the model writes organizing_structure and
+  // section_outline before any prose. Keep the staged "Retrieving claims /
+  // Synthesizing" indicator running until real text arrives - swapping to an
+  // empty bubble with a blinking caret at t=0 looks more broken than a spinner.
+  var bubble = loadingWrap.querySelector('.bubble');
+  var target = null;
+  var chat = document.getElementById('chat-area');
+
+  function beginRendering() {
+    if (target) return;
+    clearInterval(loadingTimer);
+    bubble.className = 'bubble';
+    bubble.innerHTML = '<div class="answer answer-streaming"></div>';
+    target = bubble.querySelector('.answer');
+  }
+
+  var reader = resp.body.getReader();
+  var decoder = new TextDecoder();
+  var buf = '', sentences = [], finalData = null;
+
+  while (true) {
+    var res = await reader.read();
+    if (res.done) break;
+    buf += decoder.decode(res.value, {stream: true});
+    var idx;
+    // SSE frames are separated by a blank line.
+    while ((idx = buf.indexOf('\n\n')) !== -1) {
+      var frame = buf.slice(0, idx);
+      buf = buf.slice(idx + 2);
+      var evName = null, dataStr = null;
+      frame.split('\n').forEach(function (line) {
+        if (line.indexOf('event: ') === 0) evName = line.slice(7).trim();
+        else if (line.indexOf('data: ') === 0) dataStr = line.slice(6);
+      });
+      if (!evName || dataStr === null) continue;   // ': open' keepalive
+      var d;
+      try { d = JSON.parse(dataStr); } catch (e) { continue; }
+      if (evName === 'reset') {
+        // Validation retry restarted generation; drop what we showed.
+        sentences = [];
+        if (target) target.textContent = '';
+      } else if (evName === 'delta') {
+        if (window.__gemyndStream && window.__gemyndStream.firstDeltaMs === null) {
+          window.__gemyndStream.firstDeltaMs = Date.now() - _t0;
+          window.__gemyndStream.result = 'streaming';
+        }
+        beginRendering();
+        sentences.push(d.text);
+        target.textContent = sentences.join(' ');
+        chat.scrollTop = chat.scrollHeight;
+      } else if (evName === 'done') {
+        finalData = d;
+      } else if (evName === 'error') {
+        throw new Error(d.detail || ('Error ' + (d.status || '')));
+      }
+    }
+  }
+  return finalData;   // null => caller falls back to /query
+}
+
+/* Conversations drawer (mobile only - the button lives in the mobile top bar,
+   which is display:none above 820px, so these listeners never fire on desktop
+   and the column stays permanently visible there). */
+(function () {
+  var btn = document.getElementById('conv-toggle-btn');
+  var panel = document.getElementById('conv-sidebar');
+  var backdrop = document.getElementById('conv-backdrop');
+  if (!btn || !panel || !backdrop) return;
+
+  function setOpen(open) {
+    panel.classList.toggle('conv-open', open);
+    backdrop.classList.toggle('show', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  btn.addEventListener('click', function () {
+    var opening = !panel.classList.contains('conv-open');
+    // The list is only refreshed on send; reopening should show what's there now.
+    if (opening && typeof refreshConvSidebar === 'function') refreshConvSidebar();
+    setOpen(opening);
+  });
+  backdrop.addEventListener('click', function () { setOpen(false); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setOpen(false);
+  });
+  /* Close once a conversation is picked, otherwise the drawer covers the very
+     conversation it just loaded. The delete button stops propagation, so
+     deleting does not close the drawer. */
+  panel.addEventListener('click', function (e) {
+    var li = e.target.closest ? e.target.closest('#conv-list li') : null;
+    if (li && !li.classList.contains('conv-empty')) setOpen(false);
+  });
+})();
+
 // Replay a cached conversation into the chat area without calling /query.
 // Each cached turn's `response_json` is parsed and handed to the same
 // formatResponse() used for live responses, so the bubble is identical.
@@ -1087,11 +1386,22 @@ async function sendMessage() {
     '<span class="loading-stage">Resolving entities</span>'
     + '<span class="loading-glyph">\u2058</span>'
     + '<span class="loading-elapsed"></span>');
+  // Stage labels are timed against the measured pipeline (retrieval ~5s, then
+  // the model writes its structural outline before any prose, so the first
+  // sentence lands ~20-25s in). One label sitting still for twenty seconds
+  // reads as a hang; naming each thing it is genuinely doing reads as work.
   var loadingStages = [
-    { at: 0,    text: 'Resolving entities' },
-    { at: 2500, text: 'Retrieving claims' },
-    { at: 8000, text: 'Synthesizing answer', isSynth: true },
+    { at: 0,     text: 'Reading your question' },
+    { at: 1800,  text: 'Searching the archive' },
+    { at: 5000,  text: 'Gathering supporting records' },
+    { at: 9000,  text: 'Weighing the evidence' },
+    { at: 14000, text: 'Planning the answer' },
+    { at: 19000, text: 'Writing' },
   ];
+  // Only surface a clock once the wait is genuinely long. Before that the
+  // stage progression is the reassurance; a counter ticking from 1s just
+  // invites the reader to watch it climb.
+  var ELAPSED_AFTER_MS = 30000;
   var loadingStart = Date.now();
   var loadingTimer = setInterval(function() {
     var elapsed = Date.now() - loadingStart;
@@ -1103,30 +1413,65 @@ async function sendMessage() {
     var elapsedEl = loadingWrap.querySelector('.loading-elapsed');
     if (stageEl && stage) stageEl.textContent = stage.text;
     if (elapsedEl) {
-      var label;
-      if (stage && stage.isSynth) {
-        // Synthesis timer: 1s..60s, then "1m 1s", "1m 2s", ...
-        var synthSec = Math.floor((elapsed - stage.at) / 1000) + 1;
-        if (synthSec <= 60) {
-          label = synthSec + 's';
-        } else {
-          label = Math.floor(synthSec / 60) + 'm ' + (synthSec % 60) + 's';
-        }
-      } else {
-        label = Math.floor(elapsed / 1000) + 's';
+      if (elapsed < ELAPSED_AFTER_MS) {
+        elapsedEl.textContent = '';
+        return;
       }
-      elapsedEl.textContent = ' (' + label + ')';
+      var sec = Math.floor(elapsed / 1000);
+      elapsedEl.textContent = sec <= 60
+        ? ' (' + sec + 's)'
+        : ' (' + Math.floor(sec / 60) + 'm ' + (sec % 60) + 's)';
     }
   }, 500);
 
+  // Recorded before the request goes out, so a refresh one second later can
+  // still find it. Cleared on every terminal outcome below.
+  markPending(currentSessionId, text);
+
+  var _requestBody = JSON.stringify({text: text, mode: mode, year_range: year_range, entity_hints: entityHints, conversation_history: conversationHistory, session_id: currentSessionId});
+
   try {
+    // Opt-in streaming path. Renders sentences as the model writes them, then
+    // hands the final payload to the SAME formatResponse() the blocking path
+    // uses, so sources/citations render identically. Any failure returns null
+    // and we fall through to /query - streaming must never cost an answer.
+    if (streamingEnabled()) {
+      var streamedData = null;
+      try {
+        streamedData = await sendViaStream(_requestBody, loadingWrap, loadingTimer);
+      } catch (e) {
+        streamedData = null;
+      }
+      if (streamedData) {
+        clearPending();
+        clearInterval(loadingTimer);
+        var sbubble = loadingWrap.querySelector('.bubble');
+        sbubble.className = 'bubble';
+        sbubble.innerHTML = formatResponse(streamedData);
+        if (window.htmx) window.htmx.process(sbubble);
+        conversationHistory.push({role: 'user', content: text});
+        conversationHistory.push({role: 'assistant', content: streamedData.answer});
+        if (conversationHistory.length > HISTORY_LIMIT) {
+          conversationHistory = conversationHistory.slice(conversationHistory.length - HISTORY_LIMIT);
+        }
+        activeLoadedSessionId = currentSessionId;
+        refreshConvSidebar();
+        document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;
+        ta.disabled = false;
+        document.getElementById('send-btn').disabled = false;
+        ta.focus();
+        return;
+      }
+    }
+
     var resp = await fetch('/query', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'x-csrftoken': _csrfToken()},
-      body: JSON.stringify({text: text, mode: mode, year_range: year_range, entity_hints: entityHints, conversation_history: conversationHistory, session_id: currentSessionId}),
+      body: _requestBody,
     });
     var bubble = loadingWrap.querySelector('.bubble');
     if (!resp.ok) {
+      clearPending();
       clearInterval(loadingTimer);
       var detail = resp.statusText;
       try { detail = (await resp.json()).detail || detail; } catch(e) {}
@@ -1151,6 +1496,7 @@ async function sendMessage() {
         bubble.innerHTML = esc('Error ' + resp.status + ': ' + detail);
       }
     } else {
+      clearPending();
       clearInterval(loadingTimer);
       var data = await resp.json();
       bubble.className = 'bubble';
@@ -1166,10 +1512,14 @@ async function sendMessage() {
       refreshConvSidebar();
     }
   } catch(err) {
+    // Deliberately does NOT clearPending(): a dropped connection usually means
+    // the browser lost the response, not that the server stopped working. The
+    // marker survives so a reload can still pick the answer up.
     clearInterval(loadingTimer);
     var bubble2 = loadingWrap.querySelector('.bubble');
     bubble2.className = 'bubble error';
-    bubble2.innerHTML = esc('Network error: ' + err.message);
+    bubble2.innerHTML = esc('Connection lost: ' + err.message)
+      + '<br><em>The server may still be working on it — reload this page in a minute.</em>';
   }
 
   document.getElementById('chat-area').scrollTop = document.getElementById('chat-area').scrollHeight;

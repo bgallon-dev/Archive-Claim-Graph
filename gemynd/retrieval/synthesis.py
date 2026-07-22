@@ -23,7 +23,8 @@ import json
 import logging
 import os
 import re as _re
-from typing import Any
+import threading
+from typing import Any, Callable
 
 from .models import (
     AnalyticalResult,
@@ -38,6 +39,40 @@ from .models import (
 )
 
 _log = logging.getLogger(__name__)
+
+
+# ---------------------------------------------------------------------------
+# Live token sink (opt-in, used by the /query/stream SSE endpoint)
+# ---------------------------------------------------------------------------
+# The Anthropic call below already streams; it simply buffers the whole reply
+# before parsing. A caller that wants to surface tokens as they arrive installs
+# a sink for the duration of its request. Thread-local rather than a parameter
+# so `synthesise()` and its retry path need no signature change, and so two
+# concurrent requests can never see each other's sink: FastAPI runs each sync
+# endpoint in its own threadpool worker, and synthesis happens inline on that
+# same thread.
+_sink = threading.local()
+
+
+def set_stream_sink(fn: Callable[[str, str], None] | None) -> None:
+    """Install (or clear with None) a per-thread callback ``fn(kind, text)``.
+
+    ``kind`` is ``"delta"`` for an incremental chunk, or ``"reset"`` when a
+    validation retry restarts generation and anything already emitted for this
+    request must be discarded.
+    """
+    _sink.fn = fn
+
+
+def _emit(kind: str, text: str = "") -> None:
+    fn = getattr(_sink, "fn", None)
+    if fn is None:
+        return
+    try:
+        fn(kind, text)
+    except Exception:  # a broken client must never break synthesis
+        _log.debug("stream sink raised; dropping it for this request", exc_info=True)
+        _sink.fn = None
 
 
 _VALID_ORGANIZING_STRUCTURES = {"chronological", "causal", "thematic", "mixed"}
@@ -684,6 +719,9 @@ class SynthesisEngine:
         the full response server-side and parse it as JSON below.
         """
         accumulated_text_parts: list[str] = []
+        # A retry re-enters this method; tell any live listener to discard what
+        # it has already rendered rather than appending a second answer to it.
+        _emit("reset")
         with self._client.messages.stream(
             model=MODEL,
             max_tokens=self._max_tokens,
@@ -693,6 +731,7 @@ class SynthesisEngine:
         ) as stream:
             for text_chunk in stream.text_stream:
                 accumulated_text_parts.append(text_chunk)
+                _emit("delta", text_chunk)
             final_message = stream.get_final_message()
 
         if final_message.stop_reason == "max_tokens":

@@ -62,6 +62,15 @@ _UNIVERSAL_INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX document_quarantine IF NOT EXISTS FOR (n:Document) ON (n.quarantine_status)",
     "CREATE INDEX document_doc_type IF NOT EXISTS FOR (n:Document) ON (n.doc_type)",
     "CREATE INDEX document_series IF NOT EXISTS FOR (n:Document) ON (n.series)",
+    # Latest-run view support. Every retrieval template resolves the newest
+    # ExtractionRun per Document and then pulls that run's claims via
+    # `MATCH (c:Claim {run_id: lr.run_id})`. Without these two, that inner
+    # lookup is a NodeByLabelScan over every Claim executed once per document:
+    # profiled at 182M dbHits / 43.9s for a 250-row result on a 5.4k-document
+    # corpus. With them, the same query is 1.9M dbHits / 1.0s -- a ~40x
+    # improvement that takes an end-to-end /query from ~102s to ~60s.
+    "CREATE INDEX claim_run_id IF NOT EXISTS FOR (n:Claim) ON (n.run_id)",
+    "CREATE INDEX run_timestamp IF NOT EXISTS FOR (n:ExtractionRun) ON (n.run_timestamp)",
 ]
 
 _DERIVATION_INDEX_STATEMENTS: list[str] = [

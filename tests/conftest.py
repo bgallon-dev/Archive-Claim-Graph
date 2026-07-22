@@ -35,7 +35,7 @@ _load_dotenv(Path(__file__).parent.parent / ".env")
 # This previously "worked" only by accident: .env pointed at a dead server, so
 # calls failed and returned no claims. Pointing it at a running server surfaced
 # the coupling as a spurious test failure.
-for _var in (
+_LIVE_MODEL_ENV_VARS = (
     "CLAIM_LLM_BASE_URL",
     "CLAIM_LLM_PROVIDER",
     "CLAIM_LLM_MODEL",
@@ -50,8 +50,29 @@ for _var in (
     "CLAIM_EXTRACTION_MODEL",
     "ANTHROPIC_API_KEY",
     "Anthropic_API_Key",
-):
-    os.environ.pop(_var, None)
+)
+
+
+def _strip_live_model_env() -> None:
+    for var in _LIVE_MODEL_ENV_VARS:
+        os.environ.pop(var, None)
+
+
+_strip_live_model_env()
+
+
+@pytest.fixture(autouse=True)
+def _hermetic_llm_env():
+    """Re-strip live-model routing before EVERY test.
+
+    Stripping once at import is not enough: code under test re-reads the .env
+    (``gemynd.cli.main`` calls ``load_dotenv()``), so a test that exercises the
+    CLI silently re-injects CLAIM_LLM_BASE_URL / ANTHROPIC_API_KEY for every
+    test that follows — which then makes real model calls. That produced an
+    order-dependent failure that passed in isolation and failed in the suite.
+    """
+    _strip_live_model_env()
+    yield
 
 
 # Turnbull-corpus entity labels used by tests that build a writer directly.

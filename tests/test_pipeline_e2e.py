@@ -114,3 +114,35 @@ def test_e2e_single_worker_checkpoint_resume(fixtures_dir: Path, tmp_path: Path)
     # Re-run: checkpoint exists → doc fully skipped (no re-extraction).
     summary2 = run_e2e(inputs, tmp_path, backend="memory", resources_dir=TURNBULL_RESOURCES_DIR)
     assert summary2["documents_processed"] == 0
+
+
+def test_e2e_multi_worker_checkpoint_resume_skips_extraction(
+    fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """Multi-worker path must skip checkpointed docs BEFORE extracting them.
+
+    Regression: the parallel branch submitted every input to the process pool and
+    only skipped at graph-write time, so each resume re-extracted the entire
+    completed corpus — the expensive half. On a large run that turned a restart
+    into hours of redundant work.
+
+    Re-extraction rewrites the per-doc bundles, so unchanged bundle mtimes prove
+    nothing was re-extracted.
+    """
+    inputs = [str(fixtures_dir / f"report{n}.json") for n in (1, 2, 3)]
+    summary1 = run_e2e(
+        inputs, tmp_path, backend="memory", workers=2, resources_dir=TURNBULL_RESOURCES_DIR
+    )
+    assert summary1["documents_processed"] == 3
+
+    bundles = sorted(tmp_path.glob("*.semantic.json"))
+    assert bundles, "expected per-doc semantic bundles"
+    before = {p.name: p.stat().st_mtime_ns for p in bundles}
+
+    summary2 = run_e2e(
+        inputs, tmp_path, backend="memory", workers=2, resources_dir=TURNBULL_RESOURCES_DIR
+    )
+    assert summary2["documents_processed"] == 0
+
+    after = {p.name: p.stat().st_mtime_ns for p in sorted(tmp_path.glob("*.semantic.json"))}
+    assert after == before, "checkpointed docs were re-extracted on resume"

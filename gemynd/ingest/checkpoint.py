@@ -26,18 +26,21 @@ from pathlib import Path
 
 
 CHECKPOINT_FILENAME = ".ingest_checkpoint.jsonl"
+# Bulk graph-loading (`load-graph --input-dir`) resumes from its own file so it
+# never collides with the ingest checkpoint that lives in the same bundle dir.
+LOAD_CHECKPOINT_FILENAME = ".load_checkpoint.jsonl"
 
 
-def checkpoint_path(out_dir: Path) -> Path:
-    return out_dir / CHECKPOINT_FILENAME
+def checkpoint_path(out_dir: Path, filename: str = CHECKPOINT_FILENAME) -> Path:
+    return out_dir / filename
 
 
-def load_checkpoint(out_dir: Path) -> set[str]:
+def load_checkpoint(out_dir: Path, filename: str = CHECKPOINT_FILENAME) -> set[str]:
     """Return the set of doc_ids already successfully written to the graph.
 
     Skips corrupt lines silently so a partial file write never blocks a run.
     """
-    cp = checkpoint_path(out_dir)
+    cp = checkpoint_path(out_dir, filename)
     if not cp.exists():
         return set()
     completed: set[str] = set()
@@ -55,13 +58,13 @@ def load_checkpoint(out_dir: Path) -> set[str]:
     return completed
 
 
-def load_checkpoint_inputs(out_dir: Path) -> set[str]:
+def load_checkpoint_inputs(out_dir: Path, filename: str = CHECKPOINT_FILENAME) -> set[str]:
     """Return the set of input paths already successfully written to the graph.
 
     Mirrors :func:`load_checkpoint` but keys on ``input`` rather than ``doc_id``
     so callers can skip documents before parsing (when ``doc_id`` is not yet known).
     """
-    cp = checkpoint_path(out_dir)
+    cp = checkpoint_path(out_dir, filename)
     if not cp.exists():
         return set()
     completed: set[str] = set()
@@ -79,13 +82,13 @@ def load_checkpoint_inputs(out_dir: Path) -> set[str]:
     return completed
 
 
-def append_checkpoint(out_dir: Path, doc_id: str, input_path: str) -> None:
+def append_checkpoint(out_dir: Path, doc_id: str, input_path: str, filename: str = CHECKPOINT_FILENAME) -> None:
     """Append one successfully-written document to the checkpoint file."""
     entry = {
         "doc_id": doc_id,
         "input": input_path,
         "completed_at": datetime.now(timezone.utc).isoformat(),
     }
-    cp = checkpoint_path(out_dir)
+    cp = checkpoint_path(out_dir, filename)
     with cp.open("a", encoding="utf-8") as f:
         f.write(json.dumps(entry) + "\n")

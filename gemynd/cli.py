@@ -6,6 +6,7 @@ import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+from typing import Any
 
 from gemynd.shared.env import load_dotenv
 from gemynd.shared.io_utils import load_semantic_bundle, load_structure_bundle, save_json, save_rows_csv, save_semantic_bundle, save_structure_bundle
@@ -133,6 +134,14 @@ def build_parser() -> argparse.ArgumentParser:
         action="store_true",
         default=False,
         help="Disable LLM-based claim extraction; use only rule-based extraction (zero API calls).",
+    )
+    e2e_parser.add_argument(
+        "--no-bundles",
+        action="store_true",
+        default=False,
+        help="Stream straight to Neo4j: delete each doc's structure/semantic bundle "
+             "after it is written to the graph, so disk stays flat instead of "
+             "accumulating the whole corpus. Requires --backend neo4j.",
     )
     e2e_parser.add_argument(
         "--corpus",
@@ -459,36 +468,39 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"[warn] No *.structure.json files found in: {args.input_dir}")
                 return 1
 
-            workers = args.workers if args.workers != 0 else (os.cpu_count() or 1)
-            effective_workers = min(max(workers, 1), len(pairs))
+            # Stream one bundle pair at a time: load -> write -> release.
+            # Reading every pair up front (as this used to) holds the whole
+            # corpus in RAM — fine for a handful of docs, fatal for the ~193k
+            # bundle newspaper corpus. Memory is now O(1) in the corpus size.
+            #
+            # Resume support: successfully-written doc_ids are appended to
+            # `.load_checkpoint.jsonl` in the bundle dir (a distinct file from
+            # the ingest checkpoint that also lives there), so an interrupted
+            # bulk load restarts where it stopped instead of from zero.
+            from gemynd.ingest.checkpoint import (
+                LOAD_CHECKPOINT_FILENAME,
+                append_checkpoint,
+                load_checkpoint_inputs,
+            )
 
-            def _load_pair(structure_path: Path) -> tuple[Path, object, object] | None:
+            input_dir_path = Path(args.input_dir)
+            already_loaded = load_checkpoint_inputs(input_dir_path, LOAD_CHECKPOINT_FILENAME)
+            if already_loaded:
+                print(f"[load-graph] resume: {len(already_loaded)} doc(s) already loaded", file=sys.stderr)
+
+            writer = None
+            loaded = skipped = missing = 0
+            for i, structure_path in enumerate(pairs, 1):
+                if str(structure_path) in already_loaded:
+                    skipped += 1
+                    continue
                 semantic_path = structure_path.with_suffix("").with_suffix(".semantic.json")
                 if not semantic_path.exists():
                     print(f"[warn] Missing semantic bundle for {structure_path.name}, skipping.", file=sys.stderr)
-                    return None
-                return structure_path, load_structure_bundle(structure_path), load_semantic_bundle(semantic_path)
-
-            if effective_workers <= 1:
-                loaded_pairs = [_load_pair(p) for p in pairs]
-            else:
-                loaded_map: dict[Path, tuple[Path, object, object]] = {}
-                with ThreadPoolExecutor(max_workers=effective_workers) as executor:
-                    future_to_path = {executor.submit(_load_pair, p): p for p in pairs}
-                    for i, future in enumerate(as_completed(future_to_path), 1):
-                        result = future.result()
-                        if result is not None:
-                            loaded_map[result[0]] = result
-                            print(f"[{i}/{len(pairs)}] Loaded: {result[0].stem}", file=sys.stderr)
-                loaded_pairs = [loaded_map.get(p) for p in pairs]
-
-            results = []
-            writer = None
-            for item in loaded_pairs:
-                if item is None:
+                    missing += 1
                     continue
-                structure_path, structure, semantic = item
-                semantic_path = structure_path.with_suffix("").with_suffix(".semantic.json")
+                structure = load_structure_bundle(structure_path)
+                semantic = load_semantic_bundle(semantic_path)
                 if writer is None:
                     writer = load_graph(
                         structure, semantic,
@@ -499,8 +511,21 @@ def main(argv: list[str] | None = None) -> int:
                 else:
                     writer.load_structure(structure)
                     writer.load_semantic(structure, semantic)
-                results.append({"doc_id": structure.document.doc_id, "structure": str(structure_path), "semantic": str(semantic_path)})
-            print(json.dumps({"status": "ok", "backend": args.backend, "documents": results}, indent=2))
+                # Checkpoint only after a successful write, so a crash retries.
+                append_checkpoint(
+                    input_dir_path, structure.document.doc_id, str(structure_path),
+                    filename=LOAD_CHECKPOINT_FILENAME,
+                )
+                loaded += 1
+                if loaded % 500 == 0 or i == len(pairs):
+                    print(f"[{i}/{len(pairs)}] loaded={loaded} skipped={skipped}", file=sys.stderr)
+            print(json.dumps({
+                "status": "ok", "backend": args.backend,
+                "documents_loaded": loaded,
+                "already_loaded": skipped,
+                "missing_semantic": missing,
+                "total_candidates": len(pairs),
+            }, indent=2))
         elif args.structure and args.semantic:
             structure = load_structure_bundle(args.structure)
             semantic = load_semantic_bundle(args.semantic)
@@ -553,6 +578,7 @@ def main(argv: list[str] | None = None) -> int:
             resources_dir=Path(args.domain_dir) if args.domain_dir else None,
             graph_resolve=args.graph_resolve,
             no_llm=args.no_llm,
+            retain_bundles=not args.no_bundles,
         )
         combined: dict[str, Any] = {}
         if json_inputs:

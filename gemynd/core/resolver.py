@@ -3,7 +3,7 @@ from __future__ import annotations
 import difflib
 import math
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import TYPE_CHECKING, Iterable, Protocol
@@ -13,6 +13,7 @@ from gemynd.core.models import EntityRecord, EntityResolutionRecord, MentionReco
 from gemynd.shared.resource_loader import (
     TURNBULL_RESOURCES_DIR,
     load_claim_relation_compatibility,
+    load_discovered_entity_rows,
     load_seed_entity_rows,
 )
 
@@ -80,6 +81,13 @@ def default_seed_entities(resources_dir: Path | None = None) -> list[EntityRecor
         )
     rows = load_seed_entity_rows(resources_dir)
 
+    # Optional rule-mined vocabulary, unioned in after the curated seeds so the
+    # curated ones win any collision. See ingest/extractors/entity_discovery.py:
+    # a hand-curated gazetteer cannot cover an open corpus (75 seeds against
+    # 550k newspaper pages left 96% of mentions resolving to nothing), so the
+    # discovery rules mine one. Absent file = no-op, which is every other domain.
+    rows = rows + load_discovered_entity_rows(resources_dir)
+
     # Preserve insertion order; group properties by (entity_type, name).
     props_by_key: dict[tuple[str, str], dict[str, object]] = {}
     order: list[tuple[str, str]] = []
@@ -92,8 +100,15 @@ def default_seed_entities(resources_dir: Path | None = None) -> list[EntityRecor
             props_by_key[key][row["prop_key"]] = row["prop_value"]
 
     entities: list[EntityRecord] = []
+    seen_forms: set[str] = set()
     for entity_type, name in order:
         normalized = normalize_name(name)
+        # One canonical entity per surface form. Two entities sharing a form
+        # are indistinguishable to a string resolver, so they would split the
+        # form's mentions arbitrarily between them.
+        if normalized in seen_forms:
+            continue
+        seen_forms.add(normalized)
         entities.append(
             EntityRecord(
                 entity_id=make_entity_id(entity_type, normalized),
@@ -156,6 +171,20 @@ class DictionaryFuzzyResolver:
         else:
             compat_data = load_claim_relation_compatibility(resources_dir)
             self._preferred_entity_types = compat_data.get("preferred_entity_types", {})
+
+        # Opt-in type filter (see DomainConfig.resolution_type_filter). Without
+        # it nothing stops a mention typed Person resolving to a Place: "F. J.
+        # Cheney" resolved to the town of Cheney, and "Condon Globe" to Condon.
+        self._type_filter = bool(config is not None and config.resolution_type_filter)
+        self._type_rules = list(config.entity_type_rules) if config is not None else []
+        # Words the domain's discovery rules declare are not names. Excluding
+        # them when *minting* entities was only half the job — they still occur
+        # as mentions, and an unblocked "american"/"monday"/"price" attaches to
+        # whatever resembles it (Americans, Mondays, Prince).
+        self._non_entity_terms: frozenset[str] = (
+            config.non_entity_terms if config is not None else frozenset()
+        )
+        self._block_index = _build_block_index(self._seed_entities)
 
     def resolve(
         self,
@@ -328,6 +357,30 @@ class DictionaryFuzzyResolver:
             return max(adjustments)
         return min(adjustments)
 
+    def _blocked_candidates(self, normalized: str) -> list[EntityRecord]:
+        """Entities that could possibly match *normalized* (see _build_block_index)."""
+        exact_index, fuzzy_index = self._block_index
+        seen: dict[str, EntityRecord] = {}
+        for token in set(normalized.split()):
+            if not token:
+                continue
+            for entity in exact_index.get(token, ()):
+                seen[entity.entity_id] = entity
+            singular = _singular(token)
+            if singular != token:
+                for entity in exact_index.get(singular, ()):
+                    seen[entity.entity_id] = entity
+            if len(token) < _MIN_FUZZY_TOKEN_LEN:
+                continue  # zero edit budget — an exact match is the only match
+            first = token[0]
+            for length in range(
+                max(len(token) - _MAX_TOKEN_LEN_DELTA, _MIN_FUZZY_TOKEN_LEN),
+                len(token) + _MAX_TOKEN_LEN_DELTA + 1,
+            ):
+                for entity in fuzzy_index.get((first, length), ()):
+                    seen[entity.entity_id] = entity
+        return list(seen.values())
+
     def _candidate_scores(
         self,
         mention: MentionRecord,
@@ -343,10 +396,29 @@ class DictionaryFuzzyResolver:
         3. [A3] Document-level entity frequency prior (log-scaled boost, capped at 0.06).
         Candidates below maybe_threshold after all adjustments are excluded.
         """
+        if mention.normalized_form in self._non_entity_terms:
+            return []
+
+        # Type inferred from the mention's own surface form. Seeds are excluded
+        # from the inference so it reflects the rules rather than the answer we
+        # are about to look up. None means "no opinion" and filters nothing.
+        hint: str | None = None
+        if self._type_filter and self._type_rules:
+            from gemynd.core.entity_type_inference import infer_entity_type
+
+            hint = infer_entity_type(mention.surface_form, rules=self._type_rules)
+
         scored: list[tuple[EntityRecord, float]] = []
-        for entity in self._seed_entities:
+        for entity in self._blocked_candidates(mention.normalized_form):
+            if hint is not None and entity.entity_type != hint:
+                continue
             score = similarity_score(mention.normalized_form, entity.normalized_form)
             if score < self._policy.maybe_threshold:
+                continue
+            # A character-similar candidate with no shared word is a coincidence,
+            # not a reference. See token_anchor_ok — this gate is what takes the
+            # spurious resolution rate down from 44.3%.
+            if not token_anchor_ok(mention.normalized_form, entity.normalized_form):
                 continue
 
             # A1: YAML-driven claim-type-conditioned adjustment.
@@ -366,16 +438,235 @@ class DictionaryFuzzyResolver:
         return scored
 
 
+# A contained fragment must be at least this fraction of the longer string for
+# the containment boost to apply (see similarity_score).
+_CONTAINMENT_MIN_RATIO: float = 0.5
+
+# Tokens that never identify an entity on their own. A shared token drawn only
+# from this set is not evidence: "wasco county"/"adams county" and "prosser
+# falls"/"spokane falls" share exactly one token and denote different places.
+_GENERIC_TOKENS: frozenset[str] = frozenset({
+    "county", "city", "town", "township", "precinct", "state", "territory",
+    "river", "creek", "lake", "valley", "falls", "springs", "mountain",
+    "canyon", "ridge", "island", "harbor", "prairie", "butte", "basin",
+    "company", "co", "co.", "corp", "corporation", "inc", "ltd", "railway",
+    "railroad", "rr", "association", "assn", "society", "club", "lodge",
+    "department", "board", "commission", "bureau", "agency", "committee",
+    "council", "league", "union", "court", "office", "district",
+    "street", "avenue", "road", "of", "the", "and",
+})
+
+# Qualifiers, which are generic ONLY when standing alone. A bare "north"
+# resolved to the mined "North Yak" 60 times and "eastern" to "Eastern Oregon"
+# 18 times — but the same words carry real names ("Great Northern Railway",
+# "North Yakima"), so they disqualify a match only when they *are* the mention.
+_QUALIFIER_TOKENS: frozenset[str] = frozenset({
+    "north", "south", "east", "west", "northern", "southern", "eastern",
+    "western", "upper", "lower", "big", "little", "great", "grand", "old", "new",
+})
+
+def _edit_budget(length: int) -> int:
+    """How many character edits two tokens of this length may differ by.
+
+    A similarity *ratio* cannot do this job: "tumbull"/"turnbull" (the rn->m
+    OCR confusion) and "oregonian"/"oregon" (a different word) both score 0.80
+    under difflib. An absolute edit budget separates them, because OCR damage is
+    a fixed number of characters while a different word diverges proportionally.
+
+    Short tokens get no budget at all — at four characters a single edit turns
+    "work" into "york", which is how "work" resolved to New York 18 times.
+    """
+    if length < 6:
+        return 0
+    if length < 8:
+        return 1
+    return 2
+
+
+def _singular(token: str) -> str:
+    if len(token) > 3 and token.endswith("es"):
+        return token[:-2]
+    if len(token) > 3 and token.endswith("s"):
+        return token[:-1]
+    return token
+
+
+def _token_similar(left: str, right: str) -> bool:
+    """Same word, allowing for OCR damage."""
+    if left == right:
+        return True
+    # Inflection is not damage, and is not covered by the edit budget: "coots"
+    # vs "coot" is one edit on a five-character token, where the budget is zero.
+    # The stem must still be substantial — stripping an "s" off a three-letter
+    # token matches almost anything, which collapsed the month "May" onto the
+    # surname "Mays" 89 times.
+    stem = _singular(left)
+    if len(stem) >= 4 and stem == _singular(right):
+        return True
+    budget = _edit_budget(max(len(left), len(right)))
+    if budget == 0 or abs(len(left) - len(right)) > budget:
+        return False
+    # Distinct words most often diverge at the front ("southern"/"northern" is
+    # only two edits apart, the same distance as the tumbull/turnbull OCR
+    # confusion). A damaged leading character is comparatively rare, so
+    # requiring it to survive costs little and separates the two cases.
+    if left[0] != right[0]:
+        return False
+    # A strict prefix relation is derivation, not damage: "harris"/"harrison"
+    # and "stevens"/"stevenson" are different names that sit inside the same
+    # 2-edit budget as the tumbull/turnbull OCR confusion. Truncation damage
+    # loses a character or two, so allow only a difference of one.
+    shorter, longer = (left, right) if len(left) <= len(right) else (right, left)
+    if longer.startswith(shorter) and len(longer) - len(shorter) > 1:
+        return False
+
+    # Bounded Levenshtein: bail as soon as every cell in a row exceeds budget.
+    previous = list(range(len(right) + 1))
+    for i, lch in enumerate(left, start=1):
+        current = [i]
+        for j, rch in enumerate(right, start=1):
+            current.append(
+                previous[j - 1] if lch == rch
+                else 1 + min(previous[j - 1], previous[j], current[j - 1])
+            )
+        if min(current) > budget:
+            return False
+        previous = current
+    return previous[-1] <= budget
+
+
+# Widest length difference _token_similar can tolerate (see _edit_budget).
+_MAX_TOKEN_LEN_DELTA = 2
+
+# Shortest token that can participate in a fuzzy match at all. _edit_budget is
+# 0 below 6 characters, so a 5-character token can only ever match a 6 (budget
+# 1 comes from the *longer* side); anything shorter must match exactly. Keeping
+# short tokens out of the fuzzy index is free recall-wise and removes the bulk
+# of the candidates, since short tokens are the common ones.
+_MIN_FUZZY_TOKEN_LEN = 5
+
+
+def _build_block_index(
+    entities: list[EntityRecord],
+) -> tuple[dict[str, list[EntityRecord]], dict[tuple[str, int], list[EntityRecord]]]:
+    """Index entities so a mention only compares against plausible candidates.
+
+    Comparing every mention against every entity is fine for a curated 75-entry
+    gazetteer and hopeless for a mined one: 45k mentions against 48k entities
+    took 7.8s per document, i.e. 26 minutes per 200-document checkpoint.
+
+    Two indexes, because tokens match two different ways:
+
+    * ``exact`` — token, plus its singular form so "coots"/"coot" collide.
+    * ``fuzzy`` — (first character, length), holding only tokens long enough to
+      have a non-zero edit budget.
+
+    Exact, not approximate. ``token_anchor_ok`` only succeeds when some token of
+    the shorter name matches one of the longer's, and ``_token_similar`` only
+    matches tokens that are equal, share a singular, or share a first character
+    while differing in length by at most the budget. Every one of those routes
+    has an index, so nothing resolvable is skipped.
+    """
+    exact: dict[str, list[EntityRecord]] = defaultdict(list)
+    fuzzy: dict[tuple[str, int], list[EntityRecord]] = defaultdict(list)
+    for entity in entities:
+        for token in set(entity.normalized_form.split()):
+            if not token:
+                continue
+            exact[token].append(entity)
+            singular = _singular(token)
+            if singular != token:
+                exact[singular].append(entity)
+            if len(token) >= _MIN_FUZZY_TOKEN_LEN:
+                fuzzy[(token[0], len(token))].append(entity)
+    return exact, fuzzy
+
+
+def _token_related(left: str, right: str) -> bool:
+    """Looser than :func:`_token_similar`: also allows a shared stem.
+
+    Used only for the trailing token, where derivation is normal and harmless
+    ("live trap" / "live trapping"). It is deliberately NOT used for the leading
+    token, because that is where a shared stem means a different entity —
+    "oregonian" would otherwise match "oregon".
+    """
+    if _token_similar(left, right):
+        return True
+    shorter, longer = (left, right) if len(left) <= len(right) else (right, left)
+    return len(shorter) >= 4 and longer.startswith(shorter)
+
+
+def token_anchor_ok(left: str, right: str) -> bool:
+    """Whether an inexact match between two normalized names has token evidence.
+
+    ``similarity_score`` is a character metric, and on short strings character
+    overlap is close to meaningless: ``difflib`` scores "house"/"palouse" at
+    0.83 and "spain"/"spokane" at 0.67 despite no word in common. Measured on
+    checkpoint 1, that produced a **44.3% spurious resolution rate** — 95% of
+    every POSSIBLY_REFERS_TO edge was wrong ("range"->"Sprague",
+    "phone"->"Spokane", "work"->"New York"), and mentions of 4-8 characters were
+    wrong essentially 100% of the time.
+
+    A real reference shares a *word*, not a run of characters. So require:
+
+    1. at least one token of the shorter name to match a token of the longer
+       one (fuzzily, so OCR variants survive), and
+    2. at least one such matched token to be non-generic, and
+    3. the shorter name's *leading* token to be among the matches — this is what
+       separates "southern pacific"/"northern pacific railway" (shares only
+       "pacific") from "northern pacific"/"northern pacific railway".
+
+    Exact matches bypass the gate entirely.
+    """
+    if left == right:
+        return True
+    left_tokens = left.split()
+    right_tokens = right.split()
+    if not left_tokens or not right_tokens:
+        return False
+
+    shorter, longer = (
+        (left_tokens, right_tokens)
+        if len(left_tokens) <= len(right_tokens)
+        else (right_tokens, left_tokens)
+    )
+    matched = [t for t in shorter if any(_token_similar(t, o) for o in longer)]
+    if not matched:
+        return False
+    uninformative = (
+        _GENERIC_TOKENS if len(shorter) > 1 else _GENERIC_TOKENS | _QUALIFIER_TOKENS
+    )
+    if all(token in uninformative for token in matched):
+        return False
+    if shorter[0] not in matched:
+        return False
+    # A multi-token name that matches only on its leading token is a different
+    # name that happens to share a first word. This is the given-name collision:
+    # "william watson"/"william grant"/"william pritchard" all matched "William
+    # Howard Taft", and "washington street" matched "Washington State".
+    if len(shorter) >= 2 and not any(
+        _token_related(shorter[-1], other) for other in longer
+    ):
+        return False
+    return True
+
+
 def similarity_score(left: str, right: str) -> float:
     if left == right:
         return 1.0
     ratio = difflib.SequenceMatcher(a=left, b=right).ratio()
-    # Substring containment is only a meaningful signal for non-trivial tokens.
-    # Short OCR fragments ("of", "com", "as") otherwise substring-match long
-    # entity names ("...workers of the world", "...company") and falsely resolve
-    # at 0.88. Require both sides to be >= 4 chars for the containment boost.
-    if (left in right or right in left) and min(len(left), len(right)) >= 4:
-        ratio = max(ratio, 0.88)
+    # Substring containment is only a meaningful signal when the shorter side is
+    # a SUBSTANTIAL part of the longer one. A bare ">= 4 chars" guard is far too
+    # weak: it boosts to exactly the 0.88 resolution threshold, so "fall" resolved
+    # to "spokane falls", "west" to "western federation of miners", "chicago" to
+    # "chicago milwaukee and st. paul railway" and "world" to "industrial workers
+    # of the world". That single rule produced 45.3% spurious REFERS_TO edges
+    # (242,464 of 535,624) on the newspaper graph. Require the shorter side to be
+    # at least half the longer one as well.
+    if left in right or right in left:
+        shorter, longer = (left, right) if len(left) <= len(right) else (right, left)
+        if len(shorter) >= 4 and len(shorter) >= _CONTAINMENT_MIN_RATIO * len(longer):
+            ratio = max(ratio, 0.88)
     left_tokens = set(left.split())
     right_tokens = set(right.split())
     if left_tokens and right_tokens:

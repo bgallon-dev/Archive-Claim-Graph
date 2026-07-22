@@ -64,6 +64,48 @@ def load_seed_entity_rows(resources_dir: Path | None = None) -> list[dict[str, s
         return [dict(row) for row in csv.DictReader(fh)]
 
 
+def load_non_entity_terms(resources_dir: Path | None = None) -> frozenset[str]:
+    """Terms the discovery rules declare are not entities, for the resolver.
+
+    The discovery stopword list already says "american", "monday", "price" and
+    "good" are not names. Applying that only when *minting* entities was half a
+    fix: the words still occur as mentions, and a mention that is not a name
+    should not acquire an entity. Left unblocked they resolved to whatever
+    looked similar — "american"->Americans, "october"->Ootober, "price"->Prince.
+    """
+    terms: set[str] = set()
+    path = _resource_path("entity_discovery_rules", resources_dir)
+    if path.is_file():
+        with path.open(encoding="utf-8") as fh:
+            data: dict[str, Any] = yaml.safe_load(fh) or {}
+        terms.update(str(w).strip().lower() for w in (data.get("stopwords") or ()) if w)
+
+    # Plus the corpus-derived list: words the discovery pass measured as
+    # predominantly lowercase, i.e. not names. Generated, not curated, because
+    # no hand-written list covers "white"/"season"/"heater"/"furniture".
+    mined = _dir(resources_dir) / "non_entity_terms.txt"
+    if mined.is_file():
+        for line in mined.read_text(encoding="utf-8").splitlines():
+            word = line.strip().lower()
+            if word and not word.startswith("#"):
+                terms.add(word)
+    return frozenset(terms)
+
+
+def load_discovered_entity_rows(resources_dir: Path | None = None) -> list[dict[str, str]]:
+    """Return rows from the optional rule-mined entity file, or ``[]``.
+
+    Same long format as seed_entities. This file is *generated* by the entity
+    discovery rules rather than curated, so it is optional everywhere: a domain
+    that does not mine a vocabulary simply has no such file.
+    """
+    path = _resource_path("discovered_entities", resources_dir)
+    if not path.is_file():
+        return []
+    with path.open(encoding="utf-8", newline="") as fh:
+        return [dict(row) for row in csv.DictReader(fh)]
+
+
 # ── Claim type patterns ───────────────────────────────────────────────────────
 
 def load_claim_type_patterns(
@@ -506,7 +548,11 @@ def load_entity_type_rules(
             "target_type": str(entry.get("target_type", "Person")),
             "match_mode": mode,
         }
-        if mode == "any_token_uppercase":
+        # Both keyword modes carry a keyword set; they differ only in whether
+        # the keyword must be the trailing token. Listing just one mode here
+        # silently dropped the keywords of the other, leaving every
+        # `suffix_token_uppercase` rule matching nothing at all.
+        if mode in ("any_token_uppercase", "suffix_token_uppercase"):
             rule["keywords"] = frozenset(
                 str(k).strip().upper() for k in (entry.get("keywords") or []) if k
             )

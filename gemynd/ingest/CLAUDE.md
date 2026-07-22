@@ -10,7 +10,8 @@ Five-layer ingestion pipeline: source parsing (L0), semantic extraction (L1), gr
 
 ## Key invariants
 
-- `source_parser.py`: Path traversal guards prevent directory escape in server contexts. OCR corrections applied via `ocr_correction_map` from domain config.
+- Path traversal guard: the ingest server context is the upload boundary — `web/app.py::_safe_staged_dest()` reduces the attacker-controlled `UploadFile.filename` to a basename and confirms the write stays inside the staging dir. The `integrity-check` CLI (`cli.py`) applies the same CWD-containment check before reading a document's `source_file`. `parse_source_payload()` treats `metadata.source_file` as a string only (never opens it), so it needs no guard.
+- `source_parser.py`: OCR corrections applied via `ocr_correction_map` from domain config.
 - `HybridClaimExtractor`: rule-based extraction first; LLM fallback only for sentences below threshold. All claims carry `decision_trace` fields. `is_valid_claim_sentence()` from `core/claim_validator.py` gates entry.
 - `DerivationContext` pre-computes entity bindings and year extraction so observation and event builders share state rather than re-deriving. Year source tracked as `"claim_date"`, `"document_primary_year"`, or `"unknown"`.
 - Sensitivity gate fail-safe: on exception, quarantines ALL active claims. `NullSensitivityGate` exists for testing only.

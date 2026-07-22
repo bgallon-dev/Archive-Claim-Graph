@@ -334,9 +334,7 @@ def _resolve_claim_link(
         if doc_candidates:
             doc_match, _doc_diag = _narrow_link_candidates(doc_candidates, claim_link, claim_type)
             if doc_match:
-                return _apply_compatibility_penalty(
-                    doc_match[1], claim_type, claim_link.relation_type
-                ), None
+                return doc_match[1], None
 
     diagnostic = normalized_diagnostic or exact_diagnostic
     if diagnostic:

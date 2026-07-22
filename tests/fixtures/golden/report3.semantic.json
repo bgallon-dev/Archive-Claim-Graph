@@ -153,6 +153,15 @@
   ],
   "entities": [
     {
+      "entity_id": "organization_27ee78c2f0befe42",
+      "entity_type": "Organization",
+      "name": "Spokane County Sportsmens Assn",
+      "normalized_form": "spokane county sportsmens assn",
+      "properties": {
+        "org_type": "association"
+      }
+    },
+    {
       "entity_id": "person_a8e449f7f069cec2",
       "entity_type": "Person",
       "name": "Hunter Engman",
@@ -216,15 +225,6 @@
       }
     },
     {
-      "entity_id": "organization_27ee78c2f0befe42",
-      "entity_type": "Organization",
-      "name": "Spokane County Sportsmens Assn",
-      "normalized_form": "spokane county sportsmens assn",
-      "properties": {
-        "org_type": "association"
-      }
-    },
-    {
       "entity_id": "period_320c18f889a264a1",
       "entity_type": "Period",
       "name": "1940-07-01 to 1940-10-31",
@@ -241,6 +241,14 @@
   "entity_hierarchy_links": [],
   "entity_resolution_confirmations": [],
   "entity_resolutions": [
+    {
+      "confirmed_at": null,
+      "confirmed_by": null,
+      "entity_id": "organization_27ee78c2f0befe42",
+      "match_score": 0.98,
+      "mention_id": "run_golden:mention:8e136125b1f031f4",
+      "relation_type": "REFERS_TO"
+    },
     {
       "confirmed_at": null,
       "confirmed_by": null,
@@ -295,14 +303,6 @@
       "entity_id": "refuge_16ba48a60b3fcc4d",
       "match_score": 0.83,
       "mention_id": "run_golden:mention:225bc1f3f0e2aca3",
-      "relation_type": "POSSIBLY_REFERS_TO"
-    },
-    {
-      "confirmed_at": null,
-      "confirmed_by": null,
-      "entity_id": "organization_27ee78c2f0befe42",
-      "match_score": 0.98,
-      "mention_id": "run_golden:mention:8e136125b1f031f4",
       "relation_type": "POSSIBLY_REFERS_TO"
     }
   ],

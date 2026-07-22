@@ -28,7 +28,7 @@ def infer_entity_type(
     seed_entities: list["EntityRecord"] | None = None,
     rules: list[dict[str, Any]] | None = None,
     default: str = "Person",
-) -> str:
+) -> str | None:
     """Infer an entity type label for ``surface_form``.
 
     Priority:
@@ -36,8 +36,13 @@ def infer_entity_type(
          lowercased ``name``) → seed entity's ``entity_type``.
       2. Fuzzy match against seed vocabulary (similarity ≥ 0.88) →
          best-matching seed entity's ``entity_type``.
-      3. Configured rules cascade (first match wins).
-      4. ``default`` (falls back to ``"Person"``).
+      3. Configured rules cascade (first match wins). A rule with
+         ``match_mode: fallback`` acts as the domain's catch-all.
+      4. If *rules* were supplied but none matched → ``None`` (untyped). The
+         rule file is authoritative; a domain that wants a catch-all declares a
+         ``fallback`` rule. Returning a guess here mis-types open-domain text and
+         the bad hint then blocks correct resolution.
+      5. If no *rules* were supplied at all → ``default``.
     """
     surface = (surface_form or "").strip()
     if not surface:
@@ -50,10 +55,15 @@ def infer_entity_type(
             if entity.normalized_form == normalized or entity.name.lower() == normalized:
                 return entity.entity_type
 
-        from gemynd.core.resolver import similarity_score
+        from gemynd.core.resolver import similarity_score, token_anchor_ok
         best_score = 0.0
         best_type: str | None = None
         for entity in seed_entities:
+            # Same gate the resolver applies: a character-similar seed with no
+            # shared word is a coincidence. Without it, bare "COUNTY" fuzzy-hits
+            # "Adams County" and every mention of it is typed Place.
+            if not token_anchor_ok(normalized, entity.normalized_form):
+                continue
             score = similarity_score(normalized, entity.normalized_form)
             if score > best_score:
                 best_score = score
@@ -70,11 +80,31 @@ def infer_entity_type(
                 keywords = rule.get("keywords") or frozenset()
                 if upper_tokens & keywords:
                     return target
+            elif mode == "suffix_token_uppercase":
+                # Anchored variant of the above: the keyword must be the LAST
+                # token, and the form must have a qualifier in front of it.
+                # `any_token_uppercase` fires on any position, which mistypes
+                # "County Judge Geo" as Place and bare "COUNTY"/"Department"/
+                # "STATE" as Place/Organization. "Wasco County" and "Standard
+                # Wagon Company" still match here; the bare common noun does not.
+                keywords = rule.get("keywords") or frozenset()
+                tokens = upper.split()
+                if len(tokens) >= 2 and tokens[-1] in keywords:
+                    return target
             elif mode == "regex_any":
                 for pattern in rule.get("patterns") or ():
                     if pattern.search(upper):
                         return target
             elif mode == "fallback":
                 return target
+
+        # Rules were supplied and none matched. The domain's rule file is
+        # authoritative: if it wanted a catch-all it would declare a `fallback`
+        # rule (as the Turnbull domain does with `default_person`). Inventing a
+        # type here is actively harmful — a wrong hint filters resolution
+        # candidates and *blocks* the correct match (see module docstring). On
+        # open-domain OCR corpora this default typed 94.9% of mentions as
+        # Person, including advertisement fragments like "IN", "OUR", "COST".
+        return None
 
     return default

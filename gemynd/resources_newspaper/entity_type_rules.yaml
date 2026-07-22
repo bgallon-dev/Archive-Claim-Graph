@@ -1,0 +1,198 @@
+version: "1"
+# Entity type inference rules — Spokane / Chronicling America newspaper corpus.
+#
+# MINED, NOT ENUMERATED. These are structural patterns (suffixes, name forms),
+# not a gazetteer of names, so they transfer to any historical newspaper corpus
+# without re-mining. A name list would have to be rebuilt for every new paper,
+# region and decade; these rules do not.
+#
+# Evaluated in order, first match wins, AFTER seed-vocabulary lookup — so the
+# 75 curated seeds still win over any pattern guess.
+#
+# Provenance: mined over 600 corpus paragraphs (313k chars) and validated
+# against mention surface forms already in the `newspapers` graph:
+#   - initials-led person forms ("C. Piatt", "F. J. Cheney") .. >=300,000 mentions
+#   - surface contains COUNTY ............................... 54,148 mentions
+#   - surface contains COMPANY .............................. 21,845 mentions
+#   - "X County" / "X River|Creek|Valley" / corporate suffixes verified on
+#     Wasco, Klickitat, Harney, Hood, Tygh, "Oregon Pioneer Society",
+#     "Standard Wagon Company", "Oregon Press Association".
+#
+# ORDER MATTERS: place/organization suffixes are checked before the person
+# name-form rule, so "C. E. Smith Company" types as Organization, not Person.
+#
+# NOTE: deliberately NO `fallback` rule. The base/Turnbull domain falls back to
+# Person, which is safe in a closed domain but wrong here: this corpus is
+# page-level OCR that still contains advertisement copy, so a blanket fallback
+# would type "SHIRTS", "COST" and "Summer Trade" as people. Leaving a mention
+# untyped is better than typing it wrongly.
+
+rules:
+  # ── Place ────────────────────────────────────────────────────────────────
+  # The base domain has no Place rules at all; in local news, places are the
+  # most frequent entity (portland x4,160, dalles x2,224, wasco x1,899 in a
+  # single 400k-mention sample — all previously untyped).
+  - name: place_administrative_suffix
+    target_type: Place
+    match_mode: suffix_token_uppercase
+    keywords:
+      - COUNTY
+      - TOWNSHIP
+      - PRECINCT
+      - RESERVATION
+      - TERRITORY
+
+  - name: place_geographic_suffix
+    target_type: Place
+    match_mode: suffix_token_uppercase
+    keywords:
+      - RIVER
+      - CREEK
+      - LAKE
+      - VALLEY
+      - FALLS
+      - SPRINGS
+      - BUTTE
+      - MOUNTAIN
+      - CANYON
+      - RIDGE
+      - PRAIRIE
+      - ISLAND
+      - HARBOR
+      - SLOUGH
+      - GULCH
+      - BASIN
+      - BEND
+
+  - name: place_settlement_patterns
+    target_type: Place
+    match_mode: regex_any
+    patterns:
+      - "^CITY OF "
+      - "^TOWN OF "
+      - "^PORT OF "
+      - "^FORT "
+      - " CITY$"
+      - " JUNCTION$"
+      - " STATION$"
+      - " LANDING$"
+
+  # ── Organization ─────────────────────────────────────────────────────────
+  # Mirrors the base corporate cascade; validated on this corpus.
+  - name: corporate_suffixes
+    target_type: Organization
+    match_mode: suffix_token_uppercase
+    keywords:
+      - CO
+      - CO.
+      - COMPANY
+      - CORP
+      - CORPORATION
+      - INC
+      - LTD
+      - RAILROAD
+      - RAILWAY
+      - RR
+      - BANK
+      - HOTEL
+      - SALOON
+      - CLUB
+      - SOCIETY
+      - LODGE
+      - GRANGE
+      - BOARD
+      - COMMISSION
+      - BUREAU
+      - AGENCY
+      - ASSOCIATION
+      - ASSN
+      - COMMITTEE
+      - DEPARTMENT
+      - UNION
+      - BROTHERHOOD
+      - COUNCIL
+      - LEAGUE
+      - CHURCH
+      - SCHOOL
+      - COLLEGE
+      - UNIVERSITY
+      - INSTITUTE
+      - HOSPITAL
+      - MILL
+      - MILLS
+      - MINING
+      - SMELTER
+      - LUMBER
+      - POWER
+      - ELECTRIC
+      - TELEPHONE
+      - TELEGRAPH
+      - TRUST
+      - INSURANCE
+      - BREWERY
+      # Publication titles. A paper is named after the town it serves, so
+      # without these "Condon Globe", "London Punch" and "Baker City Democrat"
+      # stay untyped and resolve to the PLACE they are named for.
+      - PRESS
+      - GAZETTE
+      - CHRONICLE
+      - HERALD
+      - TRIBUNE
+      - GLOBE
+      - PUNCH
+      - DEMOCRAT
+      - TIMES
+      - SUN
+      - WORLD
+      - STAR
+      - POST
+      - JOURNAL
+      - NEWS
+      - REVIEW
+      - RECORD
+      - ENTERPRISE
+      - ADVOCATE
+      - BULLETIN
+      - COURIER
+      - EXAMINER
+      - INQUIRER
+      - LEDGER
+      - MERCURY
+      - OBSERVER
+      - REGISTER
+      - SENTINEL
+      - STANDARD
+      - TELEGRAM
+      - ARGUS
+      - BANNER
+      - SPOKESMAN
+
+  - name: government_patterns
+    target_type: Organization
+    match_mode: regex_any
+    patterns:
+      - "^STATE OF "
+      - "^COUNTY OF "
+      - "^UNITED STATES"
+      - "^BOARD OF "
+      - "^DEPARTMENT OF "
+      - "^BUREAU OF "
+      - "^SUPREME COURT"
+      - "^CIRCUIT COURT"
+
+  # ── Person ───────────────────────────────────────────────────────────────
+  # The single highest-yield signal in this era's newspapers: people are
+  # written as initials + surname ("C. Piatt", "F. J. Cheney", "W. H. Leeds").
+  # Checked last so organization/place suffixes take precedence.
+  # Patterns are matched against the UPPERCASED surface form, so a person cannot
+  # be told from an abbreviation by capitalisation — it has to be told by shape.
+  # An initials run must terminate in a real surname (3+ letters, no trailing
+  # period). Without that, `^[A-Z]\. [A-Z]` accepts a second bare initial and
+  # types "M. D.", "N. Y.", "U. S.", "A. D." and "O. A. C." as people; those
+  # abbreviations were a large share of all Person hits at checkpoint 1.
+  - name: person_initial_forms
+    target_type: Person
+    match_mode: regex_any
+    patterns:
+      - "^[A-Z]\\.\\s*([A-Z]\\.\\s*)*[A-Z]{3,}"
+      - "^(MR|MRS|MISS|DR|REV|JUDGE|CAPT|GEN|HON|PROF|SUPT)\\.?\\s+[A-Z]{2,}"

@@ -21,3 +21,7 @@ out_turnbull/
 run_kettle_eval_all.py
 label_cases.py
 pytestdebug.log
+
+# Commercial drafts: internal pricing model and unreviewed legal templates.
+# Kept local until counsel signs off — this repo is public.
+docs/commercial/

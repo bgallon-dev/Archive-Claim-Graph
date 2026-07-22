@@ -1,0 +1,350 @@
+version: "1"
+# Entity DISCOVERY rules — mine canonical entities out of raw newspaper OCR.
+#
+# WHY THIS EXISTS. The type rules in entity_type_rules.yaml are *suffix* rules:
+# they recognise "Dalles City", "Circuit Court", "Dr. King". They can never
+# recognise "Portland", "Corvallis", "Yakima" or "Chicago", because a bare
+# proper noun has no suffix to match. Measured at checkpoint 1, suffix rules
+# reached only 1.7% of mentions while those bare names were the single most
+# frequent unresolved forms (portland x312, corvallis x295, yakima x133).
+# Relaxing to "any frequent capitalised form" reaches 37.6% but admits "july",
+# "saturday", "american", "north", "ranch" — common nouns, not entities.
+#
+# The signal that separates them is CONTEXT, not shape. A proper noun sits in
+# frames a common noun does not: you travel *to Corvallis*, a dateline reads
+# "PORTLAND, Or.", a county is "Wasco County", a person is "Dr. King". These are
+# structural properties of the genre, so they transfer to any historical paper
+# without re-mining — which is the whole point. The mined gazetteer is a derived
+# cache; THESE RULES are the artifact worth keeping.
+#
+# Validated on 2,291,983 chars of OR+WA OCR:
+#   prepositional frame ... 2,394 hits / 1,178 distinct (Portland 137, Corvallis 67)
+#   X County ..............   252 hits /    74 distinct (Wasco 51, Benton 42)
+#   honorific + surname ... 1,141 hits /   667 distinct (King 23, Cook 12)
+#   dateline ..............   153 hits /    94 distinct (Dalles, Portland, Denver)
+#
+# Patterns are matched against ORIGINAL-CASE text (unlike entity_type_rules,
+# which sees the uppercased form) — capitalisation is load-bearing here. That
+# also means all-caps advertisement copy does not match, which is a feature.
+
+rules:
+  # ── strong frames: one occurrence is already good evidence ────────────────
+  - name: dateline_place
+    target_type: Place
+    # "PORTLAND, Or., July 3" / "Corvallis, Or." — the article dateline names
+    # the place the story was filed from. Near-zero false positive rate.
+    # `[^\S\r\n]` (horizontal whitespace) rather than `\s` inside the capture:
+    # `\s` spans line breaks, so a wrapped name was mined as "Oregon\nCity" —
+    # an entity whose name contains a newline.
+    # Leading words may be SHORT. Requiring the first word to be 4+ characters
+    # made the match restart at the second word, so "San Francisco" was mined as
+    # "Francisco" (1,922 sightings), "Los Angeles" as "Angeles" and "The Dalles"
+    # as "Dalle" — the real names never entered the gazetteer at all.
+    pattern: "\\b((?:[A-Z][a-zA-Z]+[^\\S\\r\\n]){0,2}[A-Z][a-zA-Z]{2,}),\\s*(?:Or|Ore|Wash|Wn|Ida|Cal|Mont|Colo|Nev|Utah|Tex)\\b\\.?"
+    min_occurrences: 2
+    # Two documents, not one. OCR damage is random, so a garbled name
+    # ("Bakkb City", "BehnilU Flceknce", "Dallea") appears exactly once, while a
+    # real place recurs. This threshold gets *cheaper* as the corpus grows: at
+    # 550k pages every real place clears it easily and the noise still cannot.
+    min_documents: 2
+
+  - name: county_place
+    target_type: Place
+    # Mints the full "Wasco County". Bare "Wasco" then resolves to it through
+    # the token-anchor gate, so this one rule yields both forms.
+    pattern: "\\b([A-Z][a-z]{3,})\\s+[Cc]ounty\\b"
+    name_template: "{} County"
+    min_occurrences: 3
+    min_documents: 3
+
+  - name: honorific_person
+    target_type: Person
+    # Captures up to two capitalised words so "Mr. John Smith" yields the whole
+    # name. Capturing one word mines the GIVEN name ("John", "James", "Charles"),
+    # which is worthless as an entity and actively harmful as a resolution
+    # target — every John in the corpus would collapse onto it.
+    pattern: "\\b(?:Mr|Mrs|Miss|Dr|Judge|Rev|Prof|Capt|Gen|Hon|Supt)\\.?\\s+([A-Z][a-z]{2,}(?:[^\\S\\r\\n]+[A-Z][a-z]{2,})?)\\b"
+    # Also raised for the corpus-scale mine: at 2/2 this produced 29,676 people,
+    # most of them named in a single story and never again. A person worth a
+    # node is one the papers return to.
+    min_occurrences: 5
+    min_documents: 4
+
+  # ── weak frame: needs corroboration ───────────────────────────────────────
+  - name: prepositional_place
+    target_type: Place
+    # "at Portland", "from Hood River", "near Salem". High recall, and the
+    # single rule that reaches the bare place names nothing else can see. Also
+    # the noisiest ("in July", "at Cost"), so it carries the highest thresholds
+    # and leans on the stopword list below.
+    # The preposition is matched case-insensitively so a sentence-initial "At
+    # Corvallis the fair opened" is not silently missed; the *captured* name
+    # stays case-sensitive, because capitalisation is the entity signal.
+    # Same short-leading-word fix as the dateline rule: "to San Francisco" must
+    # yield "San Francisco", not "Francisco".
+    pattern: "\\b(?:[Aa]t|[Ii]n|[Ff]rom|[Nn]ear|[Tt]o|[Oo]f)\\s+((?:[A-Z][a-z]+[^\\S\\r\\n]){0,2}[A-Z][a-z]{2,})\\b"
+    # Thresholds calibrated for a corpus-scale mine (81k documents), not a
+    # 200-document sample. At 3/2 this frame produced 48k entities with a median
+    # of 4 sightings, and the thin tail is where the non-entities live
+    # ("Hardware Store"). Raising the floor cuts the gazetteer to the
+    # well-evidenced core, which improves precision AND resolution speed —
+    # candidate lookup cost scales with vocabulary size.
+    min_occurrences: 12
+    min_documents: 6
+
+# Forms that sit in entity frames but are not entities. Deliberately short and
+# generic — months, weekdays, and the common capitalised prose words. This is
+# NOT a place blacklist; anything corpus-specific belongs in the thresholds, not
+# here, or the list stops transferring to the next corpus.
+stopwords:
+  - january
+  - february
+  - march
+  - april
+  - may
+  - june
+  - july
+  - august
+  - september
+  - october
+  - november
+  - december
+  - monday
+  - tuesday
+  - wednesday
+  - thursday
+  - friday
+  - saturday
+  - sunday
+  - today
+  - tomorrow
+  - yesterday
+  # Holidays. Always capitalised, so the capitalisation profile cannot spot
+  # them, and the resolver reads this list — "christmas" resolved to the
+  # surname Christman 55 times.
+  - christmas
+  - easter
+  - thanksgiving
+  - newyear
+  - american
+  - america
+  - english
+  - german
+  - french
+  - christian
+  - republican
+  - democrat
+  - democratic
+  - north
+  - south
+  - east
+  - west
+  - northern
+  - southern
+  - eastern
+  - western
+  - city
+  - county
+  - state
+  - states
+  - street
+  - avenue
+  - river
+  - lake
+  - valley
+  - court
+  - church
+  - school
+  - college
+  - company
+  - union
+  - board
+  - office
+  - house
+  - home
+  - hall
+  - ranch
+  - daily
+  - weekly
+  - morning
+  - evening
+  - night
+  - week
+  - month
+  - year
+  - time
+  - times
+  - first
+  - last
+  - next
+  - great
+  - little
+  - good
+  - best
+  - large
+  - small
+  - main
+  - high
+  - land
+  - work
+  - price
+  - cost
+  - sale
+  - stock
+  - trade
+  - goods
+  - money
+  - business
+  - people
+  - number
+  - part
+  - place
+  - case
+  - fact
+  - order
+  - line
+  - road
+  - train
+  - water
+  - fire
+  - death
+  - life
+  - government
+  - congress
+  - senate
+  - president
+  - governor
+  - secretary
+  - general
+  - captain
+  - colonel
+  - judge
+  - doctor
+  - mister
+  # ── advertisement / commercial vocabulary ──────────────────────────────────
+  # Page-level OCR is not article-segmented, so classified and display ads are
+  # mined alongside news. "at Half Price", "of Live Stock" and "in Light Spring"
+  # sit in exactly the prepositional frame that finds "at Portland". A phrase is
+  # dropped only when EVERY word is listed, so real names built from ordinary
+  # words ("Hood River", "Baker City", "Cascade Locks") still survive.
+  - half
+  - live
+  - suit
+  - suits
+  - every
+  - light
+  - spring
+  - summer
+  - autumn
+  - winter
+  - block
+  - horse
+  - horses
+  - furnishing
+  - furnishings
+  - dry
+  - fine
+  - cheap
+  - free
+  - full
+  - open
+  - special
+  - extra
+  - choice
+  - prime
+  - select
+  - heavy
+  - plain
+  - fancy
+  - gold
+  - silver
+  - iron
+  - steel
+  - wood
+  - coal
+  - wheat
+  - corn
+  - grain
+  - flour
+  - sugar
+  - salt
+  - meat
+  - butter
+  - fruit
+  - fruits
+  - garden
+  - farm
+  - field
+  - crop
+  - crops
+  - seed
+  - stock
+  - cattle
+  - sheep
+  - wagon
+  - harness
+  - boot
+  - boots
+  - shoe
+  - shoes
+  - coat
+  - shirt
+  - shirts
+  - dress
+  - cloth
+  - wool
+  - cotton
+  - silk
+  - glass
+  - paint
+  - soap
+  - drug
+  - drugs
+  - medicine
+  - cure
+  - remedy
+  - bottle
+  - barrel
+  - pound
+  - yard
+  - acre
+  - acres
+  - dollar
+  - dollars
+  - bank
+  - loan
+  - note
+  - notes
+  - bond
+  - deed
+  - title
+  - claim
+  - law
+  - bill
+  - tax
+  - taxes
+  - rate
+  - rates
+  - term
+  - session
+  - meeting
+  - report
+  - notice
+  - letter
+  - paper
+  - papers
+  - book
+  - books
+  - page
+  - column
+  - editor
+  - store
+  - stores
+  - market
+  - agent
+  - agents
+  - owner
+  - buyer
+  - seller
+  - customer
+  - customers

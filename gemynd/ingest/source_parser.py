@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import os
 import re
 from pathlib import Path
 from typing import Any
@@ -37,22 +36,6 @@ _YEAR_ONLY_RE = re.compile(r"(?<!\d)(1[89]\d{2}|20[0-2]\d)(?!\d)")
 # LoC bulk-batch image sequence: trailing 4 digits in the source filename stem.
 # E.g. "1_1909-11-10_p1_sn88085947_00211108617_1909111001_0042" -> "0042".
 _LOC_SEQ_RE = re.compile(r"_(\d{4})$")
-
-
-def _canonicalize_source_path(raw: str) -> str:
-    """Resolve *raw* to an absolute path and verify it is within the CWD.
-
-    Raises ValueError if the resolved path escapes the current working directory,
-    preventing path traversal via a crafted metadata.source_file value.
-    """
-    resolved = Path(raw).resolve()
-    try:
-        resolved.relative_to(Path.cwd())
-    except ValueError:
-        raise ValueError(
-            f"source_file path escapes working directory: {raw!r}"
-        )
-    return str(resolved)
 
 
 def _strip_leading_zeros(value: str | None) -> str | None:

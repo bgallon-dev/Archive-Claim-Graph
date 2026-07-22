@@ -184,6 +184,14 @@ class DomainConfig:
     # ``enable_llm_cypher`` in ``domain_profile.yaml``.
     enable_llm_cypher: bool = False
 
+    # When true, mention→entity resolution rejects candidates whose entity_type
+    # contradicts the type inferred for the mention. Off by default because it
+    # is only safe for domains whose type rules decline to guess: a domain whose
+    # rules end in a `fallback` (Turnbull types everything Person) would have
+    # every Refuge/Species/Place resolution blocked. Read from
+    # ``resolution_type_filter`` in ``domain_profile.yaml``.
+    resolution_type_filter: bool = False
+
     # Phase 8 — derivation role externalization.  Role name → resolver
     # spec (how to find the entity from the claim's links), plus two
     # edge maps keyed by role name → (neo4j label, edge type).  Two
@@ -197,6 +205,10 @@ class DomainConfig:
     # Entity-type inference cascade (corporate/gov patterns). Consulted
     # only after seed-vocabulary lookup; see ``entity_type_inference``.
     entity_type_rules: list[dict[str, Any]] = field(default_factory=list)
+
+    # Terms the discovery rules declare are not entities. Mentions of these
+    # never resolve — see load_non_entity_terms.
+    non_entity_terms: frozenset[str] = frozenset()
 
     # Optional human-readable label and topic hints for the chat welcome
     # message. When unset, the welcome falls back to ``institution_id`` and
@@ -468,6 +480,42 @@ class CompositeDomainConfig:
         return any(c.enable_llm_cypher for c in self.members)
 
     @property
+    def entity_type_rules(self) -> list[dict[str, Any]]:
+        """Members' rule cascades concatenated in member order.
+
+        First match wins within the cascade, so a member's rules keep their
+        relative order and earlier corpora take precedence — the same rule the
+        single-corpus loader follows.
+        """
+        merged: list[dict[str, Any]] = []
+        for member in self.members:
+            merged.extend(member.entity_type_rules)
+        return merged
+
+    @property
+    def non_entity_terms(self) -> frozenset[str]:
+        """Union of members' non-entity vocabularies.
+
+        Unions rather than intersects: a word one corpus knows is not a name is
+        not a name in the composite either, and the cost of over-excluding one
+        common word is far lower than letting it collect resolutions.
+        """
+        terms: frozenset[str] = frozenset()
+        for member in self.members:
+            terms |= member.non_entity_terms
+        return terms
+
+    @property
+    def resolution_type_filter(self) -> bool:
+        """True only if EVERY member opts in.
+
+        Unlike the other flags this merges with ``all``: the filter drops
+        resolutions, and one guessing member's rules (a `fallback` type) would
+        suppress correct matches across the whole composite.
+        """
+        return bool(self.members) and all(c.resolution_type_filter for c in self.members)
+
+    @property
     def analytical_queries(self) -> dict[str, dict[str, str]]:
         """Union of per-corpus analytical_queries maps.
 
@@ -644,6 +692,7 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         load_domain_profile,
         load_domain_schema,
         load_entity_type_rules,
+        load_non_entity_terms,
         load_measurement_patterns,
         load_measurement_species,
         load_measurement_units,
@@ -797,10 +846,12 @@ def load_domain_config(resources_dir: Path | None = None) -> DomainConfig:
         expected_claim_shares=profile.get("expected_claim_shares") or {},
         analytical_queries=profile.get("analytical_queries") or {},
         enable_llm_cypher=bool(profile.get("enable_llm_cypher", False)),
+        resolution_type_filter=bool(profile.get("resolution_type_filter", False)),
         role_resolution=role_resolution,
         observation_role_edges=observation_role_edges,
         event_role_edges=event_role_edges,
         entity_type_rules=load_entity_type_rules(resources_dir),
+        non_entity_terms=load_non_entity_terms(resources_dir),
         measurement_pattern_specs=meas_patterns["pattern_specs"],
         measurement_unit_right_re=meas_patterns["unit_right_re"],
         measurement_count_claim_types=meas_patterns["count_claim_types"],

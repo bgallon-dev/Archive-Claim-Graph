@@ -1,0 +1,21 @@
+# Run `pre-commit install` once, then hooks run on every `git commit`.
+# Keep `rev` in sync with the ruff pinned in CI and the dev extra.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.12
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+        # Default is 500 kB, which rejects the mined newspaper resources
+        # (discovered_entities.csv ~2.2 MB, non_entity_terms.txt ~840 kB).
+        # Those are runtime resources loaded via resources_newspaper/domain_profile.yaml.
+        args: [--maxkb=2500]

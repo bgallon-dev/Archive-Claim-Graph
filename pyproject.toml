@@ -15,7 +15,7 @@ dependencies = ["pyyaml>=6.0"]
 
 [project.optional-dependencies]
 neo4j = ["neo4j>=5.20.0"]
-dev = ["pytest>=8.0.0", "hypothesis>=6.0.0"]
+dev = ["pytest>=8.0.0", "hypothesis>=6.0.0", "ruff>=0.15", "mypy>=1.20", "pre-commit>=3.7"]
 local = ["openai>=1.0"]
 tools = [
     "pymupdf>=1.24",
@@ -54,6 +54,41 @@ addopts = "-q"
 markers = [
     "integration: marks tests that require a live Neo4j instance (deselect with -m 'not integration')",
 ]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+# Start with the high-signal correctness rules plus import-sorting and a few
+# safe modernizers. Widen this list as the tree is cleaned up.
+select = ["E4", "E7", "E9", "F", "I", "B", "C4", "UP", "SIM"]
+# E501 line-length is noisy on this tree; B008 is the intentional FastAPI
+# Depends()/Query() default-argument idiom used throughout the web apps.
+ignore = ["E501", "B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["F401"]        # re-exports
+"tests/*" = ["F811", "F841"]    # fixture shadowing / bound-but-unused in tests
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = true
+
+[tool.mypy]
+# Deliberately lax to start: many third-party deps are untyped/optional
+# (neo4j, fastapi, jose, bcrypt, pymupdf, anthropic, openai). Tighten from the
+# bottom of the import DAG (core, shared) outward.
+python_version = "3.10"
+ignore_missing_imports = true
+follow_imports = "silent"
+warn_redundant_casts = true
+warn_unused_ignores = true
+exclude = "(^scripts/|^tools/|^notebooks/|kettle_eval)"
+
+[[tool.mypy.overrides]]
+module = ["gemynd.core.*", "gemynd.shared.*"]
+disallow_untyped_defs = true
 
 [tool.setuptools]
 packages = [

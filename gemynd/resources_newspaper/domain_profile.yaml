@@ -8,6 +8,11 @@ description: >
   of the Turnbull National Wildlife Refuge.
 resources:
   seed_entities: seed_entities.csv
+  # Rule-mined vocabulary, unioned in after the curated seeds (which win any
+  # collision). Regenerate with the entity_discovery rules; see
+  # ingest/extractors/entity_discovery.py. Optional — absent file is a no-op.
+  discovered_entities: discovered_entities.csv
+  entity_discovery_rules: entity_discovery_rules.yaml
   claim_type_patterns: claim_type_patterns.yaml
   claim_role_policy: claim_role_policy.yaml
   measurement_units: measurement_units.yaml
@@ -34,6 +39,13 @@ analytical_queries: {}
 
 # Text-to-Cypher LLM fallback (plan B6). Off by default per domain.
 enable_llm_cypher: false
+
+# Reject resolution candidates whose type contradicts the mention's inferred
+# type. Safe here because entity_type_rules.yaml deliberately has NO `fallback`
+# rule, so an unrecognised form stays untyped and filters nothing. Without this,
+# "F. J. Cheney" (Person) resolved to the town of Cheney and "Condon Globe"
+# (Organization) to the town of Condon.
+resolution_type_filter: true
 
 # Synthetic corpus anchor: every newspaper document is treated as being
 # "about Spokane" so the retrieval layer's anchor-based temporal query

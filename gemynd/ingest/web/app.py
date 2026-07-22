@@ -20,6 +20,31 @@ _log = logging.getLogger(__name__)
 
 _TEMPLATES_DIR = Path(__file__).parent / "templates"
 
+
+def _safe_staged_dest(staging_dir: Path, filename: str | None) -> Path:
+    """Resolve an upload filename to a path *inside* ``staging_dir``.
+
+    The multipart-provided ``filename`` is attacker-controlled: an absolute path
+    (``/etc/cron.d/x``) makes ``staging_dir / filename`` discard the staging dir
+    entirely, and ``..`` segments escape it — either turns ``write_bytes`` into an
+    arbitrary-file write. We reduce to the bare basename and verify the resolved
+    destination stays within the staging directory. This is the path-traversal
+    guard the ingest server context requires.
+    """
+    base = os.path.basename((filename or "").replace("\\", "/"))
+    if not base or base in {".", ".."}:
+        from fastapi import HTTPException
+
+        raise HTTPException(status_code=422, detail="Invalid upload filename.")
+    dest = (staging_dir / base).resolve()
+    try:
+        dest.relative_to(staging_dir.resolve())
+    except ValueError:  # pragma: no cover — basename reduction already prevents this
+        from fastapi import HTTPException
+
+        raise HTTPException(status_code=422, detail="Invalid upload filename.") from None
+    return dest
+
 # ---------------------------------------------------------------------------
 # Application factory
 # ---------------------------------------------------------------------------
@@ -247,7 +272,7 @@ def create_app(
         staged: list[tuple[Path, str]] = []
         for upload in files:
             orig_name = upload.filename or "unknown"
-            dest = staging_dir / orig_name
+            dest = _safe_staged_dest(staging_dir, upload.filename)
             dest.write_bytes(await upload.read())
             staged.append((dest, orig_name))
 

@@ -418,6 +418,7 @@ def extract_document(
                 seed_entities=default_seed_entities(resources_dir),
                 supplementary_candidates=supplementary_entity_rows,
                 resources_dir=resources_dir,
+                config=_config,
             )
         semantic = extract_semantic(
             structure,
@@ -525,9 +526,18 @@ def run_e2e(
     resources_dir: Path | None = None,
     graph_resolve: bool = False,
     no_llm: bool = False,
+    retain_bundles: bool = True,
 ) -> dict[str, Any]:
     output_dir = Path(out_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
+    # `retain_bundles=False` streams each doc into Neo4j and then deletes its
+    # per-doc structure/semantic bundle files, so disk stays flat (in-flight docs
+    # only) instead of accumulating the whole corpus (~91GB for 193k newspaper
+    # pages). Only meaningful with the neo4j backend — with the memory backend the
+    # bundles ARE the output, so keep them and warn.
+    if not retain_bundles and backend != "neo4j":
+        _log.warning("retain_bundles=False ignored for backend=%r (bundles are the only output)", backend)
+        retain_bundles = True
     review_output_dir_str = str(Path(review_out_dir)) if review_out_dir is not None else None
     if review_output_dir_str is not None:
         Path(review_output_dir_str).mkdir(parents=True, exist_ok=True)
@@ -663,10 +673,16 @@ def run_e2e(
         if document_entity_counts:
             domain_dir = Path(resources_dir) if resources_dir is not None else None
             _supp_for_prior = supplementary_entities if supplementary_entities else None
+            # config= is load-bearing, not decoration: the resolver's type
+            # filter and non-entity vocabulary both come from it, and this pass
+            # REPLACES semantic.entity_resolutions wholesale. Built without it,
+            # every gated resolution from extract_semantic was silently thrown
+            # away and recomputed ungated for every document after the first.
             freq_resolver = DictionaryFuzzyResolver(
                 seed_entities=default_seed_entities(domain_dir),
                 supplementary_candidates=_supp_for_prior,
                 resources_dir=domain_dir,
+                config=_run_config,
             )
             _, new_resolutions = freq_resolver.resolve(
                 semantic.mentions,
@@ -728,6 +744,19 @@ def run_e2e(
                 if fail_on_kettle_eval:
                     raise
 
+        # Stream mode: the doc is now safely in the graph AND checkpointed, so its
+        # bundle files are no longer needed — delete them to keep disk flat. Done
+        # last, after review/kettle passes that read the bundle paths. The
+        # checkpoint still records the doc, so resume skips it without the bundle.
+        if not retain_bundles:
+            for _key in ("structure_output", "semantic_output"):
+                _bundle = doc_summary.get(_key)
+                if _bundle:
+                    try:
+                        Path(_bundle).unlink(missing_ok=True)
+                    except OSError as _exc:
+                        _log.debug("Could not remove bundle %s: %s", _bundle, _exc)
+
     try:
         if effective_workers <= 1:
             # --- Single-worker: interleaved extract + graph write per document ---
@@ -761,6 +790,25 @@ def run_e2e(
 
         else:
             # --- Multi-worker: parallel extraction (Phase 1) ---
+            # Drop checkpointed docs BEFORE submitting them to the pool.
+            # Extraction — not the graph write — is the expensive half, so
+            # filtering only at write time (as this used to) made every resume
+            # re-extract the whole completed corpus. Mirrors the single-worker
+            # branch above, including its frequency-prior warm-up from the
+            # already-saved semantic bundles.
+            pending_inputs: list[str] = []
+            for input_item in sorted(str_inputs):
+                if input_item in completed_inputs:
+                    _log.info("Skipping checkpointed doc: %s", Path(input_item).stem)
+                    sem_path = output_dir / f"{Path(input_item).stem}.semantic.json"
+                    if sem_path.exists():
+                        _sem = load_semantic_bundle(sem_path)
+                        for res in _sem.entity_resolutions:
+                            if res.relation_type == "REFERS_TO":
+                                document_entity_counts[res.entity_id] += 1
+                    continue
+                pending_inputs.append(input_item)
+
             with ProcessPoolExecutor(max_workers=effective_workers) as executor:
                 future_to_input = {
                     executor.submit(
@@ -773,12 +821,12 @@ def run_e2e(
                         _supp,
                         no_llm,
                     ): input_item
-                    for input_item in str_inputs
+                    for input_item in pending_inputs
                 }
                 for i, future in enumerate(as_completed(future_to_input), 1):
                     input_item = future_to_input[future]
                     summary = future.result()  # re-raises on worker exception
-                    _log.info("[%d/%d] Processed: %s", i, len(str_inputs), Path(input_item).stem)
+                    _log.info("[%d/%d] Processed: %s", i, len(pending_inputs), Path(input_item).stem)
                     doc_summaries.append(summary)
 
             # --- Multi-worker: sequential graph write (Phase 2) ---
@@ -949,9 +997,12 @@ def resolve_mentions_targeted(
         new_claim_links_count, unresolved_after.
     """
     if resolver is None:
+        # config= carries the type filter and non-entity vocabulary; a resolver
+        # built without it resolves mentions this domain says are not names.
         resolver = DictionaryFuzzyResolver(
             seed_entities=default_seed_entities(resources_dir),
             resources_dir=resources_dir,
+            config=load_domain_config(resources_dir),
         )
 
     # Step 1: find unresolved mentions

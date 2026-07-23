@@ -1287,29 +1287,36 @@ function buildWelcome() {
   try {
     members = JSON.parse(document.getElementById('welcome-data').textContent || '[]');
   } catch (e) { members = []; }
+
+  // Corpus intro: named-archives line when we know the corpora, generic
+  // otherwise. Suggestions + the settings hint are appended in BOTH cases —
+  // previously the no-corpora branch returned early without suggestions, so
+  // starter questions silently vanished whenever composite_members was empty.
+  var intro;
   if (!members || members.length === 0) {
-    return '<p>Welcome to the archive explorer. Ask a question about the collection to begin.</p>'
-      + '<p>Use <strong>Settings</strong> for mode and entity hints, or set a year range above. <em>Shift+Enter</em> for a new line.</p>';
-  }
-  var labels = members.map(function(m) { return m.label; });
-  var hints = [];
-  members.forEach(function(m) {
-    (m.topic_hints || []).forEach(function(h) {
-      if (hints.indexOf(h) === -1) hints.push(h);
-    });
-  });
-  var corpusLine;
-  if (labels.length === 1) {
-    corpusLine = 'I can help you query the ' + esc(labels[0]) + ' archive.';
+    intro = '<p>Welcome to the archive explorer. Ask a question about the collection to begin.</p>';
   } else {
-    corpusLine = 'I can help you query the '
-      + labels.slice(0, -1).map(esc).join(', ')
-      + ' and ' + esc(labels[labels.length - 1]) + ' archives.';
+    var labels = members.map(function(m) { return m.label; });
+    var hints = [];
+    members.forEach(function(m) {
+      (m.topic_hints || []).forEach(function(h) {
+        if (hints.indexOf(h) === -1) hints.push(h);
+      });
+    });
+    var corpusLine;
+    if (labels.length === 1) {
+      corpusLine = 'I can help you query the ' + esc(labels[0]) + ' archive.';
+    } else {
+      corpusLine = 'I can help you query the '
+        + labels.slice(0, -1).map(esc).join(', ')
+        + ' and ' + esc(labels[labels.length - 1]) + ' archives.';
+    }
+    var hintLine = hints.length
+      ? '<p>Topics include ' + hints.slice(0, 6).map(esc).join(', ') + '.</p>'
+      : '';
+    intro = '<p>' + corpusLine + '</p>' + hintLine;
   }
-  var hintLine = hints.length
-    ? '<p>Topics include ' + hints.slice(0, 6).map(esc).join(', ') + '.</p>'
-    : '';
-  return '<p>' + corpusLine + '</p>' + hintLine
+  return intro
     + buildSuggestedQuestions()
     + '<p>Use <strong>Settings</strong> for mode and entity hints, or set a year range above. <em>Shift+Enter</em> for a new line.</p>';
 }
@@ -1688,7 +1695,9 @@ async function deleteConversation(sessionId) {
       conversationHistory = [];
       currentSessionId = generateSessionId();
       activeLoadedSessionId = null;
-      appendBubble('assistant', '<p>Conversation deleted. Start a new one below.</p>');
+      // Empty state after a delete: re-show the welcome + suggestions rather
+      // than a bare "deleted" line, so the visitor has somewhere to go.
+      appendBubble('assistant', buildWelcome());
     }
     refreshConvSidebar();
   } catch (err) {
@@ -1961,9 +1970,10 @@ document.addEventListener('DOMContentLoaded', function() {
     currentSessionId = generateSessionId();
     activeLoadedSessionId = null;
     document.getElementById('chat-area').innerHTML = '';
-    appendBubble('assistant',
-      '<p>New conversation started. Ask me anything about the archive.</p>'
-    );
+    // Re-show the full welcome — corpus intro AND the suggested-question chips —
+    // so a new conversation is as inviting as the first page load, not a bare
+    // one-line prompt.
+    appendBubble('assistant', buildWelcome());
     // Clear active highlight in the sidebar
     var items = document.querySelectorAll('#conv-list li');
     items.forEach(function(li) { li.classList.remove('active'); });

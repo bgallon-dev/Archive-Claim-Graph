@@ -161,6 +161,48 @@
     cursor: pointer;
   }
   .citation-pill:hover { background: var(--bark-100); }
+
+  /* Visitor view: citations as quiet superscript footnote numbers. Bigger tap
+     target than it looks (padding), so it works on a phone. */
+  .citation-super {
+    display: inline-block;
+    font-family: var(--font-body, sans-serif);
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--bark-600);
+    vertical-align: super;
+    margin-left: 1px;
+    padding: 2px 3px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  .citation-super.claim-link:hover { background: var(--bark-100); color: var(--bark-800); }
+
+  /* Visitor view: plain-language confidence with a 3-dot meter. */
+  .conf-worded {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px 3px 8px;
+    border-radius: var(--radius-pill, 99px);
+    background: var(--bark-50);
+    color: var(--text-secondary);
+  }
+  .conf-dots { display: inline-flex; gap: 2px; }
+  .conf-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--border-medium);
+  }
+  .conf-worded-warm  .conf-dot.on { background: var(--accent-green-text, #2a5c1a); }
+  .conf-worded-amber .conf-dot.on { background: var(--accent-amber-text, #6b4d0a); }
+  .conf-worded-red   .conf-dot.on { background: var(--accent-red-text, #8b2114); }
+  .conf-worded-warm  { color: var(--accent-green-text, #2a5c1a); }
+  .conf-worded-amber { color: var(--accent-amber-text, #6b4d0a); }
+  .conf-worded-red   { color: var(--accent-red-text, #8b2114); }
+
   .provenance-footer { margin-top: 0.9rem; font-size: 12px; color: var(--text-tertiary); }
   .provenance-footer:empty { display: none; }
   .provenance-footer .coverage { border-top: none; padding-top: 0; }
@@ -394,6 +436,14 @@ function _csrfToken() {
 var conversationHistory = [];
 var HISTORY_LIMIT = 10;
 
+// Museum-visitor view. The demo account is `readonly`; archivists and admins
+// keep the full archival chrome (retrieval provenance, divergence notes,
+// numeric confidence, hash-style citations). Visitors get a calmer, plainer
+// rendering of the SAME data — nothing is hidden that changes the answer, only
+// tooling metadata a walk-up visitor has no use for.
+var GEMYND_USER_ROLE = "{{ user_role | default('', true) }}";
+var VISITOR_VIEW = GEMYND_USER_ROLE === 'readonly';
+
 function generateSessionId() {
   return 'sess_' + Date.now().toString(36) + Math.random().toString(36).slice(2);
 }
@@ -425,6 +475,24 @@ function confidenceBadge(conf, compact) {
   var cls = conf >= 0.85 ? 'warm' : conf >= 0.70 ? 'amber' : 'red';
   var label = compact ? '' : ' confidence';
   return '<span class="badge badge-' + cls + '">' + pct + '%' + label + '</span>';
+}
+
+// Plain-language confidence for the visitor view. Same thresholds as
+// confidenceBadge, but words a walk-up visitor understands and a filled-dot
+// meter instead of a bare percentage. The archivist view keeps the number.
+function confidenceWorded(conf) {
+  if (conf === null || conf === undefined) return '';
+  var tier, dots, cls;
+  if (conf >= 0.85)      { tier = 'Well documented';  dots = 3; cls = 'warm'; }
+  else if (conf >= 0.70) { tier = 'Documented';       dots = 2; cls = 'amber'; }
+  else                   { tier = 'Limited records';  dots = 1; cls = 'red'; }
+  var meter = '';
+  for (var i = 0; i < 3; i++) {
+    meter += '<span class="conf-dot' + (i < dots ? ' on' : '') + '"></span>';
+  }
+  return '<span class="conf-worded conf-worded-' + cls + '">'
+    + '<span class="conf-dots" aria-hidden="true">' + meter + '</span>'
+    + esc(tier) + '</span>';
 }
 
 function formatTable(ar) {
@@ -615,7 +683,10 @@ function buildConfidenceDist(claims) {
 
 function buildSourcePreview(claim) {
   if (!claim) return '';
-  var badge = (claim.confidence != null) ? confidenceBadge(claim.confidence) : '';
+  // Visitor view: drop the per-source numeric badge — the worded headline
+  // confidence already conveys it, and "92% confidence" here reads as tooling
+  // next to the plain-language strip above.
+  var badge = (!VISITOR_VIEW && claim.confidence != null) ? confidenceBadge(claim.confidence) : '';
   var sentence = claim.source_sentence ? esc(claim.source_sentence) : '<em>No text available</em>';
   var docLabel = claim.doc_title ? esc(claim.doc_title) : (claim.doc_id ? esc(claim.doc_id) : '');
   var docHtml = docLabel ? '<span class="src-doc">\u2014 ' + docLabel + '</span>' : '';
@@ -719,34 +790,46 @@ function renderStructureDivergence(div) {
     + esc(div.message) + '</div>';
 }
 
-function renderSentenceInner(s, claimDetailMap) {
-  // Build a single sentence's inner HTML: escaped text + inline citation pills.
+function renderSentenceInner(s, claimDetailMap, citeCtx) {
+  // Build a single sentence's inner HTML: escaped text + inline citations.
+  // citeCtx (visitor view) renders citations as compact superscript footnote
+  // numbers assigned in order of first appearance; the archivist view keeps the
+  // hash-style pills. Either way the citation taps through to the document modal.
   var text = esc(s.text || '');
   var pills = '';
+  var visitor = !!(citeCtx && citeCtx.visitor);
   if (s.supporting_claim_ids && s.supporting_claim_ids.length) {
     pills = s.supporting_claim_ids.map(function (cid) {
       var detail = claimDetailMap ? claimDetailMap[cid] : null;
+      var label, cls;
+      if (visitor) {
+        if (citeCtx.map[cid] === undefined) { citeCtx.map[cid] = citeCtx.next++; }
+        label = String(citeCtx.map[cid]);
+        cls = 'citation-super';
+      } else {
+        label = esc(cid.slice(0, 8));
+        cls = 'citation-pill';
+      }
       if (detail && detail.doc_id) {
         var did = esc(detail.doc_id);
         var hl = detail.source_sentence
           ? ' data-highlight="' + esc(detail.source_sentence) + '"'
           : '';
-        return '<span class="citation-pill claim-link" title="' + esc(cid) + '"'
+        return '<span class="' + cls + ' claim-link" title="' + esc(cid) + '"'
           + ' hx-get="/document/' + did + '/modal"'
           + ' hx-target="#document-modal"'
           + ' hx-swap="innerHTML"'
           + hl
           + ' role="button" tabindex="0">'
-          + esc(cid.slice(0, 8)) + '</span>';
+          + label + '</span>';
       }
-      return '<span class="citation-pill" title="' + esc(cid) + '">'
-        + esc(cid.slice(0, 8)) + '</span>';
+      return '<span class="' + cls + '" title="' + esc(cid) + '">' + label + '</span>';
     }).join('');
   }
   return '<span class="answer-sentence">' + text + pills + '</span>';
 }
 
-function renderAnswerSentences(sentences, answer, claimDetailMap) {
+function renderAnswerSentences(sentences, answer, claimDetailMap, citeCtx) {
   // When the structured answer_sentences list is present, walk it to build
   // inline citation pills and inferred markers.  Falls back to the flat
   // `answer` string when sentences are empty (legacy / fallback path).
@@ -767,7 +850,7 @@ function renderAnswerSentences(sentences, answer, claimDetailMap) {
       i++;
     }
     var inner = run.map(function (s) {
-      return renderSentenceInner(s, claimDetailMap);
+      return renderSentenceInner(s, claimDetailMap, citeCtx);
     }).join(' ');
     if (inferredRun) {
       html += '<div class="answer-inferred-block" role="note"'
@@ -788,9 +871,16 @@ function renderAnswerSentences(sentences, answer, claimDetailMap) {
 
 function formatResponse(data) {
   // ---- Retrieval provenance preamble + divergence note (server-built) ----
+  // These are archival-QA signals ("searched turnbull; deprioritized spokane",
+  // "model chose thematic over chronological"). Useful to an archivist, noise
+  // to a visitor — hidden in the visitor view.
   var html = '';
-  html += renderRetrievalProvenance(data.retrieval_provenance);
-  html += renderStructureDivergence(data.structure_divergence);
+  if (!VISITOR_VIEW) {
+    html += renderRetrievalProvenance(data.retrieval_provenance);
+    html += renderStructureDivergence(data.structure_divergence);
+  }
+  // Per-answer citation numbering context for the visitor view.
+  var citeCtx = { visitor: VISITOR_VIEW, map: {}, next: 1 };
 
   // ---- Answer header (tier-1 structured-first, prose, year-range badge) ----
   var headerInner = '';
@@ -802,7 +892,7 @@ function formatResponse(data) {
       if (c.claim_id) claimDetailMap[c.claim_id] = c;
     });
   }
-  var answerProse = renderAnswerSentences(data.answer_sentences, data.answer, claimDetailMap);
+  var answerProse = renderAnswerSentences(data.answer_sentences, data.answer, claimDetailMap, citeCtx);
   if (tableFirst) {
     headerInner += renderTier1Body(t1);
     // Subtitle position uses the flat answer for compactness.
@@ -818,14 +908,22 @@ function formatResponse(data) {
     html += renderStructuralSidecar(data.structural_view);
   }
 
-  // ---- Confidence strip (badge + ambiguity + caveat anchor) ----
+  // ---- Confidence strip ----
+  // Visitor view: worded confidence, no ambiguity warning (an archival-QA
+  // concern, not a visitor one). Archivist view: numeric badge + ambiguity,
+  // unchanged.
   var stripParts = [];
-  var badge = confidenceBadge(data.min_extraction_confidence);
-  if (badge) stripParts.push(badge);
-  if (data.ambiguous_entities && data.ambiguous_entities.length > 0) {
-    stripParts.push('<span class="badge badge-amber">\u26a0 '
-      + data.ambiguous_entities.length + ' ambiguous: '
-      + data.ambiguous_entities.map(esc).join(', ') + '</span>');
+  if (VISITOR_VIEW) {
+    var worded = confidenceWorded(data.min_extraction_confidence);
+    if (worded) stripParts.push(worded);
+  } else {
+    var badge = confidenceBadge(data.min_extraction_confidence);
+    if (badge) stripParts.push(badge);
+    if (data.ambiguous_entities && data.ambiguous_entities.length > 0) {
+      stripParts.push('<span class="badge badge-amber">\u26a0 '
+        + data.ambiguous_entities.length + ' ambiguous: '
+        + data.ambiguous_entities.map(esc).join(', ') + '</span>');
+    }
   }
   if (stripParts.length > 0) {
     html += '<div class="confidence-strip">' + stripParts.join('') + '</div>';
@@ -1576,7 +1674,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // read data-highlight from it directly.
   var pendingHighlight = null;
   document.getElementById('chat-area').addEventListener('click', function(e) {
-    var trigger = e.target.closest('tr.src-row-clickable[data-highlight], span.citation-pill.claim-link[data-highlight]');
+    var trigger = e.target.closest('tr.src-row-clickable[data-highlight], span.citation-pill.claim-link[data-highlight], span.citation-super.claim-link[data-highlight]');
     if (!trigger) return;
     pendingHighlight = trigger.getAttribute('data-highlight');
   }, true);  // capture phase so we run before htmx fires the request

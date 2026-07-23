@@ -203,6 +203,72 @@
   .conf-worded-amber { color: var(--accent-amber-text, #6b4d0a); }
   .conf-worded-red   { color: var(--accent-red-text, #8b2114); }
 
+  /* Visitor view: scannable section headings inside the answer. */
+  .answer-section-h {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--bark-700, #5a3e2b);
+    margin: 1.1rem 0 0.35rem;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--border-light);
+    letter-spacing: 0.01em;
+  }
+  .answer-header > .answer-section-h:first-child { margin-top: 0; }
+
+  /* Visitor view: source-document gallery. */
+  .source-gallery-wrap { margin-top: 1rem; }
+  .source-gallery-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary, #9c9488);
+    margin-bottom: 8px;
+  }
+  .source-gallery {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .src-card {
+    flex: 0 0 auto;
+    width: 168px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 11px 12px;
+    background: var(--bark-50, #f5f0e8);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md, 8px);
+    cursor: pointer;
+    font-family: var(--font-body, sans-serif);
+    transition: border-color 0.12s, background 0.12s;
+  }
+  .src-card:hover { border-color: var(--bark-300, #c4a882); background: var(--bark-100, #e8ddd0); }
+  .src-card-title {
+    font-family: var(--font-display, Georgia, serif);
+    font-size: 13px;
+    line-height: 1.3;
+    color: var(--text-primary, #1a1410);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .src-card-meta { display: flex; align-items: center; gap: 6px; margin-top: auto; }
+  .src-card-year {
+    font-size: 11px; font-weight: 600;
+    color: var(--bark-700, #5a3e2b);
+    background: var(--white, #fff);
+    border: 1px solid var(--border-light);
+    border-radius: 3px;
+    padding: 1px 6px;
+  }
+  .src-card-count { font-size: 11px; color: var(--text-secondary, #6b6054); }
+
   .provenance-footer { margin-top: 0.9rem; font-size: 12px; color: var(--text-tertiary); }
   .provenance-footer:empty { display: none; }
   .provenance-footer .coverage { border-top: none; padding-top: 0; }
@@ -869,6 +935,126 @@ function renderAnswerSentences(sentences, answer, claimDetailMap, citeCtx) {
   return html;
 }
 
+function renderAnswerSectioned(sentences, claimDetailMap, citeCtx, outline) {
+  // Visitor view: break the answer into the model's own section_outline
+  // headings so a long answer is scannable instead of a wall of prose.
+  // Each section lists claim_ids; each sentence cites claim_ids — we assign a
+  // sentence to the section its citations most point at, then emit a heading
+  // whenever the section changes. Returns null (caller falls back to flat
+  // prose) when fewer than 2 sections actually resolve, so a single pointless
+  // heading is never drawn.
+  if (!sentences || !sentences.length || !outline || outline.length < 2) return null;
+
+  var secOf = {};  // claim_id -> first section index that lists it
+  outline.forEach(function (sec, i) {
+    (sec.claim_ids || []).forEach(function (cid) {
+      if (secOf[cid] === undefined) secOf[cid] = i;
+    });
+  });
+
+  // Assign each sentence a section by majority vote of its citations; ties go
+  // to the lower index; uncited/unmatched sentences inherit the running section
+  // (so an inferred bridge sentence stays under the heading it continues).
+  var assign = [];
+  var running = -1;
+  sentences.forEach(function (s) {
+    var votes = {};
+    (s.supporting_claim_ids || []).forEach(function (cid) {
+      if (secOf[cid] !== undefined) votes[secOf[cid]] = (votes[secOf[cid]] || 0) + 1;
+    });
+    var best = -1, bestN = 0;
+    Object.keys(votes).forEach(function (k) {
+      var n = votes[k], idx = +k;
+      if (n > bestN || (n === bestN && (best === -1 || idx < best))) { best = idx; bestN = n; }
+    });
+    if (best === -1) best = running;   // carry forward; stays -1 for a leading intro
+    running = best;
+    assign.push(best);
+  });
+
+  var distinct = {};
+  assign.forEach(function (a) { if (a >= 0) distinct[a] = true; });
+  if (Object.keys(distinct).length < 2) return null;
+
+  var html = '';
+  var prevSec = -2;
+  var i = 0;
+  while (i < sentences.length) {
+    var sec = assign[i];
+    if (sec >= 0 && sec !== prevSec) {
+      html += '<h4 class="answer-section-h">' + esc(outline[sec].heading || '') + '</h4>';
+    }
+    prevSec = sec;
+    // Consume a run of same section AND same inferred flag, so inferred styling
+    // survives inside a section.
+    var inf = !!sentences[i].is_inferred;
+    var run = [];
+    while (i < sentences.length && assign[i] === sec && !!sentences[i].is_inferred === inf) {
+      run.push(sentences[i]); i++;
+    }
+    var inner = run.map(function (s) {
+      return renderSentenceInner(s, claimDetailMap, citeCtx);
+    }).join(' ');
+    if (inf) {
+      html += '<div class="answer-inferred-block" role="note"'
+        + ' aria-label="Inferred: model synthesis, not directly cited">'
+        + '<div class="answer-inferred-divider"><span class="answer-inferred-label"'
+        + ' title="Author-marked inference / synthesis bridge — not directly cited evidence">'
+        + 'inferred — model synthesis</span></div>'
+        + '<p class="answer answer-inferred-body">' + inner + '</p></div>';
+    } else {
+      html += '<p class="answer">' + inner + '</p>';
+    }
+  }
+  return html;
+}
+
+// Group the supporting claims by source document and render a tappable card
+// per document: the real title (doc_title_raw), a year chip, and how many
+// claims came from it. Makes the archive behind the answer tangible, and each
+// card opens that document in the modal.
+function renderSourceGallery(details) {
+  if (!details || !details.length) return '';
+  var order = [];
+  var byDoc = {};
+  details.forEach(function (c) {
+    var did = c.doc_id;
+    if (!did) return;
+    if (!byDoc[did]) { byDoc[did] = { did: did, claims: [], sample: c }; order.push(did); }
+    byDoc[did].claims.push(c);
+  });
+  if (!order.length) return '';
+  // Most-cited documents first.
+  order.sort(function (a, b) { return byDoc[b].claims.length - byDoc[a].claims.length; });
+
+  var cards = order.map(function (did) {
+    var g = byDoc[did];
+    var c = g.sample;
+    // doc_title_raw is the human title ("A Brief History of Turnbull NWR");
+    // doc_title is a synthetic, sometimes mojibake-corrupted id — avoid it.
+    var title = c.doc_title_raw || c.doc_title || did;
+    // A year, if one is embedded in either title, as a small chip.
+    var ym = (String(c.doc_title || '') + ' ' + String(c.doc_title_raw || '')).match(/\b(18|19|20)\d\d\b/);
+    var yearChip = ym ? '<span class="src-card-year">' + esc(ym[0]) + '</span>' : '';
+    var n = g.claims.length;
+    var countLbl = n + (n === 1 ? ' claim' : ' claims');
+    var hl = c.source_sentence ? ' data-highlight="' + esc(c.source_sentence) + '"' : '';
+    return '<button class="src-card claim-link" type="button"'
+      + ' hx-get="/document/' + esc(did) + '/modal"'
+      + ' hx-target="#document-modal" hx-swap="innerHTML"' + hl + '>'
+      + '<span class="src-card-title">' + esc(title) + '</span>'
+      + '<span class="src-card-meta">' + yearChip
+      + '<span class="src-card-count">' + countLbl + '</span></span>'
+      + '</button>';
+  }).join('');
+
+  var n = order.length;
+  return '<div class="source-gallery-wrap">'
+    + '<div class="source-gallery-label">Drawn from ' + n
+    + (n === 1 ? ' archival record' : ' archival records') + '</div>'
+    + '<div class="source-gallery">' + cards + '</div></div>';
+}
+
 function formatResponse(data) {
   // ---- Retrieval provenance preamble + divergence note (server-built) ----
   // These are archival-QA signals ("searched turnbull; deprioritized spokane",
@@ -892,7 +1078,18 @@ function formatResponse(data) {
       if (c.claim_id) claimDetailMap[c.claim_id] = c;
     });
   }
-  var answerProse = renderAnswerSentences(data.answer_sentences, data.answer, claimDetailMap, citeCtx);
+  // Visitor view: try the model's section_outline for scannable headings;
+  // fall back to flat prose if it doesn't resolve to 2+ sections. Archivists
+  // keep flat prose (unchanged).
+  var answerProse = null;
+  if (VISITOR_VIEW) {
+    answerProse = renderAnswerSectioned(
+      data.answer_sentences, claimDetailMap, citeCtx, data.section_outline);
+  }
+  if (answerProse === null) {
+    answerProse = renderAnswerSentences(
+      data.answer_sentences, data.answer, claimDetailMap, citeCtx);
+  }
   if (tableFirst) {
     headerInner += renderTier1Body(t1);
     // Subtitle position uses the flat answer for compactness.
@@ -942,7 +1139,12 @@ function formatResponse(data) {
 
   // ---- Provenance footer (sources preview + details, notes, coverage) ----
   var footerParts = [];
-  if (data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
+  if (VISITOR_VIEW && data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
+    // Visitor view: a gallery of the source documents instead of the raw
+    // claim-by-claim table (which reads as tooling — claim ids, types,
+    // per-claim confidences).
+    footerParts.push(renderSourceGallery(data.supporting_claims_detail));
+  } else if (data.supporting_claims_detail && data.supporting_claims_detail.length > 0) {
     var details = data.supporting_claims_detail;
     footerParts.push(buildSourcePreview(details[0]));
     var rows = details.map(function(c) {

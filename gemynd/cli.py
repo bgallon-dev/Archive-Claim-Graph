@@ -334,6 +334,25 @@ def build_parser() -> argparse.ArgumentParser:
     corpus_default_parser = corpus_sub.add_parser("set-default", help="Set a corpus as the default.")
     corpus_default_parser.add_argument("id", help="Corpus ID to set as default.")
 
+    # -- Featured questions / curated answer cache ----------------------------
+    featured_parser = subparsers.add_parser(
+        "featured",
+        help="Manage starter questions and the curated answer cache (see retrieval/featured.py).",
+    )
+    featured_sub = featured_parser.add_subparsers(dest="featured_command", required=True)
+    featured_sub.add_parser("list", help="List featured questions ([cached] = answers instantly).")
+    _fa = featured_sub.add_parser("add", help="Add a starter question (shown as a suggestion; runs live).")
+    _fa.add_argument("question")
+    _fa.add_argument("--order", type=int, default=0, help="Sort order (lower shows first).")
+    _fc = featured_sub.add_parser(
+        "capture",
+        help="Capture the most recent logged answer for a question so it answers instantly.",
+    )
+    _fc.add_argument("question")
+    _fc.add_argument("--conv-log", default=None, help="conversation_log.db path (default from settings).")
+    _fr = featured_sub.add_parser("remove", help="Remove a featured question.")
+    _fr.add_argument("question")
+
     # -- Status command --------------------------------------------------------
     status_parser = subparsers.add_parser(
         "status",
@@ -930,6 +949,63 @@ def main(argv: list[str] | None = None) -> int:
                 print(f"[error] Corpus {args.id!r} not found.", file=sys.stderr)
                 return 1
             print(f"Default corpus set to {args.id!r}.")
+            return 0
+
+    if args.command == "featured":
+        import os
+        import sqlite3
+        from gemynd.retrieval.featured import FeaturedStore, normalize_question
+
+        store = FeaturedStore(os.environ.get("FEATURED_DB", "data/featured.db"))
+
+        if args.featured_command == "list":
+            qs = store.list_questions()
+            for q in qs:
+                print(("[cached] " if q["cached"] else "[  -   ] ") + q["display"])
+            print(f"\n{len(qs)} featured question(s); "
+                  f"{sum(1 for q in qs if q['cached'])} answer instantly.")
+            return 0
+
+        if args.featured_command == "add":
+            store.add(args.question, sort_order=args.order)
+            print(f"Added starter question: {args.question!r}")
+            print("It shows as a suggestion and runs live. To make it instant, "
+                  "ask it once in the UI, then: gemynd featured capture <question>")
+            return 0
+
+        if args.featured_command == "remove":
+            ok = store.remove(args.question)
+            print("Removed." if ok else "No matching featured question.")
+            return 0 if ok else 1
+
+        if args.featured_command == "capture":
+            # Settings is imported at module scope (top of file); do NOT re-import
+            # it locally here — a local import would make `Settings` a function-
+            # local throughout main() and break its earlier use.
+            conv_path = args.conv_log or Settings.from_env().conv_log_db
+            norm = normalize_question(args.question)
+            found = None
+            conn = sqlite3.connect(conv_path)
+            try:
+                # Newest matching answered turn wins.
+                for qtext, rj in conn.execute(
+                    "SELECT query_text, response_json FROM conversation "
+                    "WHERE response_json IS NOT NULL ORDER BY created_at DESC LIMIT 1000"
+                ):
+                    if normalize_question(qtext) == norm:
+                        found = rj
+                        break
+            finally:
+                conn.close()
+            if not found:
+                print(
+                    f"No answered query matching {args.question!r} in {conv_path}.\n"
+                    "Ask the question once in the UI (so it lands in the log), then capture.",
+                    file=sys.stderr,
+                )
+                return 1
+            store.capture(args.question, found)
+            print(f"Captured answer for {args.question!r} — it now answers instantly.")
             return 0
 
     if args.command == "status":

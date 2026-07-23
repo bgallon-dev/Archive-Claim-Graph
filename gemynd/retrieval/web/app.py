@@ -1407,6 +1407,19 @@ def create_app(
             token_logger=_token_logger,
         )
 
+        # Featured questions + curated answer cache. An empty/missing store is a
+        # no-op (no suggestions, no cache hits = current behaviour), and any
+        # failure to open it must never take the query API down — so it degrades
+        # to None. Populated out of band by `gemynd featured` (never the request path).
+        try:
+            from gemynd.retrieval.featured import FeaturedStore
+            state["featured"] = FeaturedStore(
+                os.environ.get("FEATURED_DB", "data/featured.db")
+            )
+        except Exception:
+            _log.warning("featured store unavailable; suggestions/cache disabled", exc_info=True)
+            state["featured"] = None
+
         yield
         executor.close()
         db_mgr.close_all()
@@ -1582,6 +1595,13 @@ def create_app(
                     "topic_hints": getattr(m, "welcome_topic_hints", []) or [],
                 })
         bounds = state.get("classifier_year_bounds") or (None, None)
+        _featured = state.get("featured")
+        featured_questions = []
+        if _featured is not None:
+            try:
+                featured_questions = [q["display"] for q in _featured.list_questions()]
+            except Exception:
+                _log.warning("failed to list featured questions", exc_info=True)
         return _templates.TemplateResponse(
             "chat.html",
             {
@@ -1589,6 +1609,7 @@ def create_app(
                 "composite_members": members,
                 "corpus_year_min": bounds[0],
                 "corpus_year_max": bounds[1],
+                "featured_questions": featured_questions,
                 **_user_ctx(user),
             },
         )
@@ -1608,6 +1629,26 @@ def create_app(
                     detail="Rate limit exceeded. Maximum 20 requests per minute.",
                     headers={"Retry-After": "60"},
                 )
+
+        # Curated answer cache: a question the curator has featured + captured
+        # answers instantly, skipping the ~100s pipeline. Exact match on a
+        # normalised form (see featured.py) — a miss just falls through to the
+        # live path, and a malformed entry is treated as a miss, so this can
+        # never serve a wrong answer or break a query. Access scope is not a
+        # concern: the demo is single-tier (readonly=public) and the curator
+        # vets each captured answer; if per-tenant featured content is ever
+        # needed, key the store by institution set.
+        _featured = state.get("featured")
+        if _featured is not None:
+            _cached = _featured.get_cached(req.text)
+            if _cached is not None:
+                try:
+                    return QueryResponse.model_validate(_cached)
+                except Exception:
+                    _log.warning(
+                        "featured cache entry for %r failed to validate; running live",
+                        req.text[:60],
+                    )
 
         gateway: EntityResolutionGateway = state["gateway"]
         assembler: ProvenanceContextAssembler = state["assembler"]

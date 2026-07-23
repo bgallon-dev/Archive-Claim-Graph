@@ -269,6 +269,31 @@
   }
   .src-card-count { font-size: 11px; color: var(--text-secondary, #6b6054); }
 
+  /* Starter-question chips on the empty landing. */
+  .suggested-q-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary, #9c9488);
+    margin: 1rem 0 0.5rem;
+  }
+  .suggested-q-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 0.5rem; }
+  .suggested-q {
+    text-align: left;
+    font-family: var(--font-body, sans-serif);
+    font-size: 13px;
+    line-height: 1.35;
+    color: var(--bark-800, #3d2b1f);
+    background: var(--bark-50, #f5f0e8);
+    border: 1px solid var(--border-medium, rgba(61,43,31,0.18));
+    border-radius: var(--radius-md, 8px);
+    padding: 9px 13px;
+    cursor: pointer;
+    transition: border-color 0.12s, background 0.12s;
+  }
+  .suggested-q:hover { border-color: var(--bark-400, #a89272); background: var(--bark-100, #e8ddd0); }
+  .suggested-q:active { background: var(--bark-200, #d9c4a0); }
+
   .provenance-footer { margin-top: 0.9rem; font-size: 12px; color: var(--text-tertiary); }
   .provenance-footer:empty { display: none; }
   .provenance-footer .coverage { border-top: none; padding-top: 0; }
@@ -486,6 +511,7 @@
     </div>
   </div>
   <script id="welcome-data" type="application/json">{{ composite_members | tojson }}</script>
+  <script id="featured-data" type="application/json">{{ featured_questions | default([], true) | tojson }}</script>
   </div>
 </div>
 
@@ -1284,8 +1310,38 @@ function buildWelcome() {
     ? '<p>Topics include ' + hints.slice(0, 6).map(esc).join(', ') + '.</p>'
     : '';
   return '<p>' + corpusLine + '</p>' + hintLine
+    + buildSuggestedQuestions()
     + '<p>Use <strong>Settings</strong> for mode and entity hints, or set a year range above. <em>Shift+Enter</em> for a new line.</p>';
 }
+
+// Curator-maintained starter questions (empty => nothing rendered, so this is
+// a no-op until `gemynd featured add/capture` populates the store). Tapping one
+// asks it; if the curator has captured its answer it returns instantly.
+function buildSuggestedQuestions() {
+  var qs = [];
+  try {
+    qs = JSON.parse(document.getElementById('featured-data').textContent || '[]');
+  } catch (e) { qs = []; }
+  if (!qs || !qs.length) return '';
+  var chips = qs.map(function (q) {
+    return '<button type="button" class="suggested-q" data-q="' + esc(q) + '">'
+      + esc(q) + '</button>';
+  }).join('');
+  return '<div class="suggested-q-label">Try asking</div>'
+    + '<div class="suggested-q-row">' + chips + '</div>';
+}
+
+// One delegated listener: a tapped suggestion fills the box and submits through
+// the normal path (so streaming, history and the cache hook all apply).
+document.addEventListener('click', function (e) {
+  var chip = e.target.closest ? e.target.closest('.suggested-q') : null;
+  if (!chip) return;
+  var q = chip.getAttribute('data-q') || '';
+  var ta = document.getElementById('user-input');
+  if (!ta || !q) return;
+  ta.value = q;
+  if (typeof sendMessage === 'function') sendMessage();
+});
 
 // ---------- Conversation sidebar (cached history) ----------
 

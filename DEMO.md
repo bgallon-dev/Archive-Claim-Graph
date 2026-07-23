@@ -77,6 +77,37 @@ The one thing to avoid is asking the same question over and over — each attemp
 starts another ~100-second job on the same laptop while the earlier ones are
 still running.
 
+## Featured questions + instant answers (curator)
+
+The empty chat screen can show a row of starter questions so visitors aren't
+staring at a blank box, and a featured question the curator has *captured* comes
+back **instantly** instead of running the ~100s pipeline. Same store does both.
+
+Curate from a terminal (the running server is not involved in writes):
+
+```powershell
+# 1. add starter questions (shown as suggestions; still run live when tapped)
+python -m gemynd.cli featured add "What animals are most prevalent at Turnbull?"
+python -m gemynd.cli featured add "Why was the refuge established?"
+
+# 2. ask each one once in the UI so a good answer lands in the log, then:
+python -m gemynd.cli featured capture "What animals are most prevalent at Turnbull?"
+#    -> that question now answers instantly
+
+python -m gemynd.cli featured list      # [cached] = answers instantly
+python -m gemynd.cli featured remove "..."
+```
+
+Matching is exact on a normalised form (case/whitespace/trailing punctuation),
+so **tapping a suggestion always hits**; a typed paraphrase just runs live. It
+can never serve a *wrong* cached answer — worst case is a miss.
+
+**Needs a server restart to take effect** (it's Python, not a template): restart
+with `-KeepPassword` so the demo card stays valid. Seed the store *before*
+restarting, ideally during the cache warm-up, so the featured answers are ready
+when the doors open. An empty store = today's behaviour (no suggestions, no
+instant answers).
+
 ## What visitors can and cannot see
 
 The demo account is `readonly`, which resolves to `permitted_levels = ['public']`.

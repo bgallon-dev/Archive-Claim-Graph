@@ -20,6 +20,12 @@ class Settings:
     synthesis_model: str = "claude-sonnet-4-6"
     synthesis_timeout_seconds: float = 60.0
     synthesis_max_retries: int = 0
+    # Synthesis provider switch. "anthropic" (default) keeps the current path.
+    # "lmstudio"/"openai"/"local" route synthesis to an OpenAI-compatible
+    # endpoint (openai_base_url) for offline/local operation. The model and key
+    # for that path come from synthesis_openai_model + a resolved local key.
+    synthesis_provider: str = "anthropic"
+    synthesis_openai_model: str = ""
     # Claim-extraction provider switch (EXTRACTION PATH ONLY; synthesis/Cypher stay Anthropic)
     llm_provider: str = "anthropic"
     llm_model: str = ""
@@ -73,6 +79,8 @@ class Settings:
             synthesis_model=os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6"),
             synthesis_timeout_seconds=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
             synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
+            synthesis_provider=os.environ.get("SYNTHESIS_PROVIDER", "anthropic").strip().lower(),
+            synthesis_openai_model=os.environ.get("SYNTHESIS_OPENAI_MODEL", ""),
             llm_provider=os.environ.get("LLM_PROVIDER", "anthropic"),
             llm_model=os.environ.get("LLM_MODEL", ""),
             openai_api_key=os.environ.get("OPENAI_API_KEY", ""),

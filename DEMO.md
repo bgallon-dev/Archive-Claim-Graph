@@ -221,6 +221,44 @@ citing 8 claims, versus 3,032 citing 22). That is a real quality cost, so it is
 left at the default. Try 120000 for a middle ground if you want to trade some
 depth for speed.
 
+## Local synthesis via LM Studio (offline option — verified, but slow)
+
+Synthesis can run against a local LM Studio model instead of Anthropic, so the
+demo can answer with **no internet**. It is off by default; the Anthropic path
+is unchanged unless you switch it on.
+
+Enable (needs a restart — it's read at startup):
+
+```
+# in .env, or the environment before demo_serve
+SYNTHESIS_PROVIDER=lmstudio
+SYNTHESIS_OPENAI_MODEL=google/gemma-4-e4b   # MUST match a model loaded in LM Studio
+# LMSTUDIO_KEY and OPENAI_BASE_URL=http://localhost:1234/v1 are already read.
+```
+
+To go back to Anthropic: remove `SYNTHESIS_PROVIDER` (or set it to `anthropic`)
+and restart.
+
+**What it does and doesn't do — measured, not assumed.** gemma-4-e4b produces
+correct, well-formed answers: valid JSON envelope, every citation validated
+(3/3 and 12/12 in testing). The problem is **speed**, and it scales badly with
+context: ~48s for 3 claims, ~207s for 12. A real demo question pulls 250+
+claims, which would take many minutes on this hardware — impractical as the
+everyday path.
+
+So the honest positioning:
+
+- **Not** the primary path for live questions at full context — too slow.
+- **Good for offline resilience**: if the venue has no internet, a slow local
+  answer beats a failed one. Pair it with a tighter context (fewer claims) so it
+  stays responsive.
+- **Best fit: pre-compute the featured answers offline.** Run your curated
+  questions through the local model once, `featured capture` them, and visitors
+  get instant cached answers with zero internet dependency at showtime.
+
+`LLM_MODEL` in `.env` (`google/gemma-4-e2b`) is stale — the loaded model is
+`e4b`. Set `SYNTHESIS_OPENAI_MODEL` explicitly rather than relying on it.
+
 ## The security tradeoff, stated plainly
 
 This serves **plain HTTP with no TLS**. Anyone on the same network can read the

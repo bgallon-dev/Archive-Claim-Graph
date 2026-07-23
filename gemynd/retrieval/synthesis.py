@@ -164,6 +164,18 @@ from gemynd.shared.settings import Settings as _Settings
 
 MODEL = _Settings.from_env().synthesis_model
 
+
+def _resolve_local_key(settings: "_Settings") -> str:
+    """API key for a local/OpenAI-compatible synthesis endpoint. LM Studio
+    requires a real Bearer token; try the canonical env var, then common
+    variants, then the settings' OpenAI key."""
+    import os
+    for name in ("SYNTHESIS_OPENAI_API_KEY", "LMSTUDIO_KEY", "LMSUDIO_KEY", "OPENAI_API_KEY"):
+        val = os.environ.get(name)
+        if val:
+            return val
+    return settings.openai_api_key
+
 _DEFAULT_SYNTHESIS_CONTEXT = "historical archival documents"
 
 _SYSTEM_PROMPT_TEMPLATE = """\
@@ -502,23 +514,49 @@ class SynthesisEngine:
         timeout: float | None = None,
         token_logger: Any | None = None,
     ) -> None:
-        if _anthropic_pkg is None:  # pragma: no cover - optional dependency
-            raise RuntimeError(
-                "anthropic package is not installed. Install with: pip install -e .[retrieval]"
-            )
+        # The anthropic package is only required for the Anthropic provider; the
+        # check now lives in that branch so the local/OpenAI path can run without
+        # it installed.
         _settings = _Settings.from_env()
-        resolved_key = api_key or _settings.anthropic_api_key
         self._timeout = timeout if timeout is not None else _settings.synthesis_timeout_seconds
-        _raw_client = _anthropic_pkg.Anthropic(
-            api_key=resolved_key,
-            timeout=self._timeout,
-            max_retries=_settings.synthesis_max_retries,
-        )
-        if token_logger is not None:
-            from gemynd.shared.token_tracker import MeteredAnthropicClient
-            self._client = MeteredAnthropicClient(_raw_client, token_logger, caller="synthesis")
+        self._provider = _settings.synthesis_provider or "anthropic"
+
+        if self._provider in ("lmstudio", "openai", "local"):
+            # Local / OpenAI-compatible synthesis (offline operation, no per-call
+            # cost). No Anthropic client, no token metering — the model is local.
+            from gemynd.retrieval.synthesis_openai import OpenAICompatSynthesisClient
+            self._client = OpenAICompatSynthesisClient(
+                base_url=_settings.openai_base_url,
+                api_key=_resolve_local_key(_settings),
+            )
+            # Must match a model actually loaded in the server (LM Studio's
+            # /v1/models). Falls back to LLM_MODEL, but that can be stale — set
+            # SYNTHESIS_OPENAI_MODEL explicitly.
+            self._model = _settings.synthesis_openai_model or _settings.llm_model
+            if not self._model:
+                raise RuntimeError(
+                    "SYNTHESIS_PROVIDER is local but no model is set. "
+                    "Set SYNTHESIS_OPENAI_MODEL to a model loaded in LM Studio "
+                    "(see its /v1/models list)."
+                )
         else:
-            self._client = _raw_client
+            if _anthropic_pkg is None:  # pragma: no cover - optional dependency
+                raise RuntimeError(
+                    "anthropic package is not installed. Install with: pip install -e .[retrieval]"
+                )
+            resolved_key = api_key or _settings.anthropic_api_key
+            _raw_client = _anthropic_pkg.Anthropic(
+                api_key=resolved_key,
+                timeout=self._timeout,
+                max_retries=_settings.synthesis_max_retries,
+            )
+            if token_logger is not None:
+                from gemynd.shared.token_tracker import MeteredAnthropicClient
+                self._client = MeteredAnthropicClient(_raw_client, token_logger, caller="synthesis")
+            else:
+                self._client = _raw_client
+            self._model = MODEL
+
         self._max_tokens = max_tokens
         self._system_prompt = _build_system_prompt(synthesis_context or _DEFAULT_SYNTHESIS_CONTEXT)
 
@@ -723,7 +761,9 @@ class SynthesisEngine:
         # it has already rendered rather than appending a second answer to it.
         _emit("reset")
         with self._client.messages.stream(
-            model=MODEL,
+            # Fall back to the module default when _model is unset — some tests
+            # build the engine via __new__ and set only _client/_max_tokens.
+            model=getattr(self, "_model", None) or MODEL,
             max_tokens=self._max_tokens,
             system=self._system_prompt,
             messages=[{"role": "user", "content": user_message}],

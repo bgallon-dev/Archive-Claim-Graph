@@ -37,11 +37,15 @@ class FakeBackend:
         self._by = by_angle_substr
         self._probe = probe
         self.synthesise_calls: list[list[FakeBlock]] = []
+        # Records (angle_query, allow_llm_cypher) for each gather, so tests can
+        # assert the LLM-Cypher cost control.
+        self.gather_calls: list[tuple[str, bool]] = []
 
     def probe(self, query: str) -> QueryProbe:
         return self._probe
 
-    def gather(self, angle_query: str, scope: PermissionScope) -> list[FakeBlock]:
+    def gather(self, angle_query, scope, *, allow_llm_cypher=True):
+        self.gather_calls.append((angle_query, allow_llm_cypher))
         # The entity angle text ("... — specifically regarding Turnbull")
         # contains the original query as a substring, so a first-match lookup
         # is ambiguous. Pick the LONGEST matching key = the most specific angle.
@@ -155,7 +159,7 @@ def test_synthesise_false_skips_the_model_call():
 
 def test_one_failing_angle_does_not_sink_the_run():
     class FlakyBackend(FakeBackend):
-        def gather(self, angle_query, scope):
+        def gather(self, angle_query, scope, *, allow_llm_cypher=True):
             if "regarding" in angle_query:
                 raise RuntimeError("simulated Neo4j hiccup on one angle")
             return [FakeBlock("c1")]
@@ -196,7 +200,8 @@ def test_build_backend_routes_through_component_signatures():
 
     class Assembler:
         def assemble(self, *, query_text, entity_context, year_min, year_max,
-                     is_hybrid, permitted_levels, institution_ids, intent):
+                     is_hybrid, permitted_levels, institution_ids, intent,
+                     allow_llm_cypher=True):
             calls["assemble"] += 1
             assert permitted_levels == ["public"]
             assert institution_ids == ["turnbull"]
@@ -229,9 +234,58 @@ def test_char_budget_fn_is_applied_to_the_union():
         {"what happened": [FakeBlock(f"c{i}") for i in range(10)]},
         QueryProbe(),
     )
-    # Cap to the 3 highest-confidence blocks.
+    # Cap to the 3 highest-ranked blocks.
     orch = DeepResearchOrchestrator(
         backend, max_angles=1, char_budget_fn=lambda blocks: blocks[:3]
     )
     res = orch.research("what happened", SCOPE, synthesise=False)
     assert len(res.merged_blocks) == 3
+
+
+# --- cost controls ---------------------------------------------------------
+def test_llm_cypher_allowed_only_on_the_original_angle_by_default():
+    backend = FakeBackend(
+        {"what happened": [FakeBlock("c1")], "regarding Turnbull": [FakeBlock("c2")]},
+        QueryProbe(entities=["Turnbull"]),
+    )
+    orch = DeepResearchOrchestrator(backend, max_angles=3)
+    orch.research("what happened", SCOPE, synthesise=False)
+    flags = {q: allow for q, allow in backend.gather_calls}
+    # exactly one gather may spend an LLM-Cypher call: the original
+    assert sum(1 for _, allow in backend.gather_calls if allow) == 1
+    assert flags["what happened"] is True
+    assert all(
+        allow is False for q, allow in backend.gather_calls if q != "what happened"
+    )
+
+
+def test_operator_can_opt_all_angles_into_llm_cypher():
+    backend = FakeBackend(
+        {"what happened": [FakeBlock("c1")], "regarding Turnbull": [FakeBlock("c2")]},
+        QueryProbe(entities=["Turnbull"]),
+    )
+    orch = DeepResearchOrchestrator(
+        backend, max_angles=3, llm_cypher_on_reformulations=True
+    )
+    orch.research("what happened", SCOPE, synthesise=False)
+    assert all(allow is True for _, allow in backend.gather_calls)
+
+
+def test_union_is_ranked_centrality_first_so_a_tight_budget_keeps_corroborated():
+    # c2 is surfaced by BOTH angles; c1 and c3 by one each. A budget of 1 must
+    # keep c2 (the multiply-corroborated claim), not a single-angle claim.
+    backend = FakeBackend(
+        {
+            "what happened": [FakeBlock("c1", 0.99), FakeBlock("c2", 0.5)],
+            "regarding Turnbull": [FakeBlock("c2", 0.5), FakeBlock("c3", 0.99)],
+        },
+        QueryProbe(entities=["Turnbull"]),
+    )
+    orch = DeepResearchOrchestrator(
+        backend, max_angles=2,
+        char_budget_fn=lambda blocks: blocks[:1],  # brutal 1-block synthesis cap
+        serialise_fn=lambda b: b.claim_id,
+    )
+    res = orch.research("what happened", SCOPE, synthesise=False)
+    # Despite c1/c3 having higher confidence, c2 wins on centrality (2 angles).
+    assert [b.claim_id for b in res.merged_blocks] == ["c2"]

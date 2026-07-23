@@ -1303,8 +1303,18 @@ class ProvenanceContextAssembler:
         intent: QueryIntent | None = None,
         doc_types: list[str] | None = None,
         series: list[str] | None = None,
+        allow_llm_cypher: bool = True,
     ) -> tuple[list[ProvenanceBlock], str]:
         """Retrieve and serialise provenance blocks for *query_text*.
+
+        Parameters
+        ----------
+        allow_llm_cypher:
+            When False, suppress the LLM-Cypher fallback for this call even if
+            rule-based retrieval finds nothing. Deep-research mode sets this on
+            derived/reformulated angles so a fan-out of N passes does not pay
+            for N LLM-Cypher generations. Defaults True — single-pass callers
+            keep the existing behaviour.
 
         Returns
         -------
@@ -1433,7 +1443,8 @@ class ProvenanceContextAssembler:
         # Confident-but-zero answers are semantically meaningful and should
         # not be papered over with an LLM call.
         if (
-            not rows
+            allow_llm_cypher
+            and not rows
             and not resource_exhausted
             and self._llm_cypher_generator is not None
             and (intent is None or intent.classifier_confidence < _LLM_FALLBACK_CONFIDENCE_CEILING)

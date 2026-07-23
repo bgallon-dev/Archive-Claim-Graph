@@ -107,6 +107,72 @@ print(res.new_claims_by_angle)   # marginal contribution per angle
    a long retrieval phase first, so the honest UX is a staged progress list
    ("searching angle 2 of 4…") during gather, then stream the final synthesis.
 
+## Cost — where it balloons and what holds it down
+
+Deep research spends more than a single query on two axes. Both are now
+controlled; the controls default safe.
+
+**Axis 1 — retrieval-side LLM-Cypher fan-out.** The assembler calls an LLM to
+generate Cypher only when a pass finds nothing rule-based (confidence < 0.7).
+Vague reformulated angles are the phrasings most likely to find nothing, so a
+naive 4-angle run could fire 4 LLM-Cypher calls instead of one.
+*Control:* the orchestrator passes `allow_llm_cypher=True` only on the original
+angle (`assemble(..., allow_llm_cypher=False)` on the rest). A fan-out costs at
+most one LLM-Cypher call. Flip `llm_cypher_on_reformulations=True` to opt out.
+
+**Axis 2 — synthesis over a denser union (the dominant cost).** One synthesis
+call, but the union fills the context budget with more unique claims than a
+single pass, so it sends far more input tokens.
+*Control:* the union is ranked **centrality-first** (claims independently found
+by multiple angles lead, confidence breaks ties), so a deliberately *smaller*
+synthesis char budget than the retrieval maximum keeps the most-corroborated
+evidence and trims the single-angle tail. Pass a tighter `char_budget_fn`:
+
+```python
+from functools import partial
+from gemynd.retrieval.context_assembler import _apply_context_char_budget
+DeepResearchOrchestrator(
+    backend,
+    char_budget_fn=partial(_apply_context_char_budget, char_budget=120_000),  # vs 250k default
+    serialise_fn=_serialise_block,
+)
+```
+
+### Rough numbers (order-of-magnitude, Sonnet 4.6 at $3/1M in, $15/1M out)
+
+| | context in | synthesis | + LLM-Cypher | ≈ per query |
+|---|---|---|---|---|
+| Single pass | ~30K tok | ~$0.16 | ≤ 1 call | **~$0.16** |
+| Deep, uncontrolled (4 angles) | ~62K tok | ~$0.26 | up to 4 calls | **~$0.36** |
+| Deep, both controls on | ~30K tok | ~$0.16 | 1 call | **~$0.18** |
+
+So the controls bring a 4-angle run from ~2.3× down to ~1.1× the cost of a
+single query, while still *finding* the full union (coverage is reported from
+all angles; only the synthesis input is trimmed). These are estimates — chars/
+token and context sizes vary. **The real figures are already logged**:
+`MeteredAnthropicClient` writes per-call token usage to `data/token_usage.db`
+(`caller="synthesis"`), and `/api/token-stats` surfaces it. Measure there rather
+than trust this table. `DeepResearchResult.estimated_context_tokens` is a free
+pre-call gauge that the synthesis budget is biting.
+
+### Structural options (not built)
+
+* **Batch API — 50% off.** Deep research is already "tap and wait minutes,"
+  which is the Batch API's sweet spot. It trades away the live streaming we
+  built (async submit + poll), so it fits a "queue a deep report, come back for
+  it" UX, not the interactive toggle. Biggest single lever if volume grows.
+* **Prompt caching the synthesis system prompt.** One-line `cache_control` on
+  the stable system prompt. Modest here — the system prompt is small next to the
+  per-query context, which differs every call and can't be cached across
+  queries. Helps most on the validation-retry path (same prefix re-sent). Touches
+  the shared synthesis path, so after the demo.
+* **Cheaper model / lower effort for the LLM planner** (when built) — decomposition
+  is a small, structured task; run it on Haiku, keep synthesis on Sonnet.
+* **Zero-gain telemetry.** When `coverage_gain == 0`, the extra angles added
+  nothing — surface it so the UI can say "no additional evidence beyond a
+  standard query," and so a future policy could skip the fan-out for
+  question shapes that never benefit.
+
 ## Guardrails preserved
 
 Deep research **cannot widen access**. `PermissionScope` carries the same

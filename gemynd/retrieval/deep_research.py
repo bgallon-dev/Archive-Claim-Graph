@@ -110,6 +110,15 @@ class DeepResearchResult:
         first = self.angles[0].label if self.angles else None
         return sum(n for label, n in self.new_claims_by_angle.items() if label != first)
 
+    @property
+    def estimated_context_tokens(self) -> int:
+        """Rough token count of the synthesis context (~4 chars/token). A free,
+        pre-call gauge of synthesis input cost — the real figure is logged by
+        MeteredAnthropicClient to token_usage.db after the call. Use this to see
+        whether COST CONTROL 2's budget is doing its job without paying for a
+        count_tokens round-trip."""
+        return len(self.context_text) // 4
+
 
 # ---------------------------------------------------------------------------
 # Seams
@@ -120,7 +129,13 @@ class RetrievalBackend(Protocol):
 
     def probe(self, query: str) -> QueryProbe: ...
 
-    def gather(self, angle_query: str, scope: PermissionScope) -> list["ProvenanceBlock"]: ...
+    def gather(
+        self,
+        angle_query: str,
+        scope: PermissionScope,
+        *,
+        allow_llm_cypher: bool = True,
+    ) -> list["ProvenanceBlock"]: ...
 
     def synthesise(
         self,
@@ -182,13 +197,22 @@ class DeepResearchOrchestrator:
         max_angles: int = _DEFAULT_MAX_ANGLES,
         char_budget_fn: Callable[[list["ProvenanceBlock"]], list["ProvenanceBlock"]] | None = None,
         serialise_fn: Callable[["ProvenanceBlock"], str] | None = None,
+        llm_cypher_on_reformulations: bool = False,
     ) -> None:
         self.backend = backend
         self.planner = planner or HeuristicPlanner()
         self.max_angles = max(1, max_angles)
-        # Reuse the assembler's own char-cap and block serialiser so the merged
-        # context is byte-compatible with a single-pass context. Injected so the
-        # orchestrator needs no import from context_assembler in tests.
+        # COST CONTROL 1 (retrieval side). The LLM-Cypher fallback fires when a
+        # pass finds nothing rule-based — which vague reformulated angles do
+        # often. Left False, only the original angle may spend an LLM-Cypher
+        # call, so a 4-angle run costs at most one, not four. See DEEP_RESEARCH.md.
+        self.llm_cypher_on_reformulations = llm_cypher_on_reformulations
+        # COST CONTROL 2 (synthesis side). char_budget_fn caps the union before
+        # synthesis. Because the union is ranked centrality-first (claims found
+        # by multiple angles lead), a deliberately SMALLER budget than the
+        # retrieval max keeps the most-corroborated evidence while cutting the
+        # dominant cost — synthesis input tokens. Reuse _apply_context_char_budget
+        # bound to a tighter char count for deep research.
         self._char_budget_fn = char_budget_fn or (lambda blocks: blocks)
         self._serialise_fn = serialise_fn or (lambda b: str(getattr(b, "claim_id", "")))
 
@@ -220,9 +244,15 @@ class DeepResearchOrchestrator:
         new_by_angle: dict[str, int] = {}
 
         t0 = time.perf_counter()
-        for angle in angles:
+        for idx, angle in enumerate(angles):
+            # Only the original angle (idx 0) may spend an LLM-Cypher fallback,
+            # unless the operator opts every angle in. Caps the retrieval-side
+            # LLM cost of a fan-out at one call.
+            allow_llm = idx == 0 or self.llm_cypher_on_reformulations
             try:
-                blocks = self.backend.gather(angle.query_text, scope)
+                blocks = self.backend.gather(
+                    angle.query_text, scope, allow_llm_cypher=allow_llm
+                )
             except Exception:
                 # One angle failing must not sink the whole run — the point of
                 # multiple passes is resilience. Record zero and continue.
@@ -247,9 +277,16 @@ class DeepResearchOrchestrator:
             new_by_angle[angle.label] = added
         timings["gather_ms"] = round((time.perf_counter() - t0) * 1000, 1)
 
-        # Confidence-descending so the char cap trims the least-trusted tail,
-        # exactly as the single-pass assembler does.
-        ordered = sorted(merged.values(), key=lambda m: _confidence(m.block), reverse=True)
+        # Centrality-first ranking: a claim independently surfaced by several
+        # angles is more corroborated, so it should survive a tight synthesis
+        # budget over a claim only one angle found. Confidence breaks ties.
+        # This is what lets COST CONTROL 2 use a smaller budget without dropping
+        # the evidence that matters — the trimmed tail is single-angle, low-conf.
+        ordered = sorted(
+            merged.values(),
+            key=lambda m: (len(m.surfaced_by), _confidence(m.block)),
+            reverse=True,
+        )
         capped = self._char_budget_fn([m.block for m in ordered])
         context_text = "\n\n".join(self._serialise_fn(b) for b in capped)
 
@@ -337,7 +374,13 @@ def build_backend(
                 year_max=getattr(intent, "year_max", None),
             )
 
-        def gather(self, angle_query: str, scope: PermissionScope) -> list["ProvenanceBlock"]:
+        def gather(
+            self,
+            angle_query: str,
+            scope: PermissionScope,
+            *,
+            allow_llm_cypher: bool = True,
+        ) -> list["ProvenanceBlock"]:
             intent = classify_fn(angle_query)
             ectx = gateway.resolve(
                 surface_forms=getattr(intent, "entities", []) or [],
@@ -353,6 +396,7 @@ def build_backend(
                 permitted_levels=scope.permitted_levels,
                 institution_ids=scope.institution_ids,
                 intent=intent,
+                allow_llm_cypher=allow_llm_cypher,
             )
             return blocks
 

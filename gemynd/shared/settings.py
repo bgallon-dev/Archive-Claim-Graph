@@ -20,12 +20,51 @@ class Settings:
     synthesis_model: str = "claude-sonnet-4-6"
     synthesis_timeout_seconds: float = 60.0
     synthesis_max_retries: int = 0
+    # Local inference must stay bounded on museum/demo hardware. These limits
+    # do not affect Anthropic synthesis.
+    synthesis_local_claim_budget: int = 30
+    synthesis_local_max_tokens: int = 1200
+    # Context ordering: auto | proximity | kgr | confidence.
+    context_ranker: str = "auto"
+    kgr_root: str = ""
     # Synthesis provider switch. "anthropic" (default) keeps the current path.
     # "lmstudio"/"openai"/"local" route synthesis to an OpenAI-compatible
     # endpoint (openai_base_url) for offline/local operation. The model and key
     # for that path come from synthesis_openai_model + a resolved local key.
+    # "opencode" routes synthesis through the opencode agent platform, either
+    # a long-running `opencode serve` HTTP server (mode="server") or a per-call
+    # `opencode run` CLI subprocess (mode="cli"). It uses opencode's own API,
+    # not the OpenAI-compatible endpoint.
     synthesis_provider: str = "anthropic"
+    # Ordered fallback synthesis providers tried in sequence when the primary
+    # fails at query time (e.g. "anthropic,opencode"). Empty list = current
+    # single-provider behavior. Each entry must be a provider SynthesisEngine
+    # supports; entries without a built engine are skipped at query time.
+    synthesis_fallback_providers: list[str] = field(default_factory=list)
     synthesis_openai_model: str = ""
+    # OpenCode synthesis transport ("server" | "cli"). Server mode talks to a
+    # long-running `opencode serve` instance; cli mode spawns `opencode run` per
+    # query. Server mode is the default because it avoids per-call cold boot.
+    synthesis_opencode_mode: str = "server"
+    # URL of the `opencode serve` instance (server mode only). Defaults to the
+    # standard opencode serve port on loopback.
+    synthesis_opencode_url: str = "http://127.0.0.1:4096"
+    # HTTP basic auth credentials for `opencode serve` (server mode only).
+    # Username defaults to "opencode"; password is required when the server has
+    # OPENCODE_SERVER_PASSWORD set.
+    synthesis_opencode_username: str = "opencode"
+    synthesis_opencode_password: str = ""
+    # Model passed to opencode (e.g. "anthropic/claude-sonnet-4-6"). Empty means
+    # opencode uses its own configured default model.
+    synthesis_opencode_model: str = ""
+    # opencode agent to use for synthesis. The shipped `.opencode/agent/synthesis.md`
+    # agent denies all tools so the backend returns only a JSON envelope.
+    synthesis_opencode_agent: str = "synthesis"
+    # Path to the opencode binary (cli mode only). Defaults to "opencode".
+    synthesis_opencode_binary: str = "opencode"
+    # Working directory for the opencode subprocess (cli mode only). Empty means
+    # the server's current working directory.
+    synthesis_opencode_dir: str = ""
     # Claim-extraction provider switch (EXTRACTION PATH ONLY; synthesis/Cypher stay Anthropic)
     llm_provider: str = "anthropic"
     llm_model: str = ""
@@ -40,6 +79,8 @@ class Settings:
     # Rate limiting
     query_rate_limit_max: int = 20
     query_rate_limit_period: float = 60.0
+    deep_research_rate_limit_max: int = 4
+    deep_research_rate_limit_period: float = 60.0
     # Demo/kiosk: widen corpus breadth for non-admin roles WITHOUT widening the
     # sensitivity tier. Off by default — see `demo_all_corpora` in
     # retrieval/web/app.py:require_user_scoped.
@@ -79,8 +120,30 @@ class Settings:
             synthesis_model=os.environ.get("SYNTHESIS_MODEL", "claude-sonnet-4-6"),
             synthesis_timeout_seconds=float(os.environ.get("SYNTHESIS_TIMEOUT", "60")),
             synthesis_max_retries=int(os.environ.get("SYNTHESIS_MAX_RETRIES", "0")),
+            synthesis_local_claim_budget=int(
+                os.environ.get("SYNTHESIS_LOCAL_CLAIM_BUDGET", "30")
+            ),
+            synthesis_local_max_tokens=int(
+                os.environ.get("SYNTHESIS_LOCAL_MAX_TOKENS", "1200")
+            ),
+            context_ranker=os.environ.get("CONTEXT_RANKER", "auto"),
+            kgr_root=os.environ.get("KGR_ROOT", ""),
             synthesis_provider=os.environ.get("SYNTHESIS_PROVIDER", "anthropic").strip().lower(),
+            synthesis_fallback_providers=[
+                p.strip().lower()
+                for p in os.environ.get("SYNTHESIS_FALLBACK_PROVIDERS", "").split(",")
+                if p.strip()
+            ],
             synthesis_openai_model=os.environ.get("SYNTHESIS_OPENAI_MODEL", ""),
+            synthesis_opencode_mode=os.environ.get("SYNTHESIS_OPENCODE_MODE", "server").strip().lower(),
+            synthesis_opencode_url=os.environ.get("SYNTHESIS_OPENCODE_URL", "http://127.0.0.1:4096"),
+            synthesis_opencode_username=os.environ.get("SYNTHESIS_OPENCODE_USERNAME", "opencode"),
+            synthesis_opencode_password=os.environ.get("SYNTHESIS_OPENCODE_PASSWORD", ""),
+            synthesis_opencode_model=os.environ.get("SYNTHESIS_OPENCODE_MODEL", ""),
+            synthesis_opencode_agent=os.environ.get("SYNTHESIS_OPENCODE_AGENT", "synthesis"),
+            synthesis_opencode_binary=os.environ.get("SYNTHESIS_OPENCODE_BINARY", "opencode"),
+            synthesis_opencode_dir=os.environ.get("SYNTHESIS_OPENCODE_DIR", ""),
+
             llm_provider=os.environ.get("LLM_PROVIDER", "anthropic"),
             llm_model=os.environ.get("LLM_MODEL", ""),
             openai_api_key=os.environ.get("OPENAI_API_KEY", ""),
@@ -92,6 +155,12 @@ class Settings:
             csrf_secret_key=os.environ.get("CSRF_SECRET_KEY", ""),
             query_rate_limit_max=int(os.environ.get("QUERY_RATE_LIMIT_MAX", "20")),
             query_rate_limit_period=float(os.environ.get("QUERY_RATE_LIMIT_PERIOD", "60")),
+            deep_research_rate_limit_max=int(
+                os.environ.get("DEEP_RESEARCH_RATE_LIMIT_MAX", "4")
+            ),
+            deep_research_rate_limit_period=float(
+                os.environ.get("DEEP_RESEARCH_RATE_LIMIT_PERIOD", "60")
+            ),
             demo_all_corpora=os.environ.get("DEMO_ALL_CORPORA", "false").lower() == "true",
             conv_log_db=os.environ.get("CONV_LOG_DB", "data/conversation_log.db"),
             write_audit_db=os.environ.get("WRITE_AUDIT_DB", "data/write_audit.db"),

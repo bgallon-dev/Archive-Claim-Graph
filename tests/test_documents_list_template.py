@@ -4,6 +4,7 @@ from types import SimpleNamespace
 
 from jinja2 import ChoiceLoader, Environment, FileSystemLoader
 
+from gemynd.core.graph.cypher import LIST_DOCUMENTS_PAGINATED_QUERY
 from gemynd.retrieval.web.app import _build_source_links, _corpus_labels_for_composite
 
 # Mirrors the spokane_newspaper.source_links block in data/corpus_registry.yaml.
@@ -113,3 +114,14 @@ def test_documents_list_fragment_falls_back_without_corpus_labels() -> None:
 
     assert "turnbull" in html
     assert "title OCR degraded" in html
+
+
+def test_paginated_document_query_limits_documents_before_claim_expansion() -> None:
+    """The list page must never aggregate the corpus-wide Claim fan-out."""
+    page_limit = LIST_DOCUMENTS_PAGINATED_QUERY.index("LIMIT $limit")
+    first_claim_expansion = LIST_DOCUMENTS_PAGINATED_QUERY.index("HAS_CLAIM")
+
+    assert page_limit < first_claim_expansion
+    assert "collect(c) AS claims" not in LIST_DOCUMENTS_PAGINATED_QUERY
+    assert "RETURN count(c) AS claim_count" in LIST_DOCUMENTS_PAGINATED_QUERY
+    assert "RETURN c.normalized_sentence AS snippet" in LIST_DOCUMENTS_PAGINATED_QUERY

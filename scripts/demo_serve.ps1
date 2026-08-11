@@ -8,6 +8,8 @@
     starts the query server bound to all interfaces and prints the URL and
     credentials to read off to visitors.
 
+    The launcher uses the Anthropic API for query synthesis.
+
     Two environment settings do the load-bearing work:
 
       COOKIE_SECURE=false   The apps default this to TRUE. Over plain HTTP a
@@ -37,15 +39,20 @@ param(
     [int]    $Port = 8788,
     [string] $Email = "demo@museum.local",
     [string] $Password = "",
-    # Passthrough to --max-tokens. Left at the server default: measured answers
-    # land around 2700 characters, nowhere near either cap, so lowering this
-    # does NOT speed the demo up (6000 and 24000 both timed ~99s on the same
-    # question). It only matters if you see answers truncated mid-sentence.
+    [string] $Neo4jUri = "",
+    [string] $Neo4jDatabase = "",
+    [string] $EnvOverlay = "",
     [int]    $MaxTokens = 24000,
     [switch] $SingleCorpus,
     [switch] $KeepPassword,
-    [switch] $SkipFirewall
+    [switch] $SkipPathCacheWarmup,
+    [switch] $SkipFirewall,
+    [ValidateSet("anthropic", "opencode")]
+    [string] $Provider = "anthropic",
+    [switch] $StartOpencodeServer,
+    [string] $OpencodeUrl = "http://127.0.0.1:4096"
 )
+
 
 $ErrorActionPreference = "Stop"
 # Test-NetConnection draws a progress bar that overwrites the preflight [ok]
@@ -60,6 +67,51 @@ function Write-Ok  ($msg) { Write-Host "  [ok] $msg" -ForegroundColor Green }
 function Write-Warn($msg) { Write-Host "  [!]  $msg" -ForegroundColor Yellow }
 function Write-Bad ($msg) { Write-Host "  [x]  $msg" -ForegroundColor Red }
 
+function Get-DotEnvValue([string]$Name) {
+    $escapedName = [regex]::Escape($Name)
+    $line = Get-Content ".env" |
+        Where-Object { $_ -match "^\s*${escapedName}\s*=" } |
+        Select-Object -Last 1
+    if (-not $line) { return "" }
+    $value = ($line -replace "^\s*${escapedName}\s*=\s*", "").Trim()
+    if ($value.Length -ge 2) {
+        $first = $value.Substring(0, 1)
+        $last = $value.Substring($value.Length - 1, 1)
+        if (($first -eq '"' -and $last -eq '"') -or
+            ($first -eq "'" -and $last -eq "'")) {
+            $value = $value.Substring(1, $value.Length - 2)
+        }
+    }
+    return $value
+}
+
+function Import-DotEnvOverlay([string]$Path) {
+    Get-Content -LiteralPath $Path | ForEach-Object {
+        $line = $_.Trim()
+        if (-not $line -or $line.StartsWith("#") -or -not $line.Contains("=")) {
+            return
+        }
+        if ($line.StartsWith("export ")) {
+            $line = $line.Substring(7).Trim()
+        }
+        $parts = $line.Split("=", 2)
+        $name = $parts[0].Trim()
+        if ($name -notmatch "^[A-Za-z_][A-Za-z0-9_]*$") {
+            throw "Invalid environment variable name '$name' in $Path"
+        }
+        $value = $parts[1].Trim()
+        if ($value.Length -ge 2) {
+            $first = $value.Substring(0, 1)
+            $last = $value.Substring($value.Length - 1, 1)
+            if (($first -eq '"' -and $last -eq '"') -or
+                ($first -eq "'" -and $last -eq "'")) {
+                $value = $value.Substring(1, $value.Length - 2)
+            }
+        }
+        Set-Item -Path "Env:$name" -Value $value
+    }
+}
+
 Write-Host ""
 Write-Host "Gemynd museum demo - preflight" -ForegroundColor Cyan
 Write-Host ""
@@ -71,6 +123,27 @@ if (-not (Test-Path ".env")) {
     exit 1
 }
 Write-Ok ".env present"
+
+if ($EnvOverlay) {
+    if (-not (Test-Path -LiteralPath $EnvOverlay)) {
+        Write-Bad "Environment overlay not found: $EnvOverlay"
+        Write-Host "       Copy the matching .example file, then add the required credentials."
+        exit 1
+    }
+    Import-DotEnvOverlay $EnvOverlay
+    Write-Ok "Environment overlay loaded from $EnvOverlay"
+}
+
+if ($Neo4jUri) { $env:NEO4J_URI = $Neo4jUri }
+if ($Neo4jDatabase) { $env:NEO4J_DATABASE = $Neo4jDatabase }
+
+$effectiveNeo4jUri = $env:NEO4J_URI
+if (-not $effectiveNeo4jUri) { $effectiveNeo4jUri = Get-DotEnvValue "NEO4J_URI" }
+$effectiveNeo4jDatabase = $env:NEO4J_DATABASE
+if (-not $effectiveNeo4jDatabase) {
+    $effectiveNeo4jDatabase = Get-DotEnvValue "NEO4J_DATABASE"
+}
+if (-not $effectiveNeo4jDatabase) { $effectiveNeo4jDatabase = "neo4j" }
 
 # JWT_SECRET_KEY is read lazily at first login, so a missing/short value fails
 # at the worst possible moment - in front of an audience. Check it now.
@@ -111,15 +184,77 @@ if ($listening) {
 Write-Ok "Port $Port is free"
 
 # --- 4. Neo4j ----------------------------------------------------------------
-$bolt = Test-NetConnection -ComputerName 127.0.0.1 -Port 7687 -InformationLevel Quiet -WarningAction SilentlyContinue
-if (-not $bolt) {
-    Write-Bad "Neo4j is not answering on 127.0.0.1:7687"
-    Write-Host "       Start Neo4j Desktop (or the container) before the demo."
+try {
+    $neo4jEndpoint = [Uri]$effectiveNeo4jUri
+    if (-not $neo4jEndpoint.IsAbsoluteUri -or
+        $neo4jEndpoint.Scheme -notin @("bolt", "bolt+s", "bolt+ssc", "neo4j", "neo4j+s", "neo4j+ssc") -or
+        -not $neo4jEndpoint.DnsSafeHost -or
+        $neo4jEndpoint.UserInfo) {
+        throw "invalid Neo4j URI"
+    }
+} catch {
+    Write-Bad "NEO4J_URI is missing or invalid"
+    Write-Host "       Expected a URI such as bolt://pi5node1.local:7687"
     exit 1
 }
-Write-Ok "Neo4j reachable on 127.0.0.1:7687"
+$neo4jHost = $neo4jEndpoint.DnsSafeHost
+$neo4jPort = $neo4jEndpoint.Port
+if ($neo4jPort -lt 1) { $neo4jPort = 7687 }
+$bolt = Test-NetConnection -ComputerName $neo4jHost -Port $neo4jPort -InformationLevel Quiet -WarningAction SilentlyContinue
+if (-not $bolt) {
+    Write-Bad "Neo4j is not answering on ${neo4jHost}:${neo4jPort}"
+    Write-Host "       Check the database host, network, and Bolt listener."
+    exit 1
+}
+Write-Ok "Neo4j reachable on ${neo4jHost}:${neo4jPort} (database '$effectiveNeo4jDatabase')"
 
-# --- 5. Demo account ---------------------------------------------------------
+# --- 5. API synthesis --------------------------------------------------------
+if ($Provider -eq "opencode") {
+    $opencodeCmd = Get-Command opencode -ErrorAction SilentlyContinue
+    if (-not $opencodeCmd) {
+        Write-Bad "opencode CLI is not on PATH. Install opencode or set SYNTHESIS_OPENCODE_BINARY."
+        exit 1
+    }
+    Write-Ok "opencode CLI found at $($opencodeCmd.Source)"
+
+    if ($StartOpencodeServer) {
+        $uri = [Uri]$OpencodeUrl
+        $opencodePort = $uri.Port
+        if ($opencodePort -lt 1) { $opencodePort = 4096 }
+        Start-Process -FilePath "opencode" -ArgumentList "serve", "--hostname", "127.0.0.1", "--port", $opencodePort -WindowStyle Hidden
+        Write-Step "Started opencode serve on port $opencodePort; waiting for health check..."
+        $health = $null
+        $healthRetries = 30
+        while ($healthRetries -gt 0) {
+            Start-Sleep -Seconds 0.5
+            try {
+                $health = Invoke-WebRequest -Uri "$OpencodeUrl/global/health" -Method GET -UseBasicParsing -TimeoutSec 2 -ErrorAction Stop
+                break
+            } catch {
+                $healthRetries--
+            }
+        }
+        if (-not $health -or $health.StatusCode -ne 200) {
+            Write-Bad "opencode serve did not become healthy at $OpencodeUrl within 15 seconds."
+            exit 1
+        }
+        Write-Ok "opencode serve healthy at $OpencodeUrl"
+    }
+
+    Write-Ok "opencode CLI synthesis configured"
+} else {
+    $anthropicKey = Get-DotEnvValue "ANTHROPIC_API_KEY"
+    if (-not $anthropicKey) { $anthropicKey = Get-DotEnvValue "Anthropic_API_Key" }
+    if (-not $anthropicKey) {
+        Write-Bad "Anthropic API key is not configured in .env."
+        Write-Host "       Set ANTHROPIC_API_KEY (or the legacy Anthropic_API_Key alias)."
+        exit 1
+    }
+    Write-Ok "Anthropic API synthesis configured"
+}
+
+
+# --- 6. Demo account ---------------------------------------------------------
 if ($KeepPassword) {
     Write-Step "Reusing the existing demo account password (-KeepPassword)."
     $shownPassword = "(unchanged - use the password from the last run)"
@@ -137,7 +272,7 @@ if ($KeepPassword) {
     Write-Ok "Demo account ready (readonly, public-tier claims only)"
 }
 
-# --- 6. LAN address ----------------------------------------------------------
+# --- 7. LAN address ----------------------------------------------------------
 # The adapter carrying the default gateway is the one visitors can reach.
 $cfg = Get-NetIPConfiguration |
     Where-Object { $null -ne $_.IPv4DefaultGateway -and $_.NetAdapter.Status -eq "Up" } |
@@ -151,7 +286,7 @@ $lanIp = $cfg.IPv4Address.IPAddress
 $adapter = $cfg.InterfaceAlias
 Write-Ok "LAN address $lanIp on '$adapter'"
 
-# --- 7. Firewall -------------------------------------------------------------
+# --- 8. Firewall -------------------------------------------------------------
 if ($SkipFirewall) {
     Write-Step "Skipping the firewall rule (-SkipFirewall)."
 } else {
@@ -213,10 +348,25 @@ if ($SkipFirewall) {
     }
 }
 
-# --- 8. Serve ----------------------------------------------------------------
+# --- 9. Serve ----------------------------------------------------------------
 # Set in the process environment so they beat .env (the loader does not
 # override already-set variables).
 $env:COOKIE_SECURE = "false"
+if ($Provider -eq "opencode") {
+    $env:SYNTHESIS_PROVIDER = "opencode"
+    $env:SYNTHESIS_FALLBACK_PROVIDERS = "anthropic"
+} else {
+    $env:SYNTHESIS_PROVIDER = "anthropic"
+    $env:SYNTHESIS_FALLBACK_PROVIDERS = "opencode"
+}
+$env:GEMYND_SKIP_PATH_CACHE_WARMUP = if ($SkipPathCacheWarmup) { "true" } else { "false" }
+
+# KGR's temporal task traverses the whole graph after otherwise focused
+# newspaper retrieval and can exceed the local clone's transaction/time
+# budget. The demo's bounded retrieval is already claim-type, title, and date
+# scoped; confidence order plus the assembler's temporal diversification is
+# deterministic and keeps response latency predictable.
+$env:CONTEXT_RANKER = "confidence"
 if ($SingleCorpus) {
     $env:DEMO_ALL_CORPORA = "false"
     $corpusNote = "home corpus only"
@@ -233,16 +383,25 @@ Write-Host ("=" * 62) -ForegroundColor Cyan
 Write-Host ""
 Write-Host "    $url" -ForegroundColor White
 Write-Host ""
-Write-Host "    email:     $Email"
-Write-Host "    password:  $shownPassword"
+    Write-Host "    email:     $Email"
+    Write-Host "    password:  $shownPassword"
+    Write-Host ""
+    Write-Host "    Database:  $effectiveNeo4jDatabase on ${neo4jHost}:${neo4jPort}"
+    Write-Host "    Showing:   $corpusNote, public-tier claims only"
+    if ($Provider -eq "opencode") {
+        Write-Host "    Inference: opencode ($OpencodeUrl)"
+    } else {
+        Write-Host "    Inference: Anthropic API"
+    }
+    Write-Host "    Transport: plain HTTP (no TLS) - local network only"
+
 Write-Host ""
-Write-Host "    Showing:   $corpusNote, public-tier claims only"
-Write-Host "    Transport: plain HTTP (no TLS) - local network only"
-Write-Host ""
-Write-Host "  Measured: ~100s per answer; the FIRST query after startup runs" -ForegroundColor DarkGray
-Write-Host "  ~190s while caches warm. Ask one throwaway question before the" -ForegroundColor DarkGray
-Write-Host "  audience arrives. Broad cross-corpus questions are slowest (~5m)." -ForegroundColor DarkGray
+Write-Host "  The first query also warms retrieval caches; ask one throwaway" -ForegroundColor DarkGray
+Write-Host "  question before the audience arrives." -ForegroundColor DarkGray
 Write-Host "  Press Ctrl+C to stop the server." -ForegroundColor DarkGray
 Write-Host ""
 
+# KGR's edge-type encoding reads the interpreter hash seed at process start.
+# Pin it for reproducible reranking; harmless when KGR is disabled.
+$env:PYTHONHASHSEED = "0"
 python -m gemynd.cli query-serve --host 0.0.0.0 --port $Port --max-tokens $MaxTokens

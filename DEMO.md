@@ -259,6 +259,45 @@ So the honest positioning:
 `LLM_MODEL` in `.env` (`google/gemma-4-e2b`) is stale — the loaded model is
 `e4b`. Set `SYNTHESIS_OPENAI_MODEL` explicitly rather than relying on it.
 
+## Synthesis via OpenCode (alternative provider)
+
+Synthesis can also run through the [OpenCode](https://opencode.ai) agent
+platform instead of Anthropic. This is useful when you already have opencode
+configured with one or more providers and want the demo to reuse that setup.
+
+Prerequisites:
+
+1. Install the opencode CLI and authenticate: `opencode auth login`.
+2. The shipped agent at `.opencode/agent/synthesis.md` denies all tools so
+   opencode returns only the JSON envelope.
+
+Enable (needs a restart — provider settings are read at startup):
+
+```
+# in .env, or the environment before demo_serve
+SYNTHESIS_PROVIDER=opencode
+SYNTHESIS_OPENCODE_MODE=server                     # server | cli
+SYNTHESIS_OPENCODE_URL=http://127.0.0.1:4096       # `opencode serve` endpoint
+SYNTHESIS_OPENCODE_MODEL=                          # empty = opencode default model
+SYNTHESIS_OPENCODE_AGENT=synthesis
+```
+
+For the museum kiosk, double-click `demo-opencode.cmd`. It starts
+`opencode serve` automatically, waits for the health endpoint, and then serves
+the query UI with `SYNTHESIS_PROVIDER=opencode`.
+
+To use CLI mode instead (no long-running server, but a cold boot on every
+query), set `SYNTHESIS_OPENCODE_MODE=cli`.
+
+Troubleshooting:
+
+- "opencode CLI is not on PATH" — install opencode or set `SYNTHESIS_OPENCODE_BINARY`.
+- "opencode serve did not become healthy" — check that `opencode serve` starts
+  cleanly on the configured port and that `OPENCODE_SERVER_PASSWORD` matches
+  `SYNTHESIS_OPENCODE_PASSWORD`.
+- If responses are not valid JSON, verify the `synthesis` agent is loaded
+  (`opencode agent list`) and that no other agent with tools is being used.
+
 ## The security tradeoff, stated plainly
 
 This serves **plain HTTP with no TLS**. Anyone on the same network can read the

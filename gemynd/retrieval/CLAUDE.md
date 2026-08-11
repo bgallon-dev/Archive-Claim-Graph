@@ -8,7 +8,7 @@ Natural-language query to synthesized answer. Four-step architecture: classify, 
 2. `entity_gateway.py` — maps surface forms to graph node IDs using the same fuzzy resolution logic as ingestion.
 3. `query_builder.py` — six parameterized Cypher templates (temporal, entity-anchored, multi-entity, fulltext, claim-type-scoped, anchor-entity). Template selected based on resolved entities, year bounds, inferred claim types. Constructed with `institution_id` (no hardcoded collection defaults).
 4. `context_assembler.py` — provenance context assembly, budget-capped (default 20 blocks). Multi-corpus deployments use `_stratified_budget_cap()` to give each corpus an equal quota (≥5 blocks threshold, remainder to largest), and `_temporally_diversified_take()` to proportionally sample across year buckets within each corpus's quota. When truncation occurs, `_build_retrieval_summary()` is prepended to `context_text` so the model can see what was dropped.
-5. `synthesis.py` — single-turn Anthropic API call. Returns typed JSON with `answer`, `confidence_assessment`, `supporting_claim_ids`, `caveats`. The system prompt's `RETRIEVED_VIA semantics` paragraph clarifies that `LOCATION_FOCUS` / `OCCURRED_AT` mark spatial setting, not topic — without this, the model conflates the two and over-cites colocated documents.
+5. `synthesis.py` — single-turn synthesis via Anthropic, OpenAI-compatible, or opencode provider. Returns typed JSON with `answer`, `confidence_assessment`, `supporting_claim_ids`, `caveats`. The system prompt's `RETRIEVED_VIA semantics` paragraph clarifies that `LOCATION_FOCUS` / `OCCURRED_AT` mark spatial setting, not topic — without this, the model conflates the two and over-cites colocated documents.
 
 ## Key invariants
 

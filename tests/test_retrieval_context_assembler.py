@@ -19,6 +19,7 @@ from gemynd.retrieval.context_assembler import (
     _compute_top_co_occurring_entities,
     _derive_structural_view,
     _display_doc_title,
+    _extract_exact_date,
     _infer_claim_types,
     _is_ocr_garbage_title,
     _row_to_block,
@@ -507,16 +508,189 @@ class TestSelectRetrievalStrategy:
         # Over-fetch limit (budget * 3) distinguishes this from plain entity route
         assert params["limit"] == 30
 
-    def test_claim_type_only_route_when_no_entity(self):
-        from gemynd.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+    def test_claim_type_only_route_uses_fulltext_then_structural_fallback(self):
+        from gemynd.core.graph.cypher import (
+            CLAIM_TYPE_SCOPED_QUERY,
+            FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+        )
 
         plan = _select_retrieval_plan(
             "describe all population estimates", self._make_entity_ctx(0),
             year_min=None, year_max=None, budget=10
         )
         template, params = self._primary(plan)
-        assert template == CLAIM_TYPE_SCOPED_QUERY
+        assert template == FULLTEXT_CLAIMS_BY_TYPE_QUERY
+        assert "population" in params["search_text"].lower()
         assert "population_estimate" in (params["claim_types"] or [])
+        fallback_template, fallback_params = plan[1][1][0]
+        assert fallback_template == CLAIM_TYPE_SCOPED_QUERY
+        assert "population_estimate" in (fallback_params["claim_types"] or [])
+
+    def test_source_scoped_topic_uses_fulltext_before_browse(self):
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_SCOPED_QUERY
+
+        plan = _select_retrieval_plan(
+            "What did newspapers report about labor between 1908 and 1909?",
+            self._make_entity_ctx(0),
+            year_min=1908,
+            year_max=1909,
+            budget=12,
+            intent_map={"labor": ["labor_action"]},
+            doc_types=["newspaper_page", "newspaper_article"],
+        )
+        label, queries = plan[0]
+        template, params = queries[0]
+        assert label == "scoped_fulltext"
+        assert template == FULLTEXT_CLAIMS_SCOPED_QUERY
+        assert params["claim_types"] == ["labor_action"]
+        assert params["doc_types"] == ["newspaper_page", "newspaper_article"]
+        assert params["year_min"] == 1908
+        assert params["year_max"] == 1909
+        assert params["candidate_limit"] > params["limit"]
+
+    def test_date_scoped_topic_uses_fulltext_before_temporal_scan(self):
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_SCOPED_QUERY
+
+        plan = _select_retrieval_plan(
+            "What infrastructure projects changed Spokane between 1900 and 1910?",
+            self._make_entity_ctx(1),
+            year_min=1900,
+            year_max=1910,
+            budget=12,
+            intent_map={
+                "infrastructure": ["infrastructure_project", "civic_development"]
+            },
+            anchor_document_plans={"id-0": "unused-in-this-plan"},
+        )
+        label, queries = plan[0]
+        template, params = queries[0]
+        assert label == "scoped_fulltext"
+        assert template == FULLTEXT_CLAIMS_SCOPED_QUERY
+        assert params["doc_types"] is None
+        assert params["series"] is None
+        assert params["year_min"] == 1900
+        assert params["year_max"] == 1910
+
+    def test_named_event_uses_fulltext_before_dropping_event_anchor(self):
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_BY_TYPE_QUERY
+
+        entity_ctx = EntityContext(resolved=[
+            ResolvedEntity(
+                "Free Speech Fight",
+                "event-free-speech",
+                "Event",
+                1.0,
+                "REFERS_TO",
+            )
+        ])
+        plan = _select_retrieval_plan(
+            "Give me a timeline of the Free Speech Fight",
+            entity_ctx,
+            year_min=None,
+            year_max=None,
+            budget=12,
+            intent_map={"free speech": ["free_speech_event", "labor_legal_action"]},
+        )
+
+        label, queries = plan[0]
+        template, params = queries[0]
+        assert label == "event_topic:fulltext"
+        assert template == FULLTEXT_CLAIMS_BY_TYPE_QUERY
+        assert set(params["claim_types"]) == {
+            "free_speech_event", "labor_legal_action",
+        }
+
+    def test_named_event_with_year_uses_scoped_fulltext(self):
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_SCOPED_QUERY
+
+        entity_ctx = EntityContext(resolved=[
+            ResolvedEntity(
+                "Free Speech Fight",
+                "event-free-speech",
+                "Event",
+                1.0,
+                "REFERS_TO",
+            )
+        ])
+        plan = _select_retrieval_plan(
+            "Who was named in the 1909 Free Speech Fight?",
+            entity_ctx,
+            year_min=1909,
+            year_max=1909,
+            budget=12,
+            intent_map={"free speech": ["free_speech_event", "labor_legal_action"]},
+        )
+
+        label, queries = plan[0]
+        template, params = queries[0]
+        assert label == "event_topic:fulltext"
+        assert template == FULLTEXT_CLAIMS_SCOPED_QUERY
+        assert params["year_min"] == 1909
+        assert params["year_max"] == 1909
+
+    def test_explicit_day_routes_before_broad_temporal_query(self):
+        from gemynd.core.graph.cypher import EXACT_DATE_CLAIMS_QUERY
+
+        plan = _select_retrieval_plan(
+            "What happened in Spokane on November 3rd, 1909?",
+            self._make_entity_ctx(1),
+            year_min=1909,
+            year_max=1909,
+            budget=12,
+        )
+
+        label, queries = plan[0]
+        template, params = queries[0]
+        assert label == "exact_date"
+        assert template == EXACT_DATE_CLAIMS_QUERY
+        assert params["target_date"] == "1909-11-03"
+
+    @pytest.mark.parametrize(
+        ("query", "expected"),
+        [
+            ("November 3rd, 1909", "1909-11-03"),
+            ("Nov. 3, 1909", "1909-11-03"),
+            ("3 November 1909", "1909-11-03"),
+            ("1909-11-03", "1909-11-03"),
+            ("during November 1909", None),
+            ("on February 30, 1909", None),
+        ],
+    )
+    def test_exact_date_extraction(self, query, expected):
+        assert _extract_exact_date(query) == expected
+
+    def test_compound_source_scoped_topic_balances_fulltext_facets(self):
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_SCOPED_QUERY
+
+        plan = _select_retrieval_plan(
+            "Compare newspaper mining labor disputes and railroad labor disputes "
+            "between 1905 and 1915.",
+            self._make_entity_ctx(2),
+            year_min=1905,
+            year_max=1915,
+            budget=12,
+            intent_map={
+                "mining": ["mining_activity", "labor_action"],
+                "railroad": ["railroad_activity", "freight_rate_dispute"],
+                "labor": ["labor_action", "worker_condition"],
+            },
+            doc_types=["newspaper_page"],
+        )
+
+        label, queries = plan[0]
+        assert label == "scoped_fulltext:facets"
+        assert len(queries) == 2
+        assert all(template == FULLTEXT_CLAIMS_SCOPED_QUERY for template, _ in queries)
+        assert all(params["limit"] == 6 for _, params in queries)
+        assert " AND " in queries[0][1]["search_text"]
+        assert " AND " in queries[1][1]["search_text"]
+        assert queries[0][1]["claim_types"] == [
+            "mining_activity", "labor_action", "worker_condition",
+        ]
+        assert queries[1][1]["claim_types"] == [
+            "railroad_activity", "freight_rate_dispute",
+            "labor_action", "worker_condition",
+        ]
 
     def test_single_entity_fallback_no_claim_type(self):
         from gemynd.core.graph.cypher import ENTITY_ANCHORED_CLAIMS_QUERY

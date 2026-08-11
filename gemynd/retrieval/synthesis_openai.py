@@ -31,6 +31,75 @@ except ImportError:  # pragma: no cover - optional dependency
 
 _DEFAULT_BASE_URL = "http://localhost:1234/v1"
 
+# LM Studio supports constrained decoding through OpenAI's json_schema response
+# format.  Enforcing the envelope here avoids an expensive second generation
+# when a small local model forgets a closing brace or emits prose around JSON.
+_SYNTHESIS_RESPONSE_FORMAT: dict[str, Any] = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "gemynd_synthesis",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "properties": {
+                "organizing_structure": {
+                    "type": "string",
+                    "enum": ["chronological", "causal", "thematic", "mixed"],
+                },
+                "section_outline": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "heading": {"type": "string"},
+                            "claim_ids": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                            },
+                        },
+                        "required": ["heading", "claim_ids"],
+                        "additionalProperties": False,
+                    },
+                },
+                "answer_sentences": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "text": {"type": "string"},
+                            "supporting_claim_ids": {
+                                "type": "array",
+                                "items": {"type": "string"},
+                            },
+                            "is_inferred": {"type": "boolean"},
+                        },
+                        "required": [
+                            "text",
+                            "supporting_claim_ids",
+                            "is_inferred",
+                        ],
+                        "additionalProperties": False,
+                    },
+                },
+                "confidence_assessment": {"type": "string"},
+                "caveats": {
+                    "type": "array",
+                    "items": {"type": "string"},
+                },
+            },
+            "required": [
+                "organizing_structure",
+                "section_outline",
+                "answer_sentences",
+                "confidence_assessment",
+                "caveats",
+            ],
+            "additionalProperties": False,
+        },
+    },
+}
+
 
 class _OpenAIStream:
     """Wraps an OpenAI streaming completion to expose Anthropic's stream shape."""
@@ -66,14 +135,28 @@ class _OpenAIStream:
 class _StreamContext:
     """Context manager returned by ``messages.stream(...)``."""
 
-    def __init__(self, client: Any, *, model: str, max_tokens: int,
-                 system: str, messages: list[dict], timeout: float | None) -> None:
+    def __init__(
+        self,
+        client: Any,
+        *,
+        model: str,
+        max_tokens: int,
+        system: str,
+        messages: list[dict],
+        timeout: float | None,
+        response_format: dict[str, Any] | None,
+        reasoning_effort: str | None,
+        temperature: float | None,
+    ) -> None:
         self._client = client
         self._model = model
         self._max_tokens = max_tokens
         self._system = system
         self._messages = messages
         self._timeout = timeout
+        self._response_format = response_format
+        self._reasoning_effort = reasoning_effort
+        self._temperature = temperature
         self._raw: Any = None
 
     def __enter__(self) -> _OpenAIStream:
@@ -90,6 +173,12 @@ class _StreamContext:
         }
         if self._timeout is not None:
             kwargs["timeout"] = self._timeout
+        if self._response_format is not None:
+            kwargs["response_format"] = self._response_format
+        if self._reasoning_effort is not None:
+            kwargs["reasoning_effort"] = self._reasoning_effort
+        if self._temperature is not None:
+            kwargs["temperature"] = self._temperature
         self._raw = self._client.chat.completions.create(**kwargs)
         return _OpenAIStream(self._raw)
 
@@ -104,14 +193,27 @@ class _StreamContext:
 
 
 class _Messages:
-    def __init__(self, client: Any) -> None:
+    def __init__(
+        self,
+        client: Any,
+        *,
+        response_format: dict[str, Any] | None = None,
+        reasoning_effort: str | None = None,
+        temperature: float | None = None,
+    ) -> None:
         self._client = client
+        self._response_format = response_format
+        self._reasoning_effort = reasoning_effort
+        self._temperature = temperature
 
     def stream(self, *, model: str, max_tokens: int, system: str,
                messages: list[dict], timeout: float | None = None, **_ignored: Any) -> _StreamContext:
         return _StreamContext(
             self._client, model=model, max_tokens=max_tokens,
             system=system, messages=messages, timeout=timeout,
+            response_format=self._response_format,
+            reasoning_effort=self._reasoning_effort,
+            temperature=self._temperature,
         )
 
 
@@ -129,6 +231,9 @@ class OpenAICompatSynthesisClient:
         api_key: str | None = None,
         *,
         client: Any | None = None,
+        enforce_json_schema: bool = False,
+        reasoning_effort: str | None = None,
+        temperature: float | None = None,
     ) -> None:
         if client is not None:
             self._client = client
@@ -147,4 +252,11 @@ class OpenAICompatSynthesisClient:
                     "(LM Studio → Developer → API tokens), or disable auth in LM Studio."
                 )
             self._client = _openai_pkg.OpenAI(base_url=resolved_base, api_key=api_key)
-        self.messages = _Messages(self._client)
+        self.messages = _Messages(
+            self._client,
+            response_format=(
+                _SYNTHESIS_RESPONSE_FORMAT if enforce_json_schema else None
+            ),
+            reasoning_effort=reasoning_effort,
+            temperature=temperature,
+        )

@@ -40,3 +40,4 @@ def test_schema_contains_required_constraints_and_indexes() -> None:
     assert "observation_type" in statements
     assert "year_value" in statements
     assert "observation_year_int" in statements
+    assert "CREATE INDEX entity_id IF NOT EXISTS FOR (n:Entity) ON (n.entity_id)" in statements

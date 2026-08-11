@@ -35,6 +35,8 @@ intent_to_claim_types:
   agriculture: [agricultural_condition, land_policy_action, farm_organization]
   farming: [agricultural_condition, land_policy_action]
   wheat: [agricultural_condition, commercial_transaction]
+  farmer: [farm_organization, agricultural_condition]
+  farmers: [farm_organization, agricultural_condition]
   crop: [agricultural_condition]
   irrigation: [land_policy_action, agricultural_condition, civic_development]
   homestead: [land_policy_action, agricultural_condition]
@@ -51,6 +53,7 @@ intent_to_claim_types:
 
   # Civic development domain
   city: [civic_development, infrastructure_project, public_meeting]
+  infrastructure: [infrastructure_project, civic_development]
   municipal: [civic_development, infrastructure_project]
   bridge: [infrastructure_project, civic_development]
   street: [infrastructure_project, civic_development]

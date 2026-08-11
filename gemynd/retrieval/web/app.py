@@ -46,7 +46,11 @@ from .auth import UserContext, require_user
 from gemynd.auth.dependencies import NeedsLoginException, require_admin, require_archivist_or_admin
 from gemynd.auth.router import create_auth_router
 from ..classifier import classify_query, detect_tier1_intent
-from ..context_assembler import ProvenanceContextAssembler, _serialise_block
+from ..context_assembler import (
+    ProvenanceContextAssembler,
+    _apply_context_char_budget,
+    _serialise_block,
+)
 from ..conversation_log import (
     ClaimInteraction,
     ConversationLogger,
@@ -68,6 +72,7 @@ from gemynd.core.graph.cypher import (
     GET_DOCUMENT_SOURCE_TEXT_QUERY,
     GET_DOCUMENT_PARAGRAPHS_QUERY,
     ENTITY_DEGREE_QUERY,
+    TOTAL_ACTIVE_CLAIMS_QUERY,
     STATS_DOC_OVERVIEW_QUERY,
     STATS_DOC_TYPE_QUERY,
     STATS_CLAIM_TYPE_QUERY,
@@ -95,12 +100,30 @@ from ..executor import Neo4jQueryExecutor
 from ..models import RetrievalStats, SynthesisResult
 from ..query_builder import CypherQueryBuilder
 from ..synthesis import SynthesisEngine
+from ..synthesis_router import SynthesisRouter, build_synthesis_router
 
 
 # Allowlist for entity_id URL path parameters.
 # Accepts both hash-based IDs (person_a1b2c3d4) and metadata-supplied readable
 # IDs (patent_person_robert_mill). Constrained to lowercase alphanumeric + underscore.
 _ENTITY_ID_RE = re.compile(r'^[a-z][a-z0-9_]{3,79}$')
+
+
+_PROVIDER_LABELS = {
+    "anthropic": "Anthropic",
+    "opencode": "OpenCode",
+    "lmstudio": "LM Studio",
+    "openai": "OpenAI-compatible",
+    "local": "Local",
+}
+
+
+def _build_synthesis_providers(provider_ids: list[str]) -> list[dict[str, str]]:
+    """Map provider IDs to display labels for the chat settings panel."""
+    return [
+        {"value": pid, "label": _PROVIDER_LABELS.get(pid, pid.title())}
+        for pid in provider_ids
+    ]
 
 
 def _parse_year(v: str | None) -> int | None:
@@ -231,6 +254,14 @@ class QueryRequest(BaseModel):
             "(e.g. ['BLM GLO Records']). Supplements any series hints detected from the query text."
         ),
     )
+    synthesis_provider: str | None = Field(
+        None,
+        description=(
+            "Synthesis provider to use for this query. None or 'auto' uses the "
+            "server's default provider, falling back through SYNTHESIS_FALLBACK_PROVIDERS "
+            "on failure. Otherwise one of the available providers (e.g. 'anthropic', 'opencode')."
+        ),
+    )
 
     @field_validator("conversation_history")
     @classmethod
@@ -254,6 +285,7 @@ class QueryResponse(BaseModel):
     ambiguous_entities: list[str] = Field(default_factory=list)
     retrieval_stats: dict[str, Any] | None = None
     synthesis_available: bool = True  # False when API call failed; provenance blocks still returned
+    synthesis_provider_used: str | None = None  # Provider that actually produced the answer
     quarantined_claims_count: int = 0  # claims excluded from this answer due to sensitivity review
     supporting_claims_detail: list[dict[str, Any]] = Field(default_factory=list)
     # Each entry: {claim_id, confidence, epistemic_status, claim_type, doc_id, doc_title}
@@ -284,6 +316,9 @@ class QueryResponse(BaseModel):
     # the data (e.g., tight temporal cluster picked thematic).  None when
     # no divergence detected.
     structure_divergence: dict[str, Any] | None = None
+    # Present only for /query/deep.  Kept optional so ordinary query clients and
+    # cached responses remain backward compatible.
+    research_trace: dict[str, Any] | None = None
 
 
 # ---------------------------------------------------------------------------
@@ -1136,6 +1171,10 @@ def create_app(
         max_calls=_env_settings.query_rate_limit_max,
         period_seconds=_env_settings.query_rate_limit_period,
     )
+    _deep_query_limiter = TokenBucketLimiter(
+        max_calls=_env_settings.deep_research_rate_limit_max,
+        period_seconds=_env_settings.deep_research_rate_limit_period,
+    )
 
     def _try_init(factory: Any) -> Any:
         """Attempt to construct a store; return None on failure."""
@@ -1227,27 +1266,36 @@ def create_app(
         # Plus total active-claim count for the inverse-frequency normalizer.
         # Failures are logged but non-fatal: the path-finder degrades to
         # uniform weights with degree {} rather than blocking app startup.
-        try:
-            _degree_rows = executor.run(ENTITY_DEGREE_QUERY, {})
-            state["entity_degree"] = {
-                r["entity_id"]: int(r.get("degree") or 0)
-                for r in _degree_rows
-                if r.get("entity_id")
-            }
-        except Exception:
-            _log.warning("Could not load ENTITY_DEGREE_QUERY for path-finder", exc_info=True)
-            state["entity_degree"] = {}
-        try:
-            _total_rows = executor.run(
-                "MATCH (c:Claim) "
-                "WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active' "
-                "RETURN count(c) AS total",
-                {},
+        _skip_path_cache_warmup = os.getenv(
+            "GEMYND_SKIP_PATH_CACHE_WARMUP", ""
+        ).strip().lower() in {"1", "true", "yes", "on"}
+        if _skip_path_cache_warmup:
+            _log.info(
+                "Skipping entity-degree cache warmup; path-finder will use "
+                "uniform weights"
             )
-            state["total_active_claims"] = int(_total_rows[0]["total"]) if _total_rows else 0
-        except Exception:
-            _log.warning("Could not load total_active_claims for path-finder", exc_info=True)
+            state["entity_degree"] = {}
+            # The total-claim normalizer is used only by the same weighted
+            # path-finder.  Querying it still scans the multi-million-claim
+            # newspaper clone and defeats the purpose of the skip flag.
             state["total_active_claims"] = 0
+        else:
+            try:
+                _degree_rows = executor.run(ENTITY_DEGREE_QUERY, {})
+                state["entity_degree"] = {
+                    r["entity_id"]: int(r.get("degree") or 0)
+                    for r in _degree_rows
+                    if r.get("entity_id")
+                }
+            except Exception:
+                _log.warning("Could not load ENTITY_DEGREE_QUERY for path-finder", exc_info=True)
+                state["entity_degree"] = {}
+            try:
+                _total_rows = executor.run(TOTAL_ACTIVE_CLAIMS_QUERY, {})
+                state["total_active_claims"] = int(_total_rows[0]["total"]) if _total_rows else 0
+            except Exception:
+                _log.warning("Could not load total_active_claims for path-finder", exc_info=True)
+                state["total_active_claims"] = 0
         _nonzero_degree = sum(1 for v in state["entity_degree"].values() if v > 0)
         _log.info(
             "Path-finder caches loaded: %d entities (%d with non-zero degree), "
@@ -1322,12 +1370,16 @@ def create_app(
             executor,
             institution_ids=_composite.institution_ids,
         )
+        _is_local_synthesis = _env_settings.synthesis_provider in {
+            "lmstudio", "openai", "local",
+        }
         # --- Optional text-to-Cypher LLM fallback ---
         # Built only when (a) the composite domain opts in via
-        # `enable_llm_cypher` and (b) an Anthropic API key is configured.
+        # `enable_llm_cypher`, (b) an Anthropic API key is configured, and
+        # (c) synthesis is not running in local-only mode.
         # Schema and cache are shared with the validator inside the generator.
         _llm_cypher_generator: Any = None
-        if _composite.enable_llm_cypher and api_key:
+        if _composite.enable_llm_cypher and api_key and not _is_local_synthesis:
             try:
                 from gemynd.retrieval.cypher_validator import CypherSchema
                 from gemynd.retrieval.cypher_cache import SqliteCypherCache
@@ -1362,8 +1414,22 @@ def create_app(
                 _log.warning("LLM-Cypher fallback disabled (init failed)", exc_info=True)
                 _llm_cypher_generator = None
 
+        from gemynd.retrieval.context_ranker import build_context_ranker
+
+        _local_claim_budget = max(1, _env_settings.synthesis_local_claim_budget)
+        _effective_max_tokens = (
+            min(max_tokens, max(256, _env_settings.synthesis_local_max_tokens))
+            if _is_local_synthesis
+            else max_tokens
+        )
         state["assembler"] = ProvenanceContextAssembler(
             executor,
+            budget_conversational=(
+                _local_claim_budget if _is_local_synthesis else 1000
+            ),
+            budget_hybrid=(
+                _local_claim_budget if _is_local_synthesis else 1000
+            ),
             annotation_store=_annotation_store,
             query_intent_map=_composite.query_intent_to_claim_types,
             institution_ids=_composite.institution_ids,
@@ -1372,6 +1438,14 @@ def create_app(
                 for inst_id in _composite.institution_ids
             },
             llm_cypher_generator=_llm_cypher_generator,
+            context_ranker=build_context_ranker(
+                executor,
+                mode=_env_settings.context_ranker,
+                kgr_root=_env_settings.kgr_root,
+                neo4j_uri=uri,
+                neo4j_username=user,
+                neo4j_password=password,
+            ),
         )
         # Build the gateway with a resolver whose vocabulary spans EVERY
         # registered corpus. Without this, ``EntityResolutionGateway()`` would
@@ -1386,9 +1460,26 @@ def create_app(
             executor=executor,
         )
         synthesis_ctx = _composite.synthesis_context()
-        # Surface key-loading state at startup so a missing/short key is visible
-        # before the first query rather than buried in a per-request exception.
-        if api_key:
+        # Surface provider state at startup before the first query. Local
+        # synthesis resolves its own LM Studio token and must not imply that an
+        # Anthropic key is required.
+        if _is_local_synthesis:
+            _log.info(
+                "synthesis: local provider=%s model=%s claim_budget=%d max_tokens=%d",
+                _env_settings.synthesis_provider,
+                _env_settings.synthesis_openai_model,
+                _local_claim_budget,
+                _effective_max_tokens,
+            )
+        elif _env_settings.synthesis_provider == "opencode":
+            _log.info(
+                "synthesis: opencode provider mode=%s url=%s agent=%s model=%r",
+                _env_settings.synthesis_opencode_mode,
+                _env_settings.synthesis_opencode_url,
+                _env_settings.synthesis_opencode_agent,
+                _env_settings.synthesis_opencode_model,
+            )
+        elif api_key:
             _log.info(
                 "synthesis: Anthropic API key loaded (length=%d, prefix=%s...)",
                 len(api_key),
@@ -1399,12 +1490,21 @@ def create_app(
                 "synthesis: no Anthropic API key found (checked Anthropic_API_Key, "
                 "ANTHROPIC_API_KEY env vars and CLI param). All synthesis calls will fail."
             )
-        state["synthesis"] = SynthesisEngine(
+
+        state["synthesis"] = build_synthesis_router(
+            _env_settings,
             api_key=api_key,
             max_tokens=max_tokens,
             synthesis_context=synthesis_ctx,
             timeout=_env_settings.synthesis_timeout_seconds,
             token_logger=_token_logger,
+            local_max_tokens=_env_settings.synthesis_local_max_tokens,
+        )
+        _log.info(
+            "synthesis: router default=%s available=%s fallback=%s",
+            state["synthesis"].default_provider,
+            ",".join(state["synthesis"].available_providers),
+            ",".join(_env_settings.synthesis_fallback_providers or []),
         )
 
         # Featured questions + curated answer cache. An empty/missing store is a
@@ -1421,6 +1521,7 @@ def create_app(
             state["featured"] = None
 
         yield
+        state["assembler"].close()
         executor.close()
         db_mgr.close_all()
 
@@ -1602,6 +1703,14 @@ def create_app(
                 featured_questions = [q["display"] for q in _featured.list_questions()]
             except Exception:
                 _log.warning("failed to list featured questions", exc_info=True)
+        _router = state.get("synthesis")
+        synthesis_providers = []
+        synthesis_default_provider = None
+        if isinstance(_router, SynthesisRouter):
+            synthesis_default_provider = _router.default_provider
+            synthesis_providers = _build_synthesis_providers(
+                _router.available_providers
+            )
         return _templates.TemplateResponse(
             "chat.html",
             {
@@ -1610,6 +1719,8 @@ def create_app(
                 "corpus_year_min": bounds[0],
                 "corpus_year_max": bounds[1],
                 "featured_questions": featured_questions,
+                "synthesis_providers": synthesis_providers,
+                "synthesis_default_provider": synthesis_default_provider,
                 **_user_ctx(user),
             },
         )
@@ -1653,7 +1764,7 @@ def create_app(
         gateway: EntityResolutionGateway = state["gateway"]
         assembler: ProvenanceContextAssembler = state["assembler"]
         builder: CypherQueryBuilder = state["query_builder"]
-        engine: SynthesisEngine = state["synthesis"]
+        router: SynthesisRouter = state["synthesis"]
 
         created_at = datetime.now(timezone.utc).isoformat()
         # Always generate a unique per-turn conversation_id so every turn gets
@@ -1953,9 +2064,12 @@ def create_app(
 
         # Layer 3: synthesis.
         synthesis_available = True
+        synthesis_provider_used: str | None = None
         _t0 = time.perf_counter()
         try:
-            result: SynthesisResult = engine.synthesise(
+            result: SynthesisResult
+            result, synthesis_provider_used = router.synthesise(
+                provider=req.synthesis_provider,
                 query=req.text,
                 provenance_blocks=blocks,
                 context_text=context_text,
@@ -2061,6 +2175,7 @@ def create_app(
             ambiguous_entities=entity_ctx.ambiguous,
             retrieval_stats=dataclasses.asdict(retrieval_stats),
             synthesis_available=synthesis_available,
+            synthesis_provider_used=synthesis_provider_used,
             quarantined_claims_count=quarantined_claims_count,
             supporting_claims_detail=claims_detail,
             user_can_annotate=user.role in ("admin", "archivist"),
@@ -2132,6 +2247,259 @@ def create_app(
                 ),
             ))
 
+        return response
+
+    # ------------------------------------------------------------------
+    # POST /query/deep — bounded evidence-gap investigation
+    # ------------------------------------------------------------------
+    @app.post("/query/deep", response_model=QueryResponse)
+    def query_deep(
+        req: QueryRequest,
+        request: Request,
+        user: UserContext = Depends(require_user_scoped),
+    ) -> QueryResponse:
+        if user.role != "admin":
+            rate_key = user.user_id or user.institution_id
+            if not _deep_query_limiter.is_allowed(rate_key):
+                raise HTTPException(
+                    status_code=429,
+                    detail="Deep-research rate limit exceeded. Maximum 4 requests per minute.",
+                    headers={"Retry-After": "60"},
+                )
+
+        from gemynd.retrieval.deep_research import (
+            DeepResearchOrchestrator,
+            ModelEvidenceGapAdviser,
+            PermissionScope,
+            build_backend,
+        )
+
+        gateway: EntityResolutionGateway = state["gateway"]
+        assembler: ProvenanceContextAssembler = state["assembler"]
+        synthesis_router: SynthesisRouter = state["synthesis"]
+        domain_config = state.get("domain_config")
+        intent_map = getattr(state.get("composite_config"), "query_intent_to_claim_types", None)
+        intent_box: dict[str, Any] = {}
+
+        def _classify_deep(text: str) -> Any:
+            classified = classify_query(
+                text=text,
+                year_range=req.year_range,
+                entity_hints=req.entity_hints or [],
+                extra_stopwords=(domain_config.extraction_stopwords if domain_config else None),
+                year_bounds=state.get("classifier_year_bounds"),
+                seed_vocab=state.get("classifier_seed_vocab"),
+            )
+            if req.mode != "auto":
+                classified = dataclasses.replace(classified, bucket=req.mode)
+            if text == req.text:
+                intent_box["intent"] = classified
+            return classified
+
+        provider_box: dict[str, str] = {}
+
+        def _synthesise_deep(**kwargs: Any) -> SynthesisResult:
+            synthesis_result, provider_used = synthesis_router.synthesise(
+                provider=req.synthesis_provider,
+                **kwargs,
+            )
+            provider_box["synthesis"] = provider_used
+            return synthesis_result
+
+        backend = build_backend(
+            gateway=gateway,
+            assembler=assembler,
+            engine=synthesis_router,
+            classify_fn=_classify_deep,
+            infer_claim_types_fn=lambda text: _infer_claim_types(text, intent_map=intent_map),
+            entity_hints=req.entity_hints,
+            doc_types=req.doc_types,
+            series=req.series,
+            synthesise_fn=_synthesise_deep,
+        )
+        adviser = ModelEvidenceGapAdviser(
+            lambda **kwargs: synthesis_router.complete_json(
+                provider=req.synthesis_provider,
+                **kwargs,
+            )
+        )
+        orchestrator = DeepResearchOrchestrator(
+            backend,
+            adviser=adviser,
+            max_angles=4,
+            max_consecutive_no_gain=2,
+            max_failures=2,
+            max_adviser_calls=3,
+            max_proposals_per_call=2,
+            char_budget_fn=lambda blocks: _apply_context_char_budget(
+                blocks, char_budget=120_000
+            ),
+            serialise_fn=_serialise_block,
+        )
+        try:
+            research = orchestrator.research(
+                req.text,
+                PermissionScope(
+                    permitted_levels=list(user.permitted_levels),
+                    institution_ids=list(user.permitted_institution_ids),
+                ),
+                conversation_history=[turn.model_dump() for turn in req.conversation_history],
+            )
+        except Exception as exc:
+            _log.exception("deep-research probe/startup failed (%s)", type(exc).__name__)
+            raise HTTPException(
+                status_code=503,
+                detail="Deep research could not start; no investigation was performed.",
+            ) from exc
+
+        blocks = research.merged_blocks
+        synthesis_available = research.synthesis is not None
+        if research.synthesis is not None:
+            result = research.synthesis
+        elif blocks:
+            result = SynthesisResult(
+                answer=(
+                    "AI synthesis is currently unavailable. Retrieved source sentences "
+                    "are provided for direct review."
+                ),
+                confidence_assessment="",
+                supporting_claim_ids=[block.claim_id for block in blocks],
+                caveats=[
+                    "Deep research completed retrieval, but final synthesis was unavailable."
+                ],
+            )
+        else:
+            result = SynthesisResult(
+                answer="The bounded investigation found no supporting claims in the permitted corpus.",
+                confidence_assessment="No supporting evidence was retrieved.",
+                supporting_claim_ids=[],
+                caveats=[
+                    "The investigation stopped under its configured search budget; absence of "
+                    "retrieved evidence is not proof that the historical fact did not occur."
+                ],
+            )
+            synthesis_available = True
+
+        quarantined_claims_count = 0
+        try:
+            rows = state["executor"].run(
+                COUNT_QUARANTINED_CLAIMS_QUERY,
+                {
+                    "institution_ids": user.permitted_institution_ids,
+                    "permitted_levels": user.permitted_levels,
+                },
+            )
+            quarantined_claims_count = int(
+                (rows[0].get("quarantined_count") or 0) if rows else 0
+            )
+        except Exception:
+            pass
+
+        attempts_payload = [dataclasses.asdict(attempt) for attempt in research.attempts]
+        assessment_payload = (
+            dataclasses.asdict(research.assessment) if research.assessment else None
+        )
+        trace = {
+            "stop_reason": research.stop_reason.value,
+            "attempts": attempts_payload,
+            "assessment": assessment_payload,
+            "unique_claims": research.unique_claims,
+            "coverage_gain": research.coverage_gain,
+            "blocks_by_angle": research.blocks_by_angle,
+            "new_claims_by_angle": research.new_claims_by_angle,
+            "adviser_calls": research.adviser_calls,
+            "adviser_failed": research.adviser_failed,
+            "adviser_provider_used": (
+                research.assessment.provider_used if research.assessment else None
+            ),
+            "synthesis_provider_used": provider_box.get("synthesis"),
+            "estimated_context_tokens": research.estimated_context_tokens,
+            "timings_ms": research.timings_ms,
+        }
+        response = QueryResponse(
+            answer=result.answer,
+            confidence_assessment=result.confidence_assessment,
+            supporting_claim_ids=result.supporting_claim_ids,
+            caveats=list(result.caveats),
+            min_extraction_confidence=result.min_extraction_confidence,
+            synthesis_available=synthesis_available,
+            synthesis_provider_used=provider_box.get("synthesis"),
+            quarantined_claims_count=quarantined_claims_count,
+            supporting_claims_detail=[
+                {
+                    "claim_id": block.claim_id,
+                    "source_sentence": block.source_sentence,
+                    "confidence": block.extraction_confidence,
+                    "epistemic_status": block.epistemic_status,
+                    "claim_type": block.claim_type,
+                    "doc_id": block.doc_id,
+                    "doc_title": _citation_label(block),
+                    "doc_title_raw": block.doc_title,
+                }
+                for block in blocks
+            ],
+            user_can_annotate=user.role in ("admin", "archivist"),
+            answer_sentences=[dataclasses.asdict(sentence) for sentence in result.answer_sentences],
+            organizing_structure=result.organizing_structure,
+            section_outline=[dataclasses.asdict(section) for section in result.section_outline],
+            retrieval_provenance=(
+                dataclasses.asdict(result.retrieval_provenance)
+                if result.retrieval_provenance else None
+            ),
+            structure_divergence=(
+                dataclasses.asdict(result.structure_divergence)
+                if result.structure_divergence else None
+            ),
+            research_trace=trace,
+        )
+
+        intent = intent_box.get("intent")
+        conv_logger: ConversationLogger | None = state.get("conv_logger")
+        if conv_logger is not None and intent is not None:
+            created_at = datetime.now(timezone.utc).isoformat()
+            cached_json = None
+            if user.user_id is not None:
+                try:
+                    cached_json = response.model_dump_json()
+                except Exception:
+                    pass
+            cited_ids = set(result.supporting_claim_ids)
+            conv_logger.enqueue(LogRecord(
+                conversation_id=make_conversation_id(req.text, created_at),
+                query_text=req.text,
+                bucket=intent.bucket,
+                classifier_confidence=intent.classifier_confidence,
+                year_min=intent.year_min,
+                year_max=intent.year_max,
+                retrieval_path="deep_research",
+                created_at=created_at,
+                entity_ids_resolved=[],
+                entity_types_resolved=[],
+                candidates_retrieved=sum(research.blocks_by_angle.values()),
+                ocr_dropped=0,
+                claims_in_context=len(blocks),
+                session_id=req.session_id,
+                turn_number=len(req.conversation_history) // 2 + 1,
+                request_id=getattr(request.state, "request_id", None),
+                user_id=user.user_id,
+                response_json=cached_json,
+                claim_interactions=[
+                    ClaimInteraction(
+                        claim_id=_safe_log_claim_id(block.claim_id, block.access_level),
+                        claim_type=block.claim_type,
+                        traversal_rel_types=block.traversal_rel_types,
+                        was_cited=block.claim_id in cited_ids,
+                        extraction_confidence=block.extraction_confidence,
+                    )
+                    for block in blocks
+                ],
+                timing_ms={
+                    **research.timings_ms,
+                    "stop_reason": research.stop_reason.value,
+                    "coverage_gain": research.coverage_gain,
+                    "adviser_calls": research.adviser_calls,
+                },
+            ))
         return response
 
     # ------------------------------------------------------------------
@@ -3081,6 +3449,7 @@ def create_app(
     @app.get("/api/conversations/{session_id}")
     def api_get_conversation(
         session_id: str,
+        pending: bool = Query(False),
         user: UserContext = Depends(require_user),
     ) -> dict[str, Any]:
         if not _SESSION_ID_RE.match(session_id):
@@ -3089,11 +3458,19 @@ def create_app(
         if store is None:
             raise HTTPException(status_code=503, detail="History store not configured.")
         if user.user_id is None:
+            if pending:
+                return {"session_id": session_id, "turns": [], "pending": True}
             raise HTTPException(status_code=404, detail="conversation not found")
         turns = store.get_session_turns(user.user_id, session_id)
         if not turns:
+            # Refresh recovery polls while a synchronous /query call is still
+            # running. A missing row is expected until the completed answer is
+            # written, so let that explicit polling mode return a quiet 200
+            # without weakening the normal endpoint's useful 404 semantics.
+            if pending:
+                return {"session_id": session_id, "turns": [], "pending": True}
             raise HTTPException(status_code=404, detail="conversation not found")
-        return {"session_id": session_id, "turns": turns}
+        return {"session_id": session_id, "turns": turns, "pending": False}
 
     @app.delete("/api/conversations/{session_id}")
     def api_delete_conversation(
@@ -4266,6 +4643,7 @@ def create_app(
     from fastapi import APIRouter as _APIRouter
     v1 = _APIRouter(prefix="/v1")
     v1.add_api_route("/query", query, methods=["POST"], response_model=QueryResponse)
+    v1.add_api_route("/query/deep", query_deep, methods=["POST"], response_model=QueryResponse)
     v1.add_api_route("/query/provenance", query_provenance, methods=["POST"])
     v1.add_api_route("/api/entities/search", entity_search, methods=["GET"])
     v1.add_api_route("/api/entity/{entity_id}/neighborhood", entity_neighborhood, methods=["GET"])
@@ -4284,7 +4662,7 @@ def create_app(
     for _route in app.routes:
         if hasattr(_route, "path") and hasattr(_route, "include_in_schema"):
             if getattr(_route, "path", None) in {
-                "/query", "/query/provenance", "/api/entities/search",
+                "/query", "/query/deep", "/query/provenance", "/api/entities/search",
                 "/api/entity/{entity_id}/neighborhood", "/documents",
                 "/document/{doc_id}", "/document/{doc_id}/restore",
             } and not getattr(_route, "deprecated", False):

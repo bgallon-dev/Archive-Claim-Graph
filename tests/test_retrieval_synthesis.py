@@ -127,6 +127,24 @@ _VALID_RESPONSE = _valid_response()
 _RESPONSE_WITH_FENCE = f"```json\n{_VALID_RESPONSE}\n```"
 
 
+def test_complete_json_reuses_transport_and_parses_object():
+    from gemynd.retrieval.synthesis import SynthesisEngine
+
+    engine = SynthesisEngine.__new__(SynthesisEngine)
+    engine._client = _make_mock_client('```json\n{"gaps": []}\n```')
+    engine._model = "test-model"
+    engine._max_tokens = 1200
+    engine._timeout = 1.0
+
+    result = engine.complete_json(
+        system_prompt="return json", user_message="find gaps", max_tokens=100
+    )
+    assert result == {"gaps": []}
+    kwargs = engine._client.messages.stream.call_args.kwargs
+    assert kwargs["system"] == "return json"
+    assert kwargs["max_tokens"] == 100
+
+
 class TestSynthesise:
     def _engine(self, response_text, stop_reason: str = "end_turn"):
         from gemynd.retrieval.synthesis import SynthesisEngine
@@ -147,6 +165,91 @@ class TestSynthesise:
         assert result.answer_sentences[0].is_inferred is False
         # Flat back-compat list union of all sentence claim_ids.
         assert result.supporting_claim_ids == ["c-001", "c-002"]
+
+    def test_anthropic_uses_short_aliases_and_expands_all_citations(self):
+        claim_1 = "run_20260725T021534977108Z_5be30a69:claim:104:e1ba1bb2b26ce401"
+        claim_2 = "run_20260725T021534977108Z_5be30a69:claim:105:aabbccddeeff0011"
+        response = _valid_response(
+            sentences=[{
+                "text": "Two supported facts.",
+                "supporting_claim_ids": ["C01", "C02"],
+                "is_inferred": False,
+            }],
+            section_outline=[{
+                "heading": "Findings",
+                "claim_ids": ["C02"],
+            }],
+        )
+        engine = self._engine(response)
+        engine._provider = "anthropic"
+        blocks = [_make_block(claim_1, 0.9), _make_block(claim_2, 0.8)]
+
+        result = engine.synthesise(
+            "query",
+            blocks,
+            f"CLAIM_ID: {claim_1}\nCLAIM_ID: {claim_2}",
+        )
+
+        assert result.supporting_claim_ids == [claim_1, claim_2]
+        assert result.section_outline[0].claim_ids == [claim_2]
+        sent_message = engine._client.messages.stream.call_args.kwargs["messages"][0]["content"]
+        assert "CLAIM_ID: C01" in sent_message
+        assert "CLAIM_ID: C02" in sent_message
+        assert claim_1 not in sent_message
+        assert claim_2 not in sent_message
+
+    def test_anthropic_expands_aliases_on_validation_retry(self):
+        claim_id = "run_20260725T021534977108Z_5be30a69:claim:104:e1ba1bb2b26ce401"
+        bad = _valid_response(
+            sentences=[{
+                "text": "Bad citation.",
+                "supporting_claim_ids": ["C99"],
+                "is_inferred": False,
+            }],
+        )
+        good = _valid_response(
+            sentences=[{
+                "text": "Corrected citation.",
+                "supporting_claim_ids": ["C01"],
+                "is_inferred": False,
+            }],
+        )
+        engine = self._engine([bad, good])
+        engine._provider = "anthropic"
+        blocks = [_make_block(claim_id, 0.9)]
+
+        result = engine.synthesise(
+            "query", blocks, f"CLAIM_ID: {claim_id}"
+        )
+
+        assert result.supporting_claim_ids == [claim_id]
+        assert engine._client.messages.stream.call_count == 2
+        for call in engine._client.messages.stream.call_args_list:
+            sent_message = call.kwargs["messages"][0]["content"]
+            assert "CLAIM_ID: C01" in sent_message
+            assert claim_id not in sent_message
+
+    def test_local_discards_outline_before_validation(self):
+        response = _valid_response(
+            sentences=[{
+                "text": "Mallards increased.",
+                "supporting_claim_ids": ["C01"],
+                "is_inferred": False,
+            }],
+            section_outline=[{
+                "heading": "Unneeded",
+                "claim_ids": ["C99"],
+            }],
+        )
+        engine = self._engine(response)
+        engine._provider = "lmstudio"
+        blocks = [_make_block("c-001", 0.9)]
+
+        result = engine.synthesise("query", blocks, "CLAIM_ID: c-001")
+
+        assert result.supporting_claim_ids == ["c-001"]
+        assert result.section_outline == []
+        assert engine._client.messages.stream.call_count == 1
 
     def test_min_confidence_computed(self):
         engine = self._engine(_VALID_RESPONSE)

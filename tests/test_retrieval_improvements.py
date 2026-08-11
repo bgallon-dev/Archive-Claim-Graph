@@ -26,6 +26,7 @@ import pytest
 
 from gemynd.core.graph.cypher import (
     ENTITY_ANCHORED_CLAIMS_QUERY,
+    FULLTEXT_CLAIMS_BY_TYPE_QUERY,
     FULLTEXT_CLAIMS_QUERY,
 )
 from gemynd.retrieval.context_assembler import (
@@ -260,6 +261,13 @@ class TestSelectRetrievalStrategy:
         assert template == FULLTEXT_CLAIMS_QUERY
         assert "search_text" in params
 
+    def test_fulltext_caps_candidates_before_document_expansion(self):
+        cap = FULLTEXT_CLAIMS_QUERY.index("LIMIT $limit * 4")
+        expansion = FULLTEXT_CLAIMS_QUERY.index(
+            "MATCH (lr:ExtractionRun {run_id: c.run_id})"
+        )
+        assert cap < expansion
+
     # --- Temporal path ---
 
     def test_year_range_no_entity_uses_temporal_template(self):
@@ -317,6 +325,21 @@ class TestSelectRetrievalStrategy:
         assert params["year_min"] == 1940
         assert params["year_max"] == 1960
 
+    def test_multi_entity_query_bounds_each_anchor_before_document_expansion(self):
+        from gemynd.core.graph.cypher import MULTI_ENTITY_CLAIMS_QUERY
+
+        anchor_lookup = MULTI_ENTITY_CLAIMS_QUERY.index(
+            "MATCH (e:Entity {entity_id: requested_entity_id})"
+        )
+        candidate_limit = MULTI_ENTITY_CLAIMS_QUERY.index("LIMIT $limit * 4")
+        document_expansion = MULTI_ENTITY_CLAIMS_QUERY.index(
+            "<-[:PROCESSED_BY]-(d:Document)"
+        )
+
+        assert "UNWIND $entity_ids AS requested_entity_id" in MULTI_ENTITY_CLAIMS_QUERY
+        assert anchor_lookup < candidate_limit < document_expansion
+        assert "MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)" not in MULTI_ENTITY_CLAIMS_QUERY
+
     # --- Single entity + claim type ---
 
     def test_single_entity_with_claim_type_signal_uses_entity_anchored(self):
@@ -345,14 +368,20 @@ class TestSelectRetrievalStrategy:
 
     # --- Claim type scoped, no entity ---
 
-    def test_claim_type_no_entity_uses_claim_type_scoped(self):
-        from gemynd.core.graph.cypher import CLAIM_TYPE_SCOPED_QUERY
+    def test_claim_type_no_entity_uses_bounded_fulltext_first(self):
+        from gemynd.core.graph.cypher import (
+            FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+            FULLTEXT_CLAIMS_QUERY,
+        )
         template, params = self._select(
             "describe all predator control activities"
         )
-        assert template == CLAIM_TYPE_SCOPED_QUERY
+        assert template == FULLTEXT_CLAIMS_BY_TYPE_QUERY
+        assert "c.claim_type IN $claim_types" in FULLTEXT_CLAIMS_BY_TYPE_QUERY
+        assert FULLTEXT_CLAIMS_BY_TYPE_QUERY != FULLTEXT_CLAIMS_QUERY
+        assert "predator" in params["search_text"].lower()
         assert "predator_control" in params["claim_types"]
-        assert params["entity_ids"] is None
+        assert params["limit"] > 0
 
     # --- Single entity, no claim type ---
 

@@ -18,8 +18,11 @@ from gemynd.core.graph.cypher import (
     COUNT_CLAIMS_FOR_ENTITY_QUERY,
     DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
+    EXACT_DATE_CLAIMS_QUERY,
     FREQUENCY_RANKING_FOR_TYPE_QUERY,
     FULLTEXT_CLAIMS_QUERY,
+    FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+    FULLTEXT_CLAIMS_SCOPED_QUERY,
     LIST_DOCUMENTS_FOR_ENTITY_QUERY,
     LIST_DOCUMENTS_FOR_YEAR_QUERY,
     LOCATIONS_FOR_ENTITY_QUERY,
@@ -76,6 +79,8 @@ class InMemoryQueryExecutor:
         p = params or {}
         if cypher is ENTITY_ANCHORED_CLAIMS_QUERY:
             return self._entity_anchored(p)
+        if cypher is EXACT_DATE_CLAIMS_QUERY:
+            return self._exact_date(p)
         if cypher is TEMPORAL_CLAIMS_QUERY:
             return self._temporal(p)
         if (
@@ -92,7 +97,11 @@ class InMemoryQueryExecutor:
             return self._multi_entity(p)
         if cypher is CLAIM_TYPE_SCOPED_QUERY:
             return self._claim_type_scoped(p)
-        if cypher is FULLTEXT_CLAIMS_QUERY:
+        if cypher in (
+            FULLTEXT_CLAIMS_QUERY,
+            FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+            FULLTEXT_CLAIMS_SCOPED_QUERY,
+        ):
             return self._fulltext(p)
         if cypher is DOC_TYPE_BROWSE_QUERY:
             return self._doc_type_browse(p)
@@ -438,8 +447,15 @@ class InMemoryQueryExecutor:
             if not run_id:
                 continue
             for claim_id in self._claims_for_run(run_id, claim_types):
-                for obs_id in self._observations_for_claim(claim_id):
-                    year_node = self._year_for_obs(obs_id)
+                semantic_nodes = [
+                    ("SUPPORTS", self._year_for_obs(obs_id))
+                    for obs_id in self._observations_for_claim(claim_id)
+                ]
+                semantic_nodes.extend(
+                    ("TRIGGERED", self._year_for_event(event_id))
+                    for event_id in self._events_for_claim(claim_id)
+                )
+                for rel_type, year_node in semantic_nodes:
                     if year_node is None:
                         continue
                     year = year_node.get("year")
@@ -449,7 +465,10 @@ class InMemoryQueryExecutor:
                         continue
                     if year_max is not None and year > year_max:
                         continue
-                    rows.append(self._build_row(doc_id, claim_id, "IN_YEAR"))
+                    row = self._build_row(doc_id, claim_id, rel_type)
+                    if not row.get("y"):
+                        row["y"] = year_node
+                    rows.append(row)
                     break  # one row per claim
 
         rows.sort(
@@ -457,6 +476,32 @@ class InMemoryQueryExecutor:
                 (r.get("y") or {}).get("year") or 0,
                 (r.get("c") or {}).get("extraction_confidence", 0.0),
             )
+        )
+        return rows[:limit]
+
+    def _exact_date(self, p: dict) -> list[dict]:
+        institution_ids = p.get("institution_ids") or []
+        permitted_levels = p.get("permitted_levels", ["public"])
+        target_date = p["target_date"]
+        claim_types = p.get("claim_types")
+        limit = p.get("limit", 20)
+
+        rows: list[dict] = []
+        for doc_id in self._valid_docs(institution_ids, permitted_levels):
+            doc = self._w.node_store.get("Document", {}).get(doc_id, {})
+            date_start = doc.get("date_start") or doc.get("start_date")
+            date_end = doc.get("date_end") or doc.get("end_date") or date_start
+            if not date_start or not (str(date_start) <= target_date <= str(date_end)):
+                continue
+            run_id = self._latest_run_id(doc_id)
+            if not run_id:
+                continue
+            for claim_id in self._claims_for_run(run_id, claim_types):
+                rows.append(self._build_row(doc_id, claim_id, "DOCUMENT_DATE"))
+
+        rows.sort(
+            key=lambda r: (r.get("c") or {}).get("extraction_confidence", 0.0),
+            reverse=True,
         )
         return rows[:limit]
 
@@ -650,11 +695,18 @@ class InMemoryQueryExecutor:
         search_text: str = p.get("search_text", "")
         institution_ids = p.get("institution_ids") or []
         permitted_levels = p.get("permitted_levels", ["public"])
+        claim_types = p.get("claim_types")
+        doc_types = p.get("doc_types")
+        series = p.get("series")
+        year_min = p.get("year_min")
+        year_max = p.get("year_max")
         limit = p.get("limit", 20)
         needle = search_text.lower()
 
         rows: list[dict] = []
         for claim_id, claim_props in self._w.node_store.get("Claim", {}).items():
+            if claim_types and claim_props.get("claim_type") not in claim_types:
+                continue
             sentence = (
                 claim_props.get("normalized_sentence")
                 or claim_props.get("source_sentence")
@@ -667,6 +719,19 @@ class InMemoryQueryExecutor:
                 continue
             d = self._w.node_store.get("Document", {}).get(doc_id, {})
             if not self._doc_is_valid(d, institution_ids, permitted_levels):
+                continue
+            if doc_types and d.get("doc_type") not in doc_types:
+                continue
+            if series and d.get("series") not in series:
+                continue
+            report_year = d.get("report_year")
+            if year_min is not None and (
+                report_year is None or report_year < year_min
+            ):
+                continue
+            if year_max is not None and (
+                report_year is None or report_year > year_max
+            ):
                 continue
             run_id = self._latest_run_id(doc_id)
             if claim_props.get("run_id") != run_id:
@@ -851,11 +916,34 @@ class InMemoryQueryExecutor:
                 obs_ids.append(ei)
         return obs_ids
 
+    def _events_for_claim(self, claim_id: str) -> list[str]:
+        return [
+            ei
+            for sl, si, rt, el, ei, _ in self._w.rel_store
+            if (
+                sl == "Claim"
+                and si == claim_id
+                and rt == "TRIGGERED"
+                and el == "Event"
+            )
+        ]
+
     def _year_for_obs(self, obs_id: str) -> dict | None:
         for sl, si, rt, el, ei, _ in self._w.rel_store:
             if (
                 sl == "Observation"
                 and si == obs_id
+                and rt == "IN_YEAR"
+                and el == "Year"
+            ):
+                return self._w.node_store.get("Year", {}).get(ei)
+        return None
+
+    def _year_for_event(self, event_id: str) -> dict | None:
+        for sl, si, rt, el, ei, _ in self._w.rel_store:
+            if (
+                sl == "Event"
+                and si == event_id
                 and rt == "IN_YEAR"
                 and el == "Year"
             ):
@@ -961,6 +1049,12 @@ class InMemoryQueryExecutor:
                         y = w.node_store.get("Year", {}).get(ei, {})
                     elif rt == "OF_SPECIES" and el == "Species":
                         sp = w.node_store.get("Species", {}).get(ei, {})
+        if not y:
+            for event_id in self._events_for_claim(claim_id):
+                event_year = self._year_for_event(event_id)
+                if event_year:
+                    y = event_year
+                    break
 
         measurements = self._measurements_for(obs_id, claim_id)
 

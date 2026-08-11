@@ -77,6 +77,25 @@ def test_stream_prepends_system_and_converts_messages():
     assert kw["messages"][1] == {"role": "user", "content": "USER"}
 
 
+def test_local_generation_controls_are_forwarded():
+    fake = _FakeOpenAI([_chunk("{}", "stop")])
+    client = OpenAICompatSynthesisClient(
+        client=fake,
+        enforce_json_schema=True,
+        reasoning_effort="none",
+        temperature=0,
+    )
+    with client.messages.stream(
+        model="local-model", max_tokens=123, system="SYS",
+        messages=[{"role": "user", "content": "USER"}],
+    ) as stream:
+        list(stream.text_stream)
+    kw = fake.last_kwargs
+    assert kw["response_format"]["type"] == "json_schema"
+    assert kw["reasoning_effort"] == "none"
+    assert kw["temperature"] == 0
+
+
 def test_missing_api_key_raises_a_clear_error():
     with pytest.raises(RuntimeError, match="no API key"):
         OpenAICompatSynthesisClient(base_url="http://localhost:1234/v1", api_key="")
@@ -97,6 +116,70 @@ def test_engine_selects_openai_client_and_model_for_local_provider(monkeypatch):
     assert eng._provider == "lmstudio"
     assert eng._model == "google/gemma-4-e4b"
     assert isinstance(eng._client, OpenAICompatSynthesisClient)
+    assert len(eng._system_prompt) < 2000
+
+
+def test_claim_aliases_round_trip():
+    from gemynd.retrieval.models import ProvenanceBlock
+    from gemynd.retrieval.synthesis import (
+        _alias_claim_ids,
+        _expand_claim_id_aliases,
+    )
+
+    blocks = [
+        ProvenanceBlock(
+            doc_title="Document",
+            doc_date_start=None,
+            doc_date_end=None,
+            page_number=1,
+            paragraph_id="p-1",
+            claim_id="run:claim:001:abcdef",
+            claim_type="event",
+            epistemic_status="observed",
+            extraction_confidence=0.9,
+            source_sentence="A fact.",
+            year=1980,
+            access_level="public",
+            doc_id="doc-1",
+        )
+    ]
+    context, aliases = _alias_claim_ids(
+        blocks, "CLAIM_ID: run:claim:001:abcdef"
+    )
+    assert context == "CLAIM_ID: C01"
+    raw = {
+        "answer_sentences": [{
+            "text": "A fact (C1).",
+            "supporting_claim_ids": ["C1"],
+            "is_inferred": False,
+        }],
+        "section_outline": [{"heading": "Facts", "claim_ids": ["C1"]}],
+        "confidence_assessment": "Medium (C1).",
+        "caveats": ["OCR is imperfect (C1)."],
+    }
+    _expand_claim_id_aliases(raw, aliases)
+    assert raw["answer_sentences"][0]["text"] == "A fact."
+    assert raw["answer_sentences"][0]["supporting_claim_ids"] == [
+        "run:claim:001:abcdef"
+    ]
+    assert raw["section_outline"][0]["claim_ids"] == [
+        "run:claim:001:abcdef"
+    ]
+    assert raw["confidence_assessment"] == "Medium."
+    assert raw["caveats"] == ["OCR is imperfect."]
+
+    unknown = {
+        "answer_sentences": [{
+            "text": "Unsupported.",
+            "supporting_claim_ids": ["C31"],
+            "is_inferred": False,
+        }],
+        "section_outline": [],
+    }
+    _expand_claim_id_aliases(unknown, aliases)
+    assert unknown["answer_sentences"][0]["supporting_claim_ids"] == ["C31"]
+
+
 
 
 def test_engine_local_provider_errors_without_a_model(monkeypatch):

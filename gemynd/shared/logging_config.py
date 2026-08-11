@@ -68,3 +68,12 @@ def setup_logging(level: str | None = None) -> None:
         root.handlers.clear()
     root.addHandler(handler)
     root.setLevel(numeric_level)
+
+    # Neo4j emits one INFORMATION notification for every idempotent
+    # ``CREATE ... IF NOT EXISTS`` statement during startup. On a mature graph
+    # these are expected no-ops, and dozens of multi-line records obscure the
+    # first actionable application message. Keep genuine Neo4j warnings (for
+    # example, unknown properties or query-plan issues) and errors visible.
+    logging.getLogger("neo4j.notifications").setLevel(
+        max(numeric_level, logging.WARNING)
+    )

@@ -102,7 +102,7 @@ _CONVERSATIONAL_SIGNALS: frozenset[str] = frozenset({
 # stored on Document nodes.  Keys are lowercased; values are the exact strings
 # that must appear in d.doc_type in the graph.  Extend this dict as new
 # doc_type values are ingested.
-_DOC_TYPE_ALIASES: dict[str, str] = {
+_DOC_TYPE_ALIASES: dict[str, str | tuple[str, ...]] = {
     # BLM General Land Office patents — doc_type = "land_patent" in this graph.
     # All of the following are common ways users refer to the same document set.
     "land patent": "land_patent",
@@ -132,14 +132,17 @@ _DOC_TYPE_ALIASES: dict[str, str] = {
     "patent": "land_patent",
     "patents": "land_patent",
     # Newspaper articles
-    "newspaper article": "newspaper_article",
-    "newspaper articles": "newspaper_article",
-    "newspaper": "newspaper_article",
-    "newspapers": "newspaper_article",
-    "news article": "newspaper_article",
-    "news articles": "newspaper_article",
-    "press article": "newspaper_article",
-    "press articles": "newspaper_article",
+    # Both values exist in deployed graphs: newspaper_page is the current
+    # Chronicling America page corpus; newspaper_article is retained for
+    # previously ingested article-level records.
+    "newspaper article": ("newspaper_page", "newspaper_article"),
+    "newspaper articles": ("newspaper_page", "newspaper_article"),
+    "newspaper": ("newspaper_page", "newspaper_article"),
+    "newspapers": ("newspaper_page", "newspaper_article"),
+    "news article": ("newspaper_page", "newspaper_article"),
+    "news articles": ("newspaper_page", "newspaper_article"),
+    "press article": ("newspaper_page", "newspaper_article"),
+    "press articles": ("newspaper_page", "newspaper_article"),
     # Other doc types — extend as new doc_type values are ingested.
     "survey plat": "survey_plat",
     "survey plats": "survey_plat",
@@ -174,11 +177,11 @@ _SERIES_ALIASES: dict[str, str] = {
     "blm record": "BLM GLO Records",
     "general land office series": "BLM GLO Records",
     "bureau of land management records": "BLM GLO Records",
-    # The Spokane Press newspaper series
-    "the spokane press": "The Spokane Press",
-    "spokane press": "The Spokane Press",
-    "spokane newspaper": "The Spokane Press",
-    "spokane newspapers": "The Spokane Press",
+    # The live graph stores newspaper series by Library of Congress Control
+    # Number. Generic "Spokane newspaper(s)" means the whole regional corpus,
+    # not this one title, so only the proper title is treated as a series hint.
+    "the spokane press": "sn88085947",
+    "spokane press": "sn88085947",
     # Add additional series here as new archival collections are ingested.
 }
 
@@ -207,9 +210,11 @@ def _extract_doc_type_hints(text: str) -> list[str]:
     matched: dict[str, str] = {}
     for phrase in sorted(_DOC_TYPE_ALIASES, key=len, reverse=True):
         if phrase in lowered:
-            canonical = _DOC_TYPE_ALIASES[phrase]
-            if canonical not in matched.values():
-                matched[phrase] = canonical
+            raw = _DOC_TYPE_ALIASES[phrase]
+            canonical_values = (raw,) if isinstance(raw, str) else raw
+            for canonical in canonical_values:
+                if canonical not in matched.values():
+                    matched[f"{phrase}:{canonical}"] = canonical
     return list(dict.fromkeys(matched.values()))
 
 
@@ -268,6 +273,9 @@ _EXTRACTION_STOPWORDS: frozenset[str] = frozenset({
     "patent", "patents", "grant", "grants", "land", "deed", "deeds",
     "plat", "plats", "record", "records", "series", "collection",
     "newspaper", "newspapers", "article", "articles", "press",
+    # The newspaper demo is already Spokane-scoped. Treating the regional
+    # name as an entity anchor turns topical questions into broad scans.
+    "spokane",
 })
 
 def classify_query(
@@ -337,12 +345,19 @@ def classify_query(
     entities: list[str] = list(entity_hints or [])
     seen_normalized: set[str] = {normalize_name(e) for e in entities}
 
+    stopwords = _EXTRACTION_STOPWORDS | (extra_stopwords or frozenset())
+
     # First pass: capitalized phrases (high-precision for proper nouns mid-sentence).
     capitalised_re = re.compile(r"(?<![.!?]\s)(?<!\A)\b([A-Z][a-z]+(?:\s[A-Z][a-z]+)*)\b")
     for m in capitalised_re.finditer(text):
         candidate = m.group(1)
         norm = normalize_name(candidate)
-        if len(norm) > 2 and norm not in seen_normalized:
+        candidate_tokens = {token.lower() for token in candidate.split()}
+        if (
+            len(norm) > 2
+            and norm not in seen_normalized
+            and not candidate_tokens.issubset(stopwords)
+        ):
             entities.append(candidate)
             seen_normalized.add(norm)
 
@@ -351,7 +366,6 @@ def classify_query(
     # seed vocabulary (exact hit or edit-distance-1 hit). This prevents every
     # 4+ char token from reaching the fuzzy resolver, where the 0.85 threshold
     # produces spurious matches on common English words.
-    stopwords = _EXTRACTION_STOPWORDS | (extra_stopwords or frozenset())
     for m in re.finditer(r'\b([a-zA-Z]{4,})\b', text):
         candidate = m.group(1)
         norm = normalize_name(candidate)

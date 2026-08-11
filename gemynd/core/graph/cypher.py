@@ -47,6 +47,7 @@ def build_id_constraints(
 
 _UNIVERSAL_INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX document_report_year IF NOT EXISTS FOR (n:Document) ON (n.report_year)",
+    "CREATE INDEX document_dates IF NOT EXISTS FOR (n:Document) ON (n.date_start, n.date_end)",
     "CREATE INDEX claim_type IF NOT EXISTS FOR (n:Claim) ON (n.claim_type)",
     "CREATE INDEX measurement_name IF NOT EXISTS FOR (n:Measurement) ON (n.name)",
     "CREATE INDEX mention_ocr_suspect IF NOT EXISTS FOR (n:Mention) ON (n.ocr_suspect)",
@@ -62,6 +63,10 @@ _UNIVERSAL_INDEX_STATEMENTS: list[str] = [
     "CREATE INDEX document_quarantine IF NOT EXISTS FOR (n:Document) ON (n.quarantine_status)",
     "CREATE INDEX document_doc_type IF NOT EXISTS FOR (n:Document) ON (n.doc_type)",
     "CREATE INDEX document_series IF NOT EXISTS FOR (n:Document) ON (n.series)",
+    # All domain-specific entity labels also carry :Entity. Multi-entity
+    # retrieval uses that shared label, so it needs its own lookup index rather
+    # than relying on indexes attached to Person/Place/etc. labels.
+    "CREATE INDEX entity_id IF NOT EXISTS FOR (n:Entity) ON (n.entity_id)",
     # Latest-run view support. Every retrieval template resolves the newest
     # ExtractionRun per Document and then pulls that run's claims via
     # `MATCH (c:Claim {run_id: lr.run_id})`. Without these two, that inner
@@ -274,7 +279,7 @@ RETURN d.doc_id AS doc_id,
        d.institution_id AS institution_id,
        d.lccn AS lccn,
        d.edition AS edition,
-       d.loc_sequence AS loc_sequence,
+       properties(d).loc_sequence AS loc_sequence,
        claim_count
 ORDER BY claim_count DESC
 LIMIT 50
@@ -366,7 +371,7 @@ RETURN d.doc_id AS doc_id,
        d.institution_id AS institution_id,
        d.lccn AS lccn,
        d.edition AS edition,
-       d.loc_sequence AS loc_sequence,
+       properties(d).loc_sequence AS loc_sequence,
        claim_count
 ORDER BY d.date_start ASC, d.title ASC
 LIMIT 50
@@ -414,7 +419,15 @@ CALL db.index.fulltext.queryNodes('claim_normalized_sentence', $search_text)
 YIELD node AS c, score
 WITH c, score
 WHERE {_CLAIM_ACTIVE}
-MATCH (d:Document)-[:PROCESSED_BY]->(lr:ExtractionRun {run_id: c.run_id})
+// Bound ranked hits before expanding them through documents.  Without this
+// guard Neo4j joins every full-text match to the graph and only then applies
+// $limit; common newspaper terms can therefore expand millions of claims.
+// Four times the requested result count leaves access-control/filter headroom
+// while keeping the expensive graph portion proportional to the UI budget.
+WITH c, score
+ORDER BY score DESC
+LIMIT $limit * 4
+MATCH (lr:ExtractionRun {run_id: c.run_id})<-[:PROCESSED_BY]-(d:Document)
 WHERE {_DOC_ACCESS}
 WITH c, d, score
 ORDER BY score DESC
@@ -430,25 +443,102 @@ RETURN d, pg, sec, para, c, obs, sp, y, measurements, score
 ORDER BY score DESC
 """
 
+# Topical variant used when query vocabulary resolves to one or more stored
+# claim types. Filtering before the ranked candidate cap gives the context
+# ranker a full pool of relevant evidence rather than filtering a generic pool
+# down to only a handful of surviving rows.
+FULLTEXT_CLAIMS_BY_TYPE_QUERY = FULLTEXT_CLAIMS_QUERY.replace(
+    "WHERE {_CLAIM_ACTIVE}",
+    "WHERE {_CLAIM_ACTIVE}\n  AND c.claim_type IN $claim_types",
+    1,
+)
+
+# Bounded semantic path for questions that also name a document type, series,
+# or date window. Scope is applied after a small full-text candidate lookup,
+# avoiding the corpus-wide latest-run scans used by browse-only queries.
+FULLTEXT_CLAIMS_SCOPED_QUERY = """
+CALL db.index.fulltext.queryNodes('claim_normalized_sentence', $search_text)
+YIELD node AS c, score
+WITH c, score
+WHERE {_CLAIM_ACTIVE}
+  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+WITH c, score
+ORDER BY score DESC
+LIMIT $candidate_limit
+MATCH (lr:ExtractionRun {run_id: c.run_id})<-[:PROCESSED_BY]-(d:Document)
+WHERE {_DOC_ACCESS}
+  AND ($doc_types IS NULL OR d.doc_type IN $doc_types)
+  AND ($series IS NULL OR d.series IN $series)
+  AND ($year_min IS NULL OR d.report_year >= $year_min)
+  AND ($year_max IS NULL OR d.report_year <= $year_max)
+WITH c, d, score
+ORDER BY score DESC
+LIMIT $limit
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(y:Year)
+WITH d, pg, sec, para, c, obs, sp, y, score, collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements, score
+ORDER BY score DESC
+"""
+
+# Exact-day path for questions such as "What happened in Spokane on
+# November 3, 1909?".  These queries should be anchored to the issue/report
+# date before any broad year scan; otherwise high-confidence claims from every
+# issue in the year crowd the requested day out of the context window.
+EXACT_DATE_CLAIMS_QUERY = """
+MATCH (d:Document)
+WHERE {_DOC_ACCESS}
+  AND d.date_start IS NOT NULL
+  AND d.date_start <= $target_date
+  AND coalesce(d.date_end, d.date_start) >= $target_date
+MATCH (d)-[:PROCESSED_BY]->(r:ExtractionRun)
+WITH d, max(r.run_timestamp) AS latest_ts
+MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
+MATCH (c:Claim {run_id: lr.run_id})
+WHERE {_CLAIM_ACTIVE}
+  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+WITH d, c
+ORDER BY c.extraction_confidence DESC
+LIMIT $limit
+MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
+OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
+OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
+OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
+OPTIONAL MATCH (obs)-[:IN_YEAR]->(obs_y:Year)
+OPTIONAL MATCH (c)-[:TRIGGERED]->(:Event)-[:IN_YEAR]->(evt_y:Year)
+WITH d, pg, sec, para, c, obs, sp, coalesce(obs_y, evt_y) AS y,
+     collect(DISTINCT m) AS measurements
+RETURN d, pg, sec, para, c, obs, sp, y, measurements,
+       'DOCUMENT_DATE' AS traversal_rel_type
+ORDER BY c.extraction_confidence DESC
+"""
+
 TEMPORAL_CLAIMS_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE {_DOC_ACCESS}
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
-MATCH (c:Claim {run_id: lr.run_id})-[:SUPPORTS]->(obs:Observation)-[:IN_YEAR]->(y:Year)
+MATCH (c:Claim {run_id: lr.run_id})-[temporal_rel:SUPPORTS|TRIGGERED]->(temporal_node)-[:IN_YEAR]->(y:Year)
 WHERE ($year_min IS NULL OR y.year >= $year_min)
   AND ($year_max IS NULL OR y.year <= $year_max)
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND {_CLAIM_ACTIVE}
-WITH d, c, obs, y
+  AND (temporal_node:Observation OR temporal_node:Event)
+WITH d, c, y, collect(DISTINCT type(temporal_rel)) AS temporal_rel_types
 ORDER BY c.extraction_confidence DESC
 LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
 OPTIONAL MATCH (para)<-[:HAS_PARAGRAPH]-(sec:Section)<-[:HAS_SECTION]-(pg:Page)<-[:HAS_PAGE]-(d)
+OPTIONAL MATCH (c)-[:SUPPORTS]->(obs:Observation)
 OPTIONAL MATCH (obs)-[:OF_SPECIES]->(sp:Species)
 OPTIONAL MATCH (obs)-[:HAS_MEASUREMENT]->(m:Measurement)
 RETURN d, pg, sec, para, c, obs, sp, y, collect(DISTINCT m) AS measurements,
-       'IN_YEAR' AS traversal_rel_type
+       temporal_rel_types[0] AS traversal_rel_type
 ORDER BY y.year, c.extraction_confidence DESC
 """
 
@@ -551,13 +641,14 @@ ORDER BY c.extraction_confidence DESC
 """
 
 MULTI_ENTITY_CLAIMS_QUERY = """
-MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
-WHERE {_DOC_ACCESS}
-WITH d, max(r.run_timestamp) AS latest_ts
-MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
-MATCH (c:Claim {run_id: lr.run_id})-[rel]->(e:Entity)
-WHERE e.entity_id IN $entity_ids
-  AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
+// Begin at the small, indexed anchor set instead of scanning every latest-run
+// Claim in the corpus. Each anchor contributes a bounded candidate pool before
+// the pools are combined, preventing common names from exhausting Neo4j heap.
+UNWIND $entity_ids AS requested_entity_id
+CALL (requested_entity_id) {
+  MATCH (e:Entity {entity_id: requested_entity_id})
+  MATCH (c:Claim)-[rel]->(e)
+  WHERE ($claim_types IS NULL OR c.claim_type IN $claim_types)
   AND {_CLAIM_ACTIVE}
   AND (
     ($year_min IS NULL AND $year_max IS NULL)
@@ -568,8 +659,22 @@ WHERE e.entity_id IN $entity_ids
         AND ($year_max IS NULL OR yr.year <= $year_max)
     }
   )
-WITH d, c, type(rel) AS traversal_rel_type,
-     collect(DISTINCT e.entity_id) AS matched_entity_ids
+  WITH e, c, rel
+  ORDER BY c.extraction_confidence DESC
+  LIMIT $limit * 4
+  RETURN c, type(rel) AS rel_type, e.entity_id AS matched_entity_id
+}
+WITH c, head(collect(DISTINCT rel_type)) AS traversal_rel_type,
+     collect(DISTINCT matched_entity_id) AS matched_entity_ids
+ORDER BY size(matched_entity_ids) DESC, c.extraction_confidence DESC
+LIMIT $limit * 4
+MATCH (lr:ExtractionRun {run_id: c.run_id})<-[:PROCESSED_BY]-(d:Document)
+WHERE {_DOC_ACCESS}
+  AND NOT EXISTS {
+    MATCH (d)-[:PROCESSED_BY]->(newer:ExtractionRun)
+    WHERE newer.run_timestamp > lr.run_timestamp
+  }
+WITH d, c, traversal_rel_type, matched_entity_ids
 ORDER BY size(matched_entity_ids) DESC, c.extraction_confidence DESC
 LIMIT $limit
 MATCH (para:Paragraph)-[:HAS_CLAIM]->(c)
@@ -716,20 +821,13 @@ DOC_TYPE_BROWSE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE {_DOC_ACCESS}
   AND d.doc_type IN $doc_types
+  AND ($year_min IS NULL OR d.report_year >= $year_min)
+  AND ($year_max IS NULL OR d.report_year <= $year_max)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})
 WHERE {_CLAIM_ACTIVE}
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (
-    ($year_min IS NULL AND $year_max IS NULL)
-    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
-    OR EXISTS {
-      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
-      WHERE ($year_min IS NULL OR yr.year >= $year_min)
-        AND ($year_max IS NULL OR yr.year <= $year_max)
-    }
-  )
 WITH d, c
 ORDER BY c.extraction_confidence DESC
 LIMIT $limit
@@ -749,20 +847,13 @@ SERIES_BROWSE_QUERY = """
 MATCH (d:Document)-[:PROCESSED_BY]->(r:ExtractionRun)
 WHERE {_DOC_ACCESS}
   AND d.series IN $series
+  AND ($year_min IS NULL OR d.report_year >= $year_min)
+  AND ($year_max IS NULL OR d.report_year <= $year_max)
 WITH d, max(r.run_timestamp) AS latest_ts
 MATCH (d)-[:PROCESSED_BY]->(lr:ExtractionRun {run_timestamp: latest_ts})
 MATCH (c:Claim {run_id: lr.run_id})
 WHERE {_CLAIM_ACTIVE}
   AND ($claim_types IS NULL OR c.claim_type IN $claim_types)
-  AND (
-    ($year_min IS NULL AND $year_max IS NULL)
-    OR NOT EXISTS { (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(:Year) }
-    OR EXISTS {
-      MATCH (c)-[:SUPPORTS]->(:Observation)-[:IN_YEAR]->(yr:Year)
-      WHERE ($year_min IS NULL OR yr.year >= $year_min)
-        AND ($year_max IS NULL OR yr.year <= $year_max)
-    }
-  )
 WITH d, c
 ORDER BY c.extraction_confidence DESC
 LIMIT $limit
@@ -895,10 +986,13 @@ RETURN d.doc_id AS doc_id, d.title AS title, d.access_level AS access_level,
 ORDER BY d.institution_id, d.title
 """
 
-# Paginated document listing for the /documents retrieval surface. Joins each
-# Document to its highest-confidence active Claim to surface a snippet so the
-# title-mangled-by-OCR newspaper rows remain identifiable, and aggregates a
-# claim count per document. All filter parameters accept null to mean "off".
+# Paginated document listing for the /documents retrieval surface. The
+# document page is selected before claim traversal; otherwise Neo4j expands
+# every matching document into millions of Claim rows, sorts/collects them,
+# and only then applies SKIP/LIMIT. The two bounded per-document subqueries
+# retain the claim count and highest-confidence snippet without materialising
+# a corpus-wide claim collection. All filter parameters accept null to mean
+# "off".
 #
 # $status accepts: 'active' (deleted_at IS NULL), 'deleted' (deleted_at IS NOT
 # NULL), or 'all'.
@@ -921,12 +1015,25 @@ WITH d, coalesce(d.report_year,
                       ELSE null END) AS effective_year
 WHERE ($year_min IS NULL OR (effective_year IS NOT NULL AND effective_year >= $year_min))
   AND ($year_max IS NULL OR (effective_year IS NOT NULL AND effective_year <= $year_max))
-OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
-              -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
-WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
-WITH d, effective_year, c
-ORDER BY c.extraction_confidence DESC
-WITH d, effective_year, collect(c) AS claims
+WITH d, effective_year
+ORDER BY coalesce(d.date_start, toString(d.report_year), '') DESC, d.doc_id
+SKIP $offset
+LIMIT $limit
+CALL (d) {
+  OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
+                -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
+  WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
+  RETURN count(c) AS claim_count
+}
+CALL (d) {
+  OPTIONAL MATCH (d)-[:HAS_PAGE]->(:Page)-[:HAS_SECTION]->(:Section)
+                -[:HAS_PARAGRAPH]->(:Paragraph)-[:HAS_CLAIM]->(c:Claim)
+  WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
+  WITH c
+  ORDER BY c.extraction_confidence DESC
+  LIMIT 1
+  RETURN c.normalized_sentence AS snippet
+}
 RETURN d.doc_id AS doc_id,
        d.title AS title,
        d.doc_type AS doc_type,
@@ -938,14 +1045,12 @@ RETURN d.doc_id AS doc_id,
        d.archive_ref AS archive_ref,
        d.lccn AS lccn,
        d.edition AS edition,
-       d.loc_sequence AS loc_sequence,
+       properties(d).loc_sequence AS loc_sequence,
        d.access_level AS access_level,
        d.deleted_at AS deleted_at,
-       size(claims) AS claim_count,
-       claims[0].normalized_sentence AS snippet
+       claim_count AS claim_count,
+       snippet AS snippet
 ORDER BY coalesce(d.date_start, toString(d.report_year), '') DESC, d.doc_id
-SKIP $offset
-LIMIT $limit
 """
 
 # Count of documents matching the same filters as
@@ -1050,7 +1155,7 @@ RETURN d.doc_id AS doc_id,
        d.archive_ref AS archive_ref,
        d.lccn AS lccn,
        d.edition AS edition,
-       d.loc_sequence AS loc_sequence,
+       properties(d).loc_sequence AS loc_sequence,
        d.access_level AS access_level,
        d.deleted_at AS deleted_at,
        properties(d).deleted_by AS deleted_by
@@ -1116,6 +1221,22 @@ MATCH (e:Entity)
 OPTIONAL MATCH (e)<-[]-(c:Claim)
 WHERE c.quarantine_status IS NULL OR c.quarantine_status = 'active'
 RETURN e.entity_id AS entity_id, count(DISTINCT c) AS degree
+"""
+
+# Keep the two status branches separate. On large stores, combining the
+# indexed equality and property-null scan with OR can force a memory-heavy
+# union plan even though the final aggregation is a single count.
+TOTAL_ACTIVE_CLAIMS_QUERY = """
+CALL () {
+    MATCH (c:Claim)
+    WHERE c.quarantine_status IS NULL
+    RETURN count(c) AS missing_status
+}
+CALL () {
+    MATCH (c:Claim {quarantine_status: 'active'})
+    RETURN count(c) AS active_status
+}
+RETURN missing_status + active_status AS total
 """
 
 # 1-hop path: A ←c1→ I ←c2→ B (one intermediate entity, two claims). Each

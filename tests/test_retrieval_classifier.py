@@ -109,6 +109,40 @@ class TestEntityExtraction:
         assert "myinstitution" not in extracted_lower
 
 
+class TestCorpusHints:
+    def test_spokane_press_maps_to_live_lccn_series(self):
+        intent = classify_query(
+            "What did the Spokane Press report about labor in 1908 and 1909?"
+        )
+        assert intent.series_hints == ["sn88085947"]
+
+    def test_generic_spokane_newspapers_are_not_one_title(self):
+        intent = classify_query(
+            "How did Spokane newspapers describe land policy?"
+        )
+        assert intent.series_hints == []
+        assert intent.doc_type_hints == ["newspaper_page", "newspaper_article"]
+
+    def test_newspaper_alias_supports_page_and_article_graphs(self):
+        intent = classify_query("Show newspaper articles about labor.")
+        assert intent.doc_type_hints == ["newspaper_page", "newspaper_article"]
+
+    def test_spokane_corpus_words_do_not_become_entity_anchors(self):
+        intent = classify_query(
+            "What infrastructure projects changed Spokane between 1900 and 1910?"
+        )
+        assert "spokane" not in [entity.lower() for entity in intent.entities]
+
+    def test_spokane_press_is_a_series_hint_not_an_entity_anchor(self):
+        intent = classify_query(
+            "What did the Spokane Press report about labor in 1908?"
+        )
+        assert intent.series_hints == ["sn88085947"]
+        assert not any(
+            entity.lower() == "spokane press" for entity in intent.entities
+        )
+
+
 # ---------------------------------------------------------------------------
 # Tier 1 — structural-lookup intent detection
 # ---------------------------------------------------------------------------

@@ -1,0 +1,1049 @@
+[
+  {
+    "id": "broad_labor_free_speech_1908_1909",
+    "family": "broad_regression",
+    "turns": [
+      {
+        "text": "What did the Spokane Press report about labor organizing and free-speech conflicts in 1908 and 1909?"
+      }
+    ],
+    "expected_routes": ["scoped_fulltext", "temporal"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1908,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["labor_action", "free_speech_event"],
+        "source_terms_any": ["labor", "IWW", "free speech"]
+      },
+      {
+        "year_min": 1908,
+        "year_max": 1909,
+        "source_terms_any": ["organizing", "street meeting", "speech"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "broad_indigenous_land_policy",
+    "family": "broad_regression",
+    "turns": [
+      {
+        "text": "How did Spokane-area newspapers describe reservation allotment and Indigenous land policy between 1900 and 1915?"
+      }
+    ],
+    "expected_routes": ["scoped_fulltext", "temporal"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1900,
+      "year_max": 1915,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["indigenous_policy", "land_policy_action"],
+        "source_terms_any": ["reservation", "allotment", "Indian"]
+      },
+      {
+        "year_min": 1900,
+        "year_max": 1915,
+        "source_terms_any": ["land", "treaty", "policy"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "broad_civic_infrastructure",
+    "family": "broad_regression",
+    "turns": [
+      {
+        "text": "What infrastructure projects changed Spokane between 1900 and 1910, and what problems were they meant to solve?"
+      }
+    ],
+    "expected_routes": ["scoped_fulltext", "temporal"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1900,
+      "year_max": 1910,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["infrastructure_project", "civic_development"],
+        "source_terms_any": ["bridge", "street", "water", "sewer"]
+      },
+      {
+        "year_min": 1900,
+        "year_max": 1910,
+        "source_terms_any": ["construction", "project", "utility"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "broad_bunker_hill_company",
+    "family": "broad_regression",
+    "turns": [
+      {
+        "text": "What did newspapers report about the Bunker Hill and Sullivan Mining Company between 1901 and 1910?"
+      }
+    ],
+    "expected_routes": ["entity_anchored", "scoped_fulltext"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1901,
+      "year_max": 1910,
+      "exact_date": null,
+      "entity_names": ["Bunker Hill and Sullivan Mining Company"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["mining_activity", "labor_action", "labor_legal_action"],
+        "source_terms_any": ["Bunker Hill", "Sullivan"]
+      },
+      {
+        "year_min": 1901,
+        "year_max": 1910,
+        "source_terms_any": ["mine", "mining", "miner"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "broad_agriculture_freight_economy",
+    "family": "broad_regression",
+    "turns": [
+      {
+        "text": "How were wheat prices, freight rates, and farmers' organizations connected in Spokane coverage from 1905 to 1915?"
+      }
+    ],
+    "expected_routes": ["scoped_fulltext:facets", "temporal"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1905,
+      "year_max": 1915,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["agricultural_condition", "commercial_transaction"],
+        "source_terms_any": ["wheat", "farmer"]
+      },
+      {
+        "claim_types": ["freight_rate_dispute"],
+        "source_terms_any": ["freight", "rate"]
+      },
+      {
+        "claim_types": ["farm_organization", "agricultural_condition"],
+        "source_terms_any": ["grange", "organization", "farmers"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "broad_mining_vs_railroad_labor",
+    "family": "broad_regression",
+    "turns": [
+      {
+        "text": "Compare how Spokane newspapers covered mining labor disputes and railroad labor disputes between 1905 and 1915."
+      }
+    ],
+    "expected_routes": ["scoped_fulltext:facets", "multi_entity", "temporal"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1905,
+      "year_max": 1915,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["labor_action", "mining_activity"],
+        "source_terms_any": ["mining", "mine", "miner"]
+      },
+      {
+        "claim_types": ["labor_action", "railroad_activity"],
+        "source_terms_any": ["railroad", "railway"]
+      },
+      {
+        "year_min": 1905,
+        "year_max": 1915,
+        "source_terms_any": ["labor", "strike", "worker"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "event_free_speech_fight_timeline",
+    "family": "named_event_exact_date",
+    "turns": [
+      {
+        "text": "Give me a timeline of the Spokane Free Speech Fight in 1909."
+      }
+    ],
+    "expected_routes": ["event_topic:fulltext"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": ["Spokane Free Speech Fight"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event", "labor_action", "labor_legal_action"],
+        "source_terms_any": ["free speech", "street speaking", "IWW"]
+      },
+      {
+        "year_min": 1909,
+        "year_max": 1909,
+        "source_terms_any": ["arrest", "jail", "meeting"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "event_free_speech_people",
+    "family": "named_event_exact_date",
+    "turns": [
+      {
+        "text": "Who were the people named in the 1909 Spokane Free Speech Fight?"
+      }
+    ],
+    "expected_routes": ["event_topic:fulltext", "mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": ["Spokane Free Speech Fight"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event", "person_profile", "labor_action"],
+        "source_terms_any": ["Flynn", "Walsh", "Little", "Haywood"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "event_exact_date_1909_11_03",
+    "family": "named_event_exact_date",
+    "turns": [
+      {
+        "text": "What happened in Spokane on November 3rd, 1909?"
+      }
+    ],
+    "expected_routes": ["exact_date"],
+    "forbidden_routes": ["temporal:drop_years"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": "1909-11-03",
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "exact_date": "1909-11-03",
+        "institution_ids": ["spokane_newspaper"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "event_exact_date_1909_11_02",
+    "family": "named_event_exact_date",
+    "turns": [
+      {
+        "text": "What did the newspapers report on Nov. 2, 1909 about the free-speech conflict?"
+      }
+    ],
+    "expected_routes": ["exact_date"],
+    "forbidden_routes": ["temporal:drop_years"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": "1909-11-02",
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "exact_date": "1909-11-02",
+        "source_terms_any": ["speech", "IWW", "arrest"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "event_free_speech_causes",
+    "family": "named_event_exact_date",
+    "turns": [
+      {
+        "text": "What led to the Spokane Free Speech Fight, and how did it escalate?"
+      }
+    ],
+    "expected_routes": ["event_topic:fulltext"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Spokane Free Speech Fight"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event", "labor_action", "labor_legal_action"],
+        "source_terms_any": ["ordinance", "arrest", "street speaking"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "event_iww_arrests_1909",
+    "family": "named_event_exact_date",
+    "turns": [
+      {
+        "text": "Which events involved IWW arrests during the Spokane free-speech campaign in 1909?"
+      }
+    ],
+    "expected_routes": ["entity_anchored", "event_topic:fulltext"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": ["Industrial Workers of the World"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event", "labor_legal_action"],
+        "source_terms_all": ["IWW", "arrest"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "mention_iww_source_mentions",
+    "family": "mention_only_entity",
+    "turns": [
+      {
+        "text": "Find source passages that mention the IWW, including passages whose extracted claims are not directly linked to the organization."
+      }
+    ],
+    "expected_routes": ["mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Industrial Workers of the World"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["IWW", "I. W. W.", "Industrial Workers"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "mention_elizabeth_gurley_flynn",
+    "family": "mention_only_entity",
+    "turns": [
+      {
+        "text": "Show every relevant passage mentioning Elizabeth Gurley Flynn, even when the claim edge names someone else."
+      }
+    ],
+    "expected_routes": ["mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Elizabeth Gurley Flynn"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Elizabeth Gurley Flynn", "Gurley Flynn", "Flynn"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "mention_northern_pacific",
+    "family": "mention_only_entity",
+    "turns": [
+      {
+        "text": "Which newspaper passages mention the Northern Pacific Railway by name or abbreviation?"
+      }
+    ],
+    "expected_routes": ["mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Northern Pacific Railway"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Northern Pacific", "N. P."]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "mention_wctu_aliases",
+    "family": "mention_only_entity",
+    "turns": [
+      {
+        "text": "Find passages naming the Woman's Christian Temperance Union or WCTU."
+      }
+    ],
+    "expected_routes": ["mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Woman's Christian Temperance Union"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Woman's Christian Temperance Union", "WCTU", "W. C. T. U."]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "mention_chief_garry",
+    "family": "mention_only_entity",
+    "turns": [
+      {
+        "text": "Find source passages naming Chief Garry or Spokane Garry, not only claims directly attached to him."
+      }
+    ],
+    "expected_routes": ["mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Chief Garry"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Chief Garry", "Spokane Garry"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "mention_bunker_hill_alias",
+    "family": "mention_only_entity",
+    "turns": [
+      {
+        "text": "Find passages mentioning Bunker Hill and Sullivan, including abbreviated company references."
+      }
+    ],
+    "expected_routes": ["mention_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Bunker Hill and Sullivan Mining Company"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_all": ["Bunker Hill", "Sullivan"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "followup_free_speech_people",
+    "family": "conversational_follow_up",
+    "turns": [
+      {
+        "text": "Give me a timeline of the Spokane Free Speech Fight in 1909."
+      },
+      {
+        "text": "Who were the main people involved?"
+      }
+    ],
+    "expected_routes": ["conversation_context"],
+    "forbidden_routes": ["fulltext"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": ["Spokane Free Speech Fight"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event", "person_profile", "labor_action"],
+        "source_terms_any": ["Flynn", "Walsh", "Little", "Haywood"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "followup_free_speech_next_day",
+    "family": "conversational_follow_up",
+    "turns": [
+      {
+        "text": "What happened in Spokane on November 3, 1909?"
+      },
+      {
+        "text": "What happened the next day?"
+      }
+    ],
+    "expected_routes": ["conversation_context", "exact_date"],
+    "forbidden_routes": ["fulltext:token_or"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": "1909-11-04",
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "exact_date": "1909-11-04",
+        "institution_ids": ["spokane_newspaper"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "followup_bunker_hill_outcome",
+    "family": "conversational_follow_up",
+    "turns": [
+      {
+        "text": "What did newspapers report about the Bunker Hill and Sullivan labor dispute?"
+      },
+      {
+        "text": "How did that dispute end?"
+      }
+    ],
+    "expected_routes": ["conversation_context", "entity_anchored"],
+    "forbidden_routes": ["fulltext"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Bunker Hill and Sullivan Mining Company"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["labor_action", "labor_legal_action", "mining_activity"],
+        "source_terms_any": ["Bunker Hill", "Sullivan", "miners"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "followup_turnbull_following_decade",
+    "family": "conversational_follow_up",
+    "turns": [
+      {
+        "text": "What significant wildlife observations were recorded at Turnbull Refuge in 1945?"
+      },
+      {
+        "text": "How did those populations change over the following decade?"
+      }
+    ],
+    "expected_routes": ["conversation_context", "entity_anchored"],
+    "forbidden_routes": ["fulltext"],
+    "scope": {
+      "year_min": 1945,
+      "year_max": 1955,
+      "exact_date": null,
+      "entity_names": ["Turnbull National Wildlife Refuge"],
+      "institution_ids": ["turnbull"]
+    },
+    "required_evidence_facets": [
+      {
+        "year_min": 1945,
+        "year_max": 1955,
+        "source_terms_any": ["population", "waterfowl", "mallard"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "followup_indigenous_policy_locations",
+    "family": "conversational_follow_up",
+    "turns": [
+      {
+        "text": "How did newspapers describe Indigenous land policy around Spokane?"
+      },
+      {
+        "text": "Which places were most often connected to it?"
+      }
+    ],
+    "expected_routes": ["conversation_context", "historical_geography"],
+    "forbidden_routes": ["fulltext"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["indigenous_policy", "land_policy_action"],
+        "source_terms_any": ["reservation", "Spokane", "Coeur d'Alene", "Colville"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "phrase_spokane_falls",
+    "family": "phrase_historical_geography",
+    "turns": [
+      {
+        "text": "What happened at Spokane Falls before the city was commonly called Spokane?"
+      }
+    ],
+    "expected_routes": ["phrase_first", "historical_geography", "entity_anchored"],
+    "forbidden_routes": ["fulltext:token_or"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Spokane Falls"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Spokane Falls", "Falls of the Spokane"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "phrase_coeur_dalene_district",
+    "family": "phrase_historical_geography",
+    "turns": [
+      {
+        "text": "How was the Coeur d'Alene Mining District described during labor conflicts?"
+      }
+    ],
+    "expected_routes": ["phrase_first", "historical_geography", "entity_anchored"],
+    "forbidden_routes": ["fulltext:token_or"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Coeur d'Alene Mining District"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["mining_activity", "labor_action", "labor_legal_action"],
+        "source_terms_any": ["Coeur d'Alene", "mining district"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "phrase_inland_empire",
+    "family": "phrase_historical_geography",
+    "turns": [
+      {
+        "text": "What places did newspapers include when they referred to the Inland Empire?"
+      }
+    ],
+    "expected_routes": ["phrase_first", "historical_geography"],
+    "forbidden_routes": ["fulltext:token_or"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Inland Empire"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Inland Empire", "Spokane", "Palouse"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "phrase_hillyard_containment",
+    "family": "phrase_historical_geography",
+    "turns": [
+      {
+        "text": "Find events reported in Hillyard and explain its relationship to Spokane."
+      }
+    ],
+    "expected_routes": ["historical_geography", "entity_anchored"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Hillyard", "Spokane"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_all": ["Hillyard", "Spokane"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "phrase_medical_lake_alias_boundary",
+    "family": "phrase_historical_geography",
+    "turns": [
+      {
+        "text": "Which events took place in Medical Lake rather than elsewhere in Spokane County?"
+      }
+    ],
+    "expected_routes": ["historical_geography", "multi_entity"],
+    "forbidden_routes": ["multi_entity:degrade_single"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Medical Lake", "Spokane County"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Medical Lake"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "structural_people_in_free_speech_fight",
+    "family": "structural_list_aggregation",
+    "turns": [
+      {
+        "text": "List the people named in claims about the Spokane Free Speech Fight."
+      }
+    ],
+    "expected_routes": ["tier_1:list_entities_for_event"],
+    "forbidden_routes": ["entity_anchored:drop_entity_anchor"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Spokane Free Speech Fight"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["Flynn", "Walsh", "Little", "Haywood"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "structural_streets_free_speech",
+    "family": "structural_list_aggregation",
+    "turns": [
+      {
+        "text": "List the streets and public places associated with Spokane free-speech events."
+      }
+    ],
+    "expected_routes": ["tier_1:list_locations_for_topic"],
+    "forbidden_routes": ["claim_type_scoped"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Spokane Free Speech Fight"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event"],
+        "source_terms_any": ["street", "avenue", "corner", "hall"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "structural_count_iww_claims",
+    "family": "structural_list_aggregation",
+    "turns": [
+      {
+        "text": "How many claims mention the IWW?"
+      }
+    ],
+    "expected_routes": ["tier_1:count_claims_for_entity"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Industrial Workers of the World"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_any": ["IWW", "Industrial Workers"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "structural_top_people",
+    "family": "structural_list_aggregation",
+    "turns": [
+      {
+        "text": "Who are the top 10 people by claim count in the Spokane newspaper collection?"
+      }
+    ],
+    "expected_routes": ["tier_1:frequency_ranking_for_type"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "institution_ids": ["spokane_newspaper"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "structural_documents_1909",
+    "family": "structural_list_aggregation",
+    "turns": [
+      {
+        "text": "List documents from 1909."
+      }
+    ],
+    "expected_routes": ["tier_1:list_documents_for_year"],
+    "forbidden_routes": [],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "year_min": 1909,
+        "year_max": 1909,
+        "institution_ids": ["spokane_newspaper"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "relation_iww_and_flynn_intersection",
+    "family": "relationship_cross_corpus",
+    "turns": [
+      {
+        "text": "Which claims connect the IWW and Elizabeth Gurley Flynn?"
+      }
+    ],
+    "expected_routes": ["relationship_intersection", "multi_entity"],
+    "forbidden_routes": ["multi_entity:degrade_single"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Industrial Workers of the World", "Elizabeth Gurley Flynn"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_all": ["IWW", "Flynn"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "relation_chief_garry_spokane",
+    "family": "relationship_cross_corpus",
+    "turns": [
+      {
+        "text": "Which claims directly connect Chief Garry with Spokane?"
+      }
+    ],
+    "expected_routes": ["relationship_intersection", "multi_entity"],
+    "forbidden_routes": ["multi_entity:degrade_single"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Chief Garry", "Spokane"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_all": ["Garry", "Spokane"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "relation_newspaper_people_in_glo",
+    "family": "relationship_cross_corpus",
+    "turns": [
+      {
+        "text": "Which individuals named in Spokane newspaper coverage also appear as patentees in GLO land patent records?"
+      }
+    ],
+    "expected_routes": ["cross_corpus_overlap"],
+    "forbidden_routes": ["fulltext"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper", "glo_patents"],
+      "doc_types": ["newspaper_page", "land_patent"]
+    },
+    "required_evidence_facets": [
+      {
+        "institution_ids": ["spokane_newspaper"]
+      },
+      {
+        "institution_ids": ["glo_patents"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "relation_northern_pacific_icc",
+    "family": "relationship_cross_corpus",
+    "turns": [
+      {
+        "text": "Find claims that involve both the Northern Pacific Railway and the Interstate Commerce Commission."
+      }
+    ],
+    "expected_routes": ["relationship_intersection", "multi_entity"],
+    "forbidden_routes": ["multi_entity:degrade_single"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Northern Pacific Railway", "Interstate Commerce Commission"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_all": ["Northern Pacific", "Interstate Commerce"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "relation_bunker_hill_wfm",
+    "family": "relationship_cross_corpus",
+    "turns": [
+      {
+        "text": "Which claims directly connect Bunker Hill and Sullivan with the Western Federation of Miners?"
+      }
+    ],
+    "expected_routes": ["relationship_intersection", "multi_entity"],
+    "forbidden_routes": ["multi_entity:degrade_single"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Bunker Hill and Sullivan Mining Company", "Western Federation of Miners"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "source_terms_all": ["Bunker Hill", "Federation of Miners"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "compound_count_iww_and_explain",
+    "family": "compound_tier1_guard",
+    "turns": [
+      {
+        "text": "How many claims mention the IWW, and what do those claims say about the free-speech fight?"
+      }
+    ],
+    "expected_routes": ["compound_narrative", "entity_anchored"],
+    "forbidden_routes": ["tier_1:*"],
+    "scope": {
+      "year_min": null,
+      "year_max": null,
+      "exact_date": null,
+      "entity_names": ["Industrial Workers of the World"],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "claim_types": ["free_speech_event", "labor_action", "labor_legal_action"],
+        "source_terms_any": ["IWW", "free speech", "street speaking"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  },
+  {
+    "id": "compound_list_1909_documents_and_summarize",
+    "family": "compound_tier1_guard",
+    "turns": [
+      {
+        "text": "List the documents from 1909 and summarize what they reported about labor organizing."
+      }
+    ],
+    "expected_routes": ["compound_narrative", "scoped_fulltext"],
+    "forbidden_routes": ["tier_1:*"],
+    "scope": {
+      "year_min": 1909,
+      "year_max": 1909,
+      "exact_date": null,
+      "entity_names": [],
+      "institution_ids": ["spokane_newspaper"]
+    },
+    "required_evidence_facets": [
+      {
+        "year_min": 1909,
+        "year_max": 1909,
+        "claim_types": ["labor_action", "free_speech_event", "worker_condition"],
+        "source_terms_any": ["labor", "worker", "IWW"]
+      }
+    ],
+    "max_single_query_candidates": 250
+  }
+]

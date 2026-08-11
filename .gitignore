@@ -6,6 +6,7 @@ dist/
 out/
 *.egg-info/
 .env
+.env.pi
 input/
 out/
 csv_out
@@ -14,6 +15,13 @@ plans/
 .claude/
 RUNBOOK.md
 data/
+# Keep generated/private data ignored while allowing the deterministic
+# retrieval benchmark contract to be versioned.
+!data/
+data/*
+!data/benchmarks/
+data/benchmarks/*
+!data/benchmarks/retrieval_query_coverage.json
 .hypothesis/
 out_land_patent/
 matches.csv

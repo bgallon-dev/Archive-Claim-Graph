@@ -6,17 +6,19 @@ Retrieval cascade:
   2. Fulltext keyword fallback (FULLTEXT_CLAIMS_QUERY) when entity resolution
      returned no REFERS_TO matches.
 
-Each retrieved row is mapped to a ProvenanceBlock, ranked by
-extraction_confidence, and budget-capped.  Blocks are then serialised into
-the structured text format expected by the synthesis engine.
+Each retrieved row is mapped to a ProvenanceBlock, ordered by the configured
+ContextRanker, and budget-capped. Blocks are then serialised into the
+structured text format expected by the synthesis engine.
 """
 from __future__ import annotations
 
 import collections
 import logging
+import math
 import os
 import re
 import time
+from datetime import date
 
 from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
@@ -26,8 +28,11 @@ from gemynd.core.graph.cypher import (
     CROSS_CORPUS_OVERLAP_PATENT_QUERY,
     DOC_TYPE_BROWSE_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
+    EXACT_DATE_CLAIMS_QUERY,
     FREQUENCY_RANKING_FOR_TYPE_QUERY,
     FULLTEXT_CLAIMS_QUERY,
+    FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+    FULLTEXT_CLAIMS_SCOPED_QUERY,
     LIST_DOCUMENTS_FOR_ENTITY_QUERY,
     LIST_DOCUMENTS_FOR_YEAR_QUERY,
     LOCATIONS_FOR_ENTITY_QUERY,
@@ -38,6 +43,7 @@ from gemynd.core.graph.cypher import (
     build_document_anchor_query,
     build_temporal_with_anchor_query,
 )
+from .context_ranker import ConfidenceRanker, ContextRanker
 from .executor import Neo4jQueryExecutor
 from .models import (
     EntityContext,
@@ -108,6 +114,39 @@ _FALLBACK_INTENT_MAP: dict[str, list[str]] = {
 _LUCENE_SPECIAL = re.compile(r'([+\-&|!(){}\[\]^"~*?:\\/])')
 _FULLTEXT_MAX_LEN = 500
 
+_MONTH_NUMBERS: dict[str, int] = {
+    "january": 1, "jan": 1,
+    "february": 2, "feb": 2,
+    "march": 3, "mar": 3,
+    "april": 4, "apr": 4,
+    "may": 5,
+    "june": 6, "jun": 6,
+    "july": 7, "jul": 7,
+    "august": 8, "aug": 8,
+    "september": 9, "sep": 9, "sept": 9,
+    "october": 10, "oct": 10,
+    "november": 11, "nov": 11,
+    "december": 12, "dec": 12,
+}
+_MONTH_PATTERN = "|".join(
+    sorted((re.escape(name) for name in _MONTH_NUMBERS), key=len, reverse=True)
+)
+_MONTH_DAY_YEAR_RE = re.compile(
+    rf"\b(?P<month>{_MONTH_PATTERN})\.?\s+"
+    r"(?P<day>\d{1,2})(?:st|nd|rd|th)?(?:\s*,)?\s+"
+    r"(?P<year>\d{4})\b",
+    re.IGNORECASE,
+)
+_DAY_MONTH_YEAR_RE = re.compile(
+    r"\b(?P<day>\d{1,2})(?:st|nd|rd|th)?\s+"
+    rf"(?P<month>{_MONTH_PATTERN})\.?(?:\s*,)?\s+"
+    r"(?P<year>\d{4})\b",
+    re.IGNORECASE,
+)
+_ISO_DATE_RE = re.compile(
+    r"(?<!\d)(?P<year>\d{4})-(?P<month_num>\d{1,2})-(?P<day>\d{1,2})(?!\d)"
+)
+
 
 def _sanitize_fulltext(text: str) -> str:
     """Escape Lucene special characters and enforce a length cap.
@@ -116,6 +155,31 @@ def _sanitize_fulltext(text: str) -> str:
     fuzzy/wildcard operators from reaching the Neo4j fulltext index.
     """
     return _LUCENE_SPECIAL.sub(r'\\\1', text.strip()[:_FULLTEXT_MAX_LEN])
+
+
+def _extract_exact_date(text: str) -> str | None:
+    """Return an ISO date for an explicit day-month-year expression.
+
+    A lone year or month/year is intentionally not enough: those remain on the
+    broad temporal path. Invalid calendar dates are ignored rather than being
+    coerced into a nearby day.
+    """
+    for pattern in (_ISO_DATE_RE, _MONTH_DAY_YEAR_RE, _DAY_MONTH_YEAR_RE):
+        match = pattern.search(text)
+        if not match:
+            continue
+        groups = match.groupdict()
+        year = int(groups["year"])
+        day = int(groups["day"])
+        if groups.get("month_num"):
+            month = int(groups["month_num"])
+        else:
+            month = _MONTH_NUMBERS[groups["month"].lower()]
+        try:
+            return date(year, month, day).isoformat()
+        except ValueError:
+            return None
+    return None
 
 
 # Function words stripped during fulltext term extraction. Intentionally narrow:
@@ -128,6 +192,8 @@ _FULLTEXT_STOPWORDS: frozenset[str] = frozenset({
     "describe", "explain", "tell", "show", "give", "find", "list",
     "during", "across",
     "year", "years", "time", "times", "date", "dates",
+    "spokane", "press", "newspaper", "newspapers", "report", "reports", "reported",
+    "area",
 })
 
 
@@ -204,6 +270,36 @@ def _infer_claim_types(
     return list(matched) if matched else None
 
 
+def _infer_claim_type_facets(
+    query_text: str,
+    intent_map: dict[str, list[str]] | None = None,
+) -> list[tuple[str, list[str]]]:
+    """Return each topical keyword and its claim types in query order.
+
+    Keeping facets separate lets scoped fulltext retrieval reserve evidence for
+    every side of a compound question instead of allowing one common topic to
+    consume the entire context budget.
+    """
+    lowered = query_text.lower()
+    _map = intent_map if intent_map is not None else _FALLBACK_INTENT_MAP
+    matches: list[tuple[int, int, str, list[str]]] = []
+    for keyword, types in _map.items():
+        pattern = re.compile(rf"(?<![a-z0-9]){re.escape(keyword.lower())}(?![a-z0-9])")
+        match = pattern.search(lowered)
+        if match:
+            matches.append((match.start(), -len(keyword), keyword, list(dict.fromkeys(types))))
+
+    facets: list[tuple[str, list[str]]] = []
+    seen: set[tuple[str, ...]] = set()
+    for _, _, keyword, types in sorted(matches):
+        signature = tuple(types)
+        if signature in seen:
+            continue
+        seen.add(signature)
+        facets.append((keyword, types))
+    return facets
+
+
 def _enumerate_cross_corpus_pairs(
     institution_ids: list[str],
     doc_types: list[str] | None,
@@ -274,6 +370,8 @@ def _select_retrieval_plan(
     6. Fulltext — nothing else matched
     """
     inferred_claim_types = _infer_claim_types(query_text, intent_map=intent_map)
+    inferred_facets = _infer_claim_type_facets(query_text, intent_map=intent_map)
+    exact_date = _extract_exact_date(query_text)
     resolved_ids = list(dict.fromkeys(e.entity_id for e in entity_context.resolved))
     maybe_ids = [
         e.entity_id
@@ -284,6 +382,14 @@ def _select_retrieval_plan(
     has_years = year_min is not None or year_max is not None
     has_entities = len(resolved_ids) > 0
     has_claim_types = bool(inferred_claim_types)
+    has_event_anchor = any(
+        e.entity_type.casefold() == "event"
+        for e in entity_context.resolved
+    )
+    resolved_corpus_anchor = any(
+        entity_id in (anchor_document_plans or {})
+        for entity_id in resolved_ids
+    )
 
     _permitted = permitted_levels if permitted_levels is not None else ["public"]
     _ids = list(institution_ids) if institution_ids else []
@@ -348,12 +454,113 @@ def _select_retrieval_plan(
                     }))
         return queries
 
-    def _fulltext_query(text: str) -> list[tuple[str, dict]]:
-        return [(FULLTEXT_CLAIMS_QUERY, {
-            "search_text": _extract_fulltext_terms(text),
-            "limit": _bounded_query_limit(budget, 2),
+    def _fulltext_query(
+        text: str,
+        *,
+        claim_types: list[str] | None = None,
+        prepared_search_text: bool = False,
+        result_limit: int | None = None,
+        scoped_doc_types: list[str] | None = None,
+        scoped_series: list[str] | None = None,
+        scoped_year_min: int | None = None,
+        scoped_year_max: int | None = None,
+    ) -> list[tuple[str, dict]]:
+        is_scoped = bool(
+            scoped_doc_types
+            or scoped_series
+            or scoped_year_min is not None
+            or scoped_year_max is not None
+        )
+        effective_claim_types = (
+            claim_types if claim_types is not None else inferred_claim_types
+        )
+        template = FULLTEXT_CLAIMS_SCOPED_QUERY if is_scoped else (
+            FULLTEXT_CLAIMS_BY_TYPE_QUERY
+            if effective_claim_types
+            else FULLTEXT_CLAIMS_QUERY
+        )
+        params = {
+            "search_text": (
+                text[:_FULLTEXT_MAX_LEN]
+                if prepared_search_text
+                else _extract_fulltext_terms(text)
+            ),
+            "limit": (
+                max(1, int(result_limit))
+                if result_limit is not None
+                else _bounded_query_limit(budget, 2)
+            ),
             **_access_params,
-        })]
+        }
+        if is_scoped:
+            params.update({
+                "claim_types": effective_claim_types,
+                "doc_types": scoped_doc_types,
+                "series": scoped_series,
+                "year_min": scoped_year_min,
+                "year_max": scoped_year_max,
+                "candidate_limit": _bounded_query_limit(budget, 20),
+            })
+        elif effective_claim_types:
+            params["claim_types"] = effective_claim_types
+        return [(template, params)]
+
+    def _scoped_topic_queries() -> list[tuple[str, dict]]:
+        scope = {
+            "scoped_doc_types": list(doc_types) if doc_types else None,
+            "scoped_series": list(series) if series else None,
+            "scoped_year_min": year_min,
+            "scoped_year_max": year_max,
+        }
+        if len(inferred_facets) <= 1:
+            return _fulltext_query(query_text, **scope)
+
+        comparative_labor = (
+            "labor" in query_text.lower()
+            and re.search(r"\b(compare|comparison|versus|vs\.?)\b", query_text, re.IGNORECASE)
+        )
+        active_facets = inferred_facets
+        labor_types: list[str] = []
+        if comparative_labor:
+            for keyword, facet_types in inferred_facets:
+                if keyword == "labor":
+                    labor_types = facet_types
+                    break
+            subject_facets = [
+                (keyword, facet_types)
+                for keyword, facet_types in inferred_facets
+                if keyword != "labor"
+            ]
+            if len(subject_facets) >= 2:
+                active_facets = subject_facets
+
+        # A small final limit per subject guarantees a balanced merged context;
+        # candidate_limit remains large so Neo4j can still relevance-rank each
+        # subject independently.
+        per_facet_limit = max(2, math.ceil(budget / len(active_facets)))
+        queries: list[tuple[str, dict]] = []
+        for keyword, facet_types in active_facets:
+            search_text = keyword
+            prepared_search_text = False
+            effective_types = facet_types
+            if comparative_labor and labor_types:
+                primary_terms = {
+                    "mining": ("mining", "mine", "miner", "miners"),
+                    "railroad": ("railroad", "railroads", "railway", "railways"),
+                }.get(keyword, (keyword,))
+                primary = " OR ".join(_sanitize_fulltext(term) for term in primary_terms)
+                conflict = "labor OR strike OR strikes OR dispute OR disputes OR union OR worker"
+                search_text = f"({primary}) AND ({conflict})"
+                prepared_search_text = True
+                effective_types = list(dict.fromkeys([*facet_types, *labor_types]))
+            queries.extend(_fulltext_query(
+                search_text,
+                claim_types=effective_types,
+                prepared_search_text=prepared_search_text,
+                result_limit=per_facet_limit,
+                **scope,
+            ))
+        return queries
 
     attempts: list[PlanAttempt] = []
 
@@ -382,6 +589,69 @@ def _select_retrieval_plan(
                     (CROSS_CORPUS_OVERLAP_PATENT_QUERY, overlap_params_b),
                 ],
             ))
+
+    # An explicit calendar day is more selective than a year bound. Match the
+    # dated issue/report first so November 3 cannot be crowded out by unrelated
+    # high-confidence claims from the rest of 1909.
+    if exact_date is not None:
+        attempts.append(("exact_date", [(EXACT_DATE_CLAIMS_QUERY, {
+            "target_date": exact_date,
+            "claim_types": inferred_claim_types,
+            "limit": _bounded_query_limit(budget, 3),
+            **_access_params,
+        })]))
+
+    # Named historical events are vocabulary anchors, but the canonical Event
+    # entity (e.g. "Spokane Free Speech Fight") is not guaranteed to have direct
+    # edges from every relevant claim. Search the event wording and inferred
+    # event claim types before relaxing to a corpus-wide structural scan.
+    if exact_date is None and has_event_anchor:
+        event_scope = {
+            "scoped_year_min": year_min,
+            "scoped_year_max": year_max,
+        }
+        attempts.append((
+            "event_topic:fulltext",
+            _fulltext_query(query_text, **event_scope),
+        ))
+
+    # Source/type hints should narrow semantic retrieval, not replace it.
+    # Running DOC_TYPE_BROWSE/SERIES_BROWSE first returns merely the
+    # highest-confidence claims in that collection, even when they do not
+    # mention the requested subject.
+    source_scoped_topic = bool(doc_types or series)
+    anchor_native_types = {
+        claim_type
+        for claim_types in _FALLBACK_INTENT_MAP.values()
+        for claim_type in claim_types
+    }
+    unanchored_date_scoped_topic = (
+        has_years
+        and not has_entities
+        and (
+            not anchor_temporal_plans
+            or any(
+                claim_type not in anchor_native_types
+                for claim_type in (inferred_claim_types or [])
+            )
+        )
+    )
+    anchor_date_scoped_topic = (
+        has_years and len(resolved_ids) == 1 and resolved_corpus_anchor
+    )
+    if has_claim_types and (
+        source_scoped_topic
+        or unanchored_date_scoped_topic
+        or anchor_date_scoped_topic
+    ):
+        attempts.append((
+            (
+                "scoped_fulltext:facets"
+                if len(inferred_facets) > 1
+                else "scoped_fulltext"
+            ),
+            _scoped_topic_queries(),
+        ))
 
     # When a doc_type scope is active (from NL detection or explicit API param),
     # try a pure browse of documents of that type FIRST.  If no documents with
@@ -512,6 +782,12 @@ def _select_retrieval_plan(
             **_access_params,
         })]))
     elif has_claim_types and not has_entities:
+        # A topical query is best served by the full-text index first.  The
+        # previous claim-type-first path walked every permitted document and
+        # latest extraction run before sorting millions of candidate claims.
+        # Keep that structurally broad scan as a fallback for vocabulary
+        # matches whose literal query terms do not occur in the OCR text.
+        attempts.append(("claim_type_scoped:fulltext", _fulltext_query(query_text)))
         attempts.append(("claim_type_scoped", [(CLAIM_TYPE_SCOPED_QUERY, {
             "claim_types": inferred_claim_types, "entity_ids": None,
             "year_min": year_min, "year_max": year_max, "limit": _bounded_query_limit(budget, 2),
@@ -523,7 +799,6 @@ def _select_retrieval_plan(
                 "year_min": None, "year_max": None, "limit": _bounded_query_limit(budget, 2),
                 **_access_params,
             })]))
-        attempts.append(("claim_type_scoped:fulltext", _fulltext_query(query_text)))
     elif has_entities:
         attempts.append(("entity_only", _entity_anchored_queries(year_min, year_max)))
         if has_years:
@@ -1221,8 +1496,10 @@ class ProvenanceContextAssembler:
         institution_ids: list[str] | None = None,
         anchors: dict[str, tuple[str | None, str | None, str | None]] | None = None,
         llm_cypher_generator: object | None = None,
+        context_ranker: ContextRanker | None = None,
     ) -> None:
         self._executor = executor
+        self._context_ranker: ContextRanker = context_ranker or ConfidenceRanker()
         self._budget_conversational = budget_conversational
         self._budget_hybrid = budget_hybrid
         self._query_intent_map = query_intent_map or _FALLBACK_INTENT_MAP
@@ -1244,7 +1521,10 @@ class ProvenanceContextAssembler:
             MULTI_ENTITY_CLAIMS_QUERY: "MULTI_ENTITY",
             CLAIM_TYPE_SCOPED_QUERY: "CLAIM_TYPE_SCOPED",
             ENTITY_ANCHORED_CLAIMS_QUERY: "ENTITY_ANCHORED",
+            EXACT_DATE_CLAIMS_QUERY: "EXACT_DATE",
             FULLTEXT_CLAIMS_QUERY: "FULLTEXT",
+            FULLTEXT_CLAIMS_BY_TYPE_QUERY: "FULLTEXT_BY_TYPE",
+            FULLTEXT_CLAIMS_SCOPED_QUERY: "FULLTEXT_SCOPED",
             DOC_TYPE_BROWSE_QUERY: "DOC_TYPE_BROWSE",
             SERIES_BROWSE_QUERY: "SERIES_BROWSE",
         }
@@ -1319,7 +1599,7 @@ class ProvenanceContextAssembler:
         Returns
         -------
         blocks:
-            Ordered list of ProvenanceBlock (ranked by confidence, capped).
+            Ordered list of ProvenanceBlock (ranked by the configured strategy, capped).
         context_text:
             Serialised string ready for injection into the synthesis prompt.
         """
@@ -1511,8 +1791,18 @@ class ProvenanceContextAssembler:
                     duration_ms=(time.perf_counter() - _t0_llm) * 1000,
                 ))
 
-        # Post-filter by claim_type when entity-anchored path over-fetches (Case 3).
-        if last_template == ENTITY_ANCHORED_CLAIMS_QUERY and inferred_claim_types:
+        # Post-filter by claim_type when an entity or full-text path over-fetches.
+        # Fall back to the unfiltered rows when the classifier vocabulary and
+        # stored claim types disagree, preserving the cascade's recall.
+        if (
+            last_template in (
+                ENTITY_ANCHORED_CLAIMS_QUERY,
+                FULLTEXT_CLAIMS_QUERY,
+                FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+                FULLTEXT_CLAIMS_SCOPED_QUERY,
+            )
+            and inferred_claim_types
+        ):
             filtered = [
                 r for r in rows
                 if (r.get("c") or {}).get("claim_type") in inferred_claim_types
@@ -1535,7 +1825,14 @@ class ProvenanceContextAssembler:
         self._last_plan_trace = trace
         if not rows:
             retrieval_path = "empty"
-        elif retrieval_path == "rule_based" and last_template == FULLTEXT_CLAIMS_QUERY:
+        elif (
+            retrieval_path == "rule_based"
+            and last_template in (
+                FULLTEXT_CLAIMS_QUERY,
+                FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+                FULLTEXT_CLAIMS_SCOPED_QUERY,
+            )
+        ):
             retrieval_path = "fulltext_fallback"
         self._last_retrieval_path = retrieval_path
 
@@ -1548,10 +1845,15 @@ class ProvenanceContextAssembler:
                 blocks_raw.append(block)
 
         self._last_ocr_dropped = self._last_candidate_count - len(blocks_raw)
-        blocks_raw.sort(key=lambda b: b.extraction_confidence, reverse=True)
+        blocks_raw = self._context_ranker.rank(
+            blocks_raw,
+            entity_context=entity_context,
+            year_min=year_min,
+            year_max=year_max,
+        )
         blocks = _stratified_budget_cap(blocks_raw, budget)
         # Hard ceiling on serialised context size, enforced after the count
-        # cap so confidence-descending order is preserved.  Without this an
+        # cap so the ranker's best-first order is preserved. Without this an
         # uncapped retrieval (10K blocks) blows the 1M-token Anthropic input
         # limit on dense corpora.
         blocks = _apply_context_char_budget(blocks)
@@ -1572,6 +1874,10 @@ class ProvenanceContextAssembler:
         if summary:
             context_text = summary + "\n\n" + context_text
         return blocks, context_text
+
+    def close(self) -> None:
+        """Release resources owned by the configured context ranker."""
+        self._context_ranker.close()
 
     def tier_1_lookup(
         self,

@@ -13,6 +13,7 @@ import pytest
 from gemynd.core.graph.cypher import (
     CLAIM_TYPE_SCOPED_QUERY,
     ENTITY_ANCHORED_CLAIMS_QUERY,
+    EXACT_DATE_CLAIMS_QUERY,
     FULLTEXT_CLAIMS_QUERY,
     MULTI_ENTITY_CLAIMS_QUERY,
     PROVENANCE_CHAIN_QUERY,
@@ -61,6 +62,62 @@ def _entity_ids_linked_to_claims(populated_writer) -> list[str]:
         if sl == "Claim" and el in TEST_ENTITY_LABELS:
             seen.add(ei)
     return list(seen)
+
+
+def _event_only_executor():
+    """Build one dated claim that has Event chronology but no Observation."""
+    from gemynd.ingest.graph.in_memory import InMemoryGraphWriter
+    from gemynd.retrieval.in_memory_executor import InMemoryQueryExecutor
+
+    writer = InMemoryGraphWriter(entity_labels=TEST_ENTITY_LABELS)
+    writer.node_store["Document"]["doc-event"] = {
+        "doc_id": "doc-event",
+        "title": "The Spokane Press — 1909-11-03",
+        "date_start": "1909-11-03",
+        "date_end": "1909-11-03",
+        "report_year": 1909,
+        "institution_id": "spokane_newspaper",
+        "access_level": "public",
+    }
+    writer.node_store["ExtractionRun"]["run-event"] = {
+        "run_id": "run-event",
+        "run_timestamp": "1909-11-03T00:00:00Z",
+    }
+    writer.node_store["Page"]["page-event"] = {
+        "page_id": "page-event",
+        "page_number": 1,
+    }
+    writer.node_store["Section"]["section-event"] = {"section_id": "section-event"}
+    writer.node_store["Paragraph"]["para-event"] = {"paragraph_id": "para-event"}
+    writer.node_store["Claim"]["claim-event"] = {
+        "claim_id": "claim-event",
+        "run_id": "run-event",
+        "claim_type": "free_speech_event",
+        "source_sentence": "The free speech fight resumed in Spokane.",
+        "normalized_sentence": "the free speech fight resumed in spokane",
+        "extraction_confidence": 0.9,
+        "quarantine_status": "active",
+    }
+    writer.node_store["Event"]["derived-event"] = {
+        "event_id": "derived-event",
+        "event_type": "LaborEvent",
+        "year": 1909,
+    }
+    writer.node_store["Year"]["year-1909"] = {
+        "year_id": "year-1909",
+        "year": 1909,
+    }
+    for rel in (
+        ("Document", "doc-event", "PROCESSED_BY", "ExtractionRun", "run-event", None),
+        ("Document", "doc-event", "HAS_PAGE", "Page", "page-event", None),
+        ("Page", "page-event", "HAS_SECTION", "Section", "section-event", None),
+        ("Section", "section-event", "HAS_PARAGRAPH", "Paragraph", "para-event", None),
+        ("Paragraph", "para-event", "HAS_CLAIM", "Claim", "claim-event", None),
+        ("Claim", "claim-event", "TRIGGERED", "Event", "derived-event", None),
+        ("Event", "derived-event", "IN_YEAR", "Year", "year-1909", None),
+    ):
+        writer.rel_store[rel] = {}
+    return InMemoryQueryExecutor(writer, entity_labels=TEST_ENTITY_LABELS)
 
 
 # ---------------------------------------------------------------------------
@@ -133,6 +190,24 @@ class TestRowShape:
 # ---------------------------------------------------------------------------
 
 class TestTemporalQuery:
+    def test_event_only_claims_are_included(self):
+        executor = _event_only_executor()
+        rows = executor.run(
+            TEMPORAL_CLAIMS_QUERY,
+            {
+                "year_min": 1909,
+                "year_max": 1909,
+                "claim_types": ["free_speech_event"],
+                "limit": 20,
+                "institution_ids": [],
+                "permitted_levels": ["public"],
+            },
+        )
+
+        assert [row["c"]["claim_id"] for row in rows] == ["claim-event"]
+        assert rows[0]["y"]["year"] == 1909
+        assert rows[0]["traversal_rel_type"] == "TRIGGERED"
+
     def test_year_range_filter_is_respected(self, populated_executor, populated_writer):
         years = _years_in_writer(populated_writer)
         if not years:
@@ -161,6 +236,29 @@ class TestTemporalQuery:
         assert isinstance(rows, list)
         for row in rows:
             assert isinstance(row, dict)
+
+
+class TestExactDateQuery:
+    def test_only_the_requested_document_day_is_returned(self):
+        executor = _event_only_executor()
+        params = {
+            "claim_types": None,
+            "limit": 20,
+            "institution_ids": [],
+            "permitted_levels": ["public"],
+        }
+
+        rows = executor.run(
+            EXACT_DATE_CLAIMS_QUERY,
+            {"target_date": "1909-11-03", **params},
+        )
+        assert [row["c"]["claim_id"] for row in rows] == ["claim-event"]
+
+        rows = executor.run(
+            EXACT_DATE_CLAIMS_QUERY,
+            {"target_date": "1909-11-04", **params},
+        )
+        assert rows == []
 
     def test_temporal_with_refuge_scoped_to_refuge_docs(
         self, populated_executor, populated_writer
@@ -360,6 +458,34 @@ class TestFulltext:
             {"search_text": "", "limit": 2, **_ACCESS},
         )
         assert len(rows) <= 2
+
+    def test_fulltext_claim_type_filter_is_applied(
+        self, populated_executor, populated_writer
+    ):
+        from gemynd.core.graph.cypher import FULLTEXT_CLAIMS_BY_TYPE_QUERY
+
+        available = {
+            props.get("claim_type")
+            for props in populated_writer.node_store.get("Claim", {}).values()
+            if props.get("claim_type")
+        }
+        if not available:
+            pytest.skip("No typed claims in fixture data")
+        selected = sorted(available)[0]
+        rows = populated_executor.run(
+            FULLTEXT_CLAIMS_BY_TYPE_QUERY,
+            {
+                "search_text": "",
+                "claim_types": [selected],
+                "limit": 100,
+                **_ACCESS,
+            },
+        )
+        assert rows
+        assert {
+            (row.get("c") or {}).get("claim_type")
+            for row in rows
+        } == {selected}
 
 
 # ---------------------------------------------------------------------------

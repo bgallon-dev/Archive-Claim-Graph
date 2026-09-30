@@ -60,12 +60,18 @@ fi
 echo "  sqlite databases: ${sqlite_count}"
 
 # ---------------------------------------------------------------------------
-# Configuration. .env holds credentials — restrict the copy to the owner.
+# Configuration holds credentials — restrict the copy to the owner. Support
+# both the legacy app .env and the MCP secret file used by systemd.
 # ---------------------------------------------------------------------------
 if [ -f "${GEMYND_HOME}/.env" ]; then
     cp "${GEMYND_HOME}/.env" "${dest}/env.backup"
     chmod 600 "${dest}/env.backup"
     echo "  .env captured (mode 600)"
+fi
+if [ -f "/etc/gemynd/kettle.env" ]; then
+    cp "/etc/gemynd/kettle.env" "${dest}/kettle.env.backup"
+    chmod 600 "${dest}/kettle.env.backup"
+    echo "  kettle.env captured (mode 600)"
 fi
 
 if [ -f "${GEMYND_HOME}/data/corpus_registry.yaml" ]; then

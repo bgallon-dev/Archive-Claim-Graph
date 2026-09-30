@@ -1,0 +1,19 @@
+# Import into Prometheus/Alertmanager (or translate to your provider).
+groups:
+  - name: kettle-mcp
+    rules:
+      - alert: KettleMCPDown
+        expr: probe_success{job="kettle-mcp"} == 0
+        for: 5m
+        labels: {severity: critical}
+        annotations: {summary: "Kettle MCP is unavailable"}
+      - alert: KettleMCPHighErrorRate
+        expr: rate(http_requests_total{job="kettle-mcp",status=~"5.."}[5m]) / rate(http_requests_total{job="kettle-mcp"}[5m]) > 0.05
+        for: 10m
+        labels: {severity: warning}
+        annotations: {summary: "Kettle MCP 5xx rate exceeds 5%"}
+      - alert: KettleMCPDiskLow
+        expr: node_filesystem_avail_bytes{mountpoint="/opt/gemynd"} < 10 * 1024 * 1024 * 1024
+        for: 15m
+        labels: {severity: warning}
+        annotations: {summary: "Less than 10 GiB remains on the Gemynd volume"}

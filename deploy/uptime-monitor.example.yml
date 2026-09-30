@@ -1,0 +1,10 @@
+# Provider-neutral external monitor definition. Configure this URL in
+# UptimeRobot, Better Uptime, Pingdom, or Uptime Kuma.
+monitor:
+  name: kettle-mcp-readiness
+  url: https://mcp.example.org/ready
+  method: GET
+  expected_status: 200
+  interval_seconds: 60
+  timeout_seconds: 10
+  alert_after_failures: 2

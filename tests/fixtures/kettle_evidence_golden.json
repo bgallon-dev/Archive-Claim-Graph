@@ -1,0 +1,20 @@
+{
+  "cases": [
+    {
+      "query": "Spokane river plan",
+      "expected_top_ids": ["gold-river-1912"],
+      "records": [
+        {"evidence_id": "gold-river-1912", "claim": "Spokane council approved the river plan.", "year": 1912, "source": {"document": "Spokane Daily Chronicle", "page_or_record": "p. 4", "source_url": "https://example.test/river"}},
+        {"evidence_id": "gold-river-1913", "claim": "A later report disputed the river plan cost.", "year": 1913, "source": {"document": "Municipal report", "page_or_record": "p. 8", "source_url": "https://example.test/cost"}}
+      ]
+    },
+    {
+      "query": "John Smith Seattle",
+      "expected_top_ids": ["gold-smith-spokane", "gold-smith-seattle"],
+      "records": [
+        {"evidence_id": "gold-smith-spokane", "claim": "John Smith served in Spokane.", "year": 1909, "source": {"document": "Spokane Press", "page_or_record": "p. 1"}},
+        {"evidence_id": "gold-smith-seattle", "claim": "John Smith served in Seattle.", "year": 1910, "source": {"document": "Seattle Times", "page_or_record": "p. 2"}}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+# Corpus registry served by gemynd-mcp (KETTLE_MCP_REGISTRY_PATH). Versioned here because
+# data/ is gitignored; keep in sync with data/corpus_registry.yaml when corpora change.
+corpora:
+- corpus_id: turnbull
+  display_name: Turnbull National Wildlife Refuge
+  resources_dir: gemynd/resources
+  description: Refuge narrative reports and survey records.
+  created_at: '2026-07-18T06:47:44.417548+00:00'
+  is_default: true
+  source_links: []
+- corpus_id: vital_records
+  display_name: Pacific Northwest Vital Records
+  resources_dir: gemynd/resources_vital
+  description: >
+    Historical Washington and Oregon birth, death, and marriage index records.
+  created_at: '2026-07-27T00:00:00+00:00'
+  is_default: false
+  source_links:
+  - label: View archive record
+    template: '{archive_ref}'
+    requires:
+    - archive_ref
+    note: Opens the source index record at the holding state archive.
+- corpus_id: spokane_newspaper
+  display_name: Spokane Historical Newspapers
+  resources_dir: gemynd/resources_newspaper
+  description: >
+    Regional Spokane-area newspaper articles from 1883–1940, including labor,
+    civic, commercial, political, and social history.
+  created_at: '2026-07-27T00:00:00+00:00'
+  is_default: false
+  source_links:
+  - label: View on Library of Congress
+    template: 'https://www.loc.gov/item/{lccn}/{date_start}/ed-{edition}/'
+    requires:
+    - lccn
+    - date_start
+    - edition
+    note: Opens the corresponding Chronicling America newspaper issue.
